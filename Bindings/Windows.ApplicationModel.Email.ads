@@ -5300,6 +5300,7 @@ package Windows.ApplicationModel.Email is
    (
       fileName : Windows.String
       ; data : Windows.Storage.Streams.IRandomAccessStreamReference
+      ; mimeType : Windows.String
    )
    return Windows.ApplicationModel.Email.IEmailAttachment;
    
@@ -5307,7 +5308,6 @@ package Windows.ApplicationModel.Email is
    (
       fileName : Windows.String
       ; data : Windows.Storage.Streams.IRandomAccessStreamReference
-      ; mimeType : Windows.String
    )
    return Windows.ApplicationModel.Email.IEmailAttachment;
    

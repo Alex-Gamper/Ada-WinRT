@@ -26,7 +26,10 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.ApplicationModel.AppService;
 with Windows.Networking;
+with Windows.Security.Credentials;
+with Windows.System;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.System.RemoteSystems is
@@ -504,6 +507,26 @@ package body Windows.System.RemoteSystems is
       return RetVal;
    end;
    
+   function Create
+   (
+      account : Windows.Security.Credentials.IWebAccount
+   )
+   return Windows.System.RemoteSystems.IRemoteSystemWebAccountFilter is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemWebAccountFilter");
+      m_Factory     : Windows.System.RemoteSystems.IRemoteSystemWebAccountFilterFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.RemoteSystems.IRemoteSystemWebAccountFilter := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemWebAccountFilterFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(account, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -668,6 +691,83 @@ package body Windows.System.RemoteSystems is
       Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.IsAuthorizationKindEnabled(kind, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefault
+   return Windows.System.RemoteSystems.IRemoteSystemAppRegistration is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemAppRegistration");
+      m_Factory     : IRemoteSystemAppRegistrationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.RemoteSystems.IRemoteSystemAppRegistration;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemAppRegistrationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.System.RemoteSystems.IRemoteSystemAppRegistration is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemAppRegistration");
+      m_Factory     : IRemoteSystemAppRegistrationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.RemoteSystems.IRemoteSystemAppRegistration;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemAppRegistrationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryCreateFromAppServiceConnection
+   (
+      connection : Windows.ApplicationModel.AppService.IAppServiceConnection
+   )
+   return Windows.System.RemoteSystems.IRemoteSystemConnectionInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemConnectionInfo");
+      m_Factory     : IRemoteSystemConnectionInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.RemoteSystems.IRemoteSystemConnectionInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemConnectionInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryCreateFromAppServiceConnection(connection, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateForApp
+   (
+      remoteSystemApp : Windows.System.RemoteSystems.IRemoteSystemApp
+   )
+   return Windows.System.RemoteSystems.IRemoteSystemConnectionRequest is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemConnectionRequest");
+      m_Factory     : IRemoteSystemConnectionRequestStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.RemoteSystems.IRemoteSystemConnectionRequest;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemConnectionRequestStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateForApp(remoteSystemApp, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

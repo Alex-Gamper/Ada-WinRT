@@ -3246,6 +3246,74 @@ package body Windows.Globalization is
       return RetVal;
    end;
    
+   function get_MRU
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.CurrencyIdentifiers");
+      m_Factory     : ICurrencyIdentifiersStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICurrencyIdentifiersStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MRU(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_SSP
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.CurrencyIdentifiers");
+      m_Factory     : ICurrencyIdentifiersStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICurrencyIdentifiersStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_SSP(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_STN
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.CurrencyIdentifiers");
+      m_Factory     : ICurrencyIdentifiersStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICurrencyIdentifiersStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_STN(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_VES
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.CurrencyIdentifiers");
+      m_Factory     : ICurrencyIdentifiersStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICurrencyIdentifiersStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_VES(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function IsSupported
    (
       geographicRegionCode : Windows.String

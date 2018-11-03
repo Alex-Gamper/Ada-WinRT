@@ -30,6 +30,7 @@ with Windows; use Windows;
 limited with Windows.ApplicationModel.AppService;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
+limited with Windows.Graphics.DirectX.Direct3D11;
 limited with Windows.Graphics.Imaging;
 limited with Windows.Media.Capture;
 limited with Windows.Media.Capture.Frames;
@@ -467,6 +468,22 @@ package Windows.Media.Core is
    -- Record types
    ------------------------------------------------------------------------
    
+   type MseTimeRange is record
+      Start : Windows.Foundation.TimeSpan;
+      End_x : Windows.Foundation.TimeSpan;
+   end record;
+   pragma Convention (C_Pass_By_Copy , MseTimeRange);
+   
+   type MseTimeRange_Ptr is access MseTimeRange;
+   
+   type TimedTextDouble is record
+      Value : Windows.Double;
+      Unit : Windows.Media.Core.TimedTextUnit;
+   end record;
+   pragma Convention (C_Pass_By_Copy , TimedTextDouble);
+   
+   type TimedTextDouble_Ptr is access TimedTextDouble;
+   
    type TimedTextPadding is record
       Before : Windows.Double;
       After : Windows.Double;
@@ -478,23 +495,6 @@ package Windows.Media.Core is
    
    type TimedTextPadding_Ptr is access TimedTextPadding;
    
-   type TimedTextSize is record
-      Height : Windows.Double;
-      Width : Windows.Double;
-      Unit : Windows.Media.Core.TimedTextUnit;
-   end record;
-   pragma Convention (C_Pass_By_Copy , TimedTextSize);
-   
-   type TimedTextSize_Ptr is access TimedTextSize;
-   
-   type TimedTextDouble is record
-      Value : Windows.Double;
-      Unit : Windows.Media.Core.TimedTextUnit;
-   end record;
-   pragma Convention (C_Pass_By_Copy , TimedTextDouble);
-   
-   type TimedTextDouble_Ptr is access TimedTextDouble;
-   
    type TimedTextPoint is record
       X : Windows.Double;
       Y : Windows.Double;
@@ -504,13 +504,14 @@ package Windows.Media.Core is
    
    type TimedTextPoint_Ptr is access TimedTextPoint;
    
-   type MseTimeRange is record
-      Start : Windows.Foundation.TimeSpan;
-      End_x : Windows.Foundation.TimeSpan;
+   type TimedTextSize is record
+      Height : Windows.Double;
+      Width : Windows.Double;
+      Unit : Windows.Media.Core.TimedTextUnit;
    end record;
-   pragma Convention (C_Pass_By_Copy , MseTimeRange);
+   pragma Convention (C_Pass_By_Copy , TimedTextSize);
    
-   type MseTimeRange_Ptr is access MseTimeRange;
+   type TimedTextSize_Ptr is access TimedTextSize;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -833,12 +834,18 @@ package Windows.Media.Core is
    type IMediaStreamSample_Interface;
    type IMediaStreamSample is access all IMediaStreamSample_Interface'Class;
    type IMediaStreamSample_Ptr is access all IMediaStreamSample;
+   type IMediaStreamSample2_Interface;
+   type IMediaStreamSample2 is access all IMediaStreamSample2_Interface'Class;
+   type IMediaStreamSample2_Ptr is access all IMediaStreamSample2;
    type IMediaStreamSampleProtectionProperties_Interface;
    type IMediaStreamSampleProtectionProperties is access all IMediaStreamSampleProtectionProperties_Interface'Class;
    type IMediaStreamSampleProtectionProperties_Ptr is access all IMediaStreamSampleProtectionProperties;
    type IMediaStreamSampleStatics_Interface;
    type IMediaStreamSampleStatics is access all IMediaStreamSampleStatics_Interface'Class;
    type IMediaStreamSampleStatics_Ptr is access all IMediaStreamSampleStatics;
+   type IMediaStreamSampleStatics2_Interface;
+   type IMediaStreamSampleStatics2 is access all IMediaStreamSampleStatics2_Interface'Class;
+   type IMediaStreamSampleStatics2_Ptr is access all IMediaStreamSampleStatics2;
    type IMediaStreamSource_Interface;
    type IMediaStreamSource is access all IMediaStreamSource_Interface'Class;
    type IMediaStreamSource_Ptr is access all IMediaStreamSource;
@@ -3262,6 +3269,19 @@ package Windows.Media.Core is
    
    ------------------------------------------------------------------------
    
+   IID_IMediaStreamSample2 : aliased constant Windows.IID := (1158121105, 64744, 18246, (161, 200, 16, 194, 93, 61, 124, 211 ));
+   
+   type IMediaStreamSample2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Direct3D11Surface
+   (
+      This       : access IMediaStreamSample2_Interface
+      ; RetVal : access Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMediaStreamSampleProtectionProperties : aliased constant Windows.IID := (1320714898, 60639, 18750, (132, 29, 221, 74, 221, 124, 172, 162 ));
    
    type IMediaStreamSampleProtectionProperties_Interface is interface and Windows.IInspectable_Interface;
@@ -3330,6 +3350,21 @@ package Windows.Media.Core is
       ; count : Windows.UInt32
       ; timestamp : Windows.Foundation.TimeSpan
       ; RetVal : access Windows.Media.Core.IAsyncOperation_IMediaStreamSample -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMediaStreamSampleStatics2 : aliased constant Windows.IID := (2667484449, 27974, 18764, (162, 248, 214, 98, 146, 46, 45, 215 ));
+   
+   type IMediaStreamSampleStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromDirect3D11Surface
+   (
+      This       : access IMediaStreamSampleStatics2_Interface
+      ; surface : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
+      ; timestamp : Windows.Foundation.TimeSpan
+      ; RetVal : access Windows.Media.Core.IMediaStreamSample
    )
    return Windows.HRESULT is abstract;
    
@@ -7430,6 +7465,13 @@ package Windows.Media.Core is
       ; timestamp : Windows.Foundation.TimeSpan
    )
    return Windows.Media.Core.IAsyncOperation_IMediaStreamSample;
+   
+   function CreateFromDirect3D11Surface
+   (
+      surface : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
+      ; timestamp : Windows.Foundation.TimeSpan
+   )
+   return Windows.Media.Core.IMediaStreamSample;
    
    function IsContentTypeSupported
    (

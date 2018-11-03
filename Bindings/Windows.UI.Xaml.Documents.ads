@@ -416,8 +416,8 @@ package Windows.UI.Xaml.Documents is
    function CreateInstance
    (
       This       : access IBlockFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Documents.IBlock
    )
    return Windows.HRESULT is abstract;
@@ -693,7 +693,7 @@ package Windows.UI.Xaml.Documents is
    function add_Invoked
    (
       This       : access IContentLink_Interface
-      ; value : TypedEventHandler_IContentLink_add_Invoked
+      ; handler : TypedEventHandler_IContentLink_add_Invoked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -708,7 +708,7 @@ package Windows.UI.Xaml.Documents is
    function add_GotFocus
    (
       This       : access IContentLink_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -723,7 +723,7 @@ package Windows.UI.Xaml.Documents is
    function add_LostFocus
    (
       This       : access IContentLink_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -791,8 +791,8 @@ package Windows.UI.Xaml.Documents is
    function CreateInstance
    (
       This       : access IContentLinkProviderFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Documents.IContentLinkProvider
    )
    return Windows.HRESULT is abstract;
@@ -1158,7 +1158,7 @@ package Windows.UI.Xaml.Documents is
    function add_Click
    (
       This       : access IHyperlink_Interface
-      ; value : TypedEventHandler_IHyperlink_add_Click
+      ; handler : TypedEventHandler_IHyperlink_add_Click
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1338,7 +1338,7 @@ package Windows.UI.Xaml.Documents is
    function add_GotFocus
    (
       This       : access IHyperlink4_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1353,7 +1353,7 @@ package Windows.UI.Xaml.Documents is
    function add_LostFocus
    (
       This       : access IHyperlink4_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1556,8 +1556,8 @@ package Windows.UI.Xaml.Documents is
    function CreateInstance
    (
       This       : access IInlineFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Documents.IInline
    )
    return Windows.HRESULT is abstract;
@@ -1851,8 +1851,8 @@ package Windows.UI.Xaml.Documents is
    function CreateInstance
    (
       This       : access ISpanFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Documents.ISpan
    )
    return Windows.HRESULT is abstract;
@@ -2179,7 +2179,7 @@ package Windows.UI.Xaml.Documents is
    function add_AccessKeyDisplayRequested
    (
       This       : access ITextElement4_Interface
-      ; value : TypedEventHandler_ITextElement4_add_AccessKeyDisplayRequested
+      ; handler : TypedEventHandler_ITextElement4_add_AccessKeyDisplayRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2194,7 +2194,7 @@ package Windows.UI.Xaml.Documents is
    function add_AccessKeyDisplayDismissed
    (
       This       : access ITextElement4_Interface
-      ; value : TypedEventHandler_ITextElement4_add_AccessKeyDisplayDismissed
+      ; handler : TypedEventHandler_ITextElement4_add_AccessKeyDisplayDismissed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2209,7 +2209,7 @@ package Windows.UI.Xaml.Documents is
    function add_AccessKeyInvoked
    (
       This       : access ITextElement4_Interface
-      ; value : TypedEventHandler_ITextElement4_add_AccessKeyInvoked
+      ; handler : TypedEventHandler_ITextElement4_add_AccessKeyInvoked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2451,8 +2451,8 @@ package Windows.UI.Xaml.Documents is
    function CreateInstance
    (
       This       : access ITextHighlighterFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Documents.ITextHighlighter
    )
    return Windows.HRESULT is abstract;
@@ -4585,8 +4585,8 @@ package Windows.UI.Xaml.Documents is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Documents.IBlock;
    
@@ -4649,8 +4649,8 @@ package Windows.UI.Xaml.Documents is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Documents.IContentLinkProvider;
    
@@ -4728,8 +4728,8 @@ package Windows.UI.Xaml.Documents is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Documents.IInline;
    
@@ -4741,8 +4741,8 @@ package Windows.UI.Xaml.Documents is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Documents.ISpan;
    
@@ -4802,8 +4802,8 @@ package Windows.UI.Xaml.Documents is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Documents.ITextHighlighter;
    

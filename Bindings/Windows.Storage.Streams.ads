@@ -346,7 +346,7 @@ package Windows.Storage.Streams is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IRandomAccessStreamReference : aliased constant Windows.IID := (1696042320, 59042, 23830, (178, 68, 101, 233, 114, 94, 90, 12 ));
+   IID_IAsyncOperation_IRandomAccessStreamReference : aliased constant Windows.IID := (3640935114, 21564, 20555, (158, 185, 41, 75, 202, 216, 162, 131 ));
    
    type IAsyncOperation_IRandomAccessStreamReference_Interface is interface and Windows.IInspectable_Interface;
    

@@ -740,15 +740,6 @@ package Windows.Media.Capture is
    -- Record types
    ------------------------------------------------------------------------
    
-   type WhiteBalanceGain is record
-      R : Windows.Double;
-      G : Windows.Double;
-      B : Windows.Double;
-   end record;
-   pragma Convention (C_Pass_By_Copy , WhiteBalanceGain);
-   
-   type WhiteBalanceGain_Ptr is access WhiteBalanceGain;
-   
    type AppBroadcastContract is null record;
    pragma Convention (C_Pass_By_Copy , AppBroadcastContract);
    
@@ -773,6 +764,15 @@ package Windows.Media.Capture is
    pragma Convention (C_Pass_By_Copy , GameBarContract);
    
    type GameBarContract_Ptr is access GameBarContract;
+   
+   type WhiteBalanceGain is record
+      R : Windows.Double;
+      G : Windows.Double;
+      B : Windows.Double;
+   end record;
+   pragma Convention (C_Pass_By_Copy , WhiteBalanceGain);
+   
+   type WhiteBalanceGain_Ptr is access WhiteBalanceGain;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events

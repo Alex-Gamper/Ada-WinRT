@@ -55,6 +55,22 @@ package Windows.Networking.Connectivity is
    
    type CellularApnAuthenticationType_Ptr is access CellularApnAuthenticationType;
    
+   type ConnectionProfileDeleteStatus is (
+      Success,
+      DeniedByUser,
+      DeniedBySystem,
+      UnknownError
+   );
+   for ConnectionProfileDeleteStatus use (
+      Success => 0,
+      DeniedByUser => 1,
+      DeniedBySystem => 2,
+      UnknownError => 3
+   );
+   for ConnectionProfileDeleteStatus'Size use 32;
+   
+   type ConnectionProfileDeleteStatus_Ptr is access ConnectionProfileDeleteStatus;
+   
    type DataUsageGranularity is (
       PerMinute,
       PerHour,
@@ -314,6 +330,9 @@ package Windows.Networking.Connectivity is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type AsyncOperationCompletedHandler_ConnectionProfileDeleteStatus_Interface;
+   type AsyncOperationCompletedHandler_ConnectionProfileDeleteStatus is access all AsyncOperationCompletedHandler_ConnectionProfileDeleteStatus_Interface'Class;
+   type AsyncOperationCompletedHandler_ConnectionProfileDeleteStatus_Ptr is access all AsyncOperationCompletedHandler_ConnectionProfileDeleteStatus;
    type AsyncOperationCompletedHandler_IConnectionProfile_Interface;
    type AsyncOperationCompletedHandler_IConnectionProfile is access all AsyncOperationCompletedHandler_IConnectionProfile_Interface'Class;
    type AsyncOperationCompletedHandler_IConnectionProfile_Ptr is access all AsyncOperationCompletedHandler_IConnectionProfile;
@@ -331,6 +350,9 @@ package Windows.Networking.Connectivity is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_ConnectionProfileDeleteStatus_Interface;
+   type IAsyncOperation_ConnectionProfileDeleteStatus is access all IAsyncOperation_ConnectionProfileDeleteStatus_Interface'Class;
+   type IAsyncOperation_ConnectionProfileDeleteStatus_Ptr is access all IAsyncOperation_ConnectionProfileDeleteStatus;
    type IAsyncOperation_IConnectionProfile_Interface;
    type IAsyncOperation_IConnectionProfile is access all IAsyncOperation_IConnectionProfile_Interface'Class;
    type IAsyncOperation_IConnectionProfile_Ptr is access all IAsyncOperation_IConnectionProfile;
@@ -367,6 +389,9 @@ package Windows.Networking.Connectivity is
    type IConnectionProfile4_Interface;
    type IConnectionProfile4 is access all IConnectionProfile4_Interface'Class;
    type IConnectionProfile4_Ptr is access all IConnectionProfile4;
+   type IConnectionProfile5_Interface;
+   type IConnectionProfile5 is access all IConnectionProfile5_Interface'Class;
+   type IConnectionProfile5_Ptr is access all IConnectionProfile5;
    type IConnectionProfileFilter_Interface;
    type IConnectionProfileFilter is access all IConnectionProfileFilter_Interface'Class;
    type IConnectionProfileFilter_Ptr is access all IConnectionProfileFilter;
@@ -470,6 +495,33 @@ package Windows.Networking.Connectivity is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ConnectionProfileDeleteStatus : aliased constant Windows.IID := (805223582, 19437, 24381, (142, 85, 90, 188, 37, 152, 225, 68 ));
+   
+   type IAsyncOperation_ConnectionProfileDeleteStatus_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_ConnectionProfileDeleteStatus_Interface
+      ; handler : Windows.Networking.Connectivity.AsyncOperationCompletedHandler_ConnectionProfileDeleteStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ConnectionProfileDeleteStatus_Interface
+      ; RetVal : access Windows.Networking.Connectivity.AsyncOperationCompletedHandler_ConnectionProfileDeleteStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ConnectionProfileDeleteStatus_Interface
+      ; RetVal : access Windows.Networking.Connectivity.ConnectionProfileDeleteStatus
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -929,6 +981,26 @@ package Windows.Networking.Connectivity is
       ; endTime : Windows.Foundation.DateTime
       ; states : Windows.Networking.Connectivity.NetworkUsageStates
       ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IConnectionProfile5 : aliased constant Windows.IID := (2234916551, 40051, 19424, (143, 20, 87, 142, 236, 113, 238, 14 ));
+   
+   type IConnectionProfile5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanDelete
+   (
+      This       : access IConnectionProfile5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryDeleteAsync
+   (
+      This       : access IConnectionProfile5_Interface
+      ; RetVal : access Windows.Networking.Connectivity.IAsyncOperation_ConnectionProfileDeleteStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1896,6 +1968,19 @@ package Windows.Networking.Connectivity is
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_ConnectionProfileDeleteStatus : aliased constant Windows.IID := (974107152, 14020, 24050, (151, 7, 95, 50, 83, 105, 169, 176 ));
+   
+   type AsyncOperationCompletedHandler_ConnectionProfileDeleteStatus_Interface(Callback : access procedure (asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_ConnectionProfileDeleteStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ConnectionProfileDeleteStatus'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ConnectionProfileDeleteStatus_Interface
+      ; asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_ConnectionProfileDeleteStatus
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    

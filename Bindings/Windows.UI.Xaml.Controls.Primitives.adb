@@ -524,7 +524,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    function add_Click
    (
       This       : access IButtonBase_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -1352,7 +1352,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    function add_ColorChanged
    (
       This       : access IColorSpectrum_Interface_Impl
-      ; value : TypedEventHandler_IColorSpectrum_add_ColorChanged
+      ; handler : TypedEventHandler_IColorSpectrum_add_ColorChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -1365,6 +1365,109 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IColorSpectrum_Interface_Impl
       ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
+      This       : access ICommandBarFlyoutCommandBar_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_ICommandBarFlyoutCommandBar or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access ICommandBarFlyoutCommandBar_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access ICommandBarFlyoutCommandBar_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access ICommandBarFlyoutCommandBar_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access ICommandBarFlyoutCommandBar_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBar");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access ICommandBarFlyoutCommandBar_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   function get_FlyoutTemplateSettings
+   (
+      This       : access ICommandBarFlyoutCommandBar_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBarTemplateSettings
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
@@ -1599,7 +1702,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    function add_Opened
    (
       This       : access IFlyoutBase_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -1622,7 +1725,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    function add_Closed
    (
       This       : access IFlyoutBase_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -1645,7 +1748,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    function add_Opening
    (
       This       : access IFlyoutBase_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -1679,6 +1782,186 @@ package body Windows.UI.Xaml.Controls.Primitives is
    function Hide
    (
       This       : access IFlyoutBase_Interface_Impl
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_IFlyoutShowOptions or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.IFlyoutShowOptions");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   function get_Position
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; RetVal : access Windows.Foundation.IReference_Point
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Position
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; value : Windows.Foundation.IReference_Point
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ExclusionRect
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; RetVal : access Windows.Foundation.IReference_Rect
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ExclusionRect
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; value : Windows.Foundation.IReference_Rect
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ShowMode
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.FlyoutShowMode
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ShowMode
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; value : Windows.UI.Xaml.Controls.Primitives.FlyoutShowMode
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_Placement
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Placement
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; value : Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
@@ -2838,6 +3121,120 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return Hr;
    end;
    
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_INavigationViewItemPresenter or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.INavigationViewItemPresenter");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   function get_Icon
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.IIconElement
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Icon
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl
+      ; value : Windows.UI.Xaml.Controls.IIconElement
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
    
    ------------------------------------------------------------------------
    function QueryInterface
@@ -3482,7 +3879,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    function add_ValueChanged
    (
       This       : access IRangeBase_Interface_Impl
-      ; value : Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -3864,7 +4261,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    function add_Checked
    (
       This       : access IToggleButton_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -3887,7 +4284,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    function add_Unchecked
    (
       This       : access IToggleButton_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -3910,7 +4307,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    function add_Indeterminate
    (
       This       : access IToggleButton_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -3936,8 +4333,8 @@ package body Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IButtonBase is
       Hr            : Windows.HRESULT := S_OK;
@@ -3948,7 +4345,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IButtonBaseFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4042,8 +4439,8 @@ package body Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.ICarouselPanel is
       Hr            : Windows.HRESULT := S_OK;
@@ -4054,7 +4451,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ICarouselPanelFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4063,8 +4460,8 @@ package body Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IColorPickerSlider is
       Hr            : Windows.HRESULT := S_OK;
@@ -4075,7 +4472,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IColorPickerSliderFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4101,8 +4498,8 @@ package body Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IColorSpectrum is
       Hr            : Windows.HRESULT := S_OK;
@@ -4113,7 +4510,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IColorSpectrumFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4290,13 +4687,34 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBar is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.CommandBarFlyoutCommandBar");
+      m_Factory     : ICommandBarFlyoutCommandBarFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBar;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICommandBarFlyoutCommandBarFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled
    (
       horizontalChange : Windows.Double
       ; verticalChange : Windows.Double
       ; canceled : Windows.Boolean
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IDragCompletedEventArgs is
       Hr            : Windows.HRESULT := S_OK;
@@ -4307,7 +4725,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDragCompletedEventArgsFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled(horizontalChange, verticalChange, canceled, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled(horizontalChange, verticalChange, canceled, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4318,8 +4736,8 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       horizontalChange : Windows.Double
       ; verticalChange : Windows.Double
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IDragDeltaEventArgs is
       Hr            : Windows.HRESULT := S_OK;
@@ -4330,7 +4748,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDragDeltaEventArgsFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithHorizontalChangeAndVerticalChange(horizontalChange, verticalChange, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithHorizontalChangeAndVerticalChange(horizontalChange, verticalChange, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4341,8 +4759,8 @@ package body Windows.UI.Xaml.Controls.Primitives is
    (
       horizontalOffset : Windows.Double
       ; verticalOffset : Windows.Double
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IDragStartedEventArgs is
       Hr            : Windows.HRESULT := S_OK;
@@ -4353,7 +4771,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDragStartedEventArgsFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithHorizontalOffsetAndVerticalOffset(horizontalOffset, verticalOffset, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithHorizontalOffsetAndVerticalOffset(horizontalOffset, verticalOffset, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4362,8 +4780,8 @@ package body Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IFlyoutBase is
       Hr            : Windows.HRESULT := S_OK;
@@ -4374,7 +4792,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IFlyoutBaseFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4557,6 +4975,112 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return RetVal;
    end;
    
+   function get_AreOpenCloseAnimationsEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.FlyoutBase");
+      m_Factory     : IFlyoutBaseStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFlyoutBaseStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AreOpenCloseAnimationsEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_InputDevicePrefersPrimaryCommandsProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.FlyoutBase");
+      m_Factory     : IFlyoutBaseStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFlyoutBaseStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_InputDevicePrefersPrimaryCommandsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsOpenProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.FlyoutBase");
+      m_Factory     : IFlyoutBaseStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFlyoutBaseStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsOpenProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ShowModeProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.FlyoutBase");
+      m_Factory     : IFlyoutBaseStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFlyoutBaseStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ShowModeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TargetProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.FlyoutBase");
+      m_Factory     : IFlyoutBaseStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFlyoutBaseStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TargetProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Primitives.IFlyoutShowOptions is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.FlyoutShowOptions");
+      m_Factory     : IFlyoutShowOptionsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.IFlyoutShowOptions;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFlyoutShowOptionsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function FromIndexAndOffset
    (
       index : Windows.Int32
@@ -4580,8 +5104,8 @@ package body Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenter is
       Hr            : Windows.HRESULT := S_OK;
@@ -4592,7 +5116,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IGridViewItemPresenterFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5103,8 +5627,8 @@ package body Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter is
       Hr            : Windows.HRESULT := S_OK;
@@ -5115,7 +5639,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IListViewItemPresenterFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5787,8 +6311,46 @@ package body Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Primitives.INavigationViewItemPresenter is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.NavigationViewItemPresenter");
+      m_Factory     : INavigationViewItemPresenterFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.Primitives.INavigationViewItemPresenter;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INavigationViewItemPresenterFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IconProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.NavigationViewItemPresenter");
+      m_Factory     : INavigationViewItemPresenterStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_INavigationViewItemPresenterStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IconProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBase is
       Hr            : Windows.HRESULT := S_OK;
@@ -5799,7 +6361,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IPickerFlyoutBaseFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5864,8 +6426,8 @@ package body Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IPivotHeaderItem is
       Hr            : Windows.HRESULT := S_OK;
@@ -5876,7 +6438,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IPivotHeaderItemFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5951,7 +6513,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return RetVal;
    end;
    
-   function get_IsOpenProperty
+   function get_IsOpenProperty_IPopup
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.Popup");
@@ -6004,8 +6566,8 @@ package body Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IRangeBase is
       Hr            : Windows.HRESULT := S_OK;
@@ -6016,7 +6578,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IRangeBaseFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -6300,8 +6862,8 @@ package body Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.ISelectorItem is
       Hr            : Windows.HRESULT := S_OK;
@@ -6312,7 +6874,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISelectorItemFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -6372,8 +6934,8 @@ package body Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IToggleButton is
       Hr            : Windows.HRESULT := S_OK;
@@ -6384,7 +6946,7 @@ package body Windows.UI.Xaml.Controls.Primitives is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IToggleButtonFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

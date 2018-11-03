@@ -531,7 +531,7 @@ package body Windows.UI.Xaml.Media.Imaging is
    function add_Opened
    (
       This       : access ISvgImageSource_Interface_Impl
-      ; value : TypedEventHandler_ISvgImageSource_add_Opened
+      ; handler : TypedEventHandler_ISvgImageSource_add_Opened
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -554,7 +554,7 @@ package body Windows.UI.Xaml.Media.Imaging is
    function add_OpenFailed
    (
       This       : access ISvgImageSource_Interface_Impl
-      ; value : TypedEventHandler_ISvgImageSource_add_OpenFailed
+      ; handler : TypedEventHandler_ISvgImageSource_add_OpenFailed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -930,8 +930,8 @@ package body Windows.UI.Xaml.Media.Imaging is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.IBitmapSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -942,7 +942,7 @@ package body Windows.UI.Xaml.Media.Imaging is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBitmapSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1021,8 +1021,8 @@ package body Windows.UI.Xaml.Media.Imaging is
    (
       pixelWidth : Windows.Int32
       ; pixelHeight : Windows.Int32
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -1033,7 +1033,7 @@ package body Windows.UI.Xaml.Media.Imaging is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISurfaceImageSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithDimensions(pixelWidth, pixelHeight, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithDimensions(pixelWidth, pixelHeight, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1045,8 +1045,8 @@ package body Windows.UI.Xaml.Media.Imaging is
       pixelWidth : Windows.Int32
       ; pixelHeight : Windows.Int32
       ; isOpaque : Windows.Boolean
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -1057,7 +1057,7 @@ package body Windows.UI.Xaml.Media.Imaging is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISurfaceImageSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithDimensionsAndOpacity(pixelWidth, pixelHeight, isOpaque, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithDimensionsAndOpacity(pixelWidth, pixelHeight, isOpaque, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1066,8 +1066,8 @@ package body Windows.UI.Xaml.Media.Imaging is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.ISvgImageSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -1078,7 +1078,7 @@ package body Windows.UI.Xaml.Media.Imaging is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISvgImageSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1088,8 +1088,8 @@ package body Windows.UI.Xaml.Media.Imaging is
    function CreateInstanceWithUriSource
    (
       uriSource : Windows.Foundation.IUriRuntimeClass
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.ISvgImageSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -1100,7 +1100,7 @@ package body Windows.UI.Xaml.Media.Imaging is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISvgImageSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithUriSource(uriSource, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithUriSource(uriSource, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1160,8 +1160,8 @@ package body Windows.UI.Xaml.Media.Imaging is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTask is
       Hr            : Windows.HRESULT := S_OK;
@@ -1172,7 +1172,7 @@ package body Windows.UI.Xaml.Media.Imaging is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IXamlRenderingBackgroundTaskFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

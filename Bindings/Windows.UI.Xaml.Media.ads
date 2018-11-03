@@ -412,6 +412,9 @@ package Windows.UI.Xaml.Media is
    type IAcrylicBrushStatics_Interface;
    type IAcrylicBrushStatics is access all IAcrylicBrushStatics_Interface'Class;
    type IAcrylicBrushStatics_Ptr is access all IAcrylicBrushStatics;
+   type IAnimationObject_Imported_Interface;
+   type IAnimationObject_Imported is access all IAnimationObject_Imported_Interface'Class;
+   type IAnimationObject_Imported_Ptr is access all IAnimationObject_Imported;
    type IArcSegment_Interface;
    type IArcSegment is access all IArcSegment_Interface'Class;
    type IArcSegment_Ptr is access all IArcSegment;
@@ -433,6 +436,9 @@ package Windows.UI.Xaml.Media is
    type IBrushFactory_Interface;
    type IBrushFactory is access all IBrushFactory_Interface'Class;
    type IBrushFactory_Ptr is access all IBrushFactory;
+   type IBrushOverrides2_Interface;
+   type IBrushOverrides2 is access all IBrushOverrides2_Interface'Class;
+   type IBrushOverrides2_Ptr is access all IBrushOverrides2;
    type IBrushStatics_Interface;
    type IBrushStatics is access all IBrushStatics_Interface'Class;
    type IBrushStatics_Ptr is access all IBrushStatics;
@@ -943,8 +949,8 @@ package Windows.UI.Xaml.Media is
    function CreateInstance
    (
       This       : access IAcrylicBrushFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.IAcrylicBrush
    )
    return Windows.HRESULT is abstract;
@@ -987,6 +993,18 @@ package Windows.UI.Xaml.Media is
    (
       This       : access IAcrylicBrushStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAnimationObject_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function PopulatePropertyInfo
+   (
+      This       : access IAnimationObject_Imported_Interface
+      ; propertyName : Windows.String
+      ; propertyInfo : Windows.UI.Composition.IAnimationPropertyInfo
    )
    return Windows.HRESULT is abstract;
    
@@ -1245,9 +1263,23 @@ package Windows.UI.Xaml.Media is
    function CreateInstance
    (
       This       : access IBrushFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.IBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBrushOverrides2 : aliased constant Windows.IID := (3499274577, 55355, 23169, (167, 30, 161, 199, 248, 173, 105, 99 ));
+   
+   type IBrushOverrides2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function PopulatePropertyInfoOverride
+   (
+      This       : access IBrushOverrides2_Interface
+      ; propertyName : Windows.String
+      ; animationPropertyInfo : Windows.UI.Composition.IAnimationPropertyInfo
    )
    return Windows.HRESULT is abstract;
    
@@ -1293,8 +1325,8 @@ package Windows.UI.Xaml.Media is
    function CreateInstance
    (
       This       : access ICacheModeFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.ICacheMode
    )
    return Windows.HRESULT is abstract;
@@ -1519,7 +1551,7 @@ package Windows.UI.Xaml.Media is
    function add_Rendering
    (
       This       : access ICompositionTargetStatics_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1534,7 +1566,7 @@ package Windows.UI.Xaml.Media is
    function add_SurfaceContentsLost
    (
       This       : access ICompositionTargetStatics_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1555,7 +1587,7 @@ package Windows.UI.Xaml.Media is
    function add_Rendered
    (
       This       : access ICompositionTargetStatics3_Interface
-      ; value : Windows.UI.Xaml.Media.EventHandler_IRenderedEventArgs
+      ; handler : Windows.UI.Xaml.Media.EventHandler_IRenderedEventArgs
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1665,8 +1697,8 @@ package Windows.UI.Xaml.Media is
    (
       This       : access IFontFamilyFactory_Interface
       ; familyName : Windows.String
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.IFontFamily
    )
    return Windows.HRESULT is abstract;
@@ -1731,8 +1763,8 @@ package Windows.UI.Xaml.Media is
    function CreateInstance
    (
       This       : access IGeneralTransformFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.IGeneralTransform
    )
    return Windows.HRESULT is abstract;
@@ -1952,8 +1984,8 @@ package Windows.UI.Xaml.Media is
    function CreateInstance
    (
       This       : access IGradientBrushFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.IGradientBrush
    )
    return Windows.HRESULT is abstract;
@@ -2069,7 +2101,7 @@ package Windows.UI.Xaml.Media is
    function add_ImageFailed
    (
       This       : access IImageBrush_Interface
-      ; value : Windows.UI.Xaml.ExceptionRoutedEventHandler
+      ; handler : Windows.UI.Xaml.ExceptionRoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2084,7 +2116,7 @@ package Windows.UI.Xaml.Media is
    function add_ImageOpened
    (
       This       : access IImageBrush_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2533,7 +2565,7 @@ package Windows.UI.Xaml.Media is
    function add_LoadCompleted
    (
       This       : access ILoadedImageSurface_Interface
-      ; value : TypedEventHandler_ILoadedImageSurface_add_LoadCompleted
+      ; handler : TypedEventHandler_ILoadedImageSurface_add_LoadCompleted
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -3300,8 +3332,8 @@ package Windows.UI.Xaml.Media is
    function CreateInstance
    (
       This       : access IProjectionFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.IProjection
    )
    return Windows.HRESULT is abstract;
@@ -3440,8 +3472,8 @@ package Windows.UI.Xaml.Media is
    function CreateInstance
    (
       This       : access IRevealBackgroundBrushFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.IRevealBackgroundBrush
    )
    return Windows.HRESULT is abstract;
@@ -3461,8 +3493,8 @@ package Windows.UI.Xaml.Media is
    function CreateInstance
    (
       This       : access IRevealBorderBrushFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.IRevealBorderBrush
    )
    return Windows.HRESULT is abstract;
@@ -3524,8 +3556,8 @@ package Windows.UI.Xaml.Media is
    function CreateInstance
    (
       This       : access IRevealBrushFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.IRevealBrush
    )
    return Windows.HRESULT is abstract;
@@ -3951,8 +3983,8 @@ package Windows.UI.Xaml.Media is
    function CreateInstance
    (
       This       : access ITileBrushFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.ITileBrush
    )
    return Windows.HRESULT is abstract;
@@ -5433,8 +5465,8 @@ package Windows.UI.Xaml.Media is
    function CreateInstance
    (
       This       : access IXamlCompositionBrushBaseFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.IXamlCompositionBrushBase
    )
    return Windows.HRESULT is abstract;
@@ -5505,8 +5537,8 @@ package Windows.UI.Xaml.Media is
    function CreateInstance
    (
       This       : access IXamlLightFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.IXamlLight
    )
    return Windows.HRESULT is abstract;
@@ -5789,100 +5821,6 @@ package Windows.UI.Xaml.Media is
    function Create return Windows.UI.Xaml.Media.IBitmapCache;
    
    subtype Brush is Windows.UI.Xaml.Media.IBrush;
-   
-   type IBrush_Interface_Impl is new IBrush_Interface with record
-      m_RefCount : aliased Windows.UInt32 := 0;
-      m_FTM      : aliased IUnknown := null;
-      m_Inner    : aliased IBrush := null;
-      m_IBrush : IBrush := null;
-   end record;
-   type IBrush_Impl is access all IBrush_Interface_Impl'Class;
-   type IBrush_Impl_Ptr is access all IBrush_Impl;
-   
-   function QueryInterface
-   (
-      This       : access IBrush_Interface_Impl;
-      riid       : in Windows.GUID_Ptr;
-      pvObject   : not null access IUnknown
-   )
-   return Windows.HRESULT;
-   
-   function AddRef
-   (
-      This       : access IBrush_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function Release
-   (
-      This       : access IBrush_Interface_Impl
-   )
-   return Windows.UInt32;
-   
-   function GetIids
-   (
-      This       : access IBrush_Interface_Impl;
-      iidCount   : access Windows.UINT32;
-      iids       : in Windows.IID_Ptr
-   )
-   return Windows.HRESULT;
-   
-   function GetRuntimeClassName
-   (
-      This       : access IBrush_Interface_Impl;
-      className  : access Windows.String
-   )
-   return Windows.HRESULT;
-   
-   function GetTrustLevel
-   (
-      This       : access IBrush_Interface_Impl;
-      trustLevel : access Windows.TrustLevel
-   )
-   return Windows.HRESULT;
-   
-   function get_Opacity
-   (
-      This       : access IBrush_Interface_Impl
-      ; RetVal : access Windows.Double
-   )
-   return Windows.HRESULT;
-   
-   function put_Opacity
-   (
-      This       : access IBrush_Interface_Impl
-      ; value : Windows.Double
-   )
-   return Windows.HRESULT;
-   
-   function get_Transform
-   (
-      This       : access IBrush_Interface_Impl
-      ; RetVal : access Windows.UI.Xaml.Media.ITransform
-   )
-   return Windows.HRESULT;
-   
-   function put_Transform
-   (
-      This       : access IBrush_Interface_Impl
-      ; value : Windows.UI.Xaml.Media.ITransform
-   )
-   return Windows.HRESULT;
-   
-   function get_RelativeTransform
-   (
-      This       : access IBrush_Interface_Impl
-      ; RetVal : access Windows.UI.Xaml.Media.ITransform
-   )
-   return Windows.HRESULT;
-   
-   function put_RelativeTransform
-   (
-      This       : access IBrush_Interface_Impl
-      ; value : Windows.UI.Xaml.Media.ITransform
-   )
-   return Windows.HRESULT;
-   
    subtype BrushCollection is Windows.UI.Xaml.Media.IVector_Brush;
    function Create return Windows.UI.Xaml.Media.IVector_Brush;
    
@@ -6956,8 +6894,8 @@ package Windows.UI.Xaml.Media is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.IAcrylicBrush;
    
@@ -7002,8 +6940,8 @@ package Windows.UI.Xaml.Media is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.IBrush;
    
@@ -7018,8 +6956,8 @@ package Windows.UI.Xaml.Media is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.ICacheMode;
    
@@ -7052,13 +6990,13 @@ package Windows.UI.Xaml.Media is
    
    function add_Rendering
    (
-      value : Windows.Foundation.EventHandler_Object
+      handler : Windows.Foundation.EventHandler_Object
    )
    return Windows.Foundation.EventRegistrationToken;
    
    function add_SurfaceContentsLost
    (
-      value : Windows.Foundation.EventHandler_Object
+      handler : Windows.Foundation.EventHandler_Object
    )
    return Windows.Foundation.EventRegistrationToken;
    
@@ -7076,7 +7014,7 @@ package Windows.UI.Xaml.Media is
    
    function add_Rendered
    (
-      value : Windows.UI.Xaml.Media.EventHandler_IRenderedEventArgs
+      handler : Windows.UI.Xaml.Media.EventHandler_IRenderedEventArgs
    )
    return Windows.Foundation.EventRegistrationToken;
    
@@ -7098,8 +7036,8 @@ package Windows.UI.Xaml.Media is
    function CreateInstanceWithName
    (
       familyName : Windows.String
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.IFontFamily;
    
@@ -7108,8 +7046,8 @@ package Windows.UI.Xaml.Media is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.IGeneralTransform;
    
@@ -7130,8 +7068,8 @@ package Windows.UI.Xaml.Media is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.IGradientBrush;
    
@@ -7298,8 +7236,8 @@ package Windows.UI.Xaml.Media is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.IProjection;
    
@@ -7314,22 +7252,22 @@ package Windows.UI.Xaml.Media is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.IRevealBackgroundBrush;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.IRevealBorderBrush;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.IRevealBrush;
    
@@ -7396,8 +7334,8 @@ package Windows.UI.Xaml.Media is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.ITileBrush;
    
@@ -7491,8 +7429,8 @@ package Windows.UI.Xaml.Media is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.IXamlCompositionBrushBase;
    
@@ -7501,8 +7439,8 @@ package Windows.UI.Xaml.Media is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.IXamlLight;
    

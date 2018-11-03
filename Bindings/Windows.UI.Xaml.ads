@@ -33,6 +33,7 @@ limited with Windows.ApplicationModel.DataTransfer;
 limited with Windows.ApplicationModel.DataTransfer.DragDrop;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
+with Windows.Foundation.Numerics;
 limited with Windows.Graphics.Imaging;
 limited with Windows.UI.Composition;
 limited with Windows.UI.Core;
@@ -579,6 +580,20 @@ package Windows.UI.Xaml is
    
    type TextWrapping_Ptr is access TextWrapping;
    
+   type Vector3TransitionComponents is (
+      X,
+      Y,
+      Z
+   );
+   for Vector3TransitionComponents use (
+      X => 1,
+      Y => 2,
+      Z => 4
+   );
+   for Vector3TransitionComponents'Size use 32;
+   
+   type Vector3TransitionComponents_Ptr is access Vector3TransitionComponents;
+   
    type VerticalAlignment is (
       Top,
       Center,
@@ -629,6 +644,14 @@ package Windows.UI.Xaml is
    
    type Duration_Ptr is access Duration;
    
+   type GridLength is record
+      Value : Windows.Double;
+      GridUnitType_x : Windows.UI.Xaml.GridUnitType;
+   end record;
+   pragma Convention (C_Pass_By_Copy , GridLength);
+   
+   type GridLength_Ptr is access GridLength;
+   
    type Thickness is record
       Left : Windows.Double;
       Top : Windows.Double;
@@ -638,14 +661,6 @@ package Windows.UI.Xaml is
    pragma Convention (C_Pass_By_Copy , Thickness);
    
    type Thickness_Ptr is access Thickness;
-   
-   type GridLength is record
-      Value : Windows.Double;
-      GridUnitType_x : Windows.UI.Xaml.GridUnitType;
-   end record;
-   pragma Convention (C_Pass_By_Copy , GridLength);
-   
-   type GridLength_Ptr is access GridLength;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -699,6 +714,9 @@ package Windows.UI.Xaml is
    type TypedEventHandler_IFrameworkElement6_add_ActualThemeChanged_Interface;
    type TypedEventHandler_IFrameworkElement6_add_ActualThemeChanged is access all TypedEventHandler_IFrameworkElement6_add_ActualThemeChanged_Interface'Class;
    type TypedEventHandler_IFrameworkElement6_add_ActualThemeChanged_Ptr is access all TypedEventHandler_IFrameworkElement6_add_ActualThemeChanged;
+   type TypedEventHandler_IFrameworkElement7_add_EffectiveViewportChanged_Interface;
+   type TypedEventHandler_IFrameworkElement7_add_EffectiveViewportChanged is access all TypedEventHandler_IFrameworkElement7_add_EffectiveViewportChanged_Interface'Class;
+   type TypedEventHandler_IFrameworkElement7_add_EffectiveViewportChanged_Ptr is access all TypedEventHandler_IFrameworkElement7_add_EffectiveViewportChanged;
    type TypedEventHandler_IUIElement3_add_DragStarting_Interface;
    type TypedEventHandler_IUIElement3_add_DragStarting is access all TypedEventHandler_IUIElement3_add_DragStarting_Interface'Class;
    type TypedEventHandler_IUIElement3_add_DragStarting_Ptr is access all TypedEventHandler_IUIElement3_add_DragStarting;
@@ -770,6 +788,9 @@ package Windows.UI.Xaml is
    type IAdaptiveTriggerStatics_Interface;
    type IAdaptiveTriggerStatics is access all IAdaptiveTriggerStatics_Interface'Class;
    type IAdaptiveTriggerStatics_Ptr is access all IAdaptiveTriggerStatics;
+   type IAnimationObject_Imported_Interface;
+   type IAnimationObject_Imported is access all IAnimationObject_Imported_Interface'Class;
+   type IAnimationObject_Imported_Ptr is access all IAnimationObject_Imported;
    type IApplication_Interface;
    type IApplication is access all IApplication_Interface'Class;
    type IApplication_Ptr is access all IApplication;
@@ -806,6 +827,18 @@ package Windows.UI.Xaml is
    type IBringIntoViewRequestedEventArgs_Interface;
    type IBringIntoViewRequestedEventArgs is access all IBringIntoViewRequestedEventArgs_Interface'Class;
    type IBringIntoViewRequestedEventArgs_Ptr is access all IBringIntoViewRequestedEventArgs;
+   type IBrushTransition_Interface;
+   type IBrushTransition is access all IBrushTransition_Interface'Class;
+   type IBrushTransition_Ptr is access all IBrushTransition;
+   type IBrushTransitionFactory_Interface;
+   type IBrushTransitionFactory is access all IBrushTransitionFactory_Interface'Class;
+   type IBrushTransitionFactory_Ptr is access all IBrushTransitionFactory;
+   type IColorPaletteResources_Interface;
+   type IColorPaletteResources is access all IColorPaletteResources_Interface'Class;
+   type IColorPaletteResources_Ptr is access all IColorPaletteResources;
+   type IColorPaletteResourcesFactory_Interface;
+   type IColorPaletteResourcesFactory is access all IColorPaletteResourcesFactory_Interface'Class;
+   type IColorPaletteResourcesFactory_Ptr is access all IColorPaletteResourcesFactory;
    type ICornerRadiusHelper_Interface;
    type ICornerRadiusHelper is access all ICornerRadiusHelper_Interface'Class;
    type ICornerRadiusHelper_Ptr is access all ICornerRadiusHelper;
@@ -842,6 +875,9 @@ package Windows.UI.Xaml is
    type IDebugSettings3_Interface;
    type IDebugSettings3 is access all IDebugSettings3_Interface'Class;
    type IDebugSettings3_Ptr is access all IDebugSettings3;
+   type IDebugSettings4_Interface;
+   type IDebugSettings4 is access all IDebugSettings4_Interface'Class;
+   type IDebugSettings4_Ptr is access all IDebugSettings4;
    type IDependencyObject_Interface;
    type IDependencyObject is access all IDependencyObject_Interface'Class;
    type IDependencyObject_Ptr is access all IDependencyObject;
@@ -902,6 +938,24 @@ package Windows.UI.Xaml is
    type IDurationHelperStatics_Interface;
    type IDurationHelperStatics is access all IDurationHelperStatics_Interface'Class;
    type IDurationHelperStatics_Ptr is access all IDurationHelperStatics;
+   type IEffectiveViewportChangedEventArgs_Interface;
+   type IEffectiveViewportChangedEventArgs is access all IEffectiveViewportChangedEventArgs_Interface'Class;
+   type IEffectiveViewportChangedEventArgs_Ptr is access all IEffectiveViewportChangedEventArgs;
+   type IElementFactory_Interface;
+   type IElementFactory is access all IElementFactory_Interface'Class;
+   type IElementFactory_Ptr is access all IElementFactory;
+   type IElementFactoryGetArgs_Interface;
+   type IElementFactoryGetArgs is access all IElementFactoryGetArgs_Interface'Class;
+   type IElementFactoryGetArgs_Ptr is access all IElementFactoryGetArgs;
+   type IElementFactoryGetArgsFactory_Interface;
+   type IElementFactoryGetArgsFactory is access all IElementFactoryGetArgsFactory_Interface'Class;
+   type IElementFactoryGetArgsFactory_Ptr is access all IElementFactoryGetArgsFactory;
+   type IElementFactoryRecycleArgs_Interface;
+   type IElementFactoryRecycleArgs is access all IElementFactoryRecycleArgs_Interface'Class;
+   type IElementFactoryRecycleArgs_Ptr is access all IElementFactoryRecycleArgs;
+   type IElementFactoryRecycleArgsFactory_Interface;
+   type IElementFactoryRecycleArgsFactory is access all IElementFactoryRecycleArgsFactory_Interface'Class;
+   type IElementFactoryRecycleArgsFactory_Ptr is access all IElementFactoryRecycleArgsFactory;
    type IElementSoundPlayer_Interface;
    type IElementSoundPlayer is access all IElementSoundPlayer_Interface'Class;
    type IElementSoundPlayer_Ptr is access all IElementSoundPlayer;
@@ -935,6 +989,9 @@ package Windows.UI.Xaml is
    type IFrameworkElement6_Interface;
    type IFrameworkElement6 is access all IFrameworkElement6_Interface'Class;
    type IFrameworkElement6_Ptr is access all IFrameworkElement6;
+   type IFrameworkElement7_Interface;
+   type IFrameworkElement7 is access all IFrameworkElement7_Interface'Class;
+   type IFrameworkElement7_Ptr is access all IFrameworkElement7;
    type IFrameworkElementFactory_Interface;
    type IFrameworkElementFactory is access all IFrameworkElementFactory_Interface'Class;
    type IFrameworkElementFactory_Ptr is access all IFrameworkElementFactory;
@@ -944,6 +1001,9 @@ package Windows.UI.Xaml is
    type IFrameworkElementOverrides2_Interface;
    type IFrameworkElementOverrides2 is access all IFrameworkElementOverrides2_Interface'Class;
    type IFrameworkElementOverrides2_Ptr is access all IFrameworkElementOverrides2;
+   type IFrameworkElementProtected7_Interface;
+   type IFrameworkElementProtected7 is access all IFrameworkElementProtected7_Interface'Class;
+   type IFrameworkElementProtected7_Ptr is access all IFrameworkElementProtected7;
    type IFrameworkElementStatics_Interface;
    type IFrameworkElementStatics is access all IFrameworkElementStatics_Interface'Class;
    type IFrameworkElementStatics_Ptr is access all IFrameworkElementStatics;
@@ -1094,6 +1154,12 @@ package Windows.UI.Xaml is
    type IRoutedEventArgsFactory_Interface;
    type IRoutedEventArgsFactory is access all IRoutedEventArgsFactory_Interface'Class;
    type IRoutedEventArgsFactory_Ptr is access all IRoutedEventArgsFactory;
+   type IScalarTransition_Interface;
+   type IScalarTransition is access all IScalarTransition_Interface'Class;
+   type IScalarTransition_Ptr is access all IScalarTransition;
+   type IScalarTransitionFactory_Interface;
+   type IScalarTransitionFactory is access all IScalarTransitionFactory_Interface'Class;
+   type IScalarTransitionFactory_Ptr is access all IScalarTransitionFactory;
    type ISetter_Interface;
    type ISetter is access all ISetter_Interface'Class;
    type ISetter_Ptr is access all ISetter;
@@ -1187,6 +1253,9 @@ package Windows.UI.Xaml is
    type IUIElement8_Interface;
    type IUIElement8 is access all IUIElement8_Interface'Class;
    type IUIElement8_Ptr is access all IUIElement8;
+   type IUIElement9_Interface;
+   type IUIElement9 is access all IUIElement9_Interface'Class;
+   type IUIElement9_Ptr is access all IUIElement9;
    type IUIElementFactory_Interface;
    type IUIElementFactory is access all IUIElementFactory_Interface'Class;
    type IUIElementFactory_Ptr is access all IUIElementFactory;
@@ -1199,6 +1268,9 @@ package Windows.UI.Xaml is
    type IUIElementOverrides8_Interface;
    type IUIElementOverrides8 is access all IUIElementOverrides8_Interface'Class;
    type IUIElementOverrides8_Ptr is access all IUIElementOverrides8;
+   type IUIElementOverrides9_Interface;
+   type IUIElementOverrides9 is access all IUIElementOverrides9_Interface'Class;
+   type IUIElementOverrides9_Ptr is access all IUIElementOverrides9;
    type IUIElementStatics_Interface;
    type IUIElementStatics is access all IUIElementStatics_Interface'Class;
    type IUIElementStatics_Ptr is access all IUIElementStatics;
@@ -1223,6 +1295,9 @@ package Windows.UI.Xaml is
    type IUIElementStatics8_Interface;
    type IUIElementStatics8 is access all IUIElementStatics8_Interface'Class;
    type IUIElementStatics8_Ptr is access all IUIElementStatics8;
+   type IUIElementStatics9_Interface;
+   type IUIElementStatics9 is access all IUIElementStatics9_Interface'Class;
+   type IUIElementStatics9_Ptr is access all IUIElementStatics9;
    type IUnhandledExceptionEventArgs_Interface;
    type IUnhandledExceptionEventArgs is access all IUnhandledExceptionEventArgs_Interface'Class;
    type IUnhandledExceptionEventArgs_Ptr is access all IUnhandledExceptionEventArgs;
@@ -1259,6 +1334,12 @@ package Windows.UI.Xaml is
    type IVector_TriggerBase_Interface;
    type IVector_TriggerBase is access all IVector_TriggerBase_Interface'Class;
    type IVector_TriggerBase_Ptr is access all IVector_TriggerBase;
+   type IVector3Transition_Interface;
+   type IVector3Transition is access all IVector3Transition_Interface'Class;
+   type IVector3Transition_Ptr is access all IVector3Transition;
+   type IVector3TransitionFactory_Interface;
+   type IVector3TransitionFactory is access all IVector3TransitionFactory_Interface'Class;
+   type IVector3TransitionFactory_Ptr is access all IVector3TransitionFactory;
    type IVectorView_IDependencyObject_Interface;
    type IVectorView_IDependencyObject is access all IVectorView_IDependencyObject_Interface'Class;
    type IVectorView_IDependencyObject_Ptr is access all IVectorView_IDependencyObject;
@@ -1376,8 +1457,8 @@ package Windows.UI.Xaml is
    function CreateInstance
    (
       This       : access IAdaptiveTriggerFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IAdaptiveTrigger
    )
    return Windows.HRESULT is abstract;
@@ -1399,6 +1480,18 @@ package Windows.UI.Xaml is
    (
       This       : access IAdaptiveTriggerStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IAnimationObject_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function PopulatePropertyInfo
+   (
+      This       : access IAnimationObject_Imported_Interface
+      ; propertyName : Windows.String
+      ; propertyInfo : Windows.UI.Composition.IAnimationPropertyInfo
    )
    return Windows.HRESULT is abstract;
    
@@ -1446,7 +1539,7 @@ package Windows.UI.Xaml is
    function add_UnhandledException
    (
       This       : access IApplication_Interface
-      ; value : Windows.UI.Xaml.UnhandledExceptionEventHandler
+      ; handler : Windows.UI.Xaml.UnhandledExceptionEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1461,7 +1554,7 @@ package Windows.UI.Xaml is
    function add_Suspending
    (
       This       : access IApplication_Interface
-      ; value : Windows.UI.Xaml.SuspendingEventHandler
+      ; handler : Windows.UI.Xaml.SuspendingEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1476,7 +1569,7 @@ package Windows.UI.Xaml is
    function add_Resuming
    (
       This       : access IApplication_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1531,7 +1624,7 @@ package Windows.UI.Xaml is
    function add_LeavingBackground
    (
       This       : access IApplication2_Interface
-      ; value : Windows.UI.Xaml.LeavingBackgroundEventHandler
+      ; handler : Windows.UI.Xaml.LeavingBackgroundEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1546,7 +1639,7 @@ package Windows.UI.Xaml is
    function add_EnteredBackground
    (
       This       : access IApplication2_Interface
-      ; value : Windows.UI.Xaml.EnteredBackgroundEventHandler
+      ; handler : Windows.UI.Xaml.EnteredBackgroundEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1587,8 +1680,8 @@ package Windows.UI.Xaml is
    function CreateInstance
    (
       This       : access IApplicationFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IApplication
    )
    return Windows.HRESULT is abstract;
@@ -1933,6 +2026,440 @@ package Windows.UI.Xaml is
    
    ------------------------------------------------------------------------
    
+   IID_IBrushTransition : aliased constant Windows.IID := (286693164, 40365, 21545, (167, 221, 178, 183, 208, 97, 171, 142 ));
+   
+   type IBrushTransition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Duration
+   (
+      This       : access IBrushTransition_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Duration
+   (
+      This       : access IBrushTransition_Interface
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBrushTransitionFactory : aliased constant Windows.IID := (1035891560, 5076, 20748, (162, 21, 117, 57, 244, 120, 123, 82 ));
+   
+   type IBrushTransitionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IBrushTransitionFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.IBrushTransition
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IColorPaletteResources : aliased constant Windows.IID := (629180612, 44786, 23871, (131, 59, 195, 109, 182, 39, 142, 217 ));
+   
+   type IColorPaletteResources_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AltHigh
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AltHigh
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AltLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AltLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AltMedium
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AltMedium
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AltMediumHigh
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AltMediumHigh
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AltMediumLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AltMediumLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BaseHigh
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BaseHigh
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BaseLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BaseLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BaseMedium
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BaseMedium
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BaseMediumHigh
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BaseMediumHigh
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BaseMediumLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BaseMediumLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ChromeAltLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ChromeAltLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ChromeBlackHigh
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ChromeBlackHigh
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ChromeBlackLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ChromeBlackLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ChromeBlackMediumLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ChromeBlackMediumLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ChromeBlackMedium
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ChromeBlackMedium
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ChromeDisabledHigh
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ChromeDisabledHigh
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ChromeDisabledLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ChromeDisabledLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ChromeHigh
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ChromeHigh
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ChromeLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ChromeLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ChromeMedium
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ChromeMedium
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ChromeMediumLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ChromeMediumLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ChromeWhite
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ChromeWhite
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ChromeGray
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ChromeGray
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ListLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ListLow
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ListMedium
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ListMedium
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ErrorText
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ErrorText
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Accent
+   (
+      This       : access IColorPaletteResources_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Accent
+   (
+      This       : access IColorPaletteResources_Interface
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IColorPaletteResourcesFactory : aliased constant Windows.IID := (2776565635, 6262, 23744, (142, 165, 188, 119, 177, 126, 15, 126 ));
+   
+   type IColorPaletteResourcesFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IColorPaletteResourcesFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.IColorPaletteResources
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICornerRadiusHelper : aliased constant Windows.IID := (4252754306, 7387, 17032, (184, 200, 133, 238, 121, 41, 123, 252 ));
    
    type ICornerRadiusHelper_Interface is interface and Windows.IInspectable_Interface;
@@ -2039,8 +2566,8 @@ package Windows.UI.Xaml is
    function CreateInstance
    (
       This       : access IDataTemplateFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IDataTemplate
    )
    return Windows.HRESULT is abstract;
@@ -2074,8 +2601,8 @@ package Windows.UI.Xaml is
    function CreateInstance
    (
       This       : access IDataTemplateKeyFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IDataTemplateKey
    )
    return Windows.HRESULT is abstract;
@@ -2084,8 +2611,8 @@ package Windows.UI.Xaml is
    (
       This       : access IDataTemplateKeyFactory_Interface
       ; dataType : Windows.Object
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IDataTemplateKey
    )
    return Windows.HRESULT is abstract;
@@ -2170,7 +2697,7 @@ package Windows.UI.Xaml is
    function add_BindingFailed
    (
       This       : access IDebugSettings_Interface
-      ; value : Windows.UI.Xaml.BindingFailedEventHandler
+      ; handler : Windows.UI.Xaml.BindingFailedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2218,6 +2745,26 @@ package Windows.UI.Xaml is
    function put_IsTextPerformanceVisualizationEnabled
    (
       This       : access IDebugSettings3_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDebugSettings4 : aliased constant Windows.IID := (3372228165, 59428, 23135, (134, 108, 226, 12, 236, 136, 168, 252 ));
+   
+   type IDebugSettings4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FailFastOnErrors
+   (
+      This       : access IDebugSettings4_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FailFastOnErrors
+   (
+      This       : access IDebugSettings4_Interface
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
@@ -2306,8 +2853,8 @@ package Windows.UI.Xaml is
    function CreateInstance
    (
       This       : access IDependencyObjectCollectionFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IObservableVector_DependencyObject
    )
    return Windows.HRESULT is abstract;
@@ -2321,8 +2868,8 @@ package Windows.UI.Xaml is
    function CreateInstance
    (
       This       : access IDependencyObjectFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IDependencyObject
    )
    return Windows.HRESULT is abstract;
@@ -2433,7 +2980,7 @@ package Windows.UI.Xaml is
    function add_Tick
    (
       This       : access IDispatcherTimer_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2466,8 +3013,8 @@ package Windows.UI.Xaml is
    function CreateInstance
    (
       This       : access IDispatcherTimerFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IDispatcherTimer
    )
    return Windows.HRESULT is abstract;
@@ -2889,6 +3436,159 @@ package Windows.UI.Xaml is
    
    ------------------------------------------------------------------------
    
+   IID_IEffectiveViewportChangedEventArgs : aliased constant Windows.IID := (1441672833, 7192, 23021, (189, 61, 196, 202, 143, 167, 209, 144 ));
+   
+   type IEffectiveViewportChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EffectiveViewport
+   (
+      This       : access IEffectiveViewportChangedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MaxViewport
+   (
+      This       : access IEffectiveViewportChangedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BringIntoViewDistanceX
+   (
+      This       : access IEffectiveViewportChangedEventArgs_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BringIntoViewDistanceY
+   (
+      This       : access IEffectiveViewportChangedEventArgs_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IElementFactory : aliased constant Windows.IID := (399682960, 4976, 21960, (128, 225, 120, 180, 144, 4, 169, 225 ));
+   
+   type IElementFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetElement
+   (
+      This       : access IElementFactory_Interface
+      ; args : Windows.UI.Xaml.IElementFactoryGetArgs
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RecycleElement
+   (
+      This       : access IElementFactory_Interface
+      ; args : Windows.UI.Xaml.IElementFactoryRecycleArgs
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IElementFactoryGetArgs : aliased constant Windows.IID := (4216358772, 16803, 22569, (146, 85, 207, 69, 45, 4, 29, 244 ));
+   
+   type IElementFactoryGetArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Data
+   (
+      This       : access IElementFactoryGetArgs_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Data
+   (
+      This       : access IElementFactoryGetArgs_Interface
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Parent
+   (
+      This       : access IElementFactoryGetArgs_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Parent
+   (
+      This       : access IElementFactoryGetArgs_Interface
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IElementFactoryGetArgsFactory : aliased constant Windows.IID := (3283540711, 34875, 24535, (190, 128, 32, 89, 216, 119, 231, 131 ));
+   
+   type IElementFactoryGetArgsFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IElementFactoryGetArgsFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.IElementFactoryGetArgs
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IElementFactoryRecycleArgs : aliased constant Windows.IID := (2263968532, 14312, 24024, (169, 12, 37, 211, 113, 3, 24, 176 ));
+   
+   type IElementFactoryRecycleArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Element
+   (
+      This       : access IElementFactoryRecycleArgs_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Element
+   (
+      This       : access IElementFactoryRecycleArgs_Interface
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Parent
+   (
+      This       : access IElementFactoryRecycleArgs_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Parent
+   (
+      This       : access IElementFactoryRecycleArgs_Interface
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IElementFactoryRecycleArgsFactory : aliased constant Windows.IID := (2375181577, 59917, 21531, (130, 113, 249, 233, 17, 143, 94, 124 ));
+   
+   type IElementFactoryRecycleArgsFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IElementFactoryRecycleArgsFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.IElementFactoryRecycleArgs
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IElementSoundPlayer : aliased constant Windows.IID := (947352485, 61494, 17932, (155, 129, 243, 214, 234, 67, 246, 242 ));
    
    type IElementSoundPlayer_Interface is interface and Windows.IInspectable_Interface;
@@ -3268,7 +3968,7 @@ package Windows.UI.Xaml is
    function add_Loaded
    (
       This       : access IFrameworkElement_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -3283,7 +3983,7 @@ package Windows.UI.Xaml is
    function add_Unloaded
    (
       This       : access IFrameworkElement_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -3298,7 +3998,7 @@ package Windows.UI.Xaml is
    function add_SizeChanged
    (
       This       : access IFrameworkElement_Interface
-      ; value : Windows.UI.Xaml.SizeChangedEventHandler
+      ; handler : Windows.UI.Xaml.SizeChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -3313,7 +4013,7 @@ package Windows.UI.Xaml is
    function add_LayoutUpdated
    (
       This       : access IFrameworkElement_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -3364,7 +4064,7 @@ package Windows.UI.Xaml is
    function add_DataContextChanged
    (
       This       : access IFrameworkElement2_Interface
-      ; value : TypedEventHandler_IFrameworkElement2_add_DataContextChanged
+      ; handler : TypedEventHandler_IFrameworkElement2_add_DataContextChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -3393,7 +4093,7 @@ package Windows.UI.Xaml is
    function add_Loading
    (
       This       : access IFrameworkElement3_Interface
-      ; value : TypedEventHandler_IFrameworkElement3_add_Loading
+      ; handler : TypedEventHandler_IFrameworkElement3_add_Loading
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -3525,7 +4225,7 @@ package Windows.UI.Xaml is
    function add_ActualThemeChanged
    (
       This       : access IFrameworkElement6_Interface
-      ; value : TypedEventHandler_IFrameworkElement6_add_ActualThemeChanged
+      ; handler : TypedEventHandler_IFrameworkElement6_add_ActualThemeChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -3539,6 +4239,34 @@ package Windows.UI.Xaml is
    
    ------------------------------------------------------------------------
    
+   IID_IFrameworkElement7 : aliased constant Windows.IID := (576948332, 49257, 22287, (185, 204, 158, 33, 221, 2, 141, 142 ));
+   
+   type IFrameworkElement7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsLoaded
+   (
+      This       : access IFrameworkElement7_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_EffectiveViewportChanged
+   (
+      This       : access IFrameworkElement7_Interface
+      ; handler : TypedEventHandler_IFrameworkElement7_add_EffectiveViewportChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_EffectiveViewportChanged
+   (
+      This       : access IFrameworkElement7_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IFrameworkElementFactory : aliased constant Windows.IID := (3736002854, 970, 18790, (181, 118, 96, 76, 206, 147, 181, 232 ));
    
    type IFrameworkElementFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -3546,8 +4274,8 @@ package Windows.UI.Xaml is
    function CreateInstance
    (
       This       : access IFrameworkElementFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IFrameworkElement
    )
    return Windows.HRESULT is abstract;
@@ -3592,6 +4320,18 @@ package Windows.UI.Xaml is
       ; stateName : Windows.String
       ; useTransitions : Windows.Boolean
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFrameworkElementProtected7 : aliased constant Windows.IID := (1705641088, 8931, 20739, (173, 42, 182, 38, 248, 140, 165, 174 ));
+   
+   type IFrameworkElementProtected7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function InvalidateViewport
+   (
+      This       : access IFrameworkElementProtected7_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -3829,8 +4569,8 @@ package Windows.UI.Xaml is
    function CreateInstance
    (
       This       : access IFrameworkTemplateFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IFrameworkTemplate
    )
    return Windows.HRESULT is abstract;
@@ -4508,8 +5248,8 @@ package Windows.UI.Xaml is
    (
       This       : access IPropertyMetadataFactory_Interface
       ; defaultValue : Windows.Object
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IPropertyMetadata
    )
    return Windows.HRESULT is abstract;
@@ -4519,8 +5259,8 @@ package Windows.UI.Xaml is
       This       : access IPropertyMetadataFactory_Interface
       ; defaultValue : Windows.Object
       ; propertyChangedCallback : Windows.UI.Xaml.PropertyChangedCallback
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IPropertyMetadata
    )
    return Windows.HRESULT is abstract;
@@ -4781,8 +5521,8 @@ package Windows.UI.Xaml is
    function CreateInstance
    (
       This       : access IResourceDictionaryFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IResourceDictionary
    )
    return Windows.HRESULT is abstract;
@@ -4815,9 +5555,44 @@ package Windows.UI.Xaml is
    function CreateInstance
    (
       This       : access IRoutedEventArgsFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IRoutedEventArgs
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IScalarTransition : aliased constant Windows.IID := (1287029304, 57693, 21070, (167, 60, 157, 77, 207, 190, 162, 38 ));
+   
+   type IScalarTransition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Duration
+   (
+      This       : access IScalarTransition_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Duration
+   (
+      This       : access IScalarTransition_Interface
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IScalarTransitionFactory : aliased constant Windows.IID := (3383880174, 37082, 24029, (190, 100, 62, 71, 151, 126, 162, 128 ));
+   
+   type IScalarTransitionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IScalarTransitionFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.IScalarTransition
    )
    return Windows.HRESULT is abstract;
    
@@ -5022,8 +5797,8 @@ package Windows.UI.Xaml is
    function CreateInstance
    (
       This       : access IStateTriggerBaseFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IStateTriggerBase
    )
    return Windows.HRESULT is abstract;
@@ -5479,7 +6254,7 @@ package Windows.UI.Xaml is
    function add_KeyUp
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.KeyEventHandler
+      ; handler : Windows.UI.Xaml.Input.KeyEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5494,7 +6269,7 @@ package Windows.UI.Xaml is
    function add_KeyDown
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.KeyEventHandler
+      ; handler : Windows.UI.Xaml.Input.KeyEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5509,7 +6284,7 @@ package Windows.UI.Xaml is
    function add_GotFocus
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5524,7 +6299,7 @@ package Windows.UI.Xaml is
    function add_LostFocus
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5539,7 +6314,7 @@ package Windows.UI.Xaml is
    function add_DragEnter
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.DragEventHandler
+      ; handler : Windows.UI.Xaml.DragEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5554,7 +6329,7 @@ package Windows.UI.Xaml is
    function add_DragLeave
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.DragEventHandler
+      ; handler : Windows.UI.Xaml.DragEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5569,7 +6344,7 @@ package Windows.UI.Xaml is
    function add_DragOver
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.DragEventHandler
+      ; handler : Windows.UI.Xaml.DragEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5584,7 +6359,7 @@ package Windows.UI.Xaml is
    function add_Drop
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.DragEventHandler
+      ; handler : Windows.UI.Xaml.DragEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5599,7 +6374,7 @@ package Windows.UI.Xaml is
    function add_PointerPressed
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.PointerEventHandler
+      ; handler : Windows.UI.Xaml.Input.PointerEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5614,7 +6389,7 @@ package Windows.UI.Xaml is
    function add_PointerMoved
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.PointerEventHandler
+      ; handler : Windows.UI.Xaml.Input.PointerEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5629,7 +6404,7 @@ package Windows.UI.Xaml is
    function add_PointerReleased
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.PointerEventHandler
+      ; handler : Windows.UI.Xaml.Input.PointerEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5644,7 +6419,7 @@ package Windows.UI.Xaml is
    function add_PointerEntered
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.PointerEventHandler
+      ; handler : Windows.UI.Xaml.Input.PointerEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5659,7 +6434,7 @@ package Windows.UI.Xaml is
    function add_PointerExited
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.PointerEventHandler
+      ; handler : Windows.UI.Xaml.Input.PointerEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5674,7 +6449,7 @@ package Windows.UI.Xaml is
    function add_PointerCaptureLost
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.PointerEventHandler
+      ; handler : Windows.UI.Xaml.Input.PointerEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5689,7 +6464,7 @@ package Windows.UI.Xaml is
    function add_PointerCanceled
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.PointerEventHandler
+      ; handler : Windows.UI.Xaml.Input.PointerEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5704,7 +6479,7 @@ package Windows.UI.Xaml is
    function add_PointerWheelChanged
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.PointerEventHandler
+      ; handler : Windows.UI.Xaml.Input.PointerEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5719,7 +6494,7 @@ package Windows.UI.Xaml is
    function add_Tapped
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.TappedEventHandler
+      ; handler : Windows.UI.Xaml.Input.TappedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5734,7 +6509,7 @@ package Windows.UI.Xaml is
    function add_DoubleTapped
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.DoubleTappedEventHandler
+      ; handler : Windows.UI.Xaml.Input.DoubleTappedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5749,7 +6524,7 @@ package Windows.UI.Xaml is
    function add_Holding
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.HoldingEventHandler
+      ; handler : Windows.UI.Xaml.Input.HoldingEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5764,7 +6539,7 @@ package Windows.UI.Xaml is
    function add_RightTapped
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.RightTappedEventHandler
+      ; handler : Windows.UI.Xaml.Input.RightTappedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5779,7 +6554,7 @@ package Windows.UI.Xaml is
    function add_ManipulationStarting
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.ManipulationStartingEventHandler
+      ; handler : Windows.UI.Xaml.Input.ManipulationStartingEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5794,7 +6569,7 @@ package Windows.UI.Xaml is
    function add_ManipulationInertiaStarting
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.ManipulationInertiaStartingEventHandler
+      ; handler : Windows.UI.Xaml.Input.ManipulationInertiaStartingEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5809,7 +6584,7 @@ package Windows.UI.Xaml is
    function add_ManipulationStarted
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.ManipulationStartedEventHandler
+      ; handler : Windows.UI.Xaml.Input.ManipulationStartedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5824,7 +6599,7 @@ package Windows.UI.Xaml is
    function add_ManipulationDelta
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.ManipulationDeltaEventHandler
+      ; handler : Windows.UI.Xaml.Input.ManipulationDeltaEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5839,7 +6614,7 @@ package Windows.UI.Xaml is
    function add_ManipulationCompleted
    (
       This       : access IUIElement_Interface
-      ; value : Windows.UI.Xaml.Input.ManipulationCompletedEventHandler
+      ; handler : Windows.UI.Xaml.Input.ManipulationCompletedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5993,7 +6768,7 @@ package Windows.UI.Xaml is
    function add_DragStarting
    (
       This       : access IUIElement3_Interface
-      ; value : TypedEventHandler_IUIElement3_add_DragStarting
+      ; handler : TypedEventHandler_IUIElement3_add_DragStarting
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6008,7 +6783,7 @@ package Windows.UI.Xaml is
    function add_DropCompleted
    (
       This       : access IUIElement3_Interface
-      ; value : TypedEventHandler_IUIElement3_add_DropCompleted
+      ; handler : TypedEventHandler_IUIElement3_add_DropCompleted
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6107,7 +6882,7 @@ package Windows.UI.Xaml is
    function add_ContextRequested
    (
       This       : access IUIElement4_Interface
-      ; value : TypedEventHandler_IUIElement4_add_ContextRequested
+      ; handler : TypedEventHandler_IUIElement4_add_ContextRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6122,7 +6897,7 @@ package Windows.UI.Xaml is
    function add_ContextCanceled
    (
       This       : access IUIElement4_Interface
-      ; value : TypedEventHandler_IUIElement4_add_ContextCanceled
+      ; handler : TypedEventHandler_IUIElement4_add_ContextCanceled
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6137,7 +6912,7 @@ package Windows.UI.Xaml is
    function add_AccessKeyDisplayRequested
    (
       This       : access IUIElement4_Interface
-      ; value : TypedEventHandler_IUIElement4_add_AccessKeyDisplayRequested
+      ; handler : TypedEventHandler_IUIElement4_add_AccessKeyDisplayRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6152,7 +6927,7 @@ package Windows.UI.Xaml is
    function add_AccessKeyDisplayDismissed
    (
       This       : access IUIElement4_Interface
-      ; value : TypedEventHandler_IUIElement4_add_AccessKeyDisplayDismissed
+      ; handler : TypedEventHandler_IUIElement4_add_AccessKeyDisplayDismissed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6167,7 +6942,7 @@ package Windows.UI.Xaml is
    function add_AccessKeyInvoked
    (
       This       : access IUIElement4_Interface
-      ; value : TypedEventHandler_IUIElement4_add_AccessKeyInvoked
+      ; handler : TypedEventHandler_IUIElement4_add_AccessKeyInvoked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6335,7 +7110,7 @@ package Windows.UI.Xaml is
    function add_GettingFocus
    (
       This       : access IUIElement5_Interface
-      ; value : TypedEventHandler_IUIElement5_add_GettingFocus
+      ; handler : TypedEventHandler_IUIElement5_add_GettingFocus
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6350,7 +7125,7 @@ package Windows.UI.Xaml is
    function add_LosingFocus
    (
       This       : access IUIElement5_Interface
-      ; value : TypedEventHandler_IUIElement5_add_LosingFocus
+      ; handler : TypedEventHandler_IUIElement5_add_LosingFocus
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6365,7 +7140,7 @@ package Windows.UI.Xaml is
    function add_NoFocusCandidateFound
    (
       This       : access IUIElement5_Interface
-      ; value : TypedEventHandler_IUIElement5_add_NoFocusCandidateFound
+      ; handler : TypedEventHandler_IUIElement5_add_NoFocusCandidateFound
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6406,7 +7181,7 @@ package Windows.UI.Xaml is
    function add_CharacterReceived
    (
       This       : access IUIElement7_Interface
-      ; value : TypedEventHandler_IUIElement7_add_CharacterReceived
+      ; handler : TypedEventHandler_IUIElement7_add_CharacterReceived
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6421,7 +7196,7 @@ package Windows.UI.Xaml is
    function add_ProcessKeyboardAccelerators
    (
       This       : access IUIElement7_Interface
-      ; value : TypedEventHandler_IUIElement7_add_ProcessKeyboardAccelerators
+      ; handler : TypedEventHandler_IUIElement7_add_ProcessKeyboardAccelerators
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6436,7 +7211,7 @@ package Windows.UI.Xaml is
    function add_PreviewKeyDown
    (
       This       : access IUIElement7_Interface
-      ; value : Windows.UI.Xaml.Input.KeyEventHandler
+      ; handler : Windows.UI.Xaml.Input.KeyEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6451,7 +7226,7 @@ package Windows.UI.Xaml is
    function add_PreviewKeyUp
    (
       This       : access IUIElement7_Interface
-      ; value : Windows.UI.Xaml.Input.KeyEventHandler
+      ; handler : Windows.UI.Xaml.Input.KeyEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6521,7 +7296,7 @@ package Windows.UI.Xaml is
    function add_BringIntoViewRequested
    (
       This       : access IUIElement8_Interface
-      ; value : TypedEventHandler_IUIElement8_add_BringIntoViewRequested
+      ; handler : TypedEventHandler_IUIElement8_add_BringIntoViewRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6530,6 +7305,180 @@ package Windows.UI.Xaml is
    (
       This       : access IUIElement8_Interface
       ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUIElement9 : aliased constant Windows.IID := (3030402934, 20104, 20682, (143, 43, 8, 148, 13, 108, 95, 148 ));
+   
+   type IUIElement9_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanBeScrollAnchor
+   (
+      This       : access IUIElement9_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CanBeScrollAnchor
+   (
+      This       : access IUIElement9_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OpacityTransition
+   (
+      This       : access IUIElement9_Interface
+      ; RetVal : access Windows.UI.Xaml.IScalarTransition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_OpacityTransition
+   (
+      This       : access IUIElement9_Interface
+      ; value : Windows.UI.Xaml.IScalarTransition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Translation
+   (
+      This       : access IUIElement9_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Translation
+   (
+      This       : access IUIElement9_Interface
+      ; value : Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TranslationTransition
+   (
+      This       : access IUIElement9_Interface
+      ; RetVal : access Windows.UI.Xaml.IVector3Transition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TranslationTransition
+   (
+      This       : access IUIElement9_Interface
+      ; value : Windows.UI.Xaml.IVector3Transition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Rotation
+   (
+      This       : access IUIElement9_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Rotation
+   (
+      This       : access IUIElement9_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RotationTransition
+   (
+      This       : access IUIElement9_Interface
+      ; RetVal : access Windows.UI.Xaml.IScalarTransition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RotationTransition
+   (
+      This       : access IUIElement9_Interface
+      ; value : Windows.UI.Xaml.IScalarTransition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Scale
+   (
+      This       : access IUIElement9_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Scale
+   (
+      This       : access IUIElement9_Interface
+      ; value : Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ScaleTransition
+   (
+      This       : access IUIElement9_Interface
+      ; RetVal : access Windows.UI.Xaml.IVector3Transition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ScaleTransition
+   (
+      This       : access IUIElement9_Interface
+      ; value : Windows.UI.Xaml.IVector3Transition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TransformMatrix
+   (
+      This       : access IUIElement9_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Matrix4x4
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TransformMatrix
+   (
+      This       : access IUIElement9_Interface
+      ; value : Windows.Foundation.Numerics.Matrix4x4
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CenterPoint
+   (
+      This       : access IUIElement9_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CenterPoint
+   (
+      This       : access IUIElement9_Interface
+      ; value : Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RotationAxis
+   (
+      This       : access IUIElement9_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RotationAxis
+   (
+      This       : access IUIElement9_Interface
+      ; value : Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StartAnimation
+   (
+      This       : access IUIElement9_Interface
+      ; animation : Windows.UI.Composition.ICompositionAnimationBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StopAnimation
+   (
+      This       : access IUIElement9_Interface
+      ; animation : Windows.UI.Composition.ICompositionAnimationBase
    )
    return Windows.HRESULT is abstract;
    
@@ -6604,6 +7553,20 @@ package Windows.UI.Xaml is
    (
       This       : access IUIElementOverrides8_Interface
       ; e : Windows.UI.Xaml.IBringIntoViewRequestedEventArgs
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUIElementOverrides9 : aliased constant Windows.IID := (2590923123, 28003, 21746, (144, 250, 98, 129, 59, 32, 183, 185 ));
+   
+   type IUIElementOverrides9_Interface is interface and Windows.IInspectable_Interface;
+   
+   function PopulatePropertyInfoOverride
+   (
+      This       : access IUIElementOverrides9_Interface
+      ; propertyName : Windows.String
+      ; animationPropertyInfo : Windows.UI.Composition.IAnimationPropertyInfo
    )
    return Windows.HRESULT is abstract;
    
@@ -7157,6 +8120,19 @@ package Windows.UI.Xaml is
    (
       This       : access IUIElementStatics8_Interface
       ; element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUIElementStatics9 : aliased constant Windows.IID := (1900445303, 36003, 24279, (149, 219, 213, 28, 218, 215, 127, 129 ));
+   
+   type IUIElementStatics9_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanBeScrollAnchorProperty
+   (
+      This       : access IUIElementStatics9_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
@@ -8241,6 +9217,55 @@ package Windows.UI.Xaml is
    
    ------------------------------------------------------------------------
    
+   IID_IVector3Transition : aliased constant Windows.IID := (3538029020, 50338, 20737, (154, 104, 250, 1, 80, 80, 85, 137 ));
+   
+   type IVector3Transition_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Duration
+   (
+      This       : access IVector3Transition_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Duration
+   (
+      This       : access IVector3Transition_Interface
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Components
+   (
+      This       : access IVector3Transition_Interface
+      ; RetVal : access Windows.UI.Xaml.Vector3TransitionComponents
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Components
+   (
+      This       : access IVector3Transition_Interface
+      ; value : Windows.UI.Xaml.Vector3TransitionComponents
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector3TransitionFactory : aliased constant Windows.IID := (3278923417, 61083, 20700, (136, 7, 245, 29, 90, 117, 148, 149 ));
+   
+   type IVector3TransitionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IVector3TransitionFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.IVector3Transition
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVectorView_IDependencyObject : aliased constant Windows.IID := (4269084023, 4871, 24050, (160, 33, 28, 122, 141, 107, 128, 173 ));
    
    type IVectorView_IDependencyObject_Interface is interface and Windows.IInspectable_Interface;
@@ -8644,7 +9669,7 @@ package Windows.UI.Xaml is
    function add_CurrentStateChanged
    (
       This       : access IVisualStateGroup_Interface
-      ; value : Windows.UI.Xaml.VisualStateChangedEventHandler
+      ; handler : Windows.UI.Xaml.VisualStateChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -8659,7 +9684,7 @@ package Windows.UI.Xaml is
    function add_CurrentStateChanging
    (
       This       : access IVisualStateGroup_Interface
-      ; value : Windows.UI.Xaml.VisualStateChangedEventHandler
+      ; handler : Windows.UI.Xaml.VisualStateChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -8686,8 +9711,8 @@ package Windows.UI.Xaml is
    function CreateInstance
    (
       This       : access IVisualStateManagerFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IVisualStateManager
    )
    return Windows.HRESULT is abstract;
@@ -8869,8 +9894,8 @@ package Windows.UI.Xaml is
    function CreateInstance
    (
       This       : access IVisualTransitionFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.IVisualTransition
    )
    return Windows.HRESULT is abstract;
@@ -8926,7 +9951,7 @@ package Windows.UI.Xaml is
    function add_Activated
    (
       This       : access IWindow_Interface
-      ; value : Windows.UI.Xaml.WindowActivatedEventHandler
+      ; handler : Windows.UI.Xaml.WindowActivatedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -8941,7 +9966,7 @@ package Windows.UI.Xaml is
    function add_Closed
    (
       This       : access IWindow_Interface
-      ; value : Windows.UI.Xaml.WindowClosedEventHandler
+      ; handler : Windows.UI.Xaml.WindowClosedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -8956,7 +9981,7 @@ package Windows.UI.Xaml is
    function add_SizeChanged
    (
       This       : access IWindow_Interface
-      ; value : Windows.UI.Xaml.WindowSizeChangedEventHandler
+      ; handler : Windows.UI.Xaml.WindowSizeChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -8971,7 +9996,7 @@ package Windows.UI.Xaml is
    function add_VisibilityChanged
    (
       This       : access IWindow_Interface
-      ; value : Windows.UI.Xaml.WindowVisibilityChangedEventHandler
+      ; handler : Windows.UI.Xaml.WindowVisibilityChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -9254,6 +10279,19 @@ package Windows.UI.Xaml is
       This       : access TypedEventHandler_IFrameworkElement6_add_ActualThemeChanged_Interface
       ; sender : Windows.UI.Xaml.IFrameworkElement
       ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IFrameworkElement7_add_EffectiveViewportChanged : aliased constant Windows.IID := (1364335057, 41424, 22327, (144, 25, 154, 117, 94, 147, 246, 178 ));
+   
+   type TypedEventHandler_IFrameworkElement7_add_EffectiveViewportChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.IFrameworkElement ; args : Windows.UI.Xaml.IEffectiveViewportChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IFrameworkElement7_add_EffectiveViewportChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IFrameworkElement7_add_EffectiveViewportChanged_Interface
+      ; sender : Windows.UI.Xaml.IFrameworkElement
+      ; args : Windows.UI.Xaml.IEffectiveViewportChangedEventArgs
    )
    return Windows.HRESULT;
    
@@ -9854,7 +10892,7 @@ package Windows.UI.Xaml is
    function add_UnhandledException
    (
       This       : access IApplication_Interface_Impl
-      ; value : Windows.UI.Xaml.UnhandledExceptionEventHandler
+      ; handler : Windows.UI.Xaml.UnhandledExceptionEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -9869,7 +10907,7 @@ package Windows.UI.Xaml is
    function add_Suspending
    (
       This       : access IApplication_Interface_Impl
-      ; value : Windows.UI.Xaml.SuspendingEventHandler
+      ; handler : Windows.UI.Xaml.SuspendingEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -9884,7 +10922,7 @@ package Windows.UI.Xaml is
    function add_Resuming
    (
       This       : access IApplication_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -9908,6 +10946,504 @@ package Windows.UI.Xaml is
    function Create return Windows.UI.Xaml.IBringIntoViewOptions;
    
    subtype BringIntoViewRequestedEventArgs is Windows.UI.Xaml.IBringIntoViewRequestedEventArgs;
+   subtype BrushTransition is Windows.UI.Xaml.IBrushTransition;
+   
+   type IBrushTransition_Interface_Impl is new IBrushTransition_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IBrushTransition := null;
+      m_IBrushTransition : IBrushTransition := null;
+   end record;
+   type IBrushTransition_Impl is access all IBrushTransition_Interface_Impl'Class;
+   type IBrushTransition_Impl_Ptr is access all IBrushTransition_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IBrushTransition_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IBrushTransition_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IBrushTransition_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IBrushTransition_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IBrushTransition_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IBrushTransition_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Duration
+   (
+      This       : access IBrushTransition_Interface_Impl
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT;
+   
+   function put_Duration
+   (
+      This       : access IBrushTransition_Interface_Impl
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT;
+   
+   subtype ColorPaletteResources is Windows.UI.Xaml.IColorPaletteResources;
+   
+   type IColorPaletteResources_Interface_Impl is new IColorPaletteResources_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IColorPaletteResources := null;
+      m_IColorPaletteResources : IColorPaletteResources := null;
+   end record;
+   type IColorPaletteResources_Impl is access all IColorPaletteResources_Interface_Impl'Class;
+   type IColorPaletteResources_Impl_Ptr is access all IColorPaletteResources_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IColorPaletteResources_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IColorPaletteResources_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IColorPaletteResources_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IColorPaletteResources_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_AltHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_AltHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_AltLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_AltLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_AltMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_AltMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_AltMediumHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_AltMediumHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_AltMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_AltMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_BaseHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_BaseHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_BaseLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_BaseLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_BaseMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_BaseMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_BaseMediumHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_BaseMediumHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_BaseMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_BaseMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ChromeAltLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ChromeAltLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ChromeBlackHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ChromeBlackHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ChromeBlackLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ChromeBlackLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ChromeBlackMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ChromeBlackMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ChromeBlackMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ChromeBlackMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ChromeDisabledHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ChromeDisabledHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ChromeDisabledLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ChromeDisabledLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ChromeHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ChromeHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ChromeLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ChromeLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ChromeMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ChromeMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ChromeMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ChromeMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ChromeWhite
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ChromeWhite
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ChromeGray
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ChromeGray
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ListLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ListLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ListMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ListMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_ErrorText
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ErrorText
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
+   function get_Accent
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_Accent
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT;
+   
    subtype CornerRadiusHelper is Windows.UI.Xaml.ICornerRadiusHelper;
    subtype DataContextChangedEventArgs is Windows.UI.Xaml.IDataContextChangedEventArgs;
    subtype DataTemplate is Windows.UI.Xaml.IDataTemplate;
@@ -10217,7 +11753,7 @@ package Windows.UI.Xaml is
    function add_Tick
    (
       This       : access IDispatcherTimer_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -10248,6 +11784,169 @@ package Windows.UI.Xaml is
    subtype DragUIOverride is Windows.UI.Xaml.IDragUIOverride;
    subtype DropCompletedEventArgs is Windows.UI.Xaml.IDropCompletedEventArgs;
    subtype DurationHelper is Windows.UI.Xaml.IDurationHelper;
+   subtype EffectiveViewportChangedEventArgs is Windows.UI.Xaml.IEffectiveViewportChangedEventArgs;
+   subtype ElementFactoryGetArgs is Windows.UI.Xaml.IElementFactoryGetArgs;
+   
+   type IElementFactoryGetArgs_Interface_Impl is new IElementFactoryGetArgs_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IElementFactoryGetArgs := null;
+      m_IElementFactoryGetArgs : IElementFactoryGetArgs := null;
+   end record;
+   type IElementFactoryGetArgs_Impl is access all IElementFactoryGetArgs_Interface_Impl'Class;
+   type IElementFactoryGetArgs_Impl_Ptr is access all IElementFactoryGetArgs_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Data
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   function put_Data
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   function get_Parent
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT;
+   
+   function put_Parent
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT;
+   
+   subtype ElementFactoryRecycleArgs is Windows.UI.Xaml.IElementFactoryRecycleArgs;
+   
+   type IElementFactoryRecycleArgs_Interface_Impl is new IElementFactoryRecycleArgs_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IElementFactoryRecycleArgs := null;
+      m_IElementFactoryRecycleArgs : IElementFactoryRecycleArgs := null;
+   end record;
+   type IElementFactoryRecycleArgs_Impl is access all IElementFactoryRecycleArgs_Interface_Impl'Class;
+   type IElementFactoryRecycleArgs_Impl_Ptr is access all IElementFactoryRecycleArgs_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Element
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT;
+   
+   function put_Element
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT;
+   
+   function get_Parent
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT;
+   
+   function put_Parent
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT;
+   
    subtype ElementSoundPlayer is Windows.UI.Xaml.IElementSoundPlayer;
    subtype EventTrigger is Windows.UI.Xaml.IEventTrigger;
    function Create return Windows.UI.Xaml.IEventTrigger;
@@ -10703,7 +12402,7 @@ package Windows.UI.Xaml is
    function add_Loaded
    (
       This       : access IFrameworkElement_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -10718,7 +12417,7 @@ package Windows.UI.Xaml is
    function add_Unloaded
    (
       This       : access IFrameworkElement_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -10733,7 +12432,7 @@ package Windows.UI.Xaml is
    function add_SizeChanged
    (
       This       : access IFrameworkElement_Interface_Impl
-      ; value : Windows.UI.Xaml.SizeChangedEventHandler
+      ; handler : Windows.UI.Xaml.SizeChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -10748,7 +12447,7 @@ package Windows.UI.Xaml is
    function add_LayoutUpdated
    (
       This       : access IFrameworkElement_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -10989,6 +12688,73 @@ package Windows.UI.Xaml is
    )
    return Windows.HRESULT;
    
+   subtype ScalarTransition is Windows.UI.Xaml.IScalarTransition;
+   
+   type IScalarTransition_Interface_Impl is new IScalarTransition_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IScalarTransition := null;
+      m_IScalarTransition : IScalarTransition := null;
+   end record;
+   type IScalarTransition_Impl is access all IScalarTransition_Interface_Impl'Class;
+   type IScalarTransition_Impl_Ptr is access all IScalarTransition_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IScalarTransition_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IScalarTransition_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IScalarTransition_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IScalarTransition_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IScalarTransition_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IScalarTransition_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Duration
+   (
+      This       : access IScalarTransition_Interface_Impl
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT;
+   
+   function put_Duration
+   (
+      This       : access IScalarTransition_Interface_Impl
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT;
+   
    subtype Setter is Windows.UI.Xaml.ISetter;
    function Create return Windows.UI.Xaml.ISetter;
    
@@ -11088,6 +12854,87 @@ package Windows.UI.Xaml is
    subtype TriggerCollection is Windows.UI.Xaml.IVector_TriggerBase;
    subtype UIElement is Windows.UI.Xaml.IUIElement;
    subtype UnhandledExceptionEventArgs is Windows.UI.Xaml.IUnhandledExceptionEventArgs;
+   subtype Vector3Transition is Windows.UI.Xaml.IVector3Transition;
+   
+   type IVector3Transition_Interface_Impl is new IVector3Transition_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IVector3Transition := null;
+      m_IVector3Transition : IVector3Transition := null;
+   end record;
+   type IVector3Transition_Impl is access all IVector3Transition_Interface_Impl'Class;
+   type IVector3Transition_Impl_Ptr is access all IVector3Transition_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IVector3Transition_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IVector3Transition_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IVector3Transition_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IVector3Transition_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IVector3Transition_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IVector3Transition_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Duration
+   (
+      This       : access IVector3Transition_Interface_Impl
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT;
+   
+   function put_Duration
+   (
+      This       : access IVector3Transition_Interface_Impl
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT;
+   
+   function get_Components
+   (
+      This       : access IVector3Transition_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Vector3TransitionComponents
+   )
+   return Windows.HRESULT;
+   
+   function put_Components
+   (
+      This       : access IVector3Transition_Interface_Impl
+      ; value : Windows.UI.Xaml.Vector3TransitionComponents
+   )
+   return Windows.HRESULT;
+   
    subtype VisualState is Windows.UI.Xaml.IVisualState;
    function Create return Windows.UI.Xaml.IVisualState;
    
@@ -11347,8 +13194,8 @@ package Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IAdaptiveTrigger;
    
@@ -11360,8 +13207,8 @@ package Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IApplication;
    
@@ -11389,6 +13236,20 @@ package Windows.UI.Xaml is
    )
    ;
    
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.IBrushTransition;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.IColorPaletteResources;
+   
    function FromRadii
    (
       topLeft : Windows.Double
@@ -11406,8 +13267,8 @@ package Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IDataTemplate;
    
@@ -11429,30 +13290,30 @@ package Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IDataTemplateKey;
    
    function CreateInstanceWithType
    (
       dataType : Windows.Object
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IDataTemplateKey;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IDependencyObject;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IObservableVector_DependencyObject;
    
@@ -11479,8 +13340,8 @@ package Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IDispatcherTimer;
    
@@ -11530,6 +13391,20 @@ package Windows.UI.Xaml is
    )
    return Windows.UI.Xaml.Duration;
    
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.IElementFactoryGetArgs;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.IElementFactoryRecycleArgs;
+   
    function get_State
    return Windows.UI.Xaml.ElementSoundPlayerState;
    
@@ -11565,8 +13440,8 @@ package Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IFrameworkElement;
    
@@ -11656,8 +13531,8 @@ package Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IFrameworkTemplate;
    
@@ -11712,8 +13587,8 @@ package Windows.UI.Xaml is
    function CreateInstanceWithDefaultValue
    (
       defaultValue : Windows.Object
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IPropertyMetadata;
    
@@ -11721,8 +13596,8 @@ package Windows.UI.Xaml is
    (
       defaultValue : Windows.Object
       ; propertyChangedCallback : Windows.UI.Xaml.PropertyChangedCallback
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IPropertyMetadata;
    
@@ -11845,17 +13720,24 @@ package Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IResourceDictionary;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IRoutedEventArgs;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.IScalarTransition;
    
    function Equals
    (
@@ -11885,8 +13767,8 @@ package Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IStateTriggerBase;
    
@@ -12127,10 +14009,20 @@ package Windows.UI.Xaml is
    )
    ;
    
+   function get_CanBeScrollAnchorProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.IVector3Transition;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IVisualStateManager;
    
@@ -12166,8 +14058,8 @@ package Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IVisualTransition;
    

@@ -110,6 +110,20 @@ package Windows.UI.Xaml.Media.Animation is
    
    type RepeatBehaviorType_Ptr is access RepeatBehaviorType;
    
+   type SlideNavigationTransitionEffect is (
+      FromBottom,
+      FromLeft,
+      FromRight
+   );
+   for SlideNavigationTransitionEffect use (
+      FromBottom => 0,
+      FromLeft => 1,
+      FromRight => 2
+   );
+   for SlideNavigationTransitionEffect'Size use 32;
+   
+   type SlideNavigationTransitionEffect_Ptr is access SlideNavigationTransitionEffect;
+   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -151,6 +165,12 @@ package Windows.UI.Xaml.Media.Animation is
    type IBackEaseStatics_Interface;
    type IBackEaseStatics is access all IBackEaseStatics_Interface'Class;
    type IBackEaseStatics_Ptr is access all IBackEaseStatics;
+   type IBasicConnectedAnimationConfiguration_Interface;
+   type IBasicConnectedAnimationConfiguration is access all IBasicConnectedAnimationConfiguration_Interface'Class;
+   type IBasicConnectedAnimationConfiguration_Ptr is access all IBasicConnectedAnimationConfiguration;
+   type IBasicConnectedAnimationConfigurationFactory_Interface;
+   type IBasicConnectedAnimationConfigurationFactory is access all IBasicConnectedAnimationConfigurationFactory_Interface'Class;
+   type IBasicConnectedAnimationConfigurationFactory_Ptr is access all IBasicConnectedAnimationConfigurationFactory;
    type IBeginStoryboard_Interface;
    type IBeginStoryboard is access all IBeginStoryboard_Interface'Class;
    type IBeginStoryboard_Ptr is access all IBeginStoryboard;
@@ -199,6 +219,15 @@ package Windows.UI.Xaml.Media.Animation is
    type IConnectedAnimation2_Interface;
    type IConnectedAnimation2 is access all IConnectedAnimation2_Interface'Class;
    type IConnectedAnimation2_Ptr is access all IConnectedAnimation2;
+   type IConnectedAnimation3_Interface;
+   type IConnectedAnimation3 is access all IConnectedAnimation3_Interface'Class;
+   type IConnectedAnimation3_Ptr is access all IConnectedAnimation3;
+   type IConnectedAnimationConfiguration_Interface;
+   type IConnectedAnimationConfiguration is access all IConnectedAnimationConfiguration_Interface'Class;
+   type IConnectedAnimationConfiguration_Ptr is access all IConnectedAnimationConfiguration;
+   type IConnectedAnimationConfigurationFactory_Interface;
+   type IConnectedAnimationConfigurationFactory is access all IConnectedAnimationConfigurationFactory_Interface'Class;
+   type IConnectedAnimationConfigurationFactory_Ptr is access all IConnectedAnimationConfigurationFactory;
    type IConnectedAnimationService_Interface;
    type IConnectedAnimationService is access all IConnectedAnimationService_Interface'Class;
    type IConnectedAnimationService_Ptr is access all IConnectedAnimationService;
@@ -220,6 +249,12 @@ package Windows.UI.Xaml.Media.Animation is
    type ICubicEase_Interface;
    type ICubicEase is access all ICubicEase_Interface'Class;
    type ICubicEase_Ptr is access all ICubicEase;
+   type IDirectConnectedAnimationConfiguration_Interface;
+   type IDirectConnectedAnimationConfiguration is access all IDirectConnectedAnimationConfiguration_Interface'Class;
+   type IDirectConnectedAnimationConfiguration_Ptr is access all IDirectConnectedAnimationConfiguration;
+   type IDirectConnectedAnimationConfigurationFactory_Interface;
+   type IDirectConnectedAnimationConfigurationFactory is access all IDirectConnectedAnimationConfigurationFactory_Interface'Class;
+   type IDirectConnectedAnimationConfigurationFactory_Ptr is access all IDirectConnectedAnimationConfigurationFactory;
    type IDiscreteColorKeyFrame_Interface;
    type IDiscreteColorKeyFrame is access all IDiscreteColorKeyFrame_Interface'Class;
    type IDiscreteColorKeyFrame_Ptr is access all IDiscreteColorKeyFrame;
@@ -355,6 +390,12 @@ package Windows.UI.Xaml.Media.Animation is
    type IFadeOutThemeAnimationStatics_Interface;
    type IFadeOutThemeAnimationStatics is access all IFadeOutThemeAnimationStatics_Interface'Class;
    type IFadeOutThemeAnimationStatics_Ptr is access all IFadeOutThemeAnimationStatics;
+   type IGravityConnectedAnimationConfiguration_Interface;
+   type IGravityConnectedAnimationConfiguration is access all IGravityConnectedAnimationConfiguration_Interface'Class;
+   type IGravityConnectedAnimationConfiguration_Ptr is access all IGravityConnectedAnimationConfiguration;
+   type IGravityConnectedAnimationConfigurationFactory_Interface;
+   type IGravityConnectedAnimationConfigurationFactory is access all IGravityConnectedAnimationConfigurationFactory_Interface'Class;
+   type IGravityConnectedAnimationConfigurationFactory_Ptr is access all IGravityConnectedAnimationConfigurationFactory;
    type IIterable_ColorKeyFrame_Interface;
    type IIterable_ColorKeyFrame is access all IIterable_ColorKeyFrame_Interface'Class;
    type IIterable_ColorKeyFrame_Ptr is access all IIterable_ColorKeyFrame;
@@ -523,6 +564,12 @@ package Windows.UI.Xaml.Media.Animation is
    type ISlideNavigationTransitionInfo_Interface;
    type ISlideNavigationTransitionInfo is access all ISlideNavigationTransitionInfo_Interface'Class;
    type ISlideNavigationTransitionInfo_Ptr is access all ISlideNavigationTransitionInfo;
+   type ISlideNavigationTransitionInfo2_Interface;
+   type ISlideNavigationTransitionInfo2 is access all ISlideNavigationTransitionInfo2_Interface'Class;
+   type ISlideNavigationTransitionInfo2_Ptr is access all ISlideNavigationTransitionInfo2;
+   type ISlideNavigationTransitionInfoStatics2_Interface;
+   type ISlideNavigationTransitionInfoStatics2 is access all ISlideNavigationTransitionInfoStatics2_Interface'Class;
+   type ISlideNavigationTransitionInfoStatics2_Ptr is access all ISlideNavigationTransitionInfoStatics2;
    type ISplineColorKeyFrame_Interface;
    type ISplineColorKeyFrame is access all ISplineColorKeyFrame_Interface'Class;
    type ISplineColorKeyFrame_Ptr is access all ISplineColorKeyFrame;
@@ -648,6 +695,27 @@ package Windows.UI.Xaml.Media.Animation is
    (
       This       : access IBackEaseStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBasicConnectedAnimationConfiguration : aliased constant Windows.IID := (3866491317, 42198, 21331, (131, 230, 200, 158, 124, 248, 212, 86 ));
+   
+   type IBasicConnectedAnimationConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBasicConnectedAnimationConfigurationFactory : aliased constant Windows.IID := (2514912330, 17271, 20540, (190, 226, 17, 223, 205, 85, 112, 230 ));
+   
+   type IBasicConnectedAnimationConfigurationFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IBasicConnectedAnimationConfigurationFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IBasicConnectedAnimationConfiguration
    )
    return Windows.HRESULT is abstract;
    
@@ -944,8 +1012,8 @@ package Windows.UI.Xaml.Media.Animation is
    function CreateInstance
    (
       This       : access IColorKeyFrameFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.Animation.IColorKeyFrame
    )
    return Windows.HRESULT is abstract;
@@ -1035,7 +1103,7 @@ package Windows.UI.Xaml.Media.Animation is
    function add_Completed
    (
       This       : access IConnectedAnimation_Interface
-      ; value : TypedEventHandler_IConnectedAnimation_add_Completed
+      ; handler : TypedEventHandler_IConnectedAnimation_add_Completed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1097,6 +1165,38 @@ package Windows.UI.Xaml.Media.Animation is
       ; animation : Windows.UI.Composition.ICompositionAnimationBase
    )
    return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IConnectedAnimation3 : aliased constant Windows.IID := (1848656070, 1072, 22976, (168, 12, 204, 238, 210, 231, 120, 221 ));
+   
+   type IConnectedAnimation3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Configuration
+   (
+      This       : access IConnectedAnimation3_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IConnectedAnimationConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Configuration
+   (
+      This       : access IConnectedAnimation3_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.IConnectedAnimationConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IConnectedAnimationConfiguration : aliased constant Windows.IID := (2198190, 52620, 22097, (146, 160, 193, 219, 149, 192, 57, 152 ));
+   
+   type IConnectedAnimationConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IConnectedAnimationConfigurationFactory : aliased constant Windows.IID := (821672011, 56702, 22846, (191, 117, 233, 89, 220, 14, 197, 42 ));
+   
+   type IConnectedAnimationConfigurationFactory_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -1326,6 +1426,27 @@ package Windows.UI.Xaml.Media.Animation is
    
    ------------------------------------------------------------------------
    
+   IID_IDirectConnectedAnimationConfiguration : aliased constant Windows.IID := (3999101807, 22328, 23942, (183, 112, 21, 25, 72, 207, 54, 94 ));
+   
+   type IDirectConnectedAnimationConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDirectConnectedAnimationConfigurationFactory : aliased constant Windows.IID := (93479913, 53939, 23159, (156, 244, 226, 109, 139, 84, 38, 8 ));
+   
+   type IDirectConnectedAnimationConfigurationFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IDirectConnectedAnimationConfigurationFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IDirectConnectedAnimationConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IDiscreteColorKeyFrame : aliased constant Windows.IID := (587991284, 57442, 19633, (142, 42, 20, 9, 61, 115, 237, 140 ));
    
    type IDiscreteColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
@@ -1548,8 +1669,8 @@ package Windows.UI.Xaml.Media.Animation is
    function CreateInstance
    (
       This       : access IDoubleKeyFrameFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame
    )
    return Windows.HRESULT is abstract;
@@ -2357,6 +2478,27 @@ package Windows.UI.Xaml.Media.Animation is
    
    ------------------------------------------------------------------------
    
+   IID_IGravityConnectedAnimationConfiguration : aliased constant Windows.IID := (3344016567, 1113, 20802, (184, 145, 174, 170, 193, 212, 24, 34 ));
+   
+   type IGravityConnectedAnimationConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGravityConnectedAnimationConfigurationFactory : aliased constant Windows.IID := (3894592543, 13910, 20624, (146, 245, 194, 23, 234, 172, 182, 130 ));
+   
+   type IGravityConnectedAnimationConfigurationFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IGravityConnectedAnimationConfigurationFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IGravityConnectedAnimationConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterable_ColorKeyFrame : aliased constant Windows.IID := (408542472, 22573, 20956, (130, 161, 70, 97, 17, 202, 249, 68 ));
    
    type IIterable_ColorKeyFrame_Interface is interface and Windows.IInspectable_Interface;
@@ -2553,8 +2695,8 @@ package Windows.UI.Xaml.Media.Animation is
    function CreateInstance
    (
       This       : access INavigationTransitionInfoFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
    )
    return Windows.HRESULT is abstract;
@@ -2662,8 +2804,8 @@ package Windows.UI.Xaml.Media.Animation is
    function CreateInstance
    (
       This       : access IObjectKeyFrameFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.Animation.IObjectKeyFrame
    )
    return Windows.HRESULT is abstract;
@@ -2987,8 +3129,8 @@ package Windows.UI.Xaml.Media.Animation is
    function CreateInstance
    (
       This       : access IPointKeyFrameFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.Animation.IPointKeyFrame
    )
    return Windows.HRESULT is abstract;
@@ -3417,6 +3559,39 @@ package Windows.UI.Xaml.Media.Animation is
    IID_ISlideNavigationTransitionInfo : aliased constant Windows.IID := (3601636727, 11779, 16479, (128, 237, 230, 43, 238, 243, 102, 143 ));
    
    type ISlideNavigationTransitionInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISlideNavigationTransitionInfo2 : aliased constant Windows.IID := (2430785984, 23681, 20481, (128, 19, 79, 191, 234, 75, 241, 57 ));
+   
+   type ISlideNavigationTransitionInfo2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Effect
+   (
+      This       : access ISlideNavigationTransitionInfo2_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Effect
+   (
+      This       : access ISlideNavigationTransitionInfo2_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionEffect
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISlideNavigationTransitionInfoStatics2 : aliased constant Windows.IID := (2324044714, 38938, 23246, (159, 133, 203, 127, 222, 100, 138, 103 ));
+   
+   type ISlideNavigationTransitionInfoStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EffectProperty
+   (
+      This       : access ISlideNavigationTransitionInfoStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -4383,7 +4558,7 @@ package Windows.UI.Xaml.Media.Animation is
    function add_Completed
    (
       This       : access ITimeline_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4404,8 +4579,8 @@ package Windows.UI.Xaml.Media.Animation is
    function CreateInstance
    (
       This       : access ITimelineFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.Animation.ITimeline
    )
    return Windows.HRESULT is abstract;
@@ -5081,6 +5256,59 @@ package Windows.UI.Xaml.Media.Animation is
    subtype BackEase is Windows.UI.Xaml.Media.Animation.IBackEase;
    function Create return Windows.UI.Xaml.Media.Animation.IBackEase;
    
+   subtype BasicConnectedAnimationConfiguration is Windows.UI.Xaml.Media.Animation.IBasicConnectedAnimationConfiguration;
+   
+   type IBasicConnectedAnimationConfiguration_Interface_Impl is new IBasicConnectedAnimationConfiguration_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IBasicConnectedAnimationConfiguration := null;
+      m_IBasicConnectedAnimationConfiguration : IBasicConnectedAnimationConfiguration := null;
+   end record;
+   type IBasicConnectedAnimationConfiguration_Impl is access all IBasicConnectedAnimationConfiguration_Interface_Impl'Class;
+   type IBasicConnectedAnimationConfiguration_Impl_Ptr is access all IBasicConnectedAnimationConfiguration_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IBasicConnectedAnimationConfiguration_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IBasicConnectedAnimationConfiguration_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IBasicConnectedAnimationConfiguration_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IBasicConnectedAnimationConfiguration_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IBasicConnectedAnimationConfiguration_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IBasicConnectedAnimationConfiguration_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
    subtype BeginStoryboard is Windows.UI.Xaml.Media.Animation.IBeginStoryboard;
    function Create return Windows.UI.Xaml.Media.Animation.IBeginStoryboard;
    
@@ -5184,6 +5412,7 @@ package Windows.UI.Xaml.Media.Animation is
    function Create return Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo;
    
    subtype ConnectedAnimation is Windows.UI.Xaml.Media.Animation.IConnectedAnimation;
+   subtype ConnectedAnimationConfiguration is Windows.UI.Xaml.Media.Animation.IConnectedAnimationConfiguration;
    subtype ConnectedAnimationService is Windows.UI.Xaml.Media.Animation.IConnectedAnimationService;
    subtype ContentThemeTransition is Windows.UI.Xaml.Media.Animation.IContentThemeTransition;
    function Create return Windows.UI.Xaml.Media.Animation.IContentThemeTransition;
@@ -5193,6 +5422,59 @@ package Windows.UI.Xaml.Media.Animation is
    
    subtype CubicEase is Windows.UI.Xaml.Media.Animation.ICubicEase;
    function Create return Windows.UI.Xaml.Media.Animation.ICubicEase;
+   
+   subtype DirectConnectedAnimationConfiguration is Windows.UI.Xaml.Media.Animation.IDirectConnectedAnimationConfiguration;
+   
+   type IDirectConnectedAnimationConfiguration_Interface_Impl is new IDirectConnectedAnimationConfiguration_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IDirectConnectedAnimationConfiguration := null;
+      m_IDirectConnectedAnimationConfiguration : IDirectConnectedAnimationConfiguration := null;
+   end record;
+   type IDirectConnectedAnimationConfiguration_Impl is access all IDirectConnectedAnimationConfiguration_Interface_Impl'Class;
+   type IDirectConnectedAnimationConfiguration_Impl_Ptr is access all IDirectConnectedAnimationConfiguration_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IDirectConnectedAnimationConfiguration_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IDirectConnectedAnimationConfiguration_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IDirectConnectedAnimationConfiguration_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IDirectConnectedAnimationConfiguration_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IDirectConnectedAnimationConfiguration_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IDirectConnectedAnimationConfiguration_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
    
    subtype DiscreteColorKeyFrame is Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame;
    function Create return Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame;
@@ -5344,6 +5626,59 @@ package Windows.UI.Xaml.Media.Animation is
    
    subtype FadeOutThemeAnimation is Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation;
    function Create return Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation;
+   
+   subtype GravityConnectedAnimationConfiguration is Windows.UI.Xaml.Media.Animation.IGravityConnectedAnimationConfiguration;
+   
+   type IGravityConnectedAnimationConfiguration_Interface_Impl is new IGravityConnectedAnimationConfiguration_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IGravityConnectedAnimationConfiguration := null;
+      m_IGravityConnectedAnimationConfiguration : IGravityConnectedAnimationConfiguration := null;
+   end record;
+   type IGravityConnectedAnimationConfiguration_Impl is access all IGravityConnectedAnimationConfiguration_Interface_Impl'Class;
+   type IGravityConnectedAnimationConfiguration_Impl_Ptr is access all IGravityConnectedAnimationConfiguration_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IGravityConnectedAnimationConfiguration_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IGravityConnectedAnimationConfiguration_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IGravityConnectedAnimationConfiguration_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IGravityConnectedAnimationConfiguration_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IGravityConnectedAnimationConfiguration_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IGravityConnectedAnimationConfiguration_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
    
    subtype KeySpline is Windows.UI.Xaml.Media.Animation.IKeySpline;
    function Create return Windows.UI.Xaml.Media.Animation.IKeySpline;
@@ -5870,7 +6205,7 @@ package Windows.UI.Xaml.Media.Animation is
    function add_Completed
    (
       This       : access ITimeline_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -5896,6 +6231,13 @@ package Windows.UI.Xaml.Media.Animation is
    
    function get_AmplitudeProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.IBasicConnectedAnimationConfiguration;
    
    function get_StoryboardProperty
    return Windows.UI.Xaml.IDependencyProperty;
@@ -5926,8 +6268,8 @@ package Windows.UI.Xaml.Media.Animation is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Animation.IColorKeyFrame;
    
@@ -6016,6 +6358,13 @@ package Windows.UI.Xaml.Media.Animation is
    )
    ;
    
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.IDirectConnectedAnimationConfiguration;
+   
    function get_ByProperty_IDoubleAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -6036,8 +6385,8 @@ package Windows.UI.Xaml.Media.Animation is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame;
    
@@ -6141,6 +6490,13 @@ package Windows.UI.Xaml.Media.Animation is
    function get_TargetNameProperty_IFadeOutThemeAnimation
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Media.Animation.IGravityConnectedAnimationConfiguration;
+   
    function FromTimeSpan
    (
       timeSpan : Windows.Foundation.TimeSpan
@@ -6152,8 +6508,8 @@ package Windows.UI.Xaml.Media.Animation is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo;
    
@@ -6162,8 +6518,8 @@ package Windows.UI.Xaml.Media.Animation is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Animation.IObjectKeyFrame;
    
@@ -6202,8 +6558,8 @@ package Windows.UI.Xaml.Media.Animation is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Animation.IPointKeyFrame;
    
@@ -6278,6 +6634,9 @@ package Windows.UI.Xaml.Media.Animation is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsStaggeringEnabledProperty_IRepositionThemeTransition
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_EffectProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_KeySplineProperty
@@ -6414,8 +6773,8 @@ package Windows.UI.Xaml.Media.Animation is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Animation.ITimeline;
    

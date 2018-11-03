@@ -87,12 +87,14 @@ package Windows.Media.Import is
    type PhotoImportContentTypeFilter is (
       OnlyImages,
       OnlyVideos,
-      ImagesAndVideos
+      ImagesAndVideos,
+      ImagesAndVideosFromCameraRoll
    );
    for PhotoImportContentTypeFilter use (
       OnlyImages => 0,
       OnlyVideos => 1,
-      ImagesAndVideos => 2
+      ImagesAndVideos => 2,
+      ImagesAndVideosFromCameraRoll => 3
    );
    for PhotoImportContentTypeFilter'Size use 32;
    
@@ -305,6 +307,9 @@ package Windows.Media.Import is
    type IPhotoImportItem_Interface;
    type IPhotoImportItem is access all IPhotoImportItem_Interface'Class;
    type IPhotoImportItem_Ptr is access all IPhotoImportItem;
+   type IPhotoImportItem2_Interface;
+   type IPhotoImportItem2 is access all IPhotoImportItem2_Interface'Class;
+   type IPhotoImportItem2_Ptr is access all IPhotoImportItem2;
    type IPhotoImportItemImportedEventArgs_Interface;
    type IPhotoImportItemImportedEventArgs is access all IPhotoImportItemImportedEventArgs_Interface'Class;
    type IPhotoImportItemImportedEventArgs_Ptr is access all IPhotoImportItemImportedEventArgs;
@@ -1171,6 +1176,19 @@ package Windows.Media.Import is
    (
       This       : access IPhotoImportItem_Interface
       ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPhotoImportItem2 : aliased constant Windows.IID := (4043650309, 62779, 18083, (158, 48, 54, 16, 121, 26, 145, 16 ));
+   
+   type IPhotoImportItem2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Path
+   (
+      This       : access IPhotoImportItem2_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    

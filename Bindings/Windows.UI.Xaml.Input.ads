@@ -26,12 +26,14 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows; use Windows;
 limited with Windows.Devices.Input;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.System;
 limited with Windows.UI.Core;
 limited with Windows.UI.Input;
+limited with Windows.UI.Xaml.Controls;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Input is
 
@@ -257,6 +259,48 @@ package Windows.UI.Xaml.Input is
    
    type ManipulationModes_Ptr is access ManipulationModes;
    
+   type StandardUICommandKind is (
+      None,
+      Cut,
+      Copy,
+      Paste,
+      SelectAll,
+      Delete,
+      Share,
+      Save,
+      Open,
+      Close,
+      Pause,
+      Play,
+      Stop,
+      Forward,
+      Backward,
+      Undo,
+      Redo
+   );
+   for StandardUICommandKind use (
+      None => 0,
+      Cut => 1,
+      Copy => 2,
+      Paste => 3,
+      SelectAll => 4,
+      Delete => 5,
+      Share => 6,
+      Save => 7,
+      Open => 8,
+      Close => 9,
+      Pause => 10,
+      Play => 11,
+      Stop => 12,
+      Forward => 13,
+      Backward => 14,
+      Undo => 15,
+      Redo => 16
+   );
+   for StandardUICommandKind'Size use 32;
+   
+   type StandardUICommandKind_Ptr is access StandardUICommandKind;
+   
    type XYFocusKeyboardNavigationMode is (
       Auto,
       Enabled,
@@ -315,6 +359,18 @@ package Windows.UI.Xaml.Input is
    type DoubleTappedEventHandler_Interface;
    type DoubleTappedEventHandler is access all DoubleTappedEventHandler_Interface'Class;
    type DoubleTappedEventHandler_Ptr is access all DoubleTappedEventHandler;
+   type EventHandler_IFocusManagerGotFocusEventArgs_Interface;
+   type EventHandler_IFocusManagerGotFocusEventArgs is access all EventHandler_IFocusManagerGotFocusEventArgs_Interface'Class;
+   type EventHandler_IFocusManagerGotFocusEventArgs_Ptr is access all EventHandler_IFocusManagerGotFocusEventArgs;
+   type EventHandler_IFocusManagerLostFocusEventArgs_Interface;
+   type EventHandler_IFocusManagerLostFocusEventArgs is access all EventHandler_IFocusManagerLostFocusEventArgs_Interface'Class;
+   type EventHandler_IFocusManagerLostFocusEventArgs_Ptr is access all EventHandler_IFocusManagerLostFocusEventArgs;
+   type EventHandler_IGettingFocusEventArgs_Interface;
+   type EventHandler_IGettingFocusEventArgs is access all EventHandler_IGettingFocusEventArgs_Interface'Class;
+   type EventHandler_IGettingFocusEventArgs_Ptr is access all EventHandler_IGettingFocusEventArgs;
+   type EventHandler_ILosingFocusEventArgs_Interface;
+   type EventHandler_ILosingFocusEventArgs is access all EventHandler_ILosingFocusEventArgs_Interface'Class;
+   type EventHandler_ILosingFocusEventArgs_Ptr is access all EventHandler_ILosingFocusEventArgs;
    type HoldingEventHandler_Interface;
    type HoldingEventHandler is access all HoldingEventHandler_Interface'Class;
    type HoldingEventHandler_Ptr is access all HoldingEventHandler;
@@ -351,6 +407,12 @@ package Windows.UI.Xaml.Input is
    type TypedEventHandler_IKeyboardAccelerator_add_Invoked_Interface;
    type TypedEventHandler_IKeyboardAccelerator_add_Invoked is access all TypedEventHandler_IKeyboardAccelerator_add_Invoked_Interface'Class;
    type TypedEventHandler_IKeyboardAccelerator_add_Invoked_Ptr is access all TypedEventHandler_IKeyboardAccelerator_add_Invoked;
+   type TypedEventHandler_IXamlUICommand_add_CanExecuteRequested_Interface;
+   type TypedEventHandler_IXamlUICommand_add_CanExecuteRequested is access all TypedEventHandler_IXamlUICommand_add_CanExecuteRequested_Interface'Class;
+   type TypedEventHandler_IXamlUICommand_add_CanExecuteRequested_Ptr is access all TypedEventHandler_IXamlUICommand_add_CanExecuteRequested;
+   type TypedEventHandler_IXamlUICommand_add_ExecuteRequested_Interface;
+   type TypedEventHandler_IXamlUICommand_add_ExecuteRequested is access all TypedEventHandler_IXamlUICommand_add_ExecuteRequested_Interface'Class;
+   type TypedEventHandler_IXamlUICommand_add_ExecuteRequested_Ptr is access all TypedEventHandler_IXamlUICommand_add_ExecuteRequested;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -377,6 +439,9 @@ package Windows.UI.Xaml.Input is
    type IAsyncOperation_IFocusMovementResult_Interface;
    type IAsyncOperation_IFocusMovementResult is access all IAsyncOperation_IFocusMovementResult_Interface'Class;
    type IAsyncOperation_IFocusMovementResult_Ptr is access all IAsyncOperation_IFocusMovementResult;
+   type ICanExecuteRequestedEventArgs_Interface;
+   type ICanExecuteRequestedEventArgs is access all ICanExecuteRequestedEventArgs_Interface'Class;
+   type ICanExecuteRequestedEventArgs_Ptr is access all ICanExecuteRequestedEventArgs;
    type ICharacterReceivedRoutedEventArgs_Interface;
    type ICharacterReceivedRoutedEventArgs is access all ICharacterReceivedRoutedEventArgs_Interface'Class;
    type ICharacterReceivedRoutedEventArgs_Ptr is access all ICharacterReceivedRoutedEventArgs;
@@ -389,12 +454,21 @@ package Windows.UI.Xaml.Input is
    type IDoubleTappedRoutedEventArgs_Interface;
    type IDoubleTappedRoutedEventArgs is access all IDoubleTappedRoutedEventArgs_Interface'Class;
    type IDoubleTappedRoutedEventArgs_Ptr is access all IDoubleTappedRoutedEventArgs;
+   type IExecuteRequestedEventArgs_Interface;
+   type IExecuteRequestedEventArgs is access all IExecuteRequestedEventArgs_Interface'Class;
+   type IExecuteRequestedEventArgs_Ptr is access all IExecuteRequestedEventArgs;
    type IFindNextElementOptions_Interface;
    type IFindNextElementOptions is access all IFindNextElementOptions_Interface'Class;
    type IFindNextElementOptions_Ptr is access all IFindNextElementOptions;
    type IFocusManager_Interface;
    type IFocusManager is access all IFocusManager_Interface'Class;
    type IFocusManager_Ptr is access all IFocusManager;
+   type IFocusManagerGotFocusEventArgs_Interface;
+   type IFocusManagerGotFocusEventArgs is access all IFocusManagerGotFocusEventArgs_Interface'Class;
+   type IFocusManagerGotFocusEventArgs_Ptr is access all IFocusManagerGotFocusEventArgs;
+   type IFocusManagerLostFocusEventArgs_Interface;
+   type IFocusManagerLostFocusEventArgs is access all IFocusManagerLostFocusEventArgs_Interface'Class;
+   type IFocusManagerLostFocusEventArgs_Ptr is access all IFocusManagerLostFocusEventArgs;
    type IFocusManagerStatics_Interface;
    type IFocusManagerStatics is access all IFocusManagerStatics_Interface'Class;
    type IFocusManagerStatics_Ptr is access all IFocusManagerStatics;
@@ -410,6 +484,9 @@ package Windows.UI.Xaml.Input is
    type IFocusManagerStatics5_Interface;
    type IFocusManagerStatics5 is access all IFocusManagerStatics5_Interface'Class;
    type IFocusManagerStatics5_Ptr is access all IFocusManagerStatics5;
+   type IFocusManagerStatics6_Interface;
+   type IFocusManagerStatics6 is access all IFocusManagerStatics6_Interface'Class;
+   type IFocusManagerStatics6_Ptr is access all IFocusManagerStatics6;
    type IFocusMovementResult_Interface;
    type IFocusMovementResult is access all IFocusMovementResult_Interface'Class;
    type IFocusMovementResult_Ptr is access all IFocusMovementResult;
@@ -419,6 +496,9 @@ package Windows.UI.Xaml.Input is
    type IGettingFocusEventArgs2_Interface;
    type IGettingFocusEventArgs2 is access all IGettingFocusEventArgs2_Interface'Class;
    type IGettingFocusEventArgs2_Ptr is access all IGettingFocusEventArgs2;
+   type IGettingFocusEventArgs3_Interface;
+   type IGettingFocusEventArgs3 is access all IGettingFocusEventArgs3_Interface'Class;
+   type IGettingFocusEventArgs3_Ptr is access all IGettingFocusEventArgs3;
    type IHoldingRoutedEventArgs_Interface;
    type IHoldingRoutedEventArgs is access all IHoldingRoutedEventArgs_Interface'Class;
    type IHoldingRoutedEventArgs_Ptr is access all IHoldingRoutedEventArgs;
@@ -488,6 +568,9 @@ package Windows.UI.Xaml.Input is
    type ILosingFocusEventArgs2_Interface;
    type ILosingFocusEventArgs2 is access all ILosingFocusEventArgs2_Interface'Class;
    type ILosingFocusEventArgs2_Ptr is access all ILosingFocusEventArgs2;
+   type ILosingFocusEventArgs3_Interface;
+   type ILosingFocusEventArgs3 is access all ILosingFocusEventArgs3_Interface'Class;
+   type ILosingFocusEventArgs3_Ptr is access all ILosingFocusEventArgs3;
    type IManipulationCompletedRoutedEventArgs_Interface;
    type IManipulationCompletedRoutedEventArgs is access all IManipulationCompletedRoutedEventArgs_Interface'Class;
    type IManipulationCompletedRoutedEventArgs_Ptr is access all IManipulationCompletedRoutedEventArgs;
@@ -530,6 +613,15 @@ package Windows.UI.Xaml.Input is
    type IRightTappedRoutedEventArgs_Interface;
    type IRightTappedRoutedEventArgs is access all IRightTappedRoutedEventArgs_Interface'Class;
    type IRightTappedRoutedEventArgs_Ptr is access all IRightTappedRoutedEventArgs;
+   type IStandardUICommand_Interface;
+   type IStandardUICommand is access all IStandardUICommand_Interface'Class;
+   type IStandardUICommand_Ptr is access all IStandardUICommand;
+   type IStandardUICommandFactory_Interface;
+   type IStandardUICommandFactory is access all IStandardUICommandFactory_Interface'Class;
+   type IStandardUICommandFactory_Ptr is access all IStandardUICommandFactory;
+   type IStandardUICommandStatics_Interface;
+   type IStandardUICommandStatics is access all IStandardUICommandStatics_Interface'Class;
+   type IStandardUICommandStatics_Ptr is access all IStandardUICommandStatics;
    type ITappedRoutedEventArgs_Interface;
    type ITappedRoutedEventArgs is access all ITappedRoutedEventArgs_Interface'Class;
    type ITappedRoutedEventArgs_Ptr is access all ITappedRoutedEventArgs;
@@ -548,6 +640,15 @@ package Windows.UI.Xaml.Input is
    type IVectorView_IPointer_Interface;
    type IVectorView_IPointer is access all IVectorView_IPointer_Interface'Class;
    type IVectorView_IPointer_Ptr is access all IVectorView_IPointer;
+   type IXamlUICommand_Interface;
+   type IXamlUICommand is access all IXamlUICommand_Interface'Class;
+   type IXamlUICommand_Ptr is access all IXamlUICommand;
+   type IXamlUICommandFactory_Interface;
+   type IXamlUICommandFactory is access all IXamlUICommandFactory_Interface'Class;
+   type IXamlUICommandFactory_Ptr is access all IXamlUICommandFactory;
+   type IXamlUICommandStatics_Interface;
+   type IXamlUICommandStatics is access all IXamlUICommandStatics_Interface'Class;
+   type IXamlUICommandStatics_Ptr is access all IXamlUICommandStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -614,7 +715,7 @@ package Windows.UI.Xaml.Input is
    function add_IsDisplayModeEnabledChanged
    (
       This       : access IAccessKeyManagerStatics_Interface
-      ; value : TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged
+      ; handler : TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -681,6 +782,33 @@ package Windows.UI.Xaml.Input is
    
    ------------------------------------------------------------------------
    
+   IID_ICanExecuteRequestedEventArgs : aliased constant Windows.IID := (3370603094, 6480, 20573, (153, 59, 117, 144, 126, 249, 104, 48 ));
+   
+   type ICanExecuteRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Parameter
+   (
+      This       : access ICanExecuteRequestedEventArgs_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanExecute
+   (
+      This       : access ICanExecuteRequestedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CanExecute
+   (
+      This       : access ICanExecuteRequestedEventArgs_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICharacterReceivedRoutedEventArgs : aliased constant Windows.IID := (2018114946, 18660, 17485, (148, 25, 147, 171, 136, 146, 193, 7 ));
    
    type ICharacterReceivedRoutedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -722,7 +850,7 @@ package Windows.UI.Xaml.Input is
    function add_CanExecuteChanged
    (
       This       : access ICommand_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -815,6 +943,19 @@ package Windows.UI.Xaml.Input is
    
    ------------------------------------------------------------------------
    
+   IID_IExecuteRequestedEventArgs : aliased constant Windows.IID := (3766462260, 41142, 22357, (158, 135, 36, 245, 76, 202, 147, 114 ));
+   
+   type IExecuteRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Parameter
+   (
+      This       : access IExecuteRequestedEventArgs_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IFindNextElementOptions : aliased constant Windows.IID := (3632980523, 18114, 16892, (137, 126, 181, 150, 25, 119, 184, 157 ));
    
    type IFindNextElementOptions_Interface is interface and Windows.IInspectable_Interface;
@@ -880,6 +1021,46 @@ package Windows.UI.Xaml.Input is
    IID_IFocusManager : aliased constant Windows.IID := (3359896843, 15235, 19873, (157, 111, 85, 124, 17, 105, 243, 65 ));
    
    type IFocusManager_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFocusManagerGotFocusEventArgs : aliased constant Windows.IID := (2544524675, 21339, 20602, (134, 142, 98, 183, 6, 240, 107, 97 ));
+   
+   type IFocusManagerGotFocusEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_NewFocusedElement
+   (
+      This       : access IFocusManagerGotFocusEventArgs_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CorrelationId
+   (
+      This       : access IFocusManagerGotFocusEventArgs_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFocusManagerLostFocusEventArgs : aliased constant Windows.IID := (1041596026, 38264, 23763, (170, 168, 5, 27, 61, 57, 25, 120 ));
+   
+   type IFocusManagerLostFocusEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_OldFocusedElement
+   (
+      This       : access IFocusManagerLostFocusEventArgs_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CorrelationId
+   (
+      This       : access IFocusManagerLostFocusEventArgs_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -1013,6 +1194,72 @@ package Windows.UI.Xaml.Input is
    
    ------------------------------------------------------------------------
    
+   IID_IFocusManagerStatics6 : aliased constant Windows.IID := (893821366, 8383, 20487, (146, 157, 230, 211, 46, 22, 175, 228 ));
+   
+   type IFocusManagerStatics6_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_GotFocus
+   (
+      This       : access IFocusManagerStatics6_Interface
+      ; handler : Windows.UI.Xaml.Input.EventHandler_IFocusManagerGotFocusEventArgs
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_GotFocus
+   (
+      This       : access IFocusManagerStatics6_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_LostFocus
+   (
+      This       : access IFocusManagerStatics6_Interface
+      ; handler : Windows.UI.Xaml.Input.EventHandler_IFocusManagerLostFocusEventArgs
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_LostFocus
+   (
+      This       : access IFocusManagerStatics6_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_GettingFocus
+   (
+      This       : access IFocusManagerStatics6_Interface
+      ; handler : Windows.UI.Xaml.Input.EventHandler_IGettingFocusEventArgs
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_GettingFocus
+   (
+      This       : access IFocusManagerStatics6_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_LosingFocus
+   (
+      This       : access IFocusManagerStatics6_Interface
+      ; handler : Windows.UI.Xaml.Input.EventHandler_ILosingFocusEventArgs
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_LosingFocus
+   (
+      This       : access IFocusManagerStatics6_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IFocusMovementResult : aliased constant Windows.IID := (115337939, 49838, 17595, (191, 171, 156, 115, 222, 132, 7, 164 ));
    
    type IFocusMovementResult_Interface is interface and Windows.IInspectable_Interface;
@@ -1118,6 +1365,19 @@ package Windows.UI.Xaml.Input is
       This       : access IGettingFocusEventArgs2_Interface
       ; element : Windows.UI.Xaml.IDependencyObject
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGettingFocusEventArgs3 : aliased constant Windows.IID := (1308772497, 56127, 24184, (183, 90, 98, 191, 195, 81, 7, 53 ));
+   
+   type IGettingFocusEventArgs3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CorrelationId
+   (
+      This       : access IGettingFocusEventArgs3_Interface
+      ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
    
@@ -1521,7 +1781,7 @@ package Windows.UI.Xaml.Input is
    function add_Invoked
    (
       This       : access IKeyboardAccelerator_Interface
-      ; value : TypedEventHandler_IKeyboardAccelerator_add_Invoked
+      ; handler : TypedEventHandler_IKeyboardAccelerator_add_Invoked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1542,8 +1802,8 @@ package Windows.UI.Xaml.Input is
    function CreateInstance
    (
       This       : access IKeyboardAcceleratorFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Input.IKeyboardAccelerator
    )
    return Windows.HRESULT is abstract;
@@ -1776,6 +2036,19 @@ package Windows.UI.Xaml.Input is
       This       : access ILosingFocusEventArgs2_Interface
       ; element : Windows.UI.Xaml.IDependencyObject
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILosingFocusEventArgs3 : aliased constant Windows.IID := (3381199037, 2937, 22126, (173, 31, 67, 111, 165, 19, 174, 34 ));
+   
+   type ILosingFocusEventArgs3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CorrelationId
+   (
+      This       : access ILosingFocusEventArgs3_Interface
+      ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
    
@@ -2125,8 +2398,8 @@ package Windows.UI.Xaml.Input is
    function CreateInstance
    (
       This       : access IManipulationStartedRoutedEventArgsFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs
    )
    return Windows.HRESULT is abstract;
@@ -2390,6 +2663,57 @@ package Windows.UI.Xaml.Input is
       This       : access IRightTappedRoutedEventArgs_Interface
       ; relativeTo : Windows.UI.Xaml.IUIElement
       ; RetVal : access Windows.Foundation.Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStandardUICommand : aliased constant Windows.IID := (3535765315, 1284, 21200, (138, 166, 12, 176, 247, 86, 235, 39 ));
+   
+   type IStandardUICommand_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Kind
+   (
+      This       : access IStandardUICommand_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.StandardUICommandKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStandardUICommandFactory : aliased constant Windows.IID := (2400875920, 56545, 22244, (171, 99, 245, 206, 60, 228, 235, 246 ));
+   
+   type IStandardUICommandFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IStandardUICommandFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Input.IStandardUICommand
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateInstanceWithKind
+   (
+      This       : access IStandardUICommandFactory_Interface
+      ; kind : Windows.UI.Xaml.Input.StandardUICommandKind
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Input.IStandardUICommand
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStandardUICommandStatics : aliased constant Windows.IID := (2124971737, 10616, 21811, (155, 46, 103, 89, 206, 136, 86, 159 ));
+   
+   type IStandardUICommandStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_KindProperty
+   (
+      This       : access IStandardUICommandStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
@@ -2736,6 +3060,188 @@ package Windows.UI.Xaml.Input is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IXamlUICommand : aliased constant Windows.IID := (2224355540, 60113, 24321, (173, 46, 168, 202, 212, 249, 220, 14 ));
+   
+   type IXamlUICommand_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Label
+   (
+      This       : access IXamlUICommand_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Label
+   (
+      This       : access IXamlUICommand_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IconSource
+   (
+      This       : access IXamlUICommand_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.IIconSource
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IconSource
+   (
+      This       : access IXamlUICommand_Interface
+      ; value : Windows.UI.Xaml.Controls.IIconSource
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeyboardAccelerators
+   (
+      This       : access IXamlUICommand_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.IVector_IKeyboardAccelerator -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AccessKey
+   (
+      This       : access IXamlUICommand_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AccessKey
+   (
+      This       : access IXamlUICommand_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IXamlUICommand_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IXamlUICommand_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Command
+   (
+      This       : access IXamlUICommand_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.ICommand
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Command
+   (
+      This       : access IXamlUICommand_Interface
+      ; value : Windows.UI.Xaml.Input.ICommand
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_ExecuteRequested
+   (
+      This       : access IXamlUICommand_Interface
+      ; handler : TypedEventHandler_IXamlUICommand_add_ExecuteRequested
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ExecuteRequested
+   (
+      This       : access IXamlUICommand_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_CanExecuteRequested
+   (
+      This       : access IXamlUICommand_Interface
+      ; handler : TypedEventHandler_IXamlUICommand_add_CanExecuteRequested
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_CanExecuteRequested
+   (
+      This       : access IXamlUICommand_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function NotifyCanExecuteChanged
+   (
+      This       : access IXamlUICommand_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlUICommandFactory : aliased constant Windows.IID := (518785219, 57441, 24080, (159, 42, 43, 170, 132, 8, 133, 194 ));
+   
+   type IXamlUICommandFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IXamlUICommandFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Input.IXamlUICommand
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlUICommandStatics : aliased constant Windows.IID := (1723614588, 6668, 22765, (135, 110, 113, 83, 63, 150, 109, 182 ));
+   
+   type IXamlUICommandStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_LabelProperty
+   (
+      This       : access IXamlUICommandStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IconSourceProperty
+   (
+      This       : access IXamlUICommandStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_KeyboardAcceleratorsProperty
+   (
+      This       : access IXamlUICommandStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AccessKeyProperty
+   (
+      This       : access IXamlUICommandStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DescriptionProperty
+   (
+      This       : access IXamlUICommandStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CommandProperty
+   (
+      This       : access IXamlUICommandStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -2762,6 +3268,58 @@ package Windows.UI.Xaml.Input is
       This       : access DoubleTappedEventHandler_Interface
       ; sender : Windows.Object
       ; e : Windows.UI.Xaml.Input.IDoubleTappedRoutedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_EventHandler_IFocusManagerGotFocusEventArgs : aliased constant Windows.IID := (1979716964, 25320, 23072, (189, 61, 105, 92, 245, 168, 173, 105 ));
+   
+   type EventHandler_IFocusManagerGotFocusEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Xaml.Input.IFocusManagerGotFocusEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IFocusManagerGotFocusEventArgs'access) with null record;
+   function Invoke
+   (
+      This       : access EventHandler_IFocusManagerGotFocusEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Xaml.Input.IFocusManagerGotFocusEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_EventHandler_IFocusManagerLostFocusEventArgs : aliased constant Windows.IID := (665520699, 26804, 24019, (134, 193, 203, 12, 140, 47, 57, 25 ));
+   
+   type EventHandler_IFocusManagerLostFocusEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Xaml.Input.IFocusManagerLostFocusEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IFocusManagerLostFocusEventArgs'access) with null record;
+   function Invoke
+   (
+      This       : access EventHandler_IFocusManagerLostFocusEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Xaml.Input.IFocusManagerLostFocusEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_EventHandler_IGettingFocusEventArgs : aliased constant Windows.IID := (788137386, 48576, 20877, (130, 118, 73, 166, 41, 239, 166, 66 ));
+   
+   type EventHandler_IGettingFocusEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Xaml.Input.IGettingFocusEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IGettingFocusEventArgs'access) with null record;
+   function Invoke
+   (
+      This       : access EventHandler_IGettingFocusEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Xaml.Input.IGettingFocusEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_EventHandler_ILosingFocusEventArgs : aliased constant Windows.IID := (2977582943, 7839, 24033, (171, 93, 111, 88, 223, 125, 14, 71 ));
+   
+   type EventHandler_ILosingFocusEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.Xaml.Input.ILosingFocusEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_ILosingFocusEventArgs'access) with null record;
+   function Invoke
+   (
+      This       : access EventHandler_ILosingFocusEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.Xaml.Input.ILosingFocusEventArgs
    )
    return Windows.HRESULT;
    
@@ -2922,6 +3480,32 @@ package Windows.UI.Xaml.Input is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IXamlUICommand_add_CanExecuteRequested : aliased constant Windows.IID := (3164538942, 62079, 20963, (132, 126, 98, 14, 4, 123, 74, 12 ));
+   
+   type TypedEventHandler_IXamlUICommand_add_CanExecuteRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Input.IXamlUICommand ; args : Windows.UI.Xaml.Input.ICanExecuteRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IXamlUICommand_add_CanExecuteRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IXamlUICommand_add_CanExecuteRequested_Interface
+      ; sender : Windows.UI.Xaml.Input.IXamlUICommand
+      ; args : Windows.UI.Xaml.Input.ICanExecuteRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IXamlUICommand_add_ExecuteRequested : aliased constant Windows.IID := (905660468, 6964, 21532, (189, 151, 230, 198, 11, 233, 180, 251 ));
+   
+   type TypedEventHandler_IXamlUICommand_add_ExecuteRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Input.IXamlUICommand ; args : Windows.UI.Xaml.Input.IExecuteRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IXamlUICommand_add_ExecuteRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IXamlUICommand_add_ExecuteRequested_Interface
+      ; sender : Windows.UI.Xaml.Input.IXamlUICommand
+      ; args : Windows.UI.Xaml.Input.IExecuteRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -2935,6 +3519,7 @@ package Windows.UI.Xaml.Input is
    function Create return Windows.UI.Xaml.Input.IAccessKeyInvokedEventArgs;
    
    subtype AccessKeyManager is Windows.UI.Xaml.Input.IAccessKeyManager;
+   subtype CanExecuteRequestedEventArgs is Windows.UI.Xaml.Input.ICanExecuteRequestedEventArgs;
    subtype CharacterReceivedRoutedEventArgs is Windows.UI.Xaml.Input.ICharacterReceivedRoutedEventArgs;
    subtype ContextRequestedEventArgs is Windows.UI.Xaml.Input.IContextRequestedEventArgs;
    function Create return Windows.UI.Xaml.Input.IContextRequestedEventArgs;
@@ -2942,10 +3527,13 @@ package Windows.UI.Xaml.Input is
    subtype DoubleTappedRoutedEventArgs is Windows.UI.Xaml.Input.IDoubleTappedRoutedEventArgs;
    function Create return Windows.UI.Xaml.Input.IDoubleTappedRoutedEventArgs;
    
+   subtype ExecuteRequestedEventArgs is Windows.UI.Xaml.Input.IExecuteRequestedEventArgs;
    subtype FindNextElementOptions is Windows.UI.Xaml.Input.IFindNextElementOptions;
    function Create return Windows.UI.Xaml.Input.IFindNextElementOptions;
    
    subtype FocusManager is Windows.UI.Xaml.Input.IFocusManager;
+   subtype FocusManagerGotFocusEventArgs is Windows.UI.Xaml.Input.IFocusManagerGotFocusEventArgs;
+   subtype FocusManagerLostFocusEventArgs is Windows.UI.Xaml.Input.IFocusManagerLostFocusEventArgs;
    subtype FocusMovementResult is Windows.UI.Xaml.Input.IFocusMovementResult;
    subtype GettingFocusEventArgs is Windows.UI.Xaml.Input.IGettingFocusEventArgs;
    subtype HoldingRoutedEventArgs is Windows.UI.Xaml.Input.IHoldingRoutedEventArgs;
@@ -3078,7 +3666,7 @@ package Windows.UI.Xaml.Input is
    function add_Invoked
    (
       This       : access IKeyboardAccelerator_Interface_Impl
-      ; value : TypedEventHandler_IKeyboardAccelerator_add_Invoked
+      ; handler : TypedEventHandler_IKeyboardAccelerator_add_Invoked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -3223,8 +3811,234 @@ package Windows.UI.Xaml.Input is
    subtype RightTappedRoutedEventArgs is Windows.UI.Xaml.Input.IRightTappedRoutedEventArgs;
    function Create return Windows.UI.Xaml.Input.IRightTappedRoutedEventArgs;
    
+   subtype StandardUICommand is Windows.UI.Xaml.Input.IStandardUICommand;
+   
+   type IStandardUICommand_Interface_Impl is new IStandardUICommand_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IStandardUICommand := null;
+      m_IStandardUICommand : IStandardUICommand := null;
+   end record;
+   type IStandardUICommand_Impl is access all IStandardUICommand_Interface_Impl'Class;
+   type IStandardUICommand_Impl_Ptr is access all IStandardUICommand_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IStandardUICommand_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IStandardUICommand_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IStandardUICommand_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IStandardUICommand_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IStandardUICommand_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IStandardUICommand_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Kind
+   (
+      This       : access IStandardUICommand_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Input.StandardUICommandKind
+   )
+   return Windows.HRESULT;
+   
    subtype TappedRoutedEventArgs is Windows.UI.Xaml.Input.ITappedRoutedEventArgs;
    function Create return Windows.UI.Xaml.Input.ITappedRoutedEventArgs;
+   
+   subtype XamlUICommand is Windows.UI.Xaml.Input.IXamlUICommand;
+   
+   type IXamlUICommand_Interface_Impl is new IXamlUICommand_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IXamlUICommand := null;
+      m_IXamlUICommand : IXamlUICommand := null;
+   end record;
+   type IXamlUICommand_Impl is access all IXamlUICommand_Interface_Impl'Class;
+   type IXamlUICommand_Impl_Ptr is access all IXamlUICommand_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IXamlUICommand_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IXamlUICommand_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IXamlUICommand_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IXamlUICommand_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IXamlUICommand_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IXamlUICommand_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Label
+   (
+      This       : access IXamlUICommand_Interface_Impl
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function put_Label
+   (
+      This       : access IXamlUICommand_Interface_Impl
+      ; value : Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function get_IconSource
+   (
+      This       : access IXamlUICommand_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.IIconSource
+   )
+   return Windows.HRESULT;
+   
+   function put_IconSource
+   (
+      This       : access IXamlUICommand_Interface_Impl
+      ; value : Windows.UI.Xaml.Controls.IIconSource
+   )
+   return Windows.HRESULT;
+   
+   function get_KeyboardAccelerators
+   (
+      This       : access IXamlUICommand_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Input.IVector_IKeyboardAccelerator -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function get_AccessKey
+   (
+      This       : access IXamlUICommand_Interface_Impl
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function put_AccessKey
+   (
+      This       : access IXamlUICommand_Interface_Impl
+      ; value : Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function get_Description
+   (
+      This       : access IXamlUICommand_Interface_Impl
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function put_Description
+   (
+      This       : access IXamlUICommand_Interface_Impl
+      ; value : Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function get_Command
+   (
+      This       : access IXamlUICommand_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Input.ICommand
+   )
+   return Windows.HRESULT;
+   
+   function put_Command
+   (
+      This       : access IXamlUICommand_Interface_Impl
+      ; value : Windows.UI.Xaml.Input.ICommand
+   )
+   return Windows.HRESULT;
+   
+   function add_ExecuteRequested
+   (
+      This       : access IXamlUICommand_Interface_Impl
+      ; handler : TypedEventHandler_IXamlUICommand_add_ExecuteRequested
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT;
+   
+   function remove_ExecuteRequested
+   (
+      This       : access IXamlUICommand_Interface_Impl
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT;
+   
+   function add_CanExecuteRequested
+   (
+      This       : access IXamlUICommand_Interface_Impl
+      ; handler : TypedEventHandler_IXamlUICommand_add_CanExecuteRequested
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT;
+   
+   function remove_CanExecuteRequested
+   (
+      This       : access IXamlUICommand_Interface_Impl
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT;
+   
+   function NotifyCanExecuteChanged
+   (
+      This       : access IXamlUICommand_Interface_Impl
+   )
+   return Windows.HRESULT;
    
    
    ------------------------------------------------------------------------
@@ -3233,7 +4047,7 @@ package Windows.UI.Xaml.Input is
    
    function add_IsDisplayModeEnabledChanged
    (
-      value : TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged
+      handler : TypedEventHandler_IAccessKeyManagerStatics_add_IsDisplayModeEnabledChanged
    )
    return Windows.Foundation.EventRegistrationToken;
    
@@ -3332,10 +4146,58 @@ package Windows.UI.Xaml.Input is
    )
    return Windows.UI.Xaml.Input.IAsyncOperation_IFocusMovementResult;
    
+   function add_GettingFocus
+   (
+      handler : Windows.UI.Xaml.Input.EventHandler_IGettingFocusEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_GotFocus
+   (
+      handler : Windows.UI.Xaml.Input.EventHandler_IFocusManagerGotFocusEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_LosingFocus
+   (
+      handler : Windows.UI.Xaml.Input.EventHandler_ILosingFocusEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_LostFocus
+   (
+      handler : Windows.UI.Xaml.Input.EventHandler_IFocusManagerLostFocusEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_GettingFocus
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_GotFocus
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_LosingFocus
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_LostFocus
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Input.IKeyboardAccelerator;
    
@@ -3353,9 +4215,52 @@ package Windows.UI.Xaml.Input is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Input.IStandardUICommand;
+   
+   function CreateInstanceWithKind
+   (
+      kind : Windows.UI.Xaml.Input.StandardUICommandKind
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Input.IStandardUICommand;
+   
+   function get_KindProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Input.IXamlUICommand;
+   
+   function get_AccessKeyProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CommandProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DescriptionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IconSourceProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_KeyboardAcceleratorsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LabelProperty
+   return Windows.UI.Xaml.IDependencyProperty;
    
 end;

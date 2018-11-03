@@ -82,6 +82,9 @@ package Windows.ApplicationModel.UserActivities is
    type IUserActivity2_Interface;
    type IUserActivity2 is access all IUserActivity2_Interface'Class;
    type IUserActivity2_Ptr is access all IUserActivity2;
+   type IUserActivity3_Interface;
+   type IUserActivity3 is access all IUserActivity3_Interface'Class;
+   type IUserActivity3_Ptr is access all IUserActivity3;
    type IUserActivityAttribution_Interface;
    type IUserActivityAttribution is access all IUserActivityAttribution_Interface'Class;
    type IUserActivityAttribution_Ptr is access all IUserActivityAttribution;
@@ -343,6 +346,26 @@ package Windows.ApplicationModel.UserActivities is
    (
       This       : access IUserActivity2_Interface
       ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUserActivity3 : aliased constant Windows.IID := (3882448708, 57762, 20807, (142, 6, 85, 241, 238, 239, 39, 28 ));
+   
+   type IUserActivity3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsRoamable
+   (
+      This       : access IUserActivity3_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsRoamable
+   (
+      This       : access IUserActivity3_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    

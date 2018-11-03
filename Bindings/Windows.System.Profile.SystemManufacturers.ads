@@ -50,9 +50,15 @@ package Windows.System.Profile.SystemManufacturers is
    type ISmbiosInformationStatics_Interface;
    type ISmbiosInformationStatics is access all ISmbiosInformationStatics_Interface'Class;
    type ISmbiosInformationStatics_Ptr is access all ISmbiosInformationStatics;
+   type ISystemSupportDeviceInfo_Interface;
+   type ISystemSupportDeviceInfo is access all ISystemSupportDeviceInfo_Interface'Class;
+   type ISystemSupportDeviceInfo_Ptr is access all ISystemSupportDeviceInfo;
    type ISystemSupportInfoStatics_Interface;
    type ISystemSupportInfoStatics is access all ISystemSupportInfoStatics_Interface'Class;
    type ISystemSupportInfoStatics_Ptr is access all ISystemSupportInfoStatics;
+   type ISystemSupportInfoStatics2_Interface;
+   type ISystemSupportInfoStatics2 is access all ISystemSupportInfoStatics2_Interface'Class;
+   type ISystemSupportInfoStatics2_Ptr is access all ISystemSupportInfoStatics2;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -100,6 +106,61 @@ package Windows.System.Profile.SystemManufacturers is
    
    ------------------------------------------------------------------------
    
+   IID_ISystemSupportDeviceInfo : aliased constant Windows.IID := (92801945, 33351, 17435, (169, 150, 161, 120, 75, 171, 121, 168 ));
+   
+   type ISystemSupportDeviceInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_OperatingSystem
+   (
+      This       : access ISystemSupportDeviceInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FriendlyName
+   (
+      This       : access ISystemSupportDeviceInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SystemManufacturer
+   (
+      This       : access ISystemSupportDeviceInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SystemProductName
+   (
+      This       : access ISystemSupportDeviceInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SystemSku
+   (
+      This       : access ISystemSupportDeviceInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SystemHardwareVersion
+   (
+      This       : access ISystemSupportDeviceInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SystemFirmwareVersion
+   (
+      This       : access ISystemSupportDeviceInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISystemSupportInfoStatics : aliased constant Windows.IID := (4017424756, 50210, 17879, (164, 77, 92, 28, 0, 67, 162, 179 ));
    
    type ISystemSupportInfoStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -119,10 +180,24 @@ package Windows.System.Profile.SystemManufacturers is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_ISystemSupportInfoStatics2 : aliased constant Windows.IID := (871582116, 16289, 18822, (170, 75, 5, 116, 32, 69, 94, 109 ));
+   
+   type ISystemSupportInfoStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_LocalDeviceInfo
+   (
+      This       : access ISystemSupportInfoStatics2_Interface
+      ; RetVal : access Windows.System.Profile.SystemManufacturers.ISystemSupportDeviceInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype OemSupportInfo is Windows.System.Profile.SystemManufacturers.IOemSupportInfo;
+   subtype SystemSupportDeviceInfo is Windows.System.Profile.SystemManufacturers.ISystemSupportDeviceInfo;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
@@ -136,5 +211,8 @@ package Windows.System.Profile.SystemManufacturers is
    
    function get_OemSupportInfo
    return Windows.System.Profile.SystemManufacturers.IOemSupportInfo;
+   
+   function get_LocalDeviceInfo
+   return Windows.System.Profile.SystemManufacturers.ISystemSupportDeviceInfo;
    
 end;

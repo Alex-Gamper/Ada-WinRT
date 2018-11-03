@@ -240,7 +240,7 @@ package body Windows.UI.Xaml.Printing is
    function add_Paginate
    (
       This       : access IPrintDocument_Interface_Impl
-      ; value : Windows.UI.Xaml.Printing.PaginateEventHandler
+      ; handler : Windows.UI.Xaml.Printing.PaginateEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -263,7 +263,7 @@ package body Windows.UI.Xaml.Printing is
    function add_GetPreviewPage
    (
       This       : access IPrintDocument_Interface_Impl
-      ; value : Windows.UI.Xaml.Printing.GetPreviewPageEventHandler
+      ; handler : Windows.UI.Xaml.Printing.GetPreviewPageEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -286,7 +286,7 @@ package body Windows.UI.Xaml.Printing is
    function add_AddPages
    (
       This       : access IPrintDocument_Interface_Impl
-      ; value : Windows.UI.Xaml.Printing.AddPagesEventHandler
+      ; handler : Windows.UI.Xaml.Printing.AddPagesEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -367,8 +367,8 @@ package body Windows.UI.Xaml.Printing is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Printing.IPrintDocument is
       Hr            : Windows.HRESULT := S_OK;
@@ -379,7 +379,7 @@ package body Windows.UI.Xaml.Printing is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IPrintDocumentFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -26,6 +26,9 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.ApplicationModel.DataTransfer;
+with Windows.Storage.Streams;
+with Windows.System;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Services.Cortana is
@@ -51,6 +54,23 @@ package body Windows.Services.Cortana is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
+   function Create return Windows.Services.Cortana.ICortanaActionableInsightsOptions is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Cortana.CortanaActionableInsightsOptions");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.Services.Cortana.ICortanaActionableInsightsOptions) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.Services.Cortana.IID_ICortanaActionableInsightsOptions'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -58,6 +78,43 @@ package body Windows.Services.Cortana is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetDefault
+   return Windows.Services.Cortana.ICortanaActionableInsights is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Cortana.CortanaActionableInsights");
+      m_Factory     : ICortanaActionableInsightsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Services.Cortana.ICortanaActionableInsights;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICortanaActionableInsightsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Services.Cortana.ICortanaActionableInsights is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Services.Cortana.CortanaActionableInsights");
+      m_Factory     : ICortanaActionableInsightsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Services.Cortana.ICortanaActionableInsights;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICortanaActionableInsightsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function GetDefault
    return Windows.Services.Cortana.ICortanaPermissionsManager is

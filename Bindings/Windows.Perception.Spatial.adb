@@ -39,6 +39,19 @@ package body Windows.Perception.Spatial is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_ISpatialAnchorExportSufficiency_Interface
+      ; asyncInfo : Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorExportSufficiency
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_ISpatialAnchorStore_Interface
       ; asyncInfo : Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorStore
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -283,6 +296,40 @@ package body Windows.Perception.Spatial is
       return RetVal;
    end;
    
+   function GetDefault
+   return Windows.Perception.Spatial.ISpatialAnchorExporter is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialAnchorExporter");
+      m_Factory     : ISpatialAnchorExporterStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Perception.Spatial.ISpatialAnchorExporter;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialAnchorExporterStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestAccessAsync
+   return Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialAnchorExporter");
+      m_Factory     : ISpatialAnchorExporterStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialAnchorExporterStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestAccessAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function RequestStoreAsync
    return Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorStore is
       Hr            : Windows.HRESULT := S_OK;
@@ -300,7 +347,7 @@ package body Windows.Perception.Spatial is
       return RetVal;
    end;
    
-   function RequestAccessAsync
+   function RequestAccessAsync_SpatialAnchorTransferManager
    return Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.Perception.Spatial.SpatialAnchorTransferManager");

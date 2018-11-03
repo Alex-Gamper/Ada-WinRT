@@ -92,18 +92,52 @@ package Windows.UI.Xaml.Controls.Primitives is
       Bottom,
       Left,
       Right,
-      Full
+      Full,
+      TopEdgeAlignedLeft,
+      TopEdgeAlignedRight,
+      BottomEdgeAlignedLeft,
+      BottomEdgeAlignedRight,
+      LeftEdgeAlignedTop,
+      LeftEdgeAlignedBottom,
+      RightEdgeAlignedTop,
+      RightEdgeAlignedBottom,
+      Auto
    );
    for FlyoutPlacementMode use (
       Top => 0,
       Bottom => 1,
       Left => 2,
       Right => 3,
-      Full => 4
+      Full => 4,
+      TopEdgeAlignedLeft => 5,
+      TopEdgeAlignedRight => 6,
+      BottomEdgeAlignedLeft => 7,
+      BottomEdgeAlignedRight => 8,
+      LeftEdgeAlignedTop => 9,
+      LeftEdgeAlignedBottom => 10,
+      RightEdgeAlignedTop => 11,
+      RightEdgeAlignedBottom => 12,
+      Auto => 13
    );
    for FlyoutPlacementMode'Size use 32;
    
    type FlyoutPlacementMode_Ptr is access FlyoutPlacementMode;
+   
+   type FlyoutShowMode is (
+      Auto,
+      Standard_x,
+      Transient,
+      TransientWithDismissOnPointerMoveAway
+   );
+   for FlyoutShowMode use (
+      Auto => 0,
+      Standard_x => 1,
+      Transient => 2,
+      TransientWithDismissOnPointerMoveAway => 3
+   );
+   for FlyoutShowMode'Size use 32;
+   
+   type FlyoutShowMode_Ptr is access FlyoutShowMode;
    
    type GeneratorDirection is (
       Forward,
@@ -342,6 +376,15 @@ package Windows.UI.Xaml.Controls.Primitives is
    type IComboBoxTemplateSettings2_Interface;
    type IComboBoxTemplateSettings2 is access all IComboBoxTemplateSettings2_Interface'Class;
    type IComboBoxTemplateSettings2_Ptr is access all IComboBoxTemplateSettings2;
+   type ICommandBarFlyoutCommandBar_Interface;
+   type ICommandBarFlyoutCommandBar is access all ICommandBarFlyoutCommandBar_Interface'Class;
+   type ICommandBarFlyoutCommandBar_Ptr is access all ICommandBarFlyoutCommandBar;
+   type ICommandBarFlyoutCommandBarFactory_Interface;
+   type ICommandBarFlyoutCommandBarFactory is access all ICommandBarFlyoutCommandBarFactory_Interface'Class;
+   type ICommandBarFlyoutCommandBarFactory_Ptr is access all ICommandBarFlyoutCommandBarFactory;
+   type ICommandBarFlyoutCommandBarTemplateSettings_Interface;
+   type ICommandBarFlyoutCommandBarTemplateSettings is access all ICommandBarFlyoutCommandBarTemplateSettings_Interface'Class;
+   type ICommandBarFlyoutCommandBarTemplateSettings_Ptr is access all ICommandBarFlyoutCommandBarTemplateSettings;
    type ICommandBarTemplateSettings_Interface;
    type ICommandBarTemplateSettings is access all ICommandBarTemplateSettings_Interface'Class;
    type ICommandBarTemplateSettings_Ptr is access all ICommandBarTemplateSettings;
@@ -381,6 +424,9 @@ package Windows.UI.Xaml.Controls.Primitives is
    type IFlyoutBase4_Interface;
    type IFlyoutBase4 is access all IFlyoutBase4_Interface'Class;
    type IFlyoutBase4_Ptr is access all IFlyoutBase4;
+   type IFlyoutBase5_Interface;
+   type IFlyoutBase5 is access all IFlyoutBase5_Interface'Class;
+   type IFlyoutBase5_Ptr is access all IFlyoutBase5;
    type IFlyoutBaseClosingEventArgs_Interface;
    type IFlyoutBaseClosingEventArgs is access all IFlyoutBaseClosingEventArgs_Interface'Class;
    type IFlyoutBaseClosingEventArgs_Ptr is access all IFlyoutBaseClosingEventArgs;
@@ -402,6 +448,15 @@ package Windows.UI.Xaml.Controls.Primitives is
    type IFlyoutBaseStatics3_Interface;
    type IFlyoutBaseStatics3 is access all IFlyoutBaseStatics3_Interface'Class;
    type IFlyoutBaseStatics3_Ptr is access all IFlyoutBaseStatics3;
+   type IFlyoutBaseStatics5_Interface;
+   type IFlyoutBaseStatics5 is access all IFlyoutBaseStatics5_Interface'Class;
+   type IFlyoutBaseStatics5_Ptr is access all IFlyoutBaseStatics5;
+   type IFlyoutShowOptions_Interface;
+   type IFlyoutShowOptions is access all IFlyoutShowOptions_Interface'Class;
+   type IFlyoutShowOptions_Ptr is access all IFlyoutShowOptions;
+   type IFlyoutShowOptionsFactory_Interface;
+   type IFlyoutShowOptionsFactory is access all IFlyoutShowOptionsFactory_Interface'Class;
+   type IFlyoutShowOptionsFactory_Ptr is access all IFlyoutShowOptionsFactory;
    type IGeneratorPositionHelper_Interface;
    type IGeneratorPositionHelper is access all IGeneratorPositionHelper_Interface'Class;
    type IGeneratorPositionHelper_Ptr is access all IGeneratorPositionHelper;
@@ -492,6 +547,15 @@ package Windows.UI.Xaml.Controls.Primitives is
    type IMenuFlyoutPresenterTemplateSettings_Interface;
    type IMenuFlyoutPresenterTemplateSettings is access all IMenuFlyoutPresenterTemplateSettings_Interface'Class;
    type IMenuFlyoutPresenterTemplateSettings_Ptr is access all IMenuFlyoutPresenterTemplateSettings;
+   type INavigationViewItemPresenter_Interface;
+   type INavigationViewItemPresenter is access all INavigationViewItemPresenter_Interface'Class;
+   type INavigationViewItemPresenter_Ptr is access all INavigationViewItemPresenter;
+   type INavigationViewItemPresenterFactory_Interface;
+   type INavigationViewItemPresenterFactory is access all INavigationViewItemPresenterFactory_Interface'Class;
+   type INavigationViewItemPresenterFactory_Ptr is access all INavigationViewItemPresenterFactory;
+   type INavigationViewItemPresenterStatics_Interface;
+   type INavigationViewItemPresenterStatics is access all INavigationViewItemPresenterStatics_Interface'Class;
+   type INavigationViewItemPresenterStatics_Ptr is access all INavigationViewItemPresenterStatics;
    type IOrientedVirtualizingPanel_Interface;
    type IOrientedVirtualizingPanel is access all IOrientedVirtualizingPanel_Interface'Class;
    type IOrientedVirtualizingPanel_Ptr is access all IOrientedVirtualizingPanel;
@@ -784,7 +848,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Click
    (
       This       : access IButtonBase_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -805,8 +869,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    function CreateInstance
    (
       This       : access IButtonBaseFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IButtonBase
    )
    return Windows.HRESULT is abstract;
@@ -1163,8 +1227,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    function CreateInstance
    (
       This       : access ICarouselPanelFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.ICarouselPanel
    )
    return Windows.HRESULT is abstract;
@@ -1198,8 +1262,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    function CreateInstance
    (
       This       : access IColorPickerSliderFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IColorPickerSlider
    )
    return Windows.HRESULT is abstract;
@@ -1366,7 +1430,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_ColorChanged
    (
       This       : access IColorSpectrum_Interface
-      ; value : TypedEventHandler_IColorSpectrum_add_ColorChanged
+      ; handler : TypedEventHandler_IColorSpectrum_add_ColorChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1387,8 +1451,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    function CreateInstance
    (
       This       : access IColorSpectrumFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IColorSpectrum
    )
    return Windows.HRESULT is abstract;
@@ -1518,6 +1582,180 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    ------------------------------------------------------------------------
    
+   IID_ICommandBarFlyoutCommandBar : aliased constant Windows.IID := (336883324, 14532, 21956, (183, 6, 206, 24, 246, 6, 30, 126 ));
+   
+   type ICommandBarFlyoutCommandBar_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FlyoutTemplateSettings
+   (
+      This       : access ICommandBarFlyoutCommandBar_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBarTemplateSettings
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICommandBarFlyoutCommandBarFactory : aliased constant Windows.IID := (4163071903, 21849, 22167, (142, 111, 32, 215, 12, 161, 125, 208 ));
+   
+   type ICommandBarFlyoutCommandBarFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access ICommandBarFlyoutCommandBarFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBar
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICommandBarFlyoutCommandBarTemplateSettings : aliased constant Windows.IID := (1197747268, 9983, 23828, (156, 252, 119, 220, 100, 243, 164, 71 ));
+   
+   type ICommandBarFlyoutCommandBarTemplateSettings_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_OpenAnimationStartPosition
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OpenAnimationEndPosition
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CloseAnimationEndPosition
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CurrentWidth
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExpandedWidth
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WidthExpansionDelta
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WidthExpansionAnimationStartPosition
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WidthExpansionAnimationEndPosition
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WidthExpansionMoreButtonAnimationStartPosition
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WidthExpansionMoreButtonAnimationEndPosition
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExpandUpOverflowVerticalPosition
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExpandDownOverflowVerticalPosition
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExpandUpAnimationStartPosition
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExpandUpAnimationEndPosition
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExpandUpAnimationHoldPosition
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExpandDownAnimationStartPosition
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExpandDownAnimationEndPosition
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExpandDownAnimationHoldPosition
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ContentClipRect
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OverflowContentClipRect
+   (
+      This       : access ICommandBarFlyoutCommandBarTemplateSettings_Interface
+      ; RetVal : access Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICommandBarTemplateSettings : aliased constant Windows.IID := (1640560940, 1450, 16714, (162, 174, 72, 44, 90, 70, 192, 142 ));
    
    type ICommandBarTemplateSettings_Interface is interface and Windows.IInspectable_Interface;
@@ -1636,8 +1874,8 @@ package Windows.UI.Xaml.Controls.Primitives is
       ; horizontalChange : Windows.Double
       ; verticalChange : Windows.Double
       ; canceled : Windows.Boolean
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IDragCompletedEventArgs
    )
    return Windows.HRESULT is abstract;
@@ -1673,8 +1911,8 @@ package Windows.UI.Xaml.Controls.Primitives is
       This       : access IDragDeltaEventArgsFactory_Interface
       ; horizontalChange : Windows.Double
       ; verticalChange : Windows.Double
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IDragDeltaEventArgs
    )
    return Windows.HRESULT is abstract;
@@ -1710,8 +1948,8 @@ package Windows.UI.Xaml.Controls.Primitives is
       This       : access IDragStartedEventArgsFactory_Interface
       ; horizontalOffset : Windows.Double
       ; verticalOffset : Windows.Double
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IDragStartedEventArgs
    )
    return Windows.HRESULT is abstract;
@@ -1739,7 +1977,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Opened
    (
       This       : access IFlyoutBase_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1754,7 +1992,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Closed
    (
       This       : access IFlyoutBase_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1769,7 +2007,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Opening
    (
       This       : access IFlyoutBase_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1866,7 +2104,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Closing
    (
       This       : access IFlyoutBase2_Interface
-      ; value : TypedEventHandler_IFlyoutBase2_add_Closing
+      ; handler : TypedEventHandler_IFlyoutBase2_add_Closing
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1913,6 +2151,62 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    ------------------------------------------------------------------------
    
+   IID_IFlyoutBase5 : aliased constant Windows.IID := (2906570951, 4795, 23155, (183, 142, 16, 81, 146, 202, 115, 214 ));
+   
+   type IFlyoutBase5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ShowMode
+   (
+      This       : access IFlyoutBase5_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.FlyoutShowMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ShowMode
+   (
+      This       : access IFlyoutBase5_Interface
+      ; value : Windows.UI.Xaml.Controls.Primitives.FlyoutShowMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InputDevicePrefersPrimaryCommands
+   (
+      This       : access IFlyoutBase5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AreOpenCloseAnimationsEnabled
+   (
+      This       : access IFlyoutBase5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AreOpenCloseAnimationsEnabled
+   (
+      This       : access IFlyoutBase5_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsOpen
+   (
+      This       : access IFlyoutBase5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowAt
+   (
+      This       : access IFlyoutBase5_Interface
+      ; placementTarget : Windows.UI.Xaml.IDependencyObject
+      ; showOptions : Windows.UI.Xaml.Controls.Primitives.IFlyoutShowOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IFlyoutBaseClosingEventArgs : aliased constant Windows.IID := (3497362733, 45210, 20433, (176, 5, 219, 43, 160, 18, 6, 251 ));
    
    type IFlyoutBaseClosingEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -1940,8 +2234,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    function CreateInstance
    (
       This       : access IFlyoutBaseFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
    )
    return Windows.HRESULT is abstract;
@@ -2059,6 +2353,124 @@ package Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IFlyoutBaseStatics3_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFlyoutBaseStatics5 : aliased constant Windows.IID := (1777185372, 39210, 21547, (188, 255, 47, 127, 133, 85, 35, 189 ));
+   
+   type IFlyoutBaseStatics5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TargetProperty
+   (
+      This       : access IFlyoutBaseStatics5_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ShowModeProperty
+   (
+      This       : access IFlyoutBaseStatics5_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InputDevicePrefersPrimaryCommandsProperty
+   (
+      This       : access IFlyoutBaseStatics5_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AreOpenCloseAnimationsEnabledProperty
+   (
+      This       : access IFlyoutBaseStatics5_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsOpenProperty
+   (
+      This       : access IFlyoutBaseStatics5_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFlyoutShowOptions : aliased constant Windows.IID := (1473680301, 3188, 21725, (177, 16, 30, 228, 63, 171, 173, 217 ));
+   
+   type IFlyoutShowOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Position
+   (
+      This       : access IFlyoutShowOptions_Interface
+      ; RetVal : access Windows.Foundation.IReference_Point -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Position
+   (
+      This       : access IFlyoutShowOptions_Interface
+      ; value : Windows.Foundation.IReference_Point
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExclusionRect
+   (
+      This       : access IFlyoutShowOptions_Interface
+      ; RetVal : access Windows.Foundation.IReference_Rect -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ExclusionRect
+   (
+      This       : access IFlyoutShowOptions_Interface
+      ; value : Windows.Foundation.IReference_Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ShowMode
+   (
+      This       : access IFlyoutShowOptions_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.FlyoutShowMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ShowMode
+   (
+      This       : access IFlyoutShowOptions_Interface
+      ; value : Windows.UI.Xaml.Controls.Primitives.FlyoutShowMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Placement
+   (
+      This       : access IFlyoutShowOptions_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Placement
+   (
+      This       : access IFlyoutShowOptions_Interface
+      ; value : Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFlyoutShowOptionsFactory : aliased constant Windows.IID := (3461967713, 11956, 23374, (175, 105, 249, 175, 66, 50, 14, 238 ));
+   
+   type IFlyoutShowOptionsFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IFlyoutShowOptionsFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IFlyoutShowOptions
    )
    return Windows.HRESULT is abstract;
    
@@ -2406,8 +2818,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    function CreateInstance
    (
       This       : access IGridViewItemPresenterFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenter
    )
    return Windows.HRESULT is abstract;
@@ -3299,8 +3711,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    function CreateInstance
    (
       This       : access IListViewItemPresenterFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter
    )
    return Windows.HRESULT is abstract;
@@ -3667,7 +4079,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_SelectionChanged
    (
       This       : access ILoopingSelector_Interface
-      ; value : Windows.UI.Xaml.Controls.SelectionChangedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.SelectionChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -3769,6 +4181,54 @@ package Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IMenuFlyoutPresenterTemplateSettings_Interface
       ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INavigationViewItemPresenter : aliased constant Windows.IID := (2572604412, 18067, 22987, (182, 191, 55, 36, 144, 88, 190, 150 ));
+   
+   type INavigationViewItemPresenter_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Icon
+   (
+      This       : access INavigationViewItemPresenter_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.IIconElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Icon
+   (
+      This       : access INavigationViewItemPresenter_Interface
+      ; value : Windows.UI.Xaml.Controls.IIconElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INavigationViewItemPresenterFactory : aliased constant Windows.IID := (3137743952, 18998, 21223, (148, 89, 232, 157, 2, 243, 252, 66 ));
+   
+   type INavigationViewItemPresenterFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access INavigationViewItemPresenterFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.INavigationViewItemPresenter
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INavigationViewItemPresenterStatics : aliased constant Windows.IID := (1384203780, 53185, 23253, (163, 170, 250, 53, 91, 230, 189, 118 ));
+   
+   type INavigationViewItemPresenterStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IconProperty
+   (
+      This       : access INavigationViewItemPresenterStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
@@ -3978,8 +4438,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    function CreateInstance
    (
       This       : access IPickerFlyoutBaseFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBase
    )
    return Windows.HRESULT is abstract;
@@ -4047,8 +4507,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    function CreateInstance
    (
       This       : access IPivotHeaderItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IPivotHeaderItem
    )
    return Windows.HRESULT is abstract;
@@ -4158,7 +4618,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Opened
    (
       This       : access IPopup_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4173,7 +4633,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Closed
    (
       This       : access IPopup_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4427,7 +4887,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_ValueChanged
    (
       This       : access IRangeBase_Interface
-      ; value : Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4448,8 +4908,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    function CreateInstance
    (
       This       : access IRangeBaseFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IRangeBase
    )
    return Windows.HRESULT is abstract;
@@ -4650,7 +5110,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Scroll
    (
       This       : access IScrollBar_Interface
-      ; value : Windows.UI.Xaml.Controls.Primitives.ScrollEventHandler
+      ; handler : Windows.UI.Xaml.Controls.Primitives.ScrollEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4732,7 +5192,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_HorizontalSnapPointsChanged
    (
       This       : access IScrollSnapPointsInfo_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4747,7 +5207,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_VerticalSnapPointsChanged
    (
       This       : access IScrollSnapPointsInfo_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4857,7 +5317,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_SelectionChanged
    (
       This       : access ISelector_Interface
-      ; value : Windows.UI.Xaml.Controls.SelectionChangedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.SelectionChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4904,8 +5364,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    function CreateInstance
    (
       This       : access ISelectorItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.ISelectorItem
    )
    return Windows.HRESULT is abstract;
@@ -5084,7 +5544,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_DragStarted
    (
       This       : access IThumb_Interface
-      ; value : Windows.UI.Xaml.Controls.Primitives.DragStartedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.Primitives.DragStartedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5099,7 +5559,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_DragDelta
    (
       This       : access IThumb_Interface
-      ; value : Windows.UI.Xaml.Controls.Primitives.DragDeltaEventHandler
+      ; handler : Windows.UI.Xaml.Controls.Primitives.DragDeltaEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5114,7 +5574,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_DragCompleted
    (
       This       : access IThumb_Interface
-      ; value : Windows.UI.Xaml.Controls.Primitives.DragCompletedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.Primitives.DragCompletedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5215,7 +5675,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Checked
    (
       This       : access IToggleButton_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5230,7 +5690,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Unchecked
    (
       This       : access IToggleButton_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5245,7 +5705,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Indeterminate
    (
       This       : access IToggleButton_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5266,8 +5726,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    function CreateInstance
    (
       This       : access IToggleButtonFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IToggleButton
    )
    return Windows.HRESULT is abstract;
@@ -5678,7 +6138,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Click
    (
       This       : access IButtonBase_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -6189,7 +6649,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_ColorChanged
    (
       This       : access IColorSpectrum_Interface_Impl
-      ; value : TypedEventHandler_IColorSpectrum_add_ColorChanged
+      ; handler : TypedEventHandler_IColorSpectrum_add_ColorChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -6202,6 +6662,67 @@ package Windows.UI.Xaml.Controls.Primitives is
    return Windows.HRESULT;
    
    subtype ComboBoxTemplateSettings is Windows.UI.Xaml.Controls.Primitives.IComboBoxTemplateSettings;
+   subtype CommandBarFlyoutCommandBar is Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBar;
+   
+   type ICommandBarFlyoutCommandBar_Interface_Impl is new ICommandBarFlyoutCommandBar_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased ICommandBarFlyoutCommandBar := null;
+      m_ICommandBarFlyoutCommandBar : ICommandBarFlyoutCommandBar := null;
+   end record;
+   type ICommandBarFlyoutCommandBar_Impl is access all ICommandBarFlyoutCommandBar_Interface_Impl'Class;
+   type ICommandBarFlyoutCommandBar_Impl_Ptr is access all ICommandBarFlyoutCommandBar_Impl;
+   
+   function QueryInterface
+   (
+      This       : access ICommandBarFlyoutCommandBar_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access ICommandBarFlyoutCommandBar_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access ICommandBarFlyoutCommandBar_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access ICommandBarFlyoutCommandBar_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access ICommandBarFlyoutCommandBar_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access ICommandBarFlyoutCommandBar_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_FlyoutTemplateSettings
+   (
+      This       : access ICommandBarFlyoutCommandBar_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBarTemplateSettings
+   )
+   return Windows.HRESULT;
+   
+   subtype CommandBarFlyoutCommandBarTemplateSettings is Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBarTemplateSettings;
    subtype CommandBarTemplateSettings is Windows.UI.Xaml.Controls.Primitives.ICommandBarTemplateSettings;
    subtype DragCompletedEventArgs is Windows.UI.Xaml.Controls.Primitives.IDragCompletedEventArgs;
    subtype DragDeltaEventArgs is Windows.UI.Xaml.Controls.Primitives.IDragDeltaEventArgs;
@@ -6335,7 +6856,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Opened
    (
       This       : access IFlyoutBase_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -6350,7 +6871,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Closed
    (
       This       : access IFlyoutBase_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -6365,7 +6886,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Opening
    (
       This       : access IFlyoutBase_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -6391,6 +6912,115 @@ package Windows.UI.Xaml.Controls.Primitives is
    return Windows.HRESULT;
    
    subtype FlyoutBaseClosingEventArgs is Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseClosingEventArgs;
+   subtype FlyoutShowOptions is Windows.UI.Xaml.Controls.Primitives.IFlyoutShowOptions;
+   
+   type IFlyoutShowOptions_Interface_Impl is new IFlyoutShowOptions_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IFlyoutShowOptions := null;
+      m_IFlyoutShowOptions : IFlyoutShowOptions := null;
+   end record;
+   type IFlyoutShowOptions_Impl is access all IFlyoutShowOptions_Interface_Impl'Class;
+   type IFlyoutShowOptions_Impl_Ptr is access all IFlyoutShowOptions_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Position
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; RetVal : access Windows.Foundation.IReference_Point -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_Position
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; value : Windows.Foundation.IReference_Point
+   )
+   return Windows.HRESULT;
+   
+   function get_ExclusionRect
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; RetVal : access Windows.Foundation.IReference_Rect -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   function put_ExclusionRect
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; value : Windows.Foundation.IReference_Rect
+   )
+   return Windows.HRESULT;
+   
+   function get_ShowMode
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.FlyoutShowMode
+   )
+   return Windows.HRESULT;
+   
+   function put_ShowMode
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; value : Windows.UI.Xaml.Controls.Primitives.FlyoutShowMode
+   )
+   return Windows.HRESULT;
+   
+   function get_Placement
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
+   )
+   return Windows.HRESULT;
+   
+   function put_Placement
+   (
+      This       : access IFlyoutShowOptions_Interface_Impl
+      ; value : Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode
+   )
+   return Windows.HRESULT;
+   
    subtype GeneratorPositionHelper is Windows.UI.Xaml.Controls.Primitives.IGeneratorPositionHelper;
    subtype GridViewItemPresenter is Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenter;
    
@@ -7129,6 +7759,73 @@ package Windows.UI.Xaml.Controls.Primitives is
    subtype LoopingSelectorPanel is Windows.UI.Xaml.Controls.Primitives.ILoopingSelectorPanel;
    subtype MenuFlyoutItemTemplateSettings is Windows.UI.Xaml.Controls.Primitives.IMenuFlyoutItemTemplateSettings;
    subtype MenuFlyoutPresenterTemplateSettings is Windows.UI.Xaml.Controls.Primitives.IMenuFlyoutPresenterTemplateSettings;
+   subtype NavigationViewItemPresenter is Windows.UI.Xaml.Controls.Primitives.INavigationViewItemPresenter;
+   
+   type INavigationViewItemPresenter_Interface_Impl is new INavigationViewItemPresenter_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased INavigationViewItemPresenter := null;
+      m_INavigationViewItemPresenter : INavigationViewItemPresenter := null;
+   end record;
+   type INavigationViewItemPresenter_Impl is access all INavigationViewItemPresenter_Interface_Impl'Class;
+   type INavigationViewItemPresenter_Impl_Ptr is access all INavigationViewItemPresenter_Impl;
+   
+   function QueryInterface
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Icon
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.IIconElement
+   )
+   return Windows.HRESULT;
+   
+   function put_Icon
+   (
+      This       : access INavigationViewItemPresenter_Interface_Impl
+      ; value : Windows.UI.Xaml.Controls.IIconElement
+   )
+   return Windows.HRESULT;
+   
    subtype OrientedVirtualizingPanel is Windows.UI.Xaml.Controls.Primitives.IOrientedVirtualizingPanel;
    subtype PickerFlyoutBase is Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBase;
    
@@ -7514,7 +8211,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_ValueChanged
    (
       This       : access IRangeBase_Interface_Impl
-      ; value : Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -7754,7 +8451,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Checked
    (
       This       : access IToggleButton_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -7769,7 +8466,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Unchecked
    (
       This       : access IToggleButton_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -7784,7 +8481,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function add_Indeterminate
    (
       This       : access IToggleButton_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -7805,8 +8502,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IButtonBase;
    
@@ -7827,15 +8524,15 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.ICarouselPanel;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IColorPickerSlider;
    
@@ -7844,8 +8541,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IColorSpectrum;
    
@@ -7879,13 +8576,20 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_ShapeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBar;
+   
    function CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled
    (
       horizontalChange : Windows.Double
       ; verticalChange : Windows.Double
       ; canceled : Windows.Boolean
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IDragCompletedEventArgs;
    
@@ -7893,8 +8597,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    (
       horizontalChange : Windows.Double
       ; verticalChange : Windows.Double
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IDragDeltaEventArgs;
    
@@ -7902,15 +8606,15 @@ package Windows.UI.Xaml.Controls.Primitives is
    (
       horizontalOffset : Windows.Double
       ; verticalOffset : Windows.Double
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IDragStartedEventArgs;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IFlyoutBase;
    
@@ -7954,6 +8658,28 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_OverlayInputPassThroughElementProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_AreOpenCloseAnimationsEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_InputDevicePrefersPrimaryCommandsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsOpenProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ShowModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TargetProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Primitives.IFlyoutShowOptions;
+   
    function FromIndexAndOffset
    (
       index : Windows.Int32
@@ -7963,8 +8689,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenter;
    
@@ -8066,8 +8792,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter;
    
@@ -8190,8 +8916,18 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.Primitives.INavigationViewItemPresenter;
+   
+   function get_IconProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBase;
    
@@ -8213,8 +8949,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IPivotHeaderItem;
    
@@ -8230,7 +8966,7 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_IsLightDismissEnabledProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IsOpenProperty
+   function get_IsOpenProperty_IPopup
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_VerticalOffsetProperty
@@ -8241,8 +8977,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IRangeBase;
    
@@ -8299,8 +9035,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.ISelectorItem;
    
@@ -8315,8 +9051,8 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Primitives.IToggleButton;
    

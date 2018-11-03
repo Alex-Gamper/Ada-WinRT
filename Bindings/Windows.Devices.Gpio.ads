@@ -134,14 +134,6 @@ package Windows.Devices.Gpio is
    -- Record types
    ------------------------------------------------------------------------
    
-   type GpioChangeRecord is record
-      RelativeTime : Windows.Foundation.TimeSpan;
-      Edge : Windows.Devices.Gpio.GpioPinEdge;
-   end record;
-   pragma Convention (C_Pass_By_Copy , GpioChangeRecord);
-   
-   type GpioChangeRecord_Ptr is access GpioChangeRecord;
-   
    type GpioChangeCount is record
       Count : Windows.UInt64;
       RelativeTime : Windows.Foundation.TimeSpan;
@@ -149,6 +141,14 @@ package Windows.Devices.Gpio is
    pragma Convention (C_Pass_By_Copy , GpioChangeCount);
    
    type GpioChangeCount_Ptr is access GpioChangeCount;
+   
+   type GpioChangeRecord is record
+      RelativeTime : Windows.Foundation.TimeSpan;
+      Edge : Windows.Devices.Gpio.GpioPinEdge;
+   end record;
+   pragma Convention (C_Pass_By_Copy , GpioChangeRecord);
+   
+   type GpioChangeRecord_Ptr is access GpioChangeRecord;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events

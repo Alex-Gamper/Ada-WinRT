@@ -35,6 +35,7 @@ limited with Windows.ApplicationModel.Calls;
 limited with Windows.ApplicationModel.Contacts;
 limited with Windows.ApplicationModel.Contacts.Provider;
 limited with Windows.ApplicationModel.Core;
+limited with Windows.ApplicationModel.DataTransfer;
 limited with Windows.ApplicationModel.DataTransfer.ShareTarget;
 limited with Windows.ApplicationModel.Search;
 limited with Windows.ApplicationModel.UserDataAccounts.Provider;
@@ -50,7 +51,11 @@ limited with Windows.Storage;
 limited with Windows.Storage.Pickers.Provider;
 limited with Windows.Storage.Provider;
 limited with Windows.Storage.Search;
+limited with Windows.Storage.Streams;
 limited with Windows.System;
+limited with Windows.Web;
+limited with Windows.Web.Http;
+limited with Windows.Web.UI;
 limited with Windows.Graphics.Printing;
 --------------------------------------------------------------------------------
 package Windows.UI.WebUI is
@@ -84,9 +89,18 @@ package Windows.UI.WebUI is
    type ActivatedEventHandler_Interface;
    type ActivatedEventHandler is access all ActivatedEventHandler_Interface'Class;
    type ActivatedEventHandler_Ptr is access all ActivatedEventHandler;
+   type AsyncOperationCompletedHandler_IWebUIView_Interface;
+   type AsyncOperationCompletedHandler_IWebUIView is access all AsyncOperationCompletedHandler_IWebUIView_Interface'Class;
+   type AsyncOperationCompletedHandler_IWebUIView_Ptr is access all AsyncOperationCompletedHandler_IWebUIView;
+   type BackgroundActivatedEventHandler_Interface;
+   type BackgroundActivatedEventHandler is access all BackgroundActivatedEventHandler_Interface'Class;
+   type BackgroundActivatedEventHandler_Ptr is access all BackgroundActivatedEventHandler;
    type EnteredBackgroundEventHandler_Interface;
    type EnteredBackgroundEventHandler is access all EnteredBackgroundEventHandler_Interface'Class;
    type EnteredBackgroundEventHandler_Ptr is access all EnteredBackgroundEventHandler;
+   type EventHandler_INewWebUIViewCreatedEventArgs_Interface;
+   type EventHandler_INewWebUIViewCreatedEventArgs is access all EventHandler_INewWebUIViewCreatedEventArgs_Interface'Class;
+   type EventHandler_INewWebUIViewCreatedEventArgs_Ptr is access all EventHandler_INewWebUIViewCreatedEventArgs;
    type LeavingBackgroundEventHandler_Interface;
    type LeavingBackgroundEventHandler is access all LeavingBackgroundEventHandler_Interface'Class;
    type LeavingBackgroundEventHandler_Ptr is access all LeavingBackgroundEventHandler;
@@ -99,6 +113,12 @@ package Windows.UI.WebUI is
    type SuspendingEventHandler_Interface;
    type SuspendingEventHandler is access all SuspendingEventHandler_Interface'Class;
    type SuspendingEventHandler_Ptr is access all SuspendingEventHandler;
+   type TypedEventHandler_IWebUIView_add_Activated_Interface;
+   type TypedEventHandler_IWebUIView_add_Activated is access all TypedEventHandler_IWebUIView_add_Activated_Interface'Class;
+   type TypedEventHandler_IWebUIView_add_Activated_Ptr is access all TypedEventHandler_IWebUIView_add_Activated;
+   type TypedEventHandler_IWebUIView_add_Closed_Interface;
+   type TypedEventHandler_IWebUIView_add_Closed is access all TypedEventHandler_IWebUIView_add_Closed_Interface'Class;
+   type TypedEventHandler_IWebUIView_add_Closed_Ptr is access all TypedEventHandler_IWebUIView_add_Closed;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -140,6 +160,12 @@ package Windows.UI.WebUI is
    type IAppointmentsProviderShowTimeFrameActivatedEventArgs_Imported_Interface;
    type IAppointmentsProviderShowTimeFrameActivatedEventArgs_Imported is access all IAppointmentsProviderShowTimeFrameActivatedEventArgs_Imported_Interface'Class;
    type IAppointmentsProviderShowTimeFrameActivatedEventArgs_Imported_Ptr is access all IAppointmentsProviderShowTimeFrameActivatedEventArgs_Imported;
+   type IAsyncOperation_IWebUIView_Interface;
+   type IAsyncOperation_IWebUIView is access all IAsyncOperation_IWebUIView_Interface'Class;
+   type IAsyncOperation_IWebUIView_Ptr is access all IAsyncOperation_IWebUIView;
+   type IBackgroundActivatedEventArgs_Imported_Interface;
+   type IBackgroundActivatedEventArgs_Imported is access all IBackgroundActivatedEventArgs_Imported_Interface'Class;
+   type IBackgroundActivatedEventArgs_Imported_Ptr is access all IBackgroundActivatedEventArgs_Imported;
    type IBackgroundTaskInstance_Imported_Interface;
    type IBackgroundTaskInstance_Imported is access all IBackgroundTaskInstance_Imported_Interface'Class;
    type IBackgroundTaskInstance_Imported_Ptr is access all IBackgroundTaskInstance_Imported;
@@ -239,6 +265,9 @@ package Windows.UI.WebUI is
    type ILockScreenCallActivatedEventArgs_Imported_Interface;
    type ILockScreenCallActivatedEventArgs_Imported is access all ILockScreenCallActivatedEventArgs_Imported_Interface'Class;
    type ILockScreenCallActivatedEventArgs_Imported_Ptr is access all ILockScreenCallActivatedEventArgs_Imported;
+   type INewWebUIViewCreatedEventArgs_Interface;
+   type INewWebUIViewCreatedEventArgs is access all INewWebUIViewCreatedEventArgs_Interface'Class;
+   type INewWebUIViewCreatedEventArgs_Ptr is access all INewWebUIViewCreatedEventArgs;
    type IPrelaunchActivatedEventArgs_Imported_Interface;
    type IPrelaunchActivatedEventArgs_Imported is access all IPrelaunchActivatedEventArgs_Imported_Interface'Class;
    type IPrelaunchActivatedEventArgs_Imported_Ptr is access all IPrelaunchActivatedEventArgs_Imported;
@@ -311,6 +340,9 @@ package Windows.UI.WebUI is
    type IWebUIActivationStatics3_Interface;
    type IWebUIActivationStatics3 is access all IWebUIActivationStatics3_Interface'Class;
    type IWebUIActivationStatics3_Ptr is access all IWebUIActivationStatics3;
+   type IWebUIActivationStatics4_Interface;
+   type IWebUIActivationStatics4 is access all IWebUIActivationStatics4_Interface'Class;
+   type IWebUIActivationStatics4_Ptr is access all IWebUIActivationStatics4;
    type IWebUIBackgroundTaskInstance_Interface;
    type IWebUIBackgroundTaskInstance is access all IWebUIBackgroundTaskInstance_Interface'Class;
    type IWebUIBackgroundTaskInstance_Ptr is access all IWebUIBackgroundTaskInstance;
@@ -326,6 +358,18 @@ package Windows.UI.WebUI is
    type IWebUINavigatedOperation_Interface;
    type IWebUINavigatedOperation is access all IWebUINavigatedOperation_Interface'Class;
    type IWebUINavigatedOperation_Ptr is access all IWebUINavigatedOperation;
+   type IWebUIView_Interface;
+   type IWebUIView is access all IWebUIView_Interface'Class;
+   type IWebUIView_Ptr is access all IWebUIView;
+   type IWebUIViewStatics_Interface;
+   type IWebUIViewStatics is access all IWebUIViewStatics_Interface'Class;
+   type IWebUIViewStatics_Ptr is access all IWebUIViewStatics;
+   type IWebViewControl_Imported_Interface;
+   type IWebViewControl_Imported is access all IWebViewControl_Imported_Interface'Class;
+   type IWebViewControl_Imported_Ptr is access all IWebViewControl_Imported;
+   type IWebViewControl2_Imported_Interface;
+   type IWebViewControl2_Imported is access all IWebViewControl2_Imported_Interface'Class;
+   type IWebViewControl2_Imported_Ptr is access all IWebViewControl2_Imported;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -500,6 +544,44 @@ package Windows.UI.WebUI is
    (
       This       : access IAppointmentsProviderShowTimeFrameActivatedEventArgs_Imported_Interface
       ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IWebUIView : aliased constant Windows.IID := (1135704425, 58847, 22073, (154, 92, 143, 24, 71, 124, 99, 126 ));
+   
+   type IAsyncOperation_IWebUIView_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IWebUIView_Interface
+      ; handler : Windows.UI.WebUI.AsyncOperationCompletedHandler_IWebUIView
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IWebUIView_Interface
+      ; RetVal : access Windows.UI.WebUI.AsyncOperationCompletedHandler_IWebUIView
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IWebUIView_Interface
+      ; RetVal : access Windows.UI.WebUI.IWebUIView
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IBackgroundActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TaskInstance
+   (
+      This       : access IBackgroundActivatedEventArgs_Imported_Interface
+      ; RetVal : access Windows.ApplicationModel.Background.IBackgroundTaskInstance
    )
    return Windows.HRESULT is abstract;
    
@@ -1152,6 +1234,40 @@ package Windows.UI.WebUI is
    
    ------------------------------------------------------------------------
    
+   IID_INewWebUIViewCreatedEventArgs : aliased constant Windows.IID := (3907105302, 48683, 19614, (133, 231, 8, 49, 67, 236, 75, 231 ));
+   
+   type INewWebUIViewCreatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_WebUIView
+   (
+      This       : access INewWebUIViewCreatedEventArgs_Interface
+      ; RetVal : access Windows.UI.WebUI.IWebUIView
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ActivatedEventArgs
+   (
+      This       : access INewWebUIViewCreatedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.Activation.IActivatedEventArgs
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasPendingNavigate
+   (
+      This       : access INewWebUIViewCreatedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access INewWebUIViewCreatedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    type IPrelaunchActivatedEventArgs_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_PrelaunchActivated
@@ -1549,6 +1665,42 @@ package Windows.UI.WebUI is
    
    ------------------------------------------------------------------------
    
+   IID_IWebUIActivationStatics4 : aliased constant Windows.IID := (1580799017, 6207, 18317, (138, 37, 103, 248, 13, 3, 147, 91 ));
+   
+   type IWebUIActivationStatics4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_NewWebUIViewCreated
+   (
+      This       : access IWebUIActivationStatics4_Interface
+      ; handler : Windows.UI.WebUI.EventHandler_INewWebUIViewCreatedEventArgs
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_NewWebUIViewCreated
+   (
+      This       : access IWebUIActivationStatics4_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_BackgroundActivated
+   (
+      This       : access IWebUIActivationStatics4_Interface
+      ; handler : Windows.UI.WebUI.BackgroundActivatedEventHandler
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_BackgroundActivated
+   (
+      This       : access IWebUIActivationStatics4_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IWebUIBackgroundTaskInstance : aliased constant Windows.IID := (603008037, 58103, 18241, (188, 156, 57, 69, 149, 222, 36, 220 ));
    
    type IWebUIBackgroundTaskInstance_Interface is interface and Windows.IInspectable_Interface;
@@ -1619,6 +1771,518 @@ package Windows.UI.WebUI is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IWebUIView : aliased constant Windows.IID := (1736701519, 21210, 20439, (190, 105, 142, 246, 40, 75, 66, 60 ));
+   
+   type IWebUIView_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ApplicationViewId
+   (
+      This       : access IWebUIView_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Closed
+   (
+      This       : access IWebUIView_Interface
+      ; handler : TypedEventHandler_IWebUIView_add_Closed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Closed
+   (
+      This       : access IWebUIView_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Activated
+   (
+      This       : access IWebUIView_Interface
+      ; handler : TypedEventHandler_IWebUIView_add_Activated
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Activated
+   (
+      This       : access IWebUIView_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IgnoreApplicationContentUriRulesNavigationRestrictions
+   (
+      This       : access IWebUIView_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IgnoreApplicationContentUriRulesNavigationRestrictions
+   (
+      This       : access IWebUIView_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebUIViewStatics : aliased constant Windows.IID := (3046237800, 36441, 17657, (136, 3, 27, 36, 201, 20, 157, 48 ));
+   
+   type IWebUIViewStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateAsync
+   (
+      This       : access IWebUIViewStatics_Interface
+      ; RetVal : access Windows.UI.WebUI.IAsyncOperation_IWebUIView -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWithUriAsync
+   (
+      This       : access IWebUIViewStatics_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.UI.WebUI.IAsyncOperation_IWebUIView -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IWebViewControl_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Source
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Source
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; source : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DocumentTitle
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanGoBack
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanGoForward
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DefaultBackgroundColor
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; value : Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DefaultBackgroundColor
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ContainsFullScreenElement
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Settings
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; RetVal : access Windows.Web.UI.IWebViewControlSettings
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeferredPermissionRequests
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; RetVal : access Windows.Web.UI.IVectorView_IWebViewControlDeferredPermissionRequest -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GoForward
+   (
+      This       : access IWebViewControl_Imported_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GoBack
+   (
+      This       : access IWebViewControl_Imported_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Refresh
+   (
+      This       : access IWebViewControl_Imported_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Stop
+   (
+      This       : access IWebViewControl_Imported_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Navigate
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; source : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function NavigateToString
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; text : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function NavigateToLocalStreamUri
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; source : Windows.Foundation.IUriRuntimeClass
+      ; streamResolver : Windows.Web.IUriToStreamResolver
+   )
+   return Windows.HRESULT is abstract;
+   
+   function NavigateWithHttpRequestMessage
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; requestMessage : Windows.Web.Http.IHttpRequestMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InvokeScriptAsync
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; scriptName : Windows.String
+      ; arguments : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CapturePreviewToStreamAsync
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; stream : Windows.Storage.Streams.IRandomAccessStream
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CaptureSelectedContentToDataPackageAsync
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IAsyncOperation_IDataPackage -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function BuildLocalStreamUri
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; contentIdentifier : Windows.String
+      ; relativePath : Windows.String
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferredPermissionRequestById
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; id : Windows.UInt32
+      ; result : access Windows.Web.UI.IWebViewControlDeferredPermissionRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_NavigationStarting
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_NavigationStarting
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_ContentLoading
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ContentLoading
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_DOMContentLoaded
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_DOMContentLoaded
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_NavigationCompleted
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_NavigationCompleted
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_FrameNavigationStarting
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_FrameNavigationStarting
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_FrameContentLoading
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_FrameContentLoading
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_FrameDOMContentLoaded
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_FrameDOMContentLoaded
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_FrameNavigationCompleted
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_FrameNavigationCompleted
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_ScriptNotify
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ScriptNotify
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_LongRunningScriptDetected
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_LongRunningScriptDetected
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_UnsafeContentWarningDisplaying
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_UnsafeContentWarningDisplaying
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_UnviewableContentIdentified
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_UnviewableContentIdentified
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_PermissionRequested
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_PermissionRequested
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_UnsupportedUriSchemeIdentified
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_UnsupportedUriSchemeIdentified
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_NewWindowRequested
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_NewWindowRequested
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_ContainsFullScreenElementChanged
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ContainsFullScreenElementChanged
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_WebResourceRequested
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; handler : Windows.Address
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_WebResourceRequested
+   (
+      This       : access IWebViewControl_Imported_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IWebViewControl2_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AddInitializeScript
+   (
+      This       : access IWebViewControl2_Imported_Interface
+      ; script : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -1637,6 +2301,32 @@ package Windows.UI.WebUI is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IWebUIView : aliased constant Windows.IID := (1285969373, 14594, 20528, (189, 96, 91, 79, 71, 47, 213, 53 ));
+   
+   type AsyncOperationCompletedHandler_IWebUIView_Interface(Callback : access procedure (asyncInfo : Windows.UI.WebUI.IAsyncOperation_IWebUIView ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IWebUIView'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IWebUIView_Interface
+      ; asyncInfo : Windows.UI.WebUI.IAsyncOperation_IWebUIView
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_BackgroundActivatedEventHandler : aliased constant Windows.IID := (3987840955, 1889, 18380, (154, 119, 36, 215, 7, 41, 101, 202 ));
+   
+   type BackgroundActivatedEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; eventArgs : Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_BackgroundActivatedEventHandler'access) with null record;
+   function Invoke
+   (
+      This       : access BackgroundActivatedEventHandler_Interface
+      ; sender : Windows.Object
+      ; eventArgs : Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_EnteredBackgroundEventHandler : aliased constant Windows.IID := (722051443, 46734, 19951, (136, 193, 141, 232, 78, 90, 171, 47 ));
    
    type EnteredBackgroundEventHandler_Interface(Callback : access procedure (sender : Windows.Object ; e : Windows.ApplicationModel.IEnteredBackgroundEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EnteredBackgroundEventHandler'access) with null record;
@@ -1645,6 +2335,19 @@ package Windows.UI.WebUI is
       This       : access EnteredBackgroundEventHandler_Interface
       ; sender : Windows.Object
       ; e : Windows.ApplicationModel.IEnteredBackgroundEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_EventHandler_INewWebUIViewCreatedEventArgs : aliased constant Windows.IID := (1258837010, 45954, 23476, (140, 237, 164, 15, 36, 121, 23, 221 ));
+   
+   type EventHandler_INewWebUIViewCreatedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.UI.WebUI.INewWebUIViewCreatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_INewWebUIViewCreatedEventArgs'access) with null record;
+   function Invoke
+   (
+      This       : access EventHandler_INewWebUIViewCreatedEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.WebUI.INewWebUIViewCreatedEventArgs
    )
    return Windows.HRESULT;
    
@@ -1700,14 +2403,42 @@ package Windows.UI.WebUI is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IWebUIView_add_Activated : aliased constant Windows.IID := (2319593896, 50379, 20784, (186, 91, 180, 150, 59, 66, 182, 13 ));
+   
+   type TypedEventHandler_IWebUIView_add_Activated_Interface(Callback : access procedure (sender : Windows.UI.WebUI.IWebUIView ; args : Windows.ApplicationModel.Activation.IActivatedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebUIView_add_Activated'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebUIView_add_Activated_Interface
+      ; sender : Windows.UI.WebUI.IWebUIView
+      ; args : Windows.ApplicationModel.Activation.IActivatedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IWebUIView_add_Closed : aliased constant Windows.IID := (1190978755, 21130, 20882, (163, 137, 13, 82, 27, 23, 204, 36 ));
+   
+   type TypedEventHandler_IWebUIView_add_Closed_Interface(Callback : access procedure (sender : Windows.UI.WebUI.IWebUIView ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebUIView_add_Closed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebUIView_add_Closed_Interface
+      ; sender : Windows.UI.WebUI.IWebUIView
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype ActivatedDeferral is Windows.UI.WebUI.IActivatedDeferral;
    subtype ActivatedOperation is Windows.UI.WebUI.IActivatedOperation;
+   subtype BackgroundActivatedEventArgs is Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs;
    subtype EnteredBackgroundEventArgs is Windows.ApplicationModel.IEnteredBackgroundEventArgs;
    subtype HtmlPrintDocumentSource is Windows.UI.WebUI.IHtmlPrintDocumentSource;
    subtype LeavingBackgroundEventArgs is Windows.ApplicationModel.ILeavingBackgroundEventArgs;
+   subtype NewWebUIViewCreatedEventArgs is Windows.UI.WebUI.INewWebUIViewCreatedEventArgs;
    subtype SuspendingDeferral is Windows.ApplicationModel.ISuspendingDeferral;
    subtype SuspendingEventArgs is Windows.ApplicationModel.ISuspendingEventArgs;
    subtype SuspendingOperation is Windows.ApplicationModel.ISuspendingOperation;
@@ -1755,6 +2486,7 @@ package Windows.UI.WebUI is
    subtype WebUIStartupTaskActivatedEventArgs is Windows.ApplicationModel.Activation.IStartupTaskActivatedEventArgs;
    subtype WebUIToastNotificationActivatedEventArgs is Windows.ApplicationModel.Activation.IToastNotificationActivatedEventArgs;
    subtype WebUIUserDataAccountProviderActivatedEventArgs is Windows.ApplicationModel.Activation.IUserDataAccountProviderActivatedEventArgs;
+   subtype WebUIView is Windows.UI.WebUI.IWebUIView;
    subtype WebUIVoiceCommandActivatedEventArgs is Windows.ApplicationModel.Activation.IVoiceCommandActivatedEventArgs;
    subtype WebUIWalletActionActivatedEventArgs is Windows.ApplicationModel.Activation.IWalletActionActivatedEventArgs;
    subtype WebUIWebAccountProviderActivatedEventArgs is Windows.ApplicationModel.Activation.IWebAccountProviderActivatedEventArgs;
@@ -1855,7 +2587,40 @@ package Windows.UI.WebUI is
    )
    return Windows.ApplicationModel.Core.IAsyncOperation_AppRestartFailureReason;
    
+   function add_BackgroundActivated
+   (
+      handler : Windows.UI.WebUI.BackgroundActivatedEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_NewWebUIViewCreated
+   (
+      handler : Windows.UI.WebUI.EventHandler_INewWebUIViewCreatedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_BackgroundActivated
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_NewWebUIViewCreated
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
    function get_Current
    return Windows.UI.WebUI.IWebUIBackgroundTaskInstance;
+   
+   function CreateAsync
+   return Windows.UI.WebUI.IAsyncOperation_IWebUIView;
+   
+   function CreateWithUriAsync
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.UI.WebUI.IAsyncOperation_IWebUIView;
    
 end;

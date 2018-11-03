@@ -2843,16 +2843,16 @@ package Windows.ApplicationModel.Background is
    function Create return Windows.ApplicationModel.Background.IEmailStoreNotificationTrigger;
    
    subtype GattCharacteristicNotificationTrigger is Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger;
+   function Create
+   (
+      characteristic : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic
+   )
+   return Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger;
+   
    function CreateWithEventTriggeringMode
    (
       characteristic : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic
       ; eventTriggeringMode : Windows.Devices.Bluetooth.Background.BluetoothEventTriggeringMode
-   )
-   return Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger;
-   
-   function Create
-   (
-      characteristic : Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic
    )
    return Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger;
    

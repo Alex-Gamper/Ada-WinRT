@@ -37,19 +37,6 @@ package body Windows.Gaming.UI is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_GameMonitoringPermission_Interface
-      ; asyncInfo : Windows.Gaming.UI.IAsyncOperation_GameMonitoringPermission
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT is
-      Hr : Windows.HRESULT := S_OK;
-   begin
-      This.Callback(asyncInfo, asyncStatus);
-      return Hr;
-   end;
-   
-   function Invoke
-   (
       This       : access TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived_Interface
       ; sender : Windows.Gaming.UI.IGameChatOverlayMessageSource
       ; args : Windows.Gaming.UI.IGameChatMessageReceivedEventArgs
@@ -209,23 +196,6 @@ package body Windows.Gaming.UI is
       RetVal        : aliased Windows.Gaming.UI.IGameChatOverlay;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IGameChatOverlayStatics'Access , m_Factory'Address);
-      if Hr = 0 then
-         Hr := m_Factory.GetDefault(RetVal'Access);
-         RefCount := m_Factory.Release;
-      end if;
-      Hr := WindowsDeleteString(m_hString);
-      return RetVal;
-   end;
-   
-   function GetDefault
-   return Windows.Gaming.UI.IGameMonitor is
-      Hr            : Windows.HRESULT := S_OK;
-      m_hString     : Windows.String := To_String("Windows.Gaming.UI.GameMonitor");
-      m_Factory     : IGameMonitorStatics := null;
-      RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.Gaming.UI.IGameMonitor;
-   begin
-      Hr := RoGetActivationFactory(m_hString, IID_IGameMonitorStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDefault(RetVal'Access);
          RefCount := m_Factory.Release;

@@ -26,12 +26,65 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows; use Windows;
 limited with Windows.ApplicationModel.Core;
 with Windows.Foundation;
+limited with Windows.UI.StartScreen;
 --------------------------------------------------------------------------------
 package Windows.UI.Shell is
 
    pragma preelaborate;
+   
+   ------------------------------------------------------------------------
+   -- Enums
+   ------------------------------------------------------------------------
+   
+   type SecurityAppKind is (
+      WebProtection
+   );
+   for SecurityAppKind use (
+      WebProtection => 0
+   );
+   for SecurityAppKind'Size use 32;
+   
+   type SecurityAppKind_Ptr is access SecurityAppKind;
+   
+   type SecurityAppState is (
+      Disabled,
+      Enabled
+   );
+   for SecurityAppState use (
+      Disabled => 0,
+      Enabled => 1
+   );
+   for SecurityAppState'Size use 32;
+   
+   type SecurityAppState_Ptr is access SecurityAppState;
+   
+   type SecurityAppSubstatus is (
+      Undetermined,
+      NoActionNeeded,
+      ActionRecommended,
+      ActionNeeded
+   );
+   for SecurityAppSubstatus use (
+      Undetermined => 0,
+      NoActionNeeded => 1,
+      ActionRecommended => 2,
+      ActionNeeded => 3
+   );
+   for SecurityAppSubstatus'Size use 32;
+   
+   type SecurityAppSubstatus_Ptr is access SecurityAppSubstatus;
+   
+   ------------------------------------------------------------------------
+   -- Record types
+   ------------------------------------------------------------------------
+   
+   type SecurityAppManagerContract is null record;
+   pragma Convention (C_Pass_By_Copy , SecurityAppManagerContract);
+   
+   type SecurityAppManagerContract_Ptr is access SecurityAppManagerContract;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -43,9 +96,15 @@ package Windows.UI.Shell is
    type IAdaptiveCardBuilderStatics_Interface;
    type IAdaptiveCardBuilderStatics is access all IAdaptiveCardBuilderStatics_Interface'Class;
    type IAdaptiveCardBuilderStatics_Ptr is access all IAdaptiveCardBuilderStatics;
+   type ISecurityAppManager_Interface;
+   type ISecurityAppManager is access all ISecurityAppManager_Interface'Class;
+   type ISecurityAppManager_Ptr is access all ISecurityAppManager;
    type ITaskbarManager_Interface;
    type ITaskbarManager is access all ITaskbarManager_Interface'Class;
    type ITaskbarManager_Ptr is access all ITaskbarManager;
+   type ITaskbarManager2_Interface;
+   type ITaskbarManager2 is access all ITaskbarManager2_Interface'Class;
+   type ITaskbarManager2_Ptr is access all ITaskbarManager2;
    type ITaskbarManagerStatics_Interface;
    type ITaskbarManagerStatics is access all ITaskbarManagerStatics_Interface'Class;
    type ITaskbarManagerStatics_Ptr is access all ITaskbarManagerStatics;
@@ -78,6 +137,42 @@ package Windows.UI.Shell is
       This       : access IAdaptiveCardBuilderStatics_Interface
       ; value : Windows.String
       ; RetVal : access Windows.UI.Shell.IAdaptiveCard
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISecurityAppManager : aliased constant Windows.IID := (2527875084, 44756, 22045, (189, 232, 149, 53, 32, 52, 58, 45 ));
+   
+   type ISecurityAppManager_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Register
+   (
+      This       : access ISecurityAppManager_Interface
+      ; kind : Windows.UI.Shell.SecurityAppKind
+      ; displayName : Windows.String
+      ; detailsUri : Windows.Foundation.IUriRuntimeClass
+      ; registerPerUser : Windows.Boolean
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Unregister
+   (
+      This       : access ISecurityAppManager_Interface
+      ; kind : Windows.UI.Shell.SecurityAppKind
+      ; guidRegistration : Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function UpdateState
+   (
+      This       : access ISecurityAppManager_Interface
+      ; kind : Windows.UI.Shell.SecurityAppKind
+      ; guidRegistration : Windows.Guid
+      ; state : Windows.UI.Shell.SecurityAppState
+      ; substatus : Windows.UI.Shell.SecurityAppSubstatus
+      ; detailsUri : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
@@ -133,6 +228,36 @@ package Windows.UI.Shell is
    
    ------------------------------------------------------------------------
    
+   IID_ITaskbarManager2 : aliased constant Windows.IID := (2045812846, 31490, 18705, (145, 140, 222, 224, 187, 210, 11, 164 ));
+   
+   type ITaskbarManager2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function IsSecondaryTilePinnedAsync
+   (
+      This       : access ITaskbarManager2_Interface
+      ; tileId : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RequestPinSecondaryTileAsync
+   (
+      This       : access ITaskbarManager2_Interface
+      ; secondaryTile : Windows.UI.StartScreen.ISecondaryTile
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryUnpinSecondaryTileAsync
+   (
+      This       : access ITaskbarManager2_Interface
+      ; tileId : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITaskbarManagerStatics : aliased constant Windows.IID := (3677530996, 56914, 20454, (183, 182, 149, 255, 159, 131, 149, 223 ));
    
    type ITaskbarManagerStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -147,6 +272,9 @@ package Windows.UI.Shell is
    ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
+   
+   subtype SecurityAppManager is Windows.UI.Shell.ISecurityAppManager;
+   function Create return Windows.UI.Shell.ISecurityAppManager;
    
    subtype TaskbarManager is Windows.UI.Shell.ITaskbarManager;
    

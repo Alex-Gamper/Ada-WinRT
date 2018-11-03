@@ -403,6 +403,40 @@ package body Windows.Graphics.Imaging is
       return RetVal;
    end;
    
+   function get_HeifDecoderId
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Imaging.BitmapDecoder");
+      m_Factory     : IBitmapDecoderStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBitmapDecoderStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HeifDecoderId(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_WebpDecoderId
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Imaging.BitmapDecoder");
+      m_Factory     : IBitmapDecoderStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBitmapDecoderStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_WebpDecoderId(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateAsync
    (
       encoderId : Windows.Guid
@@ -600,6 +634,23 @@ package body Windows.Graphics.Imaging is
       Hr := RoGetActivationFactory(m_hString, IID_IBitmapEncoderStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetEncoderInformationEnumerator(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HeifEncoderId
+   return Windows.Guid is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Imaging.BitmapEncoder");
+      m_Factory     : IBitmapEncoderStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Guid;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBitmapEncoderStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HeifEncoderId(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

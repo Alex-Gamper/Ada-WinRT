@@ -96,6 +96,12 @@ package Windows.Web.UI.Interop is
    type TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Interface;
    type TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested is access all TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Interface'Class;
    type TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Ptr is access all TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested;
+   type TypedEventHandler_IWebViewControlSite2_add_GotFocus_Interface;
+   type TypedEventHandler_IWebViewControlSite2_add_GotFocus is access all TypedEventHandler_IWebViewControlSite2_add_GotFocus_Interface'Class;
+   type TypedEventHandler_IWebViewControlSite2_add_GotFocus_Ptr is access all TypedEventHandler_IWebViewControlSite2_add_GotFocus;
+   type TypedEventHandler_IWebViewControlSite2_add_LostFocus_Interface;
+   type TypedEventHandler_IWebViewControlSite2_add_LostFocus is access all TypedEventHandler_IWebViewControlSite2_add_LostFocus_Interface'Class;
+   type TypedEventHandler_IWebViewControlSite2_add_LostFocus_Ptr is access all TypedEventHandler_IWebViewControlSite2_add_LostFocus;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -119,6 +125,9 @@ package Windows.Web.UI.Interop is
    type IWebViewControlSite_Interface;
    type IWebViewControlSite is access all IWebViewControlSite_Interface'Class;
    type IWebViewControlSite_Ptr is access all IWebViewControlSite;
+   type IWebViewControlSite2_Interface;
+   type IWebViewControlSite2 is access all IWebViewControlSite2_Interface'Class;
+   type IWebViewControlSite2_Ptr is access all IWebViewControlSite2;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -396,6 +405,42 @@ package Windows.Web.UI.Interop is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IWebViewControlSite2 : aliased constant Windows.IID := (3510316607, 18670, 18224, (130, 67, 210, 237, 12, 5, 96, 106 ));
+   
+   type IWebViewControlSite2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_GotFocus
+   (
+      This       : access IWebViewControlSite2_Interface
+      ; handler : TypedEventHandler_IWebViewControlSite2_add_GotFocus
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_GotFocus
+   (
+      This       : access IWebViewControlSite2_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_LostFocus
+   (
+      This       : access IWebViewControlSite2_Interface
+      ; handler : TypedEventHandler_IWebViewControlSite2_add_LostFocus
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_LostFocus
+   (
+      This       : access IWebViewControlSite2_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -435,6 +480,32 @@ package Windows.Web.UI.Interop is
       This       : access TypedEventHandler_IWebViewControlSite_add_MoveFocusRequested_Interface
       ; sender : Windows.Web.UI.IWebViewControl
       ; args : Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IWebViewControlSite2_add_GotFocus : aliased constant Windows.IID := (883311727, 21607, 20579, (189, 192, 127, 176, 101, 117, 16, 209 ));
+   
+   type TypedEventHandler_IWebViewControlSite2_add_GotFocus_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControlSite2_add_GotFocus'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebViewControlSite2_add_GotFocus_Interface
+      ; sender : Windows.Web.UI.IWebViewControl
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IWebViewControlSite2_add_LostFocus : aliased constant Windows.IID := (883311727, 21607, 20579, (189, 192, 127, 176, 101, 117, 16, 209 ));
+   
+   type TypedEventHandler_IWebViewControlSite2_add_LostFocus_Interface(Callback : access procedure (sender : Windows.Web.UI.IWebViewControl ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebViewControlSite2_add_LostFocus'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebViewControlSite2_add_LostFocus_Interface
+      ; sender : Windows.Web.UI.IWebViewControl
+      ; args : Windows.Object
    )
    return Windows.HRESULT;
    

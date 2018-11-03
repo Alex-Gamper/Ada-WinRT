@@ -34,6 +34,14 @@ package Windows.Graphics is
    -- Record types
    ------------------------------------------------------------------------
    
+   type DisplayAdapterId is record
+      LowPart : Windows.UInt32;
+      HighPart : Windows.Int32;
+   end record;
+   pragma Convention (C_Pass_By_Copy , DisplayAdapterId);
+   
+   type DisplayAdapterId_Ptr is access DisplayAdapterId;
+   
    type PointInt32 is record
       X : Windows.Int32;
       Y : Windows.Int32;
@@ -41,14 +49,6 @@ package Windows.Graphics is
    pragma Convention (C_Pass_By_Copy , PointInt32);
    
    type PointInt32_Ptr is access PointInt32;
-   
-   type SizeInt32 is record
-      Width : Windows.Int32;
-      Height : Windows.Int32;
-   end record;
-   pragma Convention (C_Pass_By_Copy , SizeInt32);
-   
-   type SizeInt32_Ptr is access SizeInt32;
    
    type RectInt32 is record
       X : Windows.Int32;
@@ -60,13 +60,13 @@ package Windows.Graphics is
    
    type RectInt32_Ptr is access RectInt32;
    
-   type DisplayAdapterId is record
-      LowPart : Windows.UInt32;
-      HighPart : Windows.Int32;
+   type SizeInt32 is record
+      Width : Windows.Int32;
+      Height : Windows.Int32;
    end record;
-   pragma Convention (C_Pass_By_Copy , DisplayAdapterId);
+   pragma Convention (C_Pass_By_Copy , SizeInt32);
    
-   type DisplayAdapterId_Ptr is access DisplayAdapterId;
+   type SizeInt32_Ptr is access SizeInt32;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -75,6 +75,9 @@ package Windows.Graphics is
    type IGeometrySource2D_Interface;
    type IGeometrySource2D is access all IGeometrySource2D_Interface'Class;
    type IGeometrySource2D_Ptr is access all IGeometrySource2D;
+   type IReference_SizeInt32_Interface;
+   type IReference_SizeInt32 is access all IReference_SizeInt32_Interface'Class;
+   type IReference_SizeInt32_Ptr is access all IReference_SizeInt32;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -85,5 +88,27 @@ package Windows.Graphics is
    IID_IGeometrySource2D : aliased constant Windows.IID := (3405740290, 26380, 16769, (166, 36, 218, 151, 114, 3, 184, 69 ));
    
    type IGeometrySource2D_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IReference_SizeInt32 : aliased constant Windows.IID := (3078269037, 11630, 22001, (143, 153, 100, 172, 92, 5, 50, 139 ));
+   
+   type IReference_SizeInt32_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_SizeInt32_Interface
+      ; RetVal : access Windows.Graphics.SizeInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   -- Classes
+   ------------------------------------------------------------------------
+   
+   
+   ------------------------------------------------------------------------
+   -- Static Procedures/functions
+   ------------------------------------------------------------------------
    
 end;

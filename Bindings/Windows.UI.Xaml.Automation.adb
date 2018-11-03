@@ -867,6 +867,23 @@ package body Windows.UI.Xaml.Automation is
       return RetVal;
    end;
    
+   function get_IsDialogProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationElementIdentifiers");
+      m_Factory     : IAutomationElementIdentifiersStatics8 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Automation.IAutomationProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationElementIdentifiersStatics8'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsDialogProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_AcceleratorKeyProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -2279,6 +2296,62 @@ package body Windows.UI.Xaml.Automation is
       Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics7'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SetHeadingLevel(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function get_IsDialogProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
+      m_Factory     : IAutomationPropertiesStatics8 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics8'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsDialogProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetIsDialog
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
+      m_Factory     : IAutomationPropertiesStatics8 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics8'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetIsDialog(element, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetIsDialog
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Automation.AutomationProperties");
+      m_Factory     : IAutomationPropertiesStatics8 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAutomationPropertiesStatics8'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetIsDialog(element, value);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

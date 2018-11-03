@@ -933,8 +933,8 @@ package body Windows.UI.Xaml.Data is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Data.IBinding is
       Hr            : Windows.HRESULT := S_OK;
@@ -945,7 +945,7 @@ package body Windows.UI.Xaml.Data is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBindingFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -954,8 +954,8 @@ package body Windows.UI.Xaml.Data is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Data.IBindingBase is
       Hr            : Windows.HRESULT := S_OK;
@@ -966,7 +966,7 @@ package body Windows.UI.Xaml.Data is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBindingBaseFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1063,8 +1063,8 @@ package body Windows.UI.Xaml.Data is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Data.ICurrentChangingEventArgs is
       Hr            : Windows.HRESULT := S_OK;
@@ -1075,7 +1075,7 @@ package body Windows.UI.Xaml.Data is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ICurrentChangingEventArgsFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1085,8 +1085,8 @@ package body Windows.UI.Xaml.Data is
    function CreateWithCancelableParameter
    (
       isCancelable : Windows.Boolean
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Data.ICurrentChangingEventArgs is
       Hr            : Windows.HRESULT := S_OK;
@@ -1097,7 +1097,7 @@ package body Windows.UI.Xaml.Data is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ICurrentChangingEventArgsFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateWithCancelableParameter(isCancelable, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateWithCancelableParameter(isCancelable, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1108,8 +1108,8 @@ package body Windows.UI.Xaml.Data is
    (
       firstIndex : Windows.Int32
       ; length : Windows.UInt32
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Data.IItemIndexRange is
       Hr            : Windows.HRESULT := S_OK;
@@ -1120,7 +1120,7 @@ package body Windows.UI.Xaml.Data is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IItemIndexRangeFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(firstIndex, length, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(firstIndex, length, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1130,8 +1130,8 @@ package body Windows.UI.Xaml.Data is
    function CreateInstance
    (
       name : Windows.String
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Data.IPropertyChangedEventArgs is
       Hr            : Windows.HRESULT := S_OK;
@@ -1142,7 +1142,7 @@ package body Windows.UI.Xaml.Data is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IPropertyChangedEventArgsFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(name, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(name, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1151,8 +1151,8 @@ package body Windows.UI.Xaml.Data is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Data.IRelativeSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -1163,7 +1163,7 @@ package body Windows.UI.Xaml.Data is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IRelativeSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -909,4 +909,53 @@ package body Windows.Media.Protection.PlayReady is
       return RetVal;
    end;
    
+   function get_HardwareDRMDisabledAtTime
+   return Windows.Foundation.IReference_DateTime is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyStatics");
+      m_Factory     : IPlayReadyStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IReference_DateTime;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HardwareDRMDisabledAtTime(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_HardwareDRMDisabledUntilTime
+   return Windows.Foundation.IReference_DateTime is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyStatics");
+      m_Factory     : IPlayReadyStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.IReference_DateTime;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_HardwareDRMDisabledUntilTime(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure ResetHardwareDRMDisabled
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Protection.PlayReady.PlayReadyStatics");
+      m_Factory     : IPlayReadyStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPlayReadyStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ResetHardwareDRMDisabled;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
 end;

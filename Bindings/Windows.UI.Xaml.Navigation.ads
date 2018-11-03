@@ -92,6 +92,12 @@ package Windows.UI.Xaml.Navigation is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IFrameNavigationOptions_Interface;
+   type IFrameNavigationOptions is access all IFrameNavigationOptions_Interface'Class;
+   type IFrameNavigationOptions_Ptr is access all IFrameNavigationOptions;
+   type IFrameNavigationOptionsFactory_Interface;
+   type IFrameNavigationOptionsFactory is access all IFrameNavigationOptionsFactory_Interface'Class;
+   type IFrameNavigationOptionsFactory_Ptr is access all IFrameNavigationOptionsFactory;
    type IIterable_IPageStackEntry_Interface;
    type IIterable_IPageStackEntry is access all IIterable_IPageStackEntry_Interface'Class;
    type IIterable_IPageStackEntry_Ptr is access all IIterable_IPageStackEntry;
@@ -132,6 +138,55 @@ package Windows.UI.Xaml.Navigation is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFrameNavigationOptions : aliased constant Windows.IID := (3040455978, 40887, 21002, (143, 65, 87, 165, 12, 89, 207, 146 ));
+   
+   type IFrameNavigationOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsNavigationStackEnabled
+   (
+      This       : access IFrameNavigationOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsNavigationStackEnabled
+   (
+      This       : access IFrameNavigationOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TransitionInfoOverride
+   (
+      This       : access IFrameNavigationOptions_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TransitionInfoOverride
+   (
+      This       : access IFrameNavigationOptions_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFrameNavigationOptionsFactory : aliased constant Windows.IID := (3563593281, 32365, 23676, (172, 160, 71, 134, 129, 204, 111, 206 ));
+   
+   type IFrameNavigationOptionsFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IFrameNavigationOptionsFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Navigation.IFrameNavigationOptions
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -593,6 +648,87 @@ package Windows.UI.Xaml.Navigation is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype FrameNavigationOptions is Windows.UI.Xaml.Navigation.IFrameNavigationOptions;
+   
+   type IFrameNavigationOptions_Interface_Impl is new IFrameNavigationOptions_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IFrameNavigationOptions := null;
+      m_IFrameNavigationOptions : IFrameNavigationOptions := null;
+   end record;
+   type IFrameNavigationOptions_Impl is access all IFrameNavigationOptions_Interface_Impl'Class;
+   type IFrameNavigationOptions_Impl_Ptr is access all IFrameNavigationOptions_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IFrameNavigationOptions_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IFrameNavigationOptions_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IFrameNavigationOptions_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IFrameNavigationOptions_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IFrameNavigationOptions_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IFrameNavigationOptions_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_IsNavigationStackEnabled
+   (
+      This       : access IFrameNavigationOptions_Interface_Impl
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT;
+   
+   function put_IsNavigationStackEnabled
+   (
+      This       : access IFrameNavigationOptions_Interface_Impl
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT;
+   
+   function get_TransitionInfoOverride
+   (
+      This       : access IFrameNavigationOptions_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
+   )
+   return Windows.HRESULT;
+   
+   function put_TransitionInfoOverride
+   (
+      This       : access IFrameNavigationOptions_Interface_Impl
+      ; value : Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
+   )
+   return Windows.HRESULT;
+   
    subtype NavigatingCancelEventArgs is Windows.UI.Xaml.Navigation.INavigatingCancelEventArgs;
    subtype NavigationEventArgs is Windows.UI.Xaml.Navigation.INavigationEventArgs;
    subtype NavigationFailedEventArgs is Windows.UI.Xaml.Navigation.INavigationFailedEventArgs;
@@ -609,6 +745,13 @@ package Windows.UI.Xaml.Navigation is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Navigation.IFrameNavigationOptions;
    
    function get_SourcePageTypeProperty
    return Windows.UI.Xaml.IDependencyProperty;

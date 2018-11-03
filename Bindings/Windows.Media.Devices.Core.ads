@@ -1018,6 +1018,17 @@ package Windows.Media.Devices.Core is
    ------------------------------------------------------------------------
    
    subtype CameraIntrinsics is Windows.Media.Devices.Core.ICameraIntrinsics;
+   function Create
+   (
+      focalLength : Windows.Foundation.Numerics.Vector2
+      ; principalPoint : Windows.Foundation.Numerics.Vector2
+      ; radialDistortion : Windows.Foundation.Numerics.Vector3
+      ; tangentialDistortion : Windows.Foundation.Numerics.Vector2
+      ; imageWidth : Windows.UInt32
+      ; imageHeight : Windows.UInt32
+   )
+   return Windows.Media.Devices.Core.ICameraIntrinsics;
+   
    subtype DepthCorrelatedCoordinateMapper is Windows.Media.Devices.Core.IDepthCorrelatedCoordinateMapper;
    subtype FrameControlCapabilities is Windows.Media.Devices.Core.IFrameControlCapabilities;
    subtype FrameController is Windows.Media.Devices.Core.IFrameController;

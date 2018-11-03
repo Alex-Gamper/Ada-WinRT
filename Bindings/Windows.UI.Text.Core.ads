@@ -325,6 +325,9 @@ package Windows.UI.Text.Core is
    type ICoreTextLayoutRequest_Interface;
    type ICoreTextLayoutRequest is access all ICoreTextLayoutRequest_Interface'Class;
    type ICoreTextLayoutRequest_Ptr is access all ICoreTextLayoutRequest;
+   type ICoreTextLayoutRequest2_Interface;
+   type ICoreTextLayoutRequest2 is access all ICoreTextLayoutRequest2_Interface'Class;
+   type ICoreTextLayoutRequest2_Ptr is access all ICoreTextLayoutRequest2;
    type ICoreTextLayoutRequestedEventArgs_Interface;
    type ICoreTextLayoutRequestedEventArgs is access all ICoreTextLayoutRequestedEventArgs_Interface'Class;
    type ICoreTextLayoutRequestedEventArgs_Ptr is access all ICoreTextLayoutRequestedEventArgs;
@@ -829,6 +832,19 @@ package Windows.UI.Text.Core is
    (
       This       : access ICoreTextLayoutRequest_Interface
       ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreTextLayoutRequest2 : aliased constant Windows.IID := (1735255588, 52541, 19405, (191, 1, 127, 113, 16, 149, 69, 17 ));
+   
+   type ICoreTextLayoutRequest2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_LayoutBoundsVisualPixels
+   (
+      This       : access ICoreTextLayoutRequest2_Interface
+      ; RetVal : access Windows.UI.Text.Core.ICoreTextLayoutBounds
    )
    return Windows.HRESULT is abstract;
    

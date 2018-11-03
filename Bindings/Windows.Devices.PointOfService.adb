@@ -351,6 +351,19 @@ package body Windows.Devices.PointOfService is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IClaimedBarcodeScanner4_add_Closed_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedBarcodeScanner
+      ; args : Windows.Devices.PointOfService.IClaimedBarcodeScannerClosedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.IClaimedBarcodeScanner(sender), Windows.Devices.PointOfService.IClaimedBarcodeScannerClosedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested_Interface
       ; sender : Windows.Devices.PointOfService.IClaimedCashDrawer
       ; args : Windows.Object
@@ -359,6 +372,19 @@ package body Windows.Devices.PointOfService is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.PointOfService.IClaimedCashDrawer(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IClaimedCashDrawer2_add_Closed_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedCashDrawer
+      ; args : Windows.Devices.PointOfService.IClaimedCashDrawerClosedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.IClaimedCashDrawer(sender), Windows.Devices.PointOfService.IClaimedCashDrawerClosedEventArgs(args));
       return Hr;
    end;
    
@@ -385,6 +411,19 @@ package body Windows.Devices.PointOfService is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.PointOfService.IClaimedLineDisplay(sender), Windows.Devices.PointOfService.ILineDisplayStatusUpdatedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IClaimedLineDisplay3_add_Closed_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedLineDisplay
+      ; args : Windows.Devices.PointOfService.IClaimedLineDisplayClosedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.IClaimedLineDisplay(sender), Windows.Devices.PointOfService.IClaimedLineDisplayClosedEventArgs(args));
       return Hr;
    end;
    
@@ -442,6 +481,19 @@ package body Windows.Devices.PointOfService is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IClaimedMagneticStripeReader2_add_Closed_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader
+      ; args : Windows.Devices.PointOfService.IClaimedMagneticStripeReaderClosedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.IClaimedMagneticStripeReader(sender), Windows.Devices.PointOfService.IClaimedMagneticStripeReaderClosedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested_Interface
       ; sender : Windows.Devices.PointOfService.IClaimedPosPrinter
       ; args : Windows.Devices.PointOfService.IPosPrinterReleaseDeviceRequestedEventArgs
@@ -450,6 +502,19 @@ package body Windows.Devices.PointOfService is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.PointOfService.IClaimedPosPrinter(sender), Windows.Devices.PointOfService.IPosPrinterReleaseDeviceRequestedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IClaimedPosPrinter2_add_Closed_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedPosPrinter
+      ; args : Windows.Devices.PointOfService.IClaimedPosPrinterClosedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.IClaimedPosPrinter(sender), Windows.Devices.PointOfService.IClaimedPosPrinterClosedEventArgs(args));
       return Hr;
    end;
    

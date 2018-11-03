@@ -36,6 +36,22 @@ package Windows.UI.ViewManagement.Core is
    -- Enums
    ------------------------------------------------------------------------
    
+   type CoreInputViewKind is (
+      Default,
+      Keyboard,
+      Handwriting,
+      Emoji
+   );
+   for CoreInputViewKind use (
+      Default => 0,
+      Keyboard => 1,
+      Handwriting => 2,
+      Emoji => 3
+   );
+   for CoreInputViewKind'Size use 32;
+   
+   type CoreInputViewKind_Ptr is access CoreInputViewKind;
+   
    type CoreInputViewOcclusionKind is (
       Docked,
       Floating,
@@ -90,6 +106,9 @@ package Windows.UI.ViewManagement.Core is
    type ICoreInputView2_Interface;
    type ICoreInputView2 is access all ICoreInputView2_Interface'Class;
    type ICoreInputView2_Ptr is access all ICoreInputView2;
+   type ICoreInputView3_Interface;
+   type ICoreInputView3 is access all ICoreInputView3_Interface'Class;
+   type ICoreInputView3_Ptr is access all ICoreInputView3;
    type ICoreInputViewOcclusion_Interface;
    type ICoreInputViewOcclusion is access all ICoreInputViewOcclusion_Interface'Class;
    type ICoreInputViewOcclusion_Ptr is access all ICoreInputViewOcclusion;
@@ -199,6 +218,34 @@ package Windows.UI.ViewManagement.Core is
       This       : access ICoreInputView2_Interface
       ; origin : Windows.Foundation.Rect
       ; direction : Windows.UI.ViewManagement.Core.CoreInputViewXYFocusTransferDirection
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreInputView3 : aliased constant Windows.IID := (3163821651, 15033, 18505, (143, 88, 70, 231, 240, 53, 60, 252 ));
+   
+   type ICoreInputView3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryShow
+   (
+      This       : access ICoreInputView3_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryShowWithKind
+   (
+      This       : access ICoreInputView3_Interface
+      ; type_x : Windows.UI.ViewManagement.Core.CoreInputViewKind
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryHide
+   (
+      This       : access ICoreInputView3_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;

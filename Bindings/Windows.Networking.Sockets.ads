@@ -288,16 +288,6 @@ package Windows.Networking.Sockets is
    -- Record types
    ------------------------------------------------------------------------
    
-   type RoundTripTimeStatistics is record
-      Variance : Windows.UInt32;
-      Max : Windows.UInt32;
-      Min : Windows.UInt32;
-      Sum : Windows.UInt32;
-   end record;
-   pragma Convention (C_Pass_By_Copy , RoundTripTimeStatistics);
-   
-   type RoundTripTimeStatistics_Ptr is access RoundTripTimeStatistics;
-   
    type BandwidthStatistics is record
       OutboundBitsPerSecond : Windows.UInt64;
       InboundBitsPerSecond : Windows.UInt64;
@@ -314,6 +304,16 @@ package Windows.Networking.Sockets is
    pragma Convention (C_Pass_By_Copy , ControlChannelTriggerContract);
    
    type ControlChannelTriggerContract_Ptr is access ControlChannelTriggerContract;
+   
+   type RoundTripTimeStatistics is record
+      Variance : Windows.UInt32;
+      Max : Windows.UInt32;
+      Min : Windows.UInt32;
+      Sum : Windows.UInt32;
+   end record;
+   pragma Convention (C_Pass_By_Copy , RoundTripTimeStatistics);
+   
+   type RoundTripTimeStatistics_Ptr is access RoundTripTimeStatistics;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events

@@ -230,14 +230,6 @@ package Windows.Graphics.Imaging is
    -- Record types
    ------------------------------------------------------------------------
    
-   type BitmapSize is record
-      Width : Windows.UInt32;
-      Height : Windows.UInt32;
-   end record;
-   pragma Convention (C_Pass_By_Copy , BitmapSize);
-   
-   type BitmapSize_Ptr is access BitmapSize;
-   
    type BitmapBounds is record
       X : Windows.UInt32;
       Y : Windows.UInt32;
@@ -257,6 +249,14 @@ package Windows.Graphics.Imaging is
    pragma Convention (C_Pass_By_Copy , BitmapPlaneDescription);
    
    type BitmapPlaneDescription_Ptr is access BitmapPlaneDescription;
+   
+   type BitmapSize is record
+      Width : Windows.UInt32;
+      Height : Windows.UInt32;
+   end record;
+   pragma Convention (C_Pass_By_Copy , BitmapSize);
+   
+   type BitmapSize_Ptr is access BitmapSize;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -315,12 +315,18 @@ package Windows.Graphics.Imaging is
    type IBitmapDecoderStatics_Interface;
    type IBitmapDecoderStatics is access all IBitmapDecoderStatics_Interface'Class;
    type IBitmapDecoderStatics_Ptr is access all IBitmapDecoderStatics;
+   type IBitmapDecoderStatics2_Interface;
+   type IBitmapDecoderStatics2 is access all IBitmapDecoderStatics2_Interface'Class;
+   type IBitmapDecoderStatics2_Ptr is access all IBitmapDecoderStatics2;
    type IBitmapEncoder_Interface;
    type IBitmapEncoder is access all IBitmapEncoder_Interface'Class;
    type IBitmapEncoder_Ptr is access all IBitmapEncoder;
    type IBitmapEncoderStatics_Interface;
    type IBitmapEncoderStatics is access all IBitmapEncoderStatics_Interface'Class;
    type IBitmapEncoderStatics_Ptr is access all IBitmapEncoderStatics;
+   type IBitmapEncoderStatics2_Interface;
+   type IBitmapEncoderStatics2 is access all IBitmapEncoderStatics2_Interface'Class;
+   type IBitmapEncoderStatics2_Ptr is access all IBitmapEncoderStatics2;
    type IBitmapEncoderWithSoftwareBitmap_Interface;
    type IBitmapEncoderWithSoftwareBitmap is access all IBitmapEncoderWithSoftwareBitmap_Interface'Class;
    type IBitmapEncoderWithSoftwareBitmap_Ptr is access all IBitmapEncoderWithSoftwareBitmap;
@@ -750,6 +756,26 @@ package Windows.Graphics.Imaging is
    
    ------------------------------------------------------------------------
    
+   IID_IBitmapDecoderStatics2 : aliased constant Windows.IID := (1354393834, 39329, 16580, (128, 217, 174, 240, 218, 250, 108, 63 ));
+   
+   type IBitmapDecoderStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_HeifDecoderId
+   (
+      This       : access IBitmapDecoderStatics2_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WebpDecoderId
+   (
+      This       : access IBitmapDecoderStatics2_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IBitmapEncoder : aliased constant Windows.IID := (734292195, 57848, 19284, (149, 232, 50, 145, 149, 81, 206, 98 ));
    
    type IBitmapEncoder_Interface is interface and Windows.IInspectable_Interface;
@@ -947,6 +973,19 @@ package Windows.Graphics.Imaging is
       This       : access IBitmapEncoderStatics_Interface
       ; bitmapDecoder : Windows.Graphics.Imaging.IBitmapDecoder
       ; RetVal : access Windows.Graphics.Imaging.IAsyncOperation_IBitmapEncoder -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBitmapEncoderStatics2 : aliased constant Windows.IID := (868991577, 65073, 16817, (184, 18, 8, 109, 33, 232, 126, 22 ));
+   
+   type IBitmapEncoderStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_HeifEncoderId
+   (
+      This       : access IBitmapEncoderStatics2_Interface
+      ; RetVal : access Windows.Guid
    )
    return Windows.HRESULT is abstract;
    
@@ -2055,6 +2094,12 @@ package Windows.Graphics.Imaging is
    function GetDecoderInformationEnumerator
    return Windows.Graphics.Imaging.IVectorView_IBitmapCodecInformation;
    
+   function get_HeifDecoderId
+   return Windows.Guid;
+   
+   function get_WebpDecoderId
+   return Windows.Guid;
+   
    function CreateAsync
    (
       encoderId : Windows.Guid
@@ -2103,6 +2148,9 @@ package Windows.Graphics.Imaging is
    
    function GetEncoderInformationEnumerator
    return Windows.Graphics.Imaging.IVectorView_IBitmapCodecInformation;
+   
+   function get_HeifEncoderId
+   return Windows.Guid;
    
    function Convert
    (

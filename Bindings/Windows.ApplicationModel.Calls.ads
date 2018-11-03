@@ -538,6 +538,9 @@ package Windows.ApplicationModel.Calls is
    type IVoipCallCoordinator3_Interface;
    type IVoipCallCoordinator3 is access all IVoipCallCoordinator3_Interface'Class;
    type IVoipCallCoordinator3_Ptr is access all IVoipCallCoordinator3;
+   type IVoipCallCoordinator4_Interface;
+   type IVoipCallCoordinator4 is access all IVoipCallCoordinator4_Interface'Class;
+   type IVoipCallCoordinator4_Ptr is access all IVoipCallCoordinator4;
    type IVoipCallCoordinatorStatics_Interface;
    type IVoipCallCoordinatorStatics is access all IVoipCallCoordinatorStatics_Interface'Class;
    type IVoipCallCoordinatorStatics_Ptr is access all IVoipCallCoordinatorStatics;
@@ -2175,6 +2178,19 @@ package Windows.ApplicationModel.Calls is
       ; ringTimeout : Windows.Foundation.TimeSpan
       ; contactRemoteId : Windows.String
       ; RetVal : access Windows.ApplicationModel.Calls.IVoipPhoneCall
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVoipCallCoordinator4 : aliased constant Windows.IID := (2205381177, 37649, 18063, (187, 73, 71, 224, 223, 181, 217, 62 ));
+   
+   type IVoipCallCoordinator4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReserveOneProcessCallResourcesAsync
+   (
+      This       : access IVoipCallCoordinator4_Interface
+      ; RetVal : access Windows.ApplicationModel.Calls.IAsyncOperation_VoipPhoneCallResourceReservationStatus -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    

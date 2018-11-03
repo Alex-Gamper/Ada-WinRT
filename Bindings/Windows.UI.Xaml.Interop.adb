@@ -79,8 +79,8 @@ package body Windows.UI.Xaml.Interop is
       ; oldItems : Windows.UI.Xaml.Interop.IBindableVector
       ; newIndex : Windows.Int32
       ; oldIndex : Windows.Int32
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Interop.INotifyCollectionChangedEventArgs is
       Hr            : Windows.HRESULT := S_OK;
@@ -91,7 +91,7 @@ package body Windows.UI.Xaml.Interop is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_INotifyCollectionChangedEventArgsFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithAllParameters(action, newItems, oldItems, newIndex, oldIndex, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithAllParameters(action, newItems, oldItems, newIndex, oldIndex, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

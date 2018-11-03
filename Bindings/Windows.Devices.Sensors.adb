@@ -115,6 +115,32 @@ package body Windows.Devices.Sensors is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IHingeAngleReading_Interface
+      ; asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IHingeAngleReading
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IHingeAngleSensor_Interface
+      ; asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IHingeAngleSensor
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_IInclinometer_Interface
       ; asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IInclinometer
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -169,6 +195,19 @@ package body Windows.Devices.Sensors is
    (
       This       : access AsyncOperationCompletedHandler_IPedometer_Interface
       ; asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IPedometer
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ISimpleOrientationSensor_Interface
+      ; asyncInfo : Windows.Devices.Sensors.IAsyncOperation_ISimpleOrientationSensor
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -266,6 +305,19 @@ package body Windows.Devices.Sensors is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Devices.Sensors.IGyrometer(sender), Windows.Devices.Sensors.IGyrometerReadingChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IHingeAngleSensor_add_ReadingChanged_Interface
+      ; sender : Windows.Devices.Sensors.IHingeAngleSensor
+      ; args : Windows.Devices.Sensors.IHingeAngleSensorReadingChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Sensors.IHingeAngleSensor(sender), Windows.Devices.Sensors.IHingeAngleSensorReadingChangedEventArgs(args));
       return Hr;
    end;
    
@@ -758,6 +810,81 @@ package body Windows.Devices.Sensors is
       Hr := RoGetActivationFactory(m_hString, IID_IGyrometerStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Sensors.IAsyncOperation_IHingeAngleSensor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.HingeAngleSensor");
+      m_Factory     : IHingeAngleSensorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sensors.IAsyncOperation_IHingeAngleSensor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHingeAngleSensorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefaultAsync
+   return Windows.Devices.Sensors.IAsyncOperation_IHingeAngleSensor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.HingeAngleSensor");
+      m_Factory     : IHingeAngleSensorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sensors.IAsyncOperation_IHingeAngleSensor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHingeAngleSensorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefaultAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelector_IHingeAngleSensor
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.HingeAngleSensor");
+      m_Factory     : IHingeAngleSensorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHingeAngleSensorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetRelatedToAdjacentPanelsAsync
+   (
+      firstPanelId : Windows.String
+      ; secondPanelId : Windows.String
+   )
+   return Windows.Devices.Sensors.IAsyncOperation_IHingeAngleSensor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.HingeAngleSensor");
+      m_Factory     : IHingeAngleSensorStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sensors.IAsyncOperation_IHingeAngleSensor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHingeAngleSensorStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetRelatedToAdjacentPanelsAsync(firstPanelId, secondPanelId, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1285,6 +1412,43 @@ package body Windows.Devices.Sensors is
       Hr := RoGetActivationFactory(m_hString, IID_ISimpleOrientationSensorStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Sensors.IAsyncOperation_ISimpleOrientationSensor is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.SimpleOrientationSensor");
+      m_Factory     : ISimpleOrientationSensorStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Sensors.IAsyncOperation_ISimpleOrientationSensor;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISimpleOrientationSensorStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelector_ISimpleOrientationSensor
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Sensors.SimpleOrientationSensor");
+      m_Factory     : ISimpleOrientationSensorStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISimpleOrientationSensorStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

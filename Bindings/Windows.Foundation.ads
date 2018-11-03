@@ -146,45 +146,12 @@ package Windows.Foundation is
    -- Record types
    ------------------------------------------------------------------------
    
-   type Point is record
-      X : Windows.Single;
-      Y : Windows.Single;
-   end record;
-   pragma Convention (C_Pass_By_Copy , Point);
-   
-   type Point_Ptr is access Point;
-   
-   type Size is record
-      Width : Windows.Single;
-      Height : Windows.Single;
-   end record;
-   pragma Convention (C_Pass_By_Copy , Size);
-   
-   type Size_Ptr is access Size;
-   
-   type Rect is record
-      X : Windows.Single;
-      Y : Windows.Single;
-      Width : Windows.Single;
-      Height : Windows.Single;
-   end record;
-   pragma Convention (C_Pass_By_Copy , Rect);
-   
-   type Rect_Ptr is access Rect;
-   
    type DateTime is record
       UniversalTime : Windows.Int64;
    end record;
    pragma Convention (C_Pass_By_Copy , DateTime);
    
    type DateTime_Ptr is access DateTime;
-   
-   type TimeSpan is record
-      Duration : Windows.Int64;
-   end record;
-   pragma Convention (C_Pass_By_Copy , TimeSpan);
-   
-   type TimeSpan_Ptr is access TimeSpan;
    
    type EventRegistrationToken is record
       Value : Windows.Int64;
@@ -197,6 +164,39 @@ package Windows.Foundation is
    pragma Convention (C_Pass_By_Copy , FoundationContract);
    
    type FoundationContract_Ptr is access FoundationContract;
+   
+   type Point is record
+      X : Windows.Single;
+      Y : Windows.Single;
+   end record;
+   pragma Convention (C_Pass_By_Copy , Point);
+   
+   type Point_Ptr is access Point;
+   
+   type Rect is record
+      X : Windows.Single;
+      Y : Windows.Single;
+      Width : Windows.Single;
+      Height : Windows.Single;
+   end record;
+   pragma Convention (C_Pass_By_Copy , Rect);
+   
+   type Rect_Ptr is access Rect;
+   
+   type Size is record
+      Width : Windows.Single;
+      Height : Windows.Single;
+   end record;
+   pragma Convention (C_Pass_By_Copy , Size);
+   
+   type Size_Ptr is access Size;
+   
+   type TimeSpan is record
+      Duration : Windows.Int64;
+   end record;
+   pragma Convention (C_Pass_By_Copy , TimeSpan);
+   
+   type TimeSpan_Ptr is access TimeSpan;
    
    type UniversalApiContract is null record;
    pragma Convention (C_Pass_By_Copy , UniversalApiContract);
@@ -365,6 +365,9 @@ package Windows.Foundation is
    type IGetActivationFactory_Interface;
    type IGetActivationFactory is access all IGetActivationFactory_Interface'Class;
    type IGetActivationFactory_Ptr is access all IGetActivationFactory;
+   type IGuidHelperStatics_Interface;
+   type IGuidHelperStatics is access all IGuidHelperStatics_Interface'Class;
+   type IGuidHelperStatics_Ptr is access all IGuidHelperStatics;
    type IIterable_IUriRuntimeClass_Interface;
    type IIterable_IUriRuntimeClass is access all IIterable_IUriRuntimeClass_Interface'Class;
    type IIterable_IUriRuntimeClass_Ptr is access all IIterable_IUriRuntimeClass;
@@ -1126,6 +1129,35 @@ package Windows.Foundation is
       This       : access IGetActivationFactory_Interface
       ; activatableClassId : Windows.String
       ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGuidHelperStatics : aliased constant Windows.IID := (1506252395, 44626, 21123, (173, 127, 161, 185, 233, 103, 138, 221 ));
+   
+   type IGuidHelperStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateNewGuid
+   (
+      This       : access IGuidHelperStatics_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Empty
+   (
+      This       : access IGuidHelperStatics_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Equals
+   (
+      This       : access IGuidHelperStatics_Interface
+      ; target : access Windows.Guid
+      ; value : access Windows.Guid
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -2475,7 +2507,7 @@ package Windows.Foundation is
    
    ------------------------------------------------------------------------
    
-   IID_IVectorView_IUriRuntimeClass : aliased constant Windows.IID := (1266910653, 41677, 24561, (191, 116, 126, 165, 128, 66, 62, 80 ));
+   IID_IVectorView_IUriRuntimeClass : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type IVectorView_IUriRuntimeClass_Interface is interface and Windows.IInspectable_Interface;
    
@@ -3061,6 +3093,19 @@ package Windows.Foundation is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function CreateNewGuid
+   return Windows.Guid;
+   
+   function Equals
+   (
+      target : access Windows.Guid
+      ; value : access Windows.Guid
+   )
+   return Windows.Boolean;
+   
+   function get_Empty
+   return Windows.Guid;
    
    function CreateBoolean
    (

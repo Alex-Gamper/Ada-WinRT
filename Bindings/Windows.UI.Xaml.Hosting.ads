@@ -52,6 +52,30 @@ package Windows.UI.Xaml.Hosting is
    
    type DesignerAppViewState_Ptr is access DesignerAppViewState;
    
+   type XamlSourceFocusNavigationReason is (
+      Programmatic,
+      Restore,
+      First,
+      Last,
+      Left,
+      Up,
+      Right,
+      Down
+   );
+   for XamlSourceFocusNavigationReason use (
+      Programmatic => 0,
+      Restore => 1,
+      First => 3,
+      Last => 4,
+      Left => 7,
+      Up => 8,
+      Right => 9,
+      Down => 10
+   );
+   for XamlSourceFocusNavigationReason'Size use 32;
+   
+   type XamlSourceFocusNavigationReason_Ptr is access XamlSourceFocusNavigationReason;
+   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -71,6 +95,12 @@ package Windows.UI.Xaml.Hosting is
    type TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Interface;
    type TypedEventHandler_IDesignerAppManager_add_DesignerAppExited is access all TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Interface'Class;
    type TypedEventHandler_IDesignerAppManager_add_DesignerAppExited_Ptr is access all TypedEventHandler_IDesignerAppManager_add_DesignerAppExited;
+   type TypedEventHandler_IDesktopWindowXamlSource_add_GotFocus_Interface;
+   type TypedEventHandler_IDesktopWindowXamlSource_add_GotFocus is access all TypedEventHandler_IDesktopWindowXamlSource_add_GotFocus_Interface'Class;
+   type TypedEventHandler_IDesktopWindowXamlSource_add_GotFocus_Ptr is access all TypedEventHandler_IDesktopWindowXamlSource_add_GotFocus;
+   type TypedEventHandler_IDesktopWindowXamlSource_add_TakeFocusRequested_Interface;
+   type TypedEventHandler_IDesktopWindowXamlSource_add_TakeFocusRequested is access all TypedEventHandler_IDesktopWindowXamlSource_add_TakeFocusRequested_Interface'Class;
+   type TypedEventHandler_IDesktopWindowXamlSource_add_TakeFocusRequested_Ptr is access all TypedEventHandler_IDesktopWindowXamlSource_add_TakeFocusRequested;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -91,6 +121,18 @@ package Windows.UI.Xaml.Hosting is
    type IDesignerAppView_Interface;
    type IDesignerAppView is access all IDesignerAppView_Interface'Class;
    type IDesignerAppView_Ptr is access all IDesignerAppView;
+   type IDesktopWindowXamlSource_Interface;
+   type IDesktopWindowXamlSource is access all IDesktopWindowXamlSource_Interface'Class;
+   type IDesktopWindowXamlSource_Ptr is access all IDesktopWindowXamlSource;
+   type IDesktopWindowXamlSourceFactory_Interface;
+   type IDesktopWindowXamlSourceFactory is access all IDesktopWindowXamlSourceFactory_Interface'Class;
+   type IDesktopWindowXamlSourceFactory_Ptr is access all IDesktopWindowXamlSourceFactory;
+   type IDesktopWindowXamlSourceGotFocusEventArgs_Interface;
+   type IDesktopWindowXamlSourceGotFocusEventArgs is access all IDesktopWindowXamlSourceGotFocusEventArgs_Interface'Class;
+   type IDesktopWindowXamlSourceGotFocusEventArgs_Ptr is access all IDesktopWindowXamlSourceGotFocusEventArgs;
+   type IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_Interface;
+   type IDesktopWindowXamlSourceTakeFocusRequestedEventArgs is access all IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_Interface'Class;
+   type IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_Ptr is access all IDesktopWindowXamlSourceTakeFocusRequestedEventArgs;
    type IElementCompositionPreview_Interface;
    type IElementCompositionPreview is access all IElementCompositionPreview_Interface'Class;
    type IElementCompositionPreview_Ptr is access all IElementCompositionPreview;
@@ -100,6 +142,24 @@ package Windows.UI.Xaml.Hosting is
    type IElementCompositionPreviewStatics2_Interface;
    type IElementCompositionPreviewStatics2 is access all IElementCompositionPreviewStatics2_Interface'Class;
    type IElementCompositionPreviewStatics2_Ptr is access all IElementCompositionPreviewStatics2;
+   type IWindowsXamlManager_Interface;
+   type IWindowsXamlManager is access all IWindowsXamlManager_Interface'Class;
+   type IWindowsXamlManager_Ptr is access all IWindowsXamlManager;
+   type IWindowsXamlManagerStatics_Interface;
+   type IWindowsXamlManagerStatics is access all IWindowsXamlManagerStatics_Interface'Class;
+   type IWindowsXamlManagerStatics_Ptr is access all IWindowsXamlManagerStatics;
+   type IXamlSourceFocusNavigationRequest_Interface;
+   type IXamlSourceFocusNavigationRequest is access all IXamlSourceFocusNavigationRequest_Interface'Class;
+   type IXamlSourceFocusNavigationRequest_Ptr is access all IXamlSourceFocusNavigationRequest;
+   type IXamlSourceFocusNavigationRequestFactory_Interface;
+   type IXamlSourceFocusNavigationRequestFactory is access all IXamlSourceFocusNavigationRequestFactory_Interface'Class;
+   type IXamlSourceFocusNavigationRequestFactory_Ptr is access all IXamlSourceFocusNavigationRequestFactory;
+   type IXamlSourceFocusNavigationResult_Interface;
+   type IXamlSourceFocusNavigationResult is access all IXamlSourceFocusNavigationResult_Interface'Class;
+   type IXamlSourceFocusNavigationResult_Ptr is access all IXamlSourceFocusNavigationResult;
+   type IXamlSourceFocusNavigationResultFactory_Interface;
+   type IXamlSourceFocusNavigationResultFactory is access all IXamlSourceFocusNavigationResultFactory_Interface'Class;
+   type IXamlSourceFocusNavigationResultFactory_Ptr is access all IXamlSourceFocusNavigationResultFactory;
    type IXamlUIPresenter_Interface;
    type IXamlUIPresenter is access all IXamlUIPresenter_Interface'Class;
    type IXamlUIPresenter_Ptr is access all IXamlUIPresenter;
@@ -179,7 +239,7 @@ package Windows.UI.Xaml.Hosting is
    function add_DesignerAppExited
    (
       This       : access IDesignerAppManager_Interface
-      ; value : TypedEventHandler_IDesignerAppManager_add_DesignerAppExited
+      ; handler : TypedEventHandler_IDesignerAppManager_add_DesignerAppExited
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -269,6 +329,112 @@ package Windows.UI.Xaml.Hosting is
    
    ------------------------------------------------------------------------
    
+   IID_IDesktopWindowXamlSource : aliased constant Windows.IID := (3582312417, 255, 20926, (186, 29, 161, 50, 153, 86, 234, 10 ));
+   
+   type IDesktopWindowXamlSource_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Content
+   (
+      This       : access IDesktopWindowXamlSource_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Content
+   (
+      This       : access IDesktopWindowXamlSource_Interface
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasFocus
+   (
+      This       : access IDesktopWindowXamlSource_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_TakeFocusRequested
+   (
+      This       : access IDesktopWindowXamlSource_Interface
+      ; handler : TypedEventHandler_IDesktopWindowXamlSource_add_TakeFocusRequested
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_TakeFocusRequested
+   (
+      This       : access IDesktopWindowXamlSource_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_GotFocus
+   (
+      This       : access IDesktopWindowXamlSource_Interface
+      ; handler : TypedEventHandler_IDesktopWindowXamlSource_add_GotFocus
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_GotFocus
+   (
+      This       : access IDesktopWindowXamlSource_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function NavigateFocus
+   (
+      This       : access IDesktopWindowXamlSource_Interface
+      ; request : Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationRequest
+      ; RetVal : access Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDesktopWindowXamlSourceFactory : aliased constant Windows.IID := (1557536192, 9569, 22241, (142, 117, 110, 68, 23, 56, 5, 227 ));
+   
+   type IDesktopWindowXamlSourceFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IDesktopWindowXamlSourceFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Hosting.IDesktopWindowXamlSource
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDesktopWindowXamlSourceGotFocusEventArgs : aliased constant Windows.IID := (968771657, 55756, 23408, (143, 5, 26, 217, 164, 170, 163, 66 ));
+   
+   type IDesktopWindowXamlSourceGotFocusEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Request
+   (
+      This       : access IDesktopWindowXamlSourceGotFocusEventArgs_Interface
+      ; RetVal : access Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDesktopWindowXamlSourceTakeFocusRequestedEventArgs : aliased constant Windows.IID := (4267828409, 42927, 21171, (189, 185, 195, 48, 92, 11, 141, 242 ));
+   
+   type IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Request
+   (
+      This       : access IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_Interface
+      ; RetVal : access Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IElementCompositionPreview : aliased constant Windows.IID := (3069290102, 53222, 18092, (172, 246, 196, 104, 123, 182, 94, 96 ));
    
    type IElementCompositionPreview_Interface is interface and Windows.IInspectable_Interface;
@@ -346,6 +512,112 @@ package Windows.UI.Xaml.Hosting is
       This       : access IElementCompositionPreviewStatics2_Interface
       ; targetElement : Windows.UI.Xaml.IUIElement
       ; RetVal : access Windows.UI.Composition.ICompositionPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWindowsXamlManager : aliased constant Windows.IID := (1443458097, 6816, 21128, (136, 24, 110, 116, 162, 220, 175, 245 ));
+   
+   type IWindowsXamlManager_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWindowsXamlManagerStatics : aliased constant Windows.IID := (673548818, 32130, 20571, (178, 16, 113, 43, 4, 165, 136, 130 ));
+   
+   type IWindowsXamlManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function InitializeForCurrentThread
+   (
+      This       : access IWindowsXamlManagerStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.Hosting.IWindowsXamlManager
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlSourceFocusNavigationRequest : aliased constant Windows.IID := (4223220661, 5270, 23168, (172, 0, 231, 87, 53, 151, 85, 230 ));
+   
+   type IXamlSourceFocusNavigationRequest_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Reason
+   (
+      This       : access IXamlSourceFocusNavigationRequest_Interface
+      ; RetVal : access Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationReason
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HintRect
+   (
+      This       : access IXamlSourceFocusNavigationRequest_Interface
+      ; RetVal : access Windows.Foundation.Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CorrelationId
+   (
+      This       : access IXamlSourceFocusNavigationRequest_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlSourceFocusNavigationRequestFactory : aliased constant Windows.IID := (3880168335, 46319, 21392, (151, 229, 204, 10, 39, 121, 197, 116 ));
+   
+   type IXamlSourceFocusNavigationRequestFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IXamlSourceFocusNavigationRequestFactory_Interface
+      ; reason : Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationReason
+      ; RetVal : access Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateInstanceWithHintRect
+   (
+      This       : access IXamlSourceFocusNavigationRequestFactory_Interface
+      ; reason : Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationReason
+      ; hintRect : Windows.Foundation.Rect
+      ; RetVal : access Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateInstanceWithHintRectAndCorrelationId
+   (
+      This       : access IXamlSourceFocusNavigationRequestFactory_Interface
+      ; reason : Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationReason
+      ; hintRect : Windows.Foundation.Rect
+      ; correlationId : Windows.Guid
+      ; RetVal : access Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlSourceFocusNavigationResult : aliased constant Windows.IID := (2295683679, 38403, 23951, (156, 199, 209, 196, 7, 13, 152, 1 ));
+   
+   type IXamlSourceFocusNavigationResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_WasFocusMoved
+   (
+      This       : access IXamlSourceFocusNavigationResult_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlSourceFocusNavigationResultFactory : aliased constant Windows.IID := (1136373183, 63969, 21799, (184, 197, 9, 51, 159, 242, 202, 118 ));
+   
+   type IXamlSourceFocusNavigationResultFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IXamlSourceFocusNavigationResultFactory_Interface
+      ; focusMoved : Windows.Boolean
+      ; RetVal : access Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationResult
    )
    return Windows.HRESULT is abstract;
    
@@ -555,6 +827,32 @@ package Windows.UI.Xaml.Hosting is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IDesktopWindowXamlSource_add_GotFocus : aliased constant Windows.IID := (2810121860, 52951, 22145, (177, 64, 140, 24, 165, 92, 235, 29 ));
+   
+   type TypedEventHandler_IDesktopWindowXamlSource_add_GotFocus_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Hosting.IDesktopWindowXamlSource ; args : Windows.UI.Xaml.Hosting.IDesktopWindowXamlSourceGotFocusEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDesktopWindowXamlSource_add_GotFocus'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDesktopWindowXamlSource_add_GotFocus_Interface
+      ; sender : Windows.UI.Xaml.Hosting.IDesktopWindowXamlSource
+      ; args : Windows.UI.Xaml.Hosting.IDesktopWindowXamlSourceGotFocusEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IDesktopWindowXamlSource_add_TakeFocusRequested : aliased constant Windows.IID := (2658790142, 51198, 21669, (150, 255, 122, 190, 2, 224, 84, 24 ));
+   
+   type TypedEventHandler_IDesktopWindowXamlSource_add_TakeFocusRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Hosting.IDesktopWindowXamlSource ; args : Windows.UI.Xaml.Hosting.IDesktopWindowXamlSourceTakeFocusRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDesktopWindowXamlSource_add_TakeFocusRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDesktopWindowXamlSource_add_TakeFocusRequested_Interface
+      ; sender : Windows.UI.Xaml.Hosting.IDesktopWindowXamlSource
+      ; args : Windows.UI.Xaml.Hosting.IDesktopWindowXamlSourceTakeFocusRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -567,12 +865,163 @@ package Windows.UI.Xaml.Hosting is
    return Windows.UI.Xaml.Hosting.IDesignerAppManager;
    
    subtype DesignerAppView is Windows.UI.Xaml.Hosting.IDesignerAppView;
+   subtype DesktopWindowXamlSource is Windows.UI.Xaml.Hosting.IDesktopWindowXamlSource;
+   
+   type IDesktopWindowXamlSource_Interface_Impl is new IDesktopWindowXamlSource_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IDesktopWindowXamlSource := null;
+      m_IDesktopWindowXamlSource : IDesktopWindowXamlSource := null;
+   end record;
+   type IDesktopWindowXamlSource_Impl is access all IDesktopWindowXamlSource_Interface_Impl'Class;
+   type IDesktopWindowXamlSource_Impl_Ptr is access all IDesktopWindowXamlSource_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IDesktopWindowXamlSource_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IDesktopWindowXamlSource_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IDesktopWindowXamlSource_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IDesktopWindowXamlSource_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IDesktopWindowXamlSource_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IDesktopWindowXamlSource_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Content
+   (
+      This       : access IDesktopWindowXamlSource_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT;
+   
+   function put_Content
+   (
+      This       : access IDesktopWindowXamlSource_Interface_Impl
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT;
+   
+   function get_HasFocus
+   (
+      This       : access IDesktopWindowXamlSource_Interface_Impl
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT;
+   
+   function add_TakeFocusRequested
+   (
+      This       : access IDesktopWindowXamlSource_Interface_Impl
+      ; handler : TypedEventHandler_IDesktopWindowXamlSource_add_TakeFocusRequested
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT;
+   
+   function remove_TakeFocusRequested
+   (
+      This       : access IDesktopWindowXamlSource_Interface_Impl
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT;
+   
+   function add_GotFocus
+   (
+      This       : access IDesktopWindowXamlSource_Interface_Impl
+      ; handler : TypedEventHandler_IDesktopWindowXamlSource_add_GotFocus
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT;
+   
+   function remove_GotFocus
+   (
+      This       : access IDesktopWindowXamlSource_Interface_Impl
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT;
+   
+   function NavigateFocus
+   (
+      This       : access IDesktopWindowXamlSource_Interface_Impl
+      ; request : Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationRequest
+      ; RetVal : access Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationResult
+   )
+   return Windows.HRESULT;
+   
+   subtype DesktopWindowXamlSourceGotFocusEventArgs is Windows.UI.Xaml.Hosting.IDesktopWindowXamlSourceGotFocusEventArgs;
+   subtype DesktopWindowXamlSourceTakeFocusRequestedEventArgs is Windows.UI.Xaml.Hosting.IDesktopWindowXamlSourceTakeFocusRequestedEventArgs;
    subtype ElementCompositionPreview is Windows.UI.Xaml.Hosting.IElementCompositionPreview;
+   subtype WindowsXamlManager is Windows.UI.Xaml.Hosting.IWindowsXamlManager;
+   subtype XamlSourceFocusNavigationRequest is Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationRequest;
+   function CreateInstance
+   (
+      reason : Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationReason
+   )
+   return Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationRequest;
+   
+   function CreateInstanceWithHintRect
+   (
+      reason : Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationReason
+      ; hintRect : Windows.Foundation.Rect
+   )
+   return Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationRequest;
+   
+   function CreateInstanceWithHintRectAndCorrelationId
+   (
+      reason : Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationReason
+      ; hintRect : Windows.Foundation.Rect
+      ; correlationId : Windows.Guid
+   )
+   return Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationRequest;
+   
+   subtype XamlSourceFocusNavigationResult is Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationResult;
+   function CreateInstance
+   (
+      focusMoved : Windows.Boolean
+   )
+   return Windows.UI.Xaml.Hosting.IXamlSourceFocusNavigationResult;
+   
    subtype XamlUIPresenter is Windows.UI.Xaml.Hosting.IXamlUIPresenter;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Hosting.IDesktopWindowXamlSource;
    
    function GetElementChildVisual
    (
@@ -625,6 +1074,9 @@ package Windows.UI.Xaml.Hosting is
       ; value : Windows.Boolean
    )
    ;
+   
+   function InitializeForCurrentThread
+   return Windows.UI.Xaml.Hosting.IWindowsXamlManager;
    
    function get_CompleteTimelinesAutomatically
    return Windows.Boolean;

@@ -835,6 +835,9 @@ package Windows.UI.Text is
    type ITextDocument2_Interface;
    type ITextDocument2 is access all ITextDocument2_Interface'Class;
    type ITextDocument2_Ptr is access all ITextDocument2;
+   type ITextDocument3_Interface;
+   type ITextDocument3 is access all ITextDocument3_Interface'Class;
+   type ITextDocument3_Ptr is access all ITextDocument3;
    type ITextParagraphFormat_Interface;
    type ITextParagraphFormat is access all ITextParagraphFormat_Interface'Class;
    type ITextParagraphFormat_Ptr is access all ITextParagraphFormat;
@@ -1701,6 +1704,18 @@ package Windows.UI.Text is
    
    ------------------------------------------------------------------------
    
+   IID_ITextDocument3 : aliased constant Windows.IID := (1974141857, 42744, 17437, (170, 24, 10, 133, 29, 110, 94, 60 ));
+   
+   type ITextDocument3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ClearUndoRedoHistory
+   (
+      This       : access ITextDocument3_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITextParagraphFormat : aliased constant Windows.IID := (754503590, 18038, 18826, (147, 245, 187, 219, 252, 11, 216, 131 ));
    
    type ITextParagraphFormat_Interface is interface and Windows.IInspectable_Interface;
@@ -2557,8 +2572,8 @@ package Windows.UI.Text is
    function Create return Windows.UI.Text.IContentLinkInfo;
    
    subtype FontWeights is Windows.UI.Text.IFontWeights;
-   subtype RichEditTextDocument is Windows.UI.Text.ITextDocument;
-   subtype RichEditTextRange is Windows.UI.Text.ITextRange;
+   subtype RichEditTextDocument is Windows.UI.Text.ITextDocument2;
+   subtype RichEditTextRange is Windows.UI.Text.IRichEditTextRange;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

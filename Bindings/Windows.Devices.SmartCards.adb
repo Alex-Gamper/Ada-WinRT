@@ -518,6 +518,40 @@ package body Windows.Devices.SmartCards is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function get_PaymentSystemEnvironment
+   return Windows.Storage.Streams.IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.KnownSmartCardAppletIds");
+      m_Factory     : IKnownSmartCardAppletIds := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IBuffer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownSmartCardAppletIds'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PaymentSystemEnvironment(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ProximityPaymentSystemEnvironment
+   return Windows.Storage.Streams.IBuffer is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.SmartCards.KnownSmartCardAppletIds");
+      m_Factory     : IKnownSmartCardAppletIds := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Streams.IBuffer;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownSmartCardAppletIds'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ProximityPaymentSystemEnvironment(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_MaxAppletIds
    return Windows.UInt16 is
       Hr            : Windows.HRESULT := S_OK;

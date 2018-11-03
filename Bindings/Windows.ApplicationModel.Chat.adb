@@ -334,6 +334,48 @@ package body Windows.ApplicationModel.Chat is
       return RetVal;
    end;
    
+   function GetCachedCapabilitiesForTransportAsync
+   (
+      address : Windows.String
+      ; transportId : Windows.String
+   )
+   return Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatCapabilitiesManager");
+      m_Factory     : IChatCapabilitiesManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IChatCapabilitiesManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetCachedCapabilitiesForTransportAsync(address, transportId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetCapabilitiesFromNetworkForTransportAsync
+   (
+      address : Windows.String
+      ; transportId : Windows.String
+   )
+   return Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.ChatCapabilitiesManager");
+      m_Factory     : IChatCapabilitiesManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IChatCapabilitiesManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetCapabilitiesFromNetworkForTransportAsync(address, transportId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function MarkMessageAsBlockedAsync
    (
       localChatMessageId : Windows.String
@@ -550,6 +592,44 @@ package body Windows.ApplicationModel.Chat is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function add_TransportListChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.RcsManager");
+      m_Factory     : IRcsManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRcsManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_TransportListChanged(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_TransportListChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Chat.RcsManager");
+      m_Factory     : IRcsManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRcsManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_TransportListChanged(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
 end;

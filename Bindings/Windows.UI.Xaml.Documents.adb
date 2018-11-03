@@ -964,8 +964,8 @@ package body Windows.UI.Xaml.Documents is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Documents.IBlock is
       Hr            : Windows.HRESULT := S_OK;
@@ -976,7 +976,7 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IBlockFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1308,8 +1308,8 @@ package body Windows.UI.Xaml.Documents is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Documents.IContentLinkProvider is
       Hr            : Windows.HRESULT := S_OK;
@@ -1320,7 +1320,7 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IContentLinkProviderFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1737,8 +1737,8 @@ package body Windows.UI.Xaml.Documents is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Documents.IInline is
       Hr            : Windows.HRESULT := S_OK;
@@ -1749,7 +1749,7 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IInlineFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1792,8 +1792,8 @@ package body Windows.UI.Xaml.Documents is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Documents.ISpan is
       Hr            : Windows.HRESULT := S_OK;
@@ -1804,7 +1804,7 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ISpanFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2119,8 +2119,8 @@ package body Windows.UI.Xaml.Documents is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Documents.ITextHighlighter is
       Hr            : Windows.HRESULT := S_OK;
@@ -2131,7 +2131,7 @@ package body Windows.UI.Xaml.Documents is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ITextHighlighterFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

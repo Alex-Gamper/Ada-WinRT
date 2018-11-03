@@ -54,6 +54,14 @@ package Windows.Devices.Input is
    -- Record types
    ------------------------------------------------------------------------
    
+   type MouseDelta is record
+      X : Windows.Int32;
+      Y : Windows.Int32;
+   end record;
+   pragma Convention (C_Pass_By_Copy , MouseDelta);
+   
+   type MouseDelta_Ptr is access MouseDelta;
+   
    type PointerDeviceUsage is record
       UsagePage : Windows.UInt32;
       Usage : Windows.UInt32;
@@ -67,14 +75,6 @@ package Windows.Devices.Input is
    pragma Convention (C_Pass_By_Copy , PointerDeviceUsage);
    
    type PointerDeviceUsage_Ptr is access PointerDeviceUsage;
-   
-   type MouseDelta is record
-      X : Windows.Int32;
-      Y : Windows.Int32;
-   end record;
-   pragma Convention (C_Pass_By_Copy , MouseDelta);
-   
-   type MouseDelta_Ptr is access MouseDelta;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events

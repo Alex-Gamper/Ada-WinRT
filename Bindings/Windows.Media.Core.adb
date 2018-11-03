@@ -27,6 +27,7 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.ApplicationModel.AppService;
+with Windows.Graphics.DirectX.Direct3D11;
 with Windows.Graphics.Imaging;
 with Windows.Media.Capture;
 with Windows.Media.Capture.Frames;
@@ -2096,6 +2097,27 @@ package body Windows.Media.Core is
       Hr := RoGetActivationFactory(m_hString, IID_IMediaStreamSampleStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromStreamAsync(stream, count, timestamp, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromDirect3D11Surface
+   (
+      surface : Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
+      ; timestamp : Windows.Foundation.TimeSpan
+   )
+   return Windows.Media.Core.IMediaStreamSample is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Core.MediaStreamSample");
+      m_Factory     : IMediaStreamSampleStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Core.IMediaStreamSample;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaStreamSampleStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromDirect3D11Surface(surface, timestamp, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

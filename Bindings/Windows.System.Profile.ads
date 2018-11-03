@@ -70,6 +70,20 @@ package Windows.System.Profile is
    
    type SystemIdentificationSource_Ptr is access SystemIdentificationSource;
    
+   type SystemOutOfBoxExperienceState is (
+      NotStarted,
+      InProgress,
+      Completed
+   );
+   for SystemOutOfBoxExperienceState use (
+      NotStarted => 0,
+      InProgress => 1,
+      Completed => 2
+   );
+   for SystemOutOfBoxExperienceState'Size use 32;
+   
+   type SystemOutOfBoxExperienceState_Ptr is access SystemOutOfBoxExperienceState;
+   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -132,6 +146,12 @@ package Windows.System.Profile is
    type ISystemIdentificationStatics_Interface;
    type ISystemIdentificationStatics is access all ISystemIdentificationStatics_Interface'Class;
    type ISystemIdentificationStatics_Ptr is access all ISystemIdentificationStatics;
+   type ISystemSetupInfoStatics_Interface;
+   type ISystemSetupInfoStatics is access all ISystemSetupInfoStatics_Interface'Class;
+   type ISystemSetupInfoStatics_Ptr is access all ISystemSetupInfoStatics;
+   type IWindowsIntegrityPolicyStatics_Interface;
+   type IWindowsIntegrityPolicyStatics is access all IWindowsIntegrityPolicyStatics_Interface'Class;
+   type IWindowsIntegrityPolicyStatics_Ptr is access all IWindowsIntegrityPolicyStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -529,6 +549,83 @@ package Windows.System.Profile is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_ISystemSetupInfoStatics : aliased constant Windows.IID := (748036264, 7560, 24109, (163, 36, 165, 67, 175, 66, 71, 238 ));
+   
+   type ISystemSetupInfoStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_OutOfBoxExperienceState
+   (
+      This       : access ISystemSetupInfoStatics_Interface
+      ; RetVal : access Windows.System.Profile.SystemOutOfBoxExperienceState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_OutOfBoxExperienceStateChanged
+   (
+      This       : access ISystemSetupInfoStatics_Interface
+      ; handler : Windows.Foundation.EventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_OutOfBoxExperienceStateChanged
+   (
+      This       : access ISystemSetupInfoStatics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWindowsIntegrityPolicyStatics : aliased constant Windows.IID := (2099085787, 36195, 18313, (158, 165, 221, 207, 101, 169, 79, 60 ));
+   
+   type IWindowsIntegrityPolicyStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsEnabled
+   (
+      This       : access IWindowsIntegrityPolicyStatics_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsEnabledForTrial
+   (
+      This       : access IWindowsIntegrityPolicyStatics_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanDisable
+   (
+      This       : access IWindowsIntegrityPolicyStatics_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsDisableSupported
+   (
+      This       : access IWindowsIntegrityPolicyStatics_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_PolicyChanged
+   (
+      This       : access IWindowsIntegrityPolicyStatics_Interface
+      ; handler : Windows.Foundation.EventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_PolicyChanged
+   (
+      This       : access IWindowsIntegrityPolicyStatics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -668,5 +765,44 @@ package Windows.System.Profile is
       user : Windows.System.IUser
    )
    return Windows.System.Profile.ISystemIdentificationInfo;
+   
+   function add_OutOfBoxExperienceStateChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function get_OutOfBoxExperienceState
+   return Windows.System.Profile.SystemOutOfBoxExperienceState;
+   
+   procedure remove_OutOfBoxExperienceStateChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function add_PolicyChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function get_CanDisable
+   return Windows.Boolean;
+   
+   function get_IsDisableSupported
+   return Windows.Boolean;
+   
+   function get_IsEnabled_WindowsIntegrityPolicy
+   return Windows.Boolean;
+   
+   function get_IsEnabledForTrial
+   return Windows.Boolean;
+   
+   procedure remove_PolicyChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
 end;

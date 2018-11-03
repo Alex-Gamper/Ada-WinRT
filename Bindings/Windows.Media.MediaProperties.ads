@@ -223,6 +223,9 @@ package Windows.Media.MediaProperties is
    type IImageEncodingPropertiesStatics2_Interface;
    type IImageEncodingPropertiesStatics2 is access all IImageEncodingPropertiesStatics2_Interface'Class;
    type IImageEncodingPropertiesStatics2_Ptr is access all IImageEncodingPropertiesStatics2;
+   type IImageEncodingPropertiesStatics3_Interface;
+   type IImageEncodingPropertiesStatics3 is access all IImageEncodingPropertiesStatics3_Interface'Class;
+   type IImageEncodingPropertiesStatics3_Ptr is access all IImageEncodingPropertiesStatics3;
    type IIterable_IAudioEncodingProperties_Interface;
    type IIterable_IAudioEncodingProperties is access all IIterable_IAudioEncodingProperties_Interface'Class;
    type IIterable_IAudioEncodingProperties_Ptr is access all IIterable_IAudioEncodingProperties;
@@ -277,6 +280,9 @@ package Windows.Media.MediaProperties is
    type IMediaEncodingSubtypesStatics4_Interface;
    type IMediaEncodingSubtypesStatics4 is access all IMediaEncodingSubtypesStatics4_Interface'Class;
    type IMediaEncodingSubtypesStatics4_Ptr is access all IMediaEncodingSubtypesStatics4;
+   type IMediaEncodingSubtypesStatics5_Interface;
+   type IMediaEncodingSubtypesStatics5 is access all IMediaEncodingSubtypesStatics5_Interface'Class;
+   type IMediaEncodingSubtypesStatics5_Ptr is access all IMediaEncodingSubtypesStatics5;
    type IMediaRatio_Interface;
    type IMediaRatio is access all IMediaRatio_Interface'Class;
    type IMediaRatio_Ptr is access all IMediaRatio;
@@ -724,6 +730,19 @@ package Windows.Media.MediaProperties is
    function CreateBmp
    (
       This       : access IImageEncodingPropertiesStatics2_Interface
+      ; RetVal : access Windows.Media.MediaProperties.IImageEncodingProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IImageEncodingPropertiesStatics3 : aliased constant Windows.IID := (1223983437, 41727, 18652, (142, 160, 233, 6, 128, 102, 54, 86 ));
+   
+   type IImageEncodingPropertiesStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateHeif
+   (
+      This       : access IImageEncodingPropertiesStatics3_Interface
       ; RetVal : access Windows.Media.MediaProperties.IImageEncodingProperties
    )
    return Windows.HRESULT is abstract;
@@ -1535,6 +1554,19 @@ package Windows.Media.MediaProperties is
    
    ------------------------------------------------------------------------
    
+   IID_IMediaEncodingSubtypesStatics5 : aliased constant Windows.IID := (1523884039, 65486, 18272, (152, 40, 93, 12, 153, 99, 126, 106 ));
+   
+   type IMediaEncodingSubtypesStatics5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Heif
+   (
+      This       : access IMediaEncodingSubtypesStatics5_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMediaRatio : aliased constant Windows.IID := (3536912101, 35113, 16413, (172, 120, 125, 53, 126, 55, 129, 99 ));
    
    type IMediaRatio_Interface is interface and Windows.IInspectable_Interface;
@@ -2082,6 +2114,9 @@ package Windows.Media.MediaProperties is
    )
    return Windows.Media.MediaProperties.IImageEncodingProperties;
    
+   function CreateHeif
+   return Windows.Media.MediaProperties.IImageEncodingProperties;
+   
    function CreateFromFileAsync
    (
       file : Windows.Storage.IStorageFile
@@ -2293,6 +2328,9 @@ package Windows.Media.MediaProperties is
    return Windows.String;
    
    function get_P010
+   return Windows.String;
+   
+   function get_Heif
    return Windows.String;
    
    function get_High_Mpeg2ProfileIds

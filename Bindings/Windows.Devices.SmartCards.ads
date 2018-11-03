@@ -638,18 +638,27 @@ package Windows.Devices.SmartCards is
    type IIterator_SmartCardCryptogramStorageKeyCapabilities_Interface;
    type IIterator_SmartCardCryptogramStorageKeyCapabilities is access all IIterator_SmartCardCryptogramStorageKeyCapabilities_Interface'Class;
    type IIterator_SmartCardCryptogramStorageKeyCapabilities_Ptr is access all IIterator_SmartCardCryptogramStorageKeyCapabilities;
+   type IKnownSmartCardAppletIds_Interface;
+   type IKnownSmartCardAppletIds is access all IKnownSmartCardAppletIds_Interface'Class;
+   type IKnownSmartCardAppletIds_Ptr is access all IKnownSmartCardAppletIds;
    type ISmartCard_Interface;
    type ISmartCard is access all ISmartCard_Interface'Class;
    type ISmartCard_Ptr is access all ISmartCard;
    type ISmartCardAppletIdGroup_Interface;
    type ISmartCardAppletIdGroup is access all ISmartCardAppletIdGroup_Interface'Class;
    type ISmartCardAppletIdGroup_Ptr is access all ISmartCardAppletIdGroup;
+   type ISmartCardAppletIdGroup2_Interface;
+   type ISmartCardAppletIdGroup2 is access all ISmartCardAppletIdGroup2_Interface'Class;
+   type ISmartCardAppletIdGroup2_Ptr is access all ISmartCardAppletIdGroup2;
    type ISmartCardAppletIdGroupFactory_Interface;
    type ISmartCardAppletIdGroupFactory is access all ISmartCardAppletIdGroupFactory_Interface'Class;
    type ISmartCardAppletIdGroupFactory_Ptr is access all ISmartCardAppletIdGroupFactory;
    type ISmartCardAppletIdGroupRegistration_Interface;
    type ISmartCardAppletIdGroupRegistration is access all ISmartCardAppletIdGroupRegistration_Interface'Class;
    type ISmartCardAppletIdGroupRegistration_Ptr is access all ISmartCardAppletIdGroupRegistration;
+   type ISmartCardAppletIdGroupRegistration2_Interface;
+   type ISmartCardAppletIdGroupRegistration2 is access all ISmartCardAppletIdGroupRegistration2_Interface'Class;
+   type ISmartCardAppletIdGroupRegistration2_Ptr is access all ISmartCardAppletIdGroupRegistration2;
    type ISmartCardAppletIdGroupStatics_Interface;
    type ISmartCardAppletIdGroupStatics is access all ISmartCardAppletIdGroupStatics_Interface'Class;
    type ISmartCardAppletIdGroupStatics_Ptr is access all ISmartCardAppletIdGroupStatics;
@@ -1751,6 +1760,26 @@ package Windows.Devices.SmartCards is
    
    ------------------------------------------------------------------------
    
+   IID_IKnownSmartCardAppletIds : aliased constant Windows.IID := (2063915224, 38324, 19592, (140, 234, 65, 30, 85, 81, 30, 252 ));
+   
+   type IKnownSmartCardAppletIds_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PaymentSystemEnvironment
+   (
+      This       : access IKnownSmartCardAppletIds_Interface
+      ; RetVal : access Windows.Storage.Streams.IBuffer
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProximityPaymentSystemEnvironment
+   (
+      This       : access IKnownSmartCardAppletIds_Interface
+      ; RetVal : access Windows.Storage.Streams.IBuffer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISmartCard : aliased constant Windows.IID := (460425329, 25652, 17396, (181, 90, 106, 41, 98, 56, 112, 170 ));
    
    type ISmartCard_Interface is interface and Windows.IInspectable_Interface;
@@ -1847,6 +1876,61 @@ package Windows.Devices.SmartCards is
    
    ------------------------------------------------------------------------
    
+   IID_ISmartCardAppletIdGroup2 : aliased constant Windows.IID := (1796143580, 39254, 19042, (141, 78, 211, 122, 104, 235, 195, 166 ));
+   
+   type ISmartCardAppletIdGroup2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Logo
+   (
+      This       : access ISmartCardAppletIdGroup2_Interface
+      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Logo
+   (
+      This       : access ISmartCardAppletIdGroup2_Interface
+      ; value : Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access ISmartCardAppletIdGroup2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access ISmartCardAppletIdGroup2_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Properties
+   (
+      This       : access ISmartCardAppletIdGroup2_Interface
+      ; RetVal : access Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SecureUserAuthenticationRequired
+   (
+      This       : access ISmartCardAppletIdGroup2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SecureUserAuthenticationRequired
+   (
+      This       : access ISmartCardAppletIdGroup2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISmartCardAppletIdGroupFactory : aliased constant Windows.IID := (2433084237, 19045, 20033, (128, 97, 203, 232, 63, 54, 149, 229 ));
    
    type ISmartCardAppletIdGroupFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -1901,6 +1985,27 @@ package Windows.Devices.SmartCards is
    (
       This       : access ISmartCardAppletIdGroupRegistration_Interface
       ; apdus : Windows.Devices.SmartCards.IIterable_ISmartCardAutomaticResponseApdu
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISmartCardAppletIdGroupRegistration2 : aliased constant Windows.IID := (1599408344, 39079, 20270, (145, 217, 108, 252, 206, 218, 64, 127 ));
+   
+   type ISmartCardAppletIdGroupRegistration2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SmartCardReaderId
+   (
+      This       : access ISmartCardAppletIdGroupRegistration2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetPropertiesAsync
+   (
+      This       : access ISmartCardAppletIdGroupRegistration2_Interface
+      ; props : Windows.Foundation.Collections.IPropertySet
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
@@ -4074,6 +4179,12 @@ package Windows.Devices.SmartCards is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_PaymentSystemEnvironment
+   return Windows.Storage.Streams.IBuffer;
+   
+   function get_ProximityPaymentSystemEnvironment
+   return Windows.Storage.Streams.IBuffer;
    
    function get_MaxAppletIds
    return Windows.UInt16;

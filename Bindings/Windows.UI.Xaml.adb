@@ -32,6 +32,7 @@ with Windows.ApplicationModel.Core;
 with Windows.ApplicationModel.DataTransfer;
 with Windows.ApplicationModel.DataTransfer.DragDrop;
 with Windows.Graphics.Imaging;
+with Windows.UI;
 with Windows.UI.Composition;
 with Windows.UI.Core;
 with Windows.UI.Input;
@@ -256,6 +257,19 @@ package body Windows.UI.Xaml is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Xaml.IFrameworkElement(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IFrameworkElement7_add_EffectiveViewportChanged_Interface
+      ; sender : Windows.UI.Xaml.IFrameworkElement
+      ; args : Windows.UI.Xaml.IEffectiveViewportChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Xaml.IFrameworkElement(sender), Windows.UI.Xaml.IEffectiveViewportChangedEventArgs(args));
       return Hr;
    end;
    
@@ -554,7 +568,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Core.IID_IFrameworkView'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.IID_IFrameworkView'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -571,7 +585,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoActivateInstance(m_hString, Instance'Address);
       if Hr = 0 then
-         Hr := Instance.QueryInterface(Windows.ApplicationModel.Core.IID_IFrameworkViewSource'Access, RetVal'access);
+         Hr := Instance.QueryInterface(Windows.UI.Xaml.IID_IFrameworkViewSource'Access, RetVal'access);
          RefCount := Instance.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1410,7 +1424,7 @@ package body Windows.UI.Xaml is
    function add_UnhandledException
    (
       This       : access IApplication_Interface_Impl
-      ; value : Windows.UI.Xaml.UnhandledExceptionEventHandler
+      ; handler : Windows.UI.Xaml.UnhandledExceptionEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -1433,7 +1447,7 @@ package body Windows.UI.Xaml is
    function add_Suspending
    (
       This       : access IApplication_Interface_Impl
-      ; value : Windows.UI.Xaml.SuspendingEventHandler
+      ; handler : Windows.UI.Xaml.SuspendingEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -1456,7 +1470,7 @@ package body Windows.UI.Xaml is
    function add_Resuming
    (
       This       : access IApplication_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -1479,6 +1493,806 @@ package body Windows.UI.Xaml is
    function Exit_x
    (
       This       : access IApplication_Interface_Impl
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
+      This       : access IBrushTransition_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_IBrushTransition or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access IBrushTransition_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access IBrushTransition_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access IBrushTransition_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IBrushTransition_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.IBrushTransition");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access IBrushTransition_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   function get_Duration
+   (
+      This       : access IBrushTransition_Interface_Impl
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Duration
+   (
+      This       : access IBrushTransition_Interface_Impl
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
+      This       : access IColorPaletteResources_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_IColorPaletteResources or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access IColorPaletteResources_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IColorPaletteResources_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.IColorPaletteResources");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access IColorPaletteResources_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   function get_AltHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_AltHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_AltLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_AltLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_AltMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_AltMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_AltMediumHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_AltMediumHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_AltMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_AltMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_BaseHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_BaseHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_BaseLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_BaseLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_BaseMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_BaseMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_BaseMediumHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_BaseMediumHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_BaseMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_BaseMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ChromeAltLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ChromeAltLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ChromeBlackHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ChromeBlackHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ChromeBlackLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ChromeBlackLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ChromeBlackMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ChromeBlackMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ChromeBlackMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ChromeBlackMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ChromeDisabledHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ChromeDisabledHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ChromeDisabledLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ChromeDisabledLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ChromeHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ChromeHigh
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ChromeLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ChromeLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ChromeMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ChromeMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ChromeMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ChromeMediumLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ChromeWhite
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ChromeWhite
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ChromeGray
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ChromeGray
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ListLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ListLow
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ListMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ListMedium
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_ErrorText
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_ErrorText
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_Accent
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; RetVal : access Windows.UI.IReference_Color
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Accent
+   (
+      This       : access IColorPaletteResources_Interface_Impl
+      ; value : Windows.UI.IReference_Color
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
@@ -1993,7 +2807,7 @@ package body Windows.UI.Xaml is
    function add_Tick
    (
       This       : access IDispatcherTimer_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -2026,6 +2840,278 @@ package body Windows.UI.Xaml is
    function Stop
    (
       This       : access IDispatcherTimer_Interface_Impl
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_IElementFactoryGetArgs or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.IElementFactoryGetArgs");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   function get_Data
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Data
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_Parent
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Parent
+   (
+      This       : access IElementFactoryGetArgs_Interface_Impl
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_IElementFactoryRecycleArgs or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.IElementFactoryRecycleArgs");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   function get_Element
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Element
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_Parent
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Parent
+   (
+      This       : access IElementFactoryRecycleArgs_Interface_Impl
+      ; value : Windows.UI.Xaml.IUIElement
    )
    return Windows.HRESULT is
       Hr : Windows.HRESULT := S_OK;
@@ -2780,7 +3866,7 @@ package body Windows.UI.Xaml is
    function add_Loaded
    (
       This       : access IFrameworkElement_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -2803,7 +3889,7 @@ package body Windows.UI.Xaml is
    function add_Unloaded
    (
       This       : access IFrameworkElement_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -2826,7 +3912,7 @@ package body Windows.UI.Xaml is
    function add_SizeChanged
    (
       This       : access IFrameworkElement_Interface_Impl
-      ; value : Windows.UI.Xaml.SizeChangedEventHandler
+      ; handler : Windows.UI.Xaml.SizeChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -2849,7 +3935,7 @@ package body Windows.UI.Xaml is
    function add_LayoutUpdated
    (
       This       : access IFrameworkElement_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -3227,6 +4313,120 @@ package body Windows.UI.Xaml is
    ------------------------------------------------------------------------
    function QueryInterface
    (
+      This       : access IScalarTransition_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_IScalarTransition or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access IScalarTransition_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access IScalarTransition_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access IScalarTransition_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IScalarTransition_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.IScalarTransition");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access IScalarTransition_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   function get_Duration
+   (
+      This       : access IScalarTransition_Interface_Impl
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Duration
+   (
+      This       : access IScalarTransition_Interface_Impl
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
       This       : access IStateTriggerBase_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
       pvObject   : not null access IUnknown
@@ -3313,6 +4513,142 @@ package body Windows.UI.Xaml is
       Hr : Windows.HResult := S_OK;
    begin
       trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
+      This       : access IVector3Transition_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_IVector3Transition or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access IVector3Transition_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access IVector3Transition_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access IVector3Transition_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IVector3Transition_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.IVector3Transition");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access IVector3Transition_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   function get_Duration
+   (
+      This       : access IVector3Transition_Interface_Impl
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Duration
+   (
+      This       : access IVector3Transition_Interface_Impl
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_Components
+   (
+      This       : access IVector3Transition_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Vector3TransitionComponents
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Components
+   (
+      This       : access IVector3Transition_Interface_Impl
+      ; value : Windows.UI.Xaml.Vector3TransitionComponents
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
       return Hr;
    end;
    
@@ -3732,8 +5068,8 @@ package body Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IAdaptiveTrigger is
       Hr            : Windows.HRESULT := S_OK;
@@ -3744,7 +5080,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IAdaptiveTriggerFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3787,8 +5123,8 @@ package body Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IApplication is
       Hr            : Windows.HRESULT := S_OK;
@@ -3799,7 +5135,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IApplicationFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3880,6 +5216,48 @@ package body Windows.UI.Xaml is
       Hr := WindowsDeleteString(m_hString);
    end;
    
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.IBrushTransition is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.BrushTransition");
+      m_Factory     : IBrushTransitionFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IBrushTransition;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IBrushTransitionFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.IColorPaletteResources is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.ColorPaletteResources");
+      m_Factory     : IColorPaletteResourcesFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IColorPaletteResources;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IColorPaletteResourcesFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function FromRadii
    (
       topLeft : Windows.Double
@@ -3925,8 +5303,8 @@ package body Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IDataTemplate is
       Hr            : Windows.HRESULT := S_OK;
@@ -3937,7 +5315,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDataTemplateFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4002,8 +5380,8 @@ package body Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IDataTemplateKey is
       Hr            : Windows.HRESULT := S_OK;
@@ -4014,7 +5392,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDataTemplateKeyFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4024,8 +5402,8 @@ package body Windows.UI.Xaml is
    function CreateInstanceWithType
    (
       dataType : Windows.Object
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IDataTemplateKey is
       Hr            : Windows.HRESULT := S_OK;
@@ -4036,7 +5414,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDataTemplateKeyFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithType(dataType, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithType(dataType, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4045,8 +5423,8 @@ package body Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IDependencyObject is
       Hr            : Windows.HRESULT := S_OK;
@@ -4057,7 +5435,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDependencyObjectFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4066,8 +5444,8 @@ package body Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IObservableVector_DependencyObject is
       Hr            : Windows.HRESULT := S_OK;
@@ -4078,7 +5456,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDependencyObjectCollectionFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4150,8 +5528,8 @@ package body Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IDispatcherTimer is
       Hr            : Windows.HRESULT := S_OK;
@@ -4162,7 +5540,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IDispatcherTimerFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4327,6 +5705,48 @@ package body Windows.UI.Xaml is
       return RetVal;
    end;
    
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.IElementFactoryGetArgs is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.ElementFactoryGetArgs");
+      m_Factory     : IElementFactoryGetArgsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IElementFactoryGetArgs;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IElementFactoryGetArgsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.IElementFactoryRecycleArgs is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.ElementFactoryRecycleArgs");
+      m_Factory     : IElementFactoryRecycleArgsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IElementFactoryRecycleArgs;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IElementFactoryRecycleArgsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_State
    return Windows.UI.Xaml.ElementSoundPlayerState is
       Hr            : Windows.HRESULT := S_OK;
@@ -4452,8 +5872,8 @@ package body Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IFrameworkElement is
       Hr            : Windows.HRESULT := S_OK;
@@ -4464,7 +5884,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IFrameworkElementFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4933,8 +6353,8 @@ package body Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IFrameworkTemplate is
       Hr            : Windows.HRESULT := S_OK;
@@ -4945,7 +6365,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IFrameworkTemplateFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5115,8 +6535,8 @@ package body Windows.UI.Xaml is
    function CreateInstanceWithDefaultValue
    (
       defaultValue : Windows.Object
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IPropertyMetadata is
       Hr            : Windows.HRESULT := S_OK;
@@ -5127,7 +6547,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IPropertyMetadataFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithDefaultValue(defaultValue, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithDefaultValue(defaultValue, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5138,8 +6558,8 @@ package body Windows.UI.Xaml is
    (
       defaultValue : Windows.Object
       ; propertyChangedCallback : Windows.UI.Xaml.PropertyChangedCallback
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IPropertyMetadata is
       Hr            : Windows.HRESULT := S_OK;
@@ -5150,7 +6570,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IPropertyMetadataFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithDefaultValueAndCallback(defaultValue, propertyChangedCallback, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithDefaultValueAndCallback(defaultValue, propertyChangedCallback, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5528,8 +6948,8 @@ package body Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IResourceDictionary is
       Hr            : Windows.HRESULT := S_OK;
@@ -5540,7 +6960,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IResourceDictionaryFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5549,8 +6969,8 @@ package body Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IRoutedEventArgs is
       Hr            : Windows.HRESULT := S_OK;
@@ -5561,7 +6981,28 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IRoutedEventArgsFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.IScalarTransition is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.ScalarTransition");
+      m_Factory     : IScalarTransitionFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IScalarTransition;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IScalarTransitionFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5666,8 +7107,8 @@ package body Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IStateTriggerBase is
       Hr            : Windows.HRESULT := S_OK;
@@ -5678,7 +7119,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IStateTriggerBaseFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -6956,10 +8397,48 @@ package body Windows.UI.Xaml is
       Hr := WindowsDeleteString(m_hString);
    end;
    
+   function get_CanBeScrollAnchorProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.UIElement");
+      m_Factory     : IUIElementStatics9 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUIElementStatics9'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_CanBeScrollAnchorProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.IVector3Transition is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Vector3Transition");
+      m_Factory     : IVector3TransitionFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IVector3Transition;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVector3TransitionFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IVisualStateManager is
       Hr            : Windows.HRESULT := S_OK;
@@ -6970,7 +8449,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IVisualStateManagerFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -7077,8 +8556,8 @@ package body Windows.UI.Xaml is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.IVisualTransition is
       Hr            : Windows.HRESULT := S_OK;
@@ -7089,7 +8568,7 @@ package body Windows.UI.Xaml is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IVisualTransitionFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

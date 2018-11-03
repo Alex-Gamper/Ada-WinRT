@@ -227,6 +227,16 @@ package Windows.UI.Input is
    -- Record types
    ------------------------------------------------------------------------
    
+   type CrossSlideThresholds is record
+      SelectionStart : Windows.Single;
+      SpeedBumpStart : Windows.Single;
+      SpeedBumpEnd : Windows.Single;
+      RearrangeStart : Windows.Single;
+   end record;
+   pragma Convention (C_Pass_By_Copy , CrossSlideThresholds);
+   
+   type CrossSlideThresholds_Ptr is access CrossSlideThresholds;
+   
    type ManipulationDelta is record
       Translation : Windows.Foundation.Point;
       Scale : Windows.Single;
@@ -245,16 +255,6 @@ package Windows.UI.Input is
    pragma Convention (C_Pass_By_Copy , ManipulationVelocities);
    
    type ManipulationVelocities_Ptr is access ManipulationVelocities;
-   
-   type CrossSlideThresholds is record
-      SelectionStart : Windows.Single;
-      SpeedBumpStart : Windows.Single;
-      SpeedBumpEnd : Windows.Single;
-      RearrangeStart : Windows.Single;
-   end record;
-   pragma Convention (C_Pass_By_Copy , CrossSlideThresholds);
-   
-   type CrossSlideThresholds_Ptr is access CrossSlideThresholds;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events

@@ -429,8 +429,8 @@ package Windows.UI.Xaml.Data is
    function CreateInstance
    (
       This       : access IBindingBaseFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Data.IBindingBase
    )
    return Windows.HRESULT is abstract;
@@ -488,8 +488,8 @@ package Windows.UI.Xaml.Data is
    function CreateInstance
    (
       This       : access IBindingFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Data.IBinding
    )
    return Windows.HRESULT is abstract;
@@ -566,7 +566,7 @@ package Windows.UI.Xaml.Data is
    function add_CurrentChanged
    (
       This       : access ICollectionView_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -581,7 +581,7 @@ package Windows.UI.Xaml.Data is
    function add_CurrentChanging
    (
       This       : access ICollectionView_Interface
-      ; value : Windows.UI.Xaml.Data.CurrentChangingEventHandler
+      ; handler : Windows.UI.Xaml.Data.CurrentChangingEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -803,8 +803,8 @@ package Windows.UI.Xaml.Data is
    function CreateInstance
    (
       This       : access ICurrentChangingEventArgsFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Data.ICurrentChangingEventArgs
    )
    return Windows.HRESULT is abstract;
@@ -813,8 +813,8 @@ package Windows.UI.Xaml.Data is
    (
       This       : access ICurrentChangingEventArgsFactory_Interface
       ; isCancelable : Windows.Boolean
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Data.ICurrentChangingEventArgs
    )
    return Windows.HRESULT is abstract;
@@ -962,8 +962,8 @@ package Windows.UI.Xaml.Data is
       This       : access IItemIndexRangeFactory_Interface
       ; firstIndex : Windows.Int32
       ; length : Windows.UInt32
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Data.IItemIndexRange
    )
    return Windows.HRESULT is abstract;
@@ -1039,7 +1039,7 @@ package Windows.UI.Xaml.Data is
    function add_PropertyChanged
    (
       This       : access INotifyPropertyChanged_Interface
-      ; value : Windows.UI.Xaml.Data.PropertyChangedEventHandler
+      ; handler : Windows.UI.Xaml.Data.PropertyChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1074,8 +1074,8 @@ package Windows.UI.Xaml.Data is
    (
       This       : access IPropertyChangedEventArgsFactory_Interface
       ; name : Windows.String
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Data.IPropertyChangedEventArgs
    )
    return Windows.HRESULT is abstract;
@@ -1109,8 +1109,8 @@ package Windows.UI.Xaml.Data is
    function CreateInstance
    (
       This       : access IRelativeSourceFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Data.IRelativeSource
    )
    return Windows.HRESULT is abstract;
@@ -1791,15 +1791,15 @@ package Windows.UI.Xaml.Data is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Data.IBinding;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Data.IBindingBase;
    
@@ -1825,16 +1825,16 @@ package Windows.UI.Xaml.Data is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Data.ICurrentChangingEventArgs;
    
    function CreateWithCancelableParameter
    (
       isCancelable : Windows.Boolean
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Data.ICurrentChangingEventArgs;
    
@@ -1842,23 +1842,23 @@ package Windows.UI.Xaml.Data is
    (
       firstIndex : Windows.Int32
       ; length : Windows.UInt32
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Data.IItemIndexRange;
    
    function CreateInstance
    (
       name : Windows.String
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Data.IPropertyChangedEventArgs;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Data.IRelativeSource;
    

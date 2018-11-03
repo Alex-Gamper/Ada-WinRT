@@ -88,7 +88,8 @@ package Windows.Devices.Enumeration is
       DeviceInterfaceClass,
       AssociationEndpoint,
       AssociationEndpointContainer,
-      AssociationEndpointService
+      AssociationEndpointService,
+      DevicePanel
    );
    for DeviceInformationKind use (
       Unknown => 0,
@@ -98,7 +99,8 @@ package Windows.Devices.Enumeration is
       DeviceInterfaceClass => 4,
       AssociationEndpoint => 5,
       AssociationEndpointContainer => 6,
-      AssociationEndpointService => 7
+      AssociationEndpointService => 7,
+      DevicePanel => 8
    );
    for DeviceInformationKind'Size use 32;
    
@@ -384,6 +386,9 @@ package Windows.Devices.Enumeration is
    type IDeviceInformationPairingStatics_Interface;
    type IDeviceInformationPairingStatics is access all IDeviceInformationPairingStatics_Interface'Class;
    type IDeviceInformationPairingStatics_Ptr is access all IDeviceInformationPairingStatics;
+   type IDeviceInformationPairingStatics2_Interface;
+   type IDeviceInformationPairingStatics2 is access all IDeviceInformationPairingStatics2_Interface'Class;
+   type IDeviceInformationPairingStatics2_Ptr is access all IDeviceInformationPairingStatics2;
    type IDeviceInformationStatics_Interface;
    type IDeviceInformationStatics is access all IDeviceInformationStatics_Interface'Class;
    type IDeviceInformationStatics_Ptr is access all IDeviceInformationStatics;
@@ -962,6 +967,21 @@ package Windows.Devices.Enumeration is
    (
       This       : access IDeviceInformationPairingStatics_Interface
       ; pairingKindsSupported : Windows.Devices.Enumeration.DevicePairingKinds
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDeviceInformationPairingStatics2 : aliased constant Windows.IID := (81679218, 47031, 18283, (167, 79, 197, 131, 106, 112, 77, 152 ));
+   
+   type IDeviceInformationPairingStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryRegisterForAllInboundPairingRequestsWithProtectionLevel
+   (
+      This       : access IDeviceInformationPairingStatics2_Interface
+      ; pairingKindsSupported : Windows.Devices.Enumeration.DevicePairingKinds
+      ; minProtectionLevel : Windows.Devices.Enumeration.DevicePairingProtectionLevel
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
@@ -2480,6 +2500,13 @@ package Windows.Devices.Enumeration is
    function TryRegisterForAllInboundPairingRequests
    (
       pairingKindsSupported : Windows.Devices.Enumeration.DevicePairingKinds
+   )
+   return Windows.Boolean;
+   
+   function TryRegisterForAllInboundPairingRequestsWithProtectionLevel
+   (
+      pairingKindsSupported : Windows.Devices.Enumeration.DevicePairingKinds
+      ; minProtectionLevel : Windows.Devices.Enumeration.DevicePairingProtectionLevel
    )
    return Windows.Boolean;
    

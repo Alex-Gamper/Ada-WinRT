@@ -284,7 +284,7 @@ package Windows.UI.Xaml.Media.Imaging is
    function add_DownloadProgress
    (
       This       : access IBitmapImage_Interface
-      ; value : Windows.UI.Xaml.Media.Imaging.DownloadProgressEventHandler
+      ; handler : Windows.UI.Xaml.Media.Imaging.DownloadProgressEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -299,7 +299,7 @@ package Windows.UI.Xaml.Media.Imaging is
    function add_ImageOpened
    (
       This       : access IBitmapImage_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -314,7 +314,7 @@ package Windows.UI.Xaml.Media.Imaging is
    function add_ImageFailed
    (
       This       : access IBitmapImage_Interface
-      ; value : Windows.UI.Xaml.ExceptionRoutedEventHandler
+      ; handler : Windows.UI.Xaml.ExceptionRoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -524,8 +524,8 @@ package Windows.UI.Xaml.Media.Imaging is
    function CreateInstance
    (
       This       : access IBitmapSourceFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.IBitmapSource
    )
    return Windows.HRESULT is abstract;
@@ -666,8 +666,8 @@ package Windows.UI.Xaml.Media.Imaging is
       This       : access ISurfaceImageSourceFactory_Interface
       ; pixelWidth : Windows.Int32
       ; pixelHeight : Windows.Int32
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource
    )
    return Windows.HRESULT is abstract;
@@ -678,8 +678,8 @@ package Windows.UI.Xaml.Media.Imaging is
       ; pixelWidth : Windows.Int32
       ; pixelHeight : Windows.Int32
       ; isOpaque : Windows.Boolean
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource
    )
    return Windows.HRESULT is abstract;
@@ -735,7 +735,7 @@ package Windows.UI.Xaml.Media.Imaging is
    function add_Opened
    (
       This       : access ISvgImageSource_Interface
-      ; value : TypedEventHandler_ISvgImageSource_add_Opened
+      ; handler : TypedEventHandler_ISvgImageSource_add_Opened
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -750,7 +750,7 @@ package Windows.UI.Xaml.Media.Imaging is
    function add_OpenFailed
    (
       This       : access ISvgImageSource_Interface
-      ; value : TypedEventHandler_ISvgImageSource_add_OpenFailed
+      ; handler : TypedEventHandler_ISvgImageSource_add_OpenFailed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -779,8 +779,8 @@ package Windows.UI.Xaml.Media.Imaging is
    function CreateInstance
    (
       This       : access ISvgImageSourceFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.ISvgImageSource
    )
    return Windows.HRESULT is abstract;
@@ -789,8 +789,8 @@ package Windows.UI.Xaml.Media.Imaging is
    (
       This       : access ISvgImageSourceFactory_Interface
       ; uriSource : Windows.Foundation.IUriRuntimeClass
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.ISvgImageSource
    )
    return Windows.HRESULT is abstract;
@@ -921,8 +921,8 @@ package Windows.UI.Xaml.Media.Imaging is
    function CreateInstance
    (
       This       : access IXamlRenderingBackgroundTaskFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTask
    )
    return Windows.HRESULT is abstract;
@@ -1197,7 +1197,7 @@ package Windows.UI.Xaml.Media.Imaging is
    function add_Opened
    (
       This       : access ISvgImageSource_Interface_Impl
-      ; value : TypedEventHandler_ISvgImageSource_add_Opened
+      ; handler : TypedEventHandler_ISvgImageSource_add_Opened
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -1212,7 +1212,7 @@ package Windows.UI.Xaml.Media.Imaging is
    function add_OpenFailed
    (
       This       : access ISvgImageSource_Interface_Impl
-      ; value : TypedEventHandler_ISvgImageSource_add_OpenFailed
+      ; handler : TypedEventHandler_ISvgImageSource_add_OpenFailed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -1401,8 +1401,8 @@ package Windows.UI.Xaml.Media.Imaging is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.IBitmapSource;
    
@@ -1422,8 +1422,8 @@ package Windows.UI.Xaml.Media.Imaging is
    (
       pixelWidth : Windows.Int32
       ; pixelHeight : Windows.Int32
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource;
    
@@ -1432,23 +1432,23 @@ package Windows.UI.Xaml.Media.Imaging is
       pixelWidth : Windows.Int32
       ; pixelHeight : Windows.Int32
       ; isOpaque : Windows.Boolean
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.ISvgImageSource;
    
    function CreateInstanceWithUriSource
    (
       uriSource : Windows.Foundation.IUriRuntimeClass
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.ISvgImageSource;
    
@@ -1463,8 +1463,8 @@ package Windows.UI.Xaml.Media.Imaging is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTask;
    

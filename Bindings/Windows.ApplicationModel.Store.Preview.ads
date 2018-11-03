@@ -42,6 +42,38 @@ package Windows.ApplicationModel.Store.Preview is
    -- Enums
    ------------------------------------------------------------------------
    
+   type DeliveryOptimizationDownloadMode is (
+      Simple,
+      HttpOnly,
+      Lan,
+      Group,
+      Internet,
+      Bypass
+   );
+   for DeliveryOptimizationDownloadMode use (
+      Simple => 0,
+      HttpOnly => 1,
+      Lan => 2,
+      Group => 3,
+      Internet => 4,
+      Bypass => 5
+   );
+   for DeliveryOptimizationDownloadMode'Size use 32;
+   
+   type DeliveryOptimizationDownloadMode_Ptr is access DeliveryOptimizationDownloadMode;
+   
+   type DeliveryOptimizationDownloadModeSource is (
+      Default,
+      Policy
+   );
+   for DeliveryOptimizationDownloadModeSource use (
+      Default => 0,
+      Policy => 1
+   );
+   for DeliveryOptimizationDownloadModeSource'Size use 32;
+   
+   type DeliveryOptimizationDownloadModeSource_Ptr is access DeliveryOptimizationDownloadModeSource;
+   
    type StoreLogOptions is (
       None,
       TryElevate
@@ -163,6 +195,12 @@ package Windows.ApplicationModel.Store.Preview is
    type IAsyncOperation_IStorePreviewPurchaseResults_Interface;
    type IAsyncOperation_IStorePreviewPurchaseResults is access all IAsyncOperation_IStorePreviewPurchaseResults_Interface'Class;
    type IAsyncOperation_IStorePreviewPurchaseResults_Ptr is access all IAsyncOperation_IStorePreviewPurchaseResults;
+   type IDeliveryOptimizationSettings_Interface;
+   type IDeliveryOptimizationSettings is access all IDeliveryOptimizationSettings_Interface'Class;
+   type IDeliveryOptimizationSettings_Ptr is access all IDeliveryOptimizationSettings;
+   type IDeliveryOptimizationSettingsStatics_Interface;
+   type IDeliveryOptimizationSettingsStatics is access all IDeliveryOptimizationSettingsStatics_Interface'Class;
+   type IDeliveryOptimizationSettingsStatics_Ptr is access all IDeliveryOptimizationSettingsStatics;
    type IIterable_IStorePreviewSkuInfo_Interface;
    type IIterable_IStorePreviewSkuInfo is access all IIterable_IStorePreviewSkuInfo_Interface'Class;
    type IIterable_IStorePreviewSkuInfo_Ptr is access all IIterable_IStorePreviewSkuInfo;
@@ -187,6 +225,9 @@ package Windows.ApplicationModel.Store.Preview is
    type IStoreConfigurationStatics4_Interface;
    type IStoreConfigurationStatics4 is access all IStoreConfigurationStatics4_Interface'Class;
    type IStoreConfigurationStatics4_Ptr is access all IStoreConfigurationStatics4;
+   type IStoreConfigurationStatics5_Interface;
+   type IStoreConfigurationStatics5 is access all IStoreConfigurationStatics5_Interface'Class;
+   type IStoreConfigurationStatics5_Ptr is access all IStoreConfigurationStatics5;
    type IStoreHardwareManufacturerInfo_Interface;
    type IStoreHardwareManufacturerInfo is access all IStoreHardwareManufacturerInfo_Interface'Class;
    type IStoreHardwareManufacturerInfo_Ptr is access all IStoreHardwareManufacturerInfo;
@@ -237,6 +278,39 @@ package Windows.ApplicationModel.Store.Preview is
    (
       This       : access IAsyncOperation_IStorePreviewPurchaseResults_Interface
       ; RetVal : access Windows.ApplicationModel.Store.Preview.IStorePreviewPurchaseResults
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDeliveryOptimizationSettings : aliased constant Windows.IID := (403766688, 59475, 22110, (184, 116, 122, 138, 123, 154, 14, 15 ));
+   
+   type IDeliveryOptimizationSettings_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DownloadMode
+   (
+      This       : access IDeliveryOptimizationSettings_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DownloadModeSource
+   (
+      This       : access IDeliveryOptimizationSettings_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadModeSource
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDeliveryOptimizationSettingsStatics : aliased constant Windows.IID := (1551989935, 44757, 22937, (180, 201, 140, 96, 137, 139, 196, 243 ));
+   
+   type IDeliveryOptimizationSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetCurrentSettings
+   (
+      This       : access IDeliveryOptimizationSettingsStatics_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.IDeliveryOptimizationSettings
    )
    return Windows.HRESULT is abstract;
    
@@ -541,6 +615,48 @@ package Windows.ApplicationModel.Store.Preview is
    
    ------------------------------------------------------------------------
    
+   IID_IStoreConfigurationStatics5 : aliased constant Windows.IID := (4150342033, 36777, 18907, (130, 43, 1, 96, 231, 228, 229, 197 ));
+   
+   type IStoreConfigurationStatics5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function IsPinToDesktopSupported
+   (
+      This       : access IStoreConfigurationStatics5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IsPinToTaskbarSupported
+   (
+      This       : access IStoreConfigurationStatics5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IsPinToStartSupported
+   (
+      This       : access IStoreConfigurationStatics5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function PinToDesktop
+   (
+      This       : access IStoreConfigurationStatics5_Interface
+      ; appPackageFamilyName : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function PinToDesktopForUser
+   (
+      This       : access IStoreConfigurationStatics5_Interface
+      ; user : Windows.System.IUser
+      ; appPackageFamilyName : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IStoreHardwareManufacturerInfo : aliased constant Windows.IID := (4069710856, 50772, 17324, (162, 31, 52, 128, 28, 157, 51, 136 ));
    
    type IStoreHardwareManufacturerInfo_Interface is interface and Windows.IInspectable_Interface;
@@ -803,6 +919,7 @@ package Windows.ApplicationModel.Store.Preview is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype DeliveryOptimizationSettings is Windows.ApplicationModel.Store.Preview.IDeliveryOptimizationSettings;
    subtype StoreHardwareManufacturerInfo is Windows.ApplicationModel.Store.Preview.IStoreHardwareManufacturerInfo;
    subtype StorePreviewProductInfo is Windows.ApplicationModel.Store.Preview.IStorePreviewProductInfo;
    subtype StorePreviewPurchaseResults is Windows.ApplicationModel.Store.Preview.IStorePreviewPurchaseResults;
@@ -811,6 +928,9 @@ package Windows.ApplicationModel.Store.Preview is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetCurrentSettings
+   return Windows.ApplicationModel.Store.Preview.IDeliveryOptimizationSettings;
    
    function FilterUnsupportedSystemFeaturesAsync
    (
@@ -940,6 +1060,28 @@ package Windows.ApplicationModel.Store.Preview is
       user : Windows.System.IUser
    )
    return Windows.Boolean;
+   
+   function IsPinToDesktopSupported
+   return Windows.Boolean;
+   
+   function IsPinToStartSupported
+   return Windows.Boolean;
+   
+   function IsPinToTaskbarSupported
+   return Windows.Boolean;
+   
+   procedure PinToDesktop
+   (
+      appPackageFamilyName : Windows.String
+   )
+   ;
+   
+   procedure PinToDesktopForUser
+   (
+      user : Windows.System.IUser
+      ; appPackageFamilyName : Windows.String
+   )
+   ;
    
    function LoadAddOnProductInfosAsync
    return Windows.Address;

@@ -38,9 +38,15 @@ package Windows.Perception is
    type IPerceptionTimestamp_Interface;
    type IPerceptionTimestamp is access all IPerceptionTimestamp_Interface'Class;
    type IPerceptionTimestamp_Ptr is access all IPerceptionTimestamp;
+   type IPerceptionTimestamp2_Interface;
+   type IPerceptionTimestamp2 is access all IPerceptionTimestamp2_Interface'Class;
+   type IPerceptionTimestamp2_Ptr is access all IPerceptionTimestamp2;
    type IPerceptionTimestampHelperStatics_Interface;
    type IPerceptionTimestampHelperStatics is access all IPerceptionTimestampHelperStatics_Interface'Class;
    type IPerceptionTimestampHelperStatics_Ptr is access all IPerceptionTimestampHelperStatics;
+   type IPerceptionTimestampHelperStatics2_Interface;
+   type IPerceptionTimestampHelperStatics2 is access all IPerceptionTimestampHelperStatics2_Interface'Class;
+   type IPerceptionTimestampHelperStatics2_Ptr is access all IPerceptionTimestampHelperStatics2;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -68,6 +74,19 @@ package Windows.Perception is
    
    ------------------------------------------------------------------------
    
+   IID_IPerceptionTimestamp2 : aliased constant Windows.IID := (3813980141, 11217, 16823, (158, 208, 116, 161, 92, 53, 69, 55 ));
+   
+   type IPerceptionTimestamp2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SystemRelativeTargetTime
+   (
+      This       : access IPerceptionTimestamp2_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPerceptionTimestampHelperStatics : aliased constant Windows.IID := (1202065876, 43487, 20188, (133, 93, 244, 211, 57, 217, 103, 172 ));
    
    type IPerceptionTimestampHelperStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -76,6 +95,20 @@ package Windows.Perception is
    (
       This       : access IPerceptionTimestampHelperStatics_Interface
       ; targetTime : Windows.Foundation.DateTime
+      ; RetVal : access Windows.Perception.IPerceptionTimestamp
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPerceptionTimestampHelperStatics2 : aliased constant Windows.IID := (1943119870, 16313, 17777, (135, 212, 60, 146, 10, 94, 134, 235 ));
+   
+   type IPerceptionTimestampHelperStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FromSystemRelativeTargetTime
+   (
+      This       : access IPerceptionTimestampHelperStatics2_Interface
+      ; targetTime : Windows.Foundation.TimeSpan
       ; RetVal : access Windows.Perception.IPerceptionTimestamp
    )
    return Windows.HRESULT is abstract;
@@ -93,6 +126,12 @@ package Windows.Perception is
    function FromHistoricalTargetTime
    (
       targetTime : Windows.Foundation.DateTime
+   )
+   return Windows.Perception.IPerceptionTimestamp;
+   
+   function FromSystemRelativeTargetTime
+   (
+      targetTime : Windows.Foundation.TimeSpan
    )
    return Windows.Perception.IPerceptionTimestamp;
    

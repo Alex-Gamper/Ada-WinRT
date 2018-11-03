@@ -81,6 +81,32 @@ package body Windows.Web.UI.Interop is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebViewControlSite2_add_GotFocus_Interface
+      ; sender : Windows.Web.UI.IWebViewControl
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Web.UI.IWebViewControl(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebViewControlSite2_add_LostFocus_Interface
+      ; sender : Windows.Web.UI.IWebViewControl
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Web.UI.IWebViewControl(sender), args);
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------

@@ -44,7 +44,8 @@ package Windows.Devices.Enumeration.Pnp is
       DeviceInterfaceClass,
       AssociationEndpoint,
       AssociationEndpointContainer,
-      AssociationEndpointService
+      AssociationEndpointService,
+      DevicePanel
    );
    for PnpObjectType use (
       Unknown => 0,
@@ -54,7 +55,8 @@ package Windows.Devices.Enumeration.Pnp is
       DeviceInterfaceClass => 4,
       AssociationEndpoint => 5,
       AssociationEndpointContainer => 6,
-      AssociationEndpointService => 7
+      AssociationEndpointService => 7,
+      DevicePanel => 8
    );
    for PnpObjectType'Size use 32;
    

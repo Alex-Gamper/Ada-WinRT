@@ -518,8 +518,8 @@ package Windows.UI.Xaml.Media.Media3D is
    function CreateInstance
    (
       This       : access ITransform3DFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Media.Media3D.ITransform3D
    )
    return Windows.HRESULT is abstract;
@@ -689,8 +689,8 @@ package Windows.UI.Xaml.Media.Media3D is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Media.Media3D.ITransform3D;
    

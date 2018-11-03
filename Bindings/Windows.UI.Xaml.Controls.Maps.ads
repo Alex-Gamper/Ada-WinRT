@@ -177,6 +177,20 @@ package Windows.UI.Xaml.Controls.Maps is
    
    type MapStyle_Ptr is access MapStyle;
    
+   type MapTileAnimationState is (
+      Stopped,
+      Paused,
+      Playing
+   );
+   for MapTileAnimationState use (
+      Stopped => 0,
+      Paused => 1,
+      Playing => 2
+   );
+   for MapTileAnimationState'Size use 32;
+   
+   type MapTileAnimationState_Ptr is access MapTileAnimationState;
+   
    type MapTileLayer is (
       LabelOverlay,
       RoadOverlay,
@@ -672,6 +686,9 @@ package Windows.UI.Xaml.Controls.Maps is
    type IMapTileBitmapRequestedEventArgs_Interface;
    type IMapTileBitmapRequestedEventArgs is access all IMapTileBitmapRequestedEventArgs_Interface'Class;
    type IMapTileBitmapRequestedEventArgs_Ptr is access all IMapTileBitmapRequestedEventArgs;
+   type IMapTileBitmapRequestedEventArgs2_Interface;
+   type IMapTileBitmapRequestedEventArgs2 is access all IMapTileBitmapRequestedEventArgs2_Interface'Class;
+   type IMapTileBitmapRequestedEventArgs2_Ptr is access all IMapTileBitmapRequestedEventArgs2;
    type IMapTileDataSource_Interface;
    type IMapTileDataSource is access all IMapTileDataSource_Interface'Class;
    type IMapTileDataSource_Ptr is access all IMapTileDataSource;
@@ -681,12 +698,18 @@ package Windows.UI.Xaml.Controls.Maps is
    type IMapTileSource_Interface;
    type IMapTileSource is access all IMapTileSource_Interface'Class;
    type IMapTileSource_Ptr is access all IMapTileSource;
+   type IMapTileSource2_Interface;
+   type IMapTileSource2 is access all IMapTileSource2_Interface'Class;
+   type IMapTileSource2_Ptr is access all IMapTileSource2;
    type IMapTileSourceFactory_Interface;
    type IMapTileSourceFactory is access all IMapTileSourceFactory_Interface'Class;
    type IMapTileSourceFactory_Ptr is access all IMapTileSourceFactory;
    type IMapTileSourceStatics_Interface;
    type IMapTileSourceStatics is access all IMapTileSourceStatics_Interface'Class;
    type IMapTileSourceStatics_Ptr is access all IMapTileSourceStatics;
+   type IMapTileSourceStatics2_Interface;
+   type IMapTileSourceStatics2 is access all IMapTileSourceStatics2_Interface'Class;
+   type IMapTileSourceStatics2_Ptr is access all IMapTileSourceStatics2;
    type IMapTileUriRequest_Interface;
    type IMapTileUriRequest is access all IMapTileUriRequest_Interface'Class;
    type IMapTileUriRequest_Ptr is access all IMapTileUriRequest;
@@ -696,6 +719,9 @@ package Windows.UI.Xaml.Controls.Maps is
    type IMapTileUriRequestedEventArgs_Interface;
    type IMapTileUriRequestedEventArgs is access all IMapTileUriRequestedEventArgs_Interface'Class;
    type IMapTileUriRequestedEventArgs_Ptr is access all IMapTileUriRequestedEventArgs;
+   type IMapTileUriRequestedEventArgs2_Interface;
+   type IMapTileUriRequestedEventArgs2 is access all IMapTileUriRequestedEventArgs2_Interface'Class;
+   type IMapTileUriRequestedEventArgs2_Ptr is access all IMapTileUriRequestedEventArgs2;
    type IStreetsideExperience_Interface;
    type IStreetsideExperience is access all IStreetsideExperience_Interface'Class;
    type IStreetsideExperience_Ptr is access all IStreetsideExperience;
@@ -800,7 +826,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_BitmapRequested
    (
       This       : access ICustomMapTileDataSource_Interface
-      ; value : TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested
+      ; handler : TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -821,8 +847,8 @@ package Windows.UI.Xaml.Controls.Maps is
    function CreateInstance
    (
       This       : access ICustomMapTileDataSourceFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.ICustomMapTileDataSource
    )
    return Windows.HRESULT is abstract;
@@ -871,7 +897,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_UriRequested
    (
       This       : access IHttpMapTileDataSource_Interface
-      ; value : TypedEventHandler_IHttpMapTileDataSource_add_UriRequested
+      ; handler : TypedEventHandler_IHttpMapTileDataSource_add_UriRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -892,8 +918,8 @@ package Windows.UI.Xaml.Controls.Maps is
    function CreateInstance
    (
       This       : access IHttpMapTileDataSourceFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IHttpMapTileDataSource
    )
    return Windows.HRESULT is abstract;
@@ -902,8 +928,8 @@ package Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IHttpMapTileDataSourceFactory_Interface
       ; uriFormatString : Windows.String
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IHttpMapTileDataSource
    )
    return Windows.HRESULT is abstract;
@@ -1171,7 +1197,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_UriRequested
    (
       This       : access ILocalMapTileDataSource_Interface
-      ; value : TypedEventHandler_ILocalMapTileDataSource_add_UriRequested
+      ; handler : TypedEventHandler_ILocalMapTileDataSource_add_UriRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1192,8 +1218,8 @@ package Windows.UI.Xaml.Controls.Maps is
    function CreateInstance
    (
       This       : access ILocalMapTileDataSourceFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.ILocalMapTileDataSource
    )
    return Windows.HRESULT is abstract;
@@ -1202,8 +1228,8 @@ package Windows.UI.Xaml.Controls.Maps is
    (
       This       : access ILocalMapTileDataSourceFactory_Interface
       ; uriFormatString : Windows.String
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.ILocalMapTileDataSource
    )
    return Windows.HRESULT is abstract;
@@ -1751,7 +1777,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_CenterChanged
    (
       This       : access IMapControl_Interface
-      ; value : TypedEventHandler_IMapControl_add_CenterChanged
+      ; handler : TypedEventHandler_IMapControl_add_CenterChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1766,7 +1792,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_HeadingChanged
    (
       This       : access IMapControl_Interface
-      ; value : TypedEventHandler_IMapControl_add_HeadingChanged
+      ; handler : TypedEventHandler_IMapControl_add_HeadingChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1781,7 +1807,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_LoadingStatusChanged
    (
       This       : access IMapControl_Interface
-      ; value : TypedEventHandler_IMapControl_add_LoadingStatusChanged
+      ; handler : TypedEventHandler_IMapControl_add_LoadingStatusChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1796,7 +1822,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_MapDoubleTapped
    (
       This       : access IMapControl_Interface
-      ; value : TypedEventHandler_IMapControl_add_MapDoubleTapped
+      ; handler : TypedEventHandler_IMapControl_add_MapDoubleTapped
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1811,7 +1837,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_MapHolding
    (
       This       : access IMapControl_Interface
-      ; value : TypedEventHandler_IMapControl_add_MapHolding
+      ; handler : TypedEventHandler_IMapControl_add_MapHolding
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1826,7 +1852,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_MapTapped
    (
       This       : access IMapControl_Interface
-      ; value : TypedEventHandler_IMapControl_add_MapTapped
+      ; handler : TypedEventHandler_IMapControl_add_MapTapped
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1841,7 +1867,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_PitchChanged
    (
       This       : access IMapControl_Interface
-      ; value : TypedEventHandler_IMapControl_add_PitchChanged
+      ; handler : TypedEventHandler_IMapControl_add_PitchChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1856,7 +1882,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_TransformOriginChanged
    (
       This       : access IMapControl_Interface
-      ; value : TypedEventHandler_IMapControl_add_TransformOriginChanged
+      ; handler : TypedEventHandler_IMapControl_add_TransformOriginChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -1871,7 +1897,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_ZoomLevelChanged
    (
       This       : access IMapControl_Interface
-      ; value : TypedEventHandler_IMapControl_add_ZoomLevelChanged
+      ; handler : TypedEventHandler_IMapControl_add_ZoomLevelChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2114,7 +2140,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_MapElementClick
    (
       This       : access IMapControl2_Interface
-      ; value : TypedEventHandler_IMapControl2_add_MapElementClick
+      ; handler : TypedEventHandler_IMapControl2_add_MapElementClick
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2129,7 +2155,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_MapElementPointerEntered
    (
       This       : access IMapControl2_Interface
-      ; value : TypedEventHandler_IMapControl2_add_MapElementPointerEntered
+      ; handler : TypedEventHandler_IMapControl2_add_MapElementPointerEntered
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2144,7 +2170,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_MapElementPointerExited
    (
       This       : access IMapControl2_Interface
-      ; value : TypedEventHandler_IMapControl2_add_MapElementPointerExited
+      ; handler : TypedEventHandler_IMapControl2_add_MapElementPointerExited
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2159,7 +2185,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_ActualCameraChanged
    (
       This       : access IMapControl2_Interface
-      ; value : TypedEventHandler_IMapControl2_add_ActualCameraChanged
+      ; handler : TypedEventHandler_IMapControl2_add_ActualCameraChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2174,7 +2200,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_ActualCameraChanging
    (
       This       : access IMapControl2_Interface
-      ; value : TypedEventHandler_IMapControl2_add_ActualCameraChanging
+      ; handler : TypedEventHandler_IMapControl2_add_ActualCameraChanging
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2189,7 +2215,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_TargetCameraChanged
    (
       This       : access IMapControl2_Interface
-      ; value : TypedEventHandler_IMapControl2_add_TargetCameraChanged
+      ; handler : TypedEventHandler_IMapControl2_add_TargetCameraChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2204,7 +2230,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_CustomExperienceChanged
    (
       This       : access IMapControl2_Interface
-      ; value : TypedEventHandler_IMapControl2_add_CustomExperienceChanged
+      ; handler : TypedEventHandler_IMapControl2_add_CustomExperienceChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2335,7 +2361,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_MapRightTapped
    (
       This       : access IMapControl3_Interface
-      ; value : TypedEventHandler_IMapControl3_add_MapRightTapped
+      ; handler : TypedEventHandler_IMapControl3_add_MapRightTapped
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2440,7 +2466,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_MapContextRequested
    (
       This       : access IMapControl5_Interface
-      ; value : TypedEventHandler_IMapControl5_add_MapContextRequested
+      ; handler : TypedEventHandler_IMapControl5_add_MapContextRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -3221,8 +3247,8 @@ package Windows.UI.Xaml.Controls.Maps is
    function CreateInstance
    (
       This       : access IMapCustomExperienceFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapCustomExperience
    )
    return Windows.HRESULT is abstract;
@@ -3516,8 +3542,8 @@ package Windows.UI.Xaml.Controls.Maps is
    function CreateInstance
    (
       This       : access IMapElementFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapElement
    )
    return Windows.HRESULT is abstract;
@@ -3599,7 +3625,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_MapElementClick
    (
       This       : access IMapElementsLayer_Interface
-      ; value : TypedEventHandler_IMapElementsLayer_add_MapElementClick
+      ; handler : TypedEventHandler_IMapElementsLayer_add_MapElementClick
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -3614,7 +3640,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_MapElementPointerEntered
    (
       This       : access IMapElementsLayer_Interface
-      ; value : TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered
+      ; handler : TypedEventHandler_IMapElementsLayer_add_MapElementPointerEntered
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -3629,7 +3655,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_MapElementPointerExited
    (
       This       : access IMapElementsLayer_Interface
-      ; value : TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited
+      ; handler : TypedEventHandler_IMapElementsLayer_add_MapElementPointerExited
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -3644,7 +3670,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_MapContextRequested
    (
       This       : access IMapElementsLayer_Interface
-      ; value : TypedEventHandler_IMapElementsLayer_add_MapContextRequested
+      ; handler : TypedEventHandler_IMapElementsLayer_add_MapContextRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4117,8 +4143,8 @@ package Windows.UI.Xaml.Controls.Maps is
    function CreateInstance
    (
       This       : access IMapLayerFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapLayer
    )
    return Windows.HRESULT is abstract;
@@ -4165,8 +4191,8 @@ package Windows.UI.Xaml.Controls.Maps is
    function CreateInstance
    (
       This       : access IMapModel3DFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapModel3D
    )
    return Windows.HRESULT is abstract;
@@ -4463,8 +4489,8 @@ package Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapRouteViewFactory_Interface
       ; route : Windows.Services.Maps.IMapRoute
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapRouteView
    )
    return Windows.HRESULT is abstract;
@@ -4485,7 +4511,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_TargetCameraChanged
    (
       This       : access IMapScene_Interface
-      ; value : TypedEventHandler_IMapScene_add_TargetCameraChanged
+      ; handler : TypedEventHandler_IMapScene_add_TargetCameraChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5246,6 +5272,19 @@ package Windows.UI.Xaml.Controls.Maps is
    
    ------------------------------------------------------------------------
    
+   IID_IMapTileBitmapRequestedEventArgs2 : aliased constant Windows.IID := (39964948, 9322, 21142, (188, 133, 89, 15, 83, 170, 57, 200 ));
+   
+   type IMapTileBitmapRequestedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FrameIndex
+   (
+      This       : access IMapTileBitmapRequestedEventArgs2_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMapTileDataSource : aliased constant Windows.IID := (3225263966, 48671, 19561, (153, 105, 121, 70, 122, 81, 60, 56 ));
    
    type IMapTileDataSource_Interface is interface and Windows.IInspectable_Interface;
@@ -5259,8 +5298,8 @@ package Windows.UI.Xaml.Controls.Maps is
    function CreateInstance
    (
       This       : access IMapTileDataSourceFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapTileDataSource
    )
    return Windows.HRESULT is abstract;
@@ -5427,6 +5466,79 @@ package Windows.UI.Xaml.Controls.Maps is
    
    ------------------------------------------------------------------------
    
+   IID_IMapTileSource2 : aliased constant Windows.IID := (2389044157, 16533, 23573, (153, 241, 18, 96, 180, 232, 176, 169 ));
+   
+   type IMapTileSource2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AnimationState
+   (
+      This       : access IMapTileSource2_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.Maps.MapTileAnimationState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AutoPlay
+   (
+      This       : access IMapTileSource2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AutoPlay
+   (
+      This       : access IMapTileSource2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FrameCount
+   (
+      This       : access IMapTileSource2_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FrameCount
+   (
+      This       : access IMapTileSource2_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FrameDuration
+   (
+      This       : access IMapTileSource2_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_FrameDuration
+   (
+      This       : access IMapTileSource2_Interface
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Pause
+   (
+      This       : access IMapTileSource2_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Play
+   (
+      This       : access IMapTileSource2_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Stop
+   (
+      This       : access IMapTileSource2_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMapTileSourceFactory : aliased constant Windows.IID := (3447685407, 30714, 18475, (157, 52, 113, 211, 29, 70, 92, 72 ));
    
    type IMapTileSourceFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -5434,8 +5546,8 @@ package Windows.UI.Xaml.Controls.Maps is
    function CreateInstance
    (
       This       : access IMapTileSourceFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapTileSource
    )
    return Windows.HRESULT is abstract;
@@ -5444,8 +5556,8 @@ package Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapTileSourceFactory_Interface
       ; dataSource : Windows.UI.Xaml.Controls.Maps.IMapTileDataSource
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapTileSource
    )
    return Windows.HRESULT is abstract;
@@ -5455,8 +5567,8 @@ package Windows.UI.Xaml.Controls.Maps is
       This       : access IMapTileSourceFactory_Interface
       ; dataSource : Windows.UI.Xaml.Controls.Maps.IMapTileDataSource
       ; zoomLevelRange : Windows.UI.Xaml.Controls.Maps.MapZoomLevelRange
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapTileSource
    )
    return Windows.HRESULT is abstract;
@@ -5467,8 +5579,8 @@ package Windows.UI.Xaml.Controls.Maps is
       ; dataSource : Windows.UI.Xaml.Controls.Maps.IMapTileDataSource
       ; zoomLevelRange : Windows.UI.Xaml.Controls.Maps.MapZoomLevelRange
       ; bounds : Windows.Devices.Geolocation.IGeoboundingBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapTileSource
    )
    return Windows.HRESULT is abstract;
@@ -5480,8 +5592,8 @@ package Windows.UI.Xaml.Controls.Maps is
       ; zoomLevelRange : Windows.UI.Xaml.Controls.Maps.MapZoomLevelRange
       ; bounds : Windows.Devices.Geolocation.IGeoboundingBox
       ; tileSizeInPixels : Windows.Int32
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapTileSource
    )
    return Windows.HRESULT is abstract;
@@ -5571,6 +5683,40 @@ package Windows.UI.Xaml.Controls.Maps is
    
    ------------------------------------------------------------------------
    
+   IID_IMapTileSourceStatics2 : aliased constant Windows.IID := (1976423550, 26268, 20733, (173, 133, 94, 165, 23, 76, 245, 155 ));
+   
+   type IMapTileSourceStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AnimationStateProperty
+   (
+      This       : access IMapTileSourceStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AutoPlayProperty
+   (
+      This       : access IMapTileSourceStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FrameCountProperty
+   (
+      This       : access IMapTileSourceStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FrameDurationProperty
+   (
+      This       : access IMapTileSourceStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMapTileUriRequest : aliased constant Windows.IID := (390079285, 12583, 17848, (135, 167, 153, 248, 125, 78, 39, 69 ));
    
    type IMapTileUriRequest_Interface is interface and Windows.IInspectable_Interface;
@@ -5639,6 +5785,19 @@ package Windows.UI.Xaml.Controls.Maps is
    (
       This       : access IMapTileUriRequestedEventArgs_Interface
       ; RetVal : access Windows.UI.Xaml.Controls.Maps.IMapTileUriRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapTileUriRequestedEventArgs2 : aliased constant Windows.IID := (587339869, 13237, 23125, (146, 245, 116, 168, 106, 34, 239, 166 ));
+   
+   type IMapTileUriRequestedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FrameIndex
+   (
+      This       : access IMapTileUriRequestedEventArgs2_Interface
+      ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
    
@@ -6861,7 +7020,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_BitmapRequested
    (
       This       : access ICustomMapTileDataSource_Interface_Impl
-      ; value : TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested
+      ; handler : TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -6964,7 +7123,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_UriRequested
    (
       This       : access IHttpMapTileDataSource_Interface_Impl
-      ; value : TypedEventHandler_IHttpMapTileDataSource_add_UriRequested
+      ; handler : TypedEventHandler_IHttpMapTileDataSource_add_UriRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -7046,7 +7205,7 @@ package Windows.UI.Xaml.Controls.Maps is
    function add_UriRequested
    (
       This       : access ILocalMapTileDataSource_Interface_Impl
-      ; value : TypedEventHandler_ILocalMapTileDataSource_add_UriRequested
+      ; handler : TypedEventHandler_ILocalMapTileDataSource_add_UriRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -7778,38 +7937,38 @@ package Windows.UI.Xaml.Controls.Maps is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.ICustomMapTileDataSource;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IHttpMapTileDataSource;
    
    function CreateInstanceWithUriFormatString
    (
       uriFormatString : Windows.String
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IHttpMapTileDataSource;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.ILocalMapTileDataSource;
    
    function CreateInstanceWithUriFormatString
    (
       uriFormatString : Windows.String
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.ILocalMapTileDataSource;
    
@@ -7964,15 +8123,15 @@ package Windows.UI.Xaml.Controls.Maps is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapCustomExperience;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapElement;
    
@@ -8038,8 +8197,8 @@ package Windows.UI.Xaml.Controls.Maps is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapLayer;
    
@@ -8054,8 +8213,8 @@ package Windows.UI.Xaml.Controls.Maps is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapModel3D;
    
@@ -8090,8 +8249,8 @@ package Windows.UI.Xaml.Controls.Maps is
    function CreateInstanceWithMapRoute
    (
       route : Windows.Services.Maps.IMapRoute
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapRouteView;
    
@@ -8399,23 +8558,23 @@ package Windows.UI.Xaml.Controls.Maps is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileDataSource;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileSource;
    
    function CreateInstanceWithDataSource
    (
       dataSource : Windows.UI.Xaml.Controls.Maps.IMapTileDataSource
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileSource;
    
@@ -8423,8 +8582,8 @@ package Windows.UI.Xaml.Controls.Maps is
    (
       dataSource : Windows.UI.Xaml.Controls.Maps.IMapTileDataSource
       ; zoomLevelRange : Windows.UI.Xaml.Controls.Maps.MapZoomLevelRange
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileSource;
    
@@ -8433,8 +8592,8 @@ package Windows.UI.Xaml.Controls.Maps is
       dataSource : Windows.UI.Xaml.Controls.Maps.IMapTileDataSource
       ; zoomLevelRange : Windows.UI.Xaml.Controls.Maps.MapZoomLevelRange
       ; bounds : Windows.Devices.Geolocation.IGeoboundingBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileSource;
    
@@ -8444,8 +8603,8 @@ package Windows.UI.Xaml.Controls.Maps is
       ; zoomLevelRange : Windows.UI.Xaml.Controls.Maps.MapZoomLevelRange
       ; bounds : Windows.Devices.Geolocation.IGeoboundingBox
       ; tileSizeInPixels : Windows.Int32
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileSource;
    
@@ -8480,6 +8639,18 @@ package Windows.UI.Xaml.Controls.Maps is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ZoomLevelRangeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AnimationStateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_AutoPlayProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FrameCountProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FrameDurationProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function FindNearbyWithLocationAndRadiusAsync

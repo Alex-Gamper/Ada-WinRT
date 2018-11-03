@@ -108,12 +108,16 @@ package Windows.UI.ViewManagement is
    type ApplicationViewWindowingMode is (
       Auto,
       PreferredLaunchViewSize,
-      FullScreen
+      FullScreen,
+      CompactOverlay,
+      Maximized
    );
    for ApplicationViewWindowingMode use (
       Auto => 0,
       PreferredLaunchViewSize => 1,
-      FullScreen => 2
+      FullScreen => 2,
+      CompactOverlay => 3,
+      Maximized => 4
    );
    for ApplicationViewWindowingMode'Size use 32;
    

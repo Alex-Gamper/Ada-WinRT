@@ -26,6 +26,7 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.Graphics.DirectX;
 package Windows.Graphics.DirectX.Direct3D11 is
 
    pragma preelaborate;

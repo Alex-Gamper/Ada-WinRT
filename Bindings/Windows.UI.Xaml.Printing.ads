@@ -152,7 +152,7 @@ package Windows.UI.Xaml.Printing is
    function add_Paginate
    (
       This       : access IPrintDocument_Interface
-      ; value : Windows.UI.Xaml.Printing.PaginateEventHandler
+      ; handler : Windows.UI.Xaml.Printing.PaginateEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -167,7 +167,7 @@ package Windows.UI.Xaml.Printing is
    function add_GetPreviewPage
    (
       This       : access IPrintDocument_Interface
-      ; value : Windows.UI.Xaml.Printing.GetPreviewPageEventHandler
+      ; handler : Windows.UI.Xaml.Printing.GetPreviewPageEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -182,7 +182,7 @@ package Windows.UI.Xaml.Printing is
    function add_AddPages
    (
       This       : access IPrintDocument_Interface
-      ; value : Windows.UI.Xaml.Printing.AddPagesEventHandler
+      ; handler : Windows.UI.Xaml.Printing.AddPagesEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -238,8 +238,8 @@ package Windows.UI.Xaml.Printing is
    function CreateInstance
    (
       This       : access IPrintDocumentFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Printing.IPrintDocument
    )
    return Windows.HRESULT is abstract;
@@ -376,7 +376,7 @@ package Windows.UI.Xaml.Printing is
    function add_Paginate
    (
       This       : access IPrintDocument_Interface_Impl
-      ; value : Windows.UI.Xaml.Printing.PaginateEventHandler
+      ; handler : Windows.UI.Xaml.Printing.PaginateEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -391,7 +391,7 @@ package Windows.UI.Xaml.Printing is
    function add_GetPreviewPage
    (
       This       : access IPrintDocument_Interface_Impl
-      ; value : Windows.UI.Xaml.Printing.GetPreviewPageEventHandler
+      ; handler : Windows.UI.Xaml.Printing.GetPreviewPageEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -406,7 +406,7 @@ package Windows.UI.Xaml.Printing is
    function add_AddPages
    (
       This       : access IPrintDocument_Interface_Impl
-      ; value : Windows.UI.Xaml.Printing.AddPagesEventHandler
+      ; handler : Windows.UI.Xaml.Printing.AddPagesEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -460,8 +460,8 @@ package Windows.UI.Xaml.Printing is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Printing.IPrintDocument;
    

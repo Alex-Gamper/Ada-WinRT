@@ -372,6 +372,9 @@ package Windows.ApplicationModel.Chat is
    type IChatCapabilitiesManagerStatics_Interface;
    type IChatCapabilitiesManagerStatics is access all IChatCapabilitiesManagerStatics_Interface'Class;
    type IChatCapabilitiesManagerStatics_Ptr is access all IChatCapabilitiesManagerStatics;
+   type IChatCapabilitiesManagerStatics2_Interface;
+   type IChatCapabilitiesManagerStatics2 is access all IChatCapabilitiesManagerStatics2_Interface'Class;
+   type IChatCapabilitiesManagerStatics2_Ptr is access all IChatCapabilitiesManagerStatics2;
    type IChatConversation_Interface;
    type IChatConversation is access all IChatConversation_Interface'Class;
    type IChatConversation_Ptr is access all IChatConversation;
@@ -522,6 +525,9 @@ package Windows.ApplicationModel.Chat is
    type IRcsManagerStatics_Interface;
    type IRcsManagerStatics is access all IRcsManagerStatics_Interface'Class;
    type IRcsManagerStatics_Ptr is access all IRcsManagerStatics;
+   type IRcsManagerStatics2_Interface;
+   type IRcsManagerStatics2 is access all IRcsManagerStatics2_Interface'Class;
+   type IRcsManagerStatics2_Ptr is access all IRcsManagerStatics2;
    type IRcsServiceKindSupportedChangedEventArgs_Interface;
    type IRcsServiceKindSupportedChangedEventArgs is access all IRcsServiceKindSupportedChangedEventArgs_Interface'Class;
    type IRcsServiceKindSupportedChangedEventArgs_Ptr is access all IRcsServiceKindSupportedChangedEventArgs;
@@ -802,6 +808,30 @@ package Windows.ApplicationModel.Chat is
    (
       This       : access IChatCapabilitiesManagerStatics_Interface
       ; address : Windows.String
+      ; RetVal : access Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IChatCapabilitiesManagerStatics2 : aliased constant Windows.IID := (3809297012, 54721, 19145, (159, 252, 64, 230, 145, 132, 254, 200 ));
+   
+   type IChatCapabilitiesManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetCachedCapabilitiesForTransportAsync
+   (
+      This       : access IChatCapabilitiesManagerStatics2_Interface
+      ; address : Windows.String
+      ; transportId : Windows.String
+      ; RetVal : access Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetCapabilitiesFromNetworkForTransportAsync
+   (
+      This       : access IChatCapabilitiesManagerStatics2_Interface
+      ; address : Windows.String
+      ; transportId : Windows.String
       ; RetVal : access Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
@@ -2737,6 +2767,27 @@ package Windows.ApplicationModel.Chat is
    
    ------------------------------------------------------------------------
    
+   IID_IRcsManagerStatics2 : aliased constant Windows.IID := (3444157720, 44426, 17066, (142, 235, 167, 152, 168, 128, 137, 89 ));
+   
+   type IRcsManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_TransportListChanged
+   (
+      This       : access IRcsManagerStatics2_Interface
+      ; handler : Windows.Foundation.EventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_TransportListChanged
+   (
+      This       : access IRcsManagerStatics2_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IRcsServiceKindSupportedChangedEventArgs : aliased constant Windows.IID := (4101939780, 59267, 18534, (179, 167, 78, 92, 207, 2, 48, 112 ));
    
    type IRcsServiceKindSupportedChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -3430,6 +3481,20 @@ package Windows.ApplicationModel.Chat is
    )
    return Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities;
    
+   function GetCachedCapabilitiesForTransportAsync
+   (
+      address : Windows.String
+      ; transportId : Windows.String
+   )
+   return Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities;
+   
+   function GetCapabilitiesFromNetworkForTransportAsync
+   (
+      address : Windows.String
+      ; transportId : Windows.String
+   )
+   return Windows.ApplicationModel.Chat.IAsyncOperation_IChatCapabilities;
+   
    function MarkMessageAsBlockedAsync
    (
       localChatMessageId : Windows.String
@@ -3481,5 +3546,17 @@ package Windows.ApplicationModel.Chat is
       conversation : Windows.ApplicationModel.Chat.IChatConversation
    )
    return Windows.Foundation.IAsyncAction;
+   
+   function add_TransportListChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_TransportListChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
 end;

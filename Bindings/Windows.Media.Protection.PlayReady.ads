@@ -471,6 +471,9 @@ package Windows.Media.Protection.PlayReady is
    type IPlayReadyStatics4_Interface;
    type IPlayReadyStatics4 is access all IPlayReadyStatics4_Interface'Class;
    type IPlayReadyStatics4_Ptr is access all IPlayReadyStatics4;
+   type IPlayReadyStatics5_Interface;
+   type IPlayReadyStatics5 is access all IPlayReadyStatics5_Interface'Class;
+   type IPlayReadyStatics5_Ptr is access all IPlayReadyStatics5;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2275,6 +2278,32 @@ package Windows.Media.Protection.PlayReady is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IPlayReadyStatics5 : aliased constant Windows.IID := (587886709, 57248, 20366, (167, 121, 206, 254, 169, 198, 130, 75 ));
+   
+   type IPlayReadyStatics5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_HardwareDRMDisabledAtTime
+   (
+      This       : access IPlayReadyStatics5_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HardwareDRMDisabledUntilTime
+   (
+      This       : access IPlayReadyStatics5_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ResetHardwareDRMDisabled
+   (
+      This       : access IPlayReadyStatics5_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -2601,5 +2630,14 @@ package Windows.Media.Protection.PlayReady is
    
    function get_ProtectionSystemId
    return Windows.Guid;
+   
+   function get_HardwareDRMDisabledAtTime
+   return Windows.Foundation.IReference_DateTime;
+   
+   function get_HardwareDRMDisabledUntilTime
+   return Windows.Foundation.IReference_DateTime;
+   
+   procedure ResetHardwareDRMDisabled
+   ;
    
 end;

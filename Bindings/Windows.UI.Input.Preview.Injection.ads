@@ -239,16 +239,6 @@ package Windows.UI.Input.Preview.Injection is
    -- Record types
    ------------------------------------------------------------------------
    
-   type InjectedInputRectangle is record
-      Left : Windows.Int32;
-      Top : Windows.Int32;
-      Bottom : Windows.Int32;
-      Right : Windows.Int32;
-   end record;
-   pragma Convention (C_Pass_By_Copy , InjectedInputRectangle);
-   
-   type InjectedInputRectangle_Ptr is access InjectedInputRectangle;
-   
    type InjectedInputPoint is record
       PositionX : Windows.Int32;
       PositionY : Windows.Int32;
@@ -267,6 +257,16 @@ package Windows.UI.Input.Preview.Injection is
    pragma Convention (C_Pass_By_Copy , InjectedInputPointerInfo);
    
    type InjectedInputPointerInfo_Ptr is access InjectedInputPointerInfo;
+   
+   type InjectedInputRectangle is record
+      Left : Windows.Int32;
+      Top : Windows.Int32;
+      Bottom : Windows.Int32;
+      Right : Windows.Int32;
+   end record;
+   pragma Convention (C_Pass_By_Copy , InjectedInputRectangle);
+   
+   type InjectedInputRectangle_Ptr is access InjectedInputRectangle;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces

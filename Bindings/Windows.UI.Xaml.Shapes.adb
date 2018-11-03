@@ -659,8 +659,8 @@ package body Windows.UI.Xaml.Shapes is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Shapes.IPath is
       Hr            : Windows.HRESULT := S_OK;
@@ -671,7 +671,7 @@ package body Windows.UI.Xaml.Shapes is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IPathFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -799,8 +799,8 @@ package body Windows.UI.Xaml.Shapes is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Shapes.IShape is
       Hr            : Windows.HRESULT := S_OK;
@@ -811,7 +811,7 @@ package body Windows.UI.Xaml.Shapes is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IShapeFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -520,6 +520,9 @@ package Windows.UI.Xaml.Automation is
    type IAutomationElementIdentifiersStatics7_Interface;
    type IAutomationElementIdentifiersStatics7 is access all IAutomationElementIdentifiersStatics7_Interface'Class;
    type IAutomationElementIdentifiersStatics7_Ptr is access all IAutomationElementIdentifiersStatics7;
+   type IAutomationElementIdentifiersStatics8_Interface;
+   type IAutomationElementIdentifiersStatics8 is access all IAutomationElementIdentifiersStatics8_Interface'Class;
+   type IAutomationElementIdentifiersStatics8_Ptr is access all IAutomationElementIdentifiersStatics8;
    type IAutomationProperties_Interface;
    type IAutomationProperties is access all IAutomationProperties_Interface'Class;
    type IAutomationProperties_Ptr is access all IAutomationProperties;
@@ -544,6 +547,9 @@ package Windows.UI.Xaml.Automation is
    type IAutomationPropertiesStatics7_Interface;
    type IAutomationPropertiesStatics7 is access all IAutomationPropertiesStatics7_Interface'Class;
    type IAutomationPropertiesStatics7_Ptr is access all IAutomationPropertiesStatics7;
+   type IAutomationPropertiesStatics8_Interface;
+   type IAutomationPropertiesStatics8 is access all IAutomationPropertiesStatics8_Interface'Class;
+   type IAutomationPropertiesStatics8_Ptr is access all IAutomationPropertiesStatics8;
    type IAutomationProperty_Interface;
    type IAutomationProperty is access all IAutomationProperty_Interface'Class;
    type IAutomationProperty_Ptr is access all IAutomationProperty;
@@ -1118,6 +1124,19 @@ package Windows.UI.Xaml.Automation is
    function get_HeadingLevelProperty
    (
       This       : access IAutomationElementIdentifiersStatics7_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAutomationElementIdentifiersStatics8 : aliased constant Windows.IID := (2232922208, 32876, 24005, (188, 65, 137, 27, 181, 164, 122, 223 ));
+   
+   type IAutomationElementIdentifiersStatics8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsDialogProperty
+   (
+      This       : access IAutomationElementIdentifiersStatics8_Interface
       ; RetVal : access Windows.UI.Xaml.Automation.IAutomationProperty
    )
    return Windows.HRESULT is abstract;
@@ -1748,6 +1767,35 @@ package Windows.UI.Xaml.Automation is
       This       : access IAutomationPropertiesStatics7_Interface
       ; element : Windows.UI.Xaml.IDependencyObject
       ; value : Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAutomationPropertiesStatics8 : aliased constant Windows.IID := (1127139872, 5914, 22029, (133, 36, 62, 101, 29, 58, 214, 202 ));
+   
+   type IAutomationPropertiesStatics8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsDialogProperty
+   (
+      This       : access IAutomationPropertiesStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetIsDialog
+   (
+      This       : access IAutomationPropertiesStatics8_Interface
+      ; element : Windows.UI.Xaml.IDependencyObject
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetIsDialog
+   (
+      This       : access IAutomationPropertiesStatics8_Interface
+      ; element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -2811,6 +2859,9 @@ package Windows.UI.Xaml.Automation is
    function get_HeadingLevelProperty
    return Windows.UI.Xaml.Automation.IAutomationProperty;
    
+   function get_IsDialogProperty
+   return Windows.UI.Xaml.Automation.IAutomationProperty;
+   
    function get_AcceleratorKeyProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -3205,6 +3256,22 @@ package Windows.UI.Xaml.Automation is
    (
       element : Windows.UI.Xaml.IDependencyObject
       ; value : Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel
+   )
+   ;
+   
+   function get_IsDialogProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetIsDialog
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   procedure SetIsDialog
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; value : Windows.Boolean
    )
    ;
    

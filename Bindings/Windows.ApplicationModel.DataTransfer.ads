@@ -41,6 +41,20 @@ package Windows.ApplicationModel.DataTransfer is
    -- Enums
    ------------------------------------------------------------------------
    
+   type ClipboardHistoryItemsResultStatus is (
+      Success,
+      AccessDenied,
+      ClipboardHistoryDisabled
+   );
+   for ClipboardHistoryItemsResultStatus use (
+      Success => 0,
+      AccessDenied => 1,
+      ClipboardHistoryDisabled => 2
+   );
+   for ClipboardHistoryItemsResultStatus'Size use 32;
+   
+   type ClipboardHistoryItemsResultStatus_Ptr is access ClipboardHistoryItemsResultStatus;
+   
    type DataPackageOperation is (
       None,
       Copy,
@@ -56,6 +70,20 @@ package Windows.ApplicationModel.DataTransfer is
    for DataPackageOperation'Size use 32;
    
    type DataPackageOperation_Ptr is access DataPackageOperation;
+   
+   type SetHistoryItemAsContentStatus is (
+      Success,
+      AccessDenied,
+      ItemDeleted
+   );
+   for SetHistoryItemAsContentStatus use (
+      Success => 0,
+      AccessDenied => 1,
+      ItemDeleted => 2
+   );
+   for SetHistoryItemAsContentStatus'Size use 32;
+   
+   type SetHistoryItemAsContentStatus_Ptr is access SetHistoryItemAsContentStatus;
    
    type ShareUITheme is (
       Default,
@@ -78,12 +106,18 @@ package Windows.ApplicationModel.DataTransfer is
    type AsyncOperationCompletedHandler_DataPackageOperation_Interface;
    type AsyncOperationCompletedHandler_DataPackageOperation is access all AsyncOperationCompletedHandler_DataPackageOperation_Interface'Class;
    type AsyncOperationCompletedHandler_DataPackageOperation_Ptr is access all AsyncOperationCompletedHandler_DataPackageOperation;
+   type AsyncOperationCompletedHandler_IClipboardHistoryItemsResult_Interface;
+   type AsyncOperationCompletedHandler_IClipboardHistoryItemsResult is access all AsyncOperationCompletedHandler_IClipboardHistoryItemsResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IClipboardHistoryItemsResult_Ptr is access all AsyncOperationCompletedHandler_IClipboardHistoryItemsResult;
    type AsyncOperationCompletedHandler_IDataPackage_Interface;
    type AsyncOperationCompletedHandler_IDataPackage is access all AsyncOperationCompletedHandler_IDataPackage_Interface'Class;
    type AsyncOperationCompletedHandler_IDataPackage_Ptr is access all AsyncOperationCompletedHandler_IDataPackage;
    type DataProviderHandler_Interface;
    type DataProviderHandler is access all DataProviderHandler_Interface'Class;
    type DataProviderHandler_Ptr is access all DataProviderHandler;
+   type EventHandler_IClipboardHistoryChangedEventArgs_Interface;
+   type EventHandler_IClipboardHistoryChangedEventArgs is access all EventHandler_IClipboardHistoryChangedEventArgs_Interface'Class;
+   type EventHandler_IClipboardHistoryChangedEventArgs_Ptr is access all EventHandler_IClipboardHistoryChangedEventArgs;
    type ShareProviderHandler_Interface;
    type ShareProviderHandler is access all ShareProviderHandler_Interface'Class;
    type ShareProviderHandler_Ptr is access all ShareProviderHandler;
@@ -113,12 +147,30 @@ package Windows.ApplicationModel.DataTransfer is
    type IAsyncOperation_DataPackageOperation_Interface;
    type IAsyncOperation_DataPackageOperation is access all IAsyncOperation_DataPackageOperation_Interface'Class;
    type IAsyncOperation_DataPackageOperation_Ptr is access all IAsyncOperation_DataPackageOperation;
+   type IAsyncOperation_IClipboardHistoryItemsResult_Interface;
+   type IAsyncOperation_IClipboardHistoryItemsResult is access all IAsyncOperation_IClipboardHistoryItemsResult_Interface'Class;
+   type IAsyncOperation_IClipboardHistoryItemsResult_Ptr is access all IAsyncOperation_IClipboardHistoryItemsResult;
    type IAsyncOperation_IDataPackage_Interface;
    type IAsyncOperation_IDataPackage is access all IAsyncOperation_IDataPackage_Interface'Class;
    type IAsyncOperation_IDataPackage_Ptr is access all IAsyncOperation_IDataPackage;
+   type IClipboardContentOptions_Interface;
+   type IClipboardContentOptions is access all IClipboardContentOptions_Interface'Class;
+   type IClipboardContentOptions_Ptr is access all IClipboardContentOptions;
+   type IClipboardHistoryChangedEventArgs_Interface;
+   type IClipboardHistoryChangedEventArgs is access all IClipboardHistoryChangedEventArgs_Interface'Class;
+   type IClipboardHistoryChangedEventArgs_Ptr is access all IClipboardHistoryChangedEventArgs;
+   type IClipboardHistoryItem_Interface;
+   type IClipboardHistoryItem is access all IClipboardHistoryItem_Interface'Class;
+   type IClipboardHistoryItem_Ptr is access all IClipboardHistoryItem;
+   type IClipboardHistoryItemsResult_Interface;
+   type IClipboardHistoryItemsResult is access all IClipboardHistoryItemsResult_Interface'Class;
+   type IClipboardHistoryItemsResult_Ptr is access all IClipboardHistoryItemsResult;
    type IClipboardStatics_Interface;
    type IClipboardStatics is access all IClipboardStatics_Interface'Class;
    type IClipboardStatics_Ptr is access all IClipboardStatics;
+   type IClipboardStatics2_Interface;
+   type IClipboardStatics2 is access all IClipboardStatics2_Interface'Class;
+   type IClipboardStatics2_Ptr is access all IClipboardStatics2;
    type IDataPackage_Interface;
    type IDataPackage is access all IDataPackage_Interface'Class;
    type IDataPackage_Ptr is access all IDataPackage;
@@ -152,6 +204,9 @@ package Windows.ApplicationModel.DataTransfer is
    type IDataPackagePropertySetView4_Interface;
    type IDataPackagePropertySetView4 is access all IDataPackagePropertySetView4_Interface'Class;
    type IDataPackagePropertySetView4_Ptr is access all IDataPackagePropertySetView4;
+   type IDataPackagePropertySetView5_Interface;
+   type IDataPackagePropertySetView5 is access all IDataPackagePropertySetView5_Interface'Class;
+   type IDataPackagePropertySetView5_Ptr is access all IDataPackagePropertySetView5;
    type IDataPackageView_Interface;
    type IDataPackageView is access all IDataPackageView_Interface'Class;
    type IDataPackageView_Ptr is access all IDataPackageView;
@@ -197,12 +252,18 @@ package Windows.ApplicationModel.DataTransfer is
    type IHtmlFormatHelperStatics_Interface;
    type IHtmlFormatHelperStatics is access all IHtmlFormatHelperStatics_Interface'Class;
    type IHtmlFormatHelperStatics_Ptr is access all IHtmlFormatHelperStatics;
+   type IIterable_IClipboardHistoryItem_Interface;
+   type IIterable_IClipboardHistoryItem is access all IIterable_IClipboardHistoryItem_Interface'Class;
+   type IIterable_IClipboardHistoryItem_Ptr is access all IIterable_IClipboardHistoryItem;
    type IIterable_IKeyValuePair_Interface;
    type IIterable_IKeyValuePair is access all IIterable_IKeyValuePair_Interface'Class;
    type IIterable_IKeyValuePair_Ptr is access all IIterable_IKeyValuePair;
    type IIterable_IShareProvider_Interface;
    type IIterable_IShareProvider is access all IIterable_IShareProvider_Interface'Class;
    type IIterable_IShareProvider_Ptr is access all IIterable_IShareProvider;
+   type IIterator_IClipboardHistoryItem_Interface;
+   type IIterator_IClipboardHistoryItem is access all IIterator_IClipboardHistoryItem_Interface'Class;
+   type IIterator_IClipboardHistoryItem_Ptr is access all IIterator_IClipboardHistoryItem;
    type IIterator_IShareProvider_Interface;
    type IIterator_IShareProvider is access all IIterator_IShareProvider_Interface'Class;
    type IIterator_IShareProvider_Ptr is access all IIterator_IShareProvider;
@@ -257,6 +318,9 @@ package Windows.ApplicationModel.DataTransfer is
    type IVector_IShareProvider_Interface;
    type IVector_IShareProvider is access all IVector_IShareProvider_Interface'Class;
    type IVector_IShareProvider_Ptr is access all IVector_IShareProvider;
+   type IVectorView_IClipboardHistoryItem_Interface;
+   type IVectorView_IClipboardHistoryItem is access all IVectorView_IClipboardHistoryItem_Interface'Class;
+   type IVectorView_IClipboardHistoryItem_Ptr is access all IVectorView_IClipboardHistoryItem;
    type IVectorView_IShareProvider_Interface;
    type IVectorView_IShareProvider is access all IVectorView_IShareProvider_Interface'Class;
    type IVectorView_IShareProvider_Ptr is access all IVectorView_IShareProvider;
@@ -294,6 +358,33 @@ package Windows.ApplicationModel.DataTransfer is
    
    ------------------------------------------------------------------------
    
+   IID_IAsyncOperation_IClipboardHistoryItemsResult : aliased constant Windows.IID := (1736115896, 308, 22162, (180, 135, 76, 142, 36, 8, 202, 1 ));
+   
+   type IAsyncOperation_IClipboardHistoryItemsResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IClipboardHistoryItemsResult_Interface
+      ; handler : Windows.ApplicationModel.DataTransfer.AsyncOperationCompletedHandler_IClipboardHistoryItemsResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IClipboardHistoryItemsResult_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.AsyncOperationCompletedHandler_IClipboardHistoryItemsResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IClipboardHistoryItemsResult_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IClipboardHistoryItemsResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAsyncOperation_IDataPackage : aliased constant Windows.IID := (2708417799, 60115, 21476, (148, 144, 117, 189, 186, 235, 122, 91 ));
    
    type IAsyncOperation_IDataPackage_Interface is interface and Windows.IInspectable_Interface;
@@ -316,6 +407,107 @@ package Windows.ApplicationModel.DataTransfer is
    (
       This       : access IAsyncOperation_IDataPackage_Interface
       ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackage
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IClipboardContentOptions : aliased constant Windows.IID := (3901270412, 44363, 21575, (160, 86, 171, 53, 86, 39, 109, 43 ));
+   
+   type IClipboardContentOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsRoamable
+   (
+      This       : access IClipboardContentOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsRoamable
+   (
+      This       : access IClipboardContentOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsAllowedInHistory
+   (
+      This       : access IClipboardContentOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsAllowedInHistory
+   (
+      This       : access IClipboardContentOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RoamingFormats
+   (
+      This       : access IClipboardContentOptions_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HistoryFormats
+   (
+      This       : access IClipboardContentOptions_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IClipboardHistoryChangedEventArgs : aliased constant Windows.IID := (3233695039, 36514, 21454, (154, 186, 141, 34, 18, 87, 52, 82 ));
+   
+   type IClipboardHistoryChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IClipboardHistoryItem : aliased constant Windows.IID := (24362378, 45055, 23632, (171, 146, 61, 25, 244, 129, 236, 88 ));
+   
+   type IClipboardHistoryItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access IClipboardHistoryItem_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Timestamp
+   (
+      This       : access IClipboardHistoryItem_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Content
+   (
+      This       : access IClipboardHistoryItem_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackageView
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IClipboardHistoryItemsResult : aliased constant Windows.IID := (3873431270, 3810, 21219, (133, 43, 242, 149, 219, 101, 147, 154 ));
+   
+   type IClipboardHistoryItemsResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access IClipboardHistoryItemsResult_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResultStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Items
+   (
+      This       : access IClipboardHistoryItemsResult_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IVectorView_IClipboardHistoryItem -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -354,7 +546,7 @@ package Windows.ApplicationModel.DataTransfer is
    function add_ContentChanged
    (
       This       : access IClipboardStatics_Interface
-      ; changeHandler : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -362,6 +554,110 @@ package Windows.ApplicationModel.DataTransfer is
    function remove_ContentChanged
    (
       This       : access IClipboardStatics_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IClipboardStatics2 : aliased constant Windows.IID := (3534494570, 53919, 21835, (179, 3, 240, 69, 35, 69, 254, 2 ));
+   
+   type IClipboardStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetHistoryItemsAsync
+   (
+      This       : access IClipboardStatics2_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IAsyncOperation_IClipboardHistoryItemsResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ClearHistory
+   (
+      This       : access IClipboardStatics2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DeleteItemFromHistory
+   (
+      This       : access IClipboardStatics2_Interface
+      ; item : Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetHistoryItemAsContent
+   (
+      This       : access IClipboardStatics2_Interface
+      ; item : Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IsHistoryEnabled
+   (
+      This       : access IClipboardStatics2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IsRoamingEnabled
+   (
+      This       : access IClipboardStatics2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetContentWithOptions
+   (
+      This       : access IClipboardStatics2_Interface
+      ; content : Windows.ApplicationModel.DataTransfer.IDataPackage
+      ; options : Windows.ApplicationModel.DataTransfer.IClipboardContentOptions
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_HistoryChanged
+   (
+      This       : access IClipboardStatics2_Interface
+      ; handler : Windows.ApplicationModel.DataTransfer.EventHandler_IClipboardHistoryChangedEventArgs
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_HistoryChanged
+   (
+      This       : access IClipboardStatics2_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_RoamingEnabledChanged
+   (
+      This       : access IClipboardStatics2_Interface
+      ; handler : Windows.Foundation.EventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_RoamingEnabledChanged
+   (
+      This       : access IClipboardStatics2_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_HistoryEnabledChanged
+   (
+      This       : access IClipboardStatics2_Interface
+      ; handler : Windows.Foundation.EventHandler_Object
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_HistoryEnabledChanged
+   (
+      This       : access IClipboardStatics2_Interface
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -860,6 +1156,19 @@ package Windows.ApplicationModel.DataTransfer is
    
    ------------------------------------------------------------------------
    
+   IID_IDataPackagePropertySetView5 : aliased constant Windows.IID := (1862964293, 14176, 20667, (133, 35, 196, 32, 45, 237, 125, 120 ));
+   
+   type IDataPackagePropertySetView5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsFromRoamingClipboard
+   (
+      This       : access IDataPackagePropertySetView5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IDataPackageView : aliased constant Windows.IID := (2072249457, 22784, 19845, (169, 11, 16, 203, 133, 254, 53, 82 ));
    
    type IDataPackageView_Interface is interface and Windows.IInspectable_Interface;
@@ -1264,6 +1573,19 @@ package Windows.ApplicationModel.DataTransfer is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_IClipboardHistoryItem : aliased constant Windows.IID := (1547109876, 36422, 23269, (151, 191, 136, 34, 12, 204, 255, 217 ));
+   
+   type IIterable_IClipboardHistoryItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IClipboardHistoryItem_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IIterator_IClipboardHistoryItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterable_IKeyValuePair : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type IIterable_IKeyValuePair_Interface is interface and Windows.IInspectable_Interface;
@@ -1285,6 +1607,41 @@ package Windows.ApplicationModel.DataTransfer is
    (
       This       : access IIterable_IShareProvider_Interface
       ; RetVal : access Windows.ApplicationModel.DataTransfer.IIterator_IShareProvider
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IClipboardHistoryItem : aliased constant Windows.IID := (1677378849, 5013, 23701, (170, 255, 151, 54, 55, 138, 79, 47 ));
+   
+   type IIterator_IClipboardHistoryItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IClipboardHistoryItem_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IClipboardHistoryItem_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IClipboardHistoryItem_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IClipboardHistoryItem_Interface
+      ; items : Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -1842,6 +2199,45 @@ package Windows.ApplicationModel.DataTransfer is
    
    ------------------------------------------------------------------------
    
+   IID_IVectorView_IClipboardHistoryItem : aliased constant Windows.IID := (3374178669, 5119, 21936, (137, 125, 24, 161, 49, 213, 122, 201 ));
+   
+   type IVectorView_IClipboardHistoryItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IClipboardHistoryItem_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IClipboardHistoryItem_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IClipboardHistoryItem_Interface
+      ; value : Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IClipboardHistoryItem_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVectorView_IShareProvider : aliased constant Windows.IID := (2489661346, 37676, 23415, (171, 54, 183, 6, 80, 240, 188, 213 ));
    
    type IVectorView_IShareProvider_Interface is interface and Windows.IInspectable_Interface;
@@ -1898,6 +2294,19 @@ package Windows.ApplicationModel.DataTransfer is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IClipboardHistoryItemsResult : aliased constant Windows.IID := (2216536109, 41772, 22935, (132, 80, 245, 74, 241, 213, 71, 126 ));
+   
+   type AsyncOperationCompletedHandler_IClipboardHistoryItemsResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_IClipboardHistoryItemsResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IClipboardHistoryItemsResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IClipboardHistoryItemsResult_Interface
+      ; asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_IClipboardHistoryItemsResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_AsyncOperationCompletedHandler_IDataPackage : aliased constant Windows.IID := (2839165849, 59718, 22478, (170, 217, 194, 61, 19, 140, 53, 62 ));
    
    type AsyncOperationCompletedHandler_IDataPackage_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_IDataPackage ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IDataPackage'access) with null record;
@@ -1918,6 +2327,19 @@ package Windows.ApplicationModel.DataTransfer is
    (
       This       : access DataProviderHandler_Interface
       ; request : Windows.ApplicationModel.DataTransfer.IDataProviderRequest
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_EventHandler_IClipboardHistoryChangedEventArgs : aliased constant Windows.IID := (3746212899, 16386, 23884, (162, 55, 37, 38, 227, 68, 151, 141 ));
+   
+   type EventHandler_IClipboardHistoryChangedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.ApplicationModel.DataTransfer.IClipboardHistoryChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IClipboardHistoryChangedEventArgs'access) with null record;
+   function Invoke
+   (
+      This       : access EventHandler_IClipboardHistoryChangedEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.ApplicationModel.DataTransfer.IClipboardHistoryChangedEventArgs
    )
    return Windows.HRESULT;
    
@@ -2015,6 +2437,12 @@ package Windows.ApplicationModel.DataTransfer is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype ClipboardContentOptions is Windows.ApplicationModel.DataTransfer.IClipboardContentOptions;
+   function Create return Windows.ApplicationModel.DataTransfer.IClipboardContentOptions;
+   
+   subtype ClipboardHistoryChangedEventArgs is Windows.ApplicationModel.DataTransfer.IClipboardHistoryChangedEventArgs;
+   subtype ClipboardHistoryItem is Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem;
+   subtype ClipboardHistoryItemsResult is Windows.ApplicationModel.DataTransfer.IClipboardHistoryItemsResult;
    subtype DataPackage is Windows.ApplicationModel.DataTransfer.IDataPackage;
    function Create return Windows.ApplicationModel.DataTransfer.IDataPackage;
    
@@ -2053,7 +2481,7 @@ package Windows.ApplicationModel.DataTransfer is
    
    function add_ContentChanged
    (
-      changeHandler : Windows.Foundation.EventHandler_Object
+      handler : Windows.Foundation.EventHandler_Object
    )
    return Windows.Foundation.EventRegistrationToken;
    
@@ -2077,6 +2505,73 @@ package Windows.ApplicationModel.DataTransfer is
       content : Windows.ApplicationModel.DataTransfer.IDataPackage
    )
    ;
+   
+   function add_HistoryChanged
+   (
+      handler : Windows.ApplicationModel.DataTransfer.EventHandler_IClipboardHistoryChangedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_HistoryEnabledChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function add_RoamingEnabledChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   function ClearHistory
+   return Windows.Boolean;
+   
+   function DeleteItemFromHistory
+   (
+      item : Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem
+   )
+   return Windows.Boolean;
+   
+   function GetHistoryItemsAsync
+   return Windows.ApplicationModel.DataTransfer.IAsyncOperation_IClipboardHistoryItemsResult;
+   
+   function IsHistoryEnabled
+   return Windows.Boolean;
+   
+   function IsRoamingEnabled
+   return Windows.Boolean;
+   
+   procedure remove_HistoryChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_HistoryEnabledChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   procedure remove_RoamingEnabledChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
+   
+   function SetContentWithOptions
+   (
+      content : Windows.ApplicationModel.DataTransfer.IDataPackage
+      ; options : Windows.ApplicationModel.DataTransfer.IClipboardContentOptions
+   )
+   return Windows.Boolean;
+   
+   function SetHistoryItemAsContent
+   (
+      item : Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem
+   )
+   return Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus;
    
    function GetForCurrentView
    return Windows.ApplicationModel.DataTransfer.IDataTransferManager;

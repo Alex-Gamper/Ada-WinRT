@@ -212,6 +212,45 @@ package body Windows.UI.Composition is
       return RetVal;
    end;
    
+   procedure StartAnimationGroupWithIAnimationObject
+   (
+      target : Windows.UI.Composition.IAnimationObject
+      ; animation : Windows.UI.Composition.ICompositionAnimationBase
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.CompositionObject");
+      m_Factory     : ICompositionObjectStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICompositionObjectStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.StartAnimationGroupWithIAnimationObject(target, animation);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure StartAnimationWithIAnimationObject
+   (
+      target : Windows.UI.Composition.IAnimationObject
+      ; propertyName : Windows.String
+      ; animation : Windows.UI.Composition.ICompositionAnimation
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.CompositionObject");
+      m_Factory     : ICompositionObjectStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICompositionObjectStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.StartAnimationWithIAnimationObject(target, propertyName, animation);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    function get_MaxGlobalPlaybackRate
    return Windows.Single is
       Hr            : Windows.HRESULT := S_OK;

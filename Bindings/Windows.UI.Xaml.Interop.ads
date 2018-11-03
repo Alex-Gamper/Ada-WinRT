@@ -172,7 +172,7 @@ package Windows.UI.Xaml.Interop is
    function add_VectorChanged
    (
       This       : access IBindableObservableVector_Interface
-      ; value : Windows.UI.Xaml.Interop.BindableVectorChangedEventHandler
+      ; handler : Windows.UI.Xaml.Interop.BindableVectorChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -302,7 +302,7 @@ package Windows.UI.Xaml.Interop is
    function add_CollectionChanged
    (
       This       : access INotifyCollectionChanged_Interface
-      ; value : Windows.UI.Xaml.Interop.NotifyCollectionChangedEventHandler
+      ; handler : Windows.UI.Xaml.Interop.NotifyCollectionChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -369,8 +369,8 @@ package Windows.UI.Xaml.Interop is
       ; oldItems : Windows.UI.Xaml.Interop.IBindableVector
       ; newIndex : Windows.Int32
       ; oldIndex : Windows.Int32
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Interop.INotifyCollectionChangedEventArgs
    )
    return Windows.HRESULT is abstract;
@@ -422,8 +422,8 @@ package Windows.UI.Xaml.Interop is
       ; oldItems : Windows.UI.Xaml.Interop.IBindableVector
       ; newIndex : Windows.Int32
       ; oldIndex : Windows.Int32
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Interop.INotifyCollectionChangedEventArgs;
    

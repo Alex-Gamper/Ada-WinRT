@@ -53,6 +53,19 @@ package body Windows.ApplicationModel.DataTransfer is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IClipboardHistoryItemsResult_Interface
+      ; asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_IClipboardHistoryItemsResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_IDataPackage_Interface
       ; asyncInfo : Windows.ApplicationModel.DataTransfer.IAsyncOperation_IDataPackage
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -73,6 +86,19 @@ package body Windows.ApplicationModel.DataTransfer is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.ApplicationModel.DataTransfer.IDataProviderRequest(request));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access EventHandler_IClipboardHistoryChangedEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.ApplicationModel.DataTransfer.IClipboardHistoryChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, args);
       return Hr;
    end;
    
@@ -170,6 +196,23 @@ package body Windows.ApplicationModel.DataTransfer is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
+   function Create return Windows.ApplicationModel.DataTransfer.IClipboardContentOptions is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.ClipboardContentOptions");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.DataTransfer.IClipboardContentOptions) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.DataTransfer.IID_IClipboardContentOptions'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create return Windows.ApplicationModel.DataTransfer.IDataPackage is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.DataPackage");
@@ -237,7 +280,7 @@ package body Windows.ApplicationModel.DataTransfer is
    
    function add_ContentChanged
    (
-      changeHandler : Windows.Foundation.EventHandler_Object
+      handler : Windows.Foundation.EventHandler_Object
    )
    return Windows.Foundation.EventRegistrationToken is
       Hr            : Windows.HRESULT := S_OK;
@@ -248,7 +291,7 @@ package body Windows.ApplicationModel.DataTransfer is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IClipboardStatics'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.add_ContentChanged(changeHandler, RetVal'Access);
+         Hr := m_Factory.add_ContentChanged(handler, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -336,6 +379,249 @@ package body Windows.ApplicationModel.DataTransfer is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function add_HistoryChanged
+   (
+      handler : Windows.ApplicationModel.DataTransfer.EventHandler_IClipboardHistoryChangedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.Clipboard");
+      m_Factory     : IClipboardStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClipboardStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_HistoryChanged(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function add_HistoryEnabledChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.Clipboard");
+      m_Factory     : IClipboardStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClipboardStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_HistoryEnabledChanged(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function add_RoamingEnabledChanged
+   (
+      handler : Windows.Foundation.EventHandler_Object
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.Clipboard");
+      m_Factory     : IClipboardStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClipboardStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_RoamingEnabledChanged(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function ClearHistory
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.Clipboard");
+      m_Factory     : IClipboardStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClipboardStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ClearHistory(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function DeleteItemFromHistory
+   (
+      item : Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.Clipboard");
+      m_Factory     : IClipboardStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClipboardStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.DeleteItemFromHistory(item, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetHistoryItemsAsync
+   return Windows.ApplicationModel.DataTransfer.IAsyncOperation_IClipboardHistoryItemsResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.Clipboard");
+      m_Factory     : IClipboardStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.DataTransfer.IAsyncOperation_IClipboardHistoryItemsResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClipboardStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetHistoryItemsAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsHistoryEnabled
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.Clipboard");
+      m_Factory     : IClipboardStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClipboardStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsHistoryEnabled(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsRoamingEnabled
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.Clipboard");
+      m_Factory     : IClipboardStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClipboardStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsRoamingEnabled(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_HistoryChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.Clipboard");
+      m_Factory     : IClipboardStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClipboardStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_HistoryChanged(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure remove_HistoryEnabledChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.Clipboard");
+      m_Factory     : IClipboardStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClipboardStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_HistoryEnabledChanged(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure remove_RoamingEnabledChanged
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.Clipboard");
+      m_Factory     : IClipboardStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClipboardStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_RoamingEnabledChanged(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function SetContentWithOptions
+   (
+      content : Windows.ApplicationModel.DataTransfer.IDataPackage
+      ; options : Windows.ApplicationModel.DataTransfer.IClipboardContentOptions
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.Clipboard");
+      m_Factory     : IClipboardStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClipboardStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetContentWithOptions(content, options, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function SetHistoryItemAsContent
+   (
+      item : Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem
+   )
+   return Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.DataTransfer.Clipboard");
+      m_Factory     : IClipboardStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IClipboardStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetHistoryItemAsContent(item, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function GetForCurrentView

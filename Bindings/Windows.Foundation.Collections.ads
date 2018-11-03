@@ -377,7 +377,7 @@ package Windows.Foundation.Collections is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_Int16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IIterable_Int16 : aliased constant Windows.IID := (1929324835, 19278, 21435, (143, 235, 65, 236, 95, 43, 183, 52 ));
    
    type IIterable_Int16_Interface is interface and Windows.IInspectable_Interface;
    
@@ -481,7 +481,7 @@ package Windows.Foundation.Collections is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_UInt16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IIterable_UInt16 : aliased constant Windows.IID := (3975846511, 64046, 21317, (178, 151, 239, 180, 232, 198, 190, 135 ));
    
    type IIterable_UInt16_Interface is interface and Windows.IInspectable_Interface;
    
@@ -507,7 +507,7 @@ package Windows.Foundation.Collections is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_UInt64 : aliased constant Windows.IID := (2005156478, 63948, 20877, (150, 75, 229, 13, 92, 231, 39, 241 ));
+   IID_IIterable_UInt64 : aliased constant Windows.IID := (1262105129, 31125, 24380, (178, 72, 108, 31, 126, 102, 79, 1 ));
    
    type IIterable_UInt64_Interface is interface and Windows.IInspectable_Interface;
    
@@ -673,7 +673,7 @@ package Windows.Foundation.Collections is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_Int16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IIterator_Int16 : aliased constant Windows.IID := (1409877663, 59329, 22322, (187, 105, 229, 115, 111, 3, 249, 169 ));
    
    type IIterator_Int16_Interface is interface and Windows.IInspectable_Interface;
    
@@ -953,7 +953,7 @@ package Windows.Foundation.Collections is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_UInt16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IIterator_UInt16 : aliased constant Windows.IID := (1463352357, 16427, 24513, (177, 228, 10, 162, 78, 246, 82, 241 ));
    
    type IIterator_UInt16_Interface is interface and Windows.IInspectable_Interface;
    
@@ -1023,7 +1023,7 @@ package Windows.Foundation.Collections is
    
    ------------------------------------------------------------------------
    
-   IID_IIterator_UInt64 : aliased constant Windows.IID := (4221043532, 34487, 22559, (140, 217, 90, 208, 105, 34, 1, 169 ));
+   IID_IIterator_UInt64 : aliased constant Windows.IID := (3295931798, 30435, 24562, (148, 53, 71, 254, 235, 254, 149, 57 ));
    
    type IIterator_UInt64_Interface is interface and Windows.IInspectable_Interface;
    
@@ -2921,7 +2921,7 @@ package Windows.Foundation.Collections is
    
    ------------------------------------------------------------------------
    
-   IID_IVectorView_Int16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IVectorView_Int16 : aliased constant Windows.IID := (3845150381, 35342, 23617, (166, 45, 201, 46, 58, 194, 222, 88 ));
    
    type IVectorView_Int16_Interface is interface and Windows.IInspectable_Interface;
    
@@ -2999,7 +2999,7 @@ package Windows.Foundation.Collections is
    
    ------------------------------------------------------------------------
    
-   IID_IVectorView_Int64 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IVectorView_Int64 : aliased constant Windows.IID := (2183244302, 53714, 23330, (169, 24, 5, 103, 40, 18, 209, 47 ));
    
    type IVectorView_Int64_Interface is interface and Windows.IInspectable_Interface;
    
@@ -3233,7 +3233,7 @@ package Windows.Foundation.Collections is
    
    ------------------------------------------------------------------------
    
-   IID_IVectorView_UInt16 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IVectorView_UInt16 : aliased constant Windows.IID := (2634878367, 27266, 21923, (152, 197, 34, 132, 153, 223, 56, 249 ));
    
    type IVectorView_UInt16_Interface is interface and Windows.IInspectable_Interface;
    
@@ -3311,7 +3311,7 @@ package Windows.Foundation.Collections is
    
    ------------------------------------------------------------------------
    
-   IID_IVectorView_UInt64 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   IID_IVectorView_UInt64 : aliased constant Windows.IID := (600921799, 32505, 20630, (170, 186, 30, 108, 154, 181, 206, 180 ));
    
    type IVectorView_UInt64_Interface is interface and Windows.IInspectable_Interface;
    

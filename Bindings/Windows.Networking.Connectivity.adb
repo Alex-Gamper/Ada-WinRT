@@ -38,6 +38,19 @@ package body Windows.Networking.Connectivity is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_ConnectionProfileDeleteStatus_Interface
+      ; asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_ConnectionProfileDeleteStatus
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_IConnectionProfile_Interface
       ; asyncInfo : Windows.Networking.Connectivity.IAsyncOperation_IConnectionProfile
       ; asyncStatus : Windows.Foundation.AsyncStatus

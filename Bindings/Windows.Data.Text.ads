@@ -28,6 +28,8 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
+limited with Windows.UI.Text.Core;
+--------------------------------------------------------------------------------
 package Windows.Data.Text is
 
    pragma preelaborate;
@@ -53,6 +55,20 @@ package Windows.Data.Text is
    for AlternateNormalizationFormat'Size use 32;
    
    type AlternateNormalizationFormat_Ptr is access AlternateNormalizationFormat;
+   
+   type TextPredictionOptions is (
+      None,
+      Predictions,
+      Corrections
+   );
+   for TextPredictionOptions use (
+      None => 0,
+      Predictions => 1,
+      Corrections => 2
+   );
+   for TextPredictionOptions'Size use 32;
+   
+   type TextPredictionOptions_Ptr is access TextPredictionOptions;
    
    type UnicodeGeneralCategory is (
       UppercaseLetter,
@@ -219,6 +235,9 @@ package Windows.Data.Text is
    type ITextPredictionGenerator_Interface;
    type ITextPredictionGenerator is access all ITextPredictionGenerator_Interface'Class;
    type ITextPredictionGenerator_Ptr is access all ITextPredictionGenerator;
+   type ITextPredictionGenerator2_Interface;
+   type ITextPredictionGenerator2 is access all ITextPredictionGenerator2_Interface'Class;
+   type ITextPredictionGenerator2_Ptr is access all ITextPredictionGenerator2;
    type ITextPredictionGeneratorFactory_Interface;
    type ITextPredictionGeneratorFactory is access all ITextPredictionGeneratorFactory_Interface'Class;
    type ITextPredictionGeneratorFactory_Ptr is access all ITextPredictionGeneratorFactory;
@@ -703,6 +722,46 @@ package Windows.Data.Text is
       ; input : Windows.String
       ; maxCandidates : Windows.UInt32
       ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITextPredictionGenerator2 : aliased constant Windows.IID := (3091669944, 11383, 18538, (144, 10, 163, 69, 62, 237, 193, 93 ));
+   
+   type ITextPredictionGenerator2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetCandidatesWithParametersAsync
+   (
+      This       : access ITextPredictionGenerator2_Interface
+      ; input : Windows.String
+      ; maxCandidates : Windows.UInt32
+      ; predictionOptions : Windows.Data.Text.TextPredictionOptions
+      ; previousStrings : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNextWordCandidatesAsync
+   (
+      This       : access ITextPredictionGenerator2_Interface
+      ; maxCandidates : Windows.UInt32
+      ; previousStrings : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InputScope
+   (
+      This       : access ITextPredictionGenerator2_Interface
+      ; RetVal : access Windows.UI.Text.Core.CoreTextInputScope
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_InputScope
+   (
+      This       : access ITextPredictionGenerator2_Interface
+      ; value : Windows.UI.Text.Core.CoreTextInputScope
    )
    return Windows.HRESULT is abstract;
    

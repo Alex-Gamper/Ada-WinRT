@@ -209,6 +209,22 @@ package Windows.Services.Store is
    
    type StoreQueueItemState_Ptr is access StoreQueueItemState;
    
+   type StoreRateAndReviewStatus is (
+      Succeeded,
+      CanceledByUser,
+      NetworkError,
+      Error
+   );
+   for StoreRateAndReviewStatus use (
+      Succeeded => 0,
+      CanceledByUser => 1,
+      NetworkError => 2,
+      Error => 3
+   );
+   for StoreRateAndReviewStatus'Size use 32;
+   
+   type StoreRateAndReviewStatus_Ptr is access StoreRateAndReviewStatus;
+   
    type StoreUninstallStorePackageStatus is (
       Succeeded,
       CanceledByUser,
@@ -276,6 +292,9 @@ package Windows.Services.Store is
    type AsyncOperationCompletedHandler_IStorePurchaseResult_Interface;
    type AsyncOperationCompletedHandler_IStorePurchaseResult is access all AsyncOperationCompletedHandler_IStorePurchaseResult_Interface'Class;
    type AsyncOperationCompletedHandler_IStorePurchaseResult_Ptr is access all AsyncOperationCompletedHandler_IStorePurchaseResult;
+   type AsyncOperationCompletedHandler_IStoreRateAndReviewResult_Interface;
+   type AsyncOperationCompletedHandler_IStoreRateAndReviewResult is access all AsyncOperationCompletedHandler_IStoreRateAndReviewResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IStoreRateAndReviewResult_Ptr is access all AsyncOperationCompletedHandler_IStoreRateAndReviewResult;
    type AsyncOperationCompletedHandler_IStoreSendRequestResult_Interface;
    type AsyncOperationCompletedHandler_IStoreSendRequestResult is access all AsyncOperationCompletedHandler_IStoreSendRequestResult_Interface'Class;
    type AsyncOperationCompletedHandler_IStoreSendRequestResult_Ptr is access all AsyncOperationCompletedHandler_IStoreSendRequestResult;
@@ -323,6 +342,9 @@ package Windows.Services.Store is
    type IAsyncOperation_IStorePurchaseResult_Interface;
    type IAsyncOperation_IStorePurchaseResult is access all IAsyncOperation_IStorePurchaseResult_Interface'Class;
    type IAsyncOperation_IStorePurchaseResult_Ptr is access all IAsyncOperation_IStorePurchaseResult;
+   type IAsyncOperation_IStoreRateAndReviewResult_Interface;
+   type IAsyncOperation_IStoreRateAndReviewResult is access all IAsyncOperation_IStoreRateAndReviewResult_Interface'Class;
+   type IAsyncOperation_IStoreRateAndReviewResult_Ptr is access all IAsyncOperation_IStoreRateAndReviewResult;
    type IAsyncOperation_IStoreSendRequestResult_Interface;
    type IAsyncOperation_IStoreSendRequestResult is access all IAsyncOperation_IStoreSendRequestResult_Interface'Class;
    type IAsyncOperation_IStoreSendRequestResult_Ptr is access all IAsyncOperation_IStoreSendRequestResult;
@@ -377,6 +399,9 @@ package Windows.Services.Store is
    type IStoreAppLicense_Interface;
    type IStoreAppLicense is access all IStoreAppLicense_Interface'Class;
    type IStoreAppLicense_Ptr is access all IStoreAppLicense;
+   type IStoreAppLicense2_Interface;
+   type IStoreAppLicense2 is access all IStoreAppLicense2_Interface'Class;
+   type IStoreAppLicense2_Ptr is access all IStoreAppLicense2;
    type IStoreAvailability_Interface;
    type IStoreAvailability is access all IStoreAvailability_Interface'Class;
    type IStoreAvailability_Ptr is access all IStoreAvailability;
@@ -398,6 +423,9 @@ package Windows.Services.Store is
    type IStoreContext3_Interface;
    type IStoreContext3 is access all IStoreContext3_Interface'Class;
    type IStoreContext3_Ptr is access all IStoreContext3;
+   type IStoreContext4_Interface;
+   type IStoreContext4 is access all IStoreContext4_Interface'Class;
+   type IStoreContext4_Ptr is access all IStoreContext4;
    type IStoreContextStatics_Interface;
    type IStoreContextStatics is access all IStoreContextStatics_Interface'Class;
    type IStoreContextStatics_Ptr is access all IStoreContextStatics;
@@ -452,12 +480,18 @@ package Windows.Services.Store is
    type IStoreQueueItem_Interface;
    type IStoreQueueItem is access all IStoreQueueItem_Interface'Class;
    type IStoreQueueItem_Ptr is access all IStoreQueueItem;
+   type IStoreQueueItem2_Interface;
+   type IStoreQueueItem2 is access all IStoreQueueItem2_Interface'Class;
+   type IStoreQueueItem2_Ptr is access all IStoreQueueItem2;
    type IStoreQueueItemCompletedEventArgs_Interface;
    type IStoreQueueItemCompletedEventArgs is access all IStoreQueueItemCompletedEventArgs_Interface'Class;
    type IStoreQueueItemCompletedEventArgs_Ptr is access all IStoreQueueItemCompletedEventArgs;
    type IStoreQueueItemStatus_Interface;
    type IStoreQueueItemStatus is access all IStoreQueueItemStatus_Interface'Class;
    type IStoreQueueItemStatus_Ptr is access all IStoreQueueItemStatus;
+   type IStoreRateAndReviewResult_Interface;
+   type IStoreRateAndReviewResult is access all IStoreRateAndReviewResult_Interface'Class;
+   type IStoreRateAndReviewResult_Ptr is access all IStoreRateAndReviewResult;
    type IStoreRequestHelperStatics_Interface;
    type IStoreRequestHelperStatics is access all IStoreRequestHelperStatics_Interface'Class;
    type IStoreRequestHelperStatics_Ptr is access all IStoreRequestHelperStatics;
@@ -715,6 +749,33 @@ package Windows.Services.Store is
    (
       This       : access IAsyncOperation_IStorePurchaseResult_Interface
       ; RetVal : access Windows.Services.Store.IStorePurchaseResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IStoreRateAndReviewResult : aliased constant Windows.IID := (2219209708, 13314, 23072, (190, 207, 233, 44, 63, 150, 129, 234 ));
+   
+   type IAsyncOperation_IStoreRateAndReviewResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IStoreRateAndReviewResult_Interface
+      ; handler : Windows.Services.Store.AsyncOperationCompletedHandler_IStoreRateAndReviewResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IStoreRateAndReviewResult_Interface
+      ; RetVal : access Windows.Services.Store.AsyncOperationCompletedHandler_IStoreRateAndReviewResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IStoreRateAndReviewResult_Interface
+      ; RetVal : access Windows.Services.Store.IStoreRateAndReviewResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1199,6 +1260,19 @@ package Windows.Services.Store is
    
    ------------------------------------------------------------------------
    
+   IID_IStoreAppLicense2 : aliased constant Windows.IID := (3026611857, 17475, 16563, (153, 63, 40, 144, 68, 53, 189, 198 ));
+   
+   type IStoreAppLicense2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsDiscLicense
+   (
+      This       : access IStoreAppLicense2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IStoreAvailability : aliased constant Windows.IID := (4194698021, 4093, 17555, (173, 67, 241, 249, 145, 143, 105, 250 ));
    
    type IStoreAvailability_Interface is interface and Windows.IInspectable_Interface;
@@ -1677,6 +1751,27 @@ package Windows.Services.Store is
       This       : access IStoreContext3_Interface
       ; storeId : Windows.String
       ; RetVal : access Windows.Services.Store.IAsyncOperation_IStoreUninstallStorePackageResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStoreContext4 : aliased constant Windows.IID := (2946264937, 48801, 19444, (142, 116, 174, 3, 226, 6, 198, 176 ));
+   
+   type IStoreContext4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RequestRateAndReviewAppAsync
+   (
+      This       : access IStoreContext4_Interface
+      ; RetVal : access Windows.Services.Store.IAsyncOperation_IStoreRateAndReviewResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetInstallOrderForAssociatedStoreQueueItemsAsync
+   (
+      This       : access IStoreContext4_Interface
+      ; items : Windows.Services.Store.IIterable_IStoreQueueItem
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -2299,6 +2394,33 @@ package Windows.Services.Store is
    
    ------------------------------------------------------------------------
    
+   IID_IStoreQueueItem2 : aliased constant Windows.IID := (1766399144, 6868, 17532, (173, 140, 169, 80, 53, 246, 77, 130 ));
+   
+   type IStoreQueueItem2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CancelInstallAsync
+   (
+      This       : access IStoreQueueItem2_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function PauseInstallAsync
+   (
+      This       : access IStoreQueueItem2_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ResumeInstallAsync
+   (
+      This       : access IStoreQueueItem2_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IStoreQueueItemCompletedEventArgs : aliased constant Windows.IID := (306700140, 46154, 17307, (187, 7, 29, 48, 3, 208, 5, 194 ));
    
    type IStoreQueueItemCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -2341,6 +2463,40 @@ package Windows.Services.Store is
    (
       This       : access IStoreQueueItemStatus_Interface
       ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStoreRateAndReviewResult : aliased constant Windows.IID := (2636160342, 42677, 16673, (155, 97, 238, 109, 15, 189, 189, 187 ));
+   
+   type IStoreRateAndReviewResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access IStoreRateAndReviewResult_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExtendedJsonData
+   (
+      This       : access IStoreRateAndReviewResult_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WasUpdated
+   (
+      This       : access IStoreRateAndReviewResult_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Status
+   (
+      This       : access IStoreRateAndReviewResult_Interface
+      ; RetVal : access Windows.Services.Store.StoreRateAndReviewStatus
    )
    return Windows.HRESULT is abstract;
    
@@ -2986,6 +3142,19 @@ package Windows.Services.Store is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IStoreRateAndReviewResult : aliased constant Windows.IID := (3994211737, 40381, 24134, (164, 111, 2, 35, 184, 73, 39, 97 ));
+   
+   type AsyncOperationCompletedHandler_IStoreRateAndReviewResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreRateAndReviewResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStoreRateAndReviewResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IStoreRateAndReviewResult_Interface
+      ; asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreRateAndReviewResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_AsyncOperationCompletedHandler_IStoreSendRequestResult : aliased constant Windows.IID := (2013311651, 48060, 23057, (140, 53, 210, 189, 229, 72, 158, 129 ));
    
    type AsyncOperationCompletedHandler_IStoreSendRequestResult_Interface(Callback : access procedure (asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreSendRequestResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStoreSendRequestResult'access) with null record;
@@ -3102,6 +3271,7 @@ package Windows.Services.Store is
    subtype StoreQueueItem is Windows.Services.Store.IStoreQueueItem;
    subtype StoreQueueItemCompletedEventArgs is Windows.Services.Store.IStoreQueueItemCompletedEventArgs;
    subtype StoreQueueItemStatus is Windows.Services.Store.IStoreQueueItemStatus;
+   subtype StoreRateAndReviewResult is Windows.Services.Store.IStoreRateAndReviewResult;
    subtype StoreSendRequestResult is Windows.Services.Store.IStoreSendRequestResult;
    subtype StoreSku is Windows.Services.Store.IStoreSku;
    subtype StoreSubscriptionInfo is Windows.Services.Store.IStoreSubscriptionInfo;

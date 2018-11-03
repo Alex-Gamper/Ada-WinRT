@@ -39,6 +39,22 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    -- Enums
    ------------------------------------------------------------------------
    
+   type AppInstallationToastNotificationMode is (
+      Default,
+      Toast,
+      ToastWithoutPopup,
+      NoToast
+   );
+   for AppInstallationToastNotificationMode use (
+      Default => 0,
+      Toast => 1,
+      ToastWithoutPopup => 2,
+      NoToast => 3
+   );
+   for AppInstallationToastNotificationMode'Size use 32;
+   
+   type AppInstallationToastNotificationMode_Ptr is access AppInstallationToastNotificationMode;
+   
    type AppInstallState is (
       Pending,
       Starting,
@@ -160,6 +176,9 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    type IAppInstallItem4_Interface;
    type IAppInstallItem4 is access all IAppInstallItem4_Interface'Class;
    type IAppInstallItem4_Ptr is access all IAppInstallItem4;
+   type IAppInstallItem5_Interface;
+   type IAppInstallItem5 is access all IAppInstallItem5_Interface'Class;
+   type IAppInstallItem5_Ptr is access all IAppInstallItem5;
    type IAppInstallManager_Interface;
    type IAppInstallManager is access all IAppInstallManager_Interface'Class;
    type IAppInstallManager_Ptr is access all IAppInstallManager;
@@ -178,12 +197,18 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    type IAppInstallManager6_Interface;
    type IAppInstallManager6 is access all IAppInstallManager6_Interface'Class;
    type IAppInstallManager6_Ptr is access all IAppInstallManager6;
+   type IAppInstallManager7_Interface;
+   type IAppInstallManager7 is access all IAppInstallManager7_Interface'Class;
+   type IAppInstallManager7_Ptr is access all IAppInstallManager7;
    type IAppInstallManagerItemEventArgs_Interface;
    type IAppInstallManagerItemEventArgs is access all IAppInstallManagerItemEventArgs_Interface'Class;
    type IAppInstallManagerItemEventArgs_Ptr is access all IAppInstallManagerItemEventArgs;
    type IAppInstallOptions_Interface;
    type IAppInstallOptions is access all IAppInstallOptions_Interface'Class;
    type IAppInstallOptions_Ptr is access all IAppInstallOptions;
+   type IAppInstallOptions2_Interface;
+   type IAppInstallOptions2 is access all IAppInstallOptions2_Interface'Class;
+   type IAppInstallOptions2_Ptr is access all IAppInstallOptions2;
    type IAppInstallStatus_Interface;
    type IAppInstallStatus is access all IAppInstallStatus_Interface'Class;
    type IAppInstallStatus_Ptr is access all IAppInstallStatus;
@@ -196,6 +221,9 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    type IAppUpdateOptions_Interface;
    type IAppUpdateOptions is access all IAppUpdateOptions_Interface'Class;
    type IAppUpdateOptions_Ptr is access all IAppUpdateOptions;
+   type IAppUpdateOptions2_Interface;
+   type IAppUpdateOptions2 is access all IAppUpdateOptions2_Interface'Class;
+   type IAppUpdateOptions2_Ptr is access all IAppUpdateOptions2;
    type IAsyncOperation_IAppInstallItem_Interface;
    type IAsyncOperation_IAppInstallItem is access all IAsyncOperation_IAppInstallItem_Interface'Class;
    type IAsyncOperation_IAppInstallItem_Ptr is access all IAsyncOperation_IAppInstallItem;
@@ -372,6 +400,82 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    (
       This       : access IAppInstallItem4_Interface
       ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppInstallItem5 : aliased constant Windows.IID := (1427171276, 16502, 18955, (148, 114, 194, 29, 157, 56, 14, 85 ));
+   
+   type IAppInstallItem5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PinToDesktopAfterInstall
+   (
+      This       : access IAppInstallItem5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PinToDesktopAfterInstall
+   (
+      This       : access IAppInstallItem5_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PinToStartAfterInstall
+   (
+      This       : access IAppInstallItem5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PinToStartAfterInstall
+   (
+      This       : access IAppInstallItem5_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PinToTaskbarAfterInstall
+   (
+      This       : access IAppInstallItem5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PinToTaskbarAfterInstall
+   (
+      This       : access IAppInstallItem5_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CompletedInstallToastNotificationMode
+   (
+      This       : access IAppInstallItem5_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallationToastNotificationMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CompletedInstallToastNotificationMode
+   (
+      This       : access IAppInstallItem5_Interface
+      ; value : Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallationToastNotificationMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InstallInProgressToastNotificationMode
+   (
+      This       : access IAppInstallItem5_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallationToastNotificationMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_InstallInProgressToastNotificationMode
+   (
+      This       : access IAppInstallItem5_Interface
+      ; value : Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallationToastNotificationMode
    )
    return Windows.HRESULT is abstract;
    
@@ -859,6 +963,19 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    
    ------------------------------------------------------------------------
    
+   IID_IAppInstallManager7 : aliased constant Windows.IID := (2783869744, 54756, 18851, (152, 83, 61, 176, 50, 3, 50, 29 ));
+   
+   type IAppInstallManager7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanInstallForAllUsers
+   (
+      This       : access IAppInstallManager7_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAppInstallManagerItemEventArgs : aliased constant Windows.IID := (3159381827, 18036, 19921, (149, 126, 194, 86, 130, 8, 106, 20 ));
    
    type IAppInstallManagerItemEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -957,6 +1074,138 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    (
       This       : access IAppInstallOptions_Interface
       ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppInstallOptions2 : aliased constant Windows.IID := (2315567319, 51531, 16990, (149, 180, 191, 39, 250, 234, 238, 137 ));
+   
+   type IAppInstallOptions2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PinToDesktopAfterInstall
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PinToDesktopAfterInstall
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PinToStartAfterInstall
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PinToStartAfterInstall
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PinToTaskbarAfterInstall
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PinToTaskbarAfterInstall
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CompletedInstallToastNotificationMode
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallationToastNotificationMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CompletedInstallToastNotificationMode
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; value : Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallationToastNotificationMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InstallInProgressToastNotificationMode
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; RetVal : access Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallationToastNotificationMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_InstallInProgressToastNotificationMode
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; value : Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallationToastNotificationMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InstallForAllUsers
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_InstallForAllUsers
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StageButDoNotInstall
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_StageButDoNotInstall
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CampaignId
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CampaignId
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExtendedCampaignId
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ExtendedCampaignId
+   (
+      This       : access IAppInstallOptions2_Interface
+      ; value : Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -1064,6 +1313,26 @@ package Windows.ApplicationModel.Store.Preview.InstallControl is
    function put_AllowForcedAppRestart
    (
       This       : access IAppUpdateOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppUpdateOptions2 : aliased constant Windows.IID := (4100222472, 60710, 19449, (150, 121, 72, 246, 40, 229, 61, 248 ));
+   
+   type IAppUpdateOptions2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AutomaticallyDownloadAndInstallUpdateIfFound
+   (
+      This       : access IAppUpdateOptions2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AutomaticallyDownloadAndInstallUpdateIfFound
+   (
+      This       : access IAppUpdateOptions2_Interface
       ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;

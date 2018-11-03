@@ -44,6 +44,7 @@ limited with Windows.UI.Composition;
 limited with Windows.UI.Core;
 limited with Windows.UI.Input.Inking;
 limited with Windows.UI.Text;
+limited with Windows.UI.Xaml.Automation;
 limited with Windows.UI.Xaml.Controls.Primitives;
 limited with Windows.UI.Xaml.Data;
 limited with Windows.UI.Xaml.Documents;
@@ -54,6 +55,7 @@ limited with Windows.UI.Xaml.Media.Animation;
 limited with Windows.UI.Xaml.Navigation;
 limited with Windows.Web;
 limited with Windows.Web.Http;
+limited with Windows.UI.Xaml.Automation.Provider;
 --------------------------------------------------------------------------------
 package Windows.UI.Xaml.Controls is
 
@@ -90,6 +92,18 @@ package Windows.UI.Xaml.Controls is
    for AutoSuggestionBoxTextChangeReason'Size use 32;
    
    type AutoSuggestionBoxTextChangeReason_Ptr is access AutoSuggestionBoxTextChangeReason;
+   
+   type BackgroundSizing is (
+      InnerBorderEdge,
+      OuterBorderEdge
+   );
+   for BackgroundSizing use (
+      InnerBorderEdge => 0,
+      OuterBorderEdge => 1
+   );
+   for BackgroundSizing'Size use 32;
+   
+   type BackgroundSizing_Ptr is access BackgroundSizing;
    
    type CalendarViewDisplayMode is (
       Month,
@@ -574,6 +588,62 @@ package Windows.UI.Xaml.Controls is
    for NavigationViewDisplayMode'Size use 32;
    
    type NavigationViewDisplayMode_Ptr is access NavigationViewDisplayMode;
+   
+   type NavigationViewOverflowLabelMode is (
+      MoreLabel,
+      NoLabel
+   );
+   for NavigationViewOverflowLabelMode use (
+      MoreLabel => 0,
+      NoLabel => 1
+   );
+   for NavigationViewOverflowLabelMode'Size use 32;
+   
+   type NavigationViewOverflowLabelMode_Ptr is access NavigationViewOverflowLabelMode;
+   
+   type NavigationViewPaneDisplayMode is (
+      Auto,
+      Left,
+      Top,
+      LeftCompact,
+      LeftMinimal
+   );
+   for NavigationViewPaneDisplayMode use (
+      Auto => 0,
+      Left => 1,
+      Top => 2,
+      LeftCompact => 3,
+      LeftMinimal => 4
+   );
+   for NavigationViewPaneDisplayMode'Size use 32;
+   
+   type NavigationViewPaneDisplayMode_Ptr is access NavigationViewPaneDisplayMode;
+   
+   type NavigationViewSelectionFollowsFocus is (
+      Disabled,
+      Enabled
+   );
+   for NavigationViewSelectionFollowsFocus use (
+      Disabled => 0,
+      Enabled => 1
+   );
+   for NavigationViewSelectionFollowsFocus'Size use 32;
+   
+   type NavigationViewSelectionFollowsFocus_Ptr is access NavigationViewSelectionFollowsFocus;
+   
+   type NavigationViewShoulderNavigationEnabled is (
+      WhenSelectionFollowsFocus,
+      Always,
+      Never
+   );
+   for NavigationViewShoulderNavigationEnabled use (
+      WhenSelectionFollowsFocus => 0,
+      Always => 1,
+      Never => 2
+   );
+   for NavigationViewShoulderNavigationEnabled'Size use 32;
+   
+   type NavigationViewShoulderNavigationEnabled_Ptr is access NavigationViewShoulderNavigationEnabled;
    
    type Orientation is (
       Vertical,
@@ -1456,6 +1526,9 @@ package Windows.UI.Xaml.Controls is
    type TypedEventHandler_IColorPicker_add_ColorChanged_Interface;
    type TypedEventHandler_IColorPicker_add_ColorChanged is access all TypedEventHandler_IColorPicker_add_ColorChanged_Interface'Class;
    type TypedEventHandler_IColorPicker_add_ColorChanged_Ptr is access all TypedEventHandler_IColorPicker_add_ColorChanged;
+   type TypedEventHandler_IComboBox6_add_TextSubmitted_Interface;
+   type TypedEventHandler_IComboBox6_add_TextSubmitted is access all TypedEventHandler_IComboBox6_add_TextSubmitted_Interface'Class;
+   type TypedEventHandler_IComboBox6_add_TextSubmitted_Ptr is access all TypedEventHandler_IComboBox6_add_TextSubmitted;
    type TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging_Interface;
    type TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging is access all TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging_Interface'Class;
    type TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging_Ptr is access all TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging;
@@ -1489,6 +1562,9 @@ package Windows.UI.Xaml.Controls is
    type TypedEventHandler_IControl4_add_FocusEngaged_Interface;
    type TypedEventHandler_IControl4_add_FocusEngaged is access all TypedEventHandler_IControl4_add_FocusEngaged_Interface'Class;
    type TypedEventHandler_IControl4_add_FocusEngaged_Ptr is access all TypedEventHandler_IControl4_add_FocusEngaged;
+   type TypedEventHandler_IDatePicker3_add_SelectedDateChanged_Interface;
+   type TypedEventHandler_IDatePicker3_add_SelectedDateChanged is access all TypedEventHandler_IDatePicker3_add_SelectedDateChanged_Interface'Class;
+   type TypedEventHandler_IDatePicker3_add_SelectedDateChanged_Ptr is access all TypedEventHandler_IDatePicker3_add_SelectedDateChanged;
    type TypedEventHandler_IDatePickerFlyout_add_DatePicked_Interface;
    type TypedEventHandler_IDatePickerFlyout_add_DatePicked is access all TypedEventHandler_IDatePickerFlyout_add_DatePicked_Interface'Class;
    type TypedEventHandler_IDatePickerFlyout_add_DatePicked_Ptr is access all TypedEventHandler_IDatePickerFlyout_add_DatePicked;
@@ -1621,12 +1697,18 @@ package Windows.UI.Xaml.Controls is
    type TypedEventHandler_IRichEditBox7_add_ContentLinkInvoked_Interface;
    type TypedEventHandler_IRichEditBox7_add_ContentLinkInvoked is access all TypedEventHandler_IRichEditBox7_add_ContentLinkInvoked_Interface'Class;
    type TypedEventHandler_IRichEditBox7_add_ContentLinkInvoked_Ptr is access all TypedEventHandler_IRichEditBox7_add_ContentLinkInvoked;
+   type TypedEventHandler_IRichEditBox8_add_SelectionChanging_Interface;
+   type TypedEventHandler_IRichEditBox8_add_SelectionChanging is access all TypedEventHandler_IRichEditBox8_add_SelectionChanging_Interface'Class;
+   type TypedEventHandler_IRichEditBox8_add_SelectionChanging_Ptr is access all TypedEventHandler_IRichEditBox8_add_SelectionChanging;
    type TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged_Interface;
    type TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged is access all TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged_Interface'Class;
    type TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged_Ptr is access all TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged;
    type TypedEventHandler_IRichTextBlockOverflow3_add_IsTextTrimmedChanged_Interface;
    type TypedEventHandler_IRichTextBlockOverflow3_add_IsTextTrimmedChanged is access all TypedEventHandler_IRichTextBlockOverflow3_add_IsTextTrimmedChanged_Interface'Class;
    type TypedEventHandler_IRichTextBlockOverflow3_add_IsTextTrimmedChanged_Ptr is access all TypedEventHandler_IRichTextBlockOverflow3_add_IsTextTrimmedChanged;
+   type TypedEventHandler_IScrollViewer4_add_AnchorRequested_Interface;
+   type TypedEventHandler_IScrollViewer4_add_AnchorRequested is access all TypedEventHandler_IScrollViewer4_add_AnchorRequested_Interface'Class;
+   type TypedEventHandler_IScrollViewer4_add_AnchorRequested_Ptr is access all TypedEventHandler_IScrollViewer4_add_AnchorRequested;
    type TypedEventHandler_ISearchBox_add_PrepareForFocusOnKeyboardInput_Interface;
    type TypedEventHandler_ISearchBox_add_PrepareForFocusOnKeyboardInput is access all TypedEventHandler_ISearchBox_add_PrepareForFocusOnKeyboardInput_Interface'Class;
    type TypedEventHandler_ISearchBox_add_PrepareForFocusOnKeyboardInput_Ptr is access all TypedEventHandler_ISearchBox_add_PrepareForFocusOnKeyboardInput;
@@ -1642,6 +1724,9 @@ package Windows.UI.Xaml.Controls is
    type TypedEventHandler_ISearchBox_add_SuggestionsRequested_Interface;
    type TypedEventHandler_ISearchBox_add_SuggestionsRequested is access all TypedEventHandler_ISearchBox_add_SuggestionsRequested_Interface'Class;
    type TypedEventHandler_ISearchBox_add_SuggestionsRequested_Ptr is access all TypedEventHandler_ISearchBox_add_SuggestionsRequested;
+   type TypedEventHandler_ISplitButton_add_Click_Interface;
+   type TypedEventHandler_ISplitButton_add_Click is access all TypedEventHandler_ISplitButton_add_Click_Interface'Class;
+   type TypedEventHandler_ISplitButton_add_Click_Ptr is access all TypedEventHandler_ISplitButton_add_Click;
    type TypedEventHandler_ISplitView_add_PaneClosed_Interface;
    type TypedEventHandler_ISplitView_add_PaneClosed is access all TypedEventHandler_ISplitView_add_PaneClosed_Interface'Class;
    type TypedEventHandler_ISplitView_add_PaneClosed_Ptr is access all TypedEventHandler_ISplitView_add_PaneClosed;
@@ -1687,9 +1772,18 @@ package Windows.UI.Xaml.Controls is
    type TypedEventHandler_ITextBox6_add_CuttingToClipboard_Interface;
    type TypedEventHandler_ITextBox6_add_CuttingToClipboard is access all TypedEventHandler_ITextBox6_add_CuttingToClipboard_Interface'Class;
    type TypedEventHandler_ITextBox6_add_CuttingToClipboard_Ptr is access all TypedEventHandler_ITextBox6_add_CuttingToClipboard;
+   type TypedEventHandler_ITextBox8_add_SelectionChanging_Interface;
+   type TypedEventHandler_ITextBox8_add_SelectionChanging is access all TypedEventHandler_ITextBox8_add_SelectionChanging_Interface'Class;
+   type TypedEventHandler_ITextBox8_add_SelectionChanging_Ptr is access all TypedEventHandler_ITextBox8_add_SelectionChanging;
+   type TypedEventHandler_ITimePicker3_add_SelectedTimeChanged_Interface;
+   type TypedEventHandler_ITimePicker3_add_SelectedTimeChanged is access all TypedEventHandler_ITimePicker3_add_SelectedTimeChanged_Interface'Class;
+   type TypedEventHandler_ITimePicker3_add_SelectedTimeChanged_Ptr is access all TypedEventHandler_ITimePicker3_add_SelectedTimeChanged;
    type TypedEventHandler_ITimePickerFlyout_add_TimePicked_Interface;
    type TypedEventHandler_ITimePickerFlyout_add_TimePicked is access all TypedEventHandler_ITimePickerFlyout_add_TimePicked_Interface'Class;
    type TypedEventHandler_ITimePickerFlyout_add_TimePicked_Ptr is access all TypedEventHandler_ITimePickerFlyout_add_TimePicked;
+   type TypedEventHandler_IToggleSplitButton_add_IsCheckedChanged_Interface;
+   type TypedEventHandler_IToggleSplitButton_add_IsCheckedChanged is access all TypedEventHandler_IToggleSplitButton_add_IsCheckedChanged_Interface'Class;
+   type TypedEventHandler_IToggleSplitButton_add_IsCheckedChanged_Ptr is access all TypedEventHandler_IToggleSplitButton_add_IsCheckedChanged;
    type TypedEventHandler_ITreeView_add_Collapsed_Interface;
    type TypedEventHandler_ITreeView_add_Collapsed is access all TypedEventHandler_ITreeView_add_Collapsed_Interface'Class;
    type TypedEventHandler_ITreeView_add_Collapsed_Ptr is access all TypedEventHandler_ITreeView_add_Collapsed;
@@ -1699,6 +1793,12 @@ package Windows.UI.Xaml.Controls is
    type TypedEventHandler_ITreeView_add_ItemInvoked_Interface;
    type TypedEventHandler_ITreeView_add_ItemInvoked is access all TypedEventHandler_ITreeView_add_ItemInvoked_Interface'Class;
    type TypedEventHandler_ITreeView_add_ItemInvoked_Ptr is access all TypedEventHandler_ITreeView_add_ItemInvoked;
+   type TypedEventHandler_ITreeView2_add_DragItemsCompleted_Interface;
+   type TypedEventHandler_ITreeView2_add_DragItemsCompleted is access all TypedEventHandler_ITreeView2_add_DragItemsCompleted_Interface'Class;
+   type TypedEventHandler_ITreeView2_add_DragItemsCompleted_Ptr is access all TypedEventHandler_ITreeView2_add_DragItemsCompleted;
+   type TypedEventHandler_ITreeView2_add_DragItemsStarting_Interface;
+   type TypedEventHandler_ITreeView2_add_DragItemsStarting is access all TypedEventHandler_ITreeView2_add_DragItemsStarting_Interface'Class;
+   type TypedEventHandler_ITreeView2_add_DragItemsStarting_Ptr is access all TypedEventHandler_ITreeView2_add_DragItemsStarting;
    type TypedEventHandler_IWebView2_add_ContentLoading_Interface;
    type TypedEventHandler_IWebView2_add_ContentLoading is access all TypedEventHandler_IWebView2_add_ContentLoading_Interface'Class;
    type TypedEventHandler_IWebView2_add_ContentLoading_Ptr is access all TypedEventHandler_IWebView2_add_ContentLoading;
@@ -1747,6 +1847,9 @@ package Windows.UI.Xaml.Controls is
    type TypedEventHandler_IWebView6_add_SeparateProcessLost_Interface;
    type TypedEventHandler_IWebView6_add_SeparateProcessLost is access all TypedEventHandler_IWebView6_add_SeparateProcessLost_Interface'Class;
    type TypedEventHandler_IWebView6_add_SeparateProcessLost_Ptr is access all TypedEventHandler_IWebView6_add_SeparateProcessLost;
+   type TypedEventHandler_IWebView7_add_WebResourceRequested_Interface;
+   type TypedEventHandler_IWebView7_add_WebResourceRequested is access all TypedEventHandler_IWebView7_add_WebResourceRequested_Interface'Class;
+   type TypedEventHandler_IWebView7_add_WebResourceRequested_Ptr is access all TypedEventHandler_IWebView7_add_WebResourceRequested;
    type VectorChangedEventHandler_ICommandBarElement_Interface;
    type VectorChangedEventHandler_ICommandBarElement is access all VectorChangedEventHandler_ICommandBarElement_Interface'Class;
    type VectorChangedEventHandler_ICommandBarElement_Ptr is access all VectorChangedEventHandler_ICommandBarElement;
@@ -1761,6 +1864,9 @@ package Windows.UI.Xaml.Controls is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAnchorRequestedEventArgs_Interface;
+   type IAnchorRequestedEventArgs is access all IAnchorRequestedEventArgs_Interface'Class;
+   type IAnchorRequestedEventArgs_Ptr is access all IAnchorRequestedEventArgs;
    type IAppBar_Interface;
    type IAppBar is access all IAppBar_Interface'Class;
    type IAppBar_Ptr is access all IAppBar;
@@ -1797,6 +1903,15 @@ package Windows.UI.Xaml.Controls is
    type IAppBarButtonStatics4_Interface;
    type IAppBarButtonStatics4 is access all IAppBarButtonStatics4_Interface'Class;
    type IAppBarButtonStatics4_Ptr is access all IAppBarButtonStatics4;
+   type IAppBarElementContainer_Interface;
+   type IAppBarElementContainer is access all IAppBarElementContainer_Interface'Class;
+   type IAppBarElementContainer_Ptr is access all IAppBarElementContainer;
+   type IAppBarElementContainerFactory_Interface;
+   type IAppBarElementContainerFactory is access all IAppBarElementContainerFactory_Interface'Class;
+   type IAppBarElementContainerFactory_Ptr is access all IAppBarElementContainerFactory;
+   type IAppBarElementContainerStatics_Interface;
+   type IAppBarElementContainerStatics is access all IAppBarElementContainerStatics_Interface'Class;
+   type IAppBarElementContainerStatics_Ptr is access all IAppBarElementContainerStatics;
    type IAppBarFactory_Interface;
    type IAppBarFactory is access all IAppBarFactory_Interface'Class;
    type IAppBarFactory_Ptr is access all IAppBarFactory;
@@ -1863,6 +1978,9 @@ package Windows.UI.Xaml.Controls is
    type IAutoSuggestBox3_Interface;
    type IAutoSuggestBox3 is access all IAutoSuggestBox3_Interface'Class;
    type IAutoSuggestBox3_Ptr is access all IAutoSuggestBox3;
+   type IAutoSuggestBox4_Interface;
+   type IAutoSuggestBox4 is access all IAutoSuggestBox4_Interface'Class;
+   type IAutoSuggestBox4_Ptr is access all IAutoSuggestBox4;
    type IAutoSuggestBoxQuerySubmittedEventArgs_Interface;
    type IAutoSuggestBoxQuerySubmittedEventArgs is access all IAutoSuggestBoxQuerySubmittedEventArgs_Interface'Class;
    type IAutoSuggestBoxQuerySubmittedEventArgs_Ptr is access all IAutoSuggestBoxQuerySubmittedEventArgs;
@@ -1875,6 +1993,9 @@ package Windows.UI.Xaml.Controls is
    type IAutoSuggestBoxStatics3_Interface;
    type IAutoSuggestBoxStatics3 is access all IAutoSuggestBoxStatics3_Interface'Class;
    type IAutoSuggestBoxStatics3_Ptr is access all IAutoSuggestBoxStatics3;
+   type IAutoSuggestBoxStatics4_Interface;
+   type IAutoSuggestBoxStatics4 is access all IAutoSuggestBoxStatics4_Interface'Class;
+   type IAutoSuggestBoxStatics4_Ptr is access all IAutoSuggestBoxStatics4;
    type IAutoSuggestBoxSuggestionChosenEventArgs_Interface;
    type IAutoSuggestBoxSuggestionChosenEventArgs is access all IAutoSuggestBoxSuggestionChosenEventArgs_Interface'Class;
    type IAutoSuggestBoxSuggestionChosenEventArgs_Ptr is access all IAutoSuggestBoxSuggestionChosenEventArgs;
@@ -1914,9 +2035,15 @@ package Windows.UI.Xaml.Controls is
    type IBorder_Interface;
    type IBorder is access all IBorder_Interface'Class;
    type IBorder_Ptr is access all IBorder;
+   type IBorder2_Interface;
+   type IBorder2 is access all IBorder2_Interface'Class;
+   type IBorder2_Ptr is access all IBorder2;
    type IBorderStatics_Interface;
    type IBorderStatics is access all IBorderStatics_Interface'Class;
    type IBorderStatics_Ptr is access all IBorderStatics;
+   type IBorderStatics2_Interface;
+   type IBorderStatics2 is access all IBorderStatics2_Interface'Class;
+   type IBorderStatics2_Ptr is access all IBorderStatics2;
    type IButton_Interface;
    type IButton is access all IButton_Interface'Class;
    type IButton_Ptr is access all IButton;
@@ -1935,6 +2062,9 @@ package Windows.UI.Xaml.Controls is
    type ICalendarDatePicker2_Interface;
    type ICalendarDatePicker2 is access all ICalendarDatePicker2_Interface'Class;
    type ICalendarDatePicker2_Ptr is access all ICalendarDatePicker2;
+   type ICalendarDatePicker3_Interface;
+   type ICalendarDatePicker3 is access all ICalendarDatePicker3_Interface'Class;
+   type ICalendarDatePicker3_Ptr is access all ICalendarDatePicker3;
    type ICalendarDatePickerDateChangedEventArgs_Interface;
    type ICalendarDatePickerDateChangedEventArgs is access all ICalendarDatePickerDateChangedEventArgs_Interface'Class;
    type ICalendarDatePickerDateChangedEventArgs_Ptr is access all ICalendarDatePickerDateChangedEventArgs;
@@ -1947,6 +2077,9 @@ package Windows.UI.Xaml.Controls is
    type ICalendarDatePickerStatics2_Interface;
    type ICalendarDatePickerStatics2 is access all ICalendarDatePickerStatics2_Interface'Class;
    type ICalendarDatePickerStatics2_Ptr is access all ICalendarDatePickerStatics2;
+   type ICalendarDatePickerStatics3_Interface;
+   type ICalendarDatePickerStatics3 is access all ICalendarDatePickerStatics3_Interface'Class;
+   type ICalendarDatePickerStatics3_Ptr is access all ICalendarDatePickerStatics3;
    type ICalendarView_Interface;
    type ICalendarView is access all ICalendarView_Interface'Class;
    type ICalendarView_Ptr is access all ICalendarView;
@@ -2037,6 +2170,9 @@ package Windows.UI.Xaml.Controls is
    type IComboBox5_Interface;
    type IComboBox5 is access all IComboBox5_Interface'Class;
    type IComboBox5_Ptr is access all IComboBox5;
+   type IComboBox6_Interface;
+   type IComboBox6 is access all IComboBox6_Interface'Class;
+   type IComboBox6_Ptr is access all IComboBox6;
    type IComboBoxFactory_Interface;
    type IComboBoxFactory is access all IComboBoxFactory_Interface'Class;
    type IComboBoxFactory_Ptr is access all IComboBoxFactory;
@@ -2064,6 +2200,12 @@ package Windows.UI.Xaml.Controls is
    type IComboBoxStatics5_Interface;
    type IComboBoxStatics5 is access all IComboBoxStatics5_Interface'Class;
    type IComboBoxStatics5_Ptr is access all IComboBoxStatics5;
+   type IComboBoxStatics6_Interface;
+   type IComboBoxStatics6 is access all IComboBoxStatics6_Interface'Class;
+   type IComboBoxStatics6_Ptr is access all IComboBoxStatics6;
+   type IComboBoxTextSubmittedEventArgs_Interface;
+   type IComboBoxTextSubmittedEventArgs is access all IComboBoxTextSubmittedEventArgs_Interface'Class;
+   type IComboBoxTextSubmittedEventArgs_Ptr is access all IComboBoxTextSubmittedEventArgs;
    type ICommandBar_Interface;
    type ICommandBar is access all ICommandBar_Interface'Class;
    type ICommandBar_Ptr is access all ICommandBar;
@@ -2082,6 +2224,12 @@ package Windows.UI.Xaml.Controls is
    type ICommandBarFactory_Interface;
    type ICommandBarFactory is access all ICommandBarFactory_Interface'Class;
    type ICommandBarFactory_Ptr is access all ICommandBarFactory;
+   type ICommandBarFlyout_Interface;
+   type ICommandBarFlyout is access all ICommandBarFlyout_Interface'Class;
+   type ICommandBarFlyout_Ptr is access all ICommandBarFlyout;
+   type ICommandBarFlyoutFactory_Interface;
+   type ICommandBarFlyoutFactory is access all ICommandBarFlyoutFactory_Interface'Class;
+   type ICommandBarFlyoutFactory_Ptr is access all ICommandBarFlyoutFactory;
    type ICommandBarOverflowPresenter_Interface;
    type ICommandBarOverflowPresenter is access all ICommandBarOverflowPresenter_Interface'Class;
    type ICommandBarOverflowPresenter_Ptr is access all ICommandBarOverflowPresenter;
@@ -2166,6 +2314,9 @@ package Windows.UI.Xaml.Controls is
    type IContentPresenter4_Interface;
    type IContentPresenter4 is access all IContentPresenter4_Interface'Class;
    type IContentPresenter4_Ptr is access all IContentPresenter4;
+   type IContentPresenter5_Interface;
+   type IContentPresenter5 is access all IContentPresenter5_Interface'Class;
+   type IContentPresenter5_Ptr is access all IContentPresenter5;
    type IContentPresenterFactory_Interface;
    type IContentPresenterFactory is access all IContentPresenterFactory_Interface'Class;
    type IContentPresenterFactory_Ptr is access all IContentPresenterFactory;
@@ -2184,6 +2335,9 @@ package Windows.UI.Xaml.Controls is
    type IContentPresenterStatics4_Interface;
    type IContentPresenterStatics4 is access all IContentPresenterStatics4_Interface'Class;
    type IContentPresenterStatics4_Ptr is access all IContentPresenterStatics4;
+   type IContentPresenterStatics5_Interface;
+   type IContentPresenterStatics5 is access all IContentPresenterStatics5_Interface'Class;
+   type IContentPresenterStatics5_Ptr is access all IContentPresenterStatics5;
    type IContextMenuEventArgs_Interface;
    type IContextMenuEventArgs is access all IContextMenuEventArgs_Interface'Class;
    type IContextMenuEventArgs_Ptr is access all IContextMenuEventArgs;
@@ -2202,6 +2356,9 @@ package Windows.UI.Xaml.Controls is
    type IControl5_Interface;
    type IControl5 is access all IControl5_Interface'Class;
    type IControl5_Ptr is access all IControl5;
+   type IControl7_Interface;
+   type IControl7 is access all IControl7_Interface'Class;
+   type IControl7_Ptr is access all IControl7;
    type IControlFactory_Interface;
    type IControlFactory is access all IControlFactory_Interface'Class;
    type IControlFactory_Ptr is access all IControlFactory;
@@ -2229,6 +2386,9 @@ package Windows.UI.Xaml.Controls is
    type IControlStatics5_Interface;
    type IControlStatics5 is access all IControlStatics5_Interface'Class;
    type IControlStatics5_Ptr is access all IControlStatics5;
+   type IControlStatics7_Interface;
+   type IControlStatics7 is access all IControlStatics7_Interface'Class;
+   type IControlStatics7_Ptr is access all IControlStatics7;
    type IControlTemplate_Interface;
    type IControlTemplate is access all IControlTemplate_Interface'Class;
    type IControlTemplate_Ptr is access all IControlTemplate;
@@ -2259,6 +2419,9 @@ package Windows.UI.Xaml.Controls is
    type IDatePicker2_Interface;
    type IDatePicker2 is access all IDatePicker2_Interface'Class;
    type IDatePicker2_Ptr is access all IDatePicker2;
+   type IDatePicker3_Interface;
+   type IDatePicker3 is access all IDatePicker3_Interface'Class;
+   type IDatePicker3_Ptr is access all IDatePicker3;
    type IDatePickerFactory_Interface;
    type IDatePickerFactory is access all IDatePickerFactory_Interface'Class;
    type IDatePickerFactory_Ptr is access all IDatePickerFactory;
@@ -2283,12 +2446,18 @@ package Windows.UI.Xaml.Controls is
    type IDatePickerFlyoutStatics2_Interface;
    type IDatePickerFlyoutStatics2 is access all IDatePickerFlyoutStatics2_Interface'Class;
    type IDatePickerFlyoutStatics2_Ptr is access all IDatePickerFlyoutStatics2;
+   type IDatePickerSelectedValueChangedEventArgs_Interface;
+   type IDatePickerSelectedValueChangedEventArgs is access all IDatePickerSelectedValueChangedEventArgs_Interface'Class;
+   type IDatePickerSelectedValueChangedEventArgs_Ptr is access all IDatePickerSelectedValueChangedEventArgs;
    type IDatePickerStatics_Interface;
    type IDatePickerStatics is access all IDatePickerStatics_Interface'Class;
    type IDatePickerStatics_Ptr is access all IDatePickerStatics;
    type IDatePickerStatics2_Interface;
    type IDatePickerStatics2 is access all IDatePickerStatics2_Interface'Class;
    type IDatePickerStatics2_Ptr is access all IDatePickerStatics2;
+   type IDatePickerStatics3_Interface;
+   type IDatePickerStatics3 is access all IDatePickerStatics3_Interface'Class;
+   type IDatePickerStatics3_Ptr is access all IDatePickerStatics3;
    type IDatePickerValueChangedEventArgs_Interface;
    type IDatePickerValueChangedEventArgs is access all IDatePickerValueChangedEventArgs_Interface'Class;
    type IDatePickerValueChangedEventArgs_Ptr is access all IDatePickerValueChangedEventArgs;
@@ -2298,9 +2467,24 @@ package Windows.UI.Xaml.Controls is
    type IDragItemsStartingEventArgs_Interface;
    type IDragItemsStartingEventArgs is access all IDragItemsStartingEventArgs_Interface'Class;
    type IDragItemsStartingEventArgs_Ptr is access all IDragItemsStartingEventArgs;
+   type IDropDownButton_Interface;
+   type IDropDownButton is access all IDropDownButton_Interface'Class;
+   type IDropDownButton_Ptr is access all IDropDownButton;
+   type IDropDownButtonAutomationPeer_Interface;
+   type IDropDownButtonAutomationPeer is access all IDropDownButtonAutomationPeer_Interface'Class;
+   type IDropDownButtonAutomationPeer_Ptr is access all IDropDownButtonAutomationPeer;
+   type IDropDownButtonAutomationPeerFactory_Interface;
+   type IDropDownButtonAutomationPeerFactory is access all IDropDownButtonAutomationPeerFactory_Interface'Class;
+   type IDropDownButtonAutomationPeerFactory_Ptr is access all IDropDownButtonAutomationPeerFactory;
+   type IDropDownButtonFactory_Interface;
+   type IDropDownButtonFactory is access all IDropDownButtonFactory_Interface'Class;
+   type IDropDownButtonFactory_Ptr is access all IDropDownButtonFactory;
    type IDynamicOverflowItemsChangingEventArgs_Interface;
    type IDynamicOverflowItemsChangingEventArgs is access all IDynamicOverflowItemsChangingEventArgs_Interface'Class;
    type IDynamicOverflowItemsChangingEventArgs_Ptr is access all IDynamicOverflowItemsChangingEventArgs;
+   type IExpandCollapseProvider_Imported_Interface;
+   type IExpandCollapseProvider_Imported is access all IExpandCollapseProvider_Imported_Interface'Class;
+   type IExpandCollapseProvider_Imported_Ptr is access all IExpandCollapseProvider_Imported;
    type IFlipView_Interface;
    type IFlipView is access all IFlipView_Interface'Class;
    type IFlipView_Ptr is access all IFlipView;
@@ -2385,6 +2569,9 @@ package Windows.UI.Xaml.Controls is
    type IFrame4_Interface;
    type IFrame4 is access all IFrame4_Interface'Class;
    type IFrame4_Ptr is access all IFrame4;
+   type IFrame5_Interface;
+   type IFrame5 is access all IFrame5_Interface'Class;
+   type IFrame5_Ptr is access all IFrame5;
    type IFrameFactory_Interface;
    type IFrameFactory is access all IFrameFactory_Interface'Class;
    type IFrameFactory_Ptr is access all IFrameFactory;
@@ -2394,6 +2581,9 @@ package Windows.UI.Xaml.Controls is
    type IFrameStatics2_Interface;
    type IFrameStatics2 is access all IFrameStatics2_Interface'Class;
    type IFrameStatics2_Ptr is access all IFrameStatics2;
+   type IFrameStatics5_Interface;
+   type IFrameStatics5 is access all IFrameStatics5_Interface'Class;
+   type IFrameStatics5_Ptr is access all IFrameStatics5;
    type IGrid_Interface;
    type IGrid is access all IGrid_Interface'Class;
    type IGrid_Ptr is access all IGrid;
@@ -2403,6 +2593,9 @@ package Windows.UI.Xaml.Controls is
    type IGrid3_Interface;
    type IGrid3 is access all IGrid3_Interface'Class;
    type IGrid3_Ptr is access all IGrid3;
+   type IGrid4_Interface;
+   type IGrid4 is access all IGrid4_Interface'Class;
+   type IGrid4_Ptr is access all IGrid4;
    type IGridFactory_Interface;
    type IGridFactory is access all IGridFactory_Interface'Class;
    type IGridFactory_Ptr is access all IGridFactory;
@@ -2415,6 +2608,9 @@ package Windows.UI.Xaml.Controls is
    type IGridStatics3_Interface;
    type IGridStatics3 is access all IGridStatics3_Interface'Class;
    type IGridStatics3_Ptr is access all IGridStatics3;
+   type IGridStatics4_Interface;
+   type IGridStatics4 is access all IGridStatics4_Interface'Class;
+   type IGridStatics4_Ptr is access all IGridStatics4;
    type IGridView_Interface;
    type IGridView is access all IGridView_Interface'Class;
    type IGridView_Ptr is access all IGridView;
@@ -2514,6 +2710,15 @@ package Windows.UI.Xaml.Controls is
    type IIconSource_Interface;
    type IIconSource is access all IIconSource_Interface'Class;
    type IIconSource_Ptr is access all IIconSource;
+   type IIconSourceElement_Interface;
+   type IIconSourceElement is access all IIconSourceElement_Interface'Class;
+   type IIconSourceElement_Ptr is access all IIconSourceElement;
+   type IIconSourceElementFactory_Interface;
+   type IIconSourceElementFactory is access all IIconSourceElementFactory_Interface'Class;
+   type IIconSourceElementFactory_Ptr is access all IIconSourceElementFactory;
+   type IIconSourceElementStatics_Interface;
+   type IIconSourceElementStatics is access all IIconSourceElementStatics_Interface'Class;
+   type IIconSourceElementStatics_Ptr is access all IIconSourceElementStatics;
    type IIconSourceFactory_Interface;
    type IIconSourceFactory is access all IIconSourceFactory_Interface'Class;
    type IIconSourceFactory_Ptr is access all IIconSourceFactory;
@@ -2691,6 +2896,9 @@ package Windows.UI.Xaml.Controls is
    type IInsertionPanel_Interface;
    type IInsertionPanel is access all IInsertionPanel_Interface'Class;
    type IInsertionPanel_Ptr is access all IInsertionPanel;
+   type IInvokeProvider_Imported_Interface;
+   type IInvokeProvider_Imported is access all IInvokeProvider_Imported_Interface'Class;
+   type IInvokeProvider_Imported_Ptr is access all IInvokeProvider_Imported;
    type IIsTextTrimmedChangedEventArgs_Interface;
    type IIsTextTrimmedChangedEventArgs is access all IIsTextTrimmedChangedEventArgs_Interface'Class;
    type IIsTextTrimmedChangedEventArgs_Ptr is access all IIsTextTrimmedChangedEventArgs;
@@ -2778,6 +2986,9 @@ package Windows.UI.Xaml.Controls is
    type IIterable_IHubSection_Interface;
    type IIterable_IHubSection is access all IIterable_IHubSection_Interface'Class;
    type IIterable_IHubSection_Ptr is access all IIterable_IHubSection;
+   type IIterable_IMenuBarItem_Interface;
+   type IIterable_IMenuBarItem is access all IIterable_IMenuBarItem_Interface'Class;
+   type IIterable_IMenuBarItem_Ptr is access all IIterable_IMenuBarItem;
    type IIterable_IMenuFlyoutItemBase_Interface;
    type IIterable_IMenuFlyoutItemBase is access all IIterable_IMenuFlyoutItemBase_Interface'Class;
    type IIterable_IMenuFlyoutItemBase_Ptr is access all IIterable_IMenuFlyoutItemBase;
@@ -2808,6 +3019,9 @@ package Windows.UI.Xaml.Controls is
    type IIterator_IHubSection_Interface;
    type IIterator_IHubSection is access all IIterator_IHubSection_Interface'Class;
    type IIterator_IHubSection_Ptr is access all IIterator_IHubSection;
+   type IIterator_IMenuBarItem_Interface;
+   type IIterator_IMenuBarItem is access all IIterator_IMenuBarItem_Interface'Class;
+   type IIterator_IMenuBarItem_Ptr is access all IIterator_IMenuBarItem;
    type IIterator_IMenuFlyoutItemBase_Interface;
    type IIterator_IMenuFlyoutItemBase is access all IIterator_IMenuFlyoutItemBase_Interface'Class;
    type IIterator_IMenuFlyoutItemBase_Ptr is access all IIterator_IMenuFlyoutItemBase;
@@ -2979,6 +3193,30 @@ package Windows.UI.Xaml.Controls is
    type IMediaTransportControlsStatics4_Interface;
    type IMediaTransportControlsStatics4 is access all IMediaTransportControlsStatics4_Interface'Class;
    type IMediaTransportControlsStatics4_Ptr is access all IMediaTransportControlsStatics4;
+   type IMenuBar_Interface;
+   type IMenuBar is access all IMenuBar_Interface'Class;
+   type IMenuBar_Ptr is access all IMenuBar;
+   type IMenuBarFactory_Interface;
+   type IMenuBarFactory is access all IMenuBarFactory_Interface'Class;
+   type IMenuBarFactory_Ptr is access all IMenuBarFactory;
+   type IMenuBarItem_Interface;
+   type IMenuBarItem is access all IMenuBarItem_Interface'Class;
+   type IMenuBarItem_Ptr is access all IMenuBarItem;
+   type IMenuBarItemFactory_Interface;
+   type IMenuBarItemFactory is access all IMenuBarItemFactory_Interface'Class;
+   type IMenuBarItemFactory_Ptr is access all IMenuBarItemFactory;
+   type IMenuBarItemFlyout_Interface;
+   type IMenuBarItemFlyout is access all IMenuBarItemFlyout_Interface'Class;
+   type IMenuBarItemFlyout_Ptr is access all IMenuBarItemFlyout;
+   type IMenuBarItemFlyoutFactory_Interface;
+   type IMenuBarItemFlyoutFactory is access all IMenuBarItemFlyoutFactory_Interface'Class;
+   type IMenuBarItemFlyoutFactory_Ptr is access all IMenuBarItemFlyoutFactory;
+   type IMenuBarItemStatics_Interface;
+   type IMenuBarItemStatics is access all IMenuBarItemStatics_Interface'Class;
+   type IMenuBarItemStatics_Ptr is access all IMenuBarItemStatics;
+   type IMenuBarStatics_Interface;
+   type IMenuBarStatics is access all IMenuBarStatics_Interface'Class;
+   type IMenuBarStatics_Ptr is access all IMenuBarStatics;
    type IMenuFlyout_Interface;
    type IMenuFlyout is access all IMenuFlyout_Interface'Class;
    type IMenuFlyout_Ptr is access all IMenuFlyout;
@@ -3054,6 +3292,9 @@ package Windows.UI.Xaml.Controls is
    type INavigationView2_Interface;
    type INavigationView2 is access all INavigationView2_Interface'Class;
    type INavigationView2_Ptr is access all INavigationView2;
+   type INavigationView3_Interface;
+   type INavigationView3 is access all INavigationView3_Interface'Class;
+   type INavigationView3_Ptr is access all INavigationView3;
    type INavigationViewBackRequestedEventArgs_Interface;
    type INavigationViewBackRequestedEventArgs is access all INavigationViewBackRequestedEventArgs_Interface'Class;
    type INavigationViewBackRequestedEventArgs_Ptr is access all INavigationViewBackRequestedEventArgs;
@@ -3066,6 +3307,9 @@ package Windows.UI.Xaml.Controls is
    type INavigationViewItem_Interface;
    type INavigationViewItem is access all INavigationViewItem_Interface'Class;
    type INavigationViewItem_Ptr is access all INavigationViewItem;
+   type INavigationViewItem2_Interface;
+   type INavigationViewItem2 is access all INavigationViewItem2_Interface'Class;
+   type INavigationViewItem2_Ptr is access all INavigationViewItem2;
    type INavigationViewItemBase_Interface;
    type INavigationViewItemBase is access all INavigationViewItemBase_Interface'Class;
    type INavigationViewItemBase_Ptr is access all INavigationViewItemBase;
@@ -3084,6 +3328,9 @@ package Windows.UI.Xaml.Controls is
    type INavigationViewItemInvokedEventArgs_Interface;
    type INavigationViewItemInvokedEventArgs is access all INavigationViewItemInvokedEventArgs_Interface'Class;
    type INavigationViewItemInvokedEventArgs_Ptr is access all INavigationViewItemInvokedEventArgs;
+   type INavigationViewItemInvokedEventArgs2_Interface;
+   type INavigationViewItemInvokedEventArgs2 is access all INavigationViewItemInvokedEventArgs2_Interface'Class;
+   type INavigationViewItemInvokedEventArgs2_Ptr is access all INavigationViewItemInvokedEventArgs2;
    type INavigationViewItemSeparator_Interface;
    type INavigationViewItemSeparator is access all INavigationViewItemSeparator_Interface'Class;
    type INavigationViewItemSeparator_Ptr is access all INavigationViewItemSeparator;
@@ -3093,6 +3340,9 @@ package Windows.UI.Xaml.Controls is
    type INavigationViewItemStatics_Interface;
    type INavigationViewItemStatics is access all INavigationViewItemStatics_Interface'Class;
    type INavigationViewItemStatics_Ptr is access all INavigationViewItemStatics;
+   type INavigationViewItemStatics2_Interface;
+   type INavigationViewItemStatics2 is access all INavigationViewItemStatics2_Interface'Class;
+   type INavigationViewItemStatics2_Ptr is access all INavigationViewItemStatics2;
    type INavigationViewList_Interface;
    type INavigationViewList is access all INavigationViewList_Interface'Class;
    type INavigationViewList_Ptr is access all INavigationViewList;
@@ -3105,12 +3355,27 @@ package Windows.UI.Xaml.Controls is
    type INavigationViewSelectionChangedEventArgs_Interface;
    type INavigationViewSelectionChangedEventArgs is access all INavigationViewSelectionChangedEventArgs_Interface'Class;
    type INavigationViewSelectionChangedEventArgs_Ptr is access all INavigationViewSelectionChangedEventArgs;
+   type INavigationViewSelectionChangedEventArgs2_Interface;
+   type INavigationViewSelectionChangedEventArgs2 is access all INavigationViewSelectionChangedEventArgs2_Interface'Class;
+   type INavigationViewSelectionChangedEventArgs2_Ptr is access all INavigationViewSelectionChangedEventArgs2;
    type INavigationViewStatics_Interface;
    type INavigationViewStatics is access all INavigationViewStatics_Interface'Class;
    type INavigationViewStatics_Ptr is access all INavigationViewStatics;
    type INavigationViewStatics2_Interface;
    type INavigationViewStatics2 is access all INavigationViewStatics2_Interface'Class;
    type INavigationViewStatics2_Ptr is access all INavigationViewStatics2;
+   type INavigationViewStatics3_Interface;
+   type INavigationViewStatics3 is access all INavigationViewStatics3_Interface'Class;
+   type INavigationViewStatics3_Ptr is access all INavigationViewStatics3;
+   type INavigationViewTemplateSettings_Interface;
+   type INavigationViewTemplateSettings is access all INavigationViewTemplateSettings_Interface'Class;
+   type INavigationViewTemplateSettings_Ptr is access all INavigationViewTemplateSettings;
+   type INavigationViewTemplateSettingsFactory_Interface;
+   type INavigationViewTemplateSettingsFactory is access all INavigationViewTemplateSettingsFactory_Interface'Class;
+   type INavigationViewTemplateSettingsFactory_Ptr is access all INavigationViewTemplateSettingsFactory;
+   type INavigationViewTemplateSettingsStatics_Interface;
+   type INavigationViewTemplateSettingsStatics is access all INavigationViewTemplateSettingsStatics_Interface'Class;
+   type INavigationViewTemplateSettingsStatics_Ptr is access all INavigationViewTemplateSettingsStatics;
    type INotifyEventArgs_Interface;
    type INotifyEventArgs is access all INotifyEventArgs_Interface'Class;
    type INotifyEventArgs_Ptr is access all INotifyEventArgs;
@@ -3144,6 +3409,9 @@ package Windows.UI.Xaml.Controls is
    type IPanel_Interface;
    type IPanel is access all IPanel_Interface'Class;
    type IPanel_Ptr is access all IPanel;
+   type IPanel2_Interface;
+   type IPanel2 is access all IPanel2_Interface'Class;
+   type IPanel2_Ptr is access all IPanel2;
    type IPanelFactory_Interface;
    type IPanelFactory is access all IPanelFactory_Interface'Class;
    type IPanelFactory_Ptr is access all IPanelFactory;
@@ -3171,6 +3439,9 @@ package Windows.UI.Xaml.Controls is
    type IPasswordBox4_Interface;
    type IPasswordBox4 is access all IPasswordBox4_Interface'Class;
    type IPasswordBox4_Ptr is access all IPasswordBox4;
+   type IPasswordBox5_Interface;
+   type IPasswordBox5 is access all IPasswordBox5_Interface'Class;
+   type IPasswordBox5_Ptr is access all IPasswordBox5;
    type IPasswordBoxPasswordChangingEventArgs_Interface;
    type IPasswordBoxPasswordChangingEventArgs is access all IPasswordBoxPasswordChangingEventArgs_Interface'Class;
    type IPasswordBoxPasswordChangingEventArgs_Ptr is access all IPasswordBoxPasswordChangingEventArgs;
@@ -3183,6 +3454,9 @@ package Windows.UI.Xaml.Controls is
    type IPasswordBoxStatics3_Interface;
    type IPasswordBoxStatics3 is access all IPasswordBoxStatics3_Interface'Class;
    type IPasswordBoxStatics3_Ptr is access all IPasswordBoxStatics3;
+   type IPasswordBoxStatics5_Interface;
+   type IPasswordBoxStatics5 is access all IPasswordBoxStatics5_Interface'Class;
+   type IPasswordBoxStatics5_Ptr is access all IPasswordBoxStatics5;
    type IPathIcon_Interface;
    type IPathIcon is access all IPathIcon_Interface'Class;
    type IPathIcon_Ptr is access all IPathIcon;
@@ -3342,12 +3616,18 @@ package Windows.UI.Xaml.Controls is
    type IRelativePanel_Interface;
    type IRelativePanel is access all IRelativePanel_Interface'Class;
    type IRelativePanel_Ptr is access all IRelativePanel;
+   type IRelativePanel2_Interface;
+   type IRelativePanel2 is access all IRelativePanel2_Interface'Class;
+   type IRelativePanel2_Ptr is access all IRelativePanel2;
    type IRelativePanelFactory_Interface;
    type IRelativePanelFactory is access all IRelativePanelFactory_Interface'Class;
    type IRelativePanelFactory_Ptr is access all IRelativePanelFactory;
    type IRelativePanelStatics_Interface;
    type IRelativePanelStatics is access all IRelativePanelStatics_Interface'Class;
    type IRelativePanelStatics_Ptr is access all IRelativePanelStatics;
+   type IRelativePanelStatics2_Interface;
+   type IRelativePanelStatics2 is access all IRelativePanelStatics2_Interface'Class;
+   type IRelativePanelStatics2_Ptr is access all IRelativePanelStatics2;
    type IRichEditBox_Interface;
    type IRichEditBox is access all IRichEditBox_Interface'Class;
    type IRichEditBox_Ptr is access all IRichEditBox;
@@ -3369,9 +3649,15 @@ package Windows.UI.Xaml.Controls is
    type IRichEditBox7_Interface;
    type IRichEditBox7 is access all IRichEditBox7_Interface'Class;
    type IRichEditBox7_Ptr is access all IRichEditBox7;
+   type IRichEditBox8_Interface;
+   type IRichEditBox8 is access all IRichEditBox8_Interface'Class;
+   type IRichEditBox8_Ptr is access all IRichEditBox8;
    type IRichEditBoxFactory_Interface;
    type IRichEditBoxFactory is access all IRichEditBoxFactory_Interface'Class;
    type IRichEditBoxFactory_Ptr is access all IRichEditBoxFactory;
+   type IRichEditBoxSelectionChangingEventArgs_Interface;
+   type IRichEditBoxSelectionChangingEventArgs is access all IRichEditBoxSelectionChangingEventArgs_Interface'Class;
+   type IRichEditBoxSelectionChangingEventArgs_Ptr is access all IRichEditBoxSelectionChangingEventArgs;
    type IRichEditBoxStatics_Interface;
    type IRichEditBoxStatics is access all IRichEditBoxStatics_Interface'Class;
    type IRichEditBoxStatics_Ptr is access all IRichEditBoxStatics;
@@ -3393,6 +3679,9 @@ package Windows.UI.Xaml.Controls is
    type IRichEditBoxStatics7_Interface;
    type IRichEditBoxStatics7 is access all IRichEditBoxStatics7_Interface'Class;
    type IRichEditBoxStatics7_Ptr is access all IRichEditBoxStatics7;
+   type IRichEditBoxStatics8_Interface;
+   type IRichEditBoxStatics8 is access all IRichEditBoxStatics8_Interface'Class;
+   type IRichEditBoxStatics8_Ptr is access all IRichEditBoxStatics8;
    type IRichEditBoxTextChangingEventArgs_Interface;
    type IRichEditBoxTextChangingEventArgs is access all IRichEditBoxTextChangingEventArgs_Interface'Class;
    type IRichEditBoxTextChangingEventArgs_Ptr is access all IRichEditBoxTextChangingEventArgs;
@@ -3414,6 +3703,9 @@ package Windows.UI.Xaml.Controls is
    type IRichTextBlock5_Interface;
    type IRichTextBlock5 is access all IRichTextBlock5_Interface'Class;
    type IRichTextBlock5_Ptr is access all IRichTextBlock5;
+   type IRichTextBlock6_Interface;
+   type IRichTextBlock6 is access all IRichTextBlock6_Interface'Class;
+   type IRichTextBlock6_Ptr is access all IRichTextBlock6;
    type IRichTextBlockOverflow_Interface;
    type IRichTextBlockOverflow is access all IRichTextBlockOverflow_Interface'Class;
    type IRichTextBlockOverflow_Ptr is access all IRichTextBlockOverflow;
@@ -3447,15 +3739,27 @@ package Windows.UI.Xaml.Controls is
    type IRichTextBlockStatics5_Interface;
    type IRichTextBlockStatics5 is access all IRichTextBlockStatics5_Interface'Class;
    type IRichTextBlockStatics5_Ptr is access all IRichTextBlockStatics5;
+   type IRichTextBlockStatics6_Interface;
+   type IRichTextBlockStatics6 is access all IRichTextBlockStatics6_Interface'Class;
+   type IRichTextBlockStatics6_Ptr is access all IRichTextBlockStatics6;
    type IRowDefinition_Interface;
    type IRowDefinition is access all IRowDefinition_Interface'Class;
    type IRowDefinition_Ptr is access all IRowDefinition;
    type IRowDefinitionStatics_Interface;
    type IRowDefinitionStatics is access all IRowDefinitionStatics_Interface'Class;
    type IRowDefinitionStatics_Ptr is access all IRowDefinitionStatics;
+   type IScrollAnchorProvider_Interface;
+   type IScrollAnchorProvider is access all IScrollAnchorProvider_Interface'Class;
+   type IScrollAnchorProvider_Ptr is access all IScrollAnchorProvider;
    type IScrollContentPresenter_Interface;
    type IScrollContentPresenter is access all IScrollContentPresenter_Interface'Class;
    type IScrollContentPresenter_Ptr is access all IScrollContentPresenter;
+   type IScrollContentPresenter2_Interface;
+   type IScrollContentPresenter2 is access all IScrollContentPresenter2_Interface'Class;
+   type IScrollContentPresenter2_Ptr is access all IScrollContentPresenter2;
+   type IScrollContentPresenterStatics2_Interface;
+   type IScrollContentPresenterStatics2 is access all IScrollContentPresenterStatics2_Interface'Class;
+   type IScrollContentPresenterStatics2_Ptr is access all IScrollContentPresenterStatics2;
    type IScrollSnapPointsInfo_Imported_Interface;
    type IScrollSnapPointsInfo_Imported is access all IScrollSnapPointsInfo_Imported_Interface'Class;
    type IScrollSnapPointsInfo_Imported_Ptr is access all IScrollSnapPointsInfo_Imported;
@@ -3468,12 +3772,18 @@ package Windows.UI.Xaml.Controls is
    type IScrollViewer3_Interface;
    type IScrollViewer3 is access all IScrollViewer3_Interface'Class;
    type IScrollViewer3_Ptr is access all IScrollViewer3;
+   type IScrollViewer4_Interface;
+   type IScrollViewer4 is access all IScrollViewer4_Interface'Class;
+   type IScrollViewer4_Ptr is access all IScrollViewer4;
    type IScrollViewerStatics_Interface;
    type IScrollViewerStatics is access all IScrollViewerStatics_Interface'Class;
    type IScrollViewerStatics_Ptr is access all IScrollViewerStatics;
    type IScrollViewerStatics2_Interface;
    type IScrollViewerStatics2 is access all IScrollViewerStatics2_Interface'Class;
    type IScrollViewerStatics2_Ptr is access all IScrollViewerStatics2;
+   type IScrollViewerStatics4_Interface;
+   type IScrollViewerStatics4 is access all IScrollViewerStatics4_Interface'Class;
+   type IScrollViewerStatics4_Ptr is access all IScrollViewerStatics4;
    type IScrollViewerView_Interface;
    type IScrollViewerView is access all IScrollViewerView_Interface'Class;
    type IScrollViewerView_Ptr is access all IScrollViewerView;
@@ -3555,6 +3865,24 @@ package Windows.UI.Xaml.Controls is
    type ISliderStatics2_Interface;
    type ISliderStatics2 is access all ISliderStatics2_Interface'Class;
    type ISliderStatics2_Ptr is access all ISliderStatics2;
+   type ISplitButton_Interface;
+   type ISplitButton is access all ISplitButton_Interface'Class;
+   type ISplitButton_Ptr is access all ISplitButton;
+   type ISplitButtonAutomationPeer_Interface;
+   type ISplitButtonAutomationPeer is access all ISplitButtonAutomationPeer_Interface'Class;
+   type ISplitButtonAutomationPeer_Ptr is access all ISplitButtonAutomationPeer;
+   type ISplitButtonAutomationPeerFactory_Interface;
+   type ISplitButtonAutomationPeerFactory is access all ISplitButtonAutomationPeerFactory_Interface'Class;
+   type ISplitButtonAutomationPeerFactory_Ptr is access all ISplitButtonAutomationPeerFactory;
+   type ISplitButtonClickEventArgs_Interface;
+   type ISplitButtonClickEventArgs is access all ISplitButtonClickEventArgs_Interface'Class;
+   type ISplitButtonClickEventArgs_Ptr is access all ISplitButtonClickEventArgs;
+   type ISplitButtonFactory_Interface;
+   type ISplitButtonFactory is access all ISplitButtonFactory_Interface'Class;
+   type ISplitButtonFactory_Ptr is access all ISplitButtonFactory;
+   type ISplitButtonStatics_Interface;
+   type ISplitButtonStatics is access all ISplitButtonStatics_Interface'Class;
+   type ISplitButtonStatics_Ptr is access all ISplitButtonStatics;
    type ISplitView_Interface;
    type ISplitView is access all ISplitView_Interface'Class;
    type ISplitView_Ptr is access all ISplitView;
@@ -3585,6 +3913,9 @@ package Windows.UI.Xaml.Controls is
    type IStackPanel4_Interface;
    type IStackPanel4 is access all IStackPanel4_Interface'Class;
    type IStackPanel4_Ptr is access all IStackPanel4;
+   type IStackPanel5_Interface;
+   type IStackPanel5 is access all IStackPanel5_Interface'Class;
+   type IStackPanel5_Ptr is access all IStackPanel5;
    type IStackPanelFactory_Interface;
    type IStackPanelFactory is access all IStackPanelFactory_Interface'Class;
    type IStackPanelFactory_Ptr is access all IStackPanelFactory;
@@ -3597,6 +3928,9 @@ package Windows.UI.Xaml.Controls is
    type IStackPanelStatics4_Interface;
    type IStackPanelStatics4 is access all IStackPanelStatics4_Interface'Class;
    type IStackPanelStatics4_Ptr is access all IStackPanelStatics4;
+   type IStackPanelStatics5_Interface;
+   type IStackPanelStatics5 is access all IStackPanelStatics5_Interface'Class;
+   type IStackPanelStatics5_Ptr is access all IStackPanelStatics5;
    type IStyleSelector_Interface;
    type IStyleSelector is access all IStyleSelector_Interface'Class;
    type IStyleSelector_Ptr is access all IStyleSelector;
@@ -3690,6 +4024,9 @@ package Windows.UI.Xaml.Controls is
    type ITextBlock6_Interface;
    type ITextBlock6 is access all ITextBlock6_Interface'Class;
    type ITextBlock6_Ptr is access all ITextBlock6;
+   type ITextBlock7_Interface;
+   type ITextBlock7 is access all ITextBlock7_Interface'Class;
+   type ITextBlock7_Ptr is access all ITextBlock7;
    type ITextBlockStatics_Interface;
    type ITextBlockStatics is access all ITextBlockStatics_Interface'Class;
    type ITextBlockStatics_Ptr is access all ITextBlockStatics;
@@ -3705,6 +4042,9 @@ package Windows.UI.Xaml.Controls is
    type ITextBlockStatics6_Interface;
    type ITextBlockStatics6 is access all ITextBlockStatics6_Interface'Class;
    type ITextBlockStatics6_Ptr is access all ITextBlockStatics6;
+   type ITextBlockStatics7_Interface;
+   type ITextBlockStatics7 is access all ITextBlockStatics7_Interface'Class;
+   type ITextBlockStatics7_Ptr is access all ITextBlockStatics7;
    type ITextBox_Interface;
    type ITextBox is access all ITextBox_Interface'Class;
    type ITextBox_Ptr is access all ITextBox;
@@ -3726,12 +4066,18 @@ package Windows.UI.Xaml.Controls is
    type ITextBox7_Interface;
    type ITextBox7 is access all ITextBox7_Interface'Class;
    type ITextBox7_Ptr is access all ITextBox7;
+   type ITextBox8_Interface;
+   type ITextBox8 is access all ITextBox8_Interface'Class;
+   type ITextBox8_Ptr is access all ITextBox8;
    type ITextBoxBeforeTextChangingEventArgs_Interface;
    type ITextBoxBeforeTextChangingEventArgs is access all ITextBoxBeforeTextChangingEventArgs_Interface'Class;
    type ITextBoxBeforeTextChangingEventArgs_Ptr is access all ITextBoxBeforeTextChangingEventArgs;
    type ITextBoxFactory_Interface;
    type ITextBoxFactory is access all ITextBoxFactory_Interface'Class;
    type ITextBoxFactory_Ptr is access all ITextBoxFactory;
+   type ITextBoxSelectionChangingEventArgs_Interface;
+   type ITextBoxSelectionChangingEventArgs is access all ITextBoxSelectionChangingEventArgs_Interface'Class;
+   type ITextBoxSelectionChangingEventArgs_Ptr is access all ITextBoxSelectionChangingEventArgs;
    type ITextBoxStatics_Interface;
    type ITextBoxStatics is access all ITextBoxStatics_Interface'Class;
    type ITextBoxStatics_Ptr is access all ITextBoxStatics;
@@ -3750,6 +4096,9 @@ package Windows.UI.Xaml.Controls is
    type ITextBoxStatics7_Interface;
    type ITextBoxStatics7 is access all ITextBoxStatics7_Interface'Class;
    type ITextBoxStatics7_Ptr is access all ITextBoxStatics7;
+   type ITextBoxStatics8_Interface;
+   type ITextBoxStatics8 is access all ITextBoxStatics8_Interface'Class;
+   type ITextBoxStatics8_Ptr is access all ITextBoxStatics8;
    type ITextBoxTextChangingEventArgs_Interface;
    type ITextBoxTextChangingEventArgs is access all ITextBoxTextChangingEventArgs_Interface'Class;
    type ITextBoxTextChangingEventArgs_Ptr is access all ITextBoxTextChangingEventArgs;
@@ -3759,6 +4108,12 @@ package Windows.UI.Xaml.Controls is
    type ITextChangedEventArgs_Interface;
    type ITextChangedEventArgs is access all ITextChangedEventArgs_Interface'Class;
    type ITextChangedEventArgs_Ptr is access all ITextChangedEventArgs;
+   type ITextCommandBarFlyout_Interface;
+   type ITextCommandBarFlyout is access all ITextCommandBarFlyout_Interface'Class;
+   type ITextCommandBarFlyout_Ptr is access all ITextCommandBarFlyout;
+   type ITextCommandBarFlyoutFactory_Interface;
+   type ITextCommandBarFlyoutFactory is access all ITextCommandBarFlyoutFactory_Interface'Class;
+   type ITextCommandBarFlyoutFactory_Ptr is access all ITextCommandBarFlyoutFactory;
    type ITextCompositionChangedEventArgs_Interface;
    type ITextCompositionChangedEventArgs is access all ITextCompositionChangedEventArgs_Interface'Class;
    type ITextCompositionChangedEventArgs_Ptr is access all ITextCompositionChangedEventArgs;
@@ -3786,6 +4141,9 @@ package Windows.UI.Xaml.Controls is
    type ITimePicker2_Interface;
    type ITimePicker2 is access all ITimePicker2_Interface'Class;
    type ITimePicker2_Ptr is access all ITimePicker2;
+   type ITimePicker3_Interface;
+   type ITimePicker3 is access all ITimePicker3_Interface'Class;
+   type ITimePicker3_Ptr is access all ITimePicker3;
    type ITimePickerFactory_Interface;
    type ITimePickerFactory is access all ITimePickerFactory_Interface'Class;
    type ITimePickerFactory_Ptr is access all ITimePickerFactory;
@@ -3798,12 +4156,18 @@ package Windows.UI.Xaml.Controls is
    type ITimePickerFlyoutStatics_Interface;
    type ITimePickerFlyoutStatics is access all ITimePickerFlyoutStatics_Interface'Class;
    type ITimePickerFlyoutStatics_Ptr is access all ITimePickerFlyoutStatics;
+   type ITimePickerSelectedValueChangedEventArgs_Interface;
+   type ITimePickerSelectedValueChangedEventArgs is access all ITimePickerSelectedValueChangedEventArgs_Interface'Class;
+   type ITimePickerSelectedValueChangedEventArgs_Ptr is access all ITimePickerSelectedValueChangedEventArgs;
    type ITimePickerStatics_Interface;
    type ITimePickerStatics is access all ITimePickerStatics_Interface'Class;
    type ITimePickerStatics_Ptr is access all ITimePickerStatics;
    type ITimePickerStatics2_Interface;
    type ITimePickerStatics2 is access all ITimePickerStatics2_Interface'Class;
    type ITimePickerStatics2_Ptr is access all ITimePickerStatics2;
+   type ITimePickerStatics3_Interface;
+   type ITimePickerStatics3 is access all ITimePickerStatics3_Interface'Class;
+   type ITimePickerStatics3_Ptr is access all ITimePickerStatics3;
    type ITimePickerValueChangedEventArgs_Interface;
    type ITimePickerValueChangedEventArgs is access all ITimePickerValueChangedEventArgs_Interface'Class;
    type ITimePickerValueChangedEventArgs_Ptr is access all ITimePickerValueChangedEventArgs;
@@ -3816,6 +4180,24 @@ package Windows.UI.Xaml.Controls is
    type IToggleMenuFlyoutItemStatics_Interface;
    type IToggleMenuFlyoutItemStatics is access all IToggleMenuFlyoutItemStatics_Interface'Class;
    type IToggleMenuFlyoutItemStatics_Ptr is access all IToggleMenuFlyoutItemStatics;
+   type IToggleProvider_Imported_Interface;
+   type IToggleProvider_Imported is access all IToggleProvider_Imported_Interface'Class;
+   type IToggleProvider_Imported_Ptr is access all IToggleProvider_Imported;
+   type IToggleSplitButton_Interface;
+   type IToggleSplitButton is access all IToggleSplitButton_Interface'Class;
+   type IToggleSplitButton_Ptr is access all IToggleSplitButton;
+   type IToggleSplitButtonAutomationPeer_Interface;
+   type IToggleSplitButtonAutomationPeer is access all IToggleSplitButtonAutomationPeer_Interface'Class;
+   type IToggleSplitButtonAutomationPeer_Ptr is access all IToggleSplitButtonAutomationPeer;
+   type IToggleSplitButtonAutomationPeerFactory_Interface;
+   type IToggleSplitButtonAutomationPeerFactory is access all IToggleSplitButtonAutomationPeerFactory_Interface'Class;
+   type IToggleSplitButtonAutomationPeerFactory_Ptr is access all IToggleSplitButtonAutomationPeerFactory;
+   type IToggleSplitButtonFactory_Interface;
+   type IToggleSplitButtonFactory is access all IToggleSplitButtonFactory_Interface'Class;
+   type IToggleSplitButtonFactory_Ptr is access all IToggleSplitButtonFactory;
+   type IToggleSplitButtonIsCheckedChangedEventArgs_Interface;
+   type IToggleSplitButtonIsCheckedChangedEventArgs is access all IToggleSplitButtonIsCheckedChangedEventArgs_Interface'Class;
+   type IToggleSplitButtonIsCheckedChangedEventArgs_Ptr is access all IToggleSplitButtonIsCheckedChangedEventArgs;
    type IToggleSwitch_Interface;
    type IToggleSwitch is access all IToggleSwitch_Interface'Class;
    type IToggleSwitch_Ptr is access all IToggleSwitch;
@@ -3828,6 +4210,9 @@ package Windows.UI.Xaml.Controls is
    type IToolTip_Interface;
    type IToolTip is access all IToolTip_Interface'Class;
    type IToolTip_Ptr is access all IToolTip;
+   type IToolTip2_Interface;
+   type IToolTip2 is access all IToolTip2_Interface'Class;
+   type IToolTip2_Ptr is access all IToolTip2;
    type IToolTipFactory_Interface;
    type IToolTipFactory is access all IToolTipFactory_Interface'Class;
    type IToolTipFactory_Ptr is access all IToolTipFactory;
@@ -3840,21 +4225,42 @@ package Windows.UI.Xaml.Controls is
    type IToolTipStatics_Interface;
    type IToolTipStatics is access all IToolTipStatics_Interface'Class;
    type IToolTipStatics_Ptr is access all IToolTipStatics;
+   type IToolTipStatics2_Interface;
+   type IToolTipStatics2 is access all IToolTipStatics2_Interface'Class;
+   type IToolTipStatics2_Ptr is access all IToolTipStatics2;
    type ITreeView_Interface;
    type ITreeView is access all ITreeView_Interface'Class;
    type ITreeView_Ptr is access all ITreeView;
+   type ITreeView2_Interface;
+   type ITreeView2 is access all ITreeView2_Interface'Class;
+   type ITreeView2_Ptr is access all ITreeView2;
    type ITreeViewCollapsedEventArgs_Interface;
    type ITreeViewCollapsedEventArgs is access all ITreeViewCollapsedEventArgs_Interface'Class;
    type ITreeViewCollapsedEventArgs_Ptr is access all ITreeViewCollapsedEventArgs;
+   type ITreeViewCollapsedEventArgs2_Interface;
+   type ITreeViewCollapsedEventArgs2 is access all ITreeViewCollapsedEventArgs2_Interface'Class;
+   type ITreeViewCollapsedEventArgs2_Ptr is access all ITreeViewCollapsedEventArgs2;
+   type ITreeViewDragItemsCompletedEventArgs_Interface;
+   type ITreeViewDragItemsCompletedEventArgs is access all ITreeViewDragItemsCompletedEventArgs_Interface'Class;
+   type ITreeViewDragItemsCompletedEventArgs_Ptr is access all ITreeViewDragItemsCompletedEventArgs;
+   type ITreeViewDragItemsStartingEventArgs_Interface;
+   type ITreeViewDragItemsStartingEventArgs is access all ITreeViewDragItemsStartingEventArgs_Interface'Class;
+   type ITreeViewDragItemsStartingEventArgs_Ptr is access all ITreeViewDragItemsStartingEventArgs;
    type ITreeViewExpandingEventArgs_Interface;
    type ITreeViewExpandingEventArgs is access all ITreeViewExpandingEventArgs_Interface'Class;
    type ITreeViewExpandingEventArgs_Ptr is access all ITreeViewExpandingEventArgs;
+   type ITreeViewExpandingEventArgs2_Interface;
+   type ITreeViewExpandingEventArgs2 is access all ITreeViewExpandingEventArgs2_Interface'Class;
+   type ITreeViewExpandingEventArgs2_Ptr is access all ITreeViewExpandingEventArgs2;
    type ITreeViewFactory_Interface;
    type ITreeViewFactory is access all ITreeViewFactory_Interface'Class;
    type ITreeViewFactory_Ptr is access all ITreeViewFactory;
    type ITreeViewItem_Interface;
    type ITreeViewItem is access all ITreeViewItem_Interface'Class;
    type ITreeViewItem_Ptr is access all ITreeViewItem;
+   type ITreeViewItem2_Interface;
+   type ITreeViewItem2 is access all ITreeViewItem2_Interface'Class;
+   type ITreeViewItem2_Ptr is access all ITreeViewItem2;
    type ITreeViewItemFactory_Interface;
    type ITreeViewItemFactory is access all ITreeViewItemFactory_Interface'Class;
    type ITreeViewItemFactory_Ptr is access all ITreeViewItemFactory;
@@ -3864,6 +4270,9 @@ package Windows.UI.Xaml.Controls is
    type ITreeViewItemStatics_Interface;
    type ITreeViewItemStatics is access all ITreeViewItemStatics_Interface'Class;
    type ITreeViewItemStatics_Ptr is access all ITreeViewItemStatics;
+   type ITreeViewItemStatics2_Interface;
+   type ITreeViewItemStatics2 is access all ITreeViewItemStatics2_Interface'Class;
+   type ITreeViewItemStatics2_Ptr is access all ITreeViewItemStatics2;
    type ITreeViewItemTemplateSettings_Interface;
    type ITreeViewItemTemplateSettings is access all ITreeViewItemTemplateSettings_Interface'Class;
    type ITreeViewItemTemplateSettings_Ptr is access all ITreeViewItemTemplateSettings;
@@ -3891,6 +4300,9 @@ package Windows.UI.Xaml.Controls is
    type ITreeViewStatics_Interface;
    type ITreeViewStatics is access all ITreeViewStatics_Interface'Class;
    type ITreeViewStatics_Ptr is access all ITreeViewStatics;
+   type ITreeViewStatics2_Interface;
+   type ITreeViewStatics2 is access all ITreeViewStatics2_Interface'Class;
+   type ITreeViewStatics2_Ptr is access all ITreeViewStatics2;
    type IUIElementCollection_Interface;
    type IUIElementCollection is access all IUIElementCollection_Interface'Class;
    type IUIElementCollection_Ptr is access all IUIElementCollection;
@@ -3924,6 +4336,9 @@ package Windows.UI.Xaml.Controls is
    type IVector_IHubSection_Interface;
    type IVector_IHubSection is access all IVector_IHubSection_Interface'Class;
    type IVector_IHubSection_Ptr is access all IVector_IHubSection;
+   type IVector_IMenuBarItem_Interface;
+   type IVector_IMenuBarItem is access all IVector_IMenuBarItem_Interface'Class;
+   type IVector_IMenuBarItem_Ptr is access all IVector_IMenuBarItem;
    type IVector_IMenuFlyoutItemBase_Interface;
    type IVector_IMenuFlyoutItemBase is access all IVector_IMenuFlyoutItemBase_Interface'Class;
    type IVector_IMenuFlyoutItemBase_Ptr is access all IVector_IMenuFlyoutItemBase;
@@ -3954,6 +4369,9 @@ package Windows.UI.Xaml.Controls is
    type IVectorView_IHubSection_Interface;
    type IVectorView_IHubSection is access all IVectorView_IHubSection_Interface'Class;
    type IVectorView_IHubSection_Ptr is access all IVectorView_IHubSection;
+   type IVectorView_IMenuBarItem_Interface;
+   type IVectorView_IMenuBarItem is access all IVectorView_IMenuBarItem_Interface'Class;
+   type IVectorView_IMenuBarItem_Ptr is access all IVectorView_IMenuBarItem;
    type IVectorView_IMenuFlyoutItemBase_Interface;
    type IVectorView_IMenuFlyoutItemBase is access all IVectorView_IMenuFlyoutItemBase_Interface'Class;
    type IVectorView_IMenuFlyoutItemBase_Ptr is access all IVectorView_IMenuFlyoutItemBase;
@@ -4008,6 +4426,9 @@ package Windows.UI.Xaml.Controls is
    type IWebView6_Interface;
    type IWebView6 is access all IWebView6_Interface'Class;
    type IWebView6_Ptr is access all IWebView6;
+   type IWebView7_Interface;
+   type IWebView7 is access all IWebView7_Interface'Class;
+   type IWebView7_Ptr is access all IWebView7;
    type IWebViewBrush_Interface;
    type IWebViewBrush is access all IWebViewBrush_Interface'Class;
    type IWebViewBrush_Ptr is access all IWebViewBrush;
@@ -4077,6 +4498,9 @@ package Windows.UI.Xaml.Controls is
    type IWebViewUnviewableContentIdentifiedEventArgs2_Interface;
    type IWebViewUnviewableContentIdentifiedEventArgs2 is access all IWebViewUnviewableContentIdentifiedEventArgs2_Interface'Class;
    type IWebViewUnviewableContentIdentifiedEventArgs2_Ptr is access all IWebViewUnviewableContentIdentifiedEventArgs2;
+   type IWebViewWebResourceRequestedEventArgs_Interface;
+   type IWebViewWebResourceRequestedEventArgs is access all IWebViewWebResourceRequestedEventArgs_Interface'Class;
+   type IWebViewWebResourceRequestedEventArgs_Ptr is access all IWebViewWebResourceRequestedEventArgs;
    type IWrapGrid_Interface;
    type IWrapGrid is access all IWrapGrid_Interface'Class;
    type IWrapGrid_Ptr is access all IWrapGrid;
@@ -4087,6 +4511,33 @@ package Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAnchorRequestedEventArgs : aliased constant Windows.IID := (1366685021, 18309, 23154, (180, 98, 235, 17, 233, 189, 248, 151 ));
+   
+   type IAnchorRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Anchor
+   (
+      This       : access IAnchorRequestedEventArgs_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Anchor
+   (
+      This       : access IAnchorRequestedEventArgs_Interface
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AnchorCandidates
+   (
+      This       : access IAnchorRequestedEventArgs_Interface
+      ; RetVal : access Windows.UI.Xaml.IVector_IUIElement -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -4125,7 +4576,7 @@ package Windows.UI.Xaml.Controls is
    function add_Opened
    (
       This       : access IAppBar_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4140,7 +4591,7 @@ package Windows.UI.Xaml.Controls is
    function add_Closed
    (
       This       : access IAppBar_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4188,7 +4639,7 @@ package Windows.UI.Xaml.Controls is
    function add_Opening
    (
       This       : access IAppBar3_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4203,7 +4654,7 @@ package Windows.UI.Xaml.Controls is
    function add_Closing
    (
       This       : access IAppBar3_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4331,8 +4782,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IAppBarButtonFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IAppBarButton
    )
    return Windows.HRESULT is abstract;
@@ -4406,6 +4857,54 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IAppBarElementContainer : aliased constant Windows.IID := (492544103, 43408, 23979, (169, 195, 230, 190, 86, 100, 42, 26 ));
+   
+   type IAppBarElementContainer_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppBarElementContainerFactory : aliased constant Windows.IID := (3037090574, 34967, 23919, (164, 62, 240, 88, 99, 56, 210, 130 ));
+   
+   type IAppBarElementContainerFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IAppBarElementContainerFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.IAppBarElementContainer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppBarElementContainerStatics : aliased constant Windows.IID := (3955161152, 51013, 23151, (134, 113, 154, 65, 235, 33, 150, 231 ));
+   
+   type IAppBarElementContainerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsCompactProperty
+   (
+      This       : access IAppBarElementContainerStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsInOverflowProperty
+   (
+      This       : access IAppBarElementContainerStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DynamicOverflowOrderProperty
+   (
+      This       : access IAppBarElementContainerStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAppBarFactory : aliased constant Windows.IID := (1632045265, 36453, 17355, (146, 215, 142, 238, 23, 81, 95, 141 ));
    
    type IAppBarFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -4413,8 +4912,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IAppBarFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IAppBar
    )
    return Windows.HRESULT is abstract;
@@ -4474,8 +4973,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IAppBarSeparatorFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IAppBarSeparator
    )
    return Windows.HRESULT is abstract;
@@ -4655,8 +5154,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IAppBarToggleButtonFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IAppBarToggleButton
    )
    return Windows.HRESULT is abstract;
@@ -4890,7 +5389,7 @@ package Windows.UI.Xaml.Controls is
    function add_SuggestionChosen
    (
       This       : access IAutoSuggestBox_Interface
-      ; value : TypedEventHandler_IAutoSuggestBox_add_SuggestionChosen
+      ; handler : TypedEventHandler_IAutoSuggestBox_add_SuggestionChosen
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4905,7 +5404,7 @@ package Windows.UI.Xaml.Controls is
    function add_TextChanged
    (
       This       : access IAutoSuggestBox_Interface
-      ; value : TypedEventHandler_IAutoSuggestBox_add_TextChanged
+      ; handler : TypedEventHandler_IAutoSuggestBox_add_TextChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4940,7 +5439,7 @@ package Windows.UI.Xaml.Controls is
    function add_QuerySubmitted
    (
       This       : access IAutoSuggestBox2_Interface
-      ; value : TypedEventHandler_IAutoSuggestBox2_add_QuerySubmitted
+      ; handler : TypedEventHandler_IAutoSuggestBox2_add_QuerySubmitted
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -4969,6 +5468,26 @@ package Windows.UI.Xaml.Controls is
    (
       This       : access IAutoSuggestBox3_Interface
       ; value : Windows.UI.Xaml.Controls.LightDismissOverlayMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAutoSuggestBox4 : aliased constant Windows.IID := (3257792663, 41960, 20561, (179, 204, 181, 240, 245, 38, 41, 80 ));
+   
+   type IAutoSuggestBox4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Description
+   (
+      This       : access IAutoSuggestBox4_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IAutoSuggestBox4_Interface
+      ; value : Windows.Object
    )
    return Windows.HRESULT is abstract;
    
@@ -5083,6 +5602,19 @@ package Windows.UI.Xaml.Controls is
    function get_LightDismissOverlayModeProperty
    (
       This       : access IAutoSuggestBoxStatics3_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAutoSuggestBoxStatics4 : aliased constant Windows.IID := (3594451630, 47583, 22744, (160, 10, 219, 254, 159, 253, 237, 208 ));
+   
+   type IAutoSuggestBoxStatics4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DescriptionProperty
+   (
+      This       : access IAutoSuggestBoxStatics4_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -5209,8 +5741,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IBitmapIconFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IBitmapIcon
    )
    return Windows.HRESULT is abstract;
@@ -5258,8 +5790,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IBitmapIconSourceFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IBitmapIconSource
    )
    return Windows.HRESULT is abstract;
@@ -5416,6 +5948,40 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IBorder2 : aliased constant Windows.IID := (2716843421, 52107, 22197, (135, 141, 58, 127, 67, 188, 151, 48 ));
+   
+   type IBorder2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BackgroundSizing
+   (
+      This       : access IBorder2_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.BackgroundSizing
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BackgroundSizing
+   (
+      This       : access IBorder2_Interface
+      ; value : Windows.UI.Xaml.Controls.BackgroundSizing
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BackgroundTransition
+   (
+      This       : access IBorder2_Interface
+      ; RetVal : access Windows.UI.Xaml.IBrushTransition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BackgroundTransition
+   (
+      This       : access IBorder2_Interface
+      ; value : Windows.UI.Xaml.IBrushTransition
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IBorderStatics : aliased constant Windows.IID := (3088913977, 59665, 20439, (164, 196, 185, 199, 240, 8, 183, 252 ));
    
    type IBorderStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -5464,6 +6030,19 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IBorderStatics2 : aliased constant Windows.IID := (2725069942, 32831, 20544, (160, 243, 230, 109, 179, 115, 49, 102 ));
+   
+   type IBorderStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BackgroundSizingProperty
+   (
+      This       : access IBorderStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IButton : aliased constant Windows.IID := (671298990, 21872, 18119, (142, 11, 96, 43, 231, 18, 41, 162 ));
    
    type IButton_Interface is interface and Windows.IInspectable_Interface;
@@ -5477,8 +6056,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IButtonFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IButton
    )
    return Windows.HRESULT is abstract;
@@ -5749,7 +6328,7 @@ package Windows.UI.Xaml.Controls is
    function add_CalendarViewDayItemChanging
    (
       This       : access ICalendarDatePicker_Interface
-      ; value : Windows.UI.Xaml.Controls.CalendarViewDayItemChangingEventHandler
+      ; handler : Windows.UI.Xaml.Controls.CalendarViewDayItemChangingEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5764,7 +6343,7 @@ package Windows.UI.Xaml.Controls is
    function add_DateChanged
    (
       This       : access ICalendarDatePicker_Interface
-      ; value : TypedEventHandler_ICalendarDatePicker_add_DateChanged
+      ; handler : TypedEventHandler_ICalendarDatePicker_add_DateChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5779,7 +6358,7 @@ package Windows.UI.Xaml.Controls is
    function add_Opened
    (
       This       : access ICalendarDatePicker_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5794,7 +6373,7 @@ package Windows.UI.Xaml.Controls is
    function add_Closed
    (
       This       : access ICalendarDatePicker_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -5843,6 +6422,26 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_ICalendarDatePicker3 : aliased constant Windows.IID := (1683510976, 56187, 24181, (133, 233, 246, 35, 227, 69, 126, 166 ));
+   
+   type ICalendarDatePicker3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Description
+   (
+      This       : access ICalendarDatePicker3_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access ICalendarDatePicker3_Interface
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICalendarDatePickerDateChangedEventArgs : aliased constant Windows.IID := (1624837554, 20496, 18106, (132, 45, 164, 21, 44, 101, 4, 231 ));
    
    type ICalendarDatePickerDateChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -5870,8 +6469,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ICalendarDatePickerFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ICalendarDatePicker
    )
    return Windows.HRESULT is abstract;
@@ -6003,6 +6602,19 @@ package Windows.UI.Xaml.Controls is
    function get_LightDismissOverlayModeProperty
    (
       This       : access ICalendarDatePickerStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICalendarDatePickerStatics3 : aliased constant Windows.IID := (2978509853, 53097, 22156, (151, 7, 186, 170, 236, 43, 100, 219 ));
+   
+   type ICalendarDatePickerStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DescriptionProperty
+   (
+      This       : access ICalendarDatePickerStatics3_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -6716,7 +7328,7 @@ package Windows.UI.Xaml.Controls is
    function add_CalendarViewDayItemChanging
    (
       This       : access ICalendarView_Interface
-      ; value : TypedEventHandler_ICalendarView_add_CalendarViewDayItemChanging
+      ; handler : TypedEventHandler_ICalendarView_add_CalendarViewDayItemChanging
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6731,7 +7343,7 @@ package Windows.UI.Xaml.Controls is
    function add_SelectedDatesChanged
    (
       This       : access ICalendarView_Interface
-      ; value : TypedEventHandler_ICalendarView_add_SelectedDatesChanged
+      ; handler : TypedEventHandler_ICalendarView_add_SelectedDatesChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -6843,8 +7455,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ICalendarViewDayItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ICalendarViewDayItem
    )
    return Windows.HRESULT is abstract;
@@ -6878,8 +7490,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ICalendarViewFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ICalendarView
    )
    return Windows.HRESULT is abstract;
@@ -7295,8 +7907,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ICanvasFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ICanvas
    )
    return Windows.HRESULT is abstract;
@@ -7445,8 +8057,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ICheckBoxFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ICheckBox
    )
    return Windows.HRESULT is abstract;
@@ -7862,7 +8474,7 @@ package Windows.UI.Xaml.Controls is
    function add_ColorChanged
    (
       This       : access IColorPicker_Interface
-      ; value : TypedEventHandler_IColorPicker_add_ColorChanged
+      ; handler : TypedEventHandler_IColorPicker_add_ColorChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -7883,8 +8495,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IColorPickerFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IColorPicker
    )
    return Windows.HRESULT is abstract;
@@ -8182,7 +8794,7 @@ package Windows.UI.Xaml.Controls is
    function add_DropDownClosed
    (
       This       : access IComboBox_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -8197,7 +8809,7 @@ package Windows.UI.Xaml.Controls is
    function add_DropDownOpened
    (
       This       : access IComboBox_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -8333,6 +8945,76 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IComboBox6 : aliased constant Windows.IID := (1638586021, 33275, 24455, (186, 227, 54, 159, 190, 46, 161, 243 ));
+   
+   type IComboBox6_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_IsEditable
+   (
+      This       : access IComboBox6_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Text
+   (
+      This       : access IComboBox6_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Text
+   (
+      This       : access IComboBox6_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TextBoxStyle
+   (
+      This       : access IComboBox6_Interface
+      ; RetVal : access Windows.UI.Xaml.IStyle
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TextBoxStyle
+   (
+      This       : access IComboBox6_Interface
+      ; value : Windows.UI.Xaml.IStyle
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IComboBox6_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IComboBox6_Interface
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_TextSubmitted
+   (
+      This       : access IComboBox6_Interface
+      ; handler : TypedEventHandler_IComboBox6_add_TextSubmitted
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_TextSubmitted
+   (
+      This       : access IComboBox6_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IComboBoxFactory : aliased constant Windows.IID := (2886534212, 42587, 19133, (134, 223, 48, 22, 4, 158, 254, 220 ));
    
    type IComboBoxFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -8340,8 +9022,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IComboBoxFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IComboBox
    )
    return Windows.HRESULT is abstract;
@@ -8361,8 +9043,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IComboBoxItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IComboBoxItem
    )
    return Windows.HRESULT is abstract;
@@ -8482,6 +9164,67 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IComboBoxStatics6 : aliased constant Windows.IID := (1366067424, 60523, 21676, (140, 87, 94, 192, 128, 238, 5, 200 ));
+   
+   type IComboBoxStatics6_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsEditableProperty
+   (
+      This       : access IComboBoxStatics6_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TextProperty
+   (
+      This       : access IComboBoxStatics6_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TextBoxStyleProperty
+   (
+      This       : access IComboBoxStatics6_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DescriptionProperty
+   (
+      This       : access IComboBoxStatics6_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IComboBoxTextSubmittedEventArgs : aliased constant Windows.IID := (3412692155, 26745, 21902, (175, 130, 223, 29, 8, 246, 42, 250 ));
+   
+   type IComboBoxTextSubmittedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Text
+   (
+      This       : access IComboBoxTextSubmittedEventArgs_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Handled
+   (
+      This       : access IComboBoxTextSubmittedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Handled
+   (
+      This       : access IComboBoxTextSubmittedEventArgs_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICommandBar : aliased constant Windows.IID := (2562474624, 19005, 19694, (189, 7, 34, 206, 148, 197, 175, 118 ));
    
    type ICommandBar_Interface is interface and Windows.IInspectable_Interface;
@@ -8578,7 +9321,7 @@ package Windows.UI.Xaml.Controls is
    function add_DynamicOverflowItemsChanging
    (
       This       : access ICommandBar3_Interface
-      ; value : TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging
+      ; handler : TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -8646,9 +9389,44 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ICommandBarFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ICommandBar
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICommandBarFlyout : aliased constant Windows.IID := (4274859085, 61802, 22733, (138, 202, 219, 15, 4, 111, 37, 195 ));
+   
+   type ICommandBarFlyout_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PrimaryCommands
+   (
+      This       : access ICommandBarFlyout_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.IObservableVector_ICommandBarElement -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SecondaryCommands
+   (
+      This       : access ICommandBarFlyout_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.IObservableVector_ICommandBarElement -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICommandBarFlyoutFactory : aliased constant Windows.IID := (3714335155, 28145, 22845, (184, 12, 218, 245, 193, 218, 238, 65 ));
+   
+   type ICommandBarFlyoutFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access ICommandBarFlyoutFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.ICommandBarFlyout
    )
    return Windows.HRESULT is abstract;
    
@@ -8667,8 +9445,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ICommandBarOverflowPresenterFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ICommandBarOverflowPresenter
    )
    return Windows.HRESULT is abstract;
@@ -8887,8 +9665,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IContentControlFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IContentControl
    )
    return Windows.HRESULT is abstract;
@@ -9120,7 +9898,7 @@ package Windows.UI.Xaml.Controls is
    function add_Closing
    (
       This       : access IContentDialog_Interface
-      ; value : TypedEventHandler_IContentDialog_add_Closing
+      ; handler : TypedEventHandler_IContentDialog_add_Closing
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -9135,7 +9913,7 @@ package Windows.UI.Xaml.Controls is
    function add_Closed
    (
       This       : access IContentDialog_Interface
-      ; value : TypedEventHandler_IContentDialog_add_Closed
+      ; handler : TypedEventHandler_IContentDialog_add_Closed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -9150,7 +9928,7 @@ package Windows.UI.Xaml.Controls is
    function add_Opened
    (
       This       : access IContentDialog_Interface
-      ; value : TypedEventHandler_IContentDialog_add_Opened
+      ; handler : TypedEventHandler_IContentDialog_add_Opened
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -9165,7 +9943,7 @@ package Windows.UI.Xaml.Controls is
    function add_PrimaryButtonClick
    (
       This       : access IContentDialog_Interface
-      ; value : TypedEventHandler_IContentDialog_add_PrimaryButtonClick
+      ; handler : TypedEventHandler_IContentDialog_add_PrimaryButtonClick
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -9180,7 +9958,7 @@ package Windows.UI.Xaml.Controls is
    function add_SecondaryButtonClick
    (
       This       : access IContentDialog_Interface
-      ; value : TypedEventHandler_IContentDialog_add_SecondaryButtonClick
+      ; handler : TypedEventHandler_IContentDialog_add_SecondaryButtonClick
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -9312,7 +10090,7 @@ package Windows.UI.Xaml.Controls is
    function add_CloseButtonClick
    (
       This       : access IContentDialog2_Interface
-      ; value : TypedEventHandler_IContentDialog2_add_CloseButtonClick
+      ; handler : TypedEventHandler_IContentDialog2_add_CloseButtonClick
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -9445,8 +10223,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IContentDialogFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IContentDialog
    )
    return Windows.HRESULT is abstract;
@@ -9998,6 +10776,40 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IContentPresenter5 : aliased constant Windows.IID := (3527972620, 46981, 24191, (156, 17, 138, 108, 211, 213, 146, 155 ));
+   
+   type IContentPresenter5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BackgroundTransition
+   (
+      This       : access IContentPresenter5_Interface
+      ; RetVal : access Windows.UI.Xaml.IBrushTransition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BackgroundTransition
+   (
+      This       : access IContentPresenter5_Interface
+      ; value : Windows.UI.Xaml.IBrushTransition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BackgroundSizing
+   (
+      This       : access IContentPresenter5_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.BackgroundSizing
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BackgroundSizing
+   (
+      This       : access IContentPresenter5_Interface
+      ; value : Windows.UI.Xaml.Controls.BackgroundSizing
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IContentPresenterFactory : aliased constant Windows.IID := (859428087, 18453, 17604, (159, 118, 104, 200, 56, 128, 239, 16 ));
    
    type IContentPresenterFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -10005,8 +10817,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IContentPresenterFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IContentPresenter
    )
    return Windows.HRESULT is abstract;
@@ -10228,6 +11040,19 @@ package Windows.UI.Xaml.Controls is
    function get_VerticalContentAlignmentProperty
    (
       This       : access IContentPresenterStatics4_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IContentPresenterStatics5 : aliased constant Windows.IID := (379482127, 59622, 24426, (185, 126, 126, 248, 247, 0, 111, 73 ));
+   
+   type IContentPresenterStatics5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BackgroundSizingProperty
+   (
+      This       : access IContentPresenterStatics5_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -10534,7 +11359,7 @@ package Windows.UI.Xaml.Controls is
    function add_IsEnabledChanged
    (
       This       : access IControl_Interface
-      ; value : Windows.UI.Xaml.DependencyPropertyChangedEventHandler
+      ; handler : Windows.UI.Xaml.DependencyPropertyChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -10722,7 +11547,7 @@ package Windows.UI.Xaml.Controls is
    function add_FocusEngaged
    (
       This       : access IControl4_Interface
-      ; value : TypedEventHandler_IControl4_add_FocusEngaged
+      ; handler : TypedEventHandler_IControl4_add_FocusEngaged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -10737,7 +11562,7 @@ package Windows.UI.Xaml.Controls is
    function add_FocusDisengaged
    (
       This       : access IControl4_Interface
-      ; value : TypedEventHandler_IControl4_add_FocusDisengaged
+      ; handler : TypedEventHandler_IControl4_add_FocusDisengaged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -10777,6 +11602,40 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IControl7 : aliased constant Windows.IID := (894491617, 58721, 22836, (163, 239, 125, 184, 191, 110, 59, 69 ));
+   
+   type IControl7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BackgroundSizing
+   (
+      This       : access IControl7_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.BackgroundSizing
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BackgroundSizing
+   (
+      This       : access IControl7_Interface
+      ; value : Windows.UI.Xaml.Controls.BackgroundSizing
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CornerRadius
+   (
+      This       : access IControl7_Interface
+      ; RetVal : access Windows.UI.Xaml.CornerRadius
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CornerRadius
+   (
+      This       : access IControl7_Interface
+      ; value : Windows.UI.Xaml.CornerRadius
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IControlFactory : aliased constant Windows.IID := (2972392794, 25625, 19990, (178, 18, 164, 83, 54, 183, 87, 120 ));
    
    type IControlFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -10784,8 +11643,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IControlFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IControl
    )
    return Windows.HRESULT is abstract;
@@ -11321,6 +12180,26 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IControlStatics7 : aliased constant Windows.IID := (2934032965, 51472, 23979, (162, 102, 253, 245, 12, 11, 237, 210 ));
+   
+   type IControlStatics7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BackgroundSizingProperty
+   (
+      This       : access IControlStatics7_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CornerRadiusProperty
+   (
+      This       : access IControlStatics7_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IControlTemplate : aliased constant Windows.IID := (4023533966, 16864, 18619, (139, 130, 145, 237, 161, 186, 63, 226 ));
    
    type IControlTemplate_Interface is interface and Windows.IInspectable_Interface;
@@ -11412,8 +12291,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IDataTemplateSelectorFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IDataTemplateSelector
    )
    return Windows.HRESULT is abstract;
@@ -11658,7 +12537,7 @@ package Windows.UI.Xaml.Controls is
    function add_DateChanged
    (
       This       : access IDatePicker_Interface
-      ; value : Windows.UI.Xaml.Controls.EventHandler_IDatePickerValueChangedEventArgs
+      ; handler : Windows.UI.Xaml.Controls.EventHandler_IDatePickerValueChangedEventArgs
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -11692,6 +12571,41 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IDatePicker3 : aliased constant Windows.IID := (2107714107, 42852, 23265, (171, 174, 106, 255, 193, 66, 142, 30 ));
+   
+   type IDatePicker3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectedDate
+   (
+      This       : access IDatePicker3_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SelectedDate
+   (
+      This       : access IDatePicker3_Interface
+      ; value : Windows.Foundation.IReference_DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_SelectedDateChanged
+   (
+      This       : access IDatePicker3_Interface
+      ; handler : TypedEventHandler_IDatePicker3_add_SelectedDateChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_SelectedDateChanged
+   (
+      This       : access IDatePicker3_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IDatePickerFactory : aliased constant Windows.IID := (4005808772, 39062, 19069, (187, 53, 111, 178, 30, 174, 202, 17 ));
    
    type IDatePickerFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -11699,8 +12613,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IDatePickerFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IDatePicker
    )
    return Windows.HRESULT is abstract;
@@ -11812,7 +12726,7 @@ package Windows.UI.Xaml.Controls is
    function add_DatePicked
    (
       This       : access IDatePickerFlyout_Interface
-      ; value : TypedEventHandler_IDatePickerFlyout_add_DatePicked
+      ; handler : TypedEventHandler_IDatePickerFlyout_add_DatePicked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -12024,6 +12938,26 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IDatePickerSelectedValueChangedEventArgs : aliased constant Windows.IID := (1447939821, 29770, 23610, (155, 210, 77, 205, 153, 25, 167, 183 ));
+   
+   type IDatePickerSelectedValueChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_OldDate
+   (
+      This       : access IDatePickerSelectedValueChangedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NewDate
+   (
+      This       : access IDatePickerSelectedValueChangedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IDatePickerStatics : aliased constant Windows.IID := (405699689, 8470, 19559, (181, 19, 113, 51, 100, 131, 29, 121 ));
    
    type IDatePickerStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -12134,6 +13068,19 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IDatePickerStatics3 : aliased constant Windows.IID := (2851605246, 41738, 24358, (164, 70, 254, 194, 7, 93, 74, 14 ));
+   
+   type IDatePickerStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectedDateProperty
+   (
+      This       : access IDatePickerStatics3_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IDatePickerValueChangedEventArgs : aliased constant Windows.IID := (451305906, 45492, 17011, (150, 224, 25, 218, 255, 24, 116, 70 ));
    
    type IDatePickerValueChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -12208,6 +13155,49 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IDropDownButton : aliased constant Windows.IID := (1730114790, 10791, 24488, (176, 162, 121, 178, 231, 30, 189, 135 ));
+   
+   type IDropDownButton_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDropDownButtonAutomationPeer : aliased constant Windows.IID := (1928500465, 49142, 23815, (157, 180, 84, 19, 69, 6, 188, 128 ));
+   
+   type IDropDownButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDropDownButtonAutomationPeerFactory : aliased constant Windows.IID := (3099871666, 25428, 23564, (158, 149, 224, 201, 154, 41, 58, 68 ));
+   
+   type IDropDownButtonAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IDropDownButtonAutomationPeerFactory_Interface
+      ; owner : Windows.UI.Xaml.Controls.IDropDownButton
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.IDropDownButtonAutomationPeer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDropDownButtonFactory : aliased constant Windows.IID := (228559541, 59149, 21181, (156, 160, 54, 206, 236, 170, 100, 42 ));
+   
+   type IDropDownButtonFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IDropDownButtonFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.IDropDownButton
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IDynamicOverflowItemsChangingEventArgs : aliased constant Windows.IID := (3376182127, 28526, 20035, (144, 217, 155, 70, 160, 216, 139, 159 ));
    
    type IDynamicOverflowItemsChangingEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -12216,6 +13206,29 @@ package Windows.UI.Xaml.Controls is
    (
       This       : access IDynamicOverflowItemsChangingEventArgs_Interface
       ; RetVal : access Windows.UI.Xaml.Controls.CommandBarDynamicOverflowAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IExpandCollapseProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExpandCollapseState
+   (
+      This       : access IExpandCollapseProvider_Imported_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.ExpandCollapseState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Collapse
+   (
+      This       : access IExpandCollapseProvider_Imported_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Expand
+   (
+      This       : access IExpandCollapseProvider_Imported_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -12254,8 +13267,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IFlipViewFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IFlipView
    )
    return Windows.HRESULT is abstract;
@@ -12275,8 +13288,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IFlipViewItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IFlipViewItem
    )
    return Windows.HRESULT is abstract;
@@ -12337,8 +13350,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IFlyoutFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IFlyout
    )
    return Windows.HRESULT is abstract;
@@ -12358,8 +13371,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IFlyoutPresenterFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IFlyoutPresenter
    )
    return Windows.HRESULT is abstract;
@@ -12541,8 +13554,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IFontIconFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IFontIcon
    )
    return Windows.HRESULT is abstract;
@@ -12660,8 +13673,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IFontIconSourceFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IFontIconSource
    )
    return Windows.HRESULT is abstract;
@@ -12853,7 +13866,7 @@ package Windows.UI.Xaml.Controls is
    function add_Navigated
    (
       This       : access IFrame_Interface
-      ; value : Windows.UI.Xaml.Navigation.NavigatedEventHandler
+      ; handler : Windows.UI.Xaml.Navigation.NavigatedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -12868,7 +13881,7 @@ package Windows.UI.Xaml.Controls is
    function add_Navigating
    (
       This       : access IFrame_Interface
-      ; value : Windows.UI.Xaml.Navigation.NavigatingCancelEventHandler
+      ; handler : Windows.UI.Xaml.Navigation.NavigatingCancelEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -12883,7 +13896,7 @@ package Windows.UI.Xaml.Controls is
    function add_NavigationFailed
    (
       This       : access IFrame_Interface
-      ; value : Windows.UI.Xaml.Navigation.NavigationFailedEventHandler
+      ; handler : Windows.UI.Xaml.Navigation.NavigationFailedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -12898,7 +13911,7 @@ package Windows.UI.Xaml.Controls is
    function add_NavigationStopped
    (
       This       : access IFrame_Interface
-      ; value : Windows.UI.Xaml.Navigation.NavigationStoppedEventHandler
+      ; handler : Windows.UI.Xaml.Navigation.NavigationStoppedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -13004,6 +14017,36 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IFrame5 : aliased constant Windows.IID := (1161804078, 33461, 24467, (146, 171, 21, 52, 24, 6, 201, 218 ));
+   
+   type IFrame5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsNavigationStackEnabled
+   (
+      This       : access IFrame5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsNavigationStackEnabled
+   (
+      This       : access IFrame5_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function NavigateToType
+   (
+      This       : access IFrame5_Interface
+      ; sourcePageType : Windows.UI.Xaml.Interop.TypeName
+      ; parameter : Windows.Object
+      ; navigationOptions : Windows.UI.Xaml.Navigation.IFrameNavigationOptions
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IFrameFactory : aliased constant Windows.IID := (49189844, 17550, 18078, (151, 153, 10, 138, 31, 112, 241, 113 ));
    
    type IFrameFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -13011,8 +14054,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IFrameFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IFrame
    )
    return Windows.HRESULT is abstract;
@@ -13081,6 +14124,19 @@ package Windows.UI.Xaml.Controls is
    function get_ForwardStackProperty
    (
       This       : access IFrameStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFrameStatics5 : aliased constant Windows.IID := (1405655845, 61664, 22769, (160, 109, 68, 16, 117, 145, 79, 248 ));
+   
+   type IFrameStatics5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsNavigationStackEnabledProperty
+   (
+      This       : access IFrameStatics5_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -13203,6 +14259,26 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IGrid4 : aliased constant Windows.IID := (3976385140, 33265, 23234, (160, 195, 187, 218, 245, 163, 255, 238 ));
+   
+   type IGrid4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BackgroundSizing
+   (
+      This       : access IGrid4_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.BackgroundSizing
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BackgroundSizing
+   (
+      This       : access IGrid4_Interface
+      ; value : Windows.UI.Xaml.Controls.BackgroundSizing
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IGridFactory : aliased constant Windows.IID := (2927706177, 50481, 17332, (191, 153, 18, 245, 6, 247, 176, 28 ));
    
    type IGridFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -13210,8 +14286,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IGridFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IGrid
    )
    return Windows.HRESULT is abstract;
@@ -13370,6 +14446,19 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IGridStatics4 : aliased constant Windows.IID := (1763373897, 8035, 22442, (135, 38, 156, 220, 193, 177, 76, 2 ));
+   
+   type IGridStatics4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BackgroundSizingProperty
+   (
+      This       : access IGridStatics4_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IGridView : aliased constant Windows.IID := (40560948, 46718, 19840, (143, 114, 138, 166, 75, 77, 130, 123 ));
    
    type IGridView_Interface is interface and Windows.IInspectable_Interface;
@@ -13383,8 +14472,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IGridViewFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IGridView
    )
    return Windows.HRESULT is abstract;
@@ -13404,8 +14493,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IGridViewHeaderItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IGridViewHeaderItem
    )
    return Windows.HRESULT is abstract;
@@ -13432,8 +14521,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IGridViewItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IGridViewItem
    )
    return Windows.HRESULT is abstract;
@@ -13453,8 +14542,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IGroupItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IGroupItem
    )
    return Windows.HRESULT is abstract;
@@ -13578,8 +14667,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IGroupStyleFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IGroupStyle
    )
    return Windows.HRESULT is abstract;
@@ -13608,8 +14697,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IGroupStyleSelectorFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IGroupStyleSelector
    )
    return Windows.HRESULT is abstract;
@@ -13699,7 +14788,7 @@ package Windows.UI.Xaml.Controls is
    function add_Opened
    (
       This       : access IHandwritingView_Interface
-      ; value : TypedEventHandler_IHandwritingView_add_Opened
+      ; handler : TypedEventHandler_IHandwritingView_add_Opened
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -13714,7 +14803,7 @@ package Windows.UI.Xaml.Controls is
    function add_Closed
    (
       This       : access IHandwritingView_Interface
-      ; value : TypedEventHandler_IHandwritingView_add_Closed
+      ; handler : TypedEventHandler_IHandwritingView_add_Closed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -13749,8 +14838,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IHandwritingViewFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IHandwritingView
    )
    return Windows.HRESULT is abstract;
@@ -13875,7 +14964,7 @@ package Windows.UI.Xaml.Controls is
    function add_SectionHeaderClick
    (
       This       : access IHub_Interface
-      ; value : Windows.UI.Xaml.Controls.HubSectionHeaderClickEventHandler
+      ; handler : Windows.UI.Xaml.Controls.HubSectionHeaderClickEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -13890,7 +14979,7 @@ package Windows.UI.Xaml.Controls is
    function add_SectionsInViewChanged
    (
       This       : access IHub_Interface
-      ; value : Windows.UI.Xaml.Controls.SectionsInViewChangedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.SectionsInViewChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -13918,8 +15007,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IHubFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IHub
    )
    return Windows.HRESULT is abstract;
@@ -13995,8 +15084,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IHubSectionFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IHubSection
    )
    return Windows.HRESULT is abstract;
@@ -14132,8 +15221,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IHyperlinkButtonFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IHyperlinkButton
    )
    return Windows.HRESULT is abstract;
@@ -14207,6 +15296,54 @@ package Windows.UI.Xaml.Controls is
    (
       This       : access IIconSource_Interface
       ; value : Windows.UI.Xaml.Media.IBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIconSourceElement : aliased constant Windows.IID := (3617998082, 56794, 21965, (180, 201, 231, 154, 188, 139, 14, 164 ));
+   
+   type IIconSourceElement_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IconSource
+   (
+      This       : access IIconSourceElement_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.IIconSource
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IconSource
+   (
+      This       : access IIconSourceElement_Interface
+      ; value : Windows.UI.Xaml.Controls.IIconSource
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIconSourceElementFactory : aliased constant Windows.IID := (649437099, 8338, 23445, (181, 158, 242, 127, 33, 6, 137, 231 ));
+   
+   type IIconSourceElementFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IIconSourceElementFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.IIconSourceElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIconSourceElementStatics : aliased constant Windows.IID := (4085054789, 62424, 20735, (161, 184, 15, 186, 74, 230, 29, 121 ));
+   
+   type IIconSourceElementStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IconSourceProperty
+   (
+      This       : access IIconSourceElementStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
@@ -14287,7 +15424,7 @@ package Windows.UI.Xaml.Controls is
    function add_ImageFailed
    (
       This       : access IImage_Interface
-      ; value : Windows.UI.Xaml.ExceptionRoutedEventHandler
+      ; handler : Windows.UI.Xaml.ExceptionRoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -14302,7 +15439,7 @@ package Windows.UI.Xaml.Controls is
    function add_ImageOpened
    (
       This       : access IImage_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -14396,8 +15533,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IInkCanvasFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IInkCanvas
    )
    return Windows.HRESULT is abstract;
@@ -14481,7 +15618,7 @@ package Windows.UI.Xaml.Controls is
    function add_ActiveToolChanged
    (
       This       : access IInkToolbar_Interface
-      ; value : TypedEventHandler_IInkToolbar_add_ActiveToolChanged
+      ; handler : TypedEventHandler_IInkToolbar_add_ActiveToolChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -14496,7 +15633,7 @@ package Windows.UI.Xaml.Controls is
    function add_InkDrawingAttributesChanged
    (
       This       : access IInkToolbar_Interface
-      ; value : TypedEventHandler_IInkToolbar_add_InkDrawingAttributesChanged
+      ; handler : TypedEventHandler_IInkToolbar_add_InkDrawingAttributesChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -14511,7 +15648,7 @@ package Windows.UI.Xaml.Controls is
    function add_EraseAllClicked
    (
       This       : access IInkToolbar_Interface
-      ; value : TypedEventHandler_IInkToolbar_add_EraseAllClicked
+      ; handler : TypedEventHandler_IInkToolbar_add_EraseAllClicked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -14526,7 +15663,7 @@ package Windows.UI.Xaml.Controls is
    function add_IsRulerButtonCheckedChanged
    (
       This       : access IInkToolbar_Interface
-      ; value : TypedEventHandler_IInkToolbar_add_IsRulerButtonCheckedChanged
+      ; handler : TypedEventHandler_IInkToolbar_add_IsRulerButtonCheckedChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -14605,7 +15742,7 @@ package Windows.UI.Xaml.Controls is
    function add_IsStencilButtonCheckedChanged
    (
       This       : access IInkToolbar2_Interface
-      ; value : TypedEventHandler_IInkToolbar2_add_IsStencilButtonCheckedChanged
+      ; handler : TypedEventHandler_IInkToolbar2_add_IsStencilButtonCheckedChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -14640,8 +15777,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IInkToolbarBallpointPenButtonFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IInkToolbarBallpointPenButton
    )
    return Windows.HRESULT is abstract;
@@ -14704,8 +15841,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IInkToolbarCustomPenButtonFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IInkToolbarCustomPenButton
    )
    return Windows.HRESULT is abstract;
@@ -14739,8 +15876,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IInkToolbarCustomPenFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IInkToolbarCustomPen
    )
    return Windows.HRESULT is abstract;
@@ -14775,8 +15912,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IInkToolbarCustomToggleButtonFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IInkToolbarCustomToggleButton
    )
    return Windows.HRESULT is abstract;
@@ -14810,8 +15947,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IInkToolbarCustomToolButtonFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IInkToolbarCustomToolButton
    )
    return Windows.HRESULT is abstract;
@@ -14864,8 +16001,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IInkToolbarEraserButtonFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IInkToolbarEraserButton
    )
    return Windows.HRESULT is abstract;
@@ -14892,8 +16029,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IInkToolbarFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IInkToolbar
    )
    return Windows.HRESULT is abstract;
@@ -14935,7 +16072,7 @@ package Windows.UI.Xaml.Controls is
    function add_Checked
    (
       This       : access IInkToolbarFlyoutItem_Interface
-      ; value : TypedEventHandler_IInkToolbarFlyoutItem_add_Checked
+      ; handler : TypedEventHandler_IInkToolbarFlyoutItem_add_Checked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -14950,7 +16087,7 @@ package Windows.UI.Xaml.Controls is
    function add_Unchecked
    (
       This       : access IInkToolbarFlyoutItem_Interface
-      ; value : TypedEventHandler_IInkToolbarFlyoutItem_add_Unchecked
+      ; handler : TypedEventHandler_IInkToolbarFlyoutItem_add_Unchecked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -14971,8 +16108,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IInkToolbarFlyoutItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IInkToolbarFlyoutItem
    )
    return Windows.HRESULT is abstract;
@@ -15012,8 +16149,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IInkToolbarHighlighterButtonFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IInkToolbarHighlighterButton
    )
    return Windows.HRESULT is abstract;
@@ -15236,8 +16373,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IInkToolbarPencilButtonFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IInkToolbarPencilButton
    )
    return Windows.HRESULT is abstract;
@@ -15264,8 +16401,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IInkToolbarPenConfigurationControlFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IInkToolbarPenConfigurationControl
    )
    return Windows.HRESULT is abstract;
@@ -15305,8 +16442,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IInkToolbarRulerButtonFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IInkToolbarRulerButton
    )
    return Windows.HRESULT is abstract;
@@ -15470,8 +16607,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IInkToolbarStencilButtonFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IInkToolbarStencilButton
    )
    return Windows.HRESULT is abstract;
@@ -15599,6 +16736,16 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   type IInvokeProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Invoke
+   (
+      This       : access IInvokeProvider_Imported_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIsTextTrimmedChangedEventArgs : aliased constant Windows.IID := (385193933, 60415, 20404, (135, 20, 38, 20, 116, 24, 185, 69 ));
    
    type IIsTextTrimmedChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -15625,7 +16772,7 @@ package Windows.UI.Xaml.Controls is
    function add_ItemsChanged
    (
       This       : access IItemContainerGenerator_Interface
-      ; value : Windows.UI.Xaml.Controls.Primitives.ItemsChangedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.Primitives.ItemsChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -15979,8 +17126,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IItemsControlFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IItemsControl
    )
    return Windows.HRESULT is abstract;
@@ -16830,6 +17977,19 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_IMenuBarItem : aliased constant Windows.IID := (1005695140, 11042, 21253, (142, 184, 160, 10, 90, 112, 89, 123 ));
+   
+   type IIterable_IMenuBarItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IMenuBarItem_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.IIterator_IMenuBarItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterable_IMenuFlyoutItemBase : aliased constant Windows.IID := (196169060, 52378, 22702, (184, 129, 115, 254, 14, 203, 153, 235 ));
    
    type IIterable_IMenuFlyoutItemBase_Interface is interface and Windows.IInspectable_Interface;
@@ -17026,6 +18186,41 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IIterator_IMenuBarItem : aliased constant Windows.IID := (348758265, 65169, 24383, (188, 5, 46, 249, 177, 149, 66, 253 ));
+   
+   type IIterator_IMenuBarItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IMenuBarItem_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.IMenuBarItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IMenuBarItem_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IMenuBarItem_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IMenuBarItem_Interface
+      ; items : Windows.UI.Xaml.Controls.IMenuBarItem_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_IMenuFlyoutItemBase : aliased constant Windows.IID := (713720303, 62289, 20647, (188, 220, 131, 104, 223, 33, 82, 128 ));
    
    type IIterator_IMenuFlyoutItemBase_Interface is interface and Windows.IInspectable_Interface;
@@ -17198,8 +18393,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IListBoxFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IListBox
    )
    return Windows.HRESULT is abstract;
@@ -17219,8 +18414,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IListBoxItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IListBoxItem
    )
    return Windows.HRESULT is abstract;
@@ -17379,7 +18574,7 @@ package Windows.UI.Xaml.Controls is
    function add_ItemsPicked
    (
       This       : access IListPickerFlyout_Interface
-      ; value : TypedEventHandler_IListPickerFlyout_add_ItemsPicked
+      ; handler : TypedEventHandler_IListPickerFlyout_add_ItemsPicked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -17601,7 +18796,7 @@ package Windows.UI.Xaml.Controls is
    function add_ItemClick
    (
       This       : access IListViewBase_Interface
-      ; value : Windows.UI.Xaml.Controls.ItemClickEventHandler
+      ; handler : Windows.UI.Xaml.Controls.ItemClickEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -17616,7 +18811,7 @@ package Windows.UI.Xaml.Controls is
    function add_DragItemsStarting
    (
       This       : access IListViewBase_Interface
-      ; value : Windows.UI.Xaml.Controls.DragItemsStartingEventHandler
+      ; handler : Windows.UI.Xaml.Controls.DragItemsStartingEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -17721,7 +18916,7 @@ package Windows.UI.Xaml.Controls is
    function add_ContainerContentChanging
    (
       This       : access IListViewBase2_Interface
-      ; value : TypedEventHandler_IListViewBase2_add_ContainerContentChanging
+      ; handler : TypedEventHandler_IListViewBase2_add_ContainerContentChanging
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -17832,7 +19027,7 @@ package Windows.UI.Xaml.Controls is
    function add_DragItemsCompleted
    (
       This       : access IListViewBase4_Interface
-      ; value : TypedEventHandler_IListViewBase4_add_DragItemsCompleted
+      ; handler : TypedEventHandler_IListViewBase4_add_DragItemsCompleted
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -17847,7 +19042,7 @@ package Windows.UI.Xaml.Controls is
    function add_ChoosingItemContainer
    (
       This       : access IListViewBase4_Interface
-      ; value : TypedEventHandler_IListViewBase4_add_ChoosingItemContainer
+      ; handler : TypedEventHandler_IListViewBase4_add_ChoosingItemContainer
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -17862,7 +19057,7 @@ package Windows.UI.Xaml.Controls is
    function add_ChoosingGroupHeaderContainer
    (
       This       : access IListViewBase4_Interface
-      ; value : TypedEventHandler_IListViewBase4_add_ChoosingGroupHeaderContainer
+      ; handler : TypedEventHandler_IListViewBase4_add_ChoosingGroupHeaderContainer
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -17950,8 +19145,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IListViewBaseFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IListViewBase
    )
    return Windows.HRESULT is abstract;
@@ -18154,8 +19349,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IListViewFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IListView
    )
    return Windows.HRESULT is abstract;
@@ -18175,8 +19370,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IListViewHeaderItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IListViewHeaderItem
    )
    return Windows.HRESULT is abstract;
@@ -18203,8 +19398,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IListViewItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IListViewItem
    )
    return Windows.HRESULT is abstract;
@@ -18599,7 +19794,7 @@ package Windows.UI.Xaml.Controls is
    function add_MediaOpened
    (
       This       : access IMediaElement_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -18614,7 +19809,7 @@ package Windows.UI.Xaml.Controls is
    function add_MediaEnded
    (
       This       : access IMediaElement_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -18629,7 +19824,7 @@ package Windows.UI.Xaml.Controls is
    function add_MediaFailed
    (
       This       : access IMediaElement_Interface
-      ; value : Windows.UI.Xaml.ExceptionRoutedEventHandler
+      ; handler : Windows.UI.Xaml.ExceptionRoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -18644,7 +19839,7 @@ package Windows.UI.Xaml.Controls is
    function add_DownloadProgressChanged
    (
       This       : access IMediaElement_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -18659,7 +19854,7 @@ package Windows.UI.Xaml.Controls is
    function add_BufferingProgressChanged
    (
       This       : access IMediaElement_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -18674,7 +19869,7 @@ package Windows.UI.Xaml.Controls is
    function add_CurrentStateChanged
    (
       This       : access IMediaElement_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -18689,7 +19884,7 @@ package Windows.UI.Xaml.Controls is
    function add_MarkerReached
    (
       This       : access IMediaElement_Interface
-      ; value : Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler
+      ; handler : Windows.UI.Xaml.Media.TimelineMarkerRoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -18704,7 +19899,7 @@ package Windows.UI.Xaml.Controls is
    function add_RateChanged
    (
       This       : access IMediaElement_Interface
-      ; value : Windows.UI.Xaml.Media.RateChangedRoutedEventHandler
+      ; handler : Windows.UI.Xaml.Media.RateChangedRoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -18719,7 +19914,7 @@ package Windows.UI.Xaml.Controls is
    function add_VolumeChanged
    (
       This       : access IMediaElement_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -18734,7 +19929,7 @@ package Windows.UI.Xaml.Controls is
    function add_SeekCompleted
    (
       This       : access IMediaElement_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -18911,7 +20106,7 @@ package Windows.UI.Xaml.Controls is
    function add_PartialMediaFailureDetected
    (
       This       : access IMediaElement3_Interface
-      ; value : TypedEventHandler_IMediaElement3_add_PartialMediaFailureDetected
+      ; handler : TypedEventHandler_IMediaElement3_add_PartialMediaFailureDetected
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -19335,8 +20530,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IMediaPlayerElementFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IMediaPlayerElement
    )
    return Windows.HRESULT is abstract;
@@ -19453,8 +20648,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IMediaPlayerPresenterFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IMediaPlayerPresenter
    )
    return Windows.HRESULT is abstract;
@@ -19837,7 +21032,7 @@ package Windows.UI.Xaml.Controls is
    function add_ThumbnailRequested
    (
       This       : access IMediaTransportControls2_Interface
-      ; value : TypedEventHandler_IMediaTransportControls2_add_ThumbnailRequested
+      ; handler : TypedEventHandler_IMediaTransportControls2_add_ThumbnailRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -19952,8 +21147,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IMediaTransportControlsFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IMediaTransportControls
    )
    return Windows.HRESULT is abstract;
@@ -20222,6 +21417,130 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IMenuBar : aliased constant Windows.IID := (3371596556, 3702, 23282, (186, 222, 120, 80, 73, 200, 10, 65 ));
+   
+   type IMenuBar_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Items
+   (
+      This       : access IMenuBar_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.IVector_IMenuBarItem -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMenuBarFactory : aliased constant Windows.IID := (3697385040, 29370, 20799, (128, 170, 221, 208, 147, 130, 93, 222 ));
+   
+   type IMenuBarFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IMenuBarFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.IMenuBar
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMenuBarItem : aliased constant Windows.IID := (3211017036, 33061, 23379, (164, 84, 6, 232, 150, 165, 172, 238 ));
+   
+   type IMenuBarItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Title
+   (
+      This       : access IMenuBarItem_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Title
+   (
+      This       : access IMenuBarItem_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Items
+   (
+      This       : access IMenuBarItem_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.IVector_IMenuFlyoutItemBase -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMenuBarItemFactory : aliased constant Windows.IID := (3975704418, 50068, 20706, (165, 104, 23, 175, 140, 242, 104, 116 ));
+   
+   type IMenuBarItemFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IMenuBarItemFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.IMenuBarItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMenuBarItemFlyout : aliased constant Windows.IID := (3976254168, 46726, 22014, (141, 187, 240, 74, 100, 14, 66, 239 ));
+   
+   type IMenuBarItemFlyout_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMenuBarItemFlyoutFactory : aliased constant Windows.IID := (488962493, 48409, 23957, (181, 115, 113, 31, 100, 159, 203, 233 ));
+   
+   type IMenuBarItemFlyoutFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IMenuBarItemFlyoutFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.IMenuBarItemFlyout
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMenuBarItemStatics : aliased constant Windows.IID := (1621746683, 46085, 20688, (187, 120, 211, 150, 163, 77, 162, 103 ));
+   
+   type IMenuBarItemStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TitleProperty
+   (
+      This       : access IMenuBarItemStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemsProperty
+   (
+      This       : access IMenuBarItemStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMenuBarStatics : aliased constant Windows.IID := (3201506341, 32184, 20940, (151, 6, 29, 121, 50, 125, 175, 147 ));
+   
+   type IMenuBarStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ItemsProperty
+   (
+      This       : access IMenuBarStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMenuFlyout : aliased constant Windows.IID := (2905739505, 39003, 16753, (187, 186, 103, 188, 199, 41, 100, 155 ));
    
    type IMenuFlyout_Interface is interface and Windows.IInspectable_Interface;
@@ -20270,8 +21589,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IMenuFlyoutFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IMenuFlyout
    )
    return Windows.HRESULT is abstract;
@@ -20327,7 +21646,7 @@ package Windows.UI.Xaml.Controls is
    function add_Click
    (
       This       : access IMenuFlyoutItem_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -20407,8 +21726,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IMenuFlyoutItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IMenuFlyoutItem
    )
    return Windows.HRESULT is abstract;
@@ -20494,8 +21813,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IMenuFlyoutPresenterFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IMenuFlyoutPresenter
    )
    return Windows.HRESULT is abstract;
@@ -20515,8 +21834,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IMenuFlyoutSeparatorFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IMenuFlyoutSeparator
    )
    return Windows.HRESULT is abstract;
@@ -20933,7 +22252,7 @@ package Windows.UI.Xaml.Controls is
    function add_SelectionChanged
    (
       This       : access INavigationView_Interface
-      ; value : TypedEventHandler_INavigationView_add_SelectionChanged
+      ; handler : TypedEventHandler_INavigationView_add_SelectionChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -20948,7 +22267,7 @@ package Windows.UI.Xaml.Controls is
    function add_ItemInvoked
    (
       This       : access INavigationView_Interface
-      ; value : TypedEventHandler_INavigationView_add_ItemInvoked
+      ; handler : TypedEventHandler_INavigationView_add_ItemInvoked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -20963,7 +22282,7 @@ package Windows.UI.Xaml.Controls is
    function add_DisplayModeChanged
    (
       This       : access INavigationView_Interface
-      ; value : TypedEventHandler_INavigationView_add_DisplayModeChanged
+      ; handler : TypedEventHandler_INavigationView_add_DisplayModeChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -21026,7 +22345,7 @@ package Windows.UI.Xaml.Controls is
    function add_BackRequested
    (
       This       : access INavigationView2_Interface
-      ; value : TypedEventHandler_INavigationView2_add_BackRequested
+      ; handler : TypedEventHandler_INavigationView2_add_BackRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -21041,7 +22360,7 @@ package Windows.UI.Xaml.Controls is
    function add_PaneClosed
    (
       This       : access INavigationView2_Interface
-      ; value : TypedEventHandler_INavigationView2_add_PaneClosed
+      ; handler : TypedEventHandler_INavigationView2_add_PaneClosed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -21056,7 +22375,7 @@ package Windows.UI.Xaml.Controls is
    function add_PaneClosing
    (
       This       : access INavigationView2_Interface
-      ; value : TypedEventHandler_INavigationView2_add_PaneClosing
+      ; handler : TypedEventHandler_INavigationView2_add_PaneClosing
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -21071,7 +22390,7 @@ package Windows.UI.Xaml.Controls is
    function add_PaneOpened
    (
       This       : access INavigationView2_Interface
-      ; value : TypedEventHandler_INavigationView2_add_PaneOpened
+      ; handler : TypedEventHandler_INavigationView2_add_PaneOpened
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -21086,7 +22405,7 @@ package Windows.UI.Xaml.Controls is
    function add_PaneOpening
    (
       This       : access INavigationView2_Interface
-      ; value : TypedEventHandler_INavigationView2_add_PaneOpening
+      ; handler : TypedEventHandler_INavigationView2_add_PaneOpening
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -21095,6 +22414,131 @@ package Windows.UI.Xaml.Controls is
    (
       This       : access INavigationView2_Interface
       ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INavigationView3 : aliased constant Windows.IID := (2413800294, 39868, 24483, (144, 67, 160, 43, 180, 248, 239, 55 ));
+   
+   type INavigationView3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PaneDisplayMode
+   (
+      This       : access INavigationView3_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.NavigationViewPaneDisplayMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PaneDisplayMode
+   (
+      This       : access INavigationView3_Interface
+      ; value : Windows.UI.Xaml.Controls.NavigationViewPaneDisplayMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PaneHeader
+   (
+      This       : access INavigationView3_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PaneHeader
+   (
+      This       : access INavigationView3_Interface
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PaneCustomContent
+   (
+      This       : access INavigationView3_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PaneCustomContent
+   (
+      This       : access INavigationView3_Interface
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ContentOverlay
+   (
+      This       : access INavigationView3_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ContentOverlay
+   (
+      This       : access INavigationView3_Interface
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsPaneVisible
+   (
+      This       : access INavigationView3_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsPaneVisible
+   (
+      This       : access INavigationView3_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SelectionFollowsFocus
+   (
+      This       : access INavigationView3_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SelectionFollowsFocus
+   (
+      This       : access INavigationView3_Interface
+      ; value : Windows.UI.Xaml.Controls.NavigationViewSelectionFollowsFocus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TemplateSettings
+   (
+      This       : access INavigationView3_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.INavigationViewTemplateSettings
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ShoulderNavigationEnabled
+   (
+      This       : access INavigationView3_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ShoulderNavigationEnabled
+   (
+      This       : access INavigationView3_Interface
+      ; value : Windows.UI.Xaml.Controls.NavigationViewShoulderNavigationEnabled
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OverflowLabelMode
+   (
+      This       : access INavigationView3_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.NavigationViewOverflowLabelMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_OverflowLabelMode
+   (
+      This       : access INavigationView3_Interface
+      ; value : Windows.UI.Xaml.Controls.NavigationViewOverflowLabelMode
    )
    return Windows.HRESULT is abstract;
    
@@ -21126,8 +22570,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access INavigationViewFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.INavigationView
    )
    return Windows.HRESULT is abstract;
@@ -21161,6 +22605,26 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_INavigationViewItem2 : aliased constant Windows.IID := (3997732601, 60060, 24068, (178, 108, 131, 191, 150, 85, 52, 47 ));
+   
+   type INavigationViewItem2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectsOnInvoked
+   (
+      This       : access INavigationViewItem2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SelectsOnInvoked
+   (
+      This       : access INavigationViewItem2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_INavigationViewItemBase : aliased constant Windows.IID := (3991948977, 14289, 18207, (133, 112, 56, 41, 238, 91, 43, 198 ));
    
    type INavigationViewItemBase_Interface is interface and Windows.IInspectable_Interface;
@@ -21180,8 +22644,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access INavigationViewItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.INavigationViewItem
    )
    return Windows.HRESULT is abstract;
@@ -21201,8 +22665,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access INavigationViewItemHeaderFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.INavigationViewItemHeader
    )
    return Windows.HRESULT is abstract;
@@ -21229,6 +22693,26 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_INavigationViewItemInvokedEventArgs2 : aliased constant Windows.IID := (3043554013, 20830, 22384, (164, 102, 189, 95, 67, 251, 100, 66 ));
+   
+   type INavigationViewItemInvokedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_InvokedItemContainer
+   (
+      This       : access INavigationViewItemInvokedEventArgs2_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.INavigationViewItemBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RecommendedNavigationTransitionInfo
+   (
+      This       : access INavigationViewItemInvokedEventArgs2_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_INavigationViewItemSeparator : aliased constant Windows.IID := (3731016017, 48027, 18206, (131, 227, 175, 71, 145, 231, 9, 106 ));
    
    type INavigationViewItemSeparator_Interface is interface and Windows.IInspectable_Interface;
@@ -21242,8 +22726,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access INavigationViewItemSeparatorFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.INavigationViewItemSeparator
    )
    return Windows.HRESULT is abstract;
@@ -21270,6 +22754,19 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_INavigationViewItemStatics2 : aliased constant Windows.IID := (4109563772, 21684, 21533, (183, 71, 58, 150, 233, 255, 61, 85 ));
+   
+   type INavigationViewItemStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectsOnInvokedProperty
+   (
+      This       : access INavigationViewItemStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_INavigationViewList : aliased constant Windows.IID := (1332899717, 23776, 18637, (142, 242, 26, 41, 69, 138, 52, 4 ));
    
    type INavigationViewList_Interface is interface and Windows.IInspectable_Interface;
@@ -21283,8 +22780,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access INavigationViewListFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.INavigationViewList
    )
    return Windows.HRESULT is abstract;
@@ -21326,6 +22823,26 @@ package Windows.UI.Xaml.Controls is
    (
       This       : access INavigationViewSelectionChangedEventArgs_Interface
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INavigationViewSelectionChangedEventArgs2 : aliased constant Windows.IID := (4250597382, 53514, 24203, (151, 63, 59, 143, 218, 148, 70, 37 ));
+   
+   type INavigationViewSelectionChangedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectedItemContainer
+   (
+      This       : access INavigationViewSelectionChangedEventArgs2_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.INavigationViewItemBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RecommendedNavigationTransitionInfo
+   (
+      This       : access INavigationViewSelectionChangedEventArgs2_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo
    )
    return Windows.HRESULT is abstract;
    
@@ -21518,6 +23035,200 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_INavigationViewStatics3 : aliased constant Windows.IID := (2607507895, 63302, 21840, (145, 225, 238, 12, 154, 133, 192, 94 ));
+   
+   type INavigationViewStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PaneDisplayModeProperty
+   (
+      This       : access INavigationViewStatics3_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PaneHeaderProperty
+   (
+      This       : access INavigationViewStatics3_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PaneCustomContentProperty
+   (
+      This       : access INavigationViewStatics3_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ContentOverlayProperty
+   (
+      This       : access INavigationViewStatics3_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsPaneVisibleProperty
+   (
+      This       : access INavigationViewStatics3_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SelectionFollowsFocusProperty
+   (
+      This       : access INavigationViewStatics3_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TemplateSettingsProperty
+   (
+      This       : access INavigationViewStatics3_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ShoulderNavigationEnabledProperty
+   (
+      This       : access INavigationViewStatics3_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OverflowLabelModeProperty
+   (
+      This       : access INavigationViewStatics3_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INavigationViewTemplateSettings : aliased constant Windows.IID := (693554116, 1320, 21973, (178, 209, 234, 232, 7, 174, 166, 218 ));
+   
+   type INavigationViewTemplateSettings_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TopPadding
+   (
+      This       : access INavigationViewTemplateSettings_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OverflowButtonVisibility
+   (
+      This       : access INavigationViewTemplateSettings_Interface
+      ; RetVal : access Windows.UI.Xaml.Visibility
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PaneToggleButtonVisibility
+   (
+      This       : access INavigationViewTemplateSettings_Interface
+      ; RetVal : access Windows.UI.Xaml.Visibility
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BackButtonVisibility
+   (
+      This       : access INavigationViewTemplateSettings_Interface
+      ; RetVal : access Windows.UI.Xaml.Visibility
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TopPaneVisibility
+   (
+      This       : access INavigationViewTemplateSettings_Interface
+      ; RetVal : access Windows.UI.Xaml.Visibility
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LeftPaneVisibility
+   (
+      This       : access INavigationViewTemplateSettings_Interface
+      ; RetVal : access Windows.UI.Xaml.Visibility
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SingleSelectionFollowsFocus
+   (
+      This       : access INavigationViewTemplateSettings_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INavigationViewTemplateSettingsFactory : aliased constant Windows.IID := (682009425, 25788, 23392, (143, 116, 233, 238, 144, 138, 36, 14 ));
+   
+   type INavigationViewTemplateSettingsFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access INavigationViewTemplateSettingsFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.INavigationViewTemplateSettings
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INavigationViewTemplateSettingsStatics : aliased constant Windows.IID := (747134553, 63417, 20600, (174, 182, 141, 122, 3, 192, 93, 2 ));
+   
+   type INavigationViewTemplateSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TopPaddingProperty
+   (
+      This       : access INavigationViewTemplateSettingsStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OverflowButtonVisibilityProperty
+   (
+      This       : access INavigationViewTemplateSettingsStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PaneToggleButtonVisibilityProperty
+   (
+      This       : access INavigationViewTemplateSettingsStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BackButtonVisibilityProperty
+   (
+      This       : access INavigationViewTemplateSettingsStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TopPaneVisibilityProperty
+   (
+      This       : access INavigationViewTemplateSettingsStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LeftPaneVisibilityProperty
+   (
+      This       : access INavigationViewTemplateSettingsStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SingleSelectionFollowsFocusProperty
+   (
+      This       : access INavigationViewTemplateSettingsStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_INotifyEventArgs : aliased constant Windows.IID := (2936931831, 50359, 17605, (176, 157, 92, 183, 5, 43, 58, 151 ));
    
    type INotifyEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -21549,7 +23260,7 @@ package Windows.UI.Xaml.Controls is
    function add_PropertyChanged
    (
       This       : access INotifyPropertyChanged_Imported_Interface
-      ; value : Windows.UI.Xaml.Data.PropertyChangedEventHandler
+      ; handler : Windows.UI.Xaml.Data.PropertyChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -21688,8 +23399,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IPageFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IPage
    )
    return Windows.HRESULT is abstract;
@@ -21757,7 +23468,7 @@ package Windows.UI.Xaml.Controls is
    function get_Children
    (
       This       : access IPanel_Interface
-      ; RetVal : access Windows.UI.Xaml.Controls.IVector_UIElement
+      ; RetVal : access Windows.UI.Xaml.Controls.IUIElementCollection
    )
    return Windows.HRESULT is abstract;
    
@@ -21798,6 +23509,26 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IPanel2 : aliased constant Windows.IID := (1888564167, 14579, 20611, (164, 187, 6, 165, 72, 161, 210, 49 ));
+   
+   type IPanel2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BackgroundTransition
+   (
+      This       : access IPanel2_Interface
+      ; RetVal : access Windows.UI.Xaml.IBrushTransition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BackgroundTransition
+   (
+      This       : access IPanel2_Interface
+      ; value : Windows.UI.Xaml.IBrushTransition
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPanelFactory : aliased constant Windows.IID := (4008083729, 51148, 17215, (149, 205, 214, 48, 195, 67, 2, 221 ));
    
    type IPanelFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -21805,8 +23536,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IPanelFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IPanel
    )
    return Windows.HRESULT is abstract;
@@ -22061,8 +23792,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IParallaxViewFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IParallaxView
    )
    return Windows.HRESULT is abstract;
@@ -22236,7 +23967,7 @@ package Windows.UI.Xaml.Controls is
    function add_PasswordChanged
    (
       This       : access IPasswordBox_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -22251,7 +23982,7 @@ package Windows.UI.Xaml.Controls is
    function add_ContextMenuOpening
    (
       This       : access IPasswordBox_Interface
-      ; value : Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler
+      ; handler : Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -22348,7 +24079,7 @@ package Windows.UI.Xaml.Controls is
    function add_Paste
    (
       This       : access IPasswordBox2_Interface
-      ; value : Windows.UI.Xaml.Controls.TextControlPasteEventHandler
+      ; handler : Windows.UI.Xaml.Controls.TextControlPasteEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -22417,7 +24148,7 @@ package Windows.UI.Xaml.Controls is
    function add_PasswordChanging
    (
       This       : access IPasswordBox4_Interface
-      ; value : TypedEventHandler_IPasswordBox4_add_PasswordChanging
+      ; handler : TypedEventHandler_IPasswordBox4_add_PasswordChanging
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -22426,6 +24157,53 @@ package Windows.UI.Xaml.Controls is
    (
       This       : access IPasswordBox4_Interface
       ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPasswordBox5 : aliased constant Windows.IID := (4184614739, 57812, 20802, (134, 194, 115, 24, 191, 187, 199, 5 ));
+   
+   type IPasswordBox5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanPasteClipboardContent
+   (
+      This       : access IPasswordBox5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SelectionFlyout
+   (
+      This       : access IPasswordBox5_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SelectionFlyout
+   (
+      This       : access IPasswordBox5_Interface
+      ; value : Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IPasswordBox5_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IPasswordBox5_Interface
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function PasteFromClipboard
+   (
+      This       : access IPasswordBox5_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -22546,6 +24324,33 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IPasswordBoxStatics5 : aliased constant Windows.IID := (1272627628, 27458, 22003, (191, 164, 101, 199, 35, 80, 120, 214 ));
+   
+   type IPasswordBoxStatics5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanPasteClipboardContentProperty
+   (
+      This       : access IPasswordBoxStatics5_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SelectionFlyoutProperty
+   (
+      This       : access IPasswordBoxStatics5_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DescriptionProperty
+   (
+      This       : access IPasswordBoxStatics5_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPathIcon : aliased constant Windows.IID := (558654171, 50022, 18958, (185, 173, 220, 241, 104, 215, 236, 12 ));
    
    type IPathIcon_Interface is interface and Windows.IInspectable_Interface;
@@ -22573,8 +24378,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IPathIconFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IPathIcon
    )
    return Windows.HRESULT is abstract;
@@ -22608,8 +24413,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IPathIconSourceFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IPathIconSource
    )
    return Windows.HRESULT is abstract;
@@ -22795,8 +24600,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IPersonPictureFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IPersonPicture
    )
    return Windows.HRESULT is abstract;
@@ -22920,7 +24725,7 @@ package Windows.UI.Xaml.Controls is
    function add_Confirmed
    (
       This       : access IPickerFlyout_Interface
-      ; value : TypedEventHandler_IPickerFlyout_add_Confirmed
+      ; handler : TypedEventHandler_IPickerFlyout_add_Confirmed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -23059,7 +24864,7 @@ package Windows.UI.Xaml.Controls is
    function add_SelectionChanged
    (
       This       : access IPivot_Interface
-      ; value : Windows.UI.Xaml.Controls.SelectionChangedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.SelectionChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -23074,7 +24879,7 @@ package Windows.UI.Xaml.Controls is
    function add_PivotItemLoading
    (
       This       : access IPivot_Interface
-      ; value : TypedEventHandler_IPivot_add_PivotItemLoading
+      ; handler : TypedEventHandler_IPivot_add_PivotItemLoading
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -23089,7 +24894,7 @@ package Windows.UI.Xaml.Controls is
    function add_PivotItemLoaded
    (
       This       : access IPivot_Interface
-      ; value : TypedEventHandler_IPivot_add_PivotItemLoaded
+      ; handler : TypedEventHandler_IPivot_add_PivotItemLoaded
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -23104,7 +24909,7 @@ package Windows.UI.Xaml.Controls is
    function add_PivotItemUnloading
    (
       This       : access IPivot_Interface
-      ; value : TypedEventHandler_IPivot_add_PivotItemUnloading
+      ; handler : TypedEventHandler_IPivot_add_PivotItemUnloading
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -23119,7 +24924,7 @@ package Windows.UI.Xaml.Controls is
    function add_PivotItemUnloaded
    (
       This       : access IPivot_Interface
-      ; value : TypedEventHandler_IPivot_add_PivotItemUnloaded
+      ; handler : TypedEventHandler_IPivot_add_PivotItemUnloaded
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -23236,8 +25041,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IPivotFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IPivot
    )
    return Windows.HRESULT is abstract;
@@ -23291,8 +25096,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IPivotItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IPivotItem
    )
    return Windows.HRESULT is abstract;
@@ -23499,8 +25304,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IProgressBarFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IProgressBar
    )
    return Windows.HRESULT is abstract;
@@ -23601,8 +25406,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IRadioButtonFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IRadioButton
    )
    return Windows.HRESULT is abstract;
@@ -23741,7 +25546,7 @@ package Windows.UI.Xaml.Controls is
    function add_ValueChanged
    (
       This       : access IRatingControl_Interface
-      ; value : TypedEventHandler_IRatingControl_add_ValueChanged
+      ; handler : TypedEventHandler_IRatingControl_add_ValueChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -23762,8 +25567,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IRatingControlFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IRatingControl
    )
    return Windows.HRESULT is abstract;
@@ -23929,8 +25734,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IRatingItemFontInfoFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IRatingItemFontInfo
    )
    return Windows.HRESULT is abstract;
@@ -24082,8 +25887,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IRatingItemImageInfoFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IRatingItemImageInfo
    )
    return Windows.HRESULT is abstract;
@@ -24151,8 +25956,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IRatingItemInfoFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IRatingItemInfo
    )
    return Windows.HRESULT is abstract;
@@ -24194,7 +25999,7 @@ package Windows.UI.Xaml.Controls is
    function add_RefreshRequested
    (
       This       : access IRefreshContainer_Interface
-      ; value : TypedEventHandler_IRefreshContainer_add_RefreshRequested
+      ; handler : TypedEventHandler_IRefreshContainer_add_RefreshRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -24221,8 +26026,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IRefreshContainerFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IRefreshContainer
    )
    return Windows.HRESULT is abstract;
@@ -24343,7 +26148,7 @@ package Windows.UI.Xaml.Controls is
    function add_RefreshRequested
    (
       This       : access IRefreshVisualizer_Interface
-      ; value : TypedEventHandler_IRefreshVisualizer_add_RefreshRequested
+      ; handler : TypedEventHandler_IRefreshVisualizer_add_RefreshRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -24358,7 +26163,7 @@ package Windows.UI.Xaml.Controls is
    function add_RefreshStateChanged
    (
       This       : access IRefreshVisualizer_Interface
-      ; value : TypedEventHandler_IRefreshVisualizer_add_RefreshStateChanged
+      ; handler : TypedEventHandler_IRefreshVisualizer_add_RefreshStateChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -24379,8 +26184,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IRefreshVisualizerFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IRefreshVisualizer
    )
    return Windows.HRESULT is abstract;
@@ -24483,6 +26288,26 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IRelativePanel2 : aliased constant Windows.IID := (3231438988, 7810, 21427, (140, 1, 125, 4, 50, 245, 247, 219 ));
+   
+   type IRelativePanel2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BackgroundSizing
+   (
+      This       : access IRelativePanel2_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.BackgroundSizing
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BackgroundSizing
+   (
+      This       : access IRelativePanel2_Interface
+      ; value : Windows.UI.Xaml.Controls.BackgroundSizing
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IRelativePanelFactory : aliased constant Windows.IID := (2220890428, 13851, 17594, (161, 126, 184, 76, 157, 205, 199, 114 ));
    
    type IRelativePanelFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -24490,8 +26315,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IRelativePanelFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IRelativePanel
    )
    return Windows.HRESULT is abstract;
@@ -24900,6 +26725,19 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IRelativePanelStatics2 : aliased constant Windows.IID := (2372613188, 24508, 23947, (139, 70, 34, 23, 111, 33, 250, 142 ));
+   
+   type IRelativePanelStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BackgroundSizingProperty
+   (
+      This       : access IRelativePanelStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IRichEditBox : aliased constant Windows.IID := (2426763840, 32950, 20430, (177, 236, 227, 198, 22, 40, 75, 106 ));
    
    type IRichEditBox_Interface is interface and Windows.IInspectable_Interface;
@@ -25012,7 +26850,7 @@ package Windows.UI.Xaml.Controls is
    function add_TextChanged
    (
       This       : access IRichEditBox_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -25027,7 +26865,7 @@ package Windows.UI.Xaml.Controls is
    function add_SelectionChanged
    (
       This       : access IRichEditBox_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -25042,7 +26880,7 @@ package Windows.UI.Xaml.Controls is
    function add_ContextMenuOpening
    (
       This       : access IRichEditBox_Interface
-      ; value : Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler
+      ; handler : Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -25147,7 +26985,7 @@ package Windows.UI.Xaml.Controls is
    function add_Paste
    (
       This       : access IRichEditBox2_Interface
-      ; value : Windows.UI.Xaml.Controls.TextControlPasteEventHandler
+      ; handler : Windows.UI.Xaml.Controls.TextControlPasteEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -25168,7 +27006,7 @@ package Windows.UI.Xaml.Controls is
    function add_TextCompositionStarted
    (
       This       : access IRichEditBox3_Interface
-      ; value : TypedEventHandler_IRichEditBox3_add_TextCompositionStarted
+      ; handler : TypedEventHandler_IRichEditBox3_add_TextCompositionStarted
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -25183,7 +27021,7 @@ package Windows.UI.Xaml.Controls is
    function add_TextCompositionChanged
    (
       This       : access IRichEditBox3_Interface
-      ; value : TypedEventHandler_IRichEditBox3_add_TextCompositionChanged
+      ; handler : TypedEventHandler_IRichEditBox3_add_TextCompositionChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -25198,7 +27036,7 @@ package Windows.UI.Xaml.Controls is
    function add_TextCompositionEnded
    (
       This       : access IRichEditBox3_Interface
-      ; value : TypedEventHandler_IRichEditBox3_add_TextCompositionEnded
+      ; handler : TypedEventHandler_IRichEditBox3_add_TextCompositionEnded
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -25241,7 +27079,7 @@ package Windows.UI.Xaml.Controls is
    function add_CandidateWindowBoundsChanged
    (
       This       : access IRichEditBox3_Interface
-      ; value : TypedEventHandler_IRichEditBox3_add_CandidateWindowBoundsChanged
+      ; handler : TypedEventHandler_IRichEditBox3_add_CandidateWindowBoundsChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -25256,7 +27094,7 @@ package Windows.UI.Xaml.Controls is
    function add_TextChanging
    (
       This       : access IRichEditBox3_Interface
-      ; value : TypedEventHandler_IRichEditBox3_add_TextChanging
+      ; handler : TypedEventHandler_IRichEditBox3_add_TextChanging
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -25380,7 +27218,7 @@ package Windows.UI.Xaml.Controls is
    function add_CopyingToClipboard
    (
       This       : access IRichEditBox6_Interface
-      ; value : TypedEventHandler_IRichEditBox6_add_CopyingToClipboard
+      ; handler : TypedEventHandler_IRichEditBox6_add_CopyingToClipboard
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -25395,7 +27233,7 @@ package Windows.UI.Xaml.Controls is
    function add_CuttingToClipboard
    (
       This       : access IRichEditBox6_Interface
-      ; value : TypedEventHandler_IRichEditBox6_add_CuttingToClipboard
+      ; handler : TypedEventHandler_IRichEditBox6_add_CuttingToClipboard
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -25486,7 +27324,7 @@ package Windows.UI.Xaml.Controls is
    function add_ContentLinkChanged
    (
       This       : access IRichEditBox7_Interface
-      ; value : TypedEventHandler_IRichEditBox7_add_ContentLinkChanged
+      ; handler : TypedEventHandler_IRichEditBox7_add_ContentLinkChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -25501,7 +27339,7 @@ package Windows.UI.Xaml.Controls is
    function add_ContentLinkInvoked
    (
       This       : access IRichEditBox7_Interface
-      ; value : TypedEventHandler_IRichEditBox7_add_ContentLinkInvoked
+      ; handler : TypedEventHandler_IRichEditBox7_add_ContentLinkInvoked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -25515,6 +27353,69 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IRichEditBox8 : aliased constant Windows.IID := (2694373560, 6370, 20798, (157, 141, 78, 151, 3, 65, 12, 3 ));
+   
+   type IRichEditBox8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TextDocument
+   (
+      This       : access IRichEditBox8_Interface
+      ; RetVal : access Windows.UI.Text.ITextDocument2
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SelectionFlyout
+   (
+      This       : access IRichEditBox8_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SelectionFlyout
+   (
+      This       : access IRichEditBox8_Interface
+      ; value : Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProofingMenuFlyout
+   (
+      This       : access IRichEditBox8_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access IRichEditBox8_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access IRichEditBox8_Interface
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_SelectionChanging
+   (
+      This       : access IRichEditBox8_Interface
+      ; handler : TypedEventHandler_IRichEditBox8_add_SelectionChanging
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_SelectionChanging
+   (
+      This       : access IRichEditBox8_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IRichEditBoxFactory : aliased constant Windows.IID := (1637998434, 10246, 16877, (136, 237, 174, 33, 244, 122, 180, 34 ));
    
    type IRichEditBoxFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -25522,9 +27423,43 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IRichEditBoxFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IRichEditBox
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRichEditBoxSelectionChangingEventArgs : aliased constant Windows.IID := (2430600028, 59576, 23603, (152, 150, 78, 152, 157, 101, 130, 156 ));
+   
+   type IRichEditBoxSelectionChangingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectionStart
+   (
+      This       : access IRichEditBoxSelectionChangingEventArgs_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SelectionLength
+   (
+      This       : access IRichEditBoxSelectionChangingEventArgs_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Cancel
+   (
+      This       : access IRichEditBoxSelectionChangingEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Cancel
+   (
+      This       : access IRichEditBoxSelectionChangingEventArgs_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -25748,6 +27683,33 @@ package Windows.UI.Xaml.Controls is
    function get_IsHandwritingViewEnabledProperty
    (
       This       : access IRichEditBoxStatics7_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRichEditBoxStatics8 : aliased constant Windows.IID := (1476678002, 4203, 22185, (168, 228, 75, 116, 191, 52, 125, 78 ));
+   
+   type IRichEditBoxStatics8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectionFlyoutProperty
+   (
+      This       : access IRichEditBoxStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProofingMenuFlyoutProperty
+   (
+      This       : access IRichEditBoxStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DescriptionProperty
+   (
+      This       : access IRichEditBoxStatics8_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -26046,7 +28008,7 @@ package Windows.UI.Xaml.Controls is
    function add_SelectionChanged
    (
       This       : access IRichTextBlock_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -26061,7 +28023,7 @@ package Windows.UI.Xaml.Controls is
    function add_ContextMenuOpening
    (
       This       : access IRichTextBlock_Interface
-      ; value : Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler
+      ; handler : Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -26284,7 +28246,7 @@ package Windows.UI.Xaml.Controls is
    function add_IsTextTrimmedChanged
    (
       This       : access IRichTextBlock5_Interface
-      ; value : TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged
+      ; handler : TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -26293,6 +28255,32 @@ package Windows.UI.Xaml.Controls is
    (
       This       : access IRichTextBlock5_Interface
       ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRichTextBlock6 : aliased constant Windows.IID := (2928677069, 59545, 21102, (146, 126, 136, 224, 238, 214, 147, 200 ));
+   
+   type IRichTextBlock6_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectionFlyout
+   (
+      This       : access IRichTextBlock6_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SelectionFlyout
+   (
+      This       : access IRichTextBlock6_Interface
+      ; value : Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CopySelectionToClipboard
+   (
+      This       : access IRichTextBlock6_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -26417,7 +28405,7 @@ package Windows.UI.Xaml.Controls is
    function add_IsTextTrimmedChanged
    (
       This       : access IRichTextBlockOverflow3_Interface
-      ; value : TypedEventHandler_IRichTextBlockOverflow3_add_IsTextTrimmedChanged
+      ; handler : TypedEventHandler_IRichTextBlockOverflow3_add_IsTextTrimmedChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -26710,6 +28698,19 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IRichTextBlockStatics6 : aliased constant Windows.IID := (120608743, 37317, 22615, (190, 124, 231, 38, 33, 35, 151, 134 ));
+   
+   type IRichTextBlockStatics6_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectionFlyoutProperty
+   (
+      This       : access IRichTextBlockStatics6_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IRowDefinition : aliased constant Windows.IID := (1253763113, 55308, 19038, (164, 140, 248, 179, 211, 182, 83, 61 ));
    
    type IRowDefinition_Interface is interface and Windows.IInspectable_Interface;
@@ -26787,6 +28788,33 @@ package Windows.UI.Xaml.Controls is
    (
       This       : access IRowDefinitionStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IScrollAnchorProvider : aliased constant Windows.IID := (1793694223, 18316, 21568, (178, 198, 234, 212, 55, 142, 248, 228 ));
+   
+   type IScrollAnchorProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CurrentAnchor
+   (
+      This       : access IScrollAnchorProvider_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RegisterAnchorCandidate
+   (
+      This       : access IScrollAnchorProvider_Interface
+      ; element : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function UnregisterAnchorCandidate
+   (
+      This       : access IScrollAnchorProvider_Interface
+      ; element : Windows.UI.Xaml.IUIElement
    )
    return Windows.HRESULT is abstract;
    
@@ -26977,6 +29005,60 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IScrollContentPresenter2 : aliased constant Windows.IID := (1604265783, 8984, 22937, (138, 98, 195, 237, 60, 14, 152, 182 ));
+   
+   type IScrollContentPresenter2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanContentRenderOutsideBounds
+   (
+      This       : access IScrollContentPresenter2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CanContentRenderOutsideBounds
+   (
+      This       : access IScrollContentPresenter2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SizesContentToTemplatedParent
+   (
+      This       : access IScrollContentPresenter2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SizesContentToTemplatedParent
+   (
+      This       : access IScrollContentPresenter2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IScrollContentPresenterStatics2 : aliased constant Windows.IID := (3782410010, 50806, 21067, (143, 32, 150, 21, 33, 73, 208, 94 ));
+   
+   type IScrollContentPresenterStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanContentRenderOutsideBoundsProperty
+   (
+      This       : access IScrollContentPresenterStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SizesContentToTemplatedParentProperty
+   (
+      This       : access IScrollContentPresenterStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    type IScrollSnapPointsInfo_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    function get_AreHorizontalSnapPointsRegular
@@ -26996,7 +29078,7 @@ package Windows.UI.Xaml.Controls is
    function add_HorizontalSnapPointsChanged
    (
       This       : access IScrollSnapPointsInfo_Imported_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -27011,7 +29093,7 @@ package Windows.UI.Xaml.Controls is
    function add_VerticalSnapPointsChanged
    (
       This       : access IScrollSnapPointsInfo_Imported_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -27401,7 +29483,7 @@ package Windows.UI.Xaml.Controls is
    function add_ViewChanged
    (
       This       : access IScrollViewer_Interface
-      ; value : Windows.UI.Xaml.Controls.EventHandler_IScrollViewerViewChangedEventArgs
+      ; handler : Windows.UI.Xaml.Controls.EventHandler_IScrollViewerViewChangedEventArgs
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -27519,7 +29601,7 @@ package Windows.UI.Xaml.Controls is
    function add_ViewChanging
    (
       This       : access IScrollViewer2_Interface
-      ; value : Windows.UI.Xaml.Controls.EventHandler_IScrollViewerViewChangingEventArgs
+      ; handler : Windows.UI.Xaml.Controls.EventHandler_IScrollViewerViewChangingEventArgs
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -27561,7 +29643,7 @@ package Windows.UI.Xaml.Controls is
    function add_DirectManipulationStarted
    (
       This       : access IScrollViewer3_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -27576,7 +29658,7 @@ package Windows.UI.Xaml.Controls is
    function add_DirectManipulationCompleted
    (
       This       : access IScrollViewer3_Interface
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -27584,6 +29666,83 @@ package Windows.UI.Xaml.Controls is
    function remove_DirectManipulationCompleted
    (
       This       : access IScrollViewer3_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IScrollViewer4 : aliased constant Windows.IID := (2020585668, 20649, 23109, (138, 146, 123, 243, 114, 225, 144, 152 ));
+   
+   type IScrollViewer4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ReduceViewportForCoreInputViewOcclusions
+   (
+      This       : access IScrollViewer4_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ReduceViewportForCoreInputViewOcclusions
+   (
+      This       : access IScrollViewer4_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HorizontalAnchorRatio
+   (
+      This       : access IScrollViewer4_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_HorizontalAnchorRatio
+   (
+      This       : access IScrollViewer4_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VerticalAnchorRatio
+   (
+      This       : access IScrollViewer4_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_VerticalAnchorRatio
+   (
+      This       : access IScrollViewer4_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanContentRenderOutsideBounds
+   (
+      This       : access IScrollViewer4_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CanContentRenderOutsideBounds
+   (
+      This       : access IScrollViewer4_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_AnchorRequested
+   (
+      This       : access IScrollViewer4_Interface
+      ; handler : TypedEventHandler_IScrollViewer4_add_AnchorRequested
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_AnchorRequested
+   (
+      This       : access IScrollViewer4_Interface
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -28078,6 +30237,56 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IScrollViewerStatics4 : aliased constant Windows.IID := (571275212, 20294, 23025, (175, 155, 103, 250, 142, 179, 61, 1 ));
+   
+   type IScrollViewerStatics4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ReduceViewportForCoreInputViewOcclusionsProperty
+   (
+      This       : access IScrollViewerStatics4_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HorizontalAnchorRatioProperty
+   (
+      This       : access IScrollViewerStatics4_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VerticalAnchorRatioProperty
+   (
+      This       : access IScrollViewerStatics4_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanContentRenderOutsideBoundsProperty
+   (
+      This       : access IScrollViewerStatics4_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetCanContentRenderOutsideBounds
+   (
+      This       : access IScrollViewerStatics4_Interface
+      ; element : Windows.UI.Xaml.IDependencyObject
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetCanContentRenderOutsideBounds
+   (
+      This       : access IScrollViewerStatics4_Interface
+      ; element : Windows.UI.Xaml.IDependencyObject
+      ; canContentRenderOutsideBounds : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IScrollViewerView : aliased constant Windows.IID := (1693040129, 19906, 18750, (171, 232, 203, 211, 197, 119, 73, 14 ));
    
    type IScrollViewerView_Interface is interface and Windows.IInspectable_Interface;
@@ -28236,7 +30445,7 @@ package Windows.UI.Xaml.Controls is
    function add_QueryChanged
    (
       This       : access ISearchBox_Interface
-      ; value : TypedEventHandler_ISearchBox_add_QueryChanged
+      ; handler : TypedEventHandler_ISearchBox_add_QueryChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -28251,7 +30460,7 @@ package Windows.UI.Xaml.Controls is
    function add_SuggestionsRequested
    (
       This       : access ISearchBox_Interface
-      ; value : TypedEventHandler_ISearchBox_add_SuggestionsRequested
+      ; handler : TypedEventHandler_ISearchBox_add_SuggestionsRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -28266,7 +30475,7 @@ package Windows.UI.Xaml.Controls is
    function add_QuerySubmitted
    (
       This       : access ISearchBox_Interface
-      ; value : TypedEventHandler_ISearchBox_add_QuerySubmitted
+      ; handler : TypedEventHandler_ISearchBox_add_QuerySubmitted
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -28281,7 +30490,7 @@ package Windows.UI.Xaml.Controls is
    function add_ResultSuggestionChosen
    (
       This       : access ISearchBox_Interface
-      ; value : TypedEventHandler_ISearchBox_add_ResultSuggestionChosen
+      ; handler : TypedEventHandler_ISearchBox_add_ResultSuggestionChosen
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -28296,7 +30505,7 @@ package Windows.UI.Xaml.Controls is
    function add_PrepareForFocusOnKeyboardInput
    (
       This       : access ISearchBox_Interface
-      ; value : TypedEventHandler_ISearchBox_add_PrepareForFocusOnKeyboardInput
+      ; handler : TypedEventHandler_ISearchBox_add_PrepareForFocusOnKeyboardInput
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -28324,8 +30533,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ISearchBoxFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ISearchBox
    )
    return Windows.HRESULT is abstract;
@@ -28550,8 +30759,8 @@ package Windows.UI.Xaml.Controls is
       This       : access ISelectionChangedEventArgsFactory_Interface
       ; removedItems : Windows.Foundation.Collections.IVector_Object
       ; addedItems : Windows.Foundation.Collections.IVector_Object
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ISelectionChangedEventArgs
    )
    return Windows.HRESULT is abstract;
@@ -28621,7 +30830,7 @@ package Windows.UI.Xaml.Controls is
    function add_ViewChangeStarted
    (
       This       : access ISemanticZoom_Interface
-      ; value : Windows.UI.Xaml.Controls.SemanticZoomViewChangedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.SemanticZoomViewChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -28636,7 +30845,7 @@ package Windows.UI.Xaml.Controls is
    function add_ViewChangeCompleted
    (
       This       : access ISemanticZoom_Interface
-      ; value : Windows.UI.Xaml.Controls.SemanticZoomViewChangedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.SemanticZoomViewChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -28962,7 +31171,7 @@ package Windows.UI.Xaml.Controls is
    function add_BackClick
    (
       This       : access ISettingsFlyout_Interface
-      ; value : Windows.UI.Xaml.Controls.BackClickEventHandler
+      ; handler : Windows.UI.Xaml.Controls.BackClickEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -29001,8 +31210,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ISettingsFlyoutFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ISettingsFlyout
    )
    return Windows.HRESULT is abstract;
@@ -29216,8 +31425,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ISliderFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ISlider
    )
    return Windows.HRESULT is abstract;
@@ -29307,6 +31516,139 @@ package Windows.UI.Xaml.Controls is
    function get_HeaderTemplateProperty
    (
       This       : access ISliderStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISplitButton : aliased constant Windows.IID := (1488695398, 49898, 21657, (129, 80, 64, 250, 167, 95, 107, 181 ));
+   
+   type ISplitButton_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Flyout
+   (
+      This       : access ISplitButton_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Flyout
+   (
+      This       : access ISplitButton_Interface
+      ; value : Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Command
+   (
+      This       : access ISplitButton_Interface
+      ; RetVal : access Windows.UI.Xaml.Input.ICommand
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Command
+   (
+      This       : access ISplitButton_Interface
+      ; value : Windows.UI.Xaml.Input.ICommand
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CommandParameter
+   (
+      This       : access ISplitButton_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CommandParameter
+   (
+      This       : access ISplitButton_Interface
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Click
+   (
+      This       : access ISplitButton_Interface
+      ; handler : TypedEventHandler_ISplitButton_add_Click
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Click
+   (
+      This       : access ISplitButton_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISplitButtonAutomationPeer : aliased constant Windows.IID := (3295303864, 14376, 23606, (170, 19, 247, 159, 2, 193, 47, 52 ));
+   
+   type ISplitButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISplitButtonAutomationPeerFactory : aliased constant Windows.IID := (3594134836, 30684, 21345, (132, 34, 74, 216, 117, 15, 69, 244 ));
+   
+   type ISplitButtonAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access ISplitButtonAutomationPeerFactory_Interface
+      ; owner : Windows.UI.Xaml.Controls.ISplitButton
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.ISplitButtonAutomationPeer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISplitButtonClickEventArgs : aliased constant Windows.IID := (3257385674, 9972, 22880, (152, 213, 145, 145, 73, 209, 181, 37 ));
+   
+   type ISplitButtonClickEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISplitButtonFactory : aliased constant Windows.IID := (838976303, 19797, 22685, (151, 221, 97, 127, 163, 100, 33, 55 ));
+   
+   type ISplitButtonFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access ISplitButtonFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.ISplitButton
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISplitButtonStatics : aliased constant Windows.IID := (2381347457, 2847, 24233, (190, 66, 21, 42, 185, 164, 188, 94 ));
+   
+   type ISplitButtonStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FlyoutProperty
+   (
+      This       : access ISplitButtonStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CommandProperty
+   (
+      This       : access ISplitButtonStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CommandParameterProperty
+   (
+      This       : access ISplitButtonStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -29439,7 +31781,7 @@ package Windows.UI.Xaml.Controls is
    function add_PaneClosing
    (
       This       : access ISplitView_Interface
-      ; value : TypedEventHandler_ISplitView_add_PaneClosing
+      ; handler : TypedEventHandler_ISplitView_add_PaneClosing
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -29454,7 +31796,7 @@ package Windows.UI.Xaml.Controls is
    function add_PaneClosed
    (
       This       : access ISplitView_Interface
-      ; value : TypedEventHandler_ISplitView_add_PaneClosed
+      ; handler : TypedEventHandler_ISplitView_add_PaneClosed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -29495,7 +31837,7 @@ package Windows.UI.Xaml.Controls is
    function add_PaneOpening
    (
       This       : access ISplitView3_Interface
-      ; value : TypedEventHandler_ISplitView3_add_PaneOpening
+      ; handler : TypedEventHandler_ISplitView3_add_PaneOpening
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -29510,7 +31852,7 @@ package Windows.UI.Xaml.Controls is
    function add_PaneOpened
    (
       This       : access ISplitView3_Interface
-      ; value : TypedEventHandler_ISplitView3_add_PaneOpened
+      ; handler : TypedEventHandler_ISplitView3_add_PaneOpened
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -29531,8 +31873,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ISplitViewFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ISplitView
    )
    return Windows.HRESULT is abstract;
@@ -29757,6 +32099,26 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IStackPanel5 : aliased constant Windows.IID := (4148048151, 25000, 23041, (134, 94, 136, 81, 28, 4, 169, 146 ));
+   
+   type IStackPanel5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BackgroundSizing
+   (
+      This       : access IStackPanel5_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.BackgroundSizing
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BackgroundSizing
+   (
+      This       : access IStackPanel5_Interface
+      ; value : Windows.UI.Xaml.Controls.BackgroundSizing
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IStackPanelFactory : aliased constant Windows.IID := (1675109514, 35636, 17498, (128, 143, 182, 236, 214, 42, 39, 217 ));
    
    type IStackPanelFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -29764,8 +32126,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IStackPanelFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IStackPanel
    )
    return Windows.HRESULT is abstract;
@@ -29839,6 +32201,19 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IStackPanelStatics5 : aliased constant Windows.IID := (2267575440, 49138, 21319, (135, 135, 251, 90, 236, 148, 40, 120 ));
+   
+   type IStackPanelStatics5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BackgroundSizingProperty
+   (
+      This       : access IStackPanelStatics5_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IStyleSelector : aliased constant Windows.IID := (3507568487, 55489, 19172, (152, 240, 216, 80, 69, 2, 240, 139 ));
    
    type IStyleSelector_Interface is interface and Windows.IInspectable_Interface;
@@ -29861,8 +32236,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IStyleSelectorFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IStyleSelector
    )
    return Windows.HRESULT is abstract;
@@ -29911,8 +32286,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ISwapChainBackgroundPanelFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ISwapChainBackgroundPanel
    )
    return Windows.HRESULT is abstract;
@@ -29940,7 +32315,7 @@ package Windows.UI.Xaml.Controls is
    function add_CompositionScaleChanged
    (
       This       : access ISwapChainPanel_Interface
-      ; value : TypedEventHandler_ISwapChainPanel_add_CompositionScaleChanged
+      ; handler : TypedEventHandler_ISwapChainPanel_add_CompositionScaleChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -29969,8 +32344,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ISwapChainPanelFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ISwapChainPanel
    )
    return Windows.HRESULT is abstract;
@@ -30072,8 +32447,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ISwipeControlFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ISwipeControl
    )
    return Windows.HRESULT is abstract;
@@ -30219,7 +32594,7 @@ package Windows.UI.Xaml.Controls is
    function add_Invoked
    (
       This       : access ISwipeItem_Interface
-      ; value : TypedEventHandler_ISwipeItem_add_Invoked
+      ; handler : TypedEventHandler_ISwipeItem_add_Invoked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -30240,8 +32615,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ISwipeItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ISwipeItem
    )
    return Windows.HRESULT is abstract;
@@ -30288,8 +32663,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ISwipeItemsFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ISwipeItems
    )
    return Windows.HRESULT is abstract;
@@ -30425,8 +32800,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ISymbolIconSourceFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ISymbolIconSource
    )
    return Windows.HRESULT is abstract;
@@ -30725,7 +33100,7 @@ package Windows.UI.Xaml.Controls is
    function add_SelectionChanged
    (
       This       : access ITextBlock_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -30740,7 +33115,7 @@ package Windows.UI.Xaml.Controls is
    function add_ContextMenuOpening
    (
       This       : access ITextBlock_Interface
-      ; value : Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler
+      ; handler : Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -30954,7 +33329,7 @@ package Windows.UI.Xaml.Controls is
    function add_IsTextTrimmedChanged
    (
       This       : access ITextBlock6_Interface
-      ; value : TypedEventHandler_ITextBlock6_add_IsTextTrimmedChanged
+      ; handler : TypedEventHandler_ITextBlock6_add_IsTextTrimmedChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -30963,6 +33338,32 @@ package Windows.UI.Xaml.Controls is
    (
       This       : access ITextBlock6_Interface
       ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITextBlock7 : aliased constant Windows.IID := (3756132942, 35815, 24115, (159, 55, 114, 65, 104, 117, 177, 33 ));
+   
+   type ITextBlock7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectionFlyout
+   (
+      This       : access ITextBlock7_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SelectionFlyout
+   (
+      This       : access ITextBlock7_Interface
+      ; value : Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CopySelectionToClipboard
+   (
+      This       : access ITextBlock7_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -31180,6 +33581,19 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_ITextBlockStatics7 : aliased constant Windows.IID := (3486875195, 598, 22621, (139, 63, 254, 175, 182, 157, 51, 32 ));
+   
+   type ITextBlockStatics7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectionFlyoutProperty
+   (
+      This       : access ITextBlockStatics7_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITextBox : aliased constant Windows.IID := (3834600075, 7679, 17234, (161, 244, 229, 22, 81, 78, 200, 130 ));
    
    type ITextBox_Interface is interface and Windows.IInspectable_Interface;
@@ -31355,7 +33769,7 @@ package Windows.UI.Xaml.Controls is
    function add_TextChanged
    (
       This       : access ITextBox_Interface
-      ; value : Windows.UI.Xaml.Controls.TextChangedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.TextChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -31370,7 +33784,7 @@ package Windows.UI.Xaml.Controls is
    function add_SelectionChanged
    (
       This       : access ITextBox_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -31385,7 +33799,7 @@ package Windows.UI.Xaml.Controls is
    function add_ContextMenuOpening
    (
       This       : access ITextBox_Interface
-      ; value : Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler
+      ; handler : Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -31513,7 +33927,7 @@ package Windows.UI.Xaml.Controls is
    function add_Paste
    (
       This       : access ITextBox2_Interface
-      ; value : Windows.UI.Xaml.Controls.TextControlPasteEventHandler
+      ; handler : Windows.UI.Xaml.Controls.TextControlPasteEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -31534,7 +33948,7 @@ package Windows.UI.Xaml.Controls is
    function add_TextCompositionStarted
    (
       This       : access ITextBox3_Interface
-      ; value : TypedEventHandler_ITextBox3_add_TextCompositionStarted
+      ; handler : TypedEventHandler_ITextBox3_add_TextCompositionStarted
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -31549,7 +33963,7 @@ package Windows.UI.Xaml.Controls is
    function add_TextCompositionChanged
    (
       This       : access ITextBox3_Interface
-      ; value : TypedEventHandler_ITextBox3_add_TextCompositionChanged
+      ; handler : TypedEventHandler_ITextBox3_add_TextCompositionChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -31564,7 +33978,7 @@ package Windows.UI.Xaml.Controls is
    function add_TextCompositionEnded
    (
       This       : access ITextBox3_Interface
-      ; value : TypedEventHandler_ITextBox3_add_TextCompositionEnded
+      ; handler : TypedEventHandler_ITextBox3_add_TextCompositionEnded
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -31607,7 +34021,7 @@ package Windows.UI.Xaml.Controls is
    function add_CandidateWindowBoundsChanged
    (
       This       : access ITextBox3_Interface
-      ; value : TypedEventHandler_ITextBox3_add_CandidateWindowBoundsChanged
+      ; handler : TypedEventHandler_ITextBox3_add_CandidateWindowBoundsChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -31622,7 +34036,7 @@ package Windows.UI.Xaml.Controls is
    function add_TextChanging
    (
       This       : access ITextBox3_Interface
-      ; value : TypedEventHandler_ITextBox3_add_TextChanging
+      ; handler : TypedEventHandler_ITextBox3_add_TextChanging
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -31718,7 +34132,7 @@ package Windows.UI.Xaml.Controls is
    function add_CopyingToClipboard
    (
       This       : access ITextBox6_Interface
-      ; value : TypedEventHandler_ITextBox6_add_CopyingToClipboard
+      ; handler : TypedEventHandler_ITextBox6_add_CopyingToClipboard
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -31733,7 +34147,7 @@ package Windows.UI.Xaml.Controls is
    function add_CuttingToClipboard
    (
       This       : access ITextBox6_Interface
-      ; value : TypedEventHandler_ITextBox6_add_CuttingToClipboard
+      ; handler : TypedEventHandler_ITextBox6_add_CuttingToClipboard
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -31748,7 +34162,7 @@ package Windows.UI.Xaml.Controls is
    function add_BeforeTextChanging
    (
       This       : access ITextBox6_Interface
-      ; value : TypedEventHandler_ITextBox6_add_BeforeTextChanging
+      ; handler : TypedEventHandler_ITextBox6_add_BeforeTextChanging
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -31796,6 +34210,119 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_ITextBox8 : aliased constant Windows.IID := (515297319, 791, 23607, (138, 234, 247, 71, 174, 127, 4, 99 ));
+   
+   type ITextBox8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanPasteClipboardContent
+   (
+      This       : access ITextBox8_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanUndo
+   (
+      This       : access ITextBox8_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanRedo
+   (
+      This       : access ITextBox8_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SelectionFlyout
+   (
+      This       : access ITextBox8_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SelectionFlyout
+   (
+      This       : access ITextBox8_Interface
+      ; value : Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProofingMenuFlyout
+   (
+      This       : access ITextBox8_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access ITextBox8_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Description
+   (
+      This       : access ITextBox8_Interface
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_SelectionChanging
+   (
+      This       : access ITextBox8_Interface
+      ; handler : TypedEventHandler_ITextBox8_add_SelectionChanging
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_SelectionChanging
+   (
+      This       : access ITextBox8_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Undo
+   (
+      This       : access ITextBox8_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Redo
+   (
+      This       : access ITextBox8_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function PasteFromClipboard
+   (
+      This       : access ITextBox8_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CopySelectionToClipboard
+   (
+      This       : access ITextBox8_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CutSelectionToClipboard
+   (
+      This       : access ITextBox8_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ClearUndoRedoHistory
+   (
+      This       : access ITextBox8_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITextBoxBeforeTextChangingEventArgs : aliased constant Windows.IID := (2773753267, 30596, 16984, (170, 131, 228, 190, 221, 114, 116, 103 ));
    
    type ITextBoxBeforeTextChangingEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -31830,9 +34357,43 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ITextBoxFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ITextBox
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITextBoxSelectionChangingEventArgs : aliased constant Windows.IID := (2222597341, 39614, 21215, (168, 10, 12, 206, 75, 73, 102, 50 ));
+   
+   type ITextBoxSelectionChangingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectionStart
+   (
+      This       : access ITextBoxSelectionChangingEventArgs_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SelectionLength
+   (
+      This       : access ITextBoxSelectionChangingEventArgs_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Cancel
+   (
+      This       : access ITextBoxSelectionChangingEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Cancel
+   (
+      This       : access ITextBoxSelectionChangingEventArgs_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -32035,6 +34596,54 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_ITextBoxStatics8 : aliased constant Windows.IID := (2140395460, 32136, 24397, (137, 85, 165, 173, 56, 72, 188, 182 ));
+   
+   type ITextBoxStatics8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanPasteClipboardContentProperty
+   (
+      This       : access ITextBoxStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanUndoProperty
+   (
+      This       : access ITextBoxStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanRedoProperty
+   (
+      This       : access ITextBoxStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SelectionFlyoutProperty
+   (
+      This       : access ITextBoxStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProofingMenuFlyoutProperty
+   (
+      This       : access ITextBoxStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DescriptionProperty
+   (
+      This       : access ITextBoxStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITextBoxTextChangingEventArgs : aliased constant Windows.IID := (1315588981, 17373, 20019, (172, 190, 45, 135, 150, 161, 121, 39 ));
    
    type ITextBoxTextChangingEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -32057,6 +34666,27 @@ package Windows.UI.Xaml.Controls is
    IID_ITextChangedEventArgs : aliased constant Windows.IID := (1305497469, 31249, 19246, (153, 51, 87, 125, 243, 146, 82, 182 ));
    
    type ITextChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITextCommandBarFlyout : aliased constant Windows.IID := (2419609446, 52541, 21285, (143, 64, 89, 176, 118, 70, 60, 64 ));
+   
+   type ITextCommandBarFlyout_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITextCommandBarFlyoutFactory : aliased constant Windows.IID := (458823896, 45062, 24269, (171, 114, 111, 219, 72, 171, 193, 244 ));
+   
+   type ITextCommandBarFlyoutFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access ITextCommandBarFlyoutFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.ITextCommandBarFlyout
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -32277,7 +34907,7 @@ package Windows.UI.Xaml.Controls is
    function add_TimeChanged
    (
       This       : access ITimePicker_Interface
-      ; value : Windows.UI.Xaml.Controls.EventHandler_ITimePickerValueChangedEventArgs
+      ; handler : Windows.UI.Xaml.Controls.EventHandler_ITimePickerValueChangedEventArgs
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -32311,6 +34941,41 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_ITimePicker3 : aliased constant Windows.IID := (4201533329, 44082, 22948, (148, 218, 139, 61, 100, 40, 158, 214 ));
+   
+   type ITimePicker3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectedTime
+   (
+      This       : access ITimePicker3_Interface
+      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SelectedTime
+   (
+      This       : access ITimePicker3_Interface
+      ; value : Windows.Foundation.IReference_TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_SelectedTimeChanged
+   (
+      This       : access ITimePicker3_Interface
+      ; handler : TypedEventHandler_ITimePicker3_add_SelectedTimeChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_SelectedTimeChanged
+   (
+      This       : access ITimePicker3_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITimePickerFactory : aliased constant Windows.IID := (1430250515, 27863, 18089, (169, 123, 161, 139, 220, 75, 76, 163 ));
    
    type ITimePickerFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -32318,8 +34983,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ITimePickerFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ITimePicker
    )
    return Windows.HRESULT is abstract;
@@ -32375,7 +35040,7 @@ package Windows.UI.Xaml.Controls is
    function add_TimePicked
    (
       This       : access ITimePickerFlyout_Interface
-      ; value : TypedEventHandler_ITimePickerFlyout_add_TimePicked
+      ; handler : TypedEventHandler_ITimePickerFlyout_add_TimePicked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -32425,6 +35090,26 @@ package Windows.UI.Xaml.Controls is
    (
       This       : access ITimePickerFlyoutStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITimePickerSelectedValueChangedEventArgs : aliased constant Windows.IID := (1847655221, 15259, 23478, (152, 136, 38, 101, 36, 219, 24, 30 ));
+   
+   type ITimePickerSelectedValueChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_OldTime
+   (
+      This       : access ITimePickerSelectedValueChangedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NewTime
+   (
+      This       : access ITimePickerSelectedValueChangedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IReference_TimeSpan -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -32484,6 +35169,19 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_ITimePickerStatics3 : aliased constant Windows.IID := (3488552803, 47751, 21720, (130, 212, 124, 107, 151, 52, 220, 157 ));
+   
+   type ITimePickerStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectedTimeProperty
+   (
+      This       : access ITimePickerStatics3_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITimePickerValueChangedEventArgs : aliased constant Windows.IID := (793697165, 47509, 20017, (139, 169, 196, 220, 222, 178, 28, 163 ));
    
    type ITimePickerValueChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -32531,8 +35229,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IToggleMenuFlyoutItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IToggleMenuFlyoutItem
    )
    return Windows.HRESULT is abstract;
@@ -32549,6 +35247,101 @@ package Windows.UI.Xaml.Controls is
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IToggleProvider_Imported_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ToggleState
+   (
+      This       : access IToggleProvider_Imported_Interface
+      ; RetVal : access Windows.UI.Xaml.Automation.ToggleState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Toggle
+   (
+      This       : access IToggleProvider_Imported_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IToggleSplitButton : aliased constant Windows.IID := (681057073, 36472, 22284, (190, 187, 104, 88, 20, 72, 90, 233 ));
+   
+   type IToggleSplitButton_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsChecked
+   (
+      This       : access IToggleSplitButton_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsChecked
+   (
+      This       : access IToggleSplitButton_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_IsCheckedChanged
+   (
+      This       : access IToggleSplitButton_Interface
+      ; handler : TypedEventHandler_IToggleSplitButton_add_IsCheckedChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_IsCheckedChanged
+   (
+      This       : access IToggleSplitButton_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IToggleSplitButtonAutomationPeer : aliased constant Windows.IID := (1401840094, 32070, 23975, (148, 171, 172, 237, 230, 161, 43, 158 ));
+   
+   type IToggleSplitButtonAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IToggleSplitButtonAutomationPeerFactory : aliased constant Windows.IID := (2552869024, 23088, 24301, (163, 163, 20, 114, 197, 59, 10, 102 ));
+   
+   type IToggleSplitButtonAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IToggleSplitButtonAutomationPeerFactory_Interface
+      ; owner : Windows.UI.Xaml.Controls.IToggleSplitButton
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.IToggleSplitButtonAutomationPeer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IToggleSplitButtonFactory : aliased constant Windows.IID := (1070532411, 58748, 22333, (175, 56, 209, 178, 173, 56, 121, 81 ));
+   
+   type IToggleSplitButtonFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IToggleSplitButtonFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.IToggleSplitButton
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IToggleSplitButtonIsCheckedChangedEventArgs : aliased constant Windows.IID := (557379791, 24525, 23995, (153, 174, 53, 148, 131, 7, 15, 107 ));
+   
+   type IToggleSplitButtonIsCheckedChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -32664,7 +35457,7 @@ package Windows.UI.Xaml.Controls is
    function add_Toggled
    (
       This       : access IToggleSwitch_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -32853,7 +35646,7 @@ package Windows.UI.Xaml.Controls is
    function add_Closed
    (
       This       : access IToolTip_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -32868,7 +35661,7 @@ package Windows.UI.Xaml.Controls is
    function add_Opened
    (
       This       : access IToolTip_Interface
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -32882,6 +35675,26 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IToolTip2 : aliased constant Windows.IID := (723181094, 10650, 23892, (128, 11, 59, 234, 18, 59, 76, 32 ));
+   
+   type IToolTip2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PlacementRect
+   (
+      This       : access IToolTip2_Interface
+      ; RetVal : access Windows.Foundation.IReference_Rect -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PlacementRect
+   (
+      This       : access IToolTip2_Interface
+      ; value : Windows.Foundation.IReference_Rect
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IToolTipFactory : aliased constant Windows.IID := (2307101699, 46392, 18915, (164, 48, 58, 192, 55, 220, 111, 224 ));
    
    type IToolTipFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -32889,8 +35702,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IToolTipFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IToolTip
    )
    return Windows.HRESULT is abstract;
@@ -33019,6 +35832,19 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IToolTipStatics2 : aliased constant Windows.IID := (1749411398, 40063, 20497, (138, 120, 125, 169, 216, 126, 179, 182 ));
+   
+   type IToolTipStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PlacementRectProperty
+   (
+      This       : access IToolTipStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITreeView : aliased constant Windows.IID := (2471742556, 56686, 17724, (174, 221, 12, 58, 201, 147, 151, 139 ));
    
    type ITreeView_Interface is interface and Windows.IInspectable_Interface;
@@ -33074,7 +35900,7 @@ package Windows.UI.Xaml.Controls is
    function add_ItemInvoked
    (
       This       : access ITreeView_Interface
-      ; value : TypedEventHandler_ITreeView_add_ItemInvoked
+      ; handler : TypedEventHandler_ITreeView_add_ItemInvoked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -33089,7 +35915,7 @@ package Windows.UI.Xaml.Controls is
    function add_Expanding
    (
       This       : access ITreeView_Interface
-      ; value : TypedEventHandler_ITreeView_add_Expanding
+      ; handler : TypedEventHandler_ITreeView_add_Expanding
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -33104,7 +35930,7 @@ package Windows.UI.Xaml.Controls is
    function add_Collapsed
    (
       This       : access ITreeView_Interface
-      ; value : TypedEventHandler_ITreeView_add_Collapsed
+      ; handler : TypedEventHandler_ITreeView_add_Collapsed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -33112,6 +35938,186 @@ package Windows.UI.Xaml.Controls is
    function remove_Collapsed
    (
       This       : access ITreeView_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITreeView2 : aliased constant Windows.IID := (1328784102, 12073, 21971, (161, 171, 31, 74, 134, 59, 249, 96 ));
+   
+   type ITreeView2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function NodeFromContainer
+   (
+      This       : access ITreeView2_Interface
+      ; container : Windows.UI.Xaml.IDependencyObject
+      ; RetVal : access Windows.UI.Xaml.Controls.ITreeViewNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ContainerFromNode
+   (
+      This       : access ITreeView2_Interface
+      ; node : Windows.UI.Xaml.Controls.ITreeViewNode
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ItemFromContainer
+   (
+      This       : access ITreeView2_Interface
+      ; container : Windows.UI.Xaml.IDependencyObject
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ContainerFromItem
+   (
+      This       : access ITreeView2_Interface
+      ; item : Windows.Object
+      ; RetVal : access Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanDragItems
+   (
+      This       : access ITreeView2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CanDragItems
+   (
+      This       : access ITreeView2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanReorderItems
+   (
+      This       : access ITreeView2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CanReorderItems
+   (
+      This       : access ITreeView2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemTemplate
+   (
+      This       : access ITreeView2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDataTemplate
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ItemTemplate
+   (
+      This       : access ITreeView2_Interface
+      ; value : Windows.UI.Xaml.IDataTemplate
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemTemplateSelector
+   (
+      This       : access ITreeView2_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.IDataTemplateSelector
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ItemTemplateSelector
+   (
+      This       : access ITreeView2_Interface
+      ; value : Windows.UI.Xaml.Controls.IDataTemplateSelector
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemContainerStyle
+   (
+      This       : access ITreeView2_Interface
+      ; RetVal : access Windows.UI.Xaml.IStyle
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ItemContainerStyle
+   (
+      This       : access ITreeView2_Interface
+      ; value : Windows.UI.Xaml.IStyle
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemContainerStyleSelector
+   (
+      This       : access ITreeView2_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.IStyleSelector
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ItemContainerStyleSelector
+   (
+      This       : access ITreeView2_Interface
+      ; value : Windows.UI.Xaml.Controls.IStyleSelector
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemContainerTransitions
+   (
+      This       : access ITreeView2_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.Animation.IVector_Transition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ItemContainerTransitions
+   (
+      This       : access ITreeView2_Interface
+      ; value : Windows.UI.Xaml.Media.Animation.IVector_Transition
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemsSource
+   (
+      This       : access ITreeView2_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ItemsSource
+   (
+      This       : access ITreeView2_Interface
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_DragItemsStarting
+   (
+      This       : access ITreeView2_Interface
+      ; handler : TypedEventHandler_ITreeView2_add_DragItemsStarting
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_DragItemsStarting
+   (
+      This       : access ITreeView2_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_DragItemsCompleted
+   (
+      This       : access ITreeView2_Interface
+      ; handler : TypedEventHandler_ITreeView2_add_DragItemsCompleted
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_DragItemsCompleted
+   (
+      This       : access ITreeView2_Interface
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -33131,6 +36137,73 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_ITreeViewCollapsedEventArgs2 : aliased constant Windows.IID := (1954230095, 31525, 22186, (131, 0, 120, 216, 59, 122, 178, 219 ));
+   
+   type ITreeViewCollapsedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Item
+   (
+      This       : access ITreeViewCollapsedEventArgs2_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITreeViewDragItemsCompletedEventArgs : aliased constant Windows.IID := (1017668396, 17169, 22350, (138, 180, 59, 122, 165, 222, 122, 136 ));
+   
+   type ITreeViewDragItemsCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DropResult
+   (
+      This       : access ITreeViewDragItemsCompletedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.DataPackageOperation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Items
+   (
+      This       : access ITreeViewDragItemsCompletedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_Object -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITreeViewDragItemsStartingEventArgs : aliased constant Windows.IID := (2077982404, 57637, 22387, (154, 63, 102, 149, 35, 61, 98, 80 ));
+   
+   type ITreeViewDragItemsStartingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Cancel
+   (
+      This       : access ITreeViewDragItemsStartingEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Cancel
+   (
+      This       : access ITreeViewDragItemsStartingEventArgs_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Data
+   (
+      This       : access ITreeViewDragItemsStartingEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.DataTransfer.IDataPackage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Items
+   (
+      This       : access ITreeViewDragItemsStartingEventArgs_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVector_Object -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITreeViewExpandingEventArgs : aliased constant Windows.IID := (3319921251, 16724, 18898, (162, 31, 195, 65, 118, 96, 94, 58 ));
    
    type ITreeViewExpandingEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -33144,6 +36217,19 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_ITreeViewExpandingEventArgs2 : aliased constant Windows.IID := (2704233667, 34745, 22051, (156, 116, 230, 221, 68, 60, 222, 24 ));
+   
+   type ITreeViewExpandingEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Item
+   (
+      This       : access ITreeViewExpandingEventArgs2_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITreeViewFactory : aliased constant Windows.IID := (3427952579, 27753, 18894, (180, 69, 117, 58, 206, 231, 148, 139 ));
    
    type ITreeViewFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -33151,8 +36237,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ITreeViewFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ITreeView
    )
    return Windows.HRESULT is abstract;
@@ -33256,6 +36342,40 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_ITreeViewItem2 : aliased constant Windows.IID := (8105855, 1171, 20916, (135, 156, 69, 128, 36, 179, 65, 73 ));
+   
+   type ITreeViewItem2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_HasUnrealizedChildren
+   (
+      This       : access ITreeViewItem2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_HasUnrealizedChildren
+   (
+      This       : access ITreeViewItem2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemsSource
+   (
+      This       : access ITreeViewItem2_Interface
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ItemsSource
+   (
+      This       : access ITreeViewItem2_Interface
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITreeViewItemFactory : aliased constant Windows.IID := (1319315249, 22157, 19725, (173, 253, 61, 141, 197, 170, 93, 136 ));
    
    type ITreeViewItemFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -33263,8 +36383,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ITreeViewItemFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ITreeViewItem
    )
    return Windows.HRESULT is abstract;
@@ -33353,6 +36473,26 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_ITreeViewItemStatics2 : aliased constant Windows.IID := (2830074611, 55299, 23589, (180, 141, 174, 14, 115, 177, 109, 142 ));
+   
+   type ITreeViewItemStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_HasUnrealizedChildrenProperty
+   (
+      This       : access ITreeViewItemStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemsSourceProperty
+   (
+      This       : access ITreeViewItemStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITreeViewItemTemplateSettings : aliased constant Windows.IID := (3962713924, 56881, 18742, (191, 194, 28, 179, 123, 161, 220, 8 ));
    
    type ITreeViewItemTemplateSettings_Interface is interface and Windows.IInspectable_Interface;
@@ -33394,8 +36534,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ITreeViewItemTemplateSettingsFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ITreeViewItemTemplateSettings
    )
    return Windows.HRESULT is abstract;
@@ -33449,8 +36589,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ITreeViewListFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ITreeViewList
    )
    return Windows.HRESULT is abstract;
@@ -33540,8 +36680,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access ITreeViewNodeFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.ITreeViewNode
    )
    return Windows.HRESULT is abstract;
@@ -33595,6 +36735,68 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_ITreeViewStatics2 : aliased constant Windows.IID := (380750073, 31393, 24120, (130, 24, 123, 186, 62, 164, 23, 192 ));
+   
+   type ITreeViewStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanDragItemsProperty
+   (
+      This       : access ITreeViewStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanReorderItemsProperty
+   (
+      This       : access ITreeViewStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemTemplateProperty
+   (
+      This       : access ITreeViewStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemTemplateSelectorProperty
+   (
+      This       : access ITreeViewStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemContainerStyleProperty
+   (
+      This       : access ITreeViewStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemContainerStyleSelectorProperty
+   (
+      This       : access ITreeViewStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemContainerTransitionsProperty
+   (
+      This       : access ITreeViewStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ItemsSourceProperty
+   (
+      This       : access ITreeViewStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IUIElementCollection : aliased constant Windows.IID := (3596627284, 35062, 17398, (133, 216, 169, 217, 20, 166, 221, 59 ));
    
    type IUIElementCollection_Interface is interface and Windows.IInspectable_Interface;
@@ -33636,8 +36838,8 @@ package Windows.UI.Xaml.Controls is
    function CreateInstance
    (
       This       : access IUserControlFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IUserControl
    )
    return Windows.HRESULT is abstract;
@@ -34311,6 +37513,101 @@ package Windows.UI.Xaml.Controls is
    (
       This       : access IVector_IHubSection_Interface
       ; items : Windows.UI.Xaml.Controls.IHubSection_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_IMenuBarItem : aliased constant Windows.IID := (3149436277, 21715, 21679, (133, 43, 224, 81, 222, 214, 248, 103 ));
+   
+   type IVector_IMenuBarItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_IMenuBarItem_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Controls.IMenuBarItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_IMenuBarItem_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_IMenuBarItem_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.IVectorView_IMenuBarItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_IMenuBarItem_Interface
+      ; value : Windows.UI.Xaml.Controls.IMenuBarItem
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_IMenuBarItem_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Controls.IMenuBarItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_IMenuBarItem_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.Controls.IMenuBarItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_IMenuBarItem_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_IMenuBarItem_Interface
+      ; value : Windows.UI.Xaml.Controls.IMenuBarItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_IMenuBarItem_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_IMenuBarItem_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_IMenuBarItem_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Controls.IMenuBarItem_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_IMenuBarItem_Interface
+      ; items : Windows.UI.Xaml.Controls.IMenuBarItem_Ptr
    )
    return Windows.HRESULT is abstract;
    
@@ -35098,6 +38395,45 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IVectorView_IMenuBarItem : aliased constant Windows.IID := (4109846940, 36145, 24138, (187, 97, 39, 238, 116, 79, 52, 98 ));
+   
+   type IVectorView_IMenuBarItem_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IMenuBarItem_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.Controls.IMenuBarItem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IMenuBarItem_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IMenuBarItem_Interface
+      ; value : Windows.UI.Xaml.Controls.IMenuBarItem
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IMenuBarItem_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.Controls.IMenuBarItem_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVectorView_IMenuFlyoutItemBase : aliased constant Windows.IID := (2778635812, 62886, 21106, (169, 123, 125, 208, 26, 62, 253, 208 ));
    
    type IVectorView_IMenuFlyoutItemBase_Interface is interface and Windows.IInspectable_Interface;
@@ -35393,7 +38729,7 @@ package Windows.UI.Xaml.Controls is
    function add_CleanUpVirtualizedItemEvent
    (
       This       : access IVirtualizingStackPanel_Interface
-      ; value : Windows.UI.Xaml.Controls.CleanUpVirtualizedItemEventHandler
+      ; handler : Windows.UI.Xaml.Controls.CleanUpVirtualizedItemEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35520,7 +38856,7 @@ package Windows.UI.Xaml.Controls is
    function add_LoadCompleted
    (
       This       : access IWebView_Interface
-      ; value : Windows.UI.Xaml.Navigation.LoadCompletedEventHandler
+      ; handler : Windows.UI.Xaml.Navigation.LoadCompletedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35535,7 +38871,7 @@ package Windows.UI.Xaml.Controls is
    function add_ScriptNotify
    (
       This       : access IWebView_Interface
-      ; value : Windows.UI.Xaml.Controls.NotifyEventHandler
+      ; handler : Windows.UI.Xaml.Controls.NotifyEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35550,7 +38886,7 @@ package Windows.UI.Xaml.Controls is
    function add_NavigationFailed
    (
       This       : access IWebView_Interface
-      ; value : Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.WebViewNavigationFailedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35615,7 +38951,7 @@ package Windows.UI.Xaml.Controls is
    function add_NavigationStarting
    (
       This       : access IWebView2_Interface
-      ; value : TypedEventHandler_IWebView2_add_NavigationStarting
+      ; handler : TypedEventHandler_IWebView2_add_NavigationStarting
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35630,7 +38966,7 @@ package Windows.UI.Xaml.Controls is
    function add_ContentLoading
    (
       This       : access IWebView2_Interface
-      ; value : TypedEventHandler_IWebView2_add_ContentLoading
+      ; handler : TypedEventHandler_IWebView2_add_ContentLoading
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35645,7 +38981,7 @@ package Windows.UI.Xaml.Controls is
    function add_DOMContentLoaded
    (
       This       : access IWebView2_Interface
-      ; value : TypedEventHandler_IWebView2_add_DOMContentLoaded
+      ; handler : TypedEventHandler_IWebView2_add_DOMContentLoaded
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35739,7 +39075,7 @@ package Windows.UI.Xaml.Controls is
    function add_NavigationCompleted
    (
       This       : access IWebView2_Interface
-      ; value : TypedEventHandler_IWebView2_add_NavigationCompleted
+      ; handler : TypedEventHandler_IWebView2_add_NavigationCompleted
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35754,7 +39090,7 @@ package Windows.UI.Xaml.Controls is
    function add_FrameNavigationStarting
    (
       This       : access IWebView2_Interface
-      ; value : TypedEventHandler_IWebView2_add_FrameNavigationStarting
+      ; handler : TypedEventHandler_IWebView2_add_FrameNavigationStarting
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35769,7 +39105,7 @@ package Windows.UI.Xaml.Controls is
    function add_FrameContentLoading
    (
       This       : access IWebView2_Interface
-      ; value : TypedEventHandler_IWebView2_add_FrameContentLoading
+      ; handler : TypedEventHandler_IWebView2_add_FrameContentLoading
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35784,7 +39120,7 @@ package Windows.UI.Xaml.Controls is
    function add_FrameDOMContentLoaded
    (
       This       : access IWebView2_Interface
-      ; value : TypedEventHandler_IWebView2_add_FrameDOMContentLoaded
+      ; handler : TypedEventHandler_IWebView2_add_FrameDOMContentLoaded
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35799,7 +39135,7 @@ package Windows.UI.Xaml.Controls is
    function add_FrameNavigationCompleted
    (
       This       : access IWebView2_Interface
-      ; value : TypedEventHandler_IWebView2_add_FrameNavigationCompleted
+      ; handler : TypedEventHandler_IWebView2_add_FrameNavigationCompleted
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35814,7 +39150,7 @@ package Windows.UI.Xaml.Controls is
    function add_LongRunningScriptDetected
    (
       This       : access IWebView2_Interface
-      ; value : TypedEventHandler_IWebView2_add_LongRunningScriptDetected
+      ; handler : TypedEventHandler_IWebView2_add_LongRunningScriptDetected
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35829,7 +39165,7 @@ package Windows.UI.Xaml.Controls is
    function add_UnsafeContentWarningDisplaying
    (
       This       : access IWebView2_Interface
-      ; value : TypedEventHandler_IWebView2_add_UnsafeContentWarningDisplaying
+      ; handler : TypedEventHandler_IWebView2_add_UnsafeContentWarningDisplaying
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35844,7 +39180,7 @@ package Windows.UI.Xaml.Controls is
    function add_UnviewableContentIdentified
    (
       This       : access IWebView2_Interface
-      ; value : TypedEventHandler_IWebView2_add_UnviewableContentIdentified
+      ; handler : TypedEventHandler_IWebView2_add_UnviewableContentIdentified
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35887,7 +39223,7 @@ package Windows.UI.Xaml.Controls is
    function add_ContainsFullScreenElementChanged
    (
       This       : access IWebView3_Interface
-      ; value : TypedEventHandler_IWebView3_add_ContainsFullScreenElementChanged
+      ; handler : TypedEventHandler_IWebView3_add_ContainsFullScreenElementChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35929,7 +39265,7 @@ package Windows.UI.Xaml.Controls is
    function add_UnsupportedUriSchemeIdentified
    (
       This       : access IWebView4_Interface
-      ; value : TypedEventHandler_IWebView4_add_UnsupportedUriSchemeIdentified
+      ; handler : TypedEventHandler_IWebView4_add_UnsupportedUriSchemeIdentified
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35944,7 +39280,7 @@ package Windows.UI.Xaml.Controls is
    function add_NewWindowRequested
    (
       This       : access IWebView4_Interface
-      ; value : TypedEventHandler_IWebView4_add_NewWindowRequested
+      ; handler : TypedEventHandler_IWebView4_add_NewWindowRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -35959,7 +39295,7 @@ package Windows.UI.Xaml.Controls is
    function add_PermissionRequested
    (
       This       : access IWebView4_Interface
-      ; value : TypedEventHandler_IWebView4_add_PermissionRequested
+      ; handler : TypedEventHandler_IWebView4_add_PermissionRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -36058,7 +39394,7 @@ package Windows.UI.Xaml.Controls is
    function add_SeparateProcessLost
    (
       This       : access IWebView6_Interface
-      ; value : TypedEventHandler_IWebView6_add_SeparateProcessLost
+      ; handler : TypedEventHandler_IWebView6_add_SeparateProcessLost
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -36066,6 +39402,27 @@ package Windows.UI.Xaml.Controls is
    function remove_SeparateProcessLost
    (
       This       : access IWebView6_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebView7 : aliased constant Windows.IID := (661683243, 1071, 21331, (144, 33, 85, 205, 6, 88, 95, 223 ));
+   
+   type IWebView7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_WebResourceRequested
+   (
+      This       : access IWebView7_Interface
+      ; handler : TypedEventHandler_IWebView7_add_WebResourceRequested
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_WebResourceRequested
+   (
+      This       : access IWebView7_Interface
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -36632,6 +39989,40 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IWebViewWebResourceRequestedEventArgs : aliased constant Windows.IID := (931996150, 51071, 23947, (143, 48, 147, 201, 157, 247, 148, 53 ));
+   
+   type IWebViewWebResourceRequestedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Request
+   (
+      This       : access IWebViewWebResourceRequestedEventArgs_Interface
+      ; RetVal : access Windows.Web.Http.IHttpRequestMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Response
+   (
+      This       : access IWebViewWebResourceRequestedEventArgs_Interface
+      ; RetVal : access Windows.Web.Http.IHttpResponseMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Response
+   (
+      This       : access IWebViewWebResourceRequestedEventArgs_Interface
+      ; value : Windows.Web.Http.IHttpResponseMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access IWebViewWebResourceRequestedEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IWrapGrid : aliased constant Windows.IID := (89266059, 30055, 18370, (189, 92, 173, 131, 148, 200, 40, 186 ));
    
    type IWrapGrid_Interface is interface and Windows.IInspectable_Interface;
@@ -37151,6 +40542,19 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_TypedEventHandler_IComboBox6_add_TextSubmitted : aliased constant Windows.IID := (3742091595, 65218, 24318, (162, 154, 34, 28, 51, 158, 15, 239 ));
+   
+   type TypedEventHandler_IComboBox6_add_TextSubmitted_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IComboBox ; args : Windows.UI.Xaml.Controls.IComboBoxTextSubmittedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IComboBox6_add_TextSubmitted'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IComboBox6_add_TextSubmitted_Interface
+      ; sender : Windows.UI.Xaml.Controls.IComboBox
+      ; args : Windows.UI.Xaml.Controls.IComboBoxTextSubmittedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging : aliased constant Windows.IID := (1971949773, 42149, 23562, (172, 165, 100, 166, 41, 175, 219, 204 ));
    
    type TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ICommandBar ; args : Windows.UI.Xaml.Controls.IDynamicOverflowItemsChangingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICommandBar3_add_DynamicOverflowItemsChanging'access) with null record;
@@ -37289,6 +40693,19 @@ package Windows.UI.Xaml.Controls is
       This       : access TypedEventHandler_IControl4_add_FocusEngaged_Interface
       ; sender : Windows.UI.Xaml.Controls.IControl
       ; args : Windows.UI.Xaml.Controls.IFocusEngagedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IDatePicker3_add_SelectedDateChanged : aliased constant Windows.IID := (3642092556, 56724, 22385, (142, 228, 214, 231, 243, 94, 224, 126 ));
+   
+   type TypedEventHandler_IDatePicker3_add_SelectedDateChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IDatePicker ; args : Windows.UI.Xaml.Controls.IDatePickerSelectedValueChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDatePicker3_add_SelectedDateChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDatePicker3_add_SelectedDateChanged_Interface
+      ; sender : Windows.UI.Xaml.Controls.IDatePicker
+      ; args : Windows.UI.Xaml.Controls.IDatePickerSelectedValueChangedEventArgs
    )
    return Windows.HRESULT;
    
@@ -37866,6 +41283,19 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_TypedEventHandler_IRichEditBox8_add_SelectionChanging : aliased constant Windows.IID := (2803675847, 39840, 24119, (181, 254, 1, 95, 133, 134, 191, 210 ));
+   
+   type TypedEventHandler_IRichEditBox8_add_SelectionChanging_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IRichEditBox ; args : Windows.UI.Xaml.Controls.IRichEditBoxSelectionChangingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRichEditBox8_add_SelectionChanging'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IRichEditBox8_add_SelectionChanging_Interface
+      ; sender : Windows.UI.Xaml.Controls.IRichEditBox
+      ; args : Windows.UI.Xaml.Controls.IRichEditBoxSelectionChangingEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged : aliased constant Windows.IID := (513631656, 29458, 23827, (163, 185, 39, 169, 27, 144, 99, 36 ));
    
    type TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IRichTextBlock ; args : Windows.UI.Xaml.Controls.IIsTextTrimmedChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IRichTextBlock5_add_IsTextTrimmedChanged'access) with null record;
@@ -37887,6 +41317,19 @@ package Windows.UI.Xaml.Controls is
       This       : access TypedEventHandler_IRichTextBlockOverflow3_add_IsTextTrimmedChanged_Interface
       ; sender : Windows.UI.Xaml.Controls.IRichTextBlockOverflow
       ; args : Windows.UI.Xaml.Controls.IIsTextTrimmedChangedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IScrollViewer4_add_AnchorRequested : aliased constant Windows.IID := (3471371924, 47804, 23324, (140, 252, 28, 153, 133, 232, 181, 66 ));
+   
+   type TypedEventHandler_IScrollViewer4_add_AnchorRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IScrollViewer ; args : Windows.UI.Xaml.Controls.IAnchorRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IScrollViewer4_add_AnchorRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IScrollViewer4_add_AnchorRequested_Interface
+      ; sender : Windows.UI.Xaml.Controls.IScrollViewer
+      ; args : Windows.UI.Xaml.Controls.IAnchorRequestedEventArgs
    )
    return Windows.HRESULT;
    
@@ -37952,6 +41395,19 @@ package Windows.UI.Xaml.Controls is
       This       : access TypedEventHandler_ISearchBox_add_SuggestionsRequested_Interface
       ; sender : Windows.UI.Xaml.Controls.ISearchBox
       ; args : Windows.UI.Xaml.Controls.ISearchBoxSuggestionsRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ISplitButton_add_Click : aliased constant Windows.IID := (645676756, 12410, 20798, (157, 108, 157, 129, 149, 119, 145, 255 ));
+   
+   type TypedEventHandler_ISplitButton_add_Click_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ISplitButton ; args : Windows.UI.Xaml.Controls.ISplitButtonClickEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISplitButton_add_Click'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISplitButton_add_Click_Interface
+      ; sender : Windows.UI.Xaml.Controls.ISplitButton
+      ; args : Windows.UI.Xaml.Controls.ISplitButtonClickEventArgs
    )
    return Windows.HRESULT;
    
@@ -38152,6 +41608,32 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_TypedEventHandler_ITextBox8_add_SelectionChanging : aliased constant Windows.IID := (142213879, 42480, 22173, (143, 47, 244, 213, 231, 120, 175, 196 ));
+   
+   type TypedEventHandler_ITextBox8_add_SelectionChanging_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITextBox ; args : Windows.UI.Xaml.Controls.ITextBoxSelectionChangingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ITextBox8_add_SelectionChanging'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ITextBox8_add_SelectionChanging_Interface
+      ; sender : Windows.UI.Xaml.Controls.ITextBox
+      ; args : Windows.UI.Xaml.Controls.ITextBoxSelectionChangingEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ITimePicker3_add_SelectedTimeChanged : aliased constant Windows.IID := (3914535043, 54610, 22720, (178, 154, 126, 156, 221, 253, 59, 36 ));
+   
+   type TypedEventHandler_ITimePicker3_add_SelectedTimeChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITimePicker ; args : Windows.UI.Xaml.Controls.ITimePickerSelectedValueChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ITimePicker3_add_SelectedTimeChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ITimePicker3_add_SelectedTimeChanged_Interface
+      ; sender : Windows.UI.Xaml.Controls.ITimePicker
+      ; args : Windows.UI.Xaml.Controls.ITimePickerSelectedValueChangedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_ITimePickerFlyout_add_TimePicked : aliased constant Windows.IID := (2104989707, 41183, 20913, (135, 155, 194, 61, 45, 224, 171, 190 ));
    
    type TypedEventHandler_ITimePickerFlyout_add_TimePicked_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITimePickerFlyout ; args : Windows.UI.Xaml.Controls.ITimePickedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ITimePickerFlyout_add_TimePicked'access) with null record;
@@ -38160,6 +41642,19 @@ package Windows.UI.Xaml.Controls is
       This       : access TypedEventHandler_ITimePickerFlyout_add_TimePicked_Interface
       ; sender : Windows.UI.Xaml.Controls.ITimePickerFlyout
       ; args : Windows.UI.Xaml.Controls.ITimePickedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IToggleSplitButton_add_IsCheckedChanged : aliased constant Windows.IID := (3855652310, 23534, 21235, (186, 58, 202, 102, 132, 26, 17, 218 ));
+   
+   type TypedEventHandler_IToggleSplitButton_add_IsCheckedChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IToggleSplitButton ; args : Windows.UI.Xaml.Controls.IToggleSplitButtonIsCheckedChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IToggleSplitButton_add_IsCheckedChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IToggleSplitButton_add_IsCheckedChanged_Interface
+      ; sender : Windows.UI.Xaml.Controls.IToggleSplitButton
+      ; args : Windows.UI.Xaml.Controls.IToggleSplitButtonIsCheckedChangedEventArgs
    )
    return Windows.HRESULT;
    
@@ -38199,6 +41694,32 @@ package Windows.UI.Xaml.Controls is
       This       : access TypedEventHandler_ITreeView_add_ItemInvoked_Interface
       ; sender : Windows.UI.Xaml.Controls.ITreeView
       ; args : Windows.UI.Xaml.Controls.ITreeViewItemInvokedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ITreeView2_add_DragItemsCompleted : aliased constant Windows.IID := (2880812060, 46252, 23151, (136, 50, 149, 225, 151, 66, 143, 137 ));
+   
+   type TypedEventHandler_ITreeView2_add_DragItemsCompleted_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITreeView ; args : Windows.UI.Xaml.Controls.ITreeViewDragItemsCompletedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ITreeView2_add_DragItemsCompleted'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ITreeView2_add_DragItemsCompleted_Interface
+      ; sender : Windows.UI.Xaml.Controls.ITreeView
+      ; args : Windows.UI.Xaml.Controls.ITreeViewDragItemsCompletedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ITreeView2_add_DragItemsStarting : aliased constant Windows.IID := (3300871249, 3818, 20506, (159, 8, 14, 34, 113, 216, 164, 229 ));
+   
+   type TypedEventHandler_ITreeView2_add_DragItemsStarting_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITreeView ; args : Windows.UI.Xaml.Controls.ITreeViewDragItemsStartingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ITreeView2_add_DragItemsStarting'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ITreeView2_add_DragItemsStarting_Interface
+      ; sender : Windows.UI.Xaml.Controls.ITreeView
+      ; args : Windows.UI.Xaml.Controls.ITreeViewDragItemsStartingEventArgs
    )
    return Windows.HRESULT;
    
@@ -38412,6 +41933,19 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_TypedEventHandler_IWebView7_add_WebResourceRequested : aliased constant Windows.IID := (2637095108, 43769, 23350, (163, 104, 204, 144, 139, 210, 19, 240 ));
+   
+   type TypedEventHandler_IWebView7_add_WebResourceRequested_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IWebView ; args : Windows.UI.Xaml.Controls.IWebViewWebResourceRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebView7_add_WebResourceRequested'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebView7_add_WebResourceRequested_Interface
+      ; sender : Windows.UI.Xaml.Controls.IWebView
+      ; args : Windows.UI.Xaml.Controls.IWebViewWebResourceRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_VectorChangedEventHandler_ICommandBarElement : aliased constant Windows.IID := (548963553, 49626, 21298, (184, 1, 79, 28, 33, 116, 74, 200 ));
    
    type VectorChangedEventHandler_ICommandBarElement_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.IObservableVector_ICommandBarElement ; event : Windows.Foundation.Collections.IVectorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_VectorChangedEventHandler_ICommandBarElement'access) with null record;
@@ -38453,6 +41987,7 @@ package Windows.UI.Xaml.Controls is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype AnchorRequestedEventArgs is Windows.UI.Xaml.Controls.IAnchorRequestedEventArgs;
    subtype AppBar is Windows.UI.Xaml.Controls.IAppBar;
    
    type IAppBarOverrides_Interface_Impl is new IAppBarOverrides_Interface with record
@@ -38669,7 +42204,7 @@ package Windows.UI.Xaml.Controls is
    function add_Opened
    (
       This       : access IAppBar_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -38684,7 +42219,7 @@ package Windows.UI.Xaml.Controls is
    function add_Closed
    (
       This       : access IAppBar_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -38774,6 +42309,59 @@ package Windows.UI.Xaml.Controls is
    (
       This       : access IAppBarButton_Interface_Impl
       ; value : Windows.UI.Xaml.Controls.IIconElement
+   )
+   return Windows.HRESULT;
+   
+   subtype AppBarElementContainer is Windows.UI.Xaml.Controls.IAppBarElementContainer;
+   
+   type IAppBarElementContainer_Interface_Impl is new IAppBarElementContainer_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IAppBarElementContainer := null;
+      m_IAppBarElementContainer : IAppBarElementContainer := null;
+   end record;
+   type IAppBarElementContainer_Impl is access all IAppBarElementContainer_Interface_Impl'Class;
+   type IAppBarElementContainer_Impl_Ptr is access all IAppBarElementContainer_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IAppBarElementContainer_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IAppBarElementContainer_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IAppBarElementContainer_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IAppBarElementContainer_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IAppBarElementContainer_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IAppBarElementContainer_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
    )
    return Windows.HRESULT;
    
@@ -39278,7 +42866,7 @@ package Windows.UI.Xaml.Controls is
    function add_CalendarViewDayItemChanging
    (
       This       : access ICalendarDatePicker_Interface_Impl
-      ; value : Windows.UI.Xaml.Controls.CalendarViewDayItemChangingEventHandler
+      ; handler : Windows.UI.Xaml.Controls.CalendarViewDayItemChangingEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -39293,7 +42881,7 @@ package Windows.UI.Xaml.Controls is
    function add_DateChanged
    (
       This       : access ICalendarDatePicker_Interface_Impl
-      ; value : TypedEventHandler_ICalendarDatePicker_add_DateChanged
+      ; handler : TypedEventHandler_ICalendarDatePicker_add_DateChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -39308,7 +42896,7 @@ package Windows.UI.Xaml.Controls is
    function add_Opened
    (
       This       : access ICalendarDatePicker_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -39323,7 +42911,7 @@ package Windows.UI.Xaml.Controls is
    function add_Closed
    (
       This       : access ICalendarDatePicker_Interface_Impl
-      ; value : Windows.Foundation.EventHandler_Object
+      ; handler : Windows.Foundation.EventHandler_Object
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -40107,7 +43695,7 @@ package Windows.UI.Xaml.Controls is
    function add_CalendarViewDayItemChanging
    (
       This       : access ICalendarView_Interface_Impl
-      ; value : TypedEventHandler_ICalendarView_add_CalendarViewDayItemChanging
+      ; handler : TypedEventHandler_ICalendarView_add_CalendarViewDayItemChanging
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -40122,7 +43710,7 @@ package Windows.UI.Xaml.Controls is
    function add_SelectedDatesChanged
    (
       This       : access ICalendarView_Interface_Impl
-      ; value : TypedEventHandler_ICalendarView_add_SelectedDatesChanged
+      ; handler : TypedEventHandler_ICalendarView_add_SelectedDatesChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -40620,7 +44208,7 @@ package Windows.UI.Xaml.Controls is
    function add_ColorChanged
    (
       This       : access IColorPicker_Interface_Impl
-      ; value : TypedEventHandler_IColorPicker_add_ColorChanged
+      ; handler : TypedEventHandler_IColorPicker_add_ColorChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -40638,6 +44226,7 @@ package Windows.UI.Xaml.Controls is
    subtype ColumnDefinitionCollection is Windows.UI.Xaml.Controls.IVector_ColumnDefinition;
    subtype ComboBox is Windows.UI.Xaml.Controls.IComboBox;
    subtype ComboBoxItem is Windows.UI.Xaml.Controls.IComboBoxItem;
+   subtype ComboBoxTextSubmittedEventArgs is Windows.UI.Xaml.Controls.IComboBoxTextSubmittedEventArgs;
    subtype CommandBar is Windows.UI.Xaml.Controls.ICommandBar;
    
    type ICommandBar_Interface_Impl is new ICommandBar_Interface with record
@@ -40705,6 +44294,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
+   subtype CommandBarFlyout is Windows.UI.Xaml.Controls.ICommandBarFlyout;
    subtype CommandBarOverflowPresenter is Windows.UI.Xaml.Controls.ICommandBarOverflowPresenter;
    
    type ICommandBarOverflowPresenter_Interface_Impl is new ICommandBarOverflowPresenter_Interface with record
@@ -41156,7 +44746,7 @@ package Windows.UI.Xaml.Controls is
    function add_Closing
    (
       This       : access IContentDialog_Interface_Impl
-      ; value : TypedEventHandler_IContentDialog_add_Closing
+      ; handler : TypedEventHandler_IContentDialog_add_Closing
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -41171,7 +44761,7 @@ package Windows.UI.Xaml.Controls is
    function add_Closed
    (
       This       : access IContentDialog_Interface_Impl
-      ; value : TypedEventHandler_IContentDialog_add_Closed
+      ; handler : TypedEventHandler_IContentDialog_add_Closed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -41186,7 +44776,7 @@ package Windows.UI.Xaml.Controls is
    function add_Opened
    (
       This       : access IContentDialog_Interface_Impl
-      ; value : TypedEventHandler_IContentDialog_add_Opened
+      ; handler : TypedEventHandler_IContentDialog_add_Opened
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -41201,7 +44791,7 @@ package Windows.UI.Xaml.Controls is
    function add_PrimaryButtonClick
    (
       This       : access IContentDialog_Interface_Impl
-      ; value : TypedEventHandler_IContentDialog_add_PrimaryButtonClick
+      ; handler : TypedEventHandler_IContentDialog_add_PrimaryButtonClick
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -41216,7 +44806,7 @@ package Windows.UI.Xaml.Controls is
    function add_SecondaryButtonClick
    (
       This       : access IContentDialog_Interface_Impl
-      ; value : TypedEventHandler_IContentDialog_add_SecondaryButtonClick
+      ; handler : TypedEventHandler_IContentDialog_add_SecondaryButtonClick
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -42066,7 +45656,7 @@ package Windows.UI.Xaml.Controls is
    function add_IsEnabledChanged
    (
       This       : access IControl_Interface_Impl
-      ; value : Windows.UI.Xaml.DependencyPropertyChangedEventHandler
+      ; handler : Windows.UI.Xaml.DependencyPropertyChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -42520,7 +46110,7 @@ package Windows.UI.Xaml.Controls is
    function add_DateChanged
    (
       This       : access IDatePicker_Interface_Impl
-      ; value : Windows.UI.Xaml.Controls.EventHandler_IDatePickerValueChangedEventArgs
+      ; handler : Windows.UI.Xaml.Controls.EventHandler_IDatePickerValueChangedEventArgs
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -42537,11 +46127,66 @@ package Windows.UI.Xaml.Controls is
    
    subtype DatePickerFlyoutItem is Windows.UI.Xaml.Controls.IDatePickerFlyoutItem;
    subtype DatePickerFlyoutPresenter is Windows.UI.Xaml.Controls.IDatePickerFlyoutPresenter;
+   subtype DatePickerSelectedValueChangedEventArgs is Windows.UI.Xaml.Controls.IDatePickerSelectedValueChangedEventArgs;
    subtype DatePickerValueChangedEventArgs is Windows.UI.Xaml.Controls.IDatePickerValueChangedEventArgs;
    subtype DragItemsCompletedEventArgs is Windows.UI.Xaml.Controls.IDragItemsCompletedEventArgs;
    subtype DragItemsStartingEventArgs is Windows.UI.Xaml.Controls.IDragItemsStartingEventArgs;
    function Create return Windows.UI.Xaml.Controls.IDragItemsStartingEventArgs;
    
+   subtype DropDownButton is Windows.UI.Xaml.Controls.IDropDownButton;
+   
+   type IDropDownButton_Interface_Impl is new IDropDownButton_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IDropDownButton := null;
+      m_IDropDownButton : IDropDownButton := null;
+   end record;
+   type IDropDownButton_Impl is access all IDropDownButton_Interface_Impl'Class;
+   type IDropDownButton_Impl_Ptr is access all IDropDownButton_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IDropDownButton_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IDropDownButton_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IDropDownButton_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IDropDownButton_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IDropDownButton_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IDropDownButton_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   subtype DropDownButtonAutomationPeer is Windows.UI.Xaml.Controls.IDropDownButtonAutomationPeer;
    subtype DynamicOverflowItemsChangingEventArgs is Windows.UI.Xaml.Controls.IDynamicOverflowItemsChangingEventArgs;
    function Create return Windows.UI.Xaml.Controls.IDynamicOverflowItemsChangingEventArgs;
    
@@ -42989,7 +46634,7 @@ package Windows.UI.Xaml.Controls is
    function add_Navigated
    (
       This       : access IFrame_Interface_Impl
-      ; value : Windows.UI.Xaml.Navigation.NavigatedEventHandler
+      ; handler : Windows.UI.Xaml.Navigation.NavigatedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -43004,7 +46649,7 @@ package Windows.UI.Xaml.Controls is
    function add_Navigating
    (
       This       : access IFrame_Interface_Impl
-      ; value : Windows.UI.Xaml.Navigation.NavigatingCancelEventHandler
+      ; handler : Windows.UI.Xaml.Navigation.NavigatingCancelEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -43019,7 +46664,7 @@ package Windows.UI.Xaml.Controls is
    function add_NavigationFailed
    (
       This       : access IFrame_Interface_Impl
-      ; value : Windows.UI.Xaml.Navigation.NavigationFailedEventHandler
+      ; handler : Windows.UI.Xaml.Navigation.NavigationFailedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -43034,7 +46679,7 @@ package Windows.UI.Xaml.Controls is
    function add_NavigationStopped
    (
       This       : access IFrame_Interface_Impl
-      ; value : Windows.UI.Xaml.Navigation.NavigationStoppedEventHandler
+      ; handler : Windows.UI.Xaml.Navigation.NavigationStoppedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -43539,7 +47184,7 @@ package Windows.UI.Xaml.Controls is
    function add_Opened
    (
       This       : access IHandwritingView_Interface_Impl
-      ; value : TypedEventHandler_IHandwritingView_add_Opened
+      ; handler : TypedEventHandler_IHandwritingView_add_Opened
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -43554,7 +47199,7 @@ package Windows.UI.Xaml.Controls is
    function add_Closed
    (
       This       : access IHandwritingView_Interface_Impl
-      ; value : TypedEventHandler_IHandwritingView_add_Closed
+      ; handler : TypedEventHandler_IHandwritingView_add_Closed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -43713,7 +47358,7 @@ package Windows.UI.Xaml.Controls is
    function add_SectionHeaderClick
    (
       This       : access IHub_Interface_Impl
-      ; value : Windows.UI.Xaml.Controls.HubSectionHeaderClickEventHandler
+      ; handler : Windows.UI.Xaml.Controls.HubSectionHeaderClickEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -43728,7 +47373,7 @@ package Windows.UI.Xaml.Controls is
    function add_SectionsInViewChanged
    (
       This       : access IHub_Interface_Impl
-      ; value : Windows.UI.Xaml.Controls.SectionsInViewChangedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.SectionsInViewChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -43863,6 +47508,73 @@ package Windows.UI.Xaml.Controls is
    subtype HyperlinkButton is Windows.UI.Xaml.Controls.IHyperlinkButton;
    subtype IconElement is Windows.UI.Xaml.Controls.IIconElement;
    subtype IconSource is Windows.UI.Xaml.Controls.IIconSource;
+   subtype IconSourceElement is Windows.UI.Xaml.Controls.IIconSourceElement;
+   
+   type IIconSourceElement_Interface_Impl is new IIconSourceElement_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IIconSourceElement := null;
+      m_IIconSourceElement : IIconSourceElement := null;
+   end record;
+   type IIconSourceElement_Impl is access all IIconSourceElement_Interface_Impl'Class;
+   type IIconSourceElement_Impl_Ptr is access all IIconSourceElement_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IIconSourceElement_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IIconSourceElement_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IIconSourceElement_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IIconSourceElement_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IIconSourceElement_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IIconSourceElement_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_IconSource
+   (
+      This       : access IIconSourceElement_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.IIconSource
+   )
+   return Windows.HRESULT;
+   
+   function put_IconSource
+   (
+      This       : access IIconSourceElement_Interface_Impl
+      ; value : Windows.UI.Xaml.Controls.IIconSource
+   )
+   return Windows.HRESULT;
+   
    subtype Image is Windows.UI.Xaml.Controls.IImage;
    function Create return Windows.UI.Xaml.Controls.IImage;
    
@@ -44052,7 +47764,7 @@ package Windows.UI.Xaml.Controls is
    function add_ActiveToolChanged
    (
       This       : access IInkToolbar_Interface_Impl
-      ; value : TypedEventHandler_IInkToolbar_add_ActiveToolChanged
+      ; handler : TypedEventHandler_IInkToolbar_add_ActiveToolChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -44067,7 +47779,7 @@ package Windows.UI.Xaml.Controls is
    function add_InkDrawingAttributesChanged
    (
       This       : access IInkToolbar_Interface_Impl
-      ; value : TypedEventHandler_IInkToolbar_add_InkDrawingAttributesChanged
+      ; handler : TypedEventHandler_IInkToolbar_add_InkDrawingAttributesChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -44082,7 +47794,7 @@ package Windows.UI.Xaml.Controls is
    function add_EraseAllClicked
    (
       This       : access IInkToolbar_Interface_Impl
-      ; value : TypedEventHandler_IInkToolbar_add_EraseAllClicked
+      ; handler : TypedEventHandler_IInkToolbar_add_EraseAllClicked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -44097,7 +47809,7 @@ package Windows.UI.Xaml.Controls is
    function add_IsRulerButtonCheckedChanged
    (
       This       : access IInkToolbar_Interface_Impl
-      ; value : TypedEventHandler_IInkToolbar_add_IsRulerButtonCheckedChanged
+      ; handler : TypedEventHandler_IInkToolbar_add_IsRulerButtonCheckedChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -45927,6 +49639,193 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype MediaTransportControlsHelper is Windows.UI.Xaml.Controls.IMediaTransportControlsHelper;
+   subtype MenuBar is Windows.UI.Xaml.Controls.IMenuBar;
+   
+   type IMenuBar_Interface_Impl is new IMenuBar_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IMenuBar := null;
+      m_IMenuBar : IMenuBar := null;
+   end record;
+   type IMenuBar_Impl is access all IMenuBar_Interface_Impl'Class;
+   type IMenuBar_Impl_Ptr is access all IMenuBar_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IMenuBar_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IMenuBar_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IMenuBar_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IMenuBar_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IMenuBar_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IMenuBar_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Items
+   (
+      This       : access IMenuBar_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.IVector_IMenuBarItem -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   subtype MenuBarItem is Windows.UI.Xaml.Controls.IMenuBarItem;
+   
+   type IMenuBarItem_Interface_Impl is new IMenuBarItem_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IMenuBarItem := null;
+      m_IMenuBarItem : IMenuBarItem := null;
+   end record;
+   type IMenuBarItem_Impl is access all IMenuBarItem_Interface_Impl'Class;
+   type IMenuBarItem_Impl_Ptr is access all IMenuBarItem_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IMenuBarItem_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IMenuBarItem_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IMenuBarItem_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IMenuBarItem_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IMenuBarItem_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IMenuBarItem_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Title
+   (
+      This       : access IMenuBarItem_Interface_Impl
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function put_Title
+   (
+      This       : access IMenuBarItem_Interface_Impl
+      ; value : Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function get_Items
+   (
+      This       : access IMenuBarItem_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.IVector_IMenuFlyoutItemBase -- Generic Parameter Type
+   )
+   return Windows.HRESULT;
+   
+   subtype MenuBarItemFlyout is Windows.UI.Xaml.Controls.IMenuBarItemFlyout;
+   
+   type IMenuBarItemFlyout_Interface_Impl is new IMenuBarItemFlyout_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IMenuBarItemFlyout := null;
+      m_IMenuBarItemFlyout : IMenuBarItemFlyout := null;
+   end record;
+   type IMenuBarItemFlyout_Impl is access all IMenuBarItemFlyout_Interface_Impl'Class;
+   type IMenuBarItemFlyout_Impl_Ptr is access all IMenuBarItemFlyout_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IMenuBarItemFlyout_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IMenuBarItemFlyout_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IMenuBarItemFlyout_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IMenuBarItemFlyout_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IMenuBarItemFlyout_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IMenuBarItemFlyout_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
    subtype MenuFlyout is Windows.UI.Xaml.Controls.IMenuFlyout;
    subtype MenuFlyoutItem is Windows.UI.Xaml.Controls.IMenuFlyoutItem;
    
@@ -46026,7 +49925,7 @@ package Windows.UI.Xaml.Controls is
    function add_Click
    (
       This       : access IMenuFlyoutItem_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -46507,7 +50406,7 @@ package Windows.UI.Xaml.Controls is
    function add_SelectionChanged
    (
       This       : access INavigationView_Interface_Impl
-      ; value : TypedEventHandler_INavigationView_add_SelectionChanged
+      ; handler : TypedEventHandler_INavigationView_add_SelectionChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -46522,7 +50421,7 @@ package Windows.UI.Xaml.Controls is
    function add_ItemInvoked
    (
       This       : access INavigationView_Interface_Impl
-      ; value : TypedEventHandler_INavigationView_add_ItemInvoked
+      ; handler : TypedEventHandler_INavigationView_add_ItemInvoked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -46537,7 +50436,7 @@ package Windows.UI.Xaml.Controls is
    function add_DisplayModeChanged
    (
       This       : access INavigationView_Interface_Impl
-      ; value : TypedEventHandler_INavigationView_add_DisplayModeChanged
+      ; handler : TypedEventHandler_INavigationView_add_DisplayModeChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -46790,6 +50689,108 @@ package Windows.UI.Xaml.Controls is
    
    subtype NavigationViewPaneClosingEventArgs is Windows.UI.Xaml.Controls.INavigationViewPaneClosingEventArgs;
    subtype NavigationViewSelectionChangedEventArgs is Windows.UI.Xaml.Controls.INavigationViewSelectionChangedEventArgs;
+   subtype NavigationViewTemplateSettings is Windows.UI.Xaml.Controls.INavigationViewTemplateSettings;
+   
+   type INavigationViewTemplateSettings_Interface_Impl is new INavigationViewTemplateSettings_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased INavigationViewTemplateSettings := null;
+      m_INavigationViewTemplateSettings : INavigationViewTemplateSettings := null;
+   end record;
+   type INavigationViewTemplateSettings_Impl is access all INavigationViewTemplateSettings_Interface_Impl'Class;
+   type INavigationViewTemplateSettings_Impl_Ptr is access all INavigationViewTemplateSettings_Impl;
+   
+   function QueryInterface
+   (
+      This       : access INavigationViewTemplateSettings_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access INavigationViewTemplateSettings_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access INavigationViewTemplateSettings_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access INavigationViewTemplateSettings_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access INavigationViewTemplateSettings_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access INavigationViewTemplateSettings_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_TopPadding
+   (
+      This       : access INavigationViewTemplateSettings_Interface_Impl
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT;
+   
+   function get_OverflowButtonVisibility
+   (
+      This       : access INavigationViewTemplateSettings_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Visibility
+   )
+   return Windows.HRESULT;
+   
+   function get_PaneToggleButtonVisibility
+   (
+      This       : access INavigationViewTemplateSettings_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Visibility
+   )
+   return Windows.HRESULT;
+   
+   function get_BackButtonVisibility
+   (
+      This       : access INavigationViewTemplateSettings_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Visibility
+   )
+   return Windows.HRESULT;
+   
+   function get_TopPaneVisibility
+   (
+      This       : access INavigationViewTemplateSettings_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Visibility
+   )
+   return Windows.HRESULT;
+   
+   function get_LeftPaneVisibility
+   (
+      This       : access INavigationViewTemplateSettings_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Visibility
+   )
+   return Windows.HRESULT;
+   
+   function get_SingleSelectionFollowsFocus
+   (
+      This       : access INavigationViewTemplateSettings_Interface_Impl
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT;
+   
    subtype NotifyEventArgs is Windows.UI.Xaml.Controls.INotifyEventArgs;
    subtype Page is Windows.UI.Xaml.Controls.IPage;
    
@@ -47022,7 +51023,7 @@ package Windows.UI.Xaml.Controls is
    function get_Children
    (
       This       : access IPanel_Interface_Impl
-      ; RetVal : access Windows.UI.Xaml.Controls.IVector_UIElement
+      ; RetVal : access Windows.UI.Xaml.Controls.IUIElementCollection
    )
    return Windows.HRESULT;
    
@@ -47800,7 +51801,7 @@ package Windows.UI.Xaml.Controls is
    function add_SelectionChanged
    (
       This       : access IPivot_Interface_Impl
-      ; value : Windows.UI.Xaml.Controls.SelectionChangedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.SelectionChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -47815,7 +51816,7 @@ package Windows.UI.Xaml.Controls is
    function add_PivotItemLoading
    (
       This       : access IPivot_Interface_Impl
-      ; value : TypedEventHandler_IPivot_add_PivotItemLoading
+      ; handler : TypedEventHandler_IPivot_add_PivotItemLoading
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -47830,7 +51831,7 @@ package Windows.UI.Xaml.Controls is
    function add_PivotItemLoaded
    (
       This       : access IPivot_Interface_Impl
-      ; value : TypedEventHandler_IPivot_add_PivotItemLoaded
+      ; handler : TypedEventHandler_IPivot_add_PivotItemLoaded
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -47845,7 +51846,7 @@ package Windows.UI.Xaml.Controls is
    function add_PivotItemUnloading
    (
       This       : access IPivot_Interface_Impl
-      ; value : TypedEventHandler_IPivot_add_PivotItemUnloading
+      ; handler : TypedEventHandler_IPivot_add_PivotItemUnloading
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -47860,7 +51861,7 @@ package Windows.UI.Xaml.Controls is
    function add_PivotItemUnloaded
    (
       This       : access IPivot_Interface_Impl
-      ; value : TypedEventHandler_IPivot_add_PivotItemUnloaded
+      ; handler : TypedEventHandler_IPivot_add_PivotItemUnloaded
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -48115,7 +52116,7 @@ package Windows.UI.Xaml.Controls is
    function add_ValueChanged
    (
       This       : access IRatingControl_Interface_Impl
-      ; value : TypedEventHandler_IRatingControl_add_ValueChanged
+      ; handler : TypedEventHandler_IRatingControl_add_ValueChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -48538,7 +52539,7 @@ package Windows.UI.Xaml.Controls is
    function add_RefreshRequested
    (
       This       : access IRefreshContainer_Interface_Impl
-      ; value : TypedEventHandler_IRefreshContainer_add_RefreshRequested
+      ; handler : TypedEventHandler_IRefreshContainer_add_RefreshRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -48656,7 +52657,7 @@ package Windows.UI.Xaml.Controls is
    function add_RefreshRequested
    (
       This       : access IRefreshVisualizer_Interface_Impl
-      ; value : TypedEventHandler_IRefreshVisualizer_add_RefreshRequested
+      ; handler : TypedEventHandler_IRefreshVisualizer_add_RefreshRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -48671,7 +52672,7 @@ package Windows.UI.Xaml.Controls is
    function add_RefreshStateChanged
    (
       This       : access IRefreshVisualizer_Interface_Impl
-      ; value : TypedEventHandler_IRefreshVisualizer_add_RefreshStateChanged
+      ; handler : TypedEventHandler_IRefreshVisualizer_add_RefreshStateChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -48953,7 +52954,7 @@ package Windows.UI.Xaml.Controls is
    function add_TextChanged
    (
       This       : access IRichEditBox_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -48968,7 +52969,7 @@ package Windows.UI.Xaml.Controls is
    function add_SelectionChanged
    (
       This       : access IRichEditBox_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -48983,7 +52984,7 @@ package Windows.UI.Xaml.Controls is
    function add_ContextMenuOpening
    (
       This       : access IRichEditBox_Interface_Impl
-      ; value : Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler
+      ; handler : Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -48995,6 +52996,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
+   subtype RichEditBoxSelectionChangingEventArgs is Windows.UI.Xaml.Controls.IRichEditBoxSelectionChangingEventArgs;
    subtype RichEditBoxTextChangingEventArgs is Windows.UI.Xaml.Controls.IRichEditBoxTextChangingEventArgs;
    subtype RichTextBlock is Windows.UI.Xaml.Controls.IRichTextBlock;
    function Create return Windows.UI.Xaml.Controls.IRichTextBlock;
@@ -49157,7 +53159,7 @@ package Windows.UI.Xaml.Controls is
    function add_QueryChanged
    (
       This       : access ISearchBox_Interface_Impl
-      ; value : TypedEventHandler_ISearchBox_add_QueryChanged
+      ; handler : TypedEventHandler_ISearchBox_add_QueryChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -49172,7 +53174,7 @@ package Windows.UI.Xaml.Controls is
    function add_SuggestionsRequested
    (
       This       : access ISearchBox_Interface_Impl
-      ; value : TypedEventHandler_ISearchBox_add_SuggestionsRequested
+      ; handler : TypedEventHandler_ISearchBox_add_SuggestionsRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -49187,7 +53189,7 @@ package Windows.UI.Xaml.Controls is
    function add_QuerySubmitted
    (
       This       : access ISearchBox_Interface_Impl
-      ; value : TypedEventHandler_ISearchBox_add_QuerySubmitted
+      ; handler : TypedEventHandler_ISearchBox_add_QuerySubmitted
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -49202,7 +53204,7 @@ package Windows.UI.Xaml.Controls is
    function add_ResultSuggestionChosen
    (
       This       : access ISearchBox_Interface_Impl
-      ; value : TypedEventHandler_ISearchBox_add_ResultSuggestionChosen
+      ; handler : TypedEventHandler_ISearchBox_add_ResultSuggestionChosen
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -49217,7 +53219,7 @@ package Windows.UI.Xaml.Controls is
    function add_PrepareForFocusOnKeyboardInput
    (
       This       : access ISearchBox_Interface_Impl
-      ; value : TypedEventHandler_ISearchBox_add_PrepareForFocusOnKeyboardInput
+      ; handler : TypedEventHandler_ISearchBox_add_PrepareForFocusOnKeyboardInput
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -49372,7 +53374,7 @@ package Windows.UI.Xaml.Controls is
    function add_BackClick
    (
       This       : access ISettingsFlyout_Interface_Impl
-      ; value : Windows.UI.Xaml.Controls.BackClickEventHandler
+      ; handler : Windows.UI.Xaml.Controls.BackClickEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -49403,6 +53405,118 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype Slider is Windows.UI.Xaml.Controls.ISlider;
+   subtype SplitButton is Windows.UI.Xaml.Controls.ISplitButton;
+   
+   type ISplitButton_Interface_Impl is new ISplitButton_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased ISplitButton := null;
+      m_ISplitButton : ISplitButton := null;
+   end record;
+   type ISplitButton_Impl is access all ISplitButton_Interface_Impl'Class;
+   type ISplitButton_Impl_Ptr is access all ISplitButton_Impl;
+   
+   function QueryInterface
+   (
+      This       : access ISplitButton_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access ISplitButton_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access ISplitButton_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access ISplitButton_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access ISplitButton_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access ISplitButton_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Flyout
+   (
+      This       : access ISplitButton_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT;
+   
+   function put_Flyout
+   (
+      This       : access ISplitButton_Interface_Impl
+      ; value : Windows.UI.Xaml.Controls.Primitives.IFlyoutBase
+   )
+   return Windows.HRESULT;
+   
+   function get_Command
+   (
+      This       : access ISplitButton_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Input.ICommand
+   )
+   return Windows.HRESULT;
+   
+   function put_Command
+   (
+      This       : access ISplitButton_Interface_Impl
+      ; value : Windows.UI.Xaml.Input.ICommand
+   )
+   return Windows.HRESULT;
+   
+   function get_CommandParameter
+   (
+      This       : access ISplitButton_Interface_Impl
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   function put_CommandParameter
+   (
+      This       : access ISplitButton_Interface_Impl
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   function add_Click
+   (
+      This       : access ISplitButton_Interface_Impl
+      ; handler : TypedEventHandler_ISplitButton_add_Click
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT;
+   
+   function remove_Click
+   (
+      This       : access ISplitButton_Interface_Impl
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT;
+   
+   subtype SplitButtonAutomationPeer is Windows.UI.Xaml.Controls.ISplitButtonAutomationPeer;
+   subtype SplitButtonClickEventArgs is Windows.UI.Xaml.Controls.ISplitButtonClickEventArgs;
    subtype SplitView is Windows.UI.Xaml.Controls.ISplitView;
    
    type ISplitView_Interface_Impl is new ISplitView_Interface with record
@@ -49578,7 +53692,7 @@ package Windows.UI.Xaml.Controls is
    function add_PaneClosing
    (
       This       : access ISplitView_Interface_Impl
-      ; value : TypedEventHandler_ISplitView_add_PaneClosing
+      ; handler : TypedEventHandler_ISplitView_add_PaneClosing
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -49593,7 +53707,7 @@ package Windows.UI.Xaml.Controls is
    function add_PaneClosed
    (
       This       : access ISplitView_Interface_Impl
-      ; value : TypedEventHandler_ISplitView_add_PaneClosed
+      ; handler : TypedEventHandler_ISplitView_add_PaneClosed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -49853,7 +53967,7 @@ package Windows.UI.Xaml.Controls is
    function add_CompositionScaleChanged
    (
       This       : access ISwapChainPanel_Interface_Impl
-      ; value : TypedEventHandler_ISwapChainPanel_add_CompositionScaleChanged
+      ; handler : TypedEventHandler_ISwapChainPanel_add_CompositionScaleChanged
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -50142,7 +54256,7 @@ package Windows.UI.Xaml.Controls is
    function add_Invoked
    (
       This       : access ISwipeItem_Interface_Impl
-      ; value : TypedEventHandler_ISwipeItem_add_Invoked
+      ; handler : TypedEventHandler_ISwipeItem_add_Invoked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -50525,7 +54639,7 @@ package Windows.UI.Xaml.Controls is
    function add_TextChanged
    (
       This       : access ITextBox_Interface_Impl
-      ; value : Windows.UI.Xaml.Controls.TextChangedEventHandler
+      ; handler : Windows.UI.Xaml.Controls.TextChangedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -50540,7 +54654,7 @@ package Windows.UI.Xaml.Controls is
    function add_SelectionChanged
    (
       This       : access ITextBox_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -50555,7 +54669,7 @@ package Windows.UI.Xaml.Controls is
    function add_ContextMenuOpening
    (
       This       : access ITextBox_Interface_Impl
-      ; value : Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler
+      ; handler : Windows.UI.Xaml.Controls.ContextMenuOpeningEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -50591,8 +54705,62 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype TextBoxBeforeTextChangingEventArgs is Windows.UI.Xaml.Controls.ITextBoxBeforeTextChangingEventArgs;
+   subtype TextBoxSelectionChangingEventArgs is Windows.UI.Xaml.Controls.ITextBoxSelectionChangingEventArgs;
    subtype TextBoxTextChangingEventArgs is Windows.UI.Xaml.Controls.ITextBoxTextChangingEventArgs;
    subtype TextChangedEventArgs is Windows.UI.Xaml.Controls.ITextChangedEventArgs;
+   subtype TextCommandBarFlyout is Windows.UI.Xaml.Controls.ITextCommandBarFlyout;
+   
+   type ITextCommandBarFlyout_Interface_Impl is new ITextCommandBarFlyout_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased ITextCommandBarFlyout := null;
+      m_ITextCommandBarFlyout : ITextCommandBarFlyout := null;
+   end record;
+   type ITextCommandBarFlyout_Impl is access all ITextCommandBarFlyout_Interface_Impl'Class;
+   type ITextCommandBarFlyout_Impl_Ptr is access all ITextCommandBarFlyout_Impl;
+   
+   function QueryInterface
+   (
+      This       : access ITextCommandBarFlyout_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access ITextCommandBarFlyout_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access ITextCommandBarFlyout_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access ITextCommandBarFlyout_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access ITextCommandBarFlyout_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access ITextCommandBarFlyout_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
    subtype TextCompositionChangedEventArgs is Windows.UI.Xaml.Controls.ITextCompositionChangedEventArgs;
    subtype TextCompositionEndedEventArgs is Windows.UI.Xaml.Controls.ITextCompositionEndedEventArgs;
    subtype TextCompositionStartedEventArgs is Windows.UI.Xaml.Controls.ITextCompositionStartedEventArgs;
@@ -50728,7 +54896,7 @@ package Windows.UI.Xaml.Controls is
    function add_TimeChanged
    (
       This       : access ITimePicker_Interface_Impl
-      ; value : Windows.UI.Xaml.Controls.EventHandler_ITimePickerValueChangedEventArgs
+      ; handler : Windows.UI.Xaml.Controls.EventHandler_ITimePickerValueChangedEventArgs
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -50744,6 +54912,7 @@ package Windows.UI.Xaml.Controls is
    function Create return Windows.UI.Xaml.Controls.ITimePickerFlyout;
    
    subtype TimePickerFlyoutPresenter is Windows.UI.Xaml.Controls.ITimePickerFlyoutPresenter;
+   subtype TimePickerSelectedValueChangedEventArgs is Windows.UI.Xaml.Controls.ITimePickerSelectedValueChangedEventArgs;
    subtype TimePickerValueChangedEventArgs is Windows.UI.Xaml.Controls.ITimePickerValueChangedEventArgs;
    subtype ToggleMenuFlyoutItem is Windows.UI.Xaml.Controls.IToggleMenuFlyoutItem;
    
@@ -50812,6 +54981,90 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
+   subtype ToggleSplitButton is Windows.UI.Xaml.Controls.IToggleSplitButton;
+   
+   type IToggleSplitButton_Interface_Impl is new IToggleSplitButton_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IToggleSplitButton := null;
+      m_IToggleSplitButton : IToggleSplitButton := null;
+   end record;
+   type IToggleSplitButton_Impl is access all IToggleSplitButton_Interface_Impl'Class;
+   type IToggleSplitButton_Impl_Ptr is access all IToggleSplitButton_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IToggleSplitButton_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IToggleSplitButton_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IToggleSplitButton_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IToggleSplitButton_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IToggleSplitButton_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IToggleSplitButton_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_IsChecked
+   (
+      This       : access IToggleSplitButton_Interface_Impl
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT;
+   
+   function put_IsChecked
+   (
+      This       : access IToggleSplitButton_Interface_Impl
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT;
+   
+   function add_IsCheckedChanged
+   (
+      This       : access IToggleSplitButton_Interface_Impl
+      ; handler : TypedEventHandler_IToggleSplitButton_add_IsCheckedChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT;
+   
+   function remove_IsCheckedChanged
+   (
+      This       : access IToggleSplitButton_Interface_Impl
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT;
+   
+   subtype ToggleSplitButtonAutomationPeer is Windows.UI.Xaml.Controls.IToggleSplitButtonAutomationPeer;
+   subtype ToggleSplitButtonIsCheckedChangedEventArgs is Windows.UI.Xaml.Controls.IToggleSplitButtonIsCheckedChangedEventArgs;
    subtype ToggleSwitch is Windows.UI.Xaml.Controls.IToggleSwitch;
    function Create return Windows.UI.Xaml.Controls.IToggleSwitch;
    
@@ -50948,7 +55201,7 @@ package Windows.UI.Xaml.Controls is
    function add_Closed
    (
       This       : access IToolTip_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -50963,7 +55216,7 @@ package Windows.UI.Xaml.Controls is
    function add_Opened
    (
       This       : access IToolTip_Interface_Impl
-      ; value : Windows.UI.Xaml.RoutedEventHandler
+      ; handler : Windows.UI.Xaml.RoutedEventHandler
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -51080,7 +55333,7 @@ package Windows.UI.Xaml.Controls is
    function add_ItemInvoked
    (
       This       : access ITreeView_Interface_Impl
-      ; value : TypedEventHandler_ITreeView_add_ItemInvoked
+      ; handler : TypedEventHandler_ITreeView_add_ItemInvoked
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -51095,7 +55348,7 @@ package Windows.UI.Xaml.Controls is
    function add_Expanding
    (
       This       : access ITreeView_Interface_Impl
-      ; value : TypedEventHandler_ITreeView_add_Expanding
+      ; handler : TypedEventHandler_ITreeView_add_Expanding
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -51110,7 +55363,7 @@ package Windows.UI.Xaml.Controls is
    function add_Collapsed
    (
       This       : access ITreeView_Interface_Impl
-      ; value : TypedEventHandler_ITreeView_add_Collapsed
+      ; handler : TypedEventHandler_ITreeView_add_Collapsed
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT;
@@ -51123,6 +55376,8 @@ package Windows.UI.Xaml.Controls is
    return Windows.HRESULT;
    
    subtype TreeViewCollapsedEventArgs is Windows.UI.Xaml.Controls.ITreeViewCollapsedEventArgs;
+   subtype TreeViewDragItemsCompletedEventArgs is Windows.UI.Xaml.Controls.ITreeViewDragItemsCompletedEventArgs;
+   subtype TreeViewDragItemsStartingEventArgs is Windows.UI.Xaml.Controls.ITreeViewDragItemsStartingEventArgs;
    subtype TreeViewExpandingEventArgs is Windows.UI.Xaml.Controls.ITreeViewExpandingEventArgs;
    subtype TreeViewItem is Windows.UI.Xaml.Controls.ITreeViewItem;
    
@@ -51526,7 +55781,7 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
-   subtype UIElementCollection is Windows.UI.Xaml.Controls.IVector_UIElement;
+   subtype UIElementCollection is Windows.UI.Xaml.Controls.IUIElementCollection;
    subtype UserControl is Windows.UI.Xaml.Controls.IUserControl;
    
    type IUserControl_Interface_Impl is new IUserControl_Interface with record
@@ -51630,6 +55885,7 @@ package Windows.UI.Xaml.Controls is
    subtype WebViewSettings is Windows.UI.Xaml.Controls.IWebViewSettings;
    subtype WebViewUnsupportedUriSchemeIdentifiedEventArgs is Windows.UI.Xaml.Controls.IWebViewUnsupportedUriSchemeIdentifiedEventArgs;
    subtype WebViewUnviewableContentIdentifiedEventArgs is Windows.UI.Xaml.Controls.IWebViewUnviewableContentIdentifiedEventArgs;
+   subtype WebViewWebResourceRequestedEventArgs is Windows.UI.Xaml.Controls.IWebViewWebResourceRequestedEventArgs;
    subtype WrapGrid is Windows.UI.Xaml.Controls.IWrapGrid;
    function Create return Windows.UI.Xaml.Controls.IWrapGrid;
    
@@ -51640,8 +55896,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IAppBar;
    
@@ -51659,8 +55915,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IAppBarButton;
    
@@ -51687,8 +55943,24 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IAppBarElementContainer;
+   
+   function get_DynamicOverflowOrderProperty_IAppBarElementContainer
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsCompactProperty_IAppBarElementContainer
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsInOverflowProperty_IAppBarElementContainer
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IAppBarSeparator;
    
@@ -51703,8 +55975,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IAppBarToggleButton;
    
@@ -51762,13 +56034,16 @@ package Windows.UI.Xaml.Controls is
    function get_LightDismissOverlayModeProperty_IAutoSuggestBox
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_DescriptionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_ReasonProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IBitmapIcon;
    
@@ -51780,8 +56055,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IBitmapIconSource;
    
@@ -51809,10 +56084,13 @@ package Windows.UI.Xaml.Controls is
    function get_PaddingProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_BackgroundSizingProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IButton;
    
@@ -51821,8 +56099,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ICalendarDatePicker;
    
@@ -51877,10 +56155,13 @@ package Windows.UI.Xaml.Controls is
    function get_LightDismissOverlayModeProperty_ICalendarDatePicker
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_DescriptionProperty_ICalendarDatePicker
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ICalendarView;
    
@@ -52039,8 +56320,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ICalendarViewDayItem;
    
@@ -52052,8 +56333,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ICanvas;
    
@@ -52113,15 +56394,15 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ICheckBox;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IColorPicker;
    
@@ -52193,8 +56474,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IComboBox;
    
@@ -52225,17 +56506,29 @@ package Windows.UI.Xaml.Controls is
    function get_PlaceholderForegroundProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_DescriptionProperty_IComboBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsEditableProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextBoxStyleProperty_IComboBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TextProperty_IComboBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IComboBoxItem;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ICommandBar;
    
@@ -52259,15 +56552,22 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ICommandBarFlyout;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ICommandBarOverflowPresenter;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IContentControl;
    
@@ -52285,8 +56585,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IContentDialog;
    
@@ -52346,8 +56646,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IContentPresenter;
    
@@ -52426,10 +56726,13 @@ package Windows.UI.Xaml.Controls is
    function get_VerticalContentAlignmentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_BackgroundSizingProperty_IContentPresenter
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IControl;
    
@@ -52558,17 +56861,23 @@ package Windows.UI.Xaml.Controls is
    )
    ;
    
+   function get_BackgroundSizingProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CornerRadiusProperty_IControl
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IDataTemplateSelector;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IDatePicker;
    
@@ -52614,6 +56923,9 @@ package Windows.UI.Xaml.Controls is
    function get_LightDismissOverlayModeProperty_IDatePicker
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_SelectedDateProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_CalendarIdentifierProperty_IDatePickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -52652,8 +56964,23 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IDropDownButton;
+   
+   function CreateInstance
+   (
+      owner : Windows.UI.Xaml.Controls.IDropDownButton
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IDropDownButtonAutomationPeer;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IFlipView;
    
@@ -52662,15 +56989,15 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IFlipViewItem;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IFlyout;
    
@@ -52682,15 +57009,15 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IFlyoutPresenter;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IFontIcon;
    
@@ -52717,8 +57044,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IFontIconSource;
    
@@ -52745,8 +57072,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IFrame;
    
@@ -52774,10 +57101,13 @@ package Windows.UI.Xaml.Controls is
    function get_ForwardStackProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_IsNavigationStackEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IGrid;
    
@@ -52863,52 +57193,55 @@ package Windows.UI.Xaml.Controls is
    function get_RowSpacingProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_BackgroundSizingProperty_IGrid
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IGridView;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IGridViewHeaderItem;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IGridViewItem;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IGroupItem;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IGroupStyle;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IGroupStyleSelector;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IHandwritingView;
    
@@ -52926,8 +57259,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IHub;
    
@@ -52954,8 +57287,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IHubSection;
    
@@ -52973,8 +57306,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IHyperlinkButton;
    
@@ -52985,6 +57318,16 @@ package Windows.UI.Xaml.Controls is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_ForegroundProperty_IIconSource
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IIconSourceElement;
+   
+   function get_IconSourceProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_NineGridProperty
@@ -53001,15 +57344,15 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IInkCanvas;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IInkToolbar;
    
@@ -53042,22 +57385,22 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IInkToolbarBallpointPenButton;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IInkToolbarCustomPen;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IInkToolbarCustomPenButton;
    
@@ -53069,15 +57412,15 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IInkToolbarCustomToggleButton;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IInkToolbarCustomToolButton;
    
@@ -53086,8 +57429,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IInkToolbarEraserButton;
    
@@ -53096,8 +57439,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IInkToolbarFlyoutItem;
    
@@ -53109,8 +57452,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IInkToolbarHighlighterButton;
    
@@ -53137,15 +57480,15 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IInkToolbarPencilButton;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IInkToolbarPenConfigurationControl;
    
@@ -53154,8 +57497,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IInkToolbarRulerButton;
    
@@ -53164,8 +57507,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IInkToolbarStencilButton;
    
@@ -53189,8 +57532,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IItemsControl;
    
@@ -53298,8 +57641,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IListBox;
    
@@ -53311,8 +57654,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IListBoxItem;
    
@@ -53342,15 +57685,15 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IListView;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IListViewBase;
    
@@ -53419,15 +57762,15 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IListViewHeaderItem;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IListViewItem;
    
@@ -53559,8 +57902,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IMediaPlayerElement;
    
@@ -53587,8 +57930,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IMediaPlayerPresenter;
    
@@ -53603,8 +57946,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IMediaTransportControls;
    
@@ -53713,8 +58056,38 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IMenuBar;
+   
+   function get_ItemsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IMenuBarItem;
+   
+   function get_ItemsProperty_IMenuBarItem
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TitleProperty_IMenuBarItem
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IMenuBarItemFlyout;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IMenuFlyout;
    
@@ -53723,8 +58096,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IMenuFlyoutItem;
    
@@ -53745,15 +58118,15 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IMenuFlyoutPresenter;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IMenuFlyoutSeparator;
    
@@ -53765,8 +58138,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.INavigationView;
    
@@ -53845,10 +58218,37 @@ package Windows.UI.Xaml.Controls is
    function get_PaneTitleProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_ContentOverlayProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_IsPaneVisibleProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OverflowLabelModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PaneCustomContentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PaneDisplayModeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PaneHeaderProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectionFollowsFocusProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ShoulderNavigationEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TemplateSettingsProperty_INavigationView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.INavigationViewItem;
    
@@ -53858,31 +58258,62 @@ package Windows.UI.Xaml.Controls is
    function get_IconProperty_INavigationViewItem
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_SelectsOnInvokedProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.INavigationViewItemHeader;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.INavigationViewItemSeparator;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.INavigationViewList;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.INavigationViewTemplateSettings;
+   
+   function get_BackButtonVisibilityProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_LeftPaneVisibilityProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_OverflowButtonVisibilityProperty_INavigationViewTemplateSettings
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PaneToggleButtonVisibilityProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SingleSelectionFollowsFocusProperty_INavigationViewTemplateSettings
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TopPaddingProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TopPaneVisibilityProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IPage;
    
@@ -53897,8 +58328,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IPanel;
    
@@ -53913,8 +58344,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IParallaxView;
    
@@ -53996,10 +58427,19 @@ package Windows.UI.Xaml.Controls is
    function get_TextReadingOrderProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_CanPasteClipboardContentProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DescriptionProperty_IPasswordBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectionFlyoutProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IPathIcon;
    
@@ -54008,8 +58448,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IPathIconSource;
    
@@ -54018,8 +58458,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IPersonPicture;
    
@@ -54061,8 +58501,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IPivot;
    
@@ -54120,8 +58560,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IPivotItem;
    
@@ -54130,8 +58570,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IProgressBar;
    
@@ -54149,8 +58589,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IRadioButton;
    
@@ -54159,8 +58599,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IRatingControl;
    
@@ -54190,8 +58630,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IRatingItemFontInfo;
    
@@ -54215,8 +58655,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IRatingItemImageInfo;
    
@@ -54240,15 +58680,15 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IRatingItemInfo;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IRefreshContainer;
    
@@ -54260,8 +58700,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IRefreshVisualizer;
    
@@ -54279,8 +58719,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IRelativePanel;
    
@@ -54552,10 +58992,13 @@ package Windows.UI.Xaml.Controls is
    )
    ;
    
+   function get_BackgroundSizingProperty_IRelativePanel
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IRichEditBox;
    
@@ -54635,6 +59078,15 @@ package Windows.UI.Xaml.Controls is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsHandwritingViewEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DescriptionProperty_IRichEditBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ProofingMenuFlyoutProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectionFlyoutProperty_IRichEditBox
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_CharacterSpacingProperty_IRichTextBlock
@@ -54721,6 +59173,9 @@ package Windows.UI.Xaml.Controls is
    function get_IsTextTrimmedProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_SelectionFlyoutProperty_IRichTextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_HasOverflowContentProperty_IRichTextBlockOverflow
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -54743,6 +59198,12 @@ package Windows.UI.Xaml.Controls is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_MinHeightProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CanContentRenderOutsideBoundsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SizesContentToTemplatedParentProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_BringIntoViewOnFocusChangeProperty
@@ -55035,10 +59496,35 @@ package Windows.UI.Xaml.Controls is
    function get_TopLeftHeaderProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_CanContentRenderOutsideBoundsProperty_IScrollViewer
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_HorizontalAnchorRatioProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ReduceViewportForCoreInputViewOcclusionsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_VerticalAnchorRatioProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function GetCanContentRenderOutsideBounds
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+   )
+   return Windows.Boolean;
+   
+   procedure SetCanContentRenderOutsideBounds
+   (
+      element : Windows.UI.Xaml.IDependencyObject
+      ; canContentRenderOutsideBounds : Windows.Boolean
+   )
+   ;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ISearchBox;
    
@@ -55064,8 +59550,8 @@ package Windows.UI.Xaml.Controls is
    (
       removedItems : Windows.Foundation.Collections.IVector_Object
       ; addedItems : Windows.Foundation.Collections.IVector_Object
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ISelectionChangedEventArgs;
    
@@ -55086,8 +59572,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ISettingsFlyout;
    
@@ -55097,7 +59583,7 @@ package Windows.UI.Xaml.Controls is
    function get_HeaderForegroundProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
-   function get_IconSourceProperty
+   function get_IconSourceProperty_ISettingsFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TitleProperty_ISettingsFlyout
@@ -55105,8 +59591,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ISlider;
    
@@ -55145,8 +59631,32 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ISplitButton;
+   
+   function get_CommandParameterProperty_ISplitButton
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CommandProperty_ISplitButton
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_FlyoutProperty_ISplitButton
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      owner : Windows.UI.Xaml.Controls.ISplitButton
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ISplitButtonAutomationPeer;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ISplitView;
    
@@ -55182,8 +59692,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IStackPanel;
    
@@ -55208,24 +59718,27 @@ package Windows.UI.Xaml.Controls is
    function get_SpacingProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_BackgroundSizingProperty_IStackPanel
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IStyleSelector;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ISwapChainBackgroundPanel;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ISwapChainPanel;
    
@@ -55237,8 +59750,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ISwipeControl;
    
@@ -55256,8 +59769,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ISwipeItem;
    
@@ -55284,8 +59797,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ISwipeItems;
    
@@ -55297,8 +59810,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ISymbolIconSource;
    
@@ -55383,10 +59896,13 @@ package Windows.UI.Xaml.Controls is
    function get_IsTextTrimmedProperty_ITextBlock
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_SelectionFlyoutProperty_ITextBlock
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ITextBox;
    
@@ -55459,10 +59975,35 @@ package Windows.UI.Xaml.Controls is
    function get_IsHandwritingViewEnabledProperty_ITextBox
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_CanPasteClipboardContentProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CanRedoProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CanUndoProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_DescriptionProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ProofingMenuFlyoutProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_SelectionFlyoutProperty_ITextBox
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ITextCommandBarFlyout;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ITimePicker;
    
@@ -55484,6 +60025,9 @@ package Windows.UI.Xaml.Controls is
    function get_LightDismissOverlayModeProperty_ITimePicker
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_SelectedTimeProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_ClockIdentifierProperty_ITimePickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -55495,13 +60039,28 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IToggleMenuFlyoutItem;
    
    function get_IsCheckedProperty_IToggleMenuFlyoutItem
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IToggleSplitButton;
+   
+   function CreateInstance
+   (
+      owner : Windows.UI.Xaml.Controls.IToggleSplitButton
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.IToggleSplitButtonAutomationPeer;
    
    function get_HeaderProperty_IToggleSwitch
    return Windows.UI.Xaml.IDependencyProperty;
@@ -55526,8 +60085,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IToolTip;
    
@@ -55544,6 +60103,9 @@ package Windows.UI.Xaml.Controls is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_VerticalOffsetProperty_IToolTip
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PlacementRectProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_PlacementProperty_IToolTipService
@@ -55596,18 +60158,42 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ITreeView;
    
    function get_SelectionModeProperty_ITreeView
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_CanDragItemsProperty_ITreeView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CanReorderItemsProperty_ITreeView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemContainerStyleProperty_ITreeView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemContainerStyleSelectorProperty_ITreeView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemContainerTransitionsProperty_ITreeView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemsSourceProperty_ITreeView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemTemplateProperty_ITreeView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemTemplateSelectorProperty_ITreeView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ITreeViewItem;
    
@@ -55632,10 +60218,16 @@ package Windows.UI.Xaml.Controls is
    function get_TreeViewItemTemplateSettingsProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_HasUnrealizedChildrenProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ItemsSourceProperty_ITreeViewItem
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ITreeViewItemTemplateSettings;
    
@@ -55653,15 +60245,15 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ITreeViewList;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.ITreeViewNode;
    
@@ -55679,8 +60271,8 @@ package Windows.UI.Xaml.Controls is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IUserControl;
    

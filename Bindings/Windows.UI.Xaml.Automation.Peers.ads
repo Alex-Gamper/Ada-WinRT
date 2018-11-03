@@ -496,6 +496,9 @@ package Windows.UI.Xaml.Automation.Peers is
    type IAutomationPeer8_Interface;
    type IAutomationPeer8 is access all IAutomationPeer8_Interface'Class;
    type IAutomationPeer8_Ptr is access all IAutomationPeer8;
+   type IAutomationPeer9_Interface;
+   type IAutomationPeer9 is access all IAutomationPeer9_Interface'Class;
+   type IAutomationPeer9_Ptr is access all IAutomationPeer9;
    type IAutomationPeerAnnotation_Interface;
    type IAutomationPeerAnnotation is access all IAutomationPeerAnnotation_Interface'Class;
    type IAutomationPeerAnnotation_Ptr is access all IAutomationPeerAnnotation;
@@ -529,6 +532,9 @@ package Windows.UI.Xaml.Automation.Peers is
    type IAutomationPeerOverrides8_Interface;
    type IAutomationPeerOverrides8 is access all IAutomationPeerOverrides8_Interface'Class;
    type IAutomationPeerOverrides8_Ptr is access all IAutomationPeerOverrides8;
+   type IAutomationPeerOverrides9_Interface;
+   type IAutomationPeerOverrides9 is access all IAutomationPeerOverrides9_Interface'Class;
+   type IAutomationPeerOverrides9_Ptr is access all IAutomationPeerOverrides9;
    type IAutomationPeerProtected_Interface;
    type IAutomationPeerProtected is access all IAutomationPeerProtected_Interface'Class;
    type IAutomationPeerProtected_Ptr is access all IAutomationPeerProtected;
@@ -832,6 +838,18 @@ package Windows.UI.Xaml.Automation.Peers is
    type IMediaTransportControlsAutomationPeerFactory_Interface;
    type IMediaTransportControlsAutomationPeerFactory is access all IMediaTransportControlsAutomationPeerFactory_Interface'Class;
    type IMediaTransportControlsAutomationPeerFactory_Ptr is access all IMediaTransportControlsAutomationPeerFactory;
+   type IMenuBarAutomationPeer_Interface;
+   type IMenuBarAutomationPeer is access all IMenuBarAutomationPeer_Interface'Class;
+   type IMenuBarAutomationPeer_Ptr is access all IMenuBarAutomationPeer;
+   type IMenuBarAutomationPeerFactory_Interface;
+   type IMenuBarAutomationPeerFactory is access all IMenuBarAutomationPeerFactory_Interface'Class;
+   type IMenuBarAutomationPeerFactory_Ptr is access all IMenuBarAutomationPeerFactory;
+   type IMenuBarItemAutomationPeer_Interface;
+   type IMenuBarItemAutomationPeer is access all IMenuBarItemAutomationPeer_Interface'Class;
+   type IMenuBarItemAutomationPeer_Ptr is access all IMenuBarItemAutomationPeer;
+   type IMenuBarItemAutomationPeerFactory_Interface;
+   type IMenuBarItemAutomationPeerFactory is access all IMenuBarItemAutomationPeerFactory_Interface'Class;
+   type IMenuBarItemAutomationPeerFactory_Ptr is access all IMenuBarItemAutomationPeerFactory;
    type IMenuFlyoutItemAutomationPeer_Interface;
    type IMenuFlyoutItemAutomationPeer is access all IMenuFlyoutItemAutomationPeer_Interface'Class;
    type IMenuFlyoutItemAutomationPeer_Ptr is access all IMenuFlyoutItemAutomationPeer;
@@ -1108,8 +1126,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IAppBarAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IAppBar
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IAppBarAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -1130,8 +1148,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IAppBarButtonAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IAppBarButton
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IAppBarButtonAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -1152,8 +1170,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IAppBarToggleButtonAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IAppBarToggleButton
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IAppBarToggleButtonAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -1587,6 +1605,19 @@ package Windows.UI.Xaml.Automation.Peers is
    
    ------------------------------------------------------------------------
    
+   IID_IAutomationPeer9 : aliased constant Windows.IID := (3744334437, 7540, 22522, (128, 148, 248, 28, 47, 98, 107, 140 ));
+   
+   type IAutomationPeer9_Interface is interface and Windows.IInspectable_Interface;
+   
+   function IsDialog
+   (
+      This       : access IAutomationPeer9_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAutomationPeerAnnotation : aliased constant Windows.IID := (205873249, 21199, 17402, (130, 248, 7, 241, 55, 53, 30, 90 ));
    
    type IAutomationPeerAnnotation_Interface is interface and Windows.IInspectable_Interface;
@@ -1671,8 +1702,8 @@ package Windows.UI.Xaml.Automation.Peers is
    function CreateInstance
    (
       This       : access IAutomationPeerFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2045,6 +2076,19 @@ package Windows.UI.Xaml.Automation.Peers is
    
    ------------------------------------------------------------------------
    
+   IID_IAutomationPeerOverrides9 : aliased constant Windows.IID := (4084244107, 2330, 23989, (184, 150, 255, 120, 240, 25, 144, 201 ));
+   
+   type IAutomationPeerOverrides9_Interface is interface and Windows.IInspectable_Interface;
+   
+   function IsDialogCore
+   (
+      This       : access IAutomationPeerOverrides9_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAutomationPeerProtected : aliased constant Windows.IID := (4105440850, 25647, 17961, (165, 74, 234, 93, 35, 73, 196, 72 ));
    
    type IAutomationPeerProtected_Interface is interface and Windows.IInspectable_Interface;
@@ -2128,8 +2172,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IButtonAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IButton
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IButtonAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2150,8 +2194,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IButtonBaseAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.Primitives.IButtonBase
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IButtonBaseAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2172,8 +2216,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access ICalendarDatePickerAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.ICalendarDatePicker
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ICalendarDatePickerAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2194,8 +2238,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access ICaptureElementAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.ICaptureElement
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ICaptureElementAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2216,8 +2260,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access ICheckBoxAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.ICheckBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ICheckBoxAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2238,8 +2282,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IColorPickerSliderAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.Primitives.IColorPickerSlider
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IColorPickerSliderAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2260,8 +2304,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IColorSpectrumAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.Primitives.IColorSpectrum
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IColorSpectrumAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2282,8 +2326,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IComboBoxAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IComboBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IComboBoxAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2304,8 +2348,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IComboBoxItemAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IComboBoxItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IComboBoxItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2327,8 +2371,8 @@ package Windows.UI.Xaml.Automation.Peers is
       This       : access IComboBoxItemDataAutomationPeerFactory_Interface
       ; item : Windows.Object
       ; parent : Windows.UI.Xaml.Automation.Peers.IComboBoxAutomationPeer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IComboBoxItemDataAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2349,8 +2393,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IDatePickerAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IDatePicker
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IDatePickerAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2418,8 +2462,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IFlipViewAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IFlipView
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IFlipViewAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2440,8 +2484,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IFlipViewItemAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IFlipViewItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IFlipViewItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2463,8 +2507,8 @@ package Windows.UI.Xaml.Automation.Peers is
       This       : access IFlipViewItemDataAutomationPeerFactory_Interface
       ; item : Windows.Object
       ; parent : Windows.UI.Xaml.Automation.Peers.IFlipViewAutomationPeer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IFlipViewItemDataAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2485,8 +2529,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IFlyoutPresenterAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IFlyoutPresenter
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IFlyoutPresenterAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2514,8 +2558,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IFrameworkElementAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.IFrameworkElement
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2558,8 +2602,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IGridViewAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IGridView
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IGridViewAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2580,8 +2624,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IGridViewHeaderItemAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IGridViewHeaderItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IGridViewHeaderItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2602,8 +2646,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IGridViewItemAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IGridViewItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IGridViewItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2625,8 +2669,8 @@ package Windows.UI.Xaml.Automation.Peers is
       This       : access IGridViewItemDataAutomationPeerFactory_Interface
       ; item : Windows.Object
       ; parent : Windows.UI.Xaml.Automation.Peers.IGridViewAutomationPeer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IGridViewItemDataAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2647,8 +2691,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IGroupItemAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IGroupItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IGroupItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2669,8 +2713,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IHubAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IHub
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IHubAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2691,8 +2735,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IHubSectionAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IHubSection
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IHubSectionAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2713,8 +2757,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IHyperlinkButtonAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IHyperlinkButton
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IHyperlinkButtonAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2735,8 +2779,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IImageAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IImage
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IImageAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2788,8 +2832,8 @@ package Windows.UI.Xaml.Automation.Peers is
       This       : access IItemAutomationPeerFactory_Interface
       ; item : Windows.Object
       ; parent : Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2838,8 +2882,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IItemsControlAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IItemsControl
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2970,8 +3014,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IListBoxAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IListBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListBoxAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -2992,8 +3036,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IListBoxItemAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IListBoxItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListBoxItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3015,8 +3059,8 @@ package Windows.UI.Xaml.Automation.Peers is
       This       : access IListBoxItemDataAutomationPeerFactory_Interface
       ; item : Windows.Object
       ; parent : Windows.UI.Xaml.Automation.Peers.IListBoxAutomationPeer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListBoxItemDataAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3043,8 +3087,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IListViewAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IListView
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListViewAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3065,8 +3109,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IListViewBaseAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IListViewBase
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListViewBaseAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3087,8 +3131,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IListViewBaseHeaderItemAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IListViewBaseHeaderItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListViewBaseHeaderItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3109,8 +3153,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IListViewHeaderItemAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IListViewHeaderItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListViewHeaderItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3131,8 +3175,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IListViewItemAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IListViewItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListViewItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3154,8 +3198,8 @@ package Windows.UI.Xaml.Automation.Peers is
       This       : access IListViewItemDataAutomationPeerFactory_Interface
       ; item : Windows.Object
       ; parent : Windows.UI.Xaml.Automation.Peers.IListViewBaseAutomationPeer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IListViewItemDataAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3200,8 +3244,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IMediaElementAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IMediaElement
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IMediaElementAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3222,8 +3266,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IMediaPlayerElementAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IMediaPlayerElement
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IMediaPlayerElementAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3244,9 +3288,53 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IMediaTransportControlsAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IMediaTransportControls
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IMediaTransportControlsAutomationPeer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMenuBarAutomationPeer : aliased constant Windows.IID := (1265294577, 62068, 21906, (133, 168, 123, 9, 158, 153, 179, 32 ));
+   
+   type IMenuBarAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMenuBarAutomationPeerFactory : aliased constant Windows.IID := (705251441, 19099, 23051, (159, 218, 123, 195, 174, 149, 124, 83 ));
+   
+   type IMenuBarAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IMenuBarAutomationPeerFactory_Interface
+      ; owner : Windows.UI.Xaml.Controls.IMenuBar
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Automation.Peers.IMenuBarAutomationPeer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMenuBarItemAutomationPeer : aliased constant Windows.IID := (265177524, 53237, 23627, (152, 238, 231, 95, 221, 223, 121, 154 ));
+   
+   type IMenuBarItemAutomationPeer_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMenuBarItemAutomationPeerFactory : aliased constant Windows.IID := (3385292614, 4879, 23321, (131, 166, 97, 219, 88, 70, 19, 170 ));
+   
+   type IMenuBarItemAutomationPeerFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IMenuBarItemAutomationPeerFactory_Interface
+      ; owner : Windows.UI.Xaml.Controls.IMenuBarItem
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Automation.Peers.IMenuBarItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
    
@@ -3266,8 +3354,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IMenuFlyoutItemAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IMenuFlyoutItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IMenuFlyoutItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3288,8 +3376,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IMenuFlyoutPresenterAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IMenuFlyoutPresenter
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IMenuFlyoutPresenterAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3310,8 +3398,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access INavigationViewItemAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.INavigationViewItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.INavigationViewItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3332,8 +3420,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IPasswordBoxAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IPasswordBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IPasswordBoxAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3354,8 +3442,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IPersonPictureAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IPersonPicture
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IPersonPictureAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3443,8 +3531,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IProgressBarAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IProgressBar
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IProgressBarAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3465,8 +3553,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IProgressRingAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IProgressRing
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IProgressRingAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3487,8 +3575,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IRadioButtonAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IRadioButton
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IRadioButtonAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3509,8 +3597,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IRangeBaseAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.Primitives.IRangeBase
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IRangeBaseAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3584,8 +3672,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IRatingControlAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IRatingControl
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IRatingControlAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3606,8 +3694,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IRepeatButtonAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.Primitives.IRepeatButton
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IRepeatButtonAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3628,8 +3716,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IRichEditBoxAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IRichEditBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IRichEditBoxAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3650,8 +3738,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IRichTextBlockAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IRichTextBlock
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IRichTextBlockAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3672,8 +3760,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IRichTextBlockOverflowAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IRichTextBlockOverflow
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IRichTextBlockOverflowAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3694,8 +3782,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IScrollBarAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.Primitives.IScrollBar
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IScrollBarAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3788,8 +3876,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IScrollViewerAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IScrollViewer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IScrollViewerAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3810,8 +3898,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access ISearchBoxAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.ISearchBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ISearchBoxAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3893,8 +3981,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access ISelectorAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.Primitives.ISelector
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ISelectorAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3916,8 +4004,8 @@ package Windows.UI.Xaml.Automation.Peers is
       This       : access ISelectorItemAutomationPeerFactory_Interface
       ; item : Windows.Object
       ; parent : Windows.UI.Xaml.Automation.Peers.ISelectorAutomationPeer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ISelectorItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3938,8 +4026,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access ISemanticZoomAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.ISemanticZoom
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ISemanticZoomAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3960,8 +4048,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access ISettingsFlyoutAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.ISettingsFlyout
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ISettingsFlyoutAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -3982,8 +4070,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access ISliderAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.ISlider
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ISliderAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -4004,8 +4092,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access ITextBlockAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.ITextBlock
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ITextBlockAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -4026,8 +4114,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access ITextBoxAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.ITextBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ITextBoxAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -4048,8 +4136,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IThumbAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.Primitives.IThumb
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IThumbAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -4070,8 +4158,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access ITimePickerAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.ITimePicker
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ITimePickerAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -4098,8 +4186,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IToggleButtonAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.Primitives.IToggleButton
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IToggleButtonAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -4120,8 +4208,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IToggleMenuFlyoutItemAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IToggleMenuFlyoutItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IToggleMenuFlyoutItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -4159,8 +4247,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access IToggleSwitchAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.IToggleSwitch
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.IToggleSwitchAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -4275,8 +4363,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access ITreeViewItemAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.ITreeViewItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ITreeViewItemAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -4297,8 +4385,8 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       This       : access ITreeViewListAutomationPeerFactory_Interface
       ; owner : Windows.UI.Xaml.Controls.ITreeViewList
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Automation.Peers.ITreeViewListAutomationPeer
    )
    return Windows.HRESULT is abstract;
@@ -5445,6 +5533,60 @@ package Windows.UI.Xaml.Automation.Peers is
    subtype MediaElementAutomationPeer is Windows.UI.Xaml.Automation.Peers.IMediaElementAutomationPeer;
    subtype MediaPlayerElementAutomationPeer is Windows.UI.Xaml.Automation.Peers.IMediaPlayerElementAutomationPeer;
    subtype MediaTransportControlsAutomationPeer is Windows.UI.Xaml.Automation.Peers.IMediaTransportControlsAutomationPeer;
+   subtype MenuBarAutomationPeer is Windows.UI.Xaml.Automation.Peers.IMenuBarAutomationPeer;
+   
+   type IMenuBarAutomationPeer_Interface_Impl is new IMenuBarAutomationPeer_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IMenuBarAutomationPeer := null;
+      m_IMenuBarAutomationPeer : IMenuBarAutomationPeer := null;
+   end record;
+   type IMenuBarAutomationPeer_Impl is access all IMenuBarAutomationPeer_Interface_Impl'Class;
+   type IMenuBarAutomationPeer_Impl_Ptr is access all IMenuBarAutomationPeer_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IMenuBarAutomationPeer_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IMenuBarAutomationPeer_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IMenuBarAutomationPeer_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IMenuBarAutomationPeer_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IMenuBarAutomationPeer_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IMenuBarAutomationPeer_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   subtype MenuBarItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IMenuBarItemAutomationPeer;
    subtype MenuFlyoutItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.IMenuFlyoutItemAutomationPeer;
    subtype MenuFlyoutPresenterAutomationPeer is Windows.UI.Xaml.Automation.Peers.IMenuFlyoutPresenterAutomationPeer;
    subtype NavigationViewItemAutomationPeer is Windows.UI.Xaml.Automation.Peers.INavigationViewItemAutomationPeer;
@@ -5508,31 +5650,31 @@ package Windows.UI.Xaml.Automation.Peers is
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IAppBar
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IAppBarAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IAppBarButton
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IAppBarButtonAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IAppBarToggleButton
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IAppBarToggleButtonAutomationPeer;
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IAutomationPeer;
    
@@ -5554,72 +5696,72 @@ package Windows.UI.Xaml.Automation.Peers is
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IButton
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IButtonAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.Primitives.IButtonBase
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IButtonBaseAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.ICalendarDatePicker
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.ICalendarDatePickerAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.ICaptureElement
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.ICaptureElementAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.ICheckBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.ICheckBoxAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.Primitives.IColorPickerSlider
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IColorPickerSliderAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.Primitives.IColorSpectrum
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IColorSpectrumAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IComboBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IComboBoxAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IComboBoxItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IComboBoxItemAutomationPeer;
    
@@ -5627,32 +5769,32 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       item : Windows.Object
       ; parent : Windows.UI.Xaml.Automation.Peers.IComboBoxAutomationPeer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IComboBoxItemDataAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IDatePicker
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IDatePickerAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IFlipView
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IFlipViewAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IFlipViewItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IFlipViewItemAutomationPeer;
    
@@ -5660,24 +5802,24 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       item : Windows.Object
       ; parent : Windows.UI.Xaml.Automation.Peers.IFlipViewAutomationPeer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IFlipViewItemDataAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IFlyoutPresenter
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IFlyoutPresenterAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.IFrameworkElement
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer;
    
@@ -5696,24 +5838,24 @@ package Windows.UI.Xaml.Automation.Peers is
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IGridView
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IGridViewAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IGridViewHeaderItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IGridViewHeaderItemAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IGridViewItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IGridViewItemAutomationPeer;
    
@@ -5721,48 +5863,48 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       item : Windows.Object
       ; parent : Windows.UI.Xaml.Automation.Peers.IGridViewAutomationPeer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IGridViewItemDataAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IGroupItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IGroupItemAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IHub
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IHubAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IHubSection
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IHubSectionAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IHyperlinkButton
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IHyperlinkButtonAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IImage
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IImageAutomationPeer;
    
@@ -5770,32 +5912,32 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       item : Windows.Object
       ; parent : Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IItemAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IItemsControl
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IListBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IListBoxAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IListBoxItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IListBoxItemAutomationPeer;
    
@@ -5803,48 +5945,48 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       item : Windows.Object
       ; parent : Windows.UI.Xaml.Automation.Peers.IListBoxAutomationPeer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IListBoxItemDataAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IListView
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IListViewAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IListViewBase
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IListViewBaseAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IListViewBaseHeaderItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IListViewBaseHeaderItemAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IListViewHeaderItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IListViewHeaderItemAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IListViewItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IListViewItemAutomationPeer;
    
@@ -5852,176 +5994,192 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       item : Windows.Object
       ; parent : Windows.UI.Xaml.Automation.Peers.IListViewBaseAutomationPeer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IListViewItemDataAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IMediaElement
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IMediaElementAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IMediaPlayerElement
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IMediaPlayerElementAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IMediaTransportControls
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IMediaTransportControlsAutomationPeer;
+   
+   function CreateInstance
+   (
+      owner : Windows.UI.Xaml.Controls.IMenuBar
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Automation.Peers.IMenuBarAutomationPeer;
+   
+   function CreateInstance
+   (
+      owner : Windows.UI.Xaml.Controls.IMenuBarItem
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Automation.Peers.IMenuBarItemAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IMenuFlyoutItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IMenuFlyoutItemAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IMenuFlyoutPresenter
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IMenuFlyoutPresenterAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.INavigationViewItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.INavigationViewItemAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IPasswordBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IPasswordBoxAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IPersonPicture
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IPersonPictureAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IProgressBar
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IProgressBarAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IProgressRing
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IProgressRingAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IRadioButton
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IRadioButtonAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.Primitives.IRangeBase
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IRangeBaseAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IRatingControl
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IRatingControlAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.Primitives.IRepeatButton
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IRepeatButtonAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IRichEditBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IRichEditBoxAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IRichTextBlock
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IRichTextBlockAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IRichTextBlockOverflow
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IRichTextBlockOverflowAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.Primitives.IScrollBar
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IScrollBarAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IScrollViewer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IScrollViewerAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.ISearchBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.ISearchBoxAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.Primitives.ISelector
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.ISelectorAutomationPeer;
    
@@ -6029,104 +6187,104 @@ package Windows.UI.Xaml.Automation.Peers is
    (
       item : Windows.Object
       ; parent : Windows.UI.Xaml.Automation.Peers.ISelectorAutomationPeer
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.ISelectorItemAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.ISemanticZoom
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.ISemanticZoomAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.ISettingsFlyout
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.ISettingsFlyoutAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.ISlider
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.ISliderAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.ITextBlock
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.ITextBlockAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.ITextBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.ITextBoxAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.Primitives.IThumb
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IThumbAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.ITimePicker
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.ITimePickerAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.Primitives.IToggleButton
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IToggleButtonAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IToggleMenuFlyoutItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IToggleMenuFlyoutItemAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.IToggleSwitch
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.IToggleSwitchAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.ITreeViewItem
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.ITreeViewItemAutomationPeer;
    
    function CreateInstanceWithOwner
    (
       owner : Windows.UI.Xaml.Controls.ITreeViewList
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Automation.Peers.ITreeViewListAutomationPeer;
    

@@ -220,6 +220,12 @@ package Windows.Devices.Sensors is
    type AsyncOperationCompletedHandler_IGyrometer_Interface;
    type AsyncOperationCompletedHandler_IGyrometer is access all AsyncOperationCompletedHandler_IGyrometer_Interface'Class;
    type AsyncOperationCompletedHandler_IGyrometer_Ptr is access all AsyncOperationCompletedHandler_IGyrometer;
+   type AsyncOperationCompletedHandler_IHingeAngleReading_Interface;
+   type AsyncOperationCompletedHandler_IHingeAngleReading is access all AsyncOperationCompletedHandler_IHingeAngleReading_Interface'Class;
+   type AsyncOperationCompletedHandler_IHingeAngleReading_Ptr is access all AsyncOperationCompletedHandler_IHingeAngleReading;
+   type AsyncOperationCompletedHandler_IHingeAngleSensor_Interface;
+   type AsyncOperationCompletedHandler_IHingeAngleSensor is access all AsyncOperationCompletedHandler_IHingeAngleSensor_Interface'Class;
+   type AsyncOperationCompletedHandler_IHingeAngleSensor_Ptr is access all AsyncOperationCompletedHandler_IHingeAngleSensor;
    type AsyncOperationCompletedHandler_IInclinometer_Interface;
    type AsyncOperationCompletedHandler_IInclinometer is access all AsyncOperationCompletedHandler_IInclinometer_Interface'Class;
    type AsyncOperationCompletedHandler_IInclinometer_Ptr is access all AsyncOperationCompletedHandler_IInclinometer;
@@ -235,6 +241,9 @@ package Windows.Devices.Sensors is
    type AsyncOperationCompletedHandler_IPedometer_Interface;
    type AsyncOperationCompletedHandler_IPedometer is access all AsyncOperationCompletedHandler_IPedometer_Interface'Class;
    type AsyncOperationCompletedHandler_IPedometer_Ptr is access all AsyncOperationCompletedHandler_IPedometer;
+   type AsyncOperationCompletedHandler_ISimpleOrientationSensor_Interface;
+   type AsyncOperationCompletedHandler_ISimpleOrientationSensor is access all AsyncOperationCompletedHandler_ISimpleOrientationSensor_Interface'Class;
+   type AsyncOperationCompletedHandler_ISimpleOrientationSensor_Ptr is access all AsyncOperationCompletedHandler_ISimpleOrientationSensor;
    type TypedEventHandler_IAccelerometer_add_ReadingChanged_Interface;
    type TypedEventHandler_IAccelerometer_add_ReadingChanged is access all TypedEventHandler_IAccelerometer_add_ReadingChanged_Interface'Class;
    type TypedEventHandler_IAccelerometer_add_ReadingChanged_Ptr is access all TypedEventHandler_IAccelerometer_add_ReadingChanged;
@@ -256,6 +265,9 @@ package Windows.Devices.Sensors is
    type TypedEventHandler_IGyrometer_add_ReadingChanged_Interface;
    type TypedEventHandler_IGyrometer_add_ReadingChanged is access all TypedEventHandler_IGyrometer_add_ReadingChanged_Interface'Class;
    type TypedEventHandler_IGyrometer_add_ReadingChanged_Ptr is access all TypedEventHandler_IGyrometer_add_ReadingChanged;
+   type TypedEventHandler_IHingeAngleSensor_add_ReadingChanged_Interface;
+   type TypedEventHandler_IHingeAngleSensor_add_ReadingChanged is access all TypedEventHandler_IHingeAngleSensor_add_ReadingChanged_Interface'Class;
+   type TypedEventHandler_IHingeAngleSensor_add_ReadingChanged_Ptr is access all TypedEventHandler_IHingeAngleSensor_add_ReadingChanged;
    type TypedEventHandler_IInclinometer_add_ReadingChanged_Interface;
    type TypedEventHandler_IInclinometer_add_ReadingChanged is access all TypedEventHandler_IInclinometer_add_ReadingChanged_Interface'Class;
    type TypedEventHandler_IInclinometer_add_ReadingChanged_Ptr is access all TypedEventHandler_IInclinometer_add_ReadingChanged;
@@ -372,6 +384,12 @@ package Windows.Devices.Sensors is
    type IAsyncOperation_IGyrometer_Interface;
    type IAsyncOperation_IGyrometer is access all IAsyncOperation_IGyrometer_Interface'Class;
    type IAsyncOperation_IGyrometer_Ptr is access all IAsyncOperation_IGyrometer;
+   type IAsyncOperation_IHingeAngleReading_Interface;
+   type IAsyncOperation_IHingeAngleReading is access all IAsyncOperation_IHingeAngleReading_Interface'Class;
+   type IAsyncOperation_IHingeAngleReading_Ptr is access all IAsyncOperation_IHingeAngleReading;
+   type IAsyncOperation_IHingeAngleSensor_Interface;
+   type IAsyncOperation_IHingeAngleSensor is access all IAsyncOperation_IHingeAngleSensor_Interface'Class;
+   type IAsyncOperation_IHingeAngleSensor_Ptr is access all IAsyncOperation_IHingeAngleSensor;
    type IAsyncOperation_IInclinometer_Interface;
    type IAsyncOperation_IInclinometer is access all IAsyncOperation_IInclinometer_Interface'Class;
    type IAsyncOperation_IInclinometer_Ptr is access all IAsyncOperation_IInclinometer;
@@ -387,6 +405,9 @@ package Windows.Devices.Sensors is
    type IAsyncOperation_IPedometer_Interface;
    type IAsyncOperation_IPedometer is access all IAsyncOperation_IPedometer_Interface'Class;
    type IAsyncOperation_IPedometer_Ptr is access all IAsyncOperation_IPedometer;
+   type IAsyncOperation_ISimpleOrientationSensor_Interface;
+   type IAsyncOperation_ISimpleOrientationSensor is access all IAsyncOperation_ISimpleOrientationSensor_Interface'Class;
+   type IAsyncOperation_ISimpleOrientationSensor_Ptr is access all IAsyncOperation_ISimpleOrientationSensor;
    type IBarometer_Interface;
    type IBarometer is access all IBarometer_Interface'Class;
    type IBarometer_Ptr is access all IBarometer;
@@ -465,6 +486,18 @@ package Windows.Devices.Sensors is
    type IGyrometerStatics2_Interface;
    type IGyrometerStatics2 is access all IGyrometerStatics2_Interface'Class;
    type IGyrometerStatics2_Ptr is access all IGyrometerStatics2;
+   type IHingeAngleReading_Interface;
+   type IHingeAngleReading is access all IHingeAngleReading_Interface'Class;
+   type IHingeAngleReading_Ptr is access all IHingeAngleReading;
+   type IHingeAngleSensor_Interface;
+   type IHingeAngleSensor is access all IHingeAngleSensor_Interface'Class;
+   type IHingeAngleSensor_Ptr is access all IHingeAngleSensor;
+   type IHingeAngleSensorReadingChangedEventArgs_Interface;
+   type IHingeAngleSensorReadingChangedEventArgs is access all IHingeAngleSensorReadingChangedEventArgs_Interface'Class;
+   type IHingeAngleSensorReadingChangedEventArgs_Ptr is access all IHingeAngleSensorReadingChangedEventArgs;
+   type IHingeAngleSensorStatics_Interface;
+   type IHingeAngleSensorStatics is access all IHingeAngleSensorStatics_Interface'Class;
+   type IHingeAngleSensorStatics_Ptr is access all IHingeAngleSensorStatics;
    type IInclinometer_Interface;
    type IInclinometer is access all IInclinometer_Interface'Class;
    type IInclinometer_Ptr is access all IInclinometer;
@@ -678,6 +711,9 @@ package Windows.Devices.Sensors is
    type ISimpleOrientationSensorStatics_Interface;
    type ISimpleOrientationSensorStatics is access all ISimpleOrientationSensorStatics_Interface'Class;
    type ISimpleOrientationSensorStatics_Ptr is access all ISimpleOrientationSensorStatics;
+   type ISimpleOrientationSensorStatics2_Interface;
+   type ISimpleOrientationSensorStatics2 is access all ISimpleOrientationSensorStatics2_Interface'Class;
+   type ISimpleOrientationSensorStatics2_Ptr is access all ISimpleOrientationSensorStatics2;
    type IVector_ActivityType_Interface;
    type IVector_ActivityType is access all IVector_ActivityType_Interface'Class;
    type IVector_ActivityType_Ptr is access all IVector_ActivityType;
@@ -1451,6 +1487,60 @@ package Windows.Devices.Sensors is
    
    ------------------------------------------------------------------------
    
+   IID_IAsyncOperation_IHingeAngleReading : aliased constant Windows.IID := (1891943840, 48330, 21031, (150, 240, 23, 250, 83, 83, 155, 232 ));
+   
+   type IAsyncOperation_IHingeAngleReading_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IHingeAngleReading_Interface
+      ; handler : Windows.Devices.Sensors.AsyncOperationCompletedHandler_IHingeAngleReading
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IHingeAngleReading_Interface
+      ; RetVal : access Windows.Devices.Sensors.AsyncOperationCompletedHandler_IHingeAngleReading
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IHingeAngleReading_Interface
+      ; RetVal : access Windows.Devices.Sensors.IHingeAngleReading
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IHingeAngleSensor : aliased constant Windows.IID := (1335460215, 16512, 22232, (169, 111, 157, 91, 85, 148, 78, 85 ));
+   
+   type IAsyncOperation_IHingeAngleSensor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IHingeAngleSensor_Interface
+      ; handler : Windows.Devices.Sensors.AsyncOperationCompletedHandler_IHingeAngleSensor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IHingeAngleSensor_Interface
+      ; RetVal : access Windows.Devices.Sensors.AsyncOperationCompletedHandler_IHingeAngleSensor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IHingeAngleSensor_Interface
+      ; RetVal : access Windows.Devices.Sensors.IHingeAngleSensor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAsyncOperation_IInclinometer : aliased constant Windows.IID := (2230039702, 46746, 21453, (182, 144, 164, 97, 137, 130, 43, 1 ));
    
    type IAsyncOperation_IInclinometer_Interface is interface and Windows.IInspectable_Interface;
@@ -1581,6 +1671,33 @@ package Windows.Devices.Sensors is
    (
       This       : access IAsyncOperation_IPedometer_Interface
       ; RetVal : access Windows.Devices.Sensors.IPedometer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISimpleOrientationSensor : aliased constant Windows.IID := (1803012601, 56567, 22087, (173, 199, 247, 12, 249, 146, 112, 68 ));
+   
+   type IAsyncOperation_ISimpleOrientationSensor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_ISimpleOrientationSensor_Interface
+      ; handler : Windows.Devices.Sensors.AsyncOperationCompletedHandler_ISimpleOrientationSensor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ISimpleOrientationSensor_Interface
+      ; RetVal : access Windows.Devices.Sensors.AsyncOperationCompletedHandler_ISimpleOrientationSensor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ISimpleOrientationSensor_Interface
+      ; RetVal : access Windows.Devices.Sensors.ISimpleOrientationSensor
    )
    return Windows.HRESULT is abstract;
    
@@ -2177,6 +2294,139 @@ package Windows.Devices.Sensors is
       This       : access IGyrometerStatics2_Interface
       ; deviceId : Windows.String
       ; RetVal : access Windows.Devices.Sensors.IAsyncOperation_IGyrometer -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHingeAngleReading : aliased constant Windows.IID := (2748138937, 7153, 20325, (167, 4, 226, 218, 4, 241, 130, 192 ));
+   
+   type IHingeAngleReading_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Timestamp
+   (
+      This       : access IHingeAngleReading_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AngleInDegrees
+   (
+      This       : access IHingeAngleReading_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Properties
+   (
+      This       : access IHingeAngleReading_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHingeAngleSensor : aliased constant Windows.IID := (3922968066, 49119, 17279, (140, 41, 136, 199, 115, 147, 211, 9 ));
+   
+   type IHingeAngleSensor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetCurrentReadingAsync
+   (
+      This       : access IHingeAngleSensor_Interface
+      ; RetVal : access Windows.Devices.Sensors.IAsyncOperation_IHingeAngleReading -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeviceId
+   (
+      This       : access IHingeAngleSensor_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MinReportThresholdInDegrees
+   (
+      This       : access IHingeAngleSensor_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ReportThresholdInDegrees
+   (
+      This       : access IHingeAngleSensor_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ReportThresholdInDegrees
+   (
+      This       : access IHingeAngleSensor_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_ReadingChanged
+   (
+      This       : access IHingeAngleSensor_Interface
+      ; handler : TypedEventHandler_IHingeAngleSensor_add_ReadingChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ReadingChanged
+   (
+      This       : access IHingeAngleSensor_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHingeAngleSensorReadingChangedEventArgs : aliased constant Windows.IID := (618222987, 64208, 17080, (168, 84, 120, 146, 48, 73, 161, 186 ));
+   
+   type IHingeAngleSensorReadingChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Reading
+   (
+      This       : access IHingeAngleSensorReadingChangedEventArgs_Interface
+      ; RetVal : access Windows.Devices.Sensors.IHingeAngleReading
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHingeAngleSensorStatics : aliased constant Windows.IID := (3082172688, 64433, 16675, (137, 206, 78, 163, 78, 176, 223, 202 ));
+   
+   type IHingeAngleSensorStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDeviceSelector
+   (
+      This       : access IHingeAngleSensorStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDefaultAsync
+   (
+      This       : access IHingeAngleSensorStatics_Interface
+      ; RetVal : access Windows.Devices.Sensors.IAsyncOperation_IHingeAngleSensor -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetRelatedToAdjacentPanelsAsync
+   (
+      This       : access IHingeAngleSensorStatics_Interface
+      ; firstPanelId : Windows.String
+      ; secondPanelId : Windows.String
+      ; RetVal : access Windows.Devices.Sensors.IAsyncOperation_IHingeAngleSensor -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromIdAsync
+   (
+      This       : access IHingeAngleSensorStatics_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Devices.Sensors.IAsyncOperation_IHingeAngleSensor -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -3852,6 +4102,27 @@ package Windows.Devices.Sensors is
    
    ------------------------------------------------------------------------
    
+   IID_ISimpleOrientationSensorStatics2 : aliased constant Windows.IID := (2224004223, 45368, 19985, (137, 16, 162, 162, 163, 181, 109, 131 ));
+   
+   type ISimpleOrientationSensorStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDeviceSelector
+   (
+      This       : access ISimpleOrientationSensorStatics2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromIdAsync
+   (
+      This       : access ISimpleOrientationSensorStatics2_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Devices.Sensors.IAsyncOperation_ISimpleOrientationSensor -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVector_ActivityType : aliased constant Windows.IID := (3823526102, 53313, 24269, (177, 139, 250, 37, 78, 74, 134, 15 ));
    
    type IVector_ActivityType_Interface is interface and Windows.IInspectable_Interface;
@@ -4185,6 +4456,32 @@ package Windows.Devices.Sensors is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IHingeAngleReading : aliased constant Windows.IID := (3770200478, 38002, 24573, (155, 222, 238, 230, 77, 239, 124, 79 ));
+   
+   type AsyncOperationCompletedHandler_IHingeAngleReading_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IHingeAngleReading ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IHingeAngleReading'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IHingeAngleReading_Interface
+      ; asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IHingeAngleReading
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IHingeAngleSensor : aliased constant Windows.IID := (2888964289, 15032, 23590, (147, 108, 0, 190, 64, 90, 198, 139 ));
+   
+   type AsyncOperationCompletedHandler_IHingeAngleSensor_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IHingeAngleSensor ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IHingeAngleSensor'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IHingeAngleSensor_Interface
+      ; asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IHingeAngleSensor
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_AsyncOperationCompletedHandler_IInclinometer : aliased constant Windows.IID := (2400116266, 11535, 22006, (149, 102, 60, 33, 56, 95, 174, 100 ));
    
    type AsyncOperationCompletedHandler_IInclinometer_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IInclinometer ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IInclinometer'access) with null record;
@@ -4244,6 +4541,19 @@ package Windows.Devices.Sensors is
    (
       This       : access AsyncOperationCompletedHandler_IPedometer_Interface
       ; asyncInfo : Windows.Devices.Sensors.IAsyncOperation_IPedometer
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_ISimpleOrientationSensor : aliased constant Windows.IID := (1774094916, 11467, 21365, (168, 248, 248, 148, 239, 186, 51, 235 ));
+   
+   type AsyncOperationCompletedHandler_ISimpleOrientationSensor_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Sensors.IAsyncOperation_ISimpleOrientationSensor ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISimpleOrientationSensor'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ISimpleOrientationSensor_Interface
+      ; asyncInfo : Windows.Devices.Sensors.IAsyncOperation_ISimpleOrientationSensor
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
@@ -4336,6 +4646,19 @@ package Windows.Devices.Sensors is
       This       : access TypedEventHandler_IGyrometer_add_ReadingChanged_Interface
       ; sender : Windows.Devices.Sensors.IGyrometer
       ; args : Windows.Devices.Sensors.IGyrometerReadingChangedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IHingeAngleSensor_add_ReadingChanged : aliased constant Windows.IID := (1759390708, 9276, 23278, (157, 217, 210, 229, 227, 22, 88, 102 ));
+   
+   type TypedEventHandler_IHingeAngleSensor_add_ReadingChanged_Interface(Callback : access procedure (sender : Windows.Devices.Sensors.IHingeAngleSensor ; args : Windows.Devices.Sensors.IHingeAngleSensorReadingChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IHingeAngleSensor_add_ReadingChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IHingeAngleSensor_add_ReadingChanged_Interface
+      ; sender : Windows.Devices.Sensors.IHingeAngleSensor
+      ; args : Windows.Devices.Sensors.IHingeAngleSensorReadingChangedEventArgs
    )
    return Windows.HRESULT;
    
@@ -4455,6 +4778,9 @@ package Windows.Devices.Sensors is
    subtype Gyrometer is Windows.Devices.Sensors.IGyrometer;
    subtype GyrometerReading is Windows.Devices.Sensors.IGyrometerReading;
    subtype GyrometerReadingChangedEventArgs is Windows.Devices.Sensors.IGyrometerReadingChangedEventArgs;
+   subtype HingeAngleReading is Windows.Devices.Sensors.IHingeAngleReading;
+   subtype HingeAngleSensor is Windows.Devices.Sensors.IHingeAngleSensor;
+   subtype HingeAngleSensorReadingChangedEventArgs is Windows.Devices.Sensors.IHingeAngleSensorReadingChangedEventArgs;
    subtype Inclinometer is Windows.Devices.Sensors.IInclinometer;
    subtype InclinometerReading is Windows.Devices.Sensors.IInclinometerReading;
    subtype InclinometerReadingChangedEventArgs is Windows.Devices.Sensors.IInclinometerReadingChangedEventArgs;
@@ -4583,6 +4909,25 @@ package Windows.Devices.Sensors is
    
    function GetDeviceSelector_IGyrometer
    return Windows.String;
+   
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Sensors.IAsyncOperation_IHingeAngleSensor;
+   
+   function GetDefaultAsync
+   return Windows.Devices.Sensors.IAsyncOperation_IHingeAngleSensor;
+   
+   function GetDeviceSelector_IHingeAngleSensor
+   return Windows.String;
+   
+   function GetRelatedToAdjacentPanelsAsync
+   (
+      firstPanelId : Windows.String
+      ; secondPanelId : Windows.String
+   )
+   return Windows.Devices.Sensors.IAsyncOperation_IHingeAngleSensor;
    
    function GetDefault
    return Windows.Devices.Sensors.IInclinometer;
@@ -4718,5 +5063,14 @@ package Windows.Devices.Sensors is
    
    function GetDefault
    return Windows.Devices.Sensors.ISimpleOrientationSensor;
+   
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Sensors.IAsyncOperation_ISimpleOrientationSensor;
+   
+   function GetDeviceSelector_ISimpleOrientationSensor
+   return Windows.String;
    
 end;

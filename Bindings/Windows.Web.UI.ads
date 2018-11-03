@@ -63,7 +63,8 @@ package Windows.Web.UI is
       Media,
       PointerLock,
       WebNotifications,
-      Screen
+      Screen,
+      ImmersiveView
    );
    for WebViewControlPermissionType use (
       Geolocation => 0,
@@ -71,7 +72,8 @@ package Windows.Web.UI is
       Media => 2,
       PointerLock => 3,
       WebNotifications => 4,
-      Screen => 5
+      Screen => 5,
+      ImmersiveView => 6
    );
    for WebViewControlPermissionType'Size use 32;
    
@@ -164,6 +166,9 @@ package Windows.Web.UI is
    type IWebViewControl_Interface;
    type IWebViewControl is access all IWebViewControl_Interface'Class;
    type IWebViewControl_Ptr is access all IWebViewControl;
+   type IWebViewControl2_Interface;
+   type IWebViewControl2 is access all IWebViewControl2_Interface'Class;
+   type IWebViewControl2_Ptr is access all IWebViewControl2;
    type IWebViewControlContentLoadingEventArgs_Interface;
    type IWebViewControlContentLoadingEventArgs is access all IWebViewControlContentLoadingEventArgs_Interface'Class;
    type IWebViewControlContentLoadingEventArgs_Ptr is access all IWebViewControlContentLoadingEventArgs;
@@ -185,6 +190,9 @@ package Windows.Web.UI is
    type IWebViewControlNewWindowRequestedEventArgs_Interface;
    type IWebViewControlNewWindowRequestedEventArgs is access all IWebViewControlNewWindowRequestedEventArgs_Interface'Class;
    type IWebViewControlNewWindowRequestedEventArgs_Ptr is access all IWebViewControlNewWindowRequestedEventArgs;
+   type IWebViewControlNewWindowRequestedEventArgs2_Interface;
+   type IWebViewControlNewWindowRequestedEventArgs2 is access all IWebViewControlNewWindowRequestedEventArgs2_Interface'Class;
+   type IWebViewControlNewWindowRequestedEventArgs2_Ptr is access all IWebViewControlNewWindowRequestedEventArgs2;
    type IWebViewControlPermissionRequest_Interface;
    type IWebViewControlPermissionRequest is access all IWebViewControlPermissionRequest_Interface'Class;
    type IWebViewControlPermissionRequest_Ptr is access all IWebViewControlPermissionRequest;
@@ -839,6 +847,19 @@ package Windows.Web.UI is
    
    ------------------------------------------------------------------------
    
+   IID_IWebViewControl2 : aliased constant Windows.IID := (1295779577, 51423, 16844, (139, 213, 42, 148, 123, 32, 69, 3 ));
+   
+   type IWebViewControl2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AddInitializeScript
+   (
+      This       : access IWebViewControl2_Interface
+      ; script : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IWebViewControlContentLoadingEventArgs : aliased constant Windows.IID := (2587872434, 47547, 16459, (162, 43, 102, 220, 205, 18, 80, 198 ));
    
    type IWebViewControlContentLoadingEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -1014,6 +1035,33 @@ package Windows.Web.UI is
    (
       This       : access IWebViewControlNewWindowRequestedEventArgs_Interface
       ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebViewControlNewWindowRequestedEventArgs2 : aliased constant Windows.IID := (3040631974, 10926, 19452, (146, 185, 195, 14, 146, 180, 128, 152 ));
+   
+   type IWebViewControlNewWindowRequestedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_NewWindow
+   (
+      This       : access IWebViewControlNewWindowRequestedEventArgs2_Interface
+      ; RetVal : access Windows.Web.UI.IWebViewControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_NewWindow
+   (
+      This       : access IWebViewControlNewWindowRequestedEventArgs2_Interface
+      ; value : Windows.Web.UI.IWebViewControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access IWebViewControlNewWindowRequestedEventArgs2_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
    

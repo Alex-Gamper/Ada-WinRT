@@ -57,6 +57,22 @@ package Windows.ApplicationModel is
    
    type AddResourcePackageOptions_Ptr is access AddResourcePackageOptions;
    
+   type LimitedAccessFeatureStatus is (
+      Unavailable,
+      Available,
+      AvailableWithoutToken,
+      Unknown
+   );
+   for LimitedAccessFeatureStatus use (
+      Unavailable => 0,
+      Available => 1,
+      AvailableWithoutToken => 2,
+      Unknown => 3
+   );
+   for LimitedAccessFeatureStatus'Size use 32;
+   
+   type LimitedAccessFeatureStatus_Ptr is access LimitedAccessFeatureStatus;
+   
    type PackageContentGroupState is (
       NotStaged,
       Queued,
@@ -91,6 +107,24 @@ package Windows.ApplicationModel is
    
    type PackageSignatureKind_Ptr is access PackageSignatureKind;
    
+   type PackageUpdateAvailability is (
+      Unknown,
+      NoUpdates,
+      Available,
+      Required,
+      Error
+   );
+   for PackageUpdateAvailability use (
+      Unknown => 0,
+      NoUpdates => 1,
+      Available => 2,
+      Required => 3,
+      Error => 4
+   );
+   for PackageUpdateAvailability'Size use 32;
+   
+   type PackageUpdateAvailability_Ptr is access PackageUpdateAvailability;
+   
    type StartupTaskState is (
       Disabled,
       DisabledByUser,
@@ -118,10 +152,12 @@ package Windows.ApplicationModel is
    
    type FullTrustAppContract_Ptr is access FullTrustAppContract;
    
-   type StartupTaskContract is null record;
-   pragma Convention (C_Pass_By_Copy , StartupTaskContract);
+   type PackageInstallProgress is record
+      PercentComplete : Windows.UInt32;
+   end record;
+   pragma Convention (C_Pass_By_Copy , PackageInstallProgress);
    
-   type StartupTaskContract_Ptr is access StartupTaskContract;
+   type PackageInstallProgress_Ptr is access PackageInstallProgress;
    
    type PackageVersion is record
       Major : Windows.UInt16;
@@ -133,12 +169,10 @@ package Windows.ApplicationModel is
    
    type PackageVersion_Ptr is access PackageVersion;
    
-   type PackageInstallProgress is record
-      PercentComplete : Windows.UInt32;
-   end record;
-   pragma Convention (C_Pass_By_Copy , PackageInstallProgress);
+   type StartupTaskContract is null record;
+   pragma Convention (C_Pass_By_Copy , StartupTaskContract);
    
-   type PackageInstallProgress_Ptr is access PackageInstallProgress;
+   type StartupTaskContract_Ptr is access StartupTaskContract;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -156,6 +190,9 @@ package Windows.ApplicationModel is
    type AsyncOperationCompletedHandler_IPackageContentGroup_Interface;
    type AsyncOperationCompletedHandler_IPackageContentGroup is access all AsyncOperationCompletedHandler_IPackageContentGroup_Interface'Class;
    type AsyncOperationCompletedHandler_IPackageContentGroup_Ptr is access all AsyncOperationCompletedHandler_IPackageContentGroup;
+   type AsyncOperationCompletedHandler_IPackageUpdateAvailabilityResult_Interface;
+   type AsyncOperationCompletedHandler_IPackageUpdateAvailabilityResult is access all AsyncOperationCompletedHandler_IPackageUpdateAvailabilityResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IPackageUpdateAvailabilityResult_Ptr is access all AsyncOperationCompletedHandler_IPackageUpdateAvailabilityResult;
    type AsyncOperationCompletedHandler_IStartupTask_Interface;
    type AsyncOperationCompletedHandler_IStartupTask is access all AsyncOperationCompletedHandler_IStartupTask_Interface'Class;
    type AsyncOperationCompletedHandler_IStartupTask_Ptr is access all AsyncOperationCompletedHandler_IStartupTask;
@@ -200,6 +237,9 @@ package Windows.ApplicationModel is
    type IAppInfo_Interface;
    type IAppInfo is access all IAppInfo_Interface'Class;
    type IAppInfo_Ptr is access all IAppInfo;
+   type IAppInstallerInfo_Interface;
+   type IAppInstallerInfo is access all IAppInstallerInfo_Interface'Class;
+   type IAppInstallerInfo_Ptr is access all IAppInstallerInfo;
    type IAppInstance_Interface;
    type IAppInstance is access all IAppInstance_Interface'Class;
    type IAppInstance_Ptr is access all IAppInstance;
@@ -218,6 +258,9 @@ package Windows.ApplicationModel is
    type IAsyncOperation_IPackageContentGroup_Interface;
    type IAsyncOperation_IPackageContentGroup is access all IAsyncOperation_IPackageContentGroup_Interface'Class;
    type IAsyncOperation_IPackageContentGroup_Ptr is access all IAsyncOperation_IPackageContentGroup;
+   type IAsyncOperation_IPackageUpdateAvailabilityResult_Interface;
+   type IAsyncOperation_IPackageUpdateAvailabilityResult is access all IAsyncOperation_IPackageUpdateAvailabilityResult_Interface'Class;
+   type IAsyncOperation_IPackageUpdateAvailabilityResult_Ptr is access all IAsyncOperation_IPackageUpdateAvailabilityResult;
    type IAsyncOperation_IStartupTask_Interface;
    type IAsyncOperation_IStartupTask is access all IAsyncOperation_IStartupTask_Interface'Class;
    type IAsyncOperation_IStartupTask_Ptr is access all IAsyncOperation_IStartupTask;
@@ -254,6 +297,12 @@ package Windows.ApplicationModel is
    type ILeavingBackgroundEventArgs_Interface;
    type ILeavingBackgroundEventArgs is access all ILeavingBackgroundEventArgs_Interface'Class;
    type ILeavingBackgroundEventArgs_Ptr is access all ILeavingBackgroundEventArgs;
+   type ILimitedAccessFeatureRequestResult_Interface;
+   type ILimitedAccessFeatureRequestResult is access all ILimitedAccessFeatureRequestResult_Interface'Class;
+   type ILimitedAccessFeatureRequestResult_Ptr is access all ILimitedAccessFeatureRequestResult;
+   type ILimitedAccessFeaturesStatics_Interface;
+   type ILimitedAccessFeaturesStatics is access all ILimitedAccessFeaturesStatics_Interface'Class;
+   type ILimitedAccessFeaturesStatics_Ptr is access all ILimitedAccessFeaturesStatics;
    type IPackage_Interface;
    type IPackage is access all IPackage_Interface'Class;
    type IPackage_Ptr is access all IPackage;
@@ -269,6 +318,9 @@ package Windows.ApplicationModel is
    type IPackage5_Interface;
    type IPackage5 is access all IPackage5_Interface'Class;
    type IPackage5_Ptr is access all IPackage5;
+   type IPackage6_Interface;
+   type IPackage6 is access all IPackage6_Interface'Class;
+   type IPackage6_Ptr is access all IPackage6;
    type IPackageCatalog_Interface;
    type IPackageCatalog is access all IPackageCatalog_Interface'Class;
    type IPackageCatalog_Ptr is access all IPackageCatalog;
@@ -332,6 +384,9 @@ package Windows.ApplicationModel is
    type IPackageUninstallingEventArgs_Interface;
    type IPackageUninstallingEventArgs is access all IPackageUninstallingEventArgs_Interface'Class;
    type IPackageUninstallingEventArgs_Ptr is access all IPackageUninstallingEventArgs;
+   type IPackageUpdateAvailabilityResult_Interface;
+   type IPackageUpdateAvailabilityResult is access all IPackageUpdateAvailabilityResult_Interface'Class;
+   type IPackageUpdateAvailabilityResult_Ptr is access all IPackageUpdateAvailabilityResult;
    type IPackageUpdatingEventArgs_Interface;
    type IPackageUpdatingEventArgs is access all IPackageUpdatingEventArgs_Interface'Class;
    type IPackageUpdatingEventArgs_Ptr is access all IPackageUpdatingEventArgs;
@@ -429,6 +484,19 @@ package Windows.ApplicationModel is
    (
       This       : access IAppInfo_Interface
       ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppInstallerInfo : aliased constant Windows.IID := (699083456, 54518, 17059, (173, 205, 214, 88, 60, 101, 149, 8 ));
+   
+   type IAppInstallerInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Uri
+   (
+      This       : access IAppInstallerInfo_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
    )
    return Windows.HRESULT is abstract;
    
@@ -604,6 +672,33 @@ package Windows.ApplicationModel is
    (
       This       : access IAsyncOperation_IPackageContentGroup_Interface
       ; RetVal : access Windows.ApplicationModel.IPackageContentGroup
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IPackageUpdateAvailabilityResult : aliased constant Windows.IID := (17551381, 17391, 22380, (190, 30, 188, 56, 197, 182, 182, 107 ));
+   
+   type IAsyncOperation_IPackageUpdateAvailabilityResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IPackageUpdateAvailabilityResult_Interface
+      ; handler : Windows.ApplicationModel.AsyncOperationCompletedHandler_IPackageUpdateAvailabilityResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IPackageUpdateAvailabilityResult_Interface
+      ; RetVal : access Windows.ApplicationModel.AsyncOperationCompletedHandler_IPackageUpdateAvailabilityResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IPackageUpdateAvailabilityResult_Interface
+      ; RetVal : access Windows.ApplicationModel.IPackageUpdateAvailabilityResult
    )
    return Windows.HRESULT is abstract;
    
@@ -861,6 +956,49 @@ package Windows.ApplicationModel is
    
    ------------------------------------------------------------------------
    
+   IID_ILimitedAccessFeatureRequestResult : aliased constant Windows.IID := (3562100390, 7716, 24029, (171, 180, 97, 136, 171, 164, 213, 191 ));
+   
+   type ILimitedAccessFeatureRequestResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FeatureId
+   (
+      This       : access ILimitedAccessFeatureRequestResult_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Status
+   (
+      This       : access ILimitedAccessFeatureRequestResult_Interface
+      ; RetVal : access Windows.ApplicationModel.LimitedAccessFeatureStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EstimatedRemovalDate
+   (
+      This       : access ILimitedAccessFeatureRequestResult_Interface
+      ; RetVal : access Windows.Foundation.IReference_DateTime -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILimitedAccessFeaturesStatics : aliased constant Windows.IID := (2347111124, 12331, 24511, (166, 50, 26, 153, 228, 62, 137, 37 ));
+   
+   type ILimitedAccessFeaturesStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryUnlockFeature
+   (
+      This       : access ILimitedAccessFeaturesStatics_Interface
+      ; featureId : Windows.String
+      ; token : Windows.String
+      ; attestation : Windows.String
+      ; RetVal : access Windows.ApplicationModel.ILimitedAccessFeatureRequestResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPackage : aliased constant Windows.IID := (373061935, 48501, 16700, (191, 35, 177, 254, 123, 149, 216, 37 ));
    
    type IPackage_Interface is interface and Windows.IInspectable_Interface;
@@ -1045,6 +1183,26 @@ package Windows.ApplicationModel is
       This       : access IPackage5_Interface
       ; inUse : Windows.Boolean
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPackage6 : aliased constant Windows.IID := (2333792578, 4823, 18260, (174, 78, 99, 140, 188, 14, 58, 46 ));
+   
+   type IPackage6_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAppInstallerInfo
+   (
+      This       : access IPackage6_Interface
+      ; RetVal : access Windows.ApplicationModel.IAppInstallerInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CheckUpdateAvailabilityAsync
+   (
+      This       : access IPackage6_Interface
+      ; RetVal : access Windows.ApplicationModel.IAsyncOperation_IPackageUpdateAvailabilityResult -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1741,6 +1899,26 @@ package Windows.ApplicationModel is
    
    ------------------------------------------------------------------------
    
+   IID_IPackageUpdateAvailabilityResult : aliased constant Windows.IID := (290344969, 6554, 18593, (160, 121, 49, 60, 69, 99, 74, 113 ));
+   
+   type IPackageUpdateAvailabilityResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Availability
+   (
+      This       : access IPackageUpdateAvailabilityResult_Interface
+      ; RetVal : access Windows.ApplicationModel.PackageUpdateAvailability
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExtendedError
+   (
+      This       : access IPackageUpdateAvailabilityResult_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPackageUpdatingEventArgs : aliased constant Windows.IID := (3447407144, 64884, 17470, (177, 20, 35, 230, 119, 176, 232, 111 ));
    
    type IPackageUpdatingEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -2239,6 +2417,19 @@ package Windows.ApplicationModel is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IPackageUpdateAvailabilityResult : aliased constant Windows.IID := (1075888180, 51042, 20818, (190, 239, 240, 52, 113, 232, 133, 185 ));
+   
+   type AsyncOperationCompletedHandler_IPackageUpdateAvailabilityResult_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.IAsyncOperation_IPackageUpdateAvailabilityResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IPackageUpdateAvailabilityResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IPackageUpdateAvailabilityResult_Interface
+      ; asyncInfo : Windows.ApplicationModel.IAsyncOperation_IPackageUpdateAvailabilityResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_AsyncOperationCompletedHandler_IStartupTask : aliased constant Windows.IID := (1948219031, 9298, 23680, (131, 198, 59, 111, 130, 43, 144, 76 ));
    
    type AsyncOperationCompletedHandler_IStartupTask_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.IAsyncOperation_IStartupTask ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStartupTask'access) with null record;
@@ -2386,9 +2577,11 @@ package Windows.ApplicationModel is
    
    subtype AppDisplayInfo is Windows.ApplicationModel.IAppDisplayInfo;
    subtype AppInfo is Windows.ApplicationModel.IAppInfo;
+   subtype AppInstallerInfo is Windows.ApplicationModel.IAppInstallerInfo;
    subtype AppInstance is Windows.ApplicationModel.IAppInstance;
    subtype EnteredBackgroundEventArgs is Windows.ApplicationModel.IEnteredBackgroundEventArgs;
    subtype LeavingBackgroundEventArgs is Windows.ApplicationModel.ILeavingBackgroundEventArgs;
+   subtype LimitedAccessFeatureRequestResult is Windows.ApplicationModel.ILimitedAccessFeatureRequestResult;
    subtype Package_x is Windows.ApplicationModel.IPackage;
    subtype PackageCatalog is Windows.ApplicationModel.IPackageCatalog;
    subtype PackageCatalogAddOptionalPackageResult is Windows.ApplicationModel.IPackageCatalogAddOptionalPackageResult;
@@ -2403,6 +2596,7 @@ package Windows.ApplicationModel is
    subtype PackageStatus is Windows.ApplicationModel.IPackageStatus;
    subtype PackageStatusChangedEventArgs is Windows.ApplicationModel.IPackageStatusChangedEventArgs;
    subtype PackageUninstallingEventArgs is Windows.ApplicationModel.IPackageUninstallingEventArgs;
+   subtype PackageUpdateAvailabilityResult is Windows.ApplicationModel.IPackageUpdateAvailabilityResult;
    subtype PackageUpdatingEventArgs is Windows.ApplicationModel.IPackageUpdatingEventArgs;
    subtype StartupTask is Windows.ApplicationModel.IStartupTask;
    subtype SuspendingDeferral is Windows.ApplicationModel.ISuspendingDeferral;
@@ -2461,6 +2655,14 @@ package Windows.ApplicationModel is
       parameterGroupId : Windows.String
    )
    return Windows.Foundation.IAsyncAction;
+   
+   function TryUnlockFeature
+   (
+      featureId : Windows.String
+      ; token : Windows.String
+      ; attestation : Windows.String
+   )
+   return Windows.ApplicationModel.ILimitedAccessFeatureRequestResult;
    
    function get_Current
    return Windows.ApplicationModel.IPackage;

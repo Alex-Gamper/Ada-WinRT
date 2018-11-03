@@ -26,8 +26,12 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+limited with Windows.ApplicationModel.DataTransfer;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
+limited with Windows.Storage.Streams;
+limited with Windows.System;
+--------------------------------------------------------------------------------
 package Windows.Services.Cortana is
 
    pragma preelaborate;
@@ -95,6 +99,15 @@ package Windows.Services.Cortana is
    type IAsyncOperation_CortanaPermissionsChangeResult_Interface;
    type IAsyncOperation_CortanaPermissionsChangeResult is access all IAsyncOperation_CortanaPermissionsChangeResult_Interface'Class;
    type IAsyncOperation_CortanaPermissionsChangeResult_Ptr is access all IAsyncOperation_CortanaPermissionsChangeResult;
+   type ICortanaActionableInsights_Interface;
+   type ICortanaActionableInsights is access all ICortanaActionableInsights_Interface'Class;
+   type ICortanaActionableInsights_Ptr is access all ICortanaActionableInsights;
+   type ICortanaActionableInsightsOptions_Interface;
+   type ICortanaActionableInsightsOptions is access all ICortanaActionableInsightsOptions_Interface'Class;
+   type ICortanaActionableInsightsOptions_Ptr is access all ICortanaActionableInsightsOptions;
+   type ICortanaActionableInsightsStatics_Interface;
+   type ICortanaActionableInsightsStatics is access all ICortanaActionableInsightsStatics_Interface'Class;
+   type ICortanaActionableInsightsStatics_Ptr is access all ICortanaActionableInsightsStatics;
    type ICortanaPermissionsManager_Interface;
    type ICortanaPermissionsManager is access all ICortanaPermissionsManager_Interface'Class;
    type ICortanaPermissionsManager_Ptr is access all ICortanaPermissionsManager;
@@ -142,6 +155,132 @@ package Windows.Services.Cortana is
    (
       This       : access IAsyncOperation_CortanaPermissionsChangeResult_Interface
       ; RetVal : access Windows.Services.Cortana.CortanaPermissionsChangeResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICortanaActionableInsights : aliased constant Windows.IID := (2501822129, 64643, 22637, (139, 132, 36, 82, 200, 152, 22, 37 ));
+   
+   type ICortanaActionableInsights_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_User
+   (
+      This       : access ICortanaActionableInsights_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IsAvailableAsync
+   (
+      This       : access ICortanaActionableInsights_Interface
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowInsightsForImageAsync
+   (
+      This       : access ICortanaActionableInsights_Interface
+      ; imageStream : Windows.Storage.Streams.IRandomAccessStreamReference
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowInsightsForImageWithOptionsAsync
+   (
+      This       : access ICortanaActionableInsights_Interface
+      ; imageStream : Windows.Storage.Streams.IRandomAccessStreamReference
+      ; options : Windows.Services.Cortana.ICortanaActionableInsightsOptions
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowInsightsForTextAsync
+   (
+      This       : access ICortanaActionableInsights_Interface
+      ; text : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowInsightsForTextWithOptionsAsync
+   (
+      This       : access ICortanaActionableInsights_Interface
+      ; text : Windows.String
+      ; options : Windows.Services.Cortana.ICortanaActionableInsightsOptions
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowInsightsAsync
+   (
+      This       : access ICortanaActionableInsights_Interface
+      ; datapackage : Windows.ApplicationModel.DataTransfer.IDataPackage
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ShowInsightsWithOptionsAsync
+   (
+      This       : access ICortanaActionableInsights_Interface
+      ; datapackage : Windows.ApplicationModel.DataTransfer.IDataPackage
+      ; options : Windows.Services.Cortana.ICortanaActionableInsightsOptions
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICortanaActionableInsightsOptions : aliased constant Windows.IID := (2864888783, 38786, 21536, (184, 30, 122, 229, 106, 243, 24, 21 ));
+   
+   type ICortanaActionableInsightsOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContentSourceWebLink
+   (
+      This       : access ICortanaActionableInsightsOptions_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ContentSourceWebLink
+   (
+      This       : access ICortanaActionableInsightsOptions_Interface
+      ; value : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SurroundingText
+   (
+      This       : access ICortanaActionableInsightsOptions_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SurroundingText
+   (
+      This       : access ICortanaActionableInsightsOptions_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICortanaActionableInsightsStatics : aliased constant Windows.IID := (3051279378, 40239, 23733, (155, 5, 53, 106, 11, 131, 108, 16 ));
+   
+   type ICortanaActionableInsightsStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDefault
+   (
+      This       : access ICortanaActionableInsightsStatics_Interface
+      ; RetVal : access Windows.Services.Cortana.ICortanaActionableInsights
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetForUser
+   (
+      This       : access ICortanaActionableInsightsStatics_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.Services.Cortana.ICortanaActionableInsights
    )
    return Windows.HRESULT is abstract;
    
@@ -311,12 +450,25 @@ package Windows.Services.Cortana is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype CortanaActionableInsights is Windows.Services.Cortana.ICortanaActionableInsights;
+   subtype CortanaActionableInsightsOptions is Windows.Services.Cortana.ICortanaActionableInsightsOptions;
+   function Create return Windows.Services.Cortana.ICortanaActionableInsightsOptions;
+   
    subtype CortanaPermissionsManager is Windows.Services.Cortana.ICortanaPermissionsManager;
    subtype CortanaSettings is Windows.Services.Cortana.ICortanaSettings;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetDefault
+   return Windows.Services.Cortana.ICortanaActionableInsights;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Services.Cortana.ICortanaActionableInsights;
    
    function GetDefault
    return Windows.Services.Cortana.ICortanaPermissionsManager;

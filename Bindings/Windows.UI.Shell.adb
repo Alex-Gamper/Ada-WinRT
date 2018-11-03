@@ -27,6 +27,7 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.ApplicationModel.Core;
+with Windows.UI.StartScreen;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Shell is
@@ -34,6 +35,23 @@ package body Windows.UI.Shell is
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
+   
+   function Create return Windows.UI.Shell.ISecurityAppManager is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Shell.SecurityAppManager");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.UI.Shell.ISecurityAppManager) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.UI.Shell.IID_ISecurityAppManager'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
    
    ------------------------------------------------------------------------
    -- Override Implementations

@@ -124,6 +124,19 @@ package body Windows.Media.Audio is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_ISetDefaultSpatialAudioFormatResult_Interface
+      ; asyncInfo : Windows.Media.Audio.IAsyncOperation_ISetDefaultSpatialAudioFormatResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface
       ; sender : Windows.Media.Audio.IAudioFileInputNode
       ; args : Windows.Object
@@ -223,6 +236,19 @@ package body Windows.Media.Audio is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Media.Audio.IMediaSourceAudioInputNode(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISpatialAudioDeviceConfiguration_add_ConfigurationChanged_Interface
+      ; sender : Windows.Media.Audio.ISpatialAudioDeviceConfiguration
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Audio.ISpatialAudioDeviceConfiguration(sender), args);
       return Hr;
    end;
    
@@ -649,6 +675,145 @@ package body Windows.Media.Audio is
       Hr := RoGetActivationFactory(m_hString, IID_IAudioStateMonitorStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateForRenderMonitoringWithCategoryAndDeviceRole(category, role, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForDeviceId
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Media.Audio.ISpatialAudioDeviceConfiguration is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.SpatialAudioDeviceConfiguration");
+      m_Factory     : ISpatialAudioDeviceConfigurationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.ISpatialAudioDeviceConfiguration;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialAudioDeviceConfigurationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForDeviceId(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefault
+   return Windows.Media.Audio.ISpatialAudioFormatConfiguration is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.SpatialAudioFormatConfiguration");
+      m_Factory     : ISpatialAudioFormatConfigurationStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.ISpatialAudioFormatConfiguration;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialAudioFormatConfigurationStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DolbyAtmosForHeadphones
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.SpatialAudioFormatSubtype");
+      m_Factory     : ISpatialAudioFormatSubtypeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialAudioFormatSubtypeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DolbyAtmosForHeadphones(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DolbyAtmosForHomeTheater
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.SpatialAudioFormatSubtype");
+      m_Factory     : ISpatialAudioFormatSubtypeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialAudioFormatSubtypeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DolbyAtmosForHomeTheater(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DolbyAtmosForSpeakers
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.SpatialAudioFormatSubtype");
+      m_Factory     : ISpatialAudioFormatSubtypeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialAudioFormatSubtypeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DolbyAtmosForSpeakers(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DTSHeadphoneX
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.SpatialAudioFormatSubtype");
+      m_Factory     : ISpatialAudioFormatSubtypeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialAudioFormatSubtypeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DTSHeadphoneX(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_DTSXUltra
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.SpatialAudioFormatSubtype");
+      m_Factory     : ISpatialAudioFormatSubtypeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialAudioFormatSubtypeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_DTSXUltra(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_WindowsSonic
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.SpatialAudioFormatSubtype");
+      m_Factory     : ISpatialAudioFormatSubtypeStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialAudioFormatSubtypeStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_WindowsSonic(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -1376,7 +1376,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    function add_BitmapRequested
    (
       This       : access ICustomMapTileDataSource_Interface_Impl
-      ; value : TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested
+      ; handler : TypedEventHandler_ICustomMapTileDataSource_add_BitmapRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -1546,7 +1546,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    function add_UriRequested
    (
       This       : access IHttpMapTileDataSource_Interface_Impl
-      ; value : TypedEventHandler_IHttpMapTileDataSource_add_UriRequested
+      ; handler : TypedEventHandler_IHttpMapTileDataSource_add_UriRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -1683,7 +1683,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    function add_UriRequested
    (
       This       : access ILocalMapTileDataSource_Interface_Impl
-      ; value : TypedEventHandler_ILocalMapTileDataSource_add_UriRequested
+      ; handler : TypedEventHandler_ILocalMapTileDataSource_add_UriRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is
@@ -2613,8 +2613,8 @@ package body Windows.UI.Xaml.Controls.Maps is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.ICustomMapTileDataSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -2625,7 +2625,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ICustomMapTileDataSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2634,8 +2634,8 @@ package body Windows.UI.Xaml.Controls.Maps is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IHttpMapTileDataSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -2646,7 +2646,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IHttpMapTileDataSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2656,8 +2656,8 @@ package body Windows.UI.Xaml.Controls.Maps is
    function CreateInstanceWithUriFormatString
    (
       uriFormatString : Windows.String
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IHttpMapTileDataSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -2668,7 +2668,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IHttpMapTileDataSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithUriFormatString(uriFormatString, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithUriFormatString(uriFormatString, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2677,8 +2677,8 @@ package body Windows.UI.Xaml.Controls.Maps is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.ILocalMapTileDataSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -2689,7 +2689,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ILocalMapTileDataSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -2699,8 +2699,8 @@ package body Windows.UI.Xaml.Controls.Maps is
    function CreateInstanceWithUriFormatString
    (
       uriFormatString : Windows.String
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.ILocalMapTileDataSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -2711,7 +2711,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ILocalMapTileDataSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithUriFormatString(uriFormatString, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithUriFormatString(uriFormatString, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3481,8 +3481,8 @@ package body Windows.UI.Xaml.Controls.Maps is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapCustomExperience is
       Hr            : Windows.HRESULT := S_OK;
@@ -3493,7 +3493,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapCustomExperienceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3502,8 +3502,8 @@ package body Windows.UI.Xaml.Controls.Maps is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapElement is
       Hr            : Windows.HRESULT := S_OK;
@@ -3514,7 +3514,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapElementFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3863,8 +3863,8 @@ package body Windows.UI.Xaml.Controls.Maps is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapLayer is
       Hr            : Windows.HRESULT := S_OK;
@@ -3875,7 +3875,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapLayerFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -3935,8 +3935,8 @@ package body Windows.UI.Xaml.Controls.Maps is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapModel3D is
       Hr            : Windows.HRESULT := S_OK;
@@ -3947,7 +3947,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapModel3DFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -4083,8 +4083,8 @@ package body Windows.UI.Xaml.Controls.Maps is
    function CreateInstanceWithMapRoute
    (
       route : Windows.Services.Maps.IMapRoute
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapRouteView is
       Hr            : Windows.HRESULT := S_OK;
@@ -4095,7 +4095,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapRouteViewFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithMapRoute(route, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithMapRoute(route, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5596,8 +5596,8 @@ package body Windows.UI.Xaml.Controls.Maps is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileDataSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -5608,7 +5608,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapTileDataSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5617,8 +5617,8 @@ package body Windows.UI.Xaml.Controls.Maps is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -5629,7 +5629,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstance(outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5639,8 +5639,8 @@ package body Windows.UI.Xaml.Controls.Maps is
    function CreateInstanceWithDataSource
    (
       dataSource : Windows.UI.Xaml.Controls.Maps.IMapTileDataSource
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -5651,7 +5651,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithDataSource(dataSource, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithDataSource(dataSource, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5662,8 +5662,8 @@ package body Windows.UI.Xaml.Controls.Maps is
    (
       dataSource : Windows.UI.Xaml.Controls.Maps.IMapTileDataSource
       ; zoomLevelRange : Windows.UI.Xaml.Controls.Maps.MapZoomLevelRange
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -5674,7 +5674,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithDataSourceAndZoomRange(dataSource, zoomLevelRange, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithDataSourceAndZoomRange(dataSource, zoomLevelRange, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5686,8 +5686,8 @@ package body Windows.UI.Xaml.Controls.Maps is
       dataSource : Windows.UI.Xaml.Controls.Maps.IMapTileDataSource
       ; zoomLevelRange : Windows.UI.Xaml.Controls.Maps.MapZoomLevelRange
       ; bounds : Windows.Devices.Geolocation.IGeoboundingBox
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -5698,7 +5698,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithDataSourceZoomRangeAndBounds(dataSource, zoomLevelRange, bounds, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithDataSourceZoomRangeAndBounds(dataSource, zoomLevelRange, bounds, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5711,8 +5711,8 @@ package body Windows.UI.Xaml.Controls.Maps is
       ; zoomLevelRange : Windows.UI.Xaml.Controls.Maps.MapZoomLevelRange
       ; bounds : Windows.Devices.Geolocation.IGeoboundingBox
       ; tileSizeInPixels : Windows.Int32
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.Maps.IMapTileSource is
       Hr            : Windows.HRESULT := S_OK;
@@ -5723,7 +5723,7 @@ package body Windows.UI.Xaml.Controls.Maps is
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceFactory'Access , m_Factory'Address);
       if Hr = 0 then
-         Hr := m_Factory.CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize(dataSource, zoomLevelRange, bounds, tileSizeInPixels, outer, inner, RetVal'Access);
+         Hr := m_Factory.CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize(dataSource, zoomLevelRange, bounds, tileSizeInPixels, baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -5911,6 +5911,74 @@ package body Windows.UI.Xaml.Controls.Maps is
       Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_ZoomLevelRangeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AnimationStateProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileSource");
+      m_Factory     : IMapTileSourceStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AnimationStateProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_AutoPlayProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileSource");
+      m_Factory     : IMapTileSourceStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_AutoPlayProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FrameCountProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileSource");
+      m_Factory     : IMapTileSourceStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FrameCountProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_FrameDurationProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Maps.MapTileSource");
+      m_Factory     : IMapTileSourceStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMapTileSourceStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_FrameDurationProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

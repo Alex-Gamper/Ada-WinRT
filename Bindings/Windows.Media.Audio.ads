@@ -167,6 +167,18 @@ package Windows.Media.Audio is
    
    type MediaSourceAudioInputNodeCreationStatus_Ptr is access MediaSourceAudioInputNodeCreationStatus;
    
+   type MixedRealitySpatialAudioFormatPolicy is (
+      UseMixedRealityDefaultSpatialAudioFormat,
+      UseDeviceConfigurationDefaultSpatialAudioFormat
+   );
+   for MixedRealitySpatialAudioFormatPolicy use (
+      UseMixedRealityDefaultSpatialAudioFormat => 0,
+      UseDeviceConfigurationDefaultSpatialAudioFormat => 1
+   );
+   for MixedRealitySpatialAudioFormatPolicy'Size use 32;
+   
+   type MixedRealitySpatialAudioFormatPolicy_Ptr is access MixedRealitySpatialAudioFormatPolicy;
+   
    type QuantumSizeSelectionMode is (
       SystemDefault,
       LowestLatency,
@@ -180,6 +192,26 @@ package Windows.Media.Audio is
    for QuantumSizeSelectionMode'Size use 32;
    
    type QuantumSizeSelectionMode_Ptr is access QuantumSizeSelectionMode;
+   
+   type SetDefaultSpatialAudioFormatStatus is (
+      Succeeded,
+      AccessDenied,
+      LicenseExpired,
+      LicenseNotValidForAudioEndpoint,
+      NotSupportedOnAudioEndpoint,
+      UnknownError
+   );
+   for SetDefaultSpatialAudioFormatStatus use (
+      Succeeded => 0,
+      AccessDenied => 1,
+      LicenseExpired => 2,
+      LicenseNotValidForAudioEndpoint => 3,
+      NotSupportedOnAudioEndpoint => 4,
+      UnknownError => 5
+   );
+   for SetDefaultSpatialAudioFormatStatus'Size use 32;
+   
+   type SetDefaultSpatialAudioFormatStatus_Ptr is access SetDefaultSpatialAudioFormatStatus;
    
    type SpatialAudioModel is (
       ObjectBased,
@@ -215,6 +247,9 @@ package Windows.Media.Audio is
    type AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult_Interface;
    type AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult is access all AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult_Interface'Class;
    type AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult_Ptr is access all AsyncOperationCompletedHandler_ICreateMediaSourceAudioInputNodeResult;
+   type AsyncOperationCompletedHandler_ISetDefaultSpatialAudioFormatResult_Interface;
+   type AsyncOperationCompletedHandler_ISetDefaultSpatialAudioFormatResult is access all AsyncOperationCompletedHandler_ISetDefaultSpatialAudioFormatResult_Interface'Class;
+   type AsyncOperationCompletedHandler_ISetDefaultSpatialAudioFormatResult_Ptr is access all AsyncOperationCompletedHandler_ISetDefaultSpatialAudioFormatResult;
    type TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface;
    type TypedEventHandler_IAudioFileInputNode_add_FileCompleted is access all TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface'Class;
    type TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Ptr is access all TypedEventHandler_IAudioFileInputNode_add_FileCompleted;
@@ -239,6 +274,9 @@ package Windows.Media.Audio is
    type TypedEventHandler_IMediaSourceAudioInputNode_add_MediaSourceCompleted_Interface;
    type TypedEventHandler_IMediaSourceAudioInputNode_add_MediaSourceCompleted is access all TypedEventHandler_IMediaSourceAudioInputNode_add_MediaSourceCompleted_Interface'Class;
    type TypedEventHandler_IMediaSourceAudioInputNode_add_MediaSourceCompleted_Ptr is access all TypedEventHandler_IMediaSourceAudioInputNode_add_MediaSourceCompleted;
+   type TypedEventHandler_ISpatialAudioDeviceConfiguration_add_ConfigurationChanged_Interface;
+   type TypedEventHandler_ISpatialAudioDeviceConfiguration_add_ConfigurationChanged is access all TypedEventHandler_ISpatialAudioDeviceConfiguration_add_ConfigurationChanged_Interface'Class;
+   type TypedEventHandler_ISpatialAudioDeviceConfiguration_add_ConfigurationChanged_Ptr is access all TypedEventHandler_ISpatialAudioDeviceConfiguration_add_ConfigurationChanged;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -262,6 +300,9 @@ package Windows.Media.Audio is
    type IAsyncOperation_ICreateMediaSourceAudioInputNodeResult_Interface;
    type IAsyncOperation_ICreateMediaSourceAudioInputNodeResult is access all IAsyncOperation_ICreateMediaSourceAudioInputNodeResult_Interface'Class;
    type IAsyncOperation_ICreateMediaSourceAudioInputNodeResult_Ptr is access all IAsyncOperation_ICreateMediaSourceAudioInputNodeResult;
+   type IAsyncOperation_ISetDefaultSpatialAudioFormatResult_Interface;
+   type IAsyncOperation_ISetDefaultSpatialAudioFormatResult is access all IAsyncOperation_ISetDefaultSpatialAudioFormatResult_Interface'Class;
+   type IAsyncOperation_ISetDefaultSpatialAudioFormatResult_Ptr is access all IAsyncOperation_ISetDefaultSpatialAudioFormatResult;
    type IAudioDeviceInputNode_Interface;
    type IAudioDeviceInputNode is access all IAudioDeviceInputNode_Interface'Class;
    type IAudioDeviceInputNode_Ptr is access all IAudioDeviceInputNode;
@@ -364,21 +405,39 @@ package Windows.Media.Audio is
    type ICreateAudioDeviceInputNodeResult_Interface;
    type ICreateAudioDeviceInputNodeResult is access all ICreateAudioDeviceInputNodeResult_Interface'Class;
    type ICreateAudioDeviceInputNodeResult_Ptr is access all ICreateAudioDeviceInputNodeResult;
+   type ICreateAudioDeviceInputNodeResult2_Interface;
+   type ICreateAudioDeviceInputNodeResult2 is access all ICreateAudioDeviceInputNodeResult2_Interface'Class;
+   type ICreateAudioDeviceInputNodeResult2_Ptr is access all ICreateAudioDeviceInputNodeResult2;
    type ICreateAudioDeviceOutputNodeResult_Interface;
    type ICreateAudioDeviceOutputNodeResult is access all ICreateAudioDeviceOutputNodeResult_Interface'Class;
    type ICreateAudioDeviceOutputNodeResult_Ptr is access all ICreateAudioDeviceOutputNodeResult;
+   type ICreateAudioDeviceOutputNodeResult2_Interface;
+   type ICreateAudioDeviceOutputNodeResult2 is access all ICreateAudioDeviceOutputNodeResult2_Interface'Class;
+   type ICreateAudioDeviceOutputNodeResult2_Ptr is access all ICreateAudioDeviceOutputNodeResult2;
    type ICreateAudioFileInputNodeResult_Interface;
    type ICreateAudioFileInputNodeResult is access all ICreateAudioFileInputNodeResult_Interface'Class;
    type ICreateAudioFileInputNodeResult_Ptr is access all ICreateAudioFileInputNodeResult;
+   type ICreateAudioFileInputNodeResult2_Interface;
+   type ICreateAudioFileInputNodeResult2 is access all ICreateAudioFileInputNodeResult2_Interface'Class;
+   type ICreateAudioFileInputNodeResult2_Ptr is access all ICreateAudioFileInputNodeResult2;
    type ICreateAudioFileOutputNodeResult_Interface;
    type ICreateAudioFileOutputNodeResult is access all ICreateAudioFileOutputNodeResult_Interface'Class;
    type ICreateAudioFileOutputNodeResult_Ptr is access all ICreateAudioFileOutputNodeResult;
+   type ICreateAudioFileOutputNodeResult2_Interface;
+   type ICreateAudioFileOutputNodeResult2 is access all ICreateAudioFileOutputNodeResult2_Interface'Class;
+   type ICreateAudioFileOutputNodeResult2_Ptr is access all ICreateAudioFileOutputNodeResult2;
    type ICreateAudioGraphResult_Interface;
    type ICreateAudioGraphResult is access all ICreateAudioGraphResult_Interface'Class;
    type ICreateAudioGraphResult_Ptr is access all ICreateAudioGraphResult;
+   type ICreateAudioGraphResult2_Interface;
+   type ICreateAudioGraphResult2 is access all ICreateAudioGraphResult2_Interface'Class;
+   type ICreateAudioGraphResult2_Ptr is access all ICreateAudioGraphResult2;
    type ICreateMediaSourceAudioInputNodeResult_Interface;
    type ICreateMediaSourceAudioInputNodeResult is access all ICreateMediaSourceAudioInputNodeResult_Interface'Class;
    type ICreateMediaSourceAudioInputNodeResult_Ptr is access all ICreateMediaSourceAudioInputNodeResult;
+   type ICreateMediaSourceAudioInputNodeResult2_Interface;
+   type ICreateMediaSourceAudioInputNodeResult2 is access all ICreateMediaSourceAudioInputNodeResult2_Interface'Class;
+   type ICreateMediaSourceAudioInputNodeResult2_Ptr is access all ICreateMediaSourceAudioInputNodeResult2;
    type IEchoEffectDefinition_Interface;
    type IEchoEffectDefinition is access all IEchoEffectDefinition_Interface'Class;
    type IEchoEffectDefinition_Ptr is access all IEchoEffectDefinition;
@@ -424,6 +483,24 @@ package Windows.Media.Audio is
    type IReverbEffectDefinitionFactory_Interface;
    type IReverbEffectDefinitionFactory is access all IReverbEffectDefinitionFactory_Interface'Class;
    type IReverbEffectDefinitionFactory_Ptr is access all IReverbEffectDefinitionFactory;
+   type ISetDefaultSpatialAudioFormatResult_Interface;
+   type ISetDefaultSpatialAudioFormatResult is access all ISetDefaultSpatialAudioFormatResult_Interface'Class;
+   type ISetDefaultSpatialAudioFormatResult_Ptr is access all ISetDefaultSpatialAudioFormatResult;
+   type ISpatialAudioDeviceConfiguration_Interface;
+   type ISpatialAudioDeviceConfiguration is access all ISpatialAudioDeviceConfiguration_Interface'Class;
+   type ISpatialAudioDeviceConfiguration_Ptr is access all ISpatialAudioDeviceConfiguration;
+   type ISpatialAudioDeviceConfigurationStatics_Interface;
+   type ISpatialAudioDeviceConfigurationStatics is access all ISpatialAudioDeviceConfigurationStatics_Interface'Class;
+   type ISpatialAudioDeviceConfigurationStatics_Ptr is access all ISpatialAudioDeviceConfigurationStatics;
+   type ISpatialAudioFormatConfiguration_Interface;
+   type ISpatialAudioFormatConfiguration is access all ISpatialAudioFormatConfiguration_Interface'Class;
+   type ISpatialAudioFormatConfiguration_Ptr is access all ISpatialAudioFormatConfiguration;
+   type ISpatialAudioFormatConfigurationStatics_Interface;
+   type ISpatialAudioFormatConfigurationStatics is access all ISpatialAudioFormatConfigurationStatics_Interface'Class;
+   type ISpatialAudioFormatConfigurationStatics_Ptr is access all ISpatialAudioFormatConfigurationStatics;
+   type ISpatialAudioFormatSubtypeStatics_Interface;
+   type ISpatialAudioFormatSubtypeStatics is access all ISpatialAudioFormatSubtypeStatics_Interface'Class;
+   type ISpatialAudioFormatSubtypeStatics_Ptr is access all ISpatialAudioFormatSubtypeStatics;
    type IVectorView_IAudioGraphConnection_Interface;
    type IVectorView_IAudioGraphConnection is access all IVectorView_IAudioGraphConnection_Interface'Class;
    type IVectorView_IAudioGraphConnection_Ptr is access all IVectorView_IAudioGraphConnection;
@@ -594,6 +671,33 @@ package Windows.Media.Audio is
    (
       This       : access IAsyncOperation_ICreateMediaSourceAudioInputNodeResult_Interface
       ; RetVal : access Windows.Media.Audio.ICreateMediaSourceAudioInputNodeResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISetDefaultSpatialAudioFormatResult : aliased constant Windows.IID := (1239659810, 17113, 22793, (128, 241, 51, 249, 218, 230, 155, 193 ));
+   
+   type IAsyncOperation_ISetDefaultSpatialAudioFormatResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_ISetDefaultSpatialAudioFormatResult_Interface
+      ; handler : Windows.Media.Audio.AsyncOperationCompletedHandler_ISetDefaultSpatialAudioFormatResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ISetDefaultSpatialAudioFormatResult_Interface
+      ; RetVal : access Windows.Media.Audio.AsyncOperationCompletedHandler_ISetDefaultSpatialAudioFormatResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ISetDefaultSpatialAudioFormatResult_Interface
+      ; RetVal : access Windows.Media.Audio.ISetDefaultSpatialAudioFormatResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1965,6 +2069,19 @@ package Windows.Media.Audio is
    
    ------------------------------------------------------------------------
    
+   IID_ICreateAudioDeviceInputNodeResult2 : aliased constant Windows.IID := (2451335630, 16181, 16839, (150, 34, 121, 246, 8, 186, 237, 194 ));
+   
+   type ICreateAudioDeviceInputNodeResult2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access ICreateAudioDeviceInputNodeResult2_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICreateAudioDeviceOutputNodeResult : aliased constant Windows.IID := (4151799079, 7578, 18423, (156, 212, 40, 89, 204, 27, 123, 255 ));
    
    type ICreateAudioDeviceOutputNodeResult_Interface is interface and Windows.IInspectable_Interface;
@@ -1980,6 +2097,19 @@ package Windows.Media.Audio is
    (
       This       : access ICreateAudioDeviceOutputNodeResult_Interface
       ; RetVal : access Windows.Media.Audio.IAudioDeviceOutputNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICreateAudioDeviceOutputNodeResult2 : aliased constant Windows.IID := (1214523039, 48590, 19121, (189, 56, 251, 174, 147, 174, 218, 202 ));
+   
+   type ICreateAudioDeviceOutputNodeResult2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access ICreateAudioDeviceOutputNodeResult2_Interface
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -2005,6 +2135,19 @@ package Windows.Media.Audio is
    
    ------------------------------------------------------------------------
    
+   IID_ICreateAudioFileInputNodeResult2 : aliased constant Windows.IID := (4178059296, 15744, 20448, (129, 193, 118, 143, 234, 124, 167, 224 ));
+   
+   type ICreateAudioFileInputNodeResult2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access ICreateAudioFileInputNodeResult2_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICreateAudioFileOutputNodeResult : aliased constant Windows.IID := (1205254779, 59657, 17727, (134, 110, 85, 64, 205, 167, 52, 255 ));
    
    type ICreateAudioFileOutputNodeResult_Interface is interface and Windows.IInspectable_Interface;
@@ -2020,6 +2163,19 @@ package Windows.Media.Audio is
    (
       This       : access ICreateAudioFileOutputNodeResult_Interface
       ; RetVal : access Windows.Media.Audio.IAudioFileOutputNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICreateAudioFileOutputNodeResult2 : aliased constant Windows.IID := (2667689229, 13080, 18355, (166, 10, 27, 73, 43, 231, 252, 13 ));
+   
+   type ICreateAudioFileOutputNodeResult2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access ICreateAudioFileOutputNodeResult2_Interface
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -2045,6 +2201,19 @@ package Windows.Media.Audio is
    
    ------------------------------------------------------------------------
    
+   IID_ICreateAudioGraphResult2 : aliased constant Windows.IID := (1836289532, 35014, 20427, (165, 52, 133, 206, 221, 64, 80, 161 ));
+   
+   type ICreateAudioGraphResult2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access ICreateAudioGraphResult2_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICreateMediaSourceAudioInputNodeResult : aliased constant Windows.IID := (1185306787, 21440, 19801, (158, 81, 204, 29, 16, 68, 164, 196 ));
    
    type ICreateMediaSourceAudioInputNodeResult_Interface is interface and Windows.IInspectable_Interface;
@@ -2060,6 +2229,19 @@ package Windows.Media.Audio is
    (
       This       : access ICreateMediaSourceAudioInputNodeResult_Interface
       ; RetVal : access Windows.Media.Audio.IMediaSourceAudioInputNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICreateMediaSourceAudioInputNodeResult2 : aliased constant Windows.IID := (1666272488, 27162, 18915, (151, 236, 40, 253, 91, 225, 20, 229 ));
+   
+   type ICreateMediaSourceAudioInputNodeResult2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access ICreateMediaSourceAudioInputNodeResult2_Interface
+      ; RetVal : access Windows.HResult
    )
    return Windows.HRESULT is abstract;
    
@@ -2806,6 +2988,195 @@ package Windows.Media.Audio is
    
    ------------------------------------------------------------------------
    
+   IID_ISetDefaultSpatialAudioFormatResult : aliased constant Windows.IID := (472556817, 5120, 24176, (158, 169, 174, 21, 18, 65, 232, 234 ));
+   
+   type ISetDefaultSpatialAudioFormatResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access ISetDefaultSpatialAudioFormatResult_Interface
+      ; RetVal : access Windows.Media.Audio.SetDefaultSpatialAudioFormatStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISpatialAudioDeviceConfiguration : aliased constant Windows.IID := (4001562676, 25039, 22345, (157, 164, 16, 240, 254, 2, 129, 153 ));
+   
+   type ISpatialAudioDeviceConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DeviceId
+   (
+      This       : access ISpatialAudioDeviceConfiguration_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsSpatialAudioSupported
+   (
+      This       : access ISpatialAudioDeviceConfiguration_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IsSpatialAudioFormatSupported
+   (
+      This       : access ISpatialAudioDeviceConfiguration_Interface
+      ; subtype_x : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ActiveSpatialAudioFormat
+   (
+      This       : access ISpatialAudioDeviceConfiguration_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DefaultSpatialAudioFormat
+   (
+      This       : access ISpatialAudioDeviceConfiguration_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetDefaultSpatialAudioFormatAsync
+   (
+      This       : access ISpatialAudioDeviceConfiguration_Interface
+      ; subtype_x : Windows.String
+      ; RetVal : access Windows.Media.Audio.IAsyncOperation_ISetDefaultSpatialAudioFormatResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_ConfigurationChanged
+   (
+      This       : access ISpatialAudioDeviceConfiguration_Interface
+      ; handler : TypedEventHandler_ISpatialAudioDeviceConfiguration_add_ConfigurationChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ConfigurationChanged
+   (
+      This       : access ISpatialAudioDeviceConfiguration_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISpatialAudioDeviceConfigurationStatics : aliased constant Windows.IID := (1052999547, 37741, 19972, (151, 40, 40, 39, 217, 247, 88, 196 ));
+   
+   type ISpatialAudioDeviceConfigurationStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetForDeviceId
+   (
+      This       : access ISpatialAudioDeviceConfigurationStatics_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Media.Audio.ISpatialAudioDeviceConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISpatialAudioFormatConfiguration : aliased constant Windows.IID := (853477800, 20720, 21397, (153, 35, 125, 68, 202, 113, 237, 109 ));
+   
+   type ISpatialAudioFormatConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReportLicenseChangedAsync
+   (
+      This       : access ISpatialAudioFormatConfiguration_Interface
+      ; subtype_x : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportConfigurationChangedAsync
+   (
+      This       : access ISpatialAudioFormatConfiguration_Interface
+      ; subtype_x : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MixedRealityExclusiveModePolicy
+   (
+      This       : access ISpatialAudioFormatConfiguration_Interface
+      ; RetVal : access Windows.Media.Audio.MixedRealitySpatialAudioFormatPolicy
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_MixedRealityExclusiveModePolicy
+   (
+      This       : access ISpatialAudioFormatConfiguration_Interface
+      ; value : Windows.Media.Audio.MixedRealitySpatialAudioFormatPolicy
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISpatialAudioFormatConfigurationStatics : aliased constant Windows.IID := (727707505, 26569, 20063, (163, 91, 65, 104, 7, 17, 248, 199 ));
+   
+   type ISpatialAudioFormatConfigurationStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDefault
+   (
+      This       : access ISpatialAudioFormatConfigurationStatics_Interface
+      ; RetVal : access Windows.Media.Audio.ISpatialAudioFormatConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISpatialAudioFormatSubtypeStatics : aliased constant Windows.IID := (3017706055, 33774, 16998, (169, 69, 190, 223, 80, 122, 254, 237 ));
+   
+   type ISpatialAudioFormatSubtypeStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_WindowsSonic
+   (
+      This       : access ISpatialAudioFormatSubtypeStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DolbyAtmosForHeadphones
+   (
+      This       : access ISpatialAudioFormatSubtypeStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DolbyAtmosForHomeTheater
+   (
+      This       : access ISpatialAudioFormatSubtypeStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DolbyAtmosForSpeakers
+   (
+      This       : access ISpatialAudioFormatSubtypeStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DTSHeadphoneX
+   (
+      This       : access ISpatialAudioFormatSubtypeStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DTSXUltra
+   (
+      This       : access ISpatialAudioFormatSubtypeStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVectorView_IAudioGraphConnection : aliased constant Windows.IID := (2223353553, 39692, 22994, (162, 6, 105, 155, 247, 70, 195, 255 ));
    
    type IVectorView_IAudioGraphConnection_Interface is interface and Windows.IInspectable_Interface;
@@ -2966,6 +3337,19 @@ package Windows.Media.Audio is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_ISetDefaultSpatialAudioFormatResult : aliased constant Windows.IID := (2958678349, 3091, 24171, (156, 218, 179, 207, 161, 91, 91, 232 ));
+   
+   type AsyncOperationCompletedHandler_ISetDefaultSpatialAudioFormatResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ISetDefaultSpatialAudioFormatResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISetDefaultSpatialAudioFormatResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ISetDefaultSpatialAudioFormatResult_Interface
+      ; asyncInfo : Windows.Media.Audio.IAsyncOperation_ISetDefaultSpatialAudioFormatResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IAudioFileInputNode_add_FileCompleted : aliased constant Windows.IID := (1149306971, 35723, 21792, (152, 37, 233, 103, 29, 162, 168, 159 ));
    
    type TypedEventHandler_IAudioFileInputNode_add_FileCompleted_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioFileInputNode ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioFileInputNode_add_FileCompleted'access) with null record;
@@ -3069,6 +3453,19 @@ package Windows.Media.Audio is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ISpatialAudioDeviceConfiguration_add_ConfigurationChanged : aliased constant Windows.IID := (885748317, 54816, 23693, (151, 246, 163, 235, 223, 241, 249, 100 ));
+   
+   type TypedEventHandler_ISpatialAudioDeviceConfiguration_add_ConfigurationChanged_Interface(Callback : access procedure (sender : Windows.Media.Audio.ISpatialAudioDeviceConfiguration ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISpatialAudioDeviceConfiguration_add_ConfigurationChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISpatialAudioDeviceConfiguration_add_ConfigurationChanged_Interface
+      ; sender : Windows.Media.Audio.ISpatialAudioDeviceConfiguration
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -3147,6 +3544,9 @@ package Windows.Media.Audio is
    )
    return Windows.Media.Audio.IReverbEffectDefinition;
    
+   subtype SetDefaultSpatialAudioFormatResult is Windows.Media.Audio.ISetDefaultSpatialAudioFormatResult;
+   subtype SpatialAudioDeviceConfiguration is Windows.Media.Audio.ISpatialAudioDeviceConfiguration;
+   subtype SpatialAudioFormatConfiguration is Windows.Media.Audio.ISpatialAudioFormatConfiguration;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
@@ -3230,5 +3630,32 @@ package Windows.Media.Audio is
       ; role : Windows.Media.Devices.AudioDeviceRole
    )
    return Windows.Media.Audio.IAudioStateMonitor;
+   
+   function GetForDeviceId
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Media.Audio.ISpatialAudioDeviceConfiguration;
+   
+   function GetDefault
+   return Windows.Media.Audio.ISpatialAudioFormatConfiguration;
+   
+   function get_DolbyAtmosForHeadphones
+   return Windows.String;
+   
+   function get_DolbyAtmosForHomeTheater
+   return Windows.String;
+   
+   function get_DolbyAtmosForSpeakers
+   return Windows.String;
+   
+   function get_DTSHeadphoneX
+   return Windows.String;
+   
+   function get_DTSXUltra
+   return Windows.String;
+   
+   function get_WindowsSonic
+   return Windows.String;
    
 end;

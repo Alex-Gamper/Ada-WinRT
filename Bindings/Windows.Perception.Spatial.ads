@@ -40,6 +40,18 @@ package Windows.Perception.Spatial is
    -- Enums
    ------------------------------------------------------------------------
    
+   type SpatialAnchorExportPurpose is (
+      Relocalization,
+      Sharing
+   );
+   for SpatialAnchorExportPurpose use (
+      Relocalization => 0,
+      Sharing => 1
+   );
+   for SpatialAnchorExportPurpose'Size use 32;
+   
+   type SpatialAnchorExportPurpose_Ptr is access SpatialAnchorExportPurpose;
+   
    type SpatialEntityWatcherStatus is (
       Created,
       Started,
@@ -122,6 +134,14 @@ package Windows.Perception.Spatial is
    -- Record types
    ------------------------------------------------------------------------
    
+   type SpatialBoundingBox is record
+      Center : Windows.Foundation.Numerics.Vector3;
+      Extents : Windows.Foundation.Numerics.Vector3;
+   end record;
+   pragma Convention (C_Pass_By_Copy , SpatialBoundingBox);
+   
+   type SpatialBoundingBox_Ptr is access SpatialBoundingBox;
+   
    type SpatialBoundingFrustum is record
       Near : Windows.Foundation.Numerics.Plane;
       Far : Windows.Foundation.Numerics.Plane;
@@ -133,14 +153,6 @@ package Windows.Perception.Spatial is
    pragma Convention (C_Pass_By_Copy , SpatialBoundingFrustum);
    
    type SpatialBoundingFrustum_Ptr is access SpatialBoundingFrustum;
-   
-   type SpatialBoundingBox is record
-      Center : Windows.Foundation.Numerics.Vector3;
-      Extents : Windows.Foundation.Numerics.Vector3;
-   end record;
-   pragma Convention (C_Pass_By_Copy , SpatialBoundingBox);
-   
-   type SpatialBoundingBox_Ptr is access SpatialBoundingBox;
    
    type SpatialBoundingOrientedBox is record
       Center : Windows.Foundation.Numerics.Vector3;
@@ -163,6 +175,9 @@ package Windows.Perception.Spatial is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type AsyncOperationCompletedHandler_ISpatialAnchorExportSufficiency_Interface;
+   type AsyncOperationCompletedHandler_ISpatialAnchorExportSufficiency is access all AsyncOperationCompletedHandler_ISpatialAnchorExportSufficiency_Interface'Class;
+   type AsyncOperationCompletedHandler_ISpatialAnchorExportSufficiency_Ptr is access all AsyncOperationCompletedHandler_ISpatialAnchorExportSufficiency;
    type AsyncOperationCompletedHandler_ISpatialAnchorStore_Interface;
    type AsyncOperationCompletedHandler_ISpatialAnchorStore is access all AsyncOperationCompletedHandler_ISpatialAnchorStore_Interface'Class;
    type AsyncOperationCompletedHandler_ISpatialAnchorStore_Ptr is access all AsyncOperationCompletedHandler_ISpatialAnchorStore;
@@ -198,6 +213,9 @@ package Windows.Perception.Spatial is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_ISpatialAnchorExportSufficiency_Interface;
+   type IAsyncOperation_ISpatialAnchorExportSufficiency is access all IAsyncOperation_ISpatialAnchorExportSufficiency_Interface'Class;
+   type IAsyncOperation_ISpatialAnchorExportSufficiency_Ptr is access all IAsyncOperation_ISpatialAnchorExportSufficiency;
    type IAsyncOperation_ISpatialAnchorStore_Interface;
    type IAsyncOperation_ISpatialAnchorStore is access all IAsyncOperation_ISpatialAnchorStore_Interface'Class;
    type IAsyncOperation_ISpatialAnchorStore_Ptr is access all IAsyncOperation_ISpatialAnchorStore;
@@ -228,6 +246,15 @@ package Windows.Perception.Spatial is
    type ISpatialAnchor2_Interface;
    type ISpatialAnchor2 is access all ISpatialAnchor2_Interface'Class;
    type ISpatialAnchor2_Ptr is access all ISpatialAnchor2;
+   type ISpatialAnchorExporter_Interface;
+   type ISpatialAnchorExporter is access all ISpatialAnchorExporter_Interface'Class;
+   type ISpatialAnchorExporter_Ptr is access all ISpatialAnchorExporter;
+   type ISpatialAnchorExporterStatics_Interface;
+   type ISpatialAnchorExporterStatics is access all ISpatialAnchorExporterStatics_Interface'Class;
+   type ISpatialAnchorExporterStatics_Ptr is access all ISpatialAnchorExporterStatics;
+   type ISpatialAnchorExportSufficiency_Interface;
+   type ISpatialAnchorExportSufficiency is access all ISpatialAnchorExportSufficiency_Interface'Class;
+   type ISpatialAnchorExportSufficiency_Ptr is access all ISpatialAnchorExportSufficiency;
    type ISpatialAnchorManagerStatics_Interface;
    type ISpatialAnchorManagerStatics is access all ISpatialAnchorManagerStatics_Interface'Class;
    type ISpatialAnchorManagerStatics_Ptr is access all ISpatialAnchorManagerStatics;
@@ -279,6 +306,9 @@ package Windows.Perception.Spatial is
    type ISpatialLocation_Interface;
    type ISpatialLocation is access all ISpatialLocation_Interface'Class;
    type ISpatialLocation_Ptr is access all ISpatialLocation;
+   type ISpatialLocation2_Interface;
+   type ISpatialLocation2 is access all ISpatialLocation2_Interface'Class;
+   type ISpatialLocation2_Ptr is access all ISpatialLocation2;
    type ISpatialLocator_Interface;
    type ISpatialLocator is access all ISpatialLocator_Interface'Class;
    type ISpatialLocator_Ptr is access all ISpatialLocator;
@@ -304,6 +334,33 @@ package Windows.Perception.Spatial is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ISpatialAnchorExportSufficiency : aliased constant Windows.IID := (638146488, 23414, 20825, (141, 197, 224, 61, 116, 170, 95, 61 ));
+   
+   type IAsyncOperation_ISpatialAnchorExportSufficiency_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_ISpatialAnchorExportSufficiency_Interface
+      ; handler : Windows.Perception.Spatial.AsyncOperationCompletedHandler_ISpatialAnchorExportSufficiency
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ISpatialAnchorExportSufficiency_Interface
+      ; RetVal : access Windows.Perception.Spatial.AsyncOperationCompletedHandler_ISpatialAnchorExportSufficiency
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ISpatialAnchorExportSufficiency_Interface
+      ; RetVal : access Windows.Perception.Spatial.ISpatialAnchorExportSufficiency
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -518,6 +575,78 @@ package Windows.Perception.Spatial is
    (
       This       : access ISpatialAnchor2_Interface
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISpatialAnchorExporter : aliased constant Windows.IID := (2586460984, 9467, 17001, (137, 197, 136, 48, 74, 238, 242, 15 ));
+   
+   type ISpatialAnchorExporter_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAnchorExportSufficiencyAsync
+   (
+      This       : access ISpatialAnchorExporter_Interface
+      ; anchor : Windows.Perception.Spatial.ISpatialAnchor
+      ; purpose : Windows.Perception.Spatial.SpatialAnchorExportPurpose
+      ; RetVal : access Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorExportSufficiency -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryExportAnchorAsync
+   (
+      This       : access ISpatialAnchorExporter_Interface
+      ; anchor : Windows.Perception.Spatial.ISpatialAnchor
+      ; purpose : Windows.Perception.Spatial.SpatialAnchorExportPurpose
+      ; stream : Windows.Storage.Streams.IOutputStream
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISpatialAnchorExporterStatics : aliased constant Windows.IID := (3978627000, 9333, 17308, (133, 255, 127, 237, 52, 31, 220, 136 ));
+   
+   type ISpatialAnchorExporterStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDefault
+   (
+      This       : access ISpatialAnchorExporterStatics_Interface
+      ; RetVal : access Windows.Perception.Spatial.ISpatialAnchorExporter
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RequestAccessAsync
+   (
+      This       : access ISpatialAnchorExporterStatics_Interface
+      ; RetVal : access Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISpatialAnchorExportSufficiency : aliased constant Windows.IID := (2009226027, 13321, 16520, (185, 27, 253, 253, 5, 209, 100, 143 ));
+   
+   type ISpatialAnchorExportSufficiency_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsMinimallySufficient
+   (
+      This       : access ISpatialAnchorExportSufficiency_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SufficiencyLevel
+   (
+      This       : access ISpatialAnchorExportSufficiency_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RecommendedSufficiencyLevel
+   (
+      This       : access ISpatialAnchorExportSufficiency_Interface
+      ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
    
@@ -981,6 +1110,26 @@ package Windows.Perception.Spatial is
    
    ------------------------------------------------------------------------
    
+   IID_ISpatialLocation2 : aliased constant Windows.IID := (293544982, 14503, 18968, (180, 4, 171, 143, 171, 225, 215, 139 ));
+   
+   type ISpatialLocation2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AbsoluteAngularVelocityAxisAngle
+   (
+      This       : access ISpatialLocation2_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AbsoluteAngularAccelerationAxisAngle
+   (
+      This       : access ISpatialLocation2_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISpatialLocator : aliased constant Windows.IID := (4131883301, 40460, 15286, (153, 126, 182, 78, 204, 162, 76, 244 ));
    
    type ISpatialLocator_Interface is interface and Windows.IInspectable_Interface;
@@ -1286,6 +1435,19 @@ package Windows.Perception.Spatial is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_ISpatialAnchorExportSufficiency : aliased constant Windows.IID := (1264948178, 4520, 20798, (131, 141, 66, 38, 251, 30, 60, 31 ));
+   
+   type AsyncOperationCompletedHandler_ISpatialAnchorExportSufficiency_Interface(Callback : access procedure (asyncInfo : Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorExportSufficiency ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISpatialAnchorExportSufficiency'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ISpatialAnchorExportSufficiency_Interface
+      ; asyncInfo : Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorExportSufficiency
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_AsyncOperationCompletedHandler_ISpatialAnchorStore : aliased constant Windows.IID := (2227313210, 890, 20543, (128, 6, 171, 87, 123, 127, 111, 102 ));
    
    type AsyncOperationCompletedHandler_ISpatialAnchorStore_Interface(Callback : access procedure (asyncInfo : Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorStore ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ISpatialAnchorStore'access) with null record;
@@ -1419,6 +1581,8 @@ package Windows.Perception.Spatial is
    ------------------------------------------------------------------------
    
    subtype SpatialAnchor is Windows.Perception.Spatial.ISpatialAnchor;
+   subtype SpatialAnchorExporter is Windows.Perception.Spatial.ISpatialAnchorExporter;
+   subtype SpatialAnchorExportSufficiency is Windows.Perception.Spatial.ISpatialAnchorExportSufficiency;
    subtype SpatialAnchorRawCoordinateSystemAdjustedEventArgs is Windows.Perception.Spatial.ISpatialAnchorRawCoordinateSystemAdjustedEventArgs;
    subtype SpatialAnchorStore is Windows.Perception.Spatial.ISpatialAnchorStore;
    subtype SpatialBoundingVolume is Windows.Perception.Spatial.ISpatialBoundingVolume;
@@ -1474,10 +1638,16 @@ package Windows.Perception.Spatial is
    )
    return Windows.Perception.Spatial.ISpatialAnchor;
    
+   function GetDefault
+   return Windows.Perception.Spatial.ISpatialAnchorExporter;
+   
+   function RequestAccessAsync
+   return Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus;
+   
    function RequestStoreAsync
    return Windows.Perception.Spatial.IAsyncOperation_ISpatialAnchorStore;
    
-   function RequestAccessAsync
+   function RequestAccessAsync_SpatialAnchorTransferManager
    return Windows.Perception.Spatial.IAsyncOperation_SpatialPerceptionAccessStatus;
    
    function TryExportAnchorsAsync

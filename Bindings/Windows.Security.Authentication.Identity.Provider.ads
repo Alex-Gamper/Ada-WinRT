@@ -124,8 +124,7 @@ package Windows.Security.Authentication.Identity.Provider is
       CredentialCollected,
       CredentialAuthenticated,
       StoppingAuthentication,
-      ReadyForLock,
-      CheckingDevicePresence
+      ReadyForLock
    );
    for SecondaryAuthenticationFactorAuthenticationStage use (
       NotStarted => 0,
@@ -135,8 +134,7 @@ package Windows.Security.Authentication.Identity.Provider is
       CredentialCollected => 4,
       CredentialAuthenticated => 5,
       StoppingAuthentication => 6,
-      ReadyForLock => 7,
-      CheckingDevicePresence => 8
+      ReadyForLock => 7
    );
    for SecondaryAuthenticationFactorAuthenticationStage'Size use 32;
    
@@ -165,7 +163,6 @@ package Windows.Security.Authentication.Identity.Provider is
       SecureStorage,
       StoreKeys,
       ConfirmUserIntentToAuthenticate,
-      SupportSecureUserPresenceCheck,
       TransmittedDataIsEncrypted,
       HMacSha256,
       CloseRangeDataTransmission
@@ -175,7 +172,6 @@ package Windows.Security.Authentication.Identity.Provider is
       SecureStorage => 1,
       StoreKeys => 2,
       ConfirmUserIntentToAuthenticate => 4,
-      SupportSecureUserPresenceCheck => 8,
       TransmittedDataIsEncrypted => 16,
       HMacSha256 => 32,
       CloseRangeDataTransmission => 64

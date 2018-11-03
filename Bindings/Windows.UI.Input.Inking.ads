@@ -40,6 +40,20 @@ package Windows.UI.Input.Inking is
    -- Enums
    ------------------------------------------------------------------------
    
+   type HandwritingLineHeight is (
+      Small,
+      Medium,
+      Large
+   );
+   for HandwritingLineHeight use (
+      Small => 0,
+      Medium => 1,
+      Large => 2
+   );
+   for HandwritingLineHeight'Size use 32;
+   
+   type HandwritingLineHeight_Ptr is access HandwritingLineHeight;
+   
    type InkDrawingAttributesKind is (
       Default,
       Pencil
@@ -157,6 +171,18 @@ package Windows.UI.Input.Inking is
    for InkRecognitionTarget'Size use 32;
    
    type InkRecognitionTarget_Ptr is access InkRecognitionTarget;
+   
+   type PenHandedness is (
+      Right,
+      Left
+   );
+   for PenHandedness use (
+      Right => 0,
+      Left => 1
+   );
+   for PenHandedness'Size use 32;
+   
+   type PenHandedness_Ptr is access PenHandedness;
    
    type PenTipShape is (
       Circle,
@@ -374,6 +400,12 @@ package Windows.UI.Input.Inking is
    type IIterator_IInkStrokeRenderingSegment_Interface;
    type IIterator_IInkStrokeRenderingSegment is access all IIterator_IInkStrokeRenderingSegment_Interface'Class;
    type IIterator_IInkStrokeRenderingSegment_Ptr is access all IIterator_IInkStrokeRenderingSegment;
+   type IPenAndInkSettings_Interface;
+   type IPenAndInkSettings is access all IPenAndInkSettings_Interface'Class;
+   type IPenAndInkSettings_Ptr is access all IPenAndInkSettings;
+   type IPenAndInkSettingsStatics_Interface;
+   type IPenAndInkSettingsStatics is access all IPenAndInkSettingsStatics_Interface'Class;
+   type IPenAndInkSettingsStatics_Ptr is access all IPenAndInkSettingsStatics;
    type IVector_IInkPoint_Interface;
    type IVector_IInkPoint is access all IVector_IInkPoint_Interface'Class;
    type IVector_IInkPoint_Ptr is access all IVector_IInkPoint;
@@ -2222,6 +2254,67 @@ package Windows.UI.Input.Inking is
    
    ------------------------------------------------------------------------
    
+   IID_IPenAndInkSettings : aliased constant Windows.IID := (3157060495, 102, 17576, (187, 122, 184, 57, 179, 222, 184, 245 ));
+   
+   type IPenAndInkSettings_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsHandwritingDirectlyIntoTextFieldEnabled
+   (
+      This       : access IPenAndInkSettings_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PenHandedness
+   (
+      This       : access IPenAndInkSettings_Interface
+      ; RetVal : access Windows.UI.Input.Inking.PenHandedness
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HandwritingLineHeight
+   (
+      This       : access IPenAndInkSettings_Interface
+      ; RetVal : access Windows.UI.Input.Inking.HandwritingLineHeight
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FontFamilyName
+   (
+      This       : access IPenAndInkSettings_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UserConsentsToHandwritingTelemetryCollection
+   (
+      This       : access IPenAndInkSettings_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsTouchHandwritingEnabled
+   (
+      This       : access IPenAndInkSettings_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPenAndInkSettingsStatics : aliased constant Windows.IID := (3983396918, 22280, 23612, (150, 219, 242, 245, 82, 234, 182, 65 ));
+   
+   type IPenAndInkSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDefault
+   (
+      This       : access IPenAndInkSettingsStatics_Interface
+      ; RetVal : access Windows.UI.Input.Inking.IPenAndInkSettings
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVector_IInkPoint : aliased constant Windows.IID := (281309698, 18347, 22716, (145, 222, 213, 0, 15, 26, 116, 192 ));
    
    type IVector_IInkPoint_Interface is interface and Windows.IInspectable_Interface;
@@ -2748,6 +2841,7 @@ package Windows.UI.Input.Inking is
    subtype InkStrokesErasedEventArgs is Windows.UI.Input.Inking.IInkStrokesErasedEventArgs;
    subtype InkSynchronizer is Windows.UI.Input.Inking.IInkSynchronizer;
    subtype InkUnprocessedInput is Windows.UI.Input.Inking.IInkUnprocessedInput;
+   subtype PenAndInkSettings is Windows.UI.Input.Inking.IPenAndInkSettings;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
@@ -2755,5 +2849,8 @@ package Windows.UI.Input.Inking is
    
    function CreateForPencil
    return Windows.UI.Input.Inking.IInkDrawingAttributes;
+   
+   function GetDefault
+   return Windows.UI.Input.Inking.IPenAndInkSettings;
    
 end;

@@ -28,6 +28,9 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
+limited with Windows.Graphics.Imaging;
+limited with Windows.Storage.Streams;
+--------------------------------------------------------------------------------
 package Windows.Devices.PointOfService.Provider is
 
    pragma preelaborate;
@@ -52,6 +55,15 @@ package Windows.Devices.PointOfService.Provider is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type AsyncOperationCompletedHandler_IBarcodeScannerFrameReader_Interface;
+   type AsyncOperationCompletedHandler_IBarcodeScannerFrameReader is access all AsyncOperationCompletedHandler_IBarcodeScannerFrameReader_Interface'Class;
+   type AsyncOperationCompletedHandler_IBarcodeScannerFrameReader_Ptr is access all AsyncOperationCompletedHandler_IBarcodeScannerFrameReader;
+   type AsyncOperationCompletedHandler_IBarcodeScannerVideoFrame_Interface;
+   type AsyncOperationCompletedHandler_IBarcodeScannerVideoFrame is access all AsyncOperationCompletedHandler_IBarcodeScannerVideoFrame_Interface'Class;
+   type AsyncOperationCompletedHandler_IBarcodeScannerVideoFrame_Ptr is access all AsyncOperationCompletedHandler_IBarcodeScannerVideoFrame;
+   type TypedEventHandler_IBarcodeScannerFrameReader_add_FrameArrived_Interface;
+   type TypedEventHandler_IBarcodeScannerFrameReader_add_FrameArrived is access all TypedEventHandler_IBarcodeScannerFrameReader_add_FrameArrived_Interface'Class;
+   type TypedEventHandler_IBarcodeScannerFrameReader_add_FrameArrived_Ptr is access all TypedEventHandler_IBarcodeScannerFrameReader_add_FrameArrived;
    type TypedEventHandler_IBarcodeScannerProviderConnection_add_DisableScannerRequested_Interface;
    type TypedEventHandler_IBarcodeScannerProviderConnection_add_DisableScannerRequested is access all TypedEventHandler_IBarcodeScannerProviderConnection_add_DisableScannerRequested_Interface'Class;
    type TypedEventHandler_IBarcodeScannerProviderConnection_add_DisableScannerRequested_Ptr is access all TypedEventHandler_IBarcodeScannerProviderConnection_add_DisableScannerRequested;
@@ -81,60 +93,102 @@ package Windows.Devices.PointOfService.Provider is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IBarcodeScannerFrameReader_Interface;
+   type IAsyncOperation_IBarcodeScannerFrameReader is access all IAsyncOperation_IBarcodeScannerFrameReader_Interface'Class;
+   type IAsyncOperation_IBarcodeScannerFrameReader_Ptr is access all IAsyncOperation_IBarcodeScannerFrameReader;
+   type IAsyncOperation_IBarcodeScannerVideoFrame_Interface;
+   type IAsyncOperation_IBarcodeScannerVideoFrame is access all IAsyncOperation_IBarcodeScannerVideoFrame_Interface'Class;
+   type IAsyncOperation_IBarcodeScannerVideoFrame_Ptr is access all IAsyncOperation_IBarcodeScannerVideoFrame;
    type IBarcodeScannerDisableScannerRequest_Interface;
    type IBarcodeScannerDisableScannerRequest is access all IBarcodeScannerDisableScannerRequest_Interface'Class;
    type IBarcodeScannerDisableScannerRequest_Ptr is access all IBarcodeScannerDisableScannerRequest;
+   type IBarcodeScannerDisableScannerRequest2_Interface;
+   type IBarcodeScannerDisableScannerRequest2 is access all IBarcodeScannerDisableScannerRequest2_Interface'Class;
+   type IBarcodeScannerDisableScannerRequest2_Ptr is access all IBarcodeScannerDisableScannerRequest2;
    type IBarcodeScannerDisableScannerRequestEventArgs_Interface;
    type IBarcodeScannerDisableScannerRequestEventArgs is access all IBarcodeScannerDisableScannerRequestEventArgs_Interface'Class;
    type IBarcodeScannerDisableScannerRequestEventArgs_Ptr is access all IBarcodeScannerDisableScannerRequestEventArgs;
    type IBarcodeScannerEnableScannerRequest_Interface;
    type IBarcodeScannerEnableScannerRequest is access all IBarcodeScannerEnableScannerRequest_Interface'Class;
    type IBarcodeScannerEnableScannerRequest_Ptr is access all IBarcodeScannerEnableScannerRequest;
+   type IBarcodeScannerEnableScannerRequest2_Interface;
+   type IBarcodeScannerEnableScannerRequest2 is access all IBarcodeScannerEnableScannerRequest2_Interface'Class;
+   type IBarcodeScannerEnableScannerRequest2_Ptr is access all IBarcodeScannerEnableScannerRequest2;
    type IBarcodeScannerEnableScannerRequestEventArgs_Interface;
    type IBarcodeScannerEnableScannerRequestEventArgs is access all IBarcodeScannerEnableScannerRequestEventArgs_Interface'Class;
    type IBarcodeScannerEnableScannerRequestEventArgs_Ptr is access all IBarcodeScannerEnableScannerRequestEventArgs;
+   type IBarcodeScannerFrameReader_Interface;
+   type IBarcodeScannerFrameReader is access all IBarcodeScannerFrameReader_Interface'Class;
+   type IBarcodeScannerFrameReader_Ptr is access all IBarcodeScannerFrameReader;
+   type IBarcodeScannerFrameReaderFrameArrivedEventArgs_Interface;
+   type IBarcodeScannerFrameReaderFrameArrivedEventArgs is access all IBarcodeScannerFrameReaderFrameArrivedEventArgs_Interface'Class;
+   type IBarcodeScannerFrameReaderFrameArrivedEventArgs_Ptr is access all IBarcodeScannerFrameReaderFrameArrivedEventArgs;
    type IBarcodeScannerGetSymbologyAttributesRequest_Interface;
    type IBarcodeScannerGetSymbologyAttributesRequest is access all IBarcodeScannerGetSymbologyAttributesRequest_Interface'Class;
    type IBarcodeScannerGetSymbologyAttributesRequest_Ptr is access all IBarcodeScannerGetSymbologyAttributesRequest;
+   type IBarcodeScannerGetSymbologyAttributesRequest2_Interface;
+   type IBarcodeScannerGetSymbologyAttributesRequest2 is access all IBarcodeScannerGetSymbologyAttributesRequest2_Interface'Class;
+   type IBarcodeScannerGetSymbologyAttributesRequest2_Ptr is access all IBarcodeScannerGetSymbologyAttributesRequest2;
    type IBarcodeScannerGetSymbologyAttributesRequestEventArgs_Interface;
    type IBarcodeScannerGetSymbologyAttributesRequestEventArgs is access all IBarcodeScannerGetSymbologyAttributesRequestEventArgs_Interface'Class;
    type IBarcodeScannerGetSymbologyAttributesRequestEventArgs_Ptr is access all IBarcodeScannerGetSymbologyAttributesRequestEventArgs;
    type IBarcodeScannerHideVideoPreviewRequest_Interface;
    type IBarcodeScannerHideVideoPreviewRequest is access all IBarcodeScannerHideVideoPreviewRequest_Interface'Class;
    type IBarcodeScannerHideVideoPreviewRequest_Ptr is access all IBarcodeScannerHideVideoPreviewRequest;
+   type IBarcodeScannerHideVideoPreviewRequest2_Interface;
+   type IBarcodeScannerHideVideoPreviewRequest2 is access all IBarcodeScannerHideVideoPreviewRequest2_Interface'Class;
+   type IBarcodeScannerHideVideoPreviewRequest2_Ptr is access all IBarcodeScannerHideVideoPreviewRequest2;
    type IBarcodeScannerHideVideoPreviewRequestEventArgs_Interface;
    type IBarcodeScannerHideVideoPreviewRequestEventArgs is access all IBarcodeScannerHideVideoPreviewRequestEventArgs_Interface'Class;
    type IBarcodeScannerHideVideoPreviewRequestEventArgs_Ptr is access all IBarcodeScannerHideVideoPreviewRequestEventArgs;
    type IBarcodeScannerProviderConnection_Interface;
    type IBarcodeScannerProviderConnection is access all IBarcodeScannerProviderConnection_Interface'Class;
    type IBarcodeScannerProviderConnection_Ptr is access all IBarcodeScannerProviderConnection;
+   type IBarcodeScannerProviderConnection2_Interface;
+   type IBarcodeScannerProviderConnection2 is access all IBarcodeScannerProviderConnection2_Interface'Class;
+   type IBarcodeScannerProviderConnection2_Ptr is access all IBarcodeScannerProviderConnection2;
    type IBarcodeScannerProviderTriggerDetails_Interface;
    type IBarcodeScannerProviderTriggerDetails is access all IBarcodeScannerProviderTriggerDetails_Interface'Class;
    type IBarcodeScannerProviderTriggerDetails_Ptr is access all IBarcodeScannerProviderTriggerDetails;
    type IBarcodeScannerSetActiveSymbologiesRequest_Interface;
    type IBarcodeScannerSetActiveSymbologiesRequest is access all IBarcodeScannerSetActiveSymbologiesRequest_Interface'Class;
    type IBarcodeScannerSetActiveSymbologiesRequest_Ptr is access all IBarcodeScannerSetActiveSymbologiesRequest;
+   type IBarcodeScannerSetActiveSymbologiesRequest2_Interface;
+   type IBarcodeScannerSetActiveSymbologiesRequest2 is access all IBarcodeScannerSetActiveSymbologiesRequest2_Interface'Class;
+   type IBarcodeScannerSetActiveSymbologiesRequest2_Ptr is access all IBarcodeScannerSetActiveSymbologiesRequest2;
    type IBarcodeScannerSetActiveSymbologiesRequestEventArgs_Interface;
    type IBarcodeScannerSetActiveSymbologiesRequestEventArgs is access all IBarcodeScannerSetActiveSymbologiesRequestEventArgs_Interface'Class;
    type IBarcodeScannerSetActiveSymbologiesRequestEventArgs_Ptr is access all IBarcodeScannerSetActiveSymbologiesRequestEventArgs;
    type IBarcodeScannerSetSymbologyAttributesRequest_Interface;
    type IBarcodeScannerSetSymbologyAttributesRequest is access all IBarcodeScannerSetSymbologyAttributesRequest_Interface'Class;
    type IBarcodeScannerSetSymbologyAttributesRequest_Ptr is access all IBarcodeScannerSetSymbologyAttributesRequest;
+   type IBarcodeScannerSetSymbologyAttributesRequest2_Interface;
+   type IBarcodeScannerSetSymbologyAttributesRequest2 is access all IBarcodeScannerSetSymbologyAttributesRequest2_Interface'Class;
+   type IBarcodeScannerSetSymbologyAttributesRequest2_Ptr is access all IBarcodeScannerSetSymbologyAttributesRequest2;
    type IBarcodeScannerSetSymbologyAttributesRequestEventArgs_Interface;
    type IBarcodeScannerSetSymbologyAttributesRequestEventArgs is access all IBarcodeScannerSetSymbologyAttributesRequestEventArgs_Interface'Class;
    type IBarcodeScannerSetSymbologyAttributesRequestEventArgs_Ptr is access all IBarcodeScannerSetSymbologyAttributesRequestEventArgs;
    type IBarcodeScannerStartSoftwareTriggerRequest_Interface;
    type IBarcodeScannerStartSoftwareTriggerRequest is access all IBarcodeScannerStartSoftwareTriggerRequest_Interface'Class;
    type IBarcodeScannerStartSoftwareTriggerRequest_Ptr is access all IBarcodeScannerStartSoftwareTriggerRequest;
+   type IBarcodeScannerStartSoftwareTriggerRequest2_Interface;
+   type IBarcodeScannerStartSoftwareTriggerRequest2 is access all IBarcodeScannerStartSoftwareTriggerRequest2_Interface'Class;
+   type IBarcodeScannerStartSoftwareTriggerRequest2_Ptr is access all IBarcodeScannerStartSoftwareTriggerRequest2;
    type IBarcodeScannerStartSoftwareTriggerRequestEventArgs_Interface;
    type IBarcodeScannerStartSoftwareTriggerRequestEventArgs is access all IBarcodeScannerStartSoftwareTriggerRequestEventArgs_Interface'Class;
    type IBarcodeScannerStartSoftwareTriggerRequestEventArgs_Ptr is access all IBarcodeScannerStartSoftwareTriggerRequestEventArgs;
    type IBarcodeScannerStopSoftwareTriggerRequest_Interface;
    type IBarcodeScannerStopSoftwareTriggerRequest is access all IBarcodeScannerStopSoftwareTriggerRequest_Interface'Class;
    type IBarcodeScannerStopSoftwareTriggerRequest_Ptr is access all IBarcodeScannerStopSoftwareTriggerRequest;
+   type IBarcodeScannerStopSoftwareTriggerRequest2_Interface;
+   type IBarcodeScannerStopSoftwareTriggerRequest2 is access all IBarcodeScannerStopSoftwareTriggerRequest2_Interface'Class;
+   type IBarcodeScannerStopSoftwareTriggerRequest2_Ptr is access all IBarcodeScannerStopSoftwareTriggerRequest2;
    type IBarcodeScannerStopSoftwareTriggerRequestEventArgs_Interface;
    type IBarcodeScannerStopSoftwareTriggerRequestEventArgs is access all IBarcodeScannerStopSoftwareTriggerRequestEventArgs_Interface'Class;
    type IBarcodeScannerStopSoftwareTriggerRequestEventArgs_Ptr is access all IBarcodeScannerStopSoftwareTriggerRequestEventArgs;
+   type IBarcodeScannerVideoFrame_Interface;
+   type IBarcodeScannerVideoFrame is access all IBarcodeScannerVideoFrame_Interface'Class;
+   type IBarcodeScannerVideoFrame_Ptr is access all IBarcodeScannerVideoFrame;
    type IBarcodeSymbologyAttributesBuilder_Interface;
    type IBarcodeSymbologyAttributesBuilder is access all IBarcodeSymbologyAttributesBuilder_Interface'Class;
    type IBarcodeSymbologyAttributesBuilder_Ptr is access all IBarcodeSymbologyAttributesBuilder;
@@ -142,6 +196,60 @@ package Windows.Devices.PointOfService.Provider is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IBarcodeScannerFrameReader : aliased constant Windows.IID := (3218880293, 63376, 21666, (131, 5, 137, 148, 176, 151, 158, 10 ));
+   
+   type IAsyncOperation_IBarcodeScannerFrameReader_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IBarcodeScannerFrameReader_Interface
+      ; handler : Windows.Devices.PointOfService.Provider.AsyncOperationCompletedHandler_IBarcodeScannerFrameReader
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IBarcodeScannerFrameReader_Interface
+      ; RetVal : access Windows.Devices.PointOfService.Provider.AsyncOperationCompletedHandler_IBarcodeScannerFrameReader
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IBarcodeScannerFrameReader_Interface
+      ; RetVal : access Windows.Devices.PointOfService.Provider.IBarcodeScannerFrameReader
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IBarcodeScannerVideoFrame : aliased constant Windows.IID := (870855067, 11221, 20526, (150, 244, 100, 101, 69, 108, 161, 58 ));
+   
+   type IAsyncOperation_IBarcodeScannerVideoFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IBarcodeScannerVideoFrame_Interface
+      ; handler : Windows.Devices.PointOfService.Provider.AsyncOperationCompletedHandler_IBarcodeScannerVideoFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IBarcodeScannerVideoFrame_Interface
+      ; RetVal : access Windows.Devices.PointOfService.Provider.AsyncOperationCompletedHandler_IBarcodeScannerVideoFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IBarcodeScannerVideoFrame_Interface
+      ; RetVal : access Windows.Devices.PointOfService.Provider.IBarcodeScannerVideoFrame
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -159,6 +267,29 @@ package Windows.Devices.PointOfService.Provider is
    function ReportFailedAsync
    (
       This       : access IBarcodeScannerDisableScannerRequest_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBarcodeScannerDisableScannerRequest2 : aliased constant Windows.IID := (3437225509, 26051, 19660, (180, 87, 243, 156, 122, 158, 166, 13 ));
+   
+   type IBarcodeScannerDisableScannerRequest2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReportFailedWithFailedReasonAsync
+   (
+      This       : access IBarcodeScannerDisableScannerRequest2_Interface
+      ; reason : Windows.Int32
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportFailedWithFailedReasonAndDescriptionAsync
+   (
+      This       : access IBarcodeScannerDisableScannerRequest2_Interface
+      ; reason : Windows.Int32
+      ; failedReasonDescription : Windows.String
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
@@ -205,6 +336,29 @@ package Windows.Devices.PointOfService.Provider is
    
    ------------------------------------------------------------------------
    
+   IID_IBarcodeScannerEnableScannerRequest2 : aliased constant Windows.IID := (1906635432, 39173, 16812, (145, 33, 182, 69, 145, 106, 132, 161 ));
+   
+   type IBarcodeScannerEnableScannerRequest2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReportFailedWithFailedReasonAsync
+   (
+      This       : access IBarcodeScannerEnableScannerRequest2_Interface
+      ; reason : Windows.Int32
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportFailedWithFailedReasonAndDescriptionAsync
+   (
+      This       : access IBarcodeScannerEnableScannerRequest2_Interface
+      ; reason : Windows.Int32
+      ; failedReasonDescription : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IBarcodeScannerEnableScannerRequestEventArgs : aliased constant Windows.IID := (2506920985, 31566, 17489, (140, 65, 142, 16, 207, 188, 91, 65 ));
    
    type IBarcodeScannerEnableScannerRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -219,6 +373,68 @@ package Windows.Devices.PointOfService.Provider is
    function GetDeferral
    (
       This       : access IBarcodeScannerEnableScannerRequestEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBarcodeScannerFrameReader : aliased constant Windows.IID := (3687262983, 25795, 18475, (147, 200, 101, 251, 51, 194, 34, 8 ));
+   
+   type IBarcodeScannerFrameReader_Interface is interface and Windows.IInspectable_Interface;
+   
+   function StartAsync
+   (
+      This       : access IBarcodeScannerFrameReader_Interface
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StopAsync
+   (
+      This       : access IBarcodeScannerFrameReader_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryAcquireLatestFrameAsync
+   (
+      This       : access IBarcodeScannerFrameReader_Interface
+      ; RetVal : access Windows.Devices.PointOfService.Provider.IAsyncOperation_IBarcodeScannerVideoFrame -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Connection
+   (
+      This       : access IBarcodeScannerFrameReader_Interface
+      ; RetVal : access Windows.Devices.PointOfService.Provider.IBarcodeScannerProviderConnection
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_FrameArrived
+   (
+      This       : access IBarcodeScannerFrameReader_Interface
+      ; handler : TypedEventHandler_IBarcodeScannerFrameReader_add_FrameArrived
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_FrameArrived
+   (
+      This       : access IBarcodeScannerFrameReader_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBarcodeScannerFrameReaderFrameArrivedEventArgs : aliased constant Windows.IID := (2965100036, 21757, 17261, (134, 41, 113, 46, 120, 114, 35, 221 ));
+   
+   type IBarcodeScannerFrameReaderFrameArrivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDeferral
+   (
+      This       : access IBarcodeScannerFrameReaderFrameArrivedEventArgs_Interface
       ; RetVal : access Windows.Foundation.IDeferral
    )
    return Windows.HRESULT is abstract;
@@ -247,6 +463,29 @@ package Windows.Devices.PointOfService.Provider is
    function ReportFailedAsync
    (
       This       : access IBarcodeScannerGetSymbologyAttributesRequest_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBarcodeScannerGetSymbologyAttributesRequest2 : aliased constant Windows.IID := (1785342739, 30120, 18939, (184, 82, 191, 185, 61, 118, 10, 247 ));
+   
+   type IBarcodeScannerGetSymbologyAttributesRequest2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReportFailedWithFailedReasonAsync
+   (
+      This       : access IBarcodeScannerGetSymbologyAttributesRequest2_Interface
+      ; reason : Windows.Int32
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportFailedWithFailedReasonAndDescriptionAsync
+   (
+      This       : access IBarcodeScannerGetSymbologyAttributesRequest2_Interface
+      ; reason : Windows.Int32
+      ; failedReasonDescription : Windows.String
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
@@ -287,6 +526,29 @@ package Windows.Devices.PointOfService.Provider is
    function ReportFailedAsync
    (
       This       : access IBarcodeScannerHideVideoPreviewRequest_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBarcodeScannerHideVideoPreviewRequest2 : aliased constant Windows.IID := (2116567901, 38932, 17181, (162, 242, 214, 36, 140, 90, 212, 181 ));
+   
+   type IBarcodeScannerHideVideoPreviewRequest2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReportFailedWithFailedReasonAsync
+   (
+      This       : access IBarcodeScannerHideVideoPreviewRequest2_Interface
+      ; reason : Windows.Int32
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportFailedWithFailedReasonAndDescriptionAsync
+   (
+      This       : access IBarcodeScannerHideVideoPreviewRequest2_Interface
+      ; reason : Windows.Int32
+      ; failedReasonDescription : Windows.String
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
@@ -542,6 +804,36 @@ package Windows.Devices.PointOfService.Provider is
    
    ------------------------------------------------------------------------
    
+   IID_IBarcodeScannerProviderConnection2 : aliased constant Windows.IID := (3197850573, 4404, 16780, (160, 107, 4, 66, 58, 115, 243, 215 ));
+   
+   type IBarcodeScannerProviderConnection2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFrameReaderAsync
+   (
+      This       : access IBarcodeScannerProviderConnection2_Interface
+      ; RetVal : access Windows.Devices.PointOfService.Provider.IAsyncOperation_IBarcodeScannerFrameReader -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFrameReaderWithFormatAsync
+   (
+      This       : access IBarcodeScannerProviderConnection2_Interface
+      ; preferredFormat : Windows.Graphics.Imaging.BitmapPixelFormat
+      ; RetVal : access Windows.Devices.PointOfService.Provider.IAsyncOperation_IBarcodeScannerFrameReader -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFrameReaderWithFormatAndSizeAsync
+   (
+      This       : access IBarcodeScannerProviderConnection2_Interface
+      ; preferredFormat : Windows.Graphics.Imaging.BitmapPixelFormat
+      ; preferredSize : Windows.Graphics.Imaging.BitmapSize
+      ; RetVal : access Windows.Devices.PointOfService.Provider.IAsyncOperation_IBarcodeScannerFrameReader -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IBarcodeScannerProviderTriggerDetails : aliased constant Windows.IID := (1350921602, 9443, 18638, (153, 199, 112, 170, 193, 203, 201, 247 ));
    
    type IBarcodeScannerProviderTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
@@ -576,6 +868,29 @@ package Windows.Devices.PointOfService.Provider is
    function ReportFailedAsync
    (
       This       : access IBarcodeScannerSetActiveSymbologiesRequest_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBarcodeScannerSetActiveSymbologiesRequest2 : aliased constant Windows.IID := (4127157983, 64154, 18249, (177, 27, 232, 252, 203, 117, 188, 107 ));
+   
+   type IBarcodeScannerSetActiveSymbologiesRequest2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReportFailedWithFailedReasonAsync
+   (
+      This       : access IBarcodeScannerSetActiveSymbologiesRequest2_Interface
+      ; reason : Windows.Int32
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportFailedWithFailedReasonAndDescriptionAsync
+   (
+      This       : access IBarcodeScannerSetActiveSymbologiesRequest2_Interface
+      ; reason : Windows.Int32
+      ; failedReasonDescription : Windows.String
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
@@ -636,6 +951,29 @@ package Windows.Devices.PointOfService.Provider is
    
    ------------------------------------------------------------------------
    
+   IID_IBarcodeScannerSetSymbologyAttributesRequest2 : aliased constant Windows.IID := (3757817793, 56232, 19319, (190, 30, 181, 108, 215, 47, 101, 179 ));
+   
+   type IBarcodeScannerSetSymbologyAttributesRequest2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReportFailedWithFailedReasonAsync
+   (
+      This       : access IBarcodeScannerSetSymbologyAttributesRequest2_Interface
+      ; reason : Windows.Int32
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportFailedWithFailedReasonAndDescriptionAsync
+   (
+      This       : access IBarcodeScannerSetSymbologyAttributesRequest2_Interface
+      ; reason : Windows.Int32
+      ; failedReasonDescription : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IBarcodeScannerSetSymbologyAttributesRequestEventArgs : aliased constant Windows.IID := (2998441993, 38948, 18388, (133, 189, 208, 7, 123, 170, 123, 210 ));
    
    type IBarcodeScannerSetSymbologyAttributesRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -670,6 +1008,29 @@ package Windows.Devices.PointOfService.Provider is
    function ReportFailedAsync
    (
       This       : access IBarcodeScannerStartSoftwareTriggerRequest_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBarcodeScannerStartSoftwareTriggerRequest2 : aliased constant Windows.IID := (3950158428, 26200, 18277, (166, 142, 50, 116, 130, 101, 61, 235 ));
+   
+   type IBarcodeScannerStartSoftwareTriggerRequest2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReportFailedWithFailedReasonAsync
+   (
+      This       : access IBarcodeScannerStartSoftwareTriggerRequest2_Interface
+      ; reason : Windows.Int32
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportFailedWithFailedReasonAndDescriptionAsync
+   (
+      This       : access IBarcodeScannerStartSoftwareTriggerRequest2_Interface
+      ; reason : Windows.Int32
+      ; failedReasonDescription : Windows.String
       ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
@@ -716,6 +1077,29 @@ package Windows.Devices.PointOfService.Provider is
    
    ------------------------------------------------------------------------
    
+   IID_IBarcodeScannerStopSoftwareTriggerRequest2 : aliased constant Windows.IID := (3411527133, 65104, 18936, (160, 180, 189, 194, 48, 129, 77, 162 ));
+   
+   type IBarcodeScannerStopSoftwareTriggerRequest2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReportFailedWithFailedReasonAsync
+   (
+      This       : access IBarcodeScannerStopSoftwareTriggerRequest2_Interface
+      ; reason : Windows.Int32
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReportFailedWithFailedReasonAndDescriptionAsync
+   (
+      This       : access IBarcodeScannerStopSoftwareTriggerRequest2_Interface
+      ; reason : Windows.Int32
+      ; failedReasonDescription : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IBarcodeScannerStopSoftwareTriggerRequestEventArgs : aliased constant Windows.IID := (3938665552, 20151, 18458, (146, 115, 20, 122, 39, 59, 153, 184 ));
    
    type IBarcodeScannerStopSoftwareTriggerRequestEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -731,6 +1115,40 @@ package Windows.Devices.PointOfService.Provider is
    (
       This       : access IBarcodeScannerStopSoftwareTriggerRequestEventArgs_Interface
       ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBarcodeScannerVideoFrame : aliased constant Windows.IID := (2119717448, 40439, 16673, (161, 117, 128, 29, 128, 0, 17, 46 ));
+   
+   type IBarcodeScannerVideoFrame_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Format
+   (
+      This       : access IBarcodeScannerVideoFrame_Interface
+      ; RetVal : access Windows.Graphics.Imaging.BitmapPixelFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Width
+   (
+      This       : access IBarcodeScannerVideoFrame_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Height
+   (
+      This       : access IBarcodeScannerVideoFrame_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PixelData
+   (
+      This       : access IBarcodeScannerVideoFrame_Interface
+      ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
    
@@ -792,6 +1210,45 @@ package Windows.Devices.PointOfService.Provider is
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IBarcodeScannerFrameReader : aliased constant Windows.IID := (673898014, 57341, 24176, (162, 158, 122, 81, 79, 194, 215, 121 ));
+   
+   type AsyncOperationCompletedHandler_IBarcodeScannerFrameReader_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.Provider.IAsyncOperation_IBarcodeScannerFrameReader ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBarcodeScannerFrameReader'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IBarcodeScannerFrameReader_Interface
+      ; asyncInfo : Windows.Devices.PointOfService.Provider.IAsyncOperation_IBarcodeScannerFrameReader
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IBarcodeScannerVideoFrame : aliased constant Windows.IID := (537188479, 28279, 22104, (144, 146, 146, 163, 241, 204, 228, 196 ));
+   
+   type AsyncOperationCompletedHandler_IBarcodeScannerVideoFrame_Interface(Callback : access procedure (asyncInfo : Windows.Devices.PointOfService.Provider.IAsyncOperation_IBarcodeScannerVideoFrame ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IBarcodeScannerVideoFrame'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IBarcodeScannerVideoFrame_Interface
+      ; asyncInfo : Windows.Devices.PointOfService.Provider.IAsyncOperation_IBarcodeScannerVideoFrame
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IBarcodeScannerFrameReader_add_FrameArrived : aliased constant Windows.IID := (1930255434, 21735, 22493, (170, 162, 8, 82, 117, 24, 196, 73 ));
+   
+   type TypedEventHandler_IBarcodeScannerFrameReader_add_FrameArrived_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.Provider.IBarcodeScannerFrameReader ; args : Windows.Devices.PointOfService.Provider.IBarcodeScannerFrameReaderFrameArrivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IBarcodeScannerFrameReader_add_FrameArrived'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IBarcodeScannerFrameReader_add_FrameArrived_Interface
+      ; sender : Windows.Devices.PointOfService.Provider.IBarcodeScannerFrameReader
+      ; args : Windows.Devices.PointOfService.Provider.IBarcodeScannerFrameReaderFrameArrivedEventArgs
+   )
+   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    
@@ -905,6 +1362,8 @@ package Windows.Devices.PointOfService.Provider is
    subtype BarcodeScannerDisableScannerRequestEventArgs is Windows.Devices.PointOfService.Provider.IBarcodeScannerDisableScannerRequestEventArgs;
    subtype BarcodeScannerEnableScannerRequest is Windows.Devices.PointOfService.Provider.IBarcodeScannerEnableScannerRequest;
    subtype BarcodeScannerEnableScannerRequestEventArgs is Windows.Devices.PointOfService.Provider.IBarcodeScannerEnableScannerRequestEventArgs;
+   subtype BarcodeScannerFrameReader is Windows.Devices.PointOfService.Provider.IBarcodeScannerFrameReader;
+   subtype BarcodeScannerFrameReaderFrameArrivedEventArgs is Windows.Devices.PointOfService.Provider.IBarcodeScannerFrameReaderFrameArrivedEventArgs;
    subtype BarcodeScannerGetSymbologyAttributesRequest is Windows.Devices.PointOfService.Provider.IBarcodeScannerGetSymbologyAttributesRequest;
    subtype BarcodeScannerGetSymbologyAttributesRequestEventArgs is Windows.Devices.PointOfService.Provider.IBarcodeScannerGetSymbologyAttributesRequestEventArgs;
    subtype BarcodeScannerHideVideoPreviewRequest is Windows.Devices.PointOfService.Provider.IBarcodeScannerHideVideoPreviewRequest;
@@ -919,6 +1378,7 @@ package Windows.Devices.PointOfService.Provider is
    subtype BarcodeScannerStartSoftwareTriggerRequestEventArgs is Windows.Devices.PointOfService.Provider.IBarcodeScannerStartSoftwareTriggerRequestEventArgs;
    subtype BarcodeScannerStopSoftwareTriggerRequest is Windows.Devices.PointOfService.Provider.IBarcodeScannerStopSoftwareTriggerRequest;
    subtype BarcodeScannerStopSoftwareTriggerRequestEventArgs is Windows.Devices.PointOfService.Provider.IBarcodeScannerStopSoftwareTriggerRequestEventArgs;
+   subtype BarcodeScannerVideoFrame is Windows.Devices.PointOfService.Provider.IBarcodeScannerVideoFrame;
    subtype BarcodeSymbologyAttributesBuilder is Windows.Devices.PointOfService.Provider.IBarcodeSymbologyAttributesBuilder;
    function Create return Windows.Devices.PointOfService.Provider.IBarcodeSymbologyAttributesBuilder;
    

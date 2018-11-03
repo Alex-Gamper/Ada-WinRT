@@ -122,6 +122,9 @@ package Windows.Globalization is
    type ICurrencyIdentifiersStatics2_Interface;
    type ICurrencyIdentifiersStatics2 is access all ICurrencyIdentifiersStatics2_Interface'Class;
    type ICurrencyIdentifiersStatics2_Ptr is access all ICurrencyIdentifiersStatics2;
+   type ICurrencyIdentifiersStatics3_Interface;
+   type ICurrencyIdentifiersStatics3 is access all ICurrencyIdentifiersStatics3_Interface'Class;
+   type ICurrencyIdentifiersStatics3_Ptr is access all ICurrencyIdentifiersStatics3;
    type IGeographicRegion_Interface;
    type IGeographicRegion is access all IGeographicRegion_Interface'Class;
    type IGeographicRegion_Ptr is access all IGeographicRegion;
@@ -2244,6 +2247,40 @@ package Windows.Globalization is
    
    ------------------------------------------------------------------------
    
+   IID_ICurrencyIdentifiersStatics3 : aliased constant Windows.IID := (1337080826, 60709, 20301, (133, 127, 35, 127, 23, 72, 194, 28 ));
+   
+   type ICurrencyIdentifiersStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MRU
+   (
+      This       : access ICurrencyIdentifiersStatics3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SSP
+   (
+      This       : access ICurrencyIdentifiersStatics3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_STN
+   (
+      This       : access ICurrencyIdentifiersStatics3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VES
+   (
+      This       : access ICurrencyIdentifiersStatics3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IGeographicRegion : aliased constant Windows.IID := (32089633, 19044, 20185, (149, 79, 158, 222, 176, 123, 217, 3 ));
    
    type IGeographicRegion_Interface is interface and Windows.IInspectable_Interface;
@@ -3049,6 +3086,15 @@ package Windows.Globalization is
    subtype Calendar is Windows.Globalization.ICalendar;
    function Create return Windows.Globalization.ICalendar;
    
+   function CreateCalendarWithTimeZone
+   (
+      languages : Windows.Foundation.Collections.IIterable_String
+      ; calendar : Windows.String
+      ; clock : Windows.String
+      ; timeZoneId : Windows.String
+   )
+   return Windows.Globalization.ICalendar;
+   
    function CreateCalendarDefaultCalendarAndClock
    (
       languages : Windows.Foundation.Collections.IIterable_String
@@ -3060,15 +3106,6 @@ package Windows.Globalization is
       languages : Windows.Foundation.Collections.IIterable_String
       ; calendar : Windows.String
       ; clock : Windows.String
-   )
-   return Windows.Globalization.ICalendar;
-   
-   function CreateCalendarWithTimeZone
-   (
-      languages : Windows.Foundation.Collections.IIterable_String
-      ; calendar : Windows.String
-      ; clock : Windows.String
-      ; timeZoneId : Windows.String
    )
    return Windows.Globalization.ICalendar;
    
@@ -3638,6 +3675,18 @@ package Windows.Globalization is
    return Windows.String;
    
    function get_BYN
+   return Windows.String;
+   
+   function get_MRU
+   return Windows.String;
+   
+   function get_SSP
+   return Windows.String;
+   
+   function get_STN
+   return Windows.String;
+   
+   function get_VES
    return Windows.String;
    
    function IsSupported

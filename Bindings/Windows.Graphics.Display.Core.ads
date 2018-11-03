@@ -55,12 +55,14 @@ package Windows.Graphics.Display.Core is
    type HdmiDisplayHdrOption is (
       None,
       EotfSdr,
-      Eotf2084
+      Eotf2084,
+      DolbyVisionLowLatency
    );
    for HdmiDisplayHdrOption use (
       None => 0,
       EotfSdr => 1,
-      Eotf2084 => 2
+      Eotf2084 => 2,
+      DolbyVisionLowLatency => 3
    );
    for HdmiDisplayHdrOption'Size use 32;
    
@@ -125,6 +127,9 @@ package Windows.Graphics.Display.Core is
    type IHdmiDisplayMode_Interface;
    type IHdmiDisplayMode is access all IHdmiDisplayMode_Interface'Class;
    type IHdmiDisplayMode_Ptr is access all IHdmiDisplayMode;
+   type IHdmiDisplayMode2_Interface;
+   type IHdmiDisplayMode2 is access all IHdmiDisplayMode2_Interface'Class;
+   type IHdmiDisplayMode2_Ptr is access all IHdmiDisplayMode2;
    type IIterable_IHdmiDisplayMode_Interface;
    type IIterable_IHdmiDisplayMode is access all IIterable_IHdmiDisplayMode_Interface'Class;
    type IIterable_IHdmiDisplayMode_Ptr is access all IIterable_IHdmiDisplayMode;
@@ -301,6 +306,19 @@ package Windows.Graphics.Display.Core is
    function get_Is2086MetadataSupported
    (
       This       : access IHdmiDisplayMode_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHdmiDisplayMode2 : aliased constant Windows.IID := (130895519, 19260, 17080, (132, 231, 137, 83, 104, 113, 138, 242 ));
+   
+   type IHdmiDisplayMode2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsDolbyVisionLowLatencySupported
+   (
+      This       : access IHdmiDisplayMode2_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;

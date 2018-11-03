@@ -221,8 +221,8 @@ package Windows.UI.Xaml.Shapes is
    function CreateInstance
    (
       This       : access IPathFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Shapes.IPath
    )
    return Windows.HRESULT is abstract;
@@ -591,8 +591,8 @@ package Windows.UI.Xaml.Shapes is
    function CreateInstance
    (
       This       : access IShapeFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Shapes.IShape
    )
    return Windows.HRESULT is abstract;
@@ -999,8 +999,8 @@ package Windows.UI.Xaml.Shapes is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Shapes.IPath;
    
@@ -1027,8 +1027,8 @@ package Windows.UI.Xaml.Shapes is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Shapes.IShape;
    

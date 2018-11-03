@@ -27,11 +27,70 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
+with Windows.Foundation.Numerics;
+limited with Windows.Storage.Streams;
+limited with Windows.System;
 limited with Windows.UI;
 --------------------------------------------------------------------------------
 package Windows.Devices.Lights is
 
    pragma preelaborate;
+   
+   ------------------------------------------------------------------------
+   -- Enums
+   ------------------------------------------------------------------------
+   
+   type LampArrayKind is (
+      Undefined,
+      Keyboard,
+      Mouse,
+      GameController,
+      Peripheral,
+      Scene,
+      Notification,
+      Chassis,
+      Wearable,
+      Furniture,
+      Art
+   );
+   for LampArrayKind use (
+      Undefined => 0,
+      Keyboard => 1,
+      Mouse => 2,
+      GameController => 3,
+      Peripheral => 4,
+      Scene => 5,
+      Notification => 6,
+      Chassis => 7,
+      Wearable => 8,
+      Furniture => 9,
+      Art => 10
+   );
+   for LampArrayKind'Size use 32;
+   
+   type LampArrayKind_Ptr is access LampArrayKind;
+   
+   type LampPurposes is (
+      Undefined,
+      Control,
+      Accent,
+      Branding,
+      Status,
+      Illumination,
+      Presentation
+   );
+   for LampPurposes use (
+      Undefined => 0,
+      Control => 1,
+      Accent => 2,
+      Branding => 4,
+      Status => 8,
+      Illumination => 16,
+      Presentation => 32
+   );
+   for LampPurposes'Size use 32;
+   
+   type LampPurposes_Ptr is access LampPurposes;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -40,6 +99,9 @@ package Windows.Devices.Lights is
    type AsyncOperationCompletedHandler_ILamp_Interface;
    type AsyncOperationCompletedHandler_ILamp is access all AsyncOperationCompletedHandler_ILamp_Interface'Class;
    type AsyncOperationCompletedHandler_ILamp_Ptr is access all AsyncOperationCompletedHandler_ILamp;
+   type AsyncOperationCompletedHandler_ILampArray_Interface;
+   type AsyncOperationCompletedHandler_ILampArray is access all AsyncOperationCompletedHandler_ILampArray_Interface'Class;
+   type AsyncOperationCompletedHandler_ILampArray_Ptr is access all AsyncOperationCompletedHandler_ILampArray;
    type TypedEventHandler_ILamp_add_AvailabilityChanged_Interface;
    type TypedEventHandler_ILamp_add_AvailabilityChanged is access all TypedEventHandler_ILamp_add_AvailabilityChanged_Interface'Class;
    type TypedEventHandler_ILamp_add_AvailabilityChanged_Ptr is access all TypedEventHandler_ILamp_add_AvailabilityChanged;
@@ -51,12 +113,24 @@ package Windows.Devices.Lights is
    type IAsyncOperation_ILamp_Interface;
    type IAsyncOperation_ILamp is access all IAsyncOperation_ILamp_Interface'Class;
    type IAsyncOperation_ILamp_Ptr is access all IAsyncOperation_ILamp;
+   type IAsyncOperation_ILampArray_Interface;
+   type IAsyncOperation_ILampArray is access all IAsyncOperation_ILampArray_Interface'Class;
+   type IAsyncOperation_ILampArray_Ptr is access all IAsyncOperation_ILampArray;
    type ILamp_Interface;
    type ILamp is access all ILamp_Interface'Class;
    type ILamp_Ptr is access all ILamp;
+   type ILampArray_Interface;
+   type ILampArray is access all ILampArray_Interface'Class;
+   type ILampArray_Ptr is access all ILampArray;
+   type ILampArrayStatics_Interface;
+   type ILampArrayStatics is access all ILampArrayStatics_Interface'Class;
+   type ILampArrayStatics_Ptr is access all ILampArrayStatics;
    type ILampAvailabilityChangedEventArgs_Interface;
    type ILampAvailabilityChangedEventArgs is access all ILampAvailabilityChangedEventArgs_Interface'Class;
    type ILampAvailabilityChangedEventArgs_Ptr is access all ILampAvailabilityChangedEventArgs;
+   type ILampInfo_Interface;
+   type ILampInfo is access all ILampInfo_Interface'Class;
+   type ILampInfo_Ptr is access all ILampInfo;
    type ILampStatics_Interface;
    type ILampStatics is access all ILampStatics_Interface'Class;
    type ILampStatics_Ptr is access all ILampStatics;
@@ -89,6 +163,33 @@ package Windows.Devices.Lights is
    (
       This       : access IAsyncOperation_ILamp_Interface
       ; RetVal : access Windows.Devices.Lights.ILamp
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ILampArray : aliased constant Windows.IID := (1050319104, 28337, 23985, (183, 120, 154, 100, 161, 101, 66, 248 ));
+   
+   type IAsyncOperation_ILampArray_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_ILampArray_Interface
+      ; handler : Windows.Devices.Lights.AsyncOperationCompletedHandler_ILampArray
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ILampArray_Interface
+      ; RetVal : access Windows.Devices.Lights.AsyncOperationCompletedHandler_ILampArray
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ILampArray_Interface
+      ; RetVal : access Windows.Devices.Lights.ILampArray
    )
    return Windows.HRESULT is abstract;
    
@@ -171,6 +272,227 @@ package Windows.Devices.Lights is
    
    ------------------------------------------------------------------------
    
+   IID_ILampArray : aliased constant Windows.IID := (2060359559, 51360, 20117, (161, 224, 213, 134, 118, 83, 134, 73 ));
+   
+   type ILampArray_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DeviceId
+   (
+      This       : access ILampArray_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HardwareVendorId
+   (
+      This       : access ILampArray_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HardwareProductId
+   (
+      This       : access ILampArray_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HardwareVersion
+   (
+      This       : access ILampArray_Interface
+      ; RetVal : access Windows.UInt16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LampArrayKind
+   (
+      This       : access ILampArray_Interface
+      ; RetVal : access Windows.Devices.Lights.LampArrayKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LampCount
+   (
+      This       : access ILampArray_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MinUpdateInterval
+   (
+      This       : access ILampArray_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BoundingBox
+   (
+      This       : access ILampArray_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsEnabled
+   (
+      This       : access ILampArray_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsEnabled
+   (
+      This       : access ILampArray_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BrightnessLevel
+   (
+      This       : access ILampArray_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BrightnessLevel
+   (
+      This       : access ILampArray_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsConnected
+   (
+      This       : access ILampArray_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SupportsVirtualKeys
+   (
+      This       : access ILampArray_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetLampInfo
+   (
+      This       : access ILampArray_Interface
+      ; lampIndex : Windows.Int32
+      ; RetVal : access Windows.Devices.Lights.ILampInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetIndicesForKey
+   (
+      This       : access ILampArray_Interface
+      ; key : Windows.System.VirtualKey
+      ; RetVal : access Int32_Ptr -- Array Parameter type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetIndicesForPurposes
+   (
+      This       : access ILampArray_Interface
+      ; purposes : Windows.Devices.Lights.LampPurposes
+      ; RetVal : access Int32_Ptr -- Array Parameter type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetColor
+   (
+      This       : access ILampArray_Interface
+      ; desiredColor : Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetColorForIndex
+   (
+      This       : access ILampArray_Interface
+      ; lampIndex : Windows.Int32
+      ; desiredColor : Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetSingleColorForIndices
+   (
+      This       : access ILampArray_Interface
+      ; desiredColor : Windows.UI.Color
+      ; lampIndexes : Windows.Int32_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetColorsForIndices
+   (
+      This       : access ILampArray_Interface
+      ; desiredColors : Windows.UI.Color_Ptr
+      ; lampIndexes : Windows.Int32_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetColorsForKey
+   (
+      This       : access ILampArray_Interface
+      ; desiredColor : Windows.UI.Color
+      ; key : Windows.System.VirtualKey
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetColorsForKeys
+   (
+      This       : access ILampArray_Interface
+      ; desiredColors : Windows.UI.Color_Ptr
+      ; keys : Windows.System.VirtualKey_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetColorsForPurposes
+   (
+      This       : access ILampArray_Interface
+      ; desiredColor : Windows.UI.Color
+      ; purposes : Windows.Devices.Lights.LampPurposes
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SendMessageAsync
+   (
+      This       : access ILampArray_Interface
+      ; messageId : Windows.Int32
+      ; message : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RequestMessageAsync
+   (
+      This       : access ILampArray_Interface
+      ; messageId : Windows.Int32
+      ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IBuffer -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILampArrayStatics : aliased constant Windows.IID := (2075707789, 24513, 17709, (187, 31, 74, 212, 16, 211, 152, 255 ));
+   
+   type ILampArrayStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDeviceSelector
+   (
+      This       : access ILampArrayStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FromIdAsync
+   (
+      This       : access ILampArrayStatics_Interface
+      ; deviceId : Windows.String
+      ; RetVal : access Windows.Devices.Lights.IAsyncOperation_ILampArray -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ILampAvailabilityChangedEventArgs : aliased constant Windows.IID := (1332624877, 1954, 18845, (146, 96, 103, 227, 4, 83, 43, 164 ));
    
    type ILampAvailabilityChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -179,6 +501,83 @@ package Windows.Devices.Lights is
    (
       This       : access ILampAvailabilityChangedEventArgs_Interface
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILampInfo : aliased constant Windows.IID := (817582620, 2767, 18906, (140, 16, 21, 11, 156, 246, 39, 19 ));
+   
+   type ILampInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Index
+   (
+      This       : access ILampInfo_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Purposes
+   (
+      This       : access ILampInfo_Interface
+      ; RetVal : access Windows.Devices.Lights.LampPurposes
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Position
+   (
+      This       : access ILampInfo_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RedLevelCount
+   (
+      This       : access ILampInfo_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_GreenLevelCount
+   (
+      This       : access ILampInfo_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BlueLevelCount
+   (
+      This       : access ILampInfo_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_GainLevelCount
+   (
+      This       : access ILampInfo_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_FixedColor
+   (
+      This       : access ILampInfo_Interface
+      ; RetVal : access Windows.UI.IReference_Color -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetNearestSupportedColor
+   (
+      This       : access ILampInfo_Interface
+      ; desiredColor : Windows.UI.Color
+      ; RetVal : access Windows.UI.Color
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UpdateLatency
+   (
+      This       : access ILampInfo_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
    
@@ -229,6 +628,19 @@ package Windows.Devices.Lights is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_ILampArray : aliased constant Windows.IID := (3953399259, 17071, 21688, (162, 243, 91, 52, 73, 76, 137, 114 ));
+   
+   type AsyncOperationCompletedHandler_ILampArray_Interface(Callback : access procedure (asyncInfo : Windows.Devices.Lights.IAsyncOperation_ILampArray ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ILampArray'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ILampArray_Interface
+      ; asyncInfo : Windows.Devices.Lights.IAsyncOperation_ILampArray
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_ILamp_add_AvailabilityChanged : aliased constant Windows.IID := (1433010905, 30341, 22383, (137, 202, 182, 45, 196, 129, 210, 157 ));
    
    type TypedEventHandler_ILamp_add_AvailabilityChanged_Interface(Callback : access procedure (sender : Windows.Devices.Lights.ILamp ; args : Windows.Devices.Lights.ILampAvailabilityChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ILamp_add_AvailabilityChanged'access) with null record;
@@ -245,7 +657,9 @@ package Windows.Devices.Lights is
    ------------------------------------------------------------------------
    
    subtype Lamp is Windows.Devices.Lights.ILamp;
+   subtype LampArray is Windows.Devices.Lights.ILampArray;
    subtype LampAvailabilityChangedEventArgs is Windows.Devices.Lights.ILampAvailabilityChangedEventArgs;
+   subtype LampInfo is Windows.Devices.Lights.ILampInfo;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
@@ -261,6 +675,15 @@ package Windows.Devices.Lights is
    return Windows.Devices.Lights.IAsyncOperation_ILamp;
    
    function GetDeviceSelector
+   return Windows.String;
+   
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Lights.IAsyncOperation_ILampArray;
+   
+   function GetDeviceSelector_ILampArray
    return Windows.String;
    
 end;

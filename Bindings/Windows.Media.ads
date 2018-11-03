@@ -190,6 +190,11 @@ package Windows.Media is
    -- Record types
    ------------------------------------------------------------------------
    
+   type MediaControlContract is null record;
+   pragma Convention (C_Pass_By_Copy , MediaControlContract);
+   
+   type MediaControlContract_Ptr is access MediaControlContract;
+   
    type MediaTimeRange is record
       Start : Windows.Foundation.TimeSpan;
       End_x : Windows.Foundation.TimeSpan;
@@ -197,11 +202,6 @@ package Windows.Media is
    pragma Convention (C_Pass_By_Copy , MediaTimeRange);
    
    type MediaTimeRange_Ptr is access MediaTimeRange;
-   
-   type MediaControlContract is null record;
-   pragma Convention (C_Pass_By_Copy , MediaControlContract);
-   
-   type MediaControlContract_Ptr is access MediaControlContract;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -332,6 +332,12 @@ package Windows.Media is
    type IPlaybackRateChangeRequestedEventArgs_Interface;
    type IPlaybackRateChangeRequestedEventArgs is access all IPlaybackRateChangeRequestedEventArgs_Interface'Class;
    type IPlaybackRateChangeRequestedEventArgs_Ptr is access all IPlaybackRateChangeRequestedEventArgs;
+   type IReference_MediaPlaybackAutoRepeatMode_Interface;
+   type IReference_MediaPlaybackAutoRepeatMode is access all IReference_MediaPlaybackAutoRepeatMode_Interface'Class;
+   type IReference_MediaPlaybackAutoRepeatMode_Ptr is access all IReference_MediaPlaybackAutoRepeatMode;
+   type IReference_MediaPlaybackType_Interface;
+   type IReference_MediaPlaybackType is access all IReference_MediaPlaybackType_Interface'Class;
+   type IReference_MediaPlaybackType_Ptr is access all IReference_MediaPlaybackType;
    type IShuffleEnabledChangeRequestedEventArgs_Interface;
    type IShuffleEnabledChangeRequestedEventArgs is access all IShuffleEnabledChangeRequestedEventArgs_Interface'Class;
    type IShuffleEnabledChangeRequestedEventArgs_Ptr is access all IShuffleEnabledChangeRequestedEventArgs;
@@ -1481,6 +1487,32 @@ package Windows.Media is
    (
       This       : access IPlaybackRateChangeRequestedEventArgs_Interface
       ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IReference_MediaPlaybackAutoRepeatMode : aliased constant Windows.IID := (1353184287, 22741, 23629, (148, 117, 141, 209, 172, 214, 88, 54 ));
+   
+   type IReference_MediaPlaybackAutoRepeatMode_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_MediaPlaybackAutoRepeatMode_Interface
+      ; RetVal : access Windows.Media.MediaPlaybackAutoRepeatMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IReference_MediaPlaybackType : aliased constant Windows.IID := (3800692696, 27559, 20651, (159, 19, 110, 78, 81, 209, 92, 164 ));
+   
+   type IReference_MediaPlaybackType_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_MediaPlaybackType_Interface
+      ; RetVal : access Windows.Media.MediaPlaybackType
    )
    return Windows.HRESULT is abstract;
    

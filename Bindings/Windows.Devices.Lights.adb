@@ -26,6 +26,8 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.Storage.Streams;
+with Windows.System;
 with Windows.UI;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
@@ -39,6 +41,19 @@ package body Windows.Devices.Lights is
    (
       This       : access AsyncOperationCompletedHandler_ILamp_Interface
       ; asyncInfo : Windows.Devices.Lights.IAsyncOperation_ILamp
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ILampArray_Interface
+      ; asyncInfo : Windows.Devices.Lights.IAsyncOperation_ILampArray
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -119,6 +134,43 @@ package body Windows.Devices.Lights is
       RetVal        : aliased Windows.String;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_ILampStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromIdAsync
+   (
+      deviceId : Windows.String
+   )
+   return Windows.Devices.Lights.IAsyncOperation_ILampArray is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Lights.LampArray");
+      m_Factory     : ILampArrayStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Lights.IAsyncOperation_ILampArray;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILampArrayStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromIdAsync(deviceId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelector_ILampArray
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Lights.LampArray");
+      m_Factory     : ILampArrayStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILampArrayStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetDeviceSelector(RetVal'Access);
          RefCount := m_Factory.Release;

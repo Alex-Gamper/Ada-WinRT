@@ -112,11 +112,6 @@ package Windows.Devices.Scanners is
    -- Record types
    ------------------------------------------------------------------------
    
-   type ScannerDeviceContract is null record;
-   pragma Convention (C_Pass_By_Copy , ScannerDeviceContract);
-   
-   type ScannerDeviceContract_Ptr is access ScannerDeviceContract;
-   
    type ImageScannerResolution is record
       DpiX : Windows.Single;
       DpiY : Windows.Single;
@@ -124,6 +119,11 @@ package Windows.Devices.Scanners is
    pragma Convention (C_Pass_By_Copy , ImageScannerResolution);
    
    type ImageScannerResolution_Ptr is access ImageScannerResolution;
+   
+   type ScannerDeviceContract is null record;
+   pragma Convention (C_Pass_By_Copy , ScannerDeviceContract);
+   
+   type ScannerDeviceContract_Ptr is access ScannerDeviceContract;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events

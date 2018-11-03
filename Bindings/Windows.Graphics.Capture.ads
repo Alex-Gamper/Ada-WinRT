@@ -30,6 +30,7 @@ with Windows.Foundation;
 limited with Windows.Graphics.DirectX;
 limited with Windows.Graphics.DirectX.Direct3D11;
 limited with Windows.System;
+limited with Windows.UI.Composition;
 --------------------------------------------------------------------------------
 package Windows.Graphics.Capture is
 
@@ -65,9 +66,15 @@ package Windows.Graphics.Capture is
    type IDirect3D11CaptureFramePoolStatics_Interface;
    type IDirect3D11CaptureFramePoolStatics is access all IDirect3D11CaptureFramePoolStatics_Interface'Class;
    type IDirect3D11CaptureFramePoolStatics_Ptr is access all IDirect3D11CaptureFramePoolStatics;
+   type IDirect3D11CaptureFramePoolStatics2_Interface;
+   type IDirect3D11CaptureFramePoolStatics2 is access all IDirect3D11CaptureFramePoolStatics2_Interface'Class;
+   type IDirect3D11CaptureFramePoolStatics2_Ptr is access all IDirect3D11CaptureFramePoolStatics2;
    type IGraphicsCaptureItem_Interface;
    type IGraphicsCaptureItem is access all IGraphicsCaptureItem_Interface'Class;
    type IGraphicsCaptureItem_Ptr is access all IGraphicsCaptureItem;
+   type IGraphicsCaptureItemStatics_Interface;
+   type IGraphicsCaptureItemStatics is access all IGraphicsCaptureItemStatics_Interface'Class;
+   type IGraphicsCaptureItemStatics_Ptr is access all IGraphicsCaptureItemStatics;
    type IGraphicsCapturePicker_Interface;
    type IGraphicsCapturePicker is access all IGraphicsCapturePicker_Interface'Class;
    type IGraphicsCapturePicker_Ptr is access all IGraphicsCapturePicker;
@@ -208,6 +215,23 @@ package Windows.Graphics.Capture is
    
    ------------------------------------------------------------------------
    
+   IID_IDirect3D11CaptureFramePoolStatics2 : aliased constant Windows.IID := (1486557247, 27580, 24053, (169, 145, 2, 226, 139, 59, 102, 213 ));
+   
+   type IDirect3D11CaptureFramePoolStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFreeThreaded
+   (
+      This       : access IDirect3D11CaptureFramePoolStatics2_Interface
+      ; device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
+      ; pixelFormat : Windows.Graphics.DirectX.DirectXPixelFormat
+      ; numberOfBuffers : Windows.Int32
+      ; size : Windows.Graphics.SizeInt32
+      ; RetVal : access Windows.Graphics.Capture.IDirect3D11CaptureFramePool
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IGraphicsCaptureItem : aliased constant Windows.IID := (2042886491, 12791, 20162, (164, 100, 99, 46, 245, 211, 7, 96 ));
    
    type IGraphicsCaptureItem_Interface is interface and Windows.IInspectable_Interface;
@@ -238,6 +262,20 @@ package Windows.Graphics.Capture is
    (
       This       : access IGraphicsCaptureItem_Interface
       ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGraphicsCaptureItemStatics : aliased constant Windows.IID := (2826878629, 17788, 22408, (171, 71, 12, 241, 211, 99, 126, 116 ));
+   
+   type IGraphicsCaptureItemStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromVisual
+   (
+      This       : access IGraphicsCaptureItemStatics_Interface
+      ; visual : Windows.UI.Composition.IVisual
+      ; RetVal : access Windows.Graphics.Capture.IGraphicsCaptureItem
    )
    return Windows.HRESULT is abstract;
    
@@ -346,6 +384,21 @@ package Windows.Graphics.Capture is
       ; size : Windows.Graphics.SizeInt32
    )
    return Windows.Graphics.Capture.IDirect3D11CaptureFramePool;
+   
+   function CreateFreeThreaded
+   (
+      device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
+      ; pixelFormat : Windows.Graphics.DirectX.DirectXPixelFormat
+      ; numberOfBuffers : Windows.Int32
+      ; size : Windows.Graphics.SizeInt32
+   )
+   return Windows.Graphics.Capture.IDirect3D11CaptureFramePool;
+   
+   function CreateFromVisual
+   (
+      visual : Windows.UI.Composition.IVisual
+   )
+   return Windows.Graphics.Capture.IGraphicsCaptureItem;
    
    function IsSupported
    return Windows.Boolean;

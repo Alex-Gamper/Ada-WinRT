@@ -93,4 +93,21 @@ package body Windows.System.Profile.SystemManufacturers is
       return RetVal;
    end;
    
+   function get_LocalDeviceInfo
+   return Windows.System.Profile.SystemManufacturers.ISystemSupportDeviceInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.SystemManufacturers.SystemSupportInfo");
+      m_Factory     : ISystemSupportInfoStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.Profile.SystemManufacturers.ISystemSupportDeviceInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISystemSupportInfoStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_LocalDeviceInfo(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
 end;

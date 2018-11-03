@@ -26,8 +26,2288 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.Foundation;
+with Windows.Foundation.Collections;
+limited with Windows.Graphics;
+limited with Windows.Graphics.DirectX.Direct3D11;
+limited with Windows.Graphics.Imaging;
+limited with Windows.Media;
+limited with Windows.Storage;
+limited with Windows.Storage.Streams;
+--------------------------------------------------------------------------------
 package Windows.AI.MachineLearning is
 
    pragma preelaborate;
+   
+   ------------------------------------------------------------------------
+   -- Enums
+   ------------------------------------------------------------------------
+   
+   type LearningModelDeviceKind is (
+      Default,
+      Cpu,
+      DirectX,
+      DirectXHighPerformance,
+      DirectXMinPower
+   );
+   for LearningModelDeviceKind use (
+      Default => 0,
+      Cpu => 1,
+      DirectX => 2,
+      DirectXHighPerformance => 3,
+      DirectXMinPower => 4
+   );
+   for LearningModelDeviceKind'Size use 32;
+   
+   type LearningModelDeviceKind_Ptr is access LearningModelDeviceKind;
+   
+   type LearningModelFeatureKind is (
+      Tensor,
+      Sequence,
+      Map,
+      Image
+   );
+   for LearningModelFeatureKind use (
+      Tensor => 0,
+      Sequence => 1,
+      Map => 2,
+      Image => 3
+   );
+   for LearningModelFeatureKind'Size use 32;
+   
+   type LearningModelFeatureKind_Ptr is access LearningModelFeatureKind;
+   
+   type TensorKind is (
+      Undefined,
+      Float,
+      UInt8,
+      Int8,
+      UInt16,
+      Int16,
+      Int32,
+      Int64,
+      String,
+      Boolean,
+      Float16,
+      Double,
+      UInt32,
+      UInt64,
+      Complex64,
+      Complex128
+   );
+   for TensorKind use (
+      Undefined => 0,
+      Float => 1,
+      UInt8 => 2,
+      Int8 => 3,
+      UInt16 => 4,
+      Int16 => 5,
+      Int32 => 6,
+      Int64 => 7,
+      String => 8,
+      Boolean => 9,
+      Float16 => 10,
+      Double => 11,
+      UInt32 => 12,
+      UInt64 => 13,
+      Complex64 => 14,
+      Complex128 => 15
+   );
+   for TensorKind'Size use 32;
+   
+   type TensorKind_Ptr is access TensorKind;
+   
+   ------------------------------------------------------------------------
+   -- Record types
+   ------------------------------------------------------------------------
+   
+   type MachineLearningContract is null record;
+   pragma Convention (C_Pass_By_Copy , MachineLearningContract);
+   
+   type MachineLearningContract_Ptr is access MachineLearningContract;
+   
+   ------------------------------------------------------------------------
+   -- Forward Declaration - Delegates/Events
+   ------------------------------------------------------------------------
+   
+   type AsyncOperationCompletedHandler_ILearningModel_Interface;
+   type AsyncOperationCompletedHandler_ILearningModel is access all AsyncOperationCompletedHandler_ILearningModel_Interface'Class;
+   type AsyncOperationCompletedHandler_ILearningModel_Ptr is access all AsyncOperationCompletedHandler_ILearningModel;
+   type AsyncOperationCompletedHandler_ILearningModelEvaluationResult_Interface;
+   type AsyncOperationCompletedHandler_ILearningModelEvaluationResult is access all AsyncOperationCompletedHandler_ILearningModelEvaluationResult_Interface'Class;
+   type AsyncOperationCompletedHandler_ILearningModelEvaluationResult_Ptr is access all AsyncOperationCompletedHandler_ILearningModelEvaluationResult;
+   
+   ------------------------------------------------------------------------
+   -- Forward Declaration - Interfaces
+   ------------------------------------------------------------------------
+   
+   type IAsyncOperation_ILearningModel_Interface;
+   type IAsyncOperation_ILearningModel is access all IAsyncOperation_ILearningModel_Interface'Class;
+   type IAsyncOperation_ILearningModel_Ptr is access all IAsyncOperation_ILearningModel;
+   type IAsyncOperation_ILearningModelEvaluationResult_Interface;
+   type IAsyncOperation_ILearningModelEvaluationResult is access all IAsyncOperation_ILearningModelEvaluationResult_Interface'Class;
+   type IAsyncOperation_ILearningModelEvaluationResult_Ptr is access all IAsyncOperation_ILearningModelEvaluationResult;
+   type IImageFeatureDescriptor_Interface;
+   type IImageFeatureDescriptor is access all IImageFeatureDescriptor_Interface'Class;
+   type IImageFeatureDescriptor_Ptr is access all IImageFeatureDescriptor;
+   type IImageFeatureValue_Interface;
+   type IImageFeatureValue is access all IImageFeatureValue_Interface'Class;
+   type IImageFeatureValue_Ptr is access all IImageFeatureValue;
+   type IImageFeatureValueStatics_Interface;
+   type IImageFeatureValueStatics is access all IImageFeatureValueStatics_Interface'Class;
+   type IImageFeatureValueStatics_Ptr is access all IImageFeatureValueStatics;
+   type IIterable_IKeyValuePair_Interface;
+   type IIterable_IKeyValuePair is access all IIterable_IKeyValuePair_Interface'Class;
+   type IIterable_IKeyValuePair_Ptr is access all IIterable_IKeyValuePair;
+   type IIterable_ILearningModelFeatureDescriptor_Interface;
+   type IIterable_ILearningModelFeatureDescriptor is access all IIterable_ILearningModelFeatureDescriptor_Interface'Class;
+   type IIterable_ILearningModelFeatureDescriptor_Ptr is access all IIterable_ILearningModelFeatureDescriptor;
+   type IIterable_ILearningModelSession_EvaluateFeatures_Interface;
+   type IIterable_ILearningModelSession_EvaluateFeatures is access all IIterable_ILearningModelSession_EvaluateFeatures_Interface'Class;
+   type IIterable_ILearningModelSession_EvaluateFeatures_Ptr is access all IIterable_ILearningModelSession_EvaluateFeatures;
+   type IIterable_ILearningModelSession_EvaluateFeaturesAsync_Interface;
+   type IIterable_ILearningModelSession_EvaluateFeaturesAsync is access all IIterable_ILearningModelSession_EvaluateFeaturesAsync_Interface'Class;
+   type IIterable_ILearningModelSession_EvaluateFeaturesAsync_Ptr is access all IIterable_ILearningModelSession_EvaluateFeaturesAsync;
+   type IIterator_ILearningModelFeatureDescriptor_Interface;
+   type IIterator_ILearningModelFeatureDescriptor is access all IIterator_ILearningModelFeatureDescriptor_Interface'Class;
+   type IIterator_ILearningModelFeatureDescriptor_Ptr is access all IIterator_ILearningModelFeatureDescriptor;
+   type ILearningModel_Interface;
+   type ILearningModel is access all ILearningModel_Interface'Class;
+   type ILearningModel_Ptr is access all ILearningModel;
+   type ILearningModelBinding_Interface;
+   type ILearningModelBinding is access all ILearningModelBinding_Interface'Class;
+   type ILearningModelBinding_Ptr is access all ILearningModelBinding;
+   type ILearningModelBindingFactory_Interface;
+   type ILearningModelBindingFactory is access all ILearningModelBindingFactory_Interface'Class;
+   type ILearningModelBindingFactory_Ptr is access all ILearningModelBindingFactory;
+   type ILearningModelDevice_Interface;
+   type ILearningModelDevice is access all ILearningModelDevice_Interface'Class;
+   type ILearningModelDevice_Ptr is access all ILearningModelDevice;
+   type ILearningModelDeviceFactory_Interface;
+   type ILearningModelDeviceFactory is access all ILearningModelDeviceFactory_Interface'Class;
+   type ILearningModelDeviceFactory_Ptr is access all ILearningModelDeviceFactory;
+   type ILearningModelDeviceStatics_Interface;
+   type ILearningModelDeviceStatics is access all ILearningModelDeviceStatics_Interface'Class;
+   type ILearningModelDeviceStatics_Ptr is access all ILearningModelDeviceStatics;
+   type ILearningModelEvaluationResult_Interface;
+   type ILearningModelEvaluationResult is access all ILearningModelEvaluationResult_Interface'Class;
+   type ILearningModelEvaluationResult_Ptr is access all ILearningModelEvaluationResult;
+   type ILearningModelFeatureDescriptor_Interface;
+   type ILearningModelFeatureDescriptor is access all ILearningModelFeatureDescriptor_Interface'Class;
+   type ILearningModelFeatureDescriptor_Ptr is access all ILearningModelFeatureDescriptor;
+   type ILearningModelFeatureValue_Interface;
+   type ILearningModelFeatureValue is access all ILearningModelFeatureValue_Interface'Class;
+   type ILearningModelFeatureValue_Ptr is access all ILearningModelFeatureValue;
+   type ILearningModelOperatorProvider_Interface;
+   type ILearningModelOperatorProvider is access all ILearningModelOperatorProvider_Interface'Class;
+   type ILearningModelOperatorProvider_Ptr is access all ILearningModelOperatorProvider;
+   type ILearningModelSession_Interface;
+   type ILearningModelSession is access all ILearningModelSession_Interface'Class;
+   type ILearningModelSession_Ptr is access all ILearningModelSession;
+   type ILearningModelSessionFactory_Interface;
+   type ILearningModelSessionFactory is access all ILearningModelSessionFactory_Interface'Class;
+   type ILearningModelSessionFactory_Ptr is access all ILearningModelSessionFactory;
+   type ILearningModelStatics_Interface;
+   type ILearningModelStatics is access all ILearningModelStatics_Interface'Class;
+   type ILearningModelStatics_Ptr is access all ILearningModelStatics;
+   type IMap_ILearningModelSession_EvaluateFeatures_Interface;
+   type IMap_ILearningModelSession_EvaluateFeatures is access all IMap_ILearningModelSession_EvaluateFeatures_Interface'Class;
+   type IMap_ILearningModelSession_EvaluateFeatures_Ptr is access all IMap_ILearningModelSession_EvaluateFeatures;
+   type IMap_ILearningModelSession_EvaluateFeaturesAsync_Interface;
+   type IMap_ILearningModelSession_EvaluateFeaturesAsync is access all IMap_ILearningModelSession_EvaluateFeaturesAsync_Interface'Class;
+   type IMap_ILearningModelSession_EvaluateFeaturesAsync_Ptr is access all IMap_ILearningModelSession_EvaluateFeaturesAsync;
+   type IMapFeatureDescriptor_Interface;
+   type IMapFeatureDescriptor is access all IMapFeatureDescriptor_Interface'Class;
+   type IMapFeatureDescriptor_Ptr is access all IMapFeatureDescriptor;
+   type IMapView_String_Object_Interface;
+   type IMapView_String_Object is access all IMapView_String_Object_Interface'Class;
+   type IMapView_String_Object_Ptr is access all IMapView_String_Object;
+   type ISequenceFeatureDescriptor_Interface;
+   type ISequenceFeatureDescriptor is access all ISequenceFeatureDescriptor_Interface'Class;
+   type ISequenceFeatureDescriptor_Ptr is access all ISequenceFeatureDescriptor;
+   type ITensor_Interface;
+   type ITensor is access all ITensor_Interface'Class;
+   type ITensor_Ptr is access all ITensor;
+   type ITensorBoolean_Interface;
+   type ITensorBoolean is access all ITensorBoolean_Interface'Class;
+   type ITensorBoolean_Ptr is access all ITensorBoolean;
+   type ITensorBooleanStatics_Interface;
+   type ITensorBooleanStatics is access all ITensorBooleanStatics_Interface'Class;
+   type ITensorBooleanStatics_Ptr is access all ITensorBooleanStatics;
+   type ITensorDouble_Interface;
+   type ITensorDouble is access all ITensorDouble_Interface'Class;
+   type ITensorDouble_Ptr is access all ITensorDouble;
+   type ITensorDoubleStatics_Interface;
+   type ITensorDoubleStatics is access all ITensorDoubleStatics_Interface'Class;
+   type ITensorDoubleStatics_Ptr is access all ITensorDoubleStatics;
+   type ITensorFeatureDescriptor_Interface;
+   type ITensorFeatureDescriptor is access all ITensorFeatureDescriptor_Interface'Class;
+   type ITensorFeatureDescriptor_Ptr is access all ITensorFeatureDescriptor;
+   type ITensorFloat_Interface;
+   type ITensorFloat is access all ITensorFloat_Interface'Class;
+   type ITensorFloat_Ptr is access all ITensorFloat;
+   type ITensorFloat16Bit_Interface;
+   type ITensorFloat16Bit is access all ITensorFloat16Bit_Interface'Class;
+   type ITensorFloat16Bit_Ptr is access all ITensorFloat16Bit;
+   type ITensorFloat16BitStatics_Interface;
+   type ITensorFloat16BitStatics is access all ITensorFloat16BitStatics_Interface'Class;
+   type ITensorFloat16BitStatics_Ptr is access all ITensorFloat16BitStatics;
+   type ITensorFloatStatics_Interface;
+   type ITensorFloatStatics is access all ITensorFloatStatics_Interface'Class;
+   type ITensorFloatStatics_Ptr is access all ITensorFloatStatics;
+   type ITensorInt16Bit_Interface;
+   type ITensorInt16Bit is access all ITensorInt16Bit_Interface'Class;
+   type ITensorInt16Bit_Ptr is access all ITensorInt16Bit;
+   type ITensorInt16BitStatics_Interface;
+   type ITensorInt16BitStatics is access all ITensorInt16BitStatics_Interface'Class;
+   type ITensorInt16BitStatics_Ptr is access all ITensorInt16BitStatics;
+   type ITensorInt32Bit_Interface;
+   type ITensorInt32Bit is access all ITensorInt32Bit_Interface'Class;
+   type ITensorInt32Bit_Ptr is access all ITensorInt32Bit;
+   type ITensorInt32BitStatics_Interface;
+   type ITensorInt32BitStatics is access all ITensorInt32BitStatics_Interface'Class;
+   type ITensorInt32BitStatics_Ptr is access all ITensorInt32BitStatics;
+   type ITensorInt64Bit_Interface;
+   type ITensorInt64Bit is access all ITensorInt64Bit_Interface'Class;
+   type ITensorInt64Bit_Ptr is access all ITensorInt64Bit;
+   type ITensorInt64BitStatics_Interface;
+   type ITensorInt64BitStatics is access all ITensorInt64BitStatics_Interface'Class;
+   type ITensorInt64BitStatics_Ptr is access all ITensorInt64BitStatics;
+   type ITensorInt8Bit_Interface;
+   type ITensorInt8Bit is access all ITensorInt8Bit_Interface'Class;
+   type ITensorInt8Bit_Ptr is access all ITensorInt8Bit;
+   type ITensorInt8BitStatics_Interface;
+   type ITensorInt8BitStatics is access all ITensorInt8BitStatics_Interface'Class;
+   type ITensorInt8BitStatics_Ptr is access all ITensorInt8BitStatics;
+   type ITensorString_Interface;
+   type ITensorString is access all ITensorString_Interface'Class;
+   type ITensorString_Ptr is access all ITensorString;
+   type ITensorStringStatics_Interface;
+   type ITensorStringStatics is access all ITensorStringStatics_Interface'Class;
+   type ITensorStringStatics_Ptr is access all ITensorStringStatics;
+   type ITensorUInt16Bit_Interface;
+   type ITensorUInt16Bit is access all ITensorUInt16Bit_Interface'Class;
+   type ITensorUInt16Bit_Ptr is access all ITensorUInt16Bit;
+   type ITensorUInt16BitStatics_Interface;
+   type ITensorUInt16BitStatics is access all ITensorUInt16BitStatics_Interface'Class;
+   type ITensorUInt16BitStatics_Ptr is access all ITensorUInt16BitStatics;
+   type ITensorUInt32Bit_Interface;
+   type ITensorUInt32Bit is access all ITensorUInt32Bit_Interface'Class;
+   type ITensorUInt32Bit_Ptr is access all ITensorUInt32Bit;
+   type ITensorUInt32BitStatics_Interface;
+   type ITensorUInt32BitStatics is access all ITensorUInt32BitStatics_Interface'Class;
+   type ITensorUInt32BitStatics_Ptr is access all ITensorUInt32BitStatics;
+   type ITensorUInt64Bit_Interface;
+   type ITensorUInt64Bit is access all ITensorUInt64Bit_Interface'Class;
+   type ITensorUInt64Bit_Ptr is access all ITensorUInt64Bit;
+   type ITensorUInt64BitStatics_Interface;
+   type ITensorUInt64BitStatics is access all ITensorUInt64BitStatics_Interface'Class;
+   type ITensorUInt64BitStatics_Ptr is access all ITensorUInt64BitStatics;
+   type ITensorUInt8Bit_Interface;
+   type ITensorUInt8Bit is access all ITensorUInt8Bit_Interface'Class;
+   type ITensorUInt8Bit_Ptr is access all ITensorUInt8Bit;
+   type ITensorUInt8BitStatics_Interface;
+   type ITensorUInt8BitStatics is access all ITensorUInt8BitStatics_Interface'Class;
+   type ITensorUInt8BitStatics_Ptr is access all ITensorUInt8BitStatics;
+   type IVectorView_ILearningModelFeatureDescriptor_Interface;
+   type IVectorView_ILearningModelFeatureDescriptor is access all IVectorView_ILearningModelFeatureDescriptor_Interface'Class;
+   type IVectorView_ILearningModelFeatureDescriptor_Ptr is access all IVectorView_ILearningModelFeatureDescriptor;
+   
+   ------------------------------------------------------------------------
+   -- Interfaces
+   ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ILearningModel : aliased constant Windows.IID := (1665840075, 16492, 24286, (138, 137, 167, 249, 202, 55, 3, 38 ));
+   
+   type IAsyncOperation_ILearningModel_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_ILearningModel_Interface
+      ; handler : Windows.AI.MachineLearning.AsyncOperationCompletedHandler_ILearningModel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ILearningModel_Interface
+      ; RetVal : access Windows.AI.MachineLearning.AsyncOperationCompletedHandler_ILearningModel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ILearningModel_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModel
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_ILearningModelEvaluationResult : aliased constant Windows.IID := (671417744, 5154, 23064, (140, 139, 132, 127, 45, 44, 246, 154 ));
+   
+   type IAsyncOperation_ILearningModelEvaluationResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_ILearningModelEvaluationResult_Interface
+      ; handler : Windows.AI.MachineLearning.AsyncOperationCompletedHandler_ILearningModelEvaluationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_ILearningModelEvaluationResult_Interface
+      ; RetVal : access Windows.AI.MachineLearning.AsyncOperationCompletedHandler_ILearningModelEvaluationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_ILearningModelEvaluationResult_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModelEvaluationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IImageFeatureDescriptor : aliased constant Windows.IID := (911574437, 5914, 18986, (152, 95, 38, 81, 89, 211, 137, 90 ));
+   
+   type IImageFeatureDescriptor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BitmapPixelFormat
+   (
+      This       : access IImageFeatureDescriptor_Interface
+      ; RetVal : access Windows.Graphics.Imaging.BitmapPixelFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_BitmapAlphaMode
+   (
+      This       : access IImageFeatureDescriptor_Interface
+      ; RetVal : access Windows.Graphics.Imaging.BitmapAlphaMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Width
+   (
+      This       : access IImageFeatureDescriptor_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Height
+   (
+      This       : access IImageFeatureDescriptor_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IImageFeatureValue : aliased constant Windows.IID := (4030812121, 51626, 17413, (183, 251, 148, 248, 124, 138, 48, 55 ));
+   
+   type IImageFeatureValue_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_VideoFrame
+   (
+      This       : access IImageFeatureValue_Interface
+      ; RetVal : access Windows.Media.IVideoFrame
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IImageFeatureValueStatics : aliased constant Windows.IID := (465770493, 9163, 17936, (176, 133, 200, 225, 200, 126, 186, 160 ));
+   
+   type IImageFeatureValueStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromVideoFrame
+   (
+      This       : access IImageFeatureValueStatics_Interface
+      ; image : Windows.Media.IVideoFrame
+      ; RetVal : access Windows.AI.MachineLearning.IImageFeatureValue
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IKeyValuePair : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IIterable_IKeyValuePair_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IKeyValuePair_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_ILearningModelFeatureDescriptor : aliased constant Windows.IID := (262473847, 26514, 22199, (175, 70, 67, 10, 137, 1, 137, 74 ));
+   
+   type IIterable_ILearningModelFeatureDescriptor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_ILearningModelFeatureDescriptor_Interface
+      ; RetVal : access Windows.AI.MachineLearning.IIterator_ILearningModelFeatureDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_ILearningModelSession_EvaluateFeatures : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IIterable_ILearningModelSession_EvaluateFeatures_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_ILearningModelSession_EvaluateFeatures_Interface
+      ; RetVal : access Windows.Foundation.Collections.IIterator_String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_ILearningModelSession_EvaluateFeaturesAsync : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IIterable_ILearningModelSession_EvaluateFeaturesAsync_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_ILearningModelSession_EvaluateFeaturesAsync_Interface
+      ; RetVal : access Windows.Foundation.Collections.IIterator_String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_ILearningModelFeatureDescriptor : aliased constant Windows.IID := (250876584, 41446, 22842, (151, 242, 13, 105, 156, 166, 165, 103 ));
+   
+   type IIterator_ILearningModelFeatureDescriptor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_ILearningModelFeatureDescriptor_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModelFeatureDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_ILearningModelFeatureDescriptor_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_ILearningModelFeatureDescriptor_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_ILearningModelFeatureDescriptor_Interface
+      ; items : Windows.AI.MachineLearning.ILearningModelFeatureDescriptor_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILearningModel : aliased constant Windows.IID := (1536051488, 18591, 20102, (145, 40, 38, 90, 50, 123, 120, 250 ));
+   
+   type ILearningModel_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Author
+   (
+      This       : access ILearningModel_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Name
+   (
+      This       : access ILearningModel_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Domain
+   (
+      This       : access ILearningModel_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access ILearningModel_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Version
+   (
+      This       : access ILearningModel_Interface
+      ; RetVal : access Windows.Int64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Metadata
+   (
+      This       : access ILearningModel_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InputFeatures
+   (
+      This       : access ILearningModel_Interface
+      ; RetVal : access Windows.AI.MachineLearning.IVectorView_ILearningModelFeatureDescriptor -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OutputFeatures
+   (
+      This       : access ILearningModel_Interface
+      ; RetVal : access Windows.AI.MachineLearning.IVectorView_ILearningModelFeatureDescriptor -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILearningModelBinding : aliased constant Windows.IID := (3929091872, 5775, 20364, (148, 254, 46, 122, 195, 27, 74, 168 ));
+   
+   type ILearningModelBinding_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Bind
+   (
+      This       : access ILearningModelBinding_Interface
+      ; name : Windows.String
+      ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function BindWithProperties
+   (
+      This       : access ILearningModelBinding_Interface
+      ; name : Windows.String
+      ; value : Windows.Object
+      ; props : Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access ILearningModelBinding_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILearningModelBindingFactory : aliased constant Windows.IID := (3378477690, 59272, 18270, (137, 23, 35, 170, 56, 31, 175, 11 ));
+   
+   type ILearningModelBindingFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromSession
+   (
+      This       : access ILearningModelBindingFactory_Interface
+      ; session : Windows.AI.MachineLearning.ILearningModelSession
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModelBinding
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILearningModelDevice : aliased constant Windows.IID := (4123183358, 16214, 19084, (172, 95, 253, 185, 45, 139, 130, 82 ));
+   
+   type ILearningModelDevice_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AdapterId
+   (
+      This       : access ILearningModelDevice_Interface
+      ; RetVal : access Windows.Graphics.DisplayAdapterId
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Direct3D11Device
+   (
+      This       : access ILearningModelDevice_Interface
+      ; RetVal : access Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILearningModelDeviceFactory : aliased constant Windows.IID := (2634012493, 45541, 20256, (128, 173, 10, 86, 105, 13, 176, 107 ));
+   
+   type ILearningModelDeviceFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ILearningModelDeviceFactory_Interface
+      ; deviceKind : Windows.AI.MachineLearning.LearningModelDeviceKind
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModelDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILearningModelDeviceStatics : aliased constant Windows.IID := (1240670471, 43199, 17083, (146, 199, 16, 177, 45, 197, 210, 31 ));
+   
+   type ILearningModelDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromDirect3D11Device
+   (
+      This       : access ILearningModelDeviceStatics_Interface
+      ; device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModelDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILearningModelEvaluationResult : aliased constant Windows.IID := (3002712013, 38414, 18880, (133, 147, 235, 25, 10, 227, 238, 226 ));
+   
+   type ILearningModelEvaluationResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CorrelationId
+   (
+      This       : access ILearningModelEvaluationResult_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ErrorStatus
+   (
+      This       : access ILearningModelEvaluationResult_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Succeeded
+   (
+      This       : access ILearningModelEvaluationResult_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Outputs
+   (
+      This       : access ILearningModelEvaluationResult_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILearningModelFeatureDescriptor : aliased constant Windows.IID := (3154694012, 28368, 16388, (151, 186, 185, 162, 238, 205, 43, 79 ));
+   
+   type ILearningModelFeatureDescriptor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Name
+   (
+      This       : access ILearningModelFeatureDescriptor_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Description
+   (
+      This       : access ILearningModelFeatureDescriptor_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Kind
+   (
+      This       : access ILearningModelFeatureDescriptor_Interface
+      ; RetVal : access Windows.AI.MachineLearning.LearningModelFeatureKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsRequired
+   (
+      This       : access ILearningModelFeatureDescriptor_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILearningModelFeatureValue : aliased constant Windows.IID := (4111467995, 16517, 19966, (159, 237, 149, 235, 12, 12, 247, 92 ));
+   
+   type ILearningModelFeatureValue_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Kind
+   (
+      This       : access ILearningModelFeatureValue_Interface
+      ; RetVal : access Windows.AI.MachineLearning.LearningModelFeatureKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILearningModelOperatorProvider : aliased constant Windows.IID := (706883165, 44977, 18413, (191, 173, 181, 179, 164, 89, 236, 4 ));
+   
+   type ILearningModelOperatorProvider_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILearningModelSession : aliased constant Windows.IID := (2388195574, 46983, 19473, (144, 240, 113, 41, 174, 202, 116, 169 ));
+   
+   type ILearningModelSession_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Model
+   (
+      This       : access ILearningModelSession_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Device
+   (
+      This       : access ILearningModelSession_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModelDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EvaluationProperties
+   (
+      This       : access ILearningModelSession_Interface
+      ; RetVal : access Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   function EvaluateAsync
+   (
+      This       : access ILearningModelSession_Interface
+      ; bindings : Windows.AI.MachineLearning.ILearningModelBinding
+      ; correlationId : Windows.String
+      ; RetVal : access Windows.AI.MachineLearning.IAsyncOperation_ILearningModelEvaluationResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function EvaluateFeaturesAsync
+   (
+      This       : access ILearningModelSession_Interface
+      ; features : IMap_ILearningModelSession_EvaluateFeaturesAsync
+      ; correlationId : Windows.String
+      ; RetVal : access Windows.AI.MachineLearning.IAsyncOperation_ILearningModelEvaluationResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Evaluate
+   (
+      This       : access ILearningModelSession_Interface
+      ; bindings : Windows.AI.MachineLearning.ILearningModelBinding
+      ; correlationId : Windows.String
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModelEvaluationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function EvaluateFeatures
+   (
+      This       : access ILearningModelSession_Interface
+      ; features : IMap_ILearningModelSession_EvaluateFeatures
+      ; correlationId : Windows.String
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModelEvaluationResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILearningModelSessionFactory : aliased constant Windows.IID := (258705437, 7323, 18358, (191, 224, 241, 207, 98, 166, 117, 121 ));
+   
+   type ILearningModelSessionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromModel
+   (
+      This       : access ILearningModelSessionFactory_Interface
+      ; model : Windows.AI.MachineLearning.ILearningModel
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModelSession
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromModelOnDevice
+   (
+      This       : access ILearningModelSessionFactory_Interface
+      ; model : Windows.AI.MachineLearning.ILearningModel
+      ; deviceToRunOn : Windows.AI.MachineLearning.ILearningModelDevice
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModelSession
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILearningModelStatics : aliased constant Windows.IID := (3820582888, 26962, 20039, (142, 244, 31, 127, 7, 137, 124, 109 ));
+   
+   type ILearningModelStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function LoadFromStorageFileAsync
+   (
+      This       : access ILearningModelStatics_Interface
+      ; modelFile : Windows.Storage.IStorageFile
+      ; RetVal : access Windows.AI.MachineLearning.IAsyncOperation_ILearningModel -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LoadFromStreamAsync
+   (
+      This       : access ILearningModelStatics_Interface
+      ; modelStream : Windows.Storage.Streams.IRandomAccessStreamReference
+      ; RetVal : access Windows.AI.MachineLearning.IAsyncOperation_ILearningModel -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LoadFromFilePath
+   (
+      This       : access ILearningModelStatics_Interface
+      ; filePath : Windows.String
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LoadFromStream
+   (
+      This       : access ILearningModelStatics_Interface
+      ; modelStream : Windows.Storage.Streams.IRandomAccessStreamReference
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LoadFromStorageFileWithOperatorProviderAsync
+   (
+      This       : access ILearningModelStatics_Interface
+      ; modelFile : Windows.Storage.IStorageFile
+      ; operatorProvider : Windows.AI.MachineLearning.ILearningModelOperatorProvider
+      ; RetVal : access Windows.AI.MachineLearning.IAsyncOperation_ILearningModel -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LoadFromStreamWithOperatorProviderAsync
+   (
+      This       : access ILearningModelStatics_Interface
+      ; modelStream : Windows.Storage.Streams.IRandomAccessStreamReference
+      ; operatorProvider : Windows.AI.MachineLearning.ILearningModelOperatorProvider
+      ; RetVal : access Windows.AI.MachineLearning.IAsyncOperation_ILearningModel -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LoadFromFilePathWithOperatorProvider
+   (
+      This       : access ILearningModelStatics_Interface
+      ; filePath : Windows.String
+      ; operatorProvider : Windows.AI.MachineLearning.ILearningModelOperatorProvider
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LoadFromStreamWithOperatorProvider
+   (
+      This       : access ILearningModelStatics_Interface
+      ; modelStream : Windows.Storage.Streams.IRandomAccessStreamReference
+      ; operatorProvider : Windows.AI.MachineLearning.ILearningModelOperatorProvider
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModel
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMap_ILearningModelSession_EvaluateFeatures : aliased constant Windows.IID := (453850480, 2167, 24258, (138, 44, 59, 149, 57, 80, 106, 202 ));
+   
+   type IMap_ILearningModelSession_EvaluateFeatures_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Lookup
+   (
+      This       : access IMap_ILearningModelSession_EvaluateFeatures_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IMap_ILearningModelSession_EvaluateFeatures_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HasKey
+   (
+      This       : access IMap_ILearningModelSession_EvaluateFeatures_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IMap_ILearningModelSession_EvaluateFeatures_Interface
+      ; RetVal : access Windows.Address
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Insert
+   (
+      This       : access IMap_ILearningModelSession_EvaluateFeatures_Interface
+      ; key : Windows.String
+      ; value : Windows.Object
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Remove
+   (
+      This       : access IMap_ILearningModelSession_EvaluateFeatures_Interface
+      ; key : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IMap_ILearningModelSession_EvaluateFeatures_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMap_ILearningModelSession_EvaluateFeaturesAsync : aliased constant Windows.IID := (453850480, 2167, 24258, (138, 44, 59, 149, 57, 80, 106, 202 ));
+   
+   type IMap_ILearningModelSession_EvaluateFeaturesAsync_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Lookup
+   (
+      This       : access IMap_ILearningModelSession_EvaluateFeaturesAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IMap_ILearningModelSession_EvaluateFeaturesAsync_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HasKey
+   (
+      This       : access IMap_ILearningModelSession_EvaluateFeaturesAsync_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IMap_ILearningModelSession_EvaluateFeaturesAsync_Interface
+      ; RetVal : access Windows.Address
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Insert
+   (
+      This       : access IMap_ILearningModelSession_EvaluateFeaturesAsync_Interface
+      ; key : Windows.String
+      ; value : Windows.Object
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Remove
+   (
+      This       : access IMap_ILearningModelSession_EvaluateFeaturesAsync_Interface
+      ; key : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IMap_ILearningModelSession_EvaluateFeaturesAsync_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapFeatureDescriptor : aliased constant Windows.IID := (1392780477, 41559, 17261, (158, 96, 194, 152, 31, 124, 197, 196 ));
+   
+   type IMapFeatureDescriptor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_KeyKind
+   (
+      This       : access IMapFeatureDescriptor_Interface
+      ; RetVal : access Windows.AI.MachineLearning.TensorKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ValueDescriptor
+   (
+      This       : access IMapFeatureDescriptor_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModelFeatureDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapView_String_Object : aliased constant Windows.IID := (3145224234, 63389, 21754, (146, 201, 144, 197, 3, 159, 223, 126 ));
+   
+   type IMapView_String_Object_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Lookup
+   (
+      This       : access IMapView_String_Object_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IMapView_String_Object_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function HasKey
+   (
+      This       : access IMapView_String_Object_Interface
+      ; key : Windows.String
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Split
+   (
+      This       : access IMapView_String_Object_Interface
+      ; first : access Windows.Object
+      ; second : access Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISequenceFeatureDescriptor : aliased constant Windows.IID := (2230752346, 22059, 19810, (168, 81, 115, 154, 206, 217, 102, 104 ));
+   
+   type ISequenceFeatureDescriptor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ElementDescriptor
+   (
+      This       : access ISequenceFeatureDescriptor_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModelFeatureDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensor : aliased constant Windows.IID := (88642963, 41733, 18981, (173, 9, 68, 1, 25, 180, 183, 246 ));
+   
+   type ITensor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TensorKind
+   (
+      This       : access ITensor_Interface
+      ; RetVal : access Windows.AI.MachineLearning.TensorKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Shape
+   (
+      This       : access ITensor_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_Int64 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorBoolean : aliased constant Windows.IID := (1358107117, 10729, 19036, (164, 77, 143, 197, 18, 88, 78, 237 ));
+   
+   type ITensorBoolean_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAsVectorView
+   (
+      This       : access ITensorBoolean_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorBooleanStatics : aliased constant Windows.IID := (664176172, 9047, 18855, (180, 118, 208, 170, 61, 254, 104, 102 ));
+   
+   type ITensorBooleanStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ITensorBooleanStatics_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ITensorBoolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Create2
+   (
+      This       : access ITensorBooleanStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; RetVal : access Windows.AI.MachineLearning.ITensorBoolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromArray
+   (
+      This       : access ITensorBooleanStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Boolean_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorBoolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromIterable
+   (
+      This       : access ITensorBooleanStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_Boolean
+      ; RetVal : access Windows.AI.MachineLearning.ITensorBoolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorDouble : aliased constant Windows.IID := (2447643218, 31375, 20238, (162, 143, 150, 55, 255, 200, 163, 208 ));
+   
+   type ITensorDouble_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAsVectorView
+   (
+      This       : access ITensorDouble_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_Double -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorDoubleStatics : aliased constant Windows.IID := (2825294789, 38200, 17639, (163, 202, 93, 243, 116, 165, 167, 12 ));
+   
+   type ITensorDoubleStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ITensorDoubleStatics_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ITensorDouble
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Create2
+   (
+      This       : access ITensorDoubleStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; RetVal : access Windows.AI.MachineLearning.ITensorDouble
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromArray
+   (
+      This       : access ITensorDoubleStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Double_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorDouble
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromIterable
+   (
+      This       : access ITensorDoubleStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_Double
+      ; RetVal : access Windows.AI.MachineLearning.ITensorDouble
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorFeatureDescriptor : aliased constant Windows.IID := (1950702720, 37994, 17168, (161, 156, 238, 10, 240, 40, 252, 228 ));
+   
+   type ITensorFeatureDescriptor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TensorKind
+   (
+      This       : access ITensorFeatureDescriptor_Interface
+      ; RetVal : access Windows.AI.MachineLearning.TensorKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Shape
+   (
+      This       : access ITensorFeatureDescriptor_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_Int64 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorFloat : aliased constant Windows.IID := (4062719362, 43522, 17096, (160, 200, 223, 30, 252, 150, 118, 225 ));
+   
+   type ITensorFloat_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAsVectorView
+   (
+      This       : access ITensorFloat_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_Single -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorFloat16Bit : aliased constant Windows.IID := (179934460, 23433, 19516, (181, 228, 82, 130, 165, 49, 108, 10 ));
+   
+   type ITensorFloat16Bit_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAsVectorView
+   (
+      This       : access ITensorFloat16Bit_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_Single -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorFloat16BitStatics : aliased constant Windows.IID := (2771236597, 12682, 17620, (130, 11, 12, 220, 112, 84, 168, 74 ));
+   
+   type ITensorFloat16BitStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ITensorFloat16BitStatics_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ITensorFloat16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Create2
+   (
+      This       : access ITensorFloat16BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; RetVal : access Windows.AI.MachineLearning.ITensorFloat16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromArray
+   (
+      This       : access ITensorFloat16BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Single_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorFloat16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromIterable
+   (
+      This       : access ITensorFloat16BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_Single
+      ; RetVal : access Windows.AI.MachineLearning.ITensorFloat16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorFloatStatics : aliased constant Windows.IID := (3687659867, 15267, 17711, (177, 13, 60, 19, 94, 87, 63, 169 ));
+   
+   type ITensorFloatStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ITensorFloatStatics_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ITensorFloat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Create2
+   (
+      This       : access ITensorFloatStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; RetVal : access Windows.AI.MachineLearning.ITensorFloat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromArray
+   (
+      This       : access ITensorFloatStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Single_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorFloat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromIterable
+   (
+      This       : access ITensorFloatStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_Single
+      ; RetVal : access Windows.AI.MachineLearning.ITensorFloat
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorInt16Bit : aliased constant Windows.IID := (2560830777, 59094, 17583, (138, 250, 186, 235, 196, 77, 192, 32 ));
+   
+   type ITensorInt16Bit_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAsVectorView
+   (
+      This       : access ITensorInt16Bit_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_Int16 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorInt16BitStatics : aliased constant Windows.IID := (2556715667, 9838, 19226, (130, 31, 230, 13, 112, 137, 139, 145 ));
+   
+   type ITensorInt16BitStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ITensorInt16BitStatics_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Create2
+   (
+      This       : access ITensorInt16BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromArray
+   (
+      This       : access ITensorInt16BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Int16_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromIterable
+   (
+      This       : access ITensorInt16BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_Int16
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorInt32Bit : aliased constant Windows.IID := (738994387, 8316, 17542, (167, 210, 136, 69, 34, 197, 229, 137 ));
+   
+   type ITensorInt32Bit_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAsVectorView
+   (
+      This       : access ITensorInt32Bit_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_Int32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorInt32BitStatics : aliased constant Windows.IID := (1698268747, 21242, 20021, (144, 124, 131, 76, 172, 65, 123, 80 ));
+   
+   type ITensorInt32BitStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ITensorInt32BitStatics_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt32Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Create2
+   (
+      This       : access ITensorInt32BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt32Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromArray
+   (
+      This       : access ITensorInt32BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Int32_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt32Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromIterable
+   (
+      This       : access ITensorInt32BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_Int32
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt32Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorInt64Bit : aliased constant Windows.IID := (1234593210, 8098, 17837, (175, 37, 160, 189, 155, 218, 76, 135 ));
+   
+   type ITensorInt64Bit_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAsVectorView
+   (
+      This       : access ITensorInt64Bit_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_Int64 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorInt64BitStatics : aliased constant Windows.IID := (2521345437, 4504, 19828, (149, 23, 120, 58, 182, 43, 156, 194 ));
+   
+   type ITensorInt64BitStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ITensorInt64BitStatics_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt64Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Create2
+   (
+      This       : access ITensorInt64BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt64Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromArray
+   (
+      This       : access ITensorInt64BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Int64_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt64Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromIterable
+   (
+      This       : access ITensorInt64BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_Int64
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt64Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorInt8Bit : aliased constant Windows.IID := (3453851589, 65496, 20463, (174, 251, 48, 225, 164, 133, 178, 238 ));
+   
+   type ITensorInt8Bit_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAsVectorView
+   (
+      This       : access ITensorInt8Bit_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_UInt8 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorInt8BitStatics : aliased constant Windows.IID := (2980127364, 2396, 19574, (166, 97, 172, 76, 238, 31, 62, 139 ));
+   
+   type ITensorInt8BitStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ITensorInt8BitStatics_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt8Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Create2
+   (
+      This       : access ITensorInt8BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt8Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromArray
+   (
+      This       : access ITensorInt8BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.UInt8_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt8Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromIterable
+   (
+      This       : access ITensorInt8BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_UInt8
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt8Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorString : aliased constant Windows.IID := (1478702536, 48561, 17936, (188, 117, 53, 233, 203, 240, 9, 183 ));
+   
+   type ITensorString_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAsVectorView
+   (
+      This       : access ITensorString_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorStringStatics : aliased constant Windows.IID := (2204250916, 53030, 20247, (162, 212, 32, 239, 141, 9, 125, 83 ));
+   
+   type ITensorStringStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ITensorStringStatics_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ITensorString
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Create2
+   (
+      This       : access ITensorStringStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; RetVal : access Windows.AI.MachineLearning.ITensorString
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromArray
+   (
+      This       : access ITensorStringStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.String_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorString
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromIterable
+   (
+      This       : access ITensorStringStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.AI.MachineLearning.ITensorString
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorUInt16Bit : aliased constant Windows.IID := (1746145099, 9152, 17139, (129, 246, 168, 145, 192, 17, 188, 63 ));
+   
+   type ITensorUInt16Bit_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAsVectorView
+   (
+      This       : access ITensorUInt16Bit_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_UInt16 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorUInt16BitStatics : aliased constant Windows.IID := (1576486365, 650, 18458, (162, 124, 199, 230, 67, 94, 82, 221 ));
+   
+   type ITensorUInt16BitStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ITensorUInt16BitStatics_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Create2
+   (
+      This       : access ITensorUInt16BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromArray
+   (
+      This       : access ITensorUInt16BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.UInt16_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromIterable
+   (
+      This       : access ITensorUInt16BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_UInt16
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorUInt32Bit : aliased constant Windows.IID := (3637101311, 29969, 17827, (191, 172, 195, 143, 55, 13, 34, 55 ));
+   
+   type ITensorUInt32Bit_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAsVectorView
+   (
+      This       : access ITensorUInt32Bit_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_UInt32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorUInt32BitStatics : aliased constant Windows.IID := (1098659895, 59251, 17272, (142, 127, 12, 195, 61, 190, 166, 151 ));
+   
+   type ITensorUInt32BitStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ITensorUInt32BitStatics_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt32Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Create2
+   (
+      This       : access ITensorUInt32BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt32Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromArray
+   (
+      This       : access ITensorUInt32BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.UInt32_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt32Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromIterable
+   (
+      This       : access ITensorUInt32BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_UInt32
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt32Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorUInt64Bit : aliased constant Windows.IID := (779157421, 1215, 18469, (131, 154, 130, 186, 239, 140, 120, 134 ));
+   
+   type ITensorUInt64Bit_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAsVectorView
+   (
+      This       : access ITensorUInt64Bit_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_UInt64 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorUInt64BitStatics : aliased constant Windows.IID := (2055086315, 9263, 18379, (169, 198, 246, 2, 236, 251, 254, 228 ));
+   
+   type ITensorUInt64BitStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ITensorUInt64BitStatics_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt64Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Create2
+   (
+      This       : access ITensorUInt64BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt64Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromArray
+   (
+      This       : access ITensorUInt64BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.UInt64_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt64Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromIterable
+   (
+      This       : access ITensorUInt64BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_UInt64
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt64Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorUInt8Bit : aliased constant Windows.IID := (1491185191, 25131, 18659, (190, 34, 216, 103, 174, 209, 218, 172 ));
+   
+   type ITensorUInt8Bit_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAsVectorView
+   (
+      This       : access ITensorUInt8Bit_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_UInt8 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorUInt8BitStatics : aliased constant Windows.IID := (100038019, 48164, 16928, (138, 65, 45, 205, 140, 94, 211, 60 ));
+   
+   type ITensorUInt8BitStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ITensorUInt8BitStatics_Interface
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt8Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Create2
+   (
+      This       : access ITensorUInt8BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt8Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromArray
+   (
+      This       : access ITensorUInt8BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.UInt8_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt8Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromIterable
+   (
+      This       : access ITensorUInt8BitStatics_Interface
+      ; shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_UInt8
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt8Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_ILearningModelFeatureDescriptor : aliased constant Windows.IID := (1407529248, 42721, 21119, (175, 138, 200, 18, 144, 46, 23, 94 ));
+   
+   type IVectorView_ILearningModelFeatureDescriptor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_ILearningModelFeatureDescriptor_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModelFeatureDescriptor
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_ILearningModelFeatureDescriptor_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_ILearningModelFeatureDescriptor_Interface
+      ; value : Windows.AI.MachineLearning.ILearningModelFeatureDescriptor
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_ILearningModelFeatureDescriptor_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.AI.MachineLearning.ILearningModelFeatureDescriptor_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   -- Delegates/Events
+   ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_ILearningModel : aliased constant Windows.IID := (1969071839, 60757, 23210, (181, 66, 198, 101, 240, 16, 245, 12 ));
+   
+   type AsyncOperationCompletedHandler_ILearningModel_Interface(Callback : access procedure (asyncInfo : Windows.AI.MachineLearning.IAsyncOperation_ILearningModel ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ILearningModel'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ILearningModel_Interface
+      ; asyncInfo : Windows.AI.MachineLearning.IAsyncOperation_ILearningModel
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_ILearningModelEvaluationResult : aliased constant Windows.IID := (3094831380, 39647, 20712, (182, 127, 34, 224, 241, 55, 47, 69 ));
+   
+   type AsyncOperationCompletedHandler_ILearningModelEvaluationResult_Interface(Callback : access procedure (asyncInfo : Windows.AI.MachineLearning.IAsyncOperation_ILearningModelEvaluationResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ILearningModelEvaluationResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_ILearningModelEvaluationResult_Interface
+      ; asyncInfo : Windows.AI.MachineLearning.IAsyncOperation_ILearningModelEvaluationResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   -- Classes
+   ------------------------------------------------------------------------
+   
+   subtype ImageFeatureDescriptor is Windows.AI.MachineLearning.IImageFeatureDescriptor;
+   subtype ImageFeatureValue is Windows.AI.MachineLearning.IImageFeatureValue;
+   subtype LearningModel is Windows.AI.MachineLearning.ILearningModel;
+   subtype LearningModelBinding is Windows.AI.MachineLearning.ILearningModelBinding;
+   function CreateFromSession
+   (
+      session : Windows.AI.MachineLearning.ILearningModelSession
+   )
+   return Windows.AI.MachineLearning.ILearningModelBinding;
+   
+   subtype LearningModelDevice is Windows.AI.MachineLearning.ILearningModelDevice;
+   function Create
+   (
+      deviceKind : Windows.AI.MachineLearning.LearningModelDeviceKind
+   )
+   return Windows.AI.MachineLearning.ILearningModelDevice;
+   
+   subtype LearningModelEvaluationResult is Windows.AI.MachineLearning.ILearningModelEvaluationResult;
+   subtype LearningModelSession is Windows.AI.MachineLearning.ILearningModelSession;
+   function CreateFromModel
+   (
+      model : Windows.AI.MachineLearning.ILearningModel
+   )
+   return Windows.AI.MachineLearning.ILearningModelSession;
+   
+   function CreateFromModelOnDevice
+   (
+      model : Windows.AI.MachineLearning.ILearningModel
+      ; deviceToRunOn : Windows.AI.MachineLearning.ILearningModelDevice
+   )
+   return Windows.AI.MachineLearning.ILearningModelSession;
+   
+   subtype MapFeatureDescriptor is Windows.AI.MachineLearning.IMapFeatureDescriptor;
+   subtype SequenceFeatureDescriptor is Windows.AI.MachineLearning.ISequenceFeatureDescriptor;
+   subtype TensorBoolean is Windows.AI.MachineLearning.ITensorBoolean;
+   subtype TensorDouble is Windows.AI.MachineLearning.ITensorDouble;
+   subtype TensorFeatureDescriptor is Windows.AI.MachineLearning.ITensorFeatureDescriptor;
+   subtype TensorFloat is Windows.AI.MachineLearning.ITensorFloat;
+   subtype TensorFloat16Bit is Windows.AI.MachineLearning.ITensorFloat16Bit;
+   subtype TensorInt16Bit is Windows.AI.MachineLearning.ITensorInt16Bit;
+   subtype TensorInt32Bit is Windows.AI.MachineLearning.ITensorInt32Bit;
+   subtype TensorInt64Bit is Windows.AI.MachineLearning.ITensorInt64Bit;
+   subtype TensorInt8Bit is Windows.AI.MachineLearning.ITensorInt8Bit;
+   subtype TensorString is Windows.AI.MachineLearning.ITensorString;
+   subtype TensorUInt16Bit is Windows.AI.MachineLearning.ITensorUInt16Bit;
+   subtype TensorUInt32Bit is Windows.AI.MachineLearning.ITensorUInt32Bit;
+   subtype TensorUInt64Bit is Windows.AI.MachineLearning.ITensorUInt64Bit;
+   subtype TensorUInt8Bit is Windows.AI.MachineLearning.ITensorUInt8Bit;
+   
+   ------------------------------------------------------------------------
+   -- Static Procedures/functions
+   ------------------------------------------------------------------------
+   
+   function CreateFromVideoFrame
+   (
+      image : Windows.Media.IVideoFrame
+   )
+   return Windows.AI.MachineLearning.IImageFeatureValue;
+   
+   function LoadFromFilePath
+   (
+      filePath : Windows.String
+   )
+   return Windows.AI.MachineLearning.ILearningModel;
+   
+   function LoadFromFilePathWithOperatorProvider
+   (
+      filePath : Windows.String
+      ; operatorProvider : Windows.AI.MachineLearning.ILearningModelOperatorProvider
+   )
+   return Windows.AI.MachineLearning.ILearningModel;
+   
+   function LoadFromStorageFileAsync
+   (
+      modelFile : Windows.Storage.IStorageFile
+   )
+   return Windows.AI.MachineLearning.IAsyncOperation_ILearningModel;
+   
+   function LoadFromStorageFileWithOperatorProviderAsync
+   (
+      modelFile : Windows.Storage.IStorageFile
+      ; operatorProvider : Windows.AI.MachineLearning.ILearningModelOperatorProvider
+   )
+   return Windows.AI.MachineLearning.IAsyncOperation_ILearningModel;
+   
+   function LoadFromStream
+   (
+      modelStream : Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.AI.MachineLearning.ILearningModel;
+   
+   function LoadFromStreamAsync
+   (
+      modelStream : Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.AI.MachineLearning.IAsyncOperation_ILearningModel;
+   
+   function LoadFromStreamWithOperatorProvider
+   (
+      modelStream : Windows.Storage.Streams.IRandomAccessStreamReference
+      ; operatorProvider : Windows.AI.MachineLearning.ILearningModelOperatorProvider
+   )
+   return Windows.AI.MachineLearning.ILearningModel;
+   
+   function LoadFromStreamWithOperatorProviderAsync
+   (
+      modelStream : Windows.Storage.Streams.IRandomAccessStreamReference
+      ; operatorProvider : Windows.AI.MachineLearning.ILearningModelOperatorProvider
+   )
+   return Windows.AI.MachineLearning.IAsyncOperation_ILearningModel;
+   
+   function CreateFromDirect3D11Device
+   (
+      device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
+   )
+   return Windows.AI.MachineLearning.ILearningModelDevice;
+   
+   function Create
+   return Windows.AI.MachineLearning.ITensorBoolean;
+   
+   function Create2
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+   )
+   return Windows.AI.MachineLearning.ITensorBoolean;
+   
+   function CreateFromArray
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Boolean_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorBoolean;
+   
+   function CreateFromIterable
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_Boolean
+   )
+   return Windows.AI.MachineLearning.ITensorBoolean;
+   
+   function Create
+   return Windows.AI.MachineLearning.ITensorDouble;
+   
+   function Create2
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+   )
+   return Windows.AI.MachineLearning.ITensorDouble;
+   
+   function CreateFromArray
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Double_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorDouble;
+   
+   function CreateFromIterable
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_Double
+   )
+   return Windows.AI.MachineLearning.ITensorDouble;
+   
+   function Create
+   return Windows.AI.MachineLearning.ITensorFloat;
+   
+   function Create2
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+   )
+   return Windows.AI.MachineLearning.ITensorFloat;
+   
+   function CreateFromArray
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Single_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorFloat;
+   
+   function CreateFromIterable
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_Single
+   )
+   return Windows.AI.MachineLearning.ITensorFloat;
+   
+   function Create
+   return Windows.AI.MachineLearning.ITensorFloat16Bit;
+   
+   function Create2
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+   )
+   return Windows.AI.MachineLearning.ITensorFloat16Bit;
+   
+   function CreateFromArray
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Single_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorFloat16Bit;
+   
+   function CreateFromIterable
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_Single
+   )
+   return Windows.AI.MachineLearning.ITensorFloat16Bit;
+   
+   function Create
+   return Windows.AI.MachineLearning.ITensorInt16Bit;
+   
+   function Create2
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+   )
+   return Windows.AI.MachineLearning.ITensorInt16Bit;
+   
+   function CreateFromArray
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Int16_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorInt16Bit;
+   
+   function CreateFromIterable
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_Int16
+   )
+   return Windows.AI.MachineLearning.ITensorInt16Bit;
+   
+   function Create
+   return Windows.AI.MachineLearning.ITensorInt32Bit;
+   
+   function Create2
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+   )
+   return Windows.AI.MachineLearning.ITensorInt32Bit;
+   
+   function CreateFromArray
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Int32_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorInt32Bit;
+   
+   function CreateFromIterable
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_Int32
+   )
+   return Windows.AI.MachineLearning.ITensorInt32Bit;
+   
+   function Create
+   return Windows.AI.MachineLearning.ITensorInt64Bit;
+   
+   function Create2
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+   )
+   return Windows.AI.MachineLearning.ITensorInt64Bit;
+   
+   function CreateFromArray
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Int64_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorInt64Bit;
+   
+   function CreateFromIterable
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_Int64
+   )
+   return Windows.AI.MachineLearning.ITensorInt64Bit;
+   
+   function Create
+   return Windows.AI.MachineLearning.ITensorInt8Bit;
+   
+   function Create2
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+   )
+   return Windows.AI.MachineLearning.ITensorInt8Bit;
+   
+   function CreateFromArray
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.UInt8_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorInt8Bit;
+   
+   function CreateFromIterable
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_UInt8
+   )
+   return Windows.AI.MachineLearning.ITensorInt8Bit;
+   
+   function Create
+   return Windows.AI.MachineLearning.ITensorString;
+   
+   function Create2
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+   )
+   return Windows.AI.MachineLearning.ITensorString;
+   
+   function CreateFromArray
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.String_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorString;
+   
+   function CreateFromIterable
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.AI.MachineLearning.ITensorString;
+   
+   function Create
+   return Windows.AI.MachineLearning.ITensorUInt16Bit;
+   
+   function Create2
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+   )
+   return Windows.AI.MachineLearning.ITensorUInt16Bit;
+   
+   function CreateFromArray
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.UInt16_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorUInt16Bit;
+   
+   function CreateFromIterable
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_UInt16
+   )
+   return Windows.AI.MachineLearning.ITensorUInt16Bit;
+   
+   function Create
+   return Windows.AI.MachineLearning.ITensorUInt32Bit;
+   
+   function Create2
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+   )
+   return Windows.AI.MachineLearning.ITensorUInt32Bit;
+   
+   function CreateFromArray
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.UInt32_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorUInt32Bit;
+   
+   function CreateFromIterable
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_UInt32
+   )
+   return Windows.AI.MachineLearning.ITensorUInt32Bit;
+   
+   function Create
+   return Windows.AI.MachineLearning.ITensorUInt64Bit;
+   
+   function Create2
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+   )
+   return Windows.AI.MachineLearning.ITensorUInt64Bit;
+   
+   function CreateFromArray
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.UInt64_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorUInt64Bit;
+   
+   function CreateFromIterable
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_UInt64
+   )
+   return Windows.AI.MachineLearning.ITensorUInt64Bit;
+   
+   function Create
+   return Windows.AI.MachineLearning.ITensorUInt8Bit;
+   
+   function Create2
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+   )
+   return Windows.AI.MachineLearning.ITensorUInt8Bit;
+   
+   function CreateFromArray
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.UInt8_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorUInt8Bit;
+   
+   function CreateFromIterable
+   (
+      shape : Windows.Foundation.Collections.IIterable_Int64
+      ; data : Windows.Foundation.Collections.IIterable_UInt8
+   )
+   return Windows.AI.MachineLearning.ITensorUInt8Bit;
    
 end;

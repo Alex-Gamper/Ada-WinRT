@@ -114,6 +114,43 @@ package body Windows.System.UserProfile is
    end;
    
    function GetDefault
+   return Windows.System.UserProfile.IAssignedAccessSettings is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.AssignedAccessSettings");
+      m_Factory     : IAssignedAccessSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.UserProfile.IAssignedAccessSettings;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAssignedAccessSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.System.UserProfile.IAssignedAccessSettings is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.UserProfile.AssignedAccessSettings");
+      m_Factory     : IAssignedAccessSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.UserProfile.IAssignedAccessSettings;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAssignedAccessSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefault
    return Windows.System.UserProfile.IDiagnosticsSettings is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.System.UserProfile.DiagnosticsSettings");

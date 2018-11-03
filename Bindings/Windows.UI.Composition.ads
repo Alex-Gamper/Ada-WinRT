@@ -95,6 +95,22 @@ package Windows.UI.Composition is
    
    type AnimationIterationBehavior_Ptr is access AnimationIterationBehavior;
    
+   type AnimationPropertyAccessMode is (
+      None,
+      ReadOnly,
+      WriteOnly,
+      ReadWrite
+   );
+   for AnimationPropertyAccessMode use (
+      None => 0,
+      ReadOnly => 1,
+      WriteOnly => 2,
+      ReadWrite => 3
+   );
+   for AnimationPropertyAccessMode'Size use 32;
+   
+   type AnimationPropertyAccessMode_Ptr is access AnimationPropertyAccessMode;
+   
    type AnimationStopBehavior is (
       LeaveCurrentValue,
       SetToInitialValue,
@@ -126,12 +142,16 @@ package Windows.UI.Composition is
    type CompositionBatchTypes is (
       None,
       Animation,
-      Effect
+      Effect,
+      InfiniteAnimation,
+      AllAnimations
    );
    for CompositionBatchTypes use (
       None => 0,
       Animation => 1,
-      Effect => 2
+      Effect => 2,
+      InfiniteAnimation => 4,
+      AllAnimations => 5
    );
    for CompositionBatchTypes'Size use 32;
    
@@ -253,6 +273,18 @@ package Windows.UI.Composition is
    
    type CompositionGradientExtendMode_Ptr is access CompositionGradientExtendMode;
    
+   type CompositionMappingMode is (
+      Absolute,
+      Relative
+   );
+   for CompositionMappingMode use (
+      Absolute => 0,
+      Relative => 1
+   );
+   for CompositionMappingMode'Size use 32;
+   
+   type CompositionMappingMode_Ptr is access CompositionMappingMode;
+   
    type CompositionStretch is (
       None,
       Fill,
@@ -334,6 +366,15 @@ package Windows.UI.Composition is
    type IAnimationControllerStatics_Interface;
    type IAnimationControllerStatics is access all IAnimationControllerStatics_Interface'Class;
    type IAnimationControllerStatics_Ptr is access all IAnimationControllerStatics;
+   type IAnimationObject_Interface;
+   type IAnimationObject is access all IAnimationObject_Interface'Class;
+   type IAnimationObject_Ptr is access all IAnimationObject;
+   type IAnimationPropertyInfo_Interface;
+   type IAnimationPropertyInfo is access all IAnimationPropertyInfo_Interface'Class;
+   type IAnimationPropertyInfo_Ptr is access all IAnimationPropertyInfo;
+   type IBooleanKeyFrameAnimation_Interface;
+   type IBooleanKeyFrameAnimation is access all IBooleanKeyFrameAnimation_Interface'Class;
+   type IBooleanKeyFrameAnimation_Ptr is access all IBooleanKeyFrameAnimation;
    type IBounceScalarNaturalMotionAnimation_Interface;
    type IBounceScalarNaturalMotionAnimation is access all IBounceScalarNaturalMotionAnimation_Interface'Class;
    type IBounceScalarNaturalMotionAnimation_Ptr is access all IBounceScalarNaturalMotionAnimation;
@@ -355,6 +396,9 @@ package Windows.UI.Composition is
    type ICompositionAnimation3_Interface;
    type ICompositionAnimation3 is access all ICompositionAnimation3_Interface'Class;
    type ICompositionAnimation3_Ptr is access all ICompositionAnimation3;
+   type ICompositionAnimation4_Interface;
+   type ICompositionAnimation4 is access all ICompositionAnimation4_Interface'Class;
+   type ICompositionAnimation4_Ptr is access all ICompositionAnimation4;
    type ICompositionAnimationBase_Interface;
    type ICompositionAnimationBase is access all ICompositionAnimationBase_Interface'Class;
    type ICompositionAnimationBase_Ptr is access all ICompositionAnimationBase;
@@ -436,6 +480,9 @@ package Windows.UI.Composition is
    type ICompositionEllipseGeometry_Interface;
    type ICompositionEllipseGeometry is access all ICompositionEllipseGeometry_Interface'Class;
    type ICompositionEllipseGeometry_Ptr is access all ICompositionEllipseGeometry;
+   type ICompositionGeometricClip_Interface;
+   type ICompositionGeometricClip is access all ICompositionGeometricClip_Interface'Class;
+   type ICompositionGeometricClip_Ptr is access all ICompositionGeometricClip;
    type ICompositionGeometry_Interface;
    type ICompositionGeometry is access all ICompositionGeometry_Interface'Class;
    type ICompositionGeometry_Ptr is access all ICompositionGeometry;
@@ -445,6 +492,9 @@ package Windows.UI.Composition is
    type ICompositionGradientBrush_Interface;
    type ICompositionGradientBrush is access all ICompositionGradientBrush_Interface'Class;
    type ICompositionGradientBrush_Ptr is access all ICompositionGradientBrush;
+   type ICompositionGradientBrush2_Interface;
+   type ICompositionGradientBrush2 is access all ICompositionGradientBrush2_Interface'Class;
+   type ICompositionGradientBrush2_Ptr is access all ICompositionGradientBrush2;
    type ICompositionGradientBrushFactory_Interface;
    type ICompositionGradientBrushFactory is access all ICompositionGradientBrushFactory_Interface'Class;
    type ICompositionGradientBrushFactory_Ptr is access all ICompositionGradientBrushFactory;
@@ -493,6 +543,9 @@ package Windows.UI.Composition is
    type ICompositionObjectFactory_Interface;
    type ICompositionObjectFactory is access all ICompositionObjectFactory_Interface'Class;
    type ICompositionObjectFactory_Ptr is access all ICompositionObjectFactory;
+   type ICompositionObjectStatics_Interface;
+   type ICompositionObjectStatics is access all ICompositionObjectStatics_Interface'Class;
+   type ICompositionObjectStatics_Ptr is access all ICompositionObjectStatics;
    type ICompositionPath_Interface;
    type ICompositionPath is access all ICompositionPath_Interface'Class;
    type ICompositionPath_Ptr is access all ICompositionPath;
@@ -571,6 +624,9 @@ package Windows.UI.Composition is
    type ICompositor5_Interface;
    type ICompositor5 is access all ICompositor5_Interface'Class;
    type ICompositor5_Ptr is access all ICompositor5;
+   type ICompositor6_Interface;
+   type ICompositor6 is access all ICompositor6_Interface'Class;
+   type ICompositor6_Ptr is access all ICompositor6;
    type ICompositorStatics_Interface;
    type ICompositorStatics is access all ICompositorStatics_Interface'Class;
    type ICompositorStatics_Ptr is access all ICompositorStatics;
@@ -679,6 +735,9 @@ package Windows.UI.Composition is
    type IQuaternionKeyFrameAnimation_Interface;
    type IQuaternionKeyFrameAnimation is access all IQuaternionKeyFrameAnimation_Interface'Class;
    type IQuaternionKeyFrameAnimation_Ptr is access all IQuaternionKeyFrameAnimation;
+   type IRedirectVisual_Interface;
+   type IRedirectVisual is access all IRedirectVisual_Interface'Class;
+   type IRedirectVisual_Ptr is access all IRedirectVisual;
    type IRenderingDeviceReplacedEventArgs_Interface;
    type IRenderingDeviceReplacedEventArgs is access all IRenderingDeviceReplacedEventArgs_Interface'Class;
    type IRenderingDeviceReplacedEventArgs_Ptr is access all IRenderingDeviceReplacedEventArgs;
@@ -888,6 +947,54 @@ package Windows.UI.Composition is
    (
       This       : access IAnimationControllerStatics_Interface
       ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAnimationObject : aliased constant Windows.IID := (3876855306, 1208, 20421, (164, 220, 25, 83, 146, 229, 120, 7 ));
+   
+   type IAnimationObject_Interface is interface and Windows.IInspectable_Interface;
+   
+   function PopulatePropertyInfo
+   (
+      This       : access IAnimationObject_Interface
+      ; propertyName : Windows.String
+      ; propertyInfo : Windows.UI.Composition.IAnimationPropertyInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAnimationPropertyInfo : aliased constant Windows.IID := (4101074693, 60791, 20028, (179, 40, 92, 57, 133, 179, 115, 143 ));
+   
+   type IAnimationPropertyInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AccessMode
+   (
+      This       : access IAnimationPropertyInfo_Interface
+      ; RetVal : access Windows.UI.Composition.AnimationPropertyAccessMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AccessMode
+   (
+      This       : access IAnimationPropertyInfo_Interface
+      ; value : Windows.UI.Composition.AnimationPropertyAccessMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBooleanKeyFrameAnimation : aliased constant Windows.IID := (2514631176, 53748, 18802, (151, 112, 62, 254, 104, 216, 46, 20 ));
+   
+   type IBooleanKeyFrameAnimation_Interface is interface and Windows.IInspectable_Interface;
+   
+   function InsertKeyFrame
+   (
+      This       : access IBooleanKeyFrameAnimation_Interface
+      ; normalizedProgressKey : Windows.Single
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -1159,6 +1266,20 @@ package Windows.UI.Composition is
    (
       This       : access ICompositionAnimation3_Interface
       ; RetVal : access Windows.UI.Composition.IMap_String_String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositionAnimation4 : aliased constant Windows.IID := (1996568510, 30396, 20003, (191, 237, 254, 156, 194, 15, 110, 201 ));
+   
+   type ICompositionAnimation4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetExpressionReferenceParameter
+   (
+      This       : access ICompositionAnimation4_Interface
+      ; parameterName : Windows.String
+      ; source : Windows.UI.Composition.IAnimationObject
    )
    return Windows.HRESULT is abstract;
    
@@ -1712,6 +1833,40 @@ package Windows.UI.Composition is
    
    ------------------------------------------------------------------------
    
+   IID_ICompositionGeometricClip : aliased constant Windows.IID := (3359683969, 33225, 17476, (162, 193, 204, 174, 206, 58, 80, 229 ));
+   
+   type ICompositionGeometricClip_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Geometry
+   (
+      This       : access ICompositionGeometricClip_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionGeometry
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Geometry
+   (
+      This       : access ICompositionGeometricClip_Interface
+      ; value : Windows.UI.Composition.ICompositionGeometry
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ViewBox
+   (
+      This       : access ICompositionGeometricClip_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionViewBox
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ViewBox
+   (
+      This       : access ICompositionGeometricClip_Interface
+      ; value : Windows.UI.Composition.ICompositionViewBox
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICompositionGeometry : aliased constant Windows.IID := (3917816188, 27159, 16903, (171, 216, 95, 211, 221, 97, 42, 157 ));
    
    type ICompositionGeometry_Interface is interface and Windows.IInspectable_Interface;
@@ -1900,6 +2055,26 @@ package Windows.UI.Composition is
    (
       This       : access ICompositionGradientBrush_Interface
       ; value : Windows.Foundation.Numerics.Matrix3x2
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositionGradientBrush2 : aliased constant Windows.IID := (2308822433, 46279, 19251, (161, 182, 38, 74, 221, 194, 109, 16 ));
+   
+   type ICompositionGradientBrush2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MappingMode
+   (
+      This       : access ICompositionGradientBrush2_Interface
+      ; RetVal : access Windows.UI.Composition.CompositionMappingMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_MappingMode
+   (
+      This       : access ICompositionGradientBrush2_Interface
+      ; value : Windows.UI.Composition.CompositionMappingMode
    )
    return Windows.HRESULT is abstract;
    
@@ -2422,6 +2597,29 @@ package Windows.UI.Composition is
    IID_ICompositionObjectFactory : aliased constant Windows.IID := (1361075294, 21898, 20266, (141, 57, 55, 191, 225, 226, 13, 221 ));
    
    type ICompositionObjectFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositionObjectStatics : aliased constant Windows.IID := (3253536047, 7074, 17594, (169, 4, 106, 136, 42, 10, 90, 219 ));
+   
+   type ICompositionObjectStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function StartAnimationWithIAnimationObject
+   (
+      This       : access ICompositionObjectStatics_Interface
+      ; target : Windows.UI.Composition.IAnimationObject
+      ; propertyName : Windows.String
+      ; animation : Windows.UI.Composition.ICompositionAnimation
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StartAnimationGroupWithIAnimationObject
+   (
+      This       : access ICompositionObjectStatics_Interface
+      ; target : Windows.UI.Composition.IAnimationObject
+      ; animation : Windows.UI.Composition.ICompositionAnimationBase
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -3844,6 +4042,49 @@ package Windows.UI.Composition is
    
    ------------------------------------------------------------------------
    
+   IID_ICompositor6 : aliased constant Windows.IID := (2050536125, 52936, 20203, (131, 15, 216, 208, 122, 237, 235, 195 ));
+   
+   type ICompositor6_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateGeometricClip
+   (
+      This       : access ICompositor6_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionGeometricClip
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateGeometricClipWithGeometry
+   (
+      This       : access ICompositor6_Interface
+      ; geometry : Windows.UI.Composition.ICompositionGeometry
+      ; RetVal : access Windows.UI.Composition.ICompositionGeometricClip
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateRedirectVisual
+   (
+      This       : access ICompositor6_Interface
+      ; RetVal : access Windows.UI.Composition.IRedirectVisual
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateRedirectVisualWithSourceVisual
+   (
+      This       : access ICompositor6_Interface
+      ; source : Windows.UI.Composition.IVisual
+      ; RetVal : access Windows.UI.Composition.IRedirectVisual
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateBooleanKeyFrameAnimation
+   (
+      This       : access ICompositor6_Interface
+      ; RetVal : access Windows.UI.Composition.IBooleanKeyFrameAnimation
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICompositorStatics : aliased constant Windows.IID := (135117118, 4638, 19863, (139, 116, 29, 252, 249, 25, 135, 234 ));
    
    type ICompositorStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -4801,6 +5042,26 @@ package Windows.UI.Composition is
       ; normalizedProgressKey : Windows.Single
       ; value : Windows.Foundation.Numerics.Quaternion
       ; easingFunction : Windows.UI.Composition.ICompositionEasingFunction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRedirectVisual : aliased constant Windows.IID := (2361844544, 35701, 21538, (176, 111, 9, 255, 233, 248, 97, 126 ));
+   
+   type IRedirectVisual_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Source
+   (
+      This       : access IRedirectVisual_Interface
+      ; RetVal : access Windows.UI.Composition.IVisual
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Source
+   (
+      This       : access IRedirectVisual_Interface
+      ; value : Windows.UI.Composition.IVisual
    )
    return Windows.HRESULT is abstract;
    
@@ -6285,6 +6546,8 @@ package Windows.UI.Composition is
    
    subtype AmbientLight is Windows.UI.Composition.IAmbientLight;
    subtype AnimationController is Windows.UI.Composition.IAnimationController;
+   subtype AnimationPropertyInfo is Windows.UI.Composition.IAnimationPropertyInfo;
+   subtype BooleanKeyFrameAnimation is Windows.UI.Composition.IBooleanKeyFrameAnimation;
    subtype BounceScalarNaturalMotionAnimation is Windows.UI.Composition.IBounceScalarNaturalMotionAnimation;
    subtype BounceVector2NaturalMotionAnimation is Windows.UI.Composition.IBounceVector2NaturalMotionAnimation;
    subtype BounceVector3NaturalMotionAnimation is Windows.UI.Composition.IBounceVector3NaturalMotionAnimation;
@@ -6313,6 +6576,7 @@ package Windows.UI.Composition is
    return Windows.UI.Composition.ICompositionEffectSourceParameter;
    
    subtype CompositionEllipseGeometry is Windows.UI.Composition.ICompositionEllipseGeometry;
+   subtype CompositionGeometricClip is Windows.UI.Composition.ICompositionGeometricClip;
    subtype CompositionGeometry is Windows.UI.Composition.ICompositionGeometry;
    subtype CompositionGradientBrush is Windows.UI.Composition.ICompositionGradientBrush;
    subtype CompositionGraphicsDevice is Windows.UI.Composition.ICompositionGraphicsDevice;
@@ -6361,6 +6625,7 @@ package Windows.UI.Composition is
    subtype PathKeyFrameAnimation is Windows.UI.Composition.IPathKeyFrameAnimation;
    subtype PointLight is Windows.UI.Composition.IPointLight;
    subtype QuaternionKeyFrameAnimation is Windows.UI.Composition.IQuaternionKeyFrameAnimation;
+   subtype RedirectVisual is Windows.UI.Composition.IRedirectVisual;
    subtype RenderingDeviceReplacedEventArgs is Windows.UI.Composition.IRenderingDeviceReplacedEventArgs;
    subtype ScalarKeyFrameAnimation is Windows.UI.Composition.IScalarKeyFrameAnimation;
    subtype ScalarNaturalMotionAnimation is Windows.UI.Composition.IScalarNaturalMotionAnimation;
@@ -6392,6 +6657,21 @@ package Windows.UI.Composition is
    
    function GetForCurrentView
    return Windows.UI.Composition.ICompositionCapabilities;
+   
+   procedure StartAnimationGroupWithIAnimationObject
+   (
+      target : Windows.UI.Composition.IAnimationObject
+      ; animation : Windows.UI.Composition.ICompositionAnimationBase
+   )
+   ;
+   
+   procedure StartAnimationWithIAnimationObject
+   (
+      target : Windows.UI.Composition.IAnimationObject
+      ; propertyName : Windows.String
+      ; animation : Windows.UI.Composition.ICompositionAnimation
+   )
+   ;
    
    function get_MaxGlobalPlaybackRate
    return Windows.Single;

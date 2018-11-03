@@ -182,11 +182,6 @@ package Windows.Graphics.Printing3D is
    -- Record types
    ------------------------------------------------------------------------
    
-   type Printing3DContract is null record;
-   pragma Convention (C_Pass_By_Copy , Printing3DContract);
-   
-   type Printing3DContract_Ptr is access Printing3DContract;
-   
    type Printing3DBufferDescription is record
       Format : Windows.Graphics.Printing3D.Printing3DBufferFormat;
       Stride : Windows.UInt32;
@@ -194,6 +189,11 @@ package Windows.Graphics.Printing3D is
    pragma Convention (C_Pass_By_Copy , Printing3DBufferDescription);
    
    type Printing3DBufferDescription_Ptr is access Printing3DBufferDescription;
+   
+   type Printing3DContract is null record;
+   pragma Convention (C_Pass_By_Copy , Printing3DContract);
+   
+   type Printing3DContract_Ptr is access Printing3DContract;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events

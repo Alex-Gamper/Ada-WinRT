@@ -99,14 +99,6 @@ package Windows.Graphics.Holographic is
    -- Record types
    ------------------------------------------------------------------------
    
-   type HolographicStereoTransform is record
-      Left : Windows.Foundation.Numerics.Matrix4x4;
-      Right : Windows.Foundation.Numerics.Matrix4x4;
-   end record;
-   pragma Convention (C_Pass_By_Copy , HolographicStereoTransform);
-   
-   type HolographicStereoTransform_Ptr is access HolographicStereoTransform;
-   
    type HolographicAdapterId is record
       LowPart : Windows.UInt32;
       HighPart : Windows.Int32;
@@ -114,6 +106,14 @@ package Windows.Graphics.Holographic is
    pragma Convention (C_Pass_By_Copy , HolographicAdapterId);
    
    type HolographicAdapterId_Ptr is access HolographicAdapterId;
+   
+   type HolographicStereoTransform is record
+      Left : Windows.Foundation.Numerics.Matrix4x4;
+      Right : Windows.Foundation.Numerics.Matrix4x4;
+   end record;
+   pragma Convention (C_Pass_By_Copy , HolographicStereoTransform);
+   
+   type HolographicStereoTransform_Ptr is access HolographicStereoTransform;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
@@ -145,6 +145,9 @@ package Windows.Graphics.Holographic is
    type IHolographicCamera4_Interface;
    type IHolographicCamera4 is access all IHolographicCamera4_Interface'Class;
    type IHolographicCamera4_Ptr is access all IHolographicCamera4;
+   type IHolographicCamera5_Interface;
+   type IHolographicCamera5 is access all IHolographicCamera5_Interface'Class;
+   type IHolographicCamera5_Ptr is access all IHolographicCamera5;
    type IHolographicCameraPose_Interface;
    type IHolographicCameraPose is access all IHolographicCameraPose_Interface'Class;
    type IHolographicCameraPose_Ptr is access all IHolographicCameraPose;
@@ -196,6 +199,9 @@ package Windows.Graphics.Holographic is
    type IHolographicQuadLayerUpdateParameters_Interface;
    type IHolographicQuadLayerUpdateParameters is access all IHolographicQuadLayerUpdateParameters_Interface'Class;
    type IHolographicQuadLayerUpdateParameters_Ptr is access all IHolographicQuadLayerUpdateParameters;
+   type IHolographicQuadLayerUpdateParameters2_Interface;
+   type IHolographicQuadLayerUpdateParameters2 is access all IHolographicQuadLayerUpdateParameters2_Interface'Class;
+   type IHolographicQuadLayerUpdateParameters2_Ptr is access all IHolographicQuadLayerUpdateParameters2;
    type IHolographicSpace_Interface;
    type IHolographicSpace is access all IHolographicSpace_Interface'Class;
    type IHolographicSpace_Ptr is access all IHolographicSpace;
@@ -390,6 +396,33 @@ package Windows.Graphics.Holographic is
    (
       This       : access IHolographicCamera4_Interface
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHolographicCamera5 : aliased constant Windows.IID := (580323058, 25229, 20213, (156, 8, 166, 63, 221, 119, 135, 198 ));
+   
+   type IHolographicCamera5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsHardwareContentProtectionSupported
+   (
+      This       : access IHolographicCamera5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsHardwareContentProtectionEnabled
+   (
+      This       : access IHolographicCamera5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsHardwareContentProtectionEnabled
+   (
+      This       : access IHolographicCamera5_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -923,6 +956,26 @@ package Windows.Graphics.Holographic is
       This       : access IHolographicQuadLayerUpdateParameters_Interface
       ; position : Windows.Foundation.Numerics.Vector3
       ; orientation : Windows.Foundation.Numerics.Quaternion
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHolographicQuadLayerUpdateParameters2 : aliased constant Windows.IID := (1328796461, 33473, 18113, (137, 128, 60, 183, 13, 152, 24, 43 ));
+   
+   type IHolographicQuadLayerUpdateParameters2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanAcquireWithHardwareProtection
+   (
+      This       : access IHolographicQuadLayerUpdateParameters2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AcquireBufferToUpdateContentWithHardwareProtection
+   (
+      This       : access IHolographicQuadLayerUpdateParameters2_Interface
+      ; RetVal : access Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface
    )
    return Windows.HRESULT is abstract;
    

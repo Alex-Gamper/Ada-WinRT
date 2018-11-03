@@ -115,7 +115,8 @@ package Windows.Devices.WiFi is
       Erp,
       HT,
       Vht,
-      Dmg
+      Dmg,
+      HE
    );
    for WiFiPhyKind use (
       Unknown => 0,
@@ -127,7 +128,8 @@ package Windows.Devices.WiFi is
       Erp => 6,
       HT => 7,
       Vht => 8,
-      Dmg => 9
+      Dmg => 9,
+      HE => 10
    );
    for WiFiPhyKind'Size use 32;
    

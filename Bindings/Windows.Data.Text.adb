@@ -26,6 +26,7 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.UI.Text.Core;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Data.Text is

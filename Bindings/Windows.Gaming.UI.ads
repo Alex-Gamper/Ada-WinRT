@@ -74,20 +74,6 @@ package Windows.Gaming.UI is
    
    type GameChatOverlayPosition_Ptr is access GameChatOverlayPosition;
    
-   type GameMonitoringPermission is (
-      Allowed,
-      DeniedByUser,
-      DeniedBySystem
-   );
-   for GameMonitoringPermission use (
-      Allowed => 0,
-      DeniedByUser => 1,
-      DeniedBySystem => 2
-   );
-   for GameMonitoringPermission'Size use 32;
-   
-   type GameMonitoringPermission_Ptr is access GameMonitoringPermission;
-   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -106,9 +92,6 @@ package Windows.Gaming.UI is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
-   type AsyncOperationCompletedHandler_GameMonitoringPermission_Interface;
-   type AsyncOperationCompletedHandler_GameMonitoringPermission is access all AsyncOperationCompletedHandler_GameMonitoringPermission_Interface'Class;
-   type AsyncOperationCompletedHandler_GameMonitoringPermission_Ptr is access all AsyncOperationCompletedHandler_GameMonitoringPermission;
    type TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived_Interface;
    type TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived is access all TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived_Interface'Class;
    type TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived_Ptr is access all TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived;
@@ -120,9 +103,6 @@ package Windows.Gaming.UI is
    type IActivatedEventArgs_Imported_Interface;
    type IActivatedEventArgs_Imported is access all IActivatedEventArgs_Imported_Interface'Class;
    type IActivatedEventArgs_Imported_Ptr is access all IActivatedEventArgs_Imported;
-   type IAsyncOperation_GameMonitoringPermission_Interface;
-   type IAsyncOperation_GameMonitoringPermission is access all IAsyncOperation_GameMonitoringPermission_Interface'Class;
-   type IAsyncOperation_GameMonitoringPermission_Ptr is access all IAsyncOperation_GameMonitoringPermission;
    type IGameBarStatics_Interface;
    type IGameBarStatics is access all IGameBarStatics_Interface'Class;
    type IGameBarStatics_Ptr is access all IGameBarStatics;
@@ -138,12 +118,6 @@ package Windows.Gaming.UI is
    type IGameChatOverlayStatics_Interface;
    type IGameChatOverlayStatics is access all IGameChatOverlayStatics_Interface'Class;
    type IGameChatOverlayStatics_Ptr is access all IGameChatOverlayStatics;
-   type IGameMonitor_Interface;
-   type IGameMonitor is access all IGameMonitor_Interface'Class;
-   type IGameMonitor_Ptr is access all IGameMonitor;
-   type IGameMonitorStatics_Interface;
-   type IGameMonitorStatics is access all IGameMonitorStatics_Interface'Class;
-   type IGameMonitorStatics_Ptr is access all IGameMonitorStatics;
    type IGameUIProviderActivatedEventArgs_Interface;
    type IGameUIProviderActivatedEventArgs is access all IGameUIProviderActivatedEventArgs_Interface'Class;
    type IGameUIProviderActivatedEventArgs_Ptr is access all IGameUIProviderActivatedEventArgs;
@@ -174,33 +148,6 @@ package Windows.Gaming.UI is
    (
       This       : access IActivatedEventArgs_Imported_Interface
       ; RetVal : access Windows.ApplicationModel.Activation.ISplashScreen
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IAsyncOperation_GameMonitoringPermission : aliased constant Windows.IID := (1513878687, 54671, 22723, (167, 225, 30, 208, 84, 112, 186, 166 ));
-   
-   type IAsyncOperation_GameMonitoringPermission_Interface is interface and Windows.IInspectable_Interface;
-   
-   function put_Completed
-   (
-      This       : access IAsyncOperation_GameMonitoringPermission_Interface
-      ; handler : Windows.Gaming.UI.AsyncOperationCompletedHandler_GameMonitoringPermission
-   )
-   return Windows.HRESULT is abstract;
-   
-   function get_Completed
-   (
-      This       : access IAsyncOperation_GameMonitoringPermission_Interface
-      ; RetVal : access Windows.Gaming.UI.AsyncOperationCompletedHandler_GameMonitoringPermission
-   )
-   return Windows.HRESULT is abstract;
-   
-   function GetResults
-   (
-      This       : access IAsyncOperation_GameMonitoringPermission_Interface
-      ; RetVal : access Windows.Gaming.UI.GameMonitoringPermission
    )
    return Windows.HRESULT is abstract;
    
@@ -367,32 +314,6 @@ package Windows.Gaming.UI is
    
    ------------------------------------------------------------------------
    
-   IID_IGameMonitor : aliased constant Windows.IID := (304300888, 56585, 17681, (173, 205, 141, 89, 117, 216, 16, 40 ));
-   
-   type IGameMonitor_Interface is interface and Windows.IInspectable_Interface;
-   
-   function RequestPermissionAsync
-   (
-      This       : access IGameMonitor_Interface
-      ; RetVal : access Windows.Gaming.UI.IAsyncOperation_GameMonitoringPermission -- Generic Parameter Type
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
-   IID_IGameMonitorStatics : aliased constant Windows.IID := (291982132, 23264, 19380, (185, 31, 138, 203, 72, 21, 154, 113 ));
-   
-   type IGameMonitorStatics_Interface is interface and Windows.IInspectable_Interface;
-   
-   function GetDefault
-   (
-      This       : access IGameMonitorStatics_Interface
-      ; RetVal : access Windows.Gaming.UI.IGameMonitor
-   )
-   return Windows.HRESULT is abstract;
-   
-   ------------------------------------------------------------------------
-   
    IID_IGameUIProviderActivatedEventArgs : aliased constant Windows.IID := (2813534270, 51959, 19949, (187, 210, 71, 222, 67, 187, 109, 213 ));
    
    type IGameUIProviderActivatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -417,19 +338,6 @@ package Windows.Gaming.UI is
    
    ------------------------------------------------------------------------
    
-   IID_AsyncOperationCompletedHandler_GameMonitoringPermission : aliased constant Windows.IID := (3004007428, 38119, 21095, (156, 122, 189, 121, 114, 123, 129, 90 ));
-   
-   type AsyncOperationCompletedHandler_GameMonitoringPermission_Interface(Callback : access procedure (asyncInfo : Windows.Gaming.UI.IAsyncOperation_GameMonitoringPermission ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_GameMonitoringPermission'access) with null record;
-   function Invoke
-   (
-      This       : access AsyncOperationCompletedHandler_GameMonitoringPermission_Interface
-      ; asyncInfo : Windows.Gaming.UI.IAsyncOperation_GameMonitoringPermission
-      ; asyncStatus : Windows.Foundation.AsyncStatus
-   )
-   return Windows.HRESULT;
-   
-   ------------------------------------------------------------------------
-   
    IID_TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived : aliased constant Windows.IID := (4266595263, 26780, 24547, (183, 173, 85, 188, 87, 249, 36, 102 ));
    
    type TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived_Interface(Callback : access procedure (sender : Windows.Gaming.UI.IGameChatOverlayMessageSource ; args : Windows.Gaming.UI.IGameChatMessageReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IGameChatOverlayMessageSource_add_MessageReceived'access) with null record;
@@ -450,7 +358,6 @@ package Windows.Gaming.UI is
    subtype GameChatOverlayMessageSource is Windows.Gaming.UI.IGameChatOverlayMessageSource;
    function Create return Windows.Gaming.UI.IGameChatOverlayMessageSource;
    
-   subtype GameMonitor is Windows.Gaming.UI.IGameMonitor;
    subtype GameUIProviderActivatedEventArgs is Windows.Gaming.UI.IGameUIProviderActivatedEventArgs;
    
    ------------------------------------------------------------------------
@@ -489,8 +396,5 @@ package Windows.Gaming.UI is
    
    function GetDefault
    return Windows.Gaming.UI.IGameChatOverlay;
-   
-   function GetDefault
-   return Windows.Gaming.UI.IGameMonitor;
    
 end;

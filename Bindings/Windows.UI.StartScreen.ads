@@ -188,6 +188,9 @@ package Windows.UI.StartScreen is
    type IStartScreenManager_Interface;
    type IStartScreenManager is access all IStartScreenManager_Interface'Class;
    type IStartScreenManager_Ptr is access all IStartScreenManager;
+   type IStartScreenManager2_Interface;
+   type IStartScreenManager2 is access all IStartScreenManager2_Interface'Class;
+   type IStartScreenManager2_Ptr is access all IStartScreenManager2;
    type IStartScreenManagerStatics_Interface;
    type IStartScreenManagerStatics is access all IStartScreenManagerStatics_Interface'Class;
    type IStartScreenManagerStatics_Ptr is access all IStartScreenManagerStatics;
@@ -1136,6 +1139,28 @@ package Windows.UI.StartScreen is
    
    ------------------------------------------------------------------------
    
+   IID_IStartScreenManager2 : aliased constant Windows.IID := (145168054, 12651, 19161, (172, 184, 254, 156, 240, 11, 214, 8 ));
+   
+   type IStartScreenManager2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ContainsSecondaryTileAsync
+   (
+      This       : access IStartScreenManager2_Interface
+      ; tileId : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryRemoveSecondaryTileAsync
+   (
+      This       : access IStartScreenManager2_Interface
+      ; tileId : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IStartScreenManagerStatics : aliased constant Windows.IID := (2019946255, 46469, 17998, (137, 147, 52, 232, 248, 115, 141, 72 ));
    
    type IStartScreenManagerStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -1480,16 +1505,6 @@ package Windows.UI.StartScreen is
    subtype SecondaryTile is Windows.UI.StartScreen.ISecondaryTile;
    function Create return Windows.UI.StartScreen.ISecondaryTile;
    
-   function CreateMinimalTile
-   (
-      tileId : Windows.String
-      ; displayName : Windows.String
-      ; arguments : Windows.String
-      ; square150x150Logo : Windows.Foundation.IUriRuntimeClass
-      ; desiredSize : Windows.UI.StartScreen.TileSize
-   )
-   return Windows.UI.StartScreen.ISecondaryTile;
-   
    function CreateTile
    (
       tileId : Windows.String
@@ -1516,6 +1531,16 @@ package Windows.UI.StartScreen is
    function CreateWithId
    (
       tileId : Windows.String
+   )
+   return Windows.UI.StartScreen.ISecondaryTile;
+   
+   function CreateMinimalTile
+   (
+      tileId : Windows.String
+      ; displayName : Windows.String
+      ; arguments : Windows.String
+      ; square150x150Logo : Windows.Foundation.IUriRuntimeClass
+      ; desiredSize : Windows.UI.StartScreen.TileSize
    )
    return Windows.UI.StartScreen.ISecondaryTile;
    

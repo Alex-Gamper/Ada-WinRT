@@ -115,14 +115,16 @@ package Windows.Media.Streaming.Adaptive is
       InitializationSegment,
       MediaSegment,
       Key,
-      InitializationVector
+      InitializationVector,
+      MediaSegmentIndex
    );
    for AdaptiveMediaSourceResourceType use (
       Manifest => 0,
       InitializationSegment => 1,
       MediaSegment => 2,
       Key => 3,
-      InitializationVector => 4
+      InitializationVector => 4,
+      MediaSegmentIndex => 5
    );
    for AdaptiveMediaSourceResourceType'Size use 32;
    

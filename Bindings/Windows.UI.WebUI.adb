@@ -34,6 +34,7 @@ with Windows.ApplicationModel.Calls;
 with Windows.ApplicationModel.Contacts;
 with Windows.ApplicationModel.Contacts.Provider;
 with Windows.ApplicationModel.Core;
+with Windows.ApplicationModel.DataTransfer;
 with Windows.ApplicationModel.DataTransfer.ShareTarget;
 with Windows.ApplicationModel.Search;
 with Windows.ApplicationModel.UserDataAccounts.Provider;
@@ -47,7 +48,12 @@ with Windows.Storage;
 with Windows.Storage.Pickers.Provider;
 with Windows.Storage.Provider;
 with Windows.Storage.Search;
+with Windows.Storage.Streams;
 with Windows.System;
+with Windows.UI;
+with Windows.Web;
+with Windows.Web.Http;
+with Windows.Web.UI;
 with Windows.Graphics.Printing;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
@@ -72,6 +78,32 @@ package body Windows.UI.WebUI is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IWebUIView_Interface
+      ; asyncInfo : Windows.UI.WebUI.IAsyncOperation_IWebUIView
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access BackgroundActivatedEventHandler_Interface
+      ; sender : Windows.Object
+      ; eventArgs : Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, eventArgs);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access EnteredBackgroundEventHandler_Interface
       ; sender : Windows.Object
       ; e : Windows.ApplicationModel.IEnteredBackgroundEventArgs
@@ -80,6 +112,19 @@ package body Windows.UI.WebUI is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(sender, e);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access EventHandler_INewWebUIViewCreatedEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.UI.WebUI.INewWebUIViewCreatedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, args);
       return Hr;
    end;
    
@@ -131,6 +176,32 @@ package body Windows.UI.WebUI is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(sender, e);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebUIView_add_Activated_Interface
+      ; sender : Windows.UI.WebUI.IWebUIView
+      ; args : Windows.ApplicationModel.Activation.IActivatedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.WebUI.IWebUIView(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebUIView_add_Closed_Interface
+      ; sender : Windows.UI.WebUI.IWebUIView
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.WebUI.IWebUIView(sender), args);
       return Hr;
    end;
    
@@ -433,6 +504,82 @@ package body Windows.UI.WebUI is
       return RetVal;
    end;
    
+   function add_BackgroundActivated
+   (
+      handler : Windows.UI.WebUI.BackgroundActivatedEventHandler
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
+      m_Factory     : IWebUIActivationStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_BackgroundActivated(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function add_NewWebUIViewCreated
+   (
+      handler : Windows.UI.WebUI.EventHandler_INewWebUIViewCreatedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
+      m_Factory     : IWebUIActivationStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_NewWebUIViewCreated(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_BackgroundActivated
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
+      m_Factory     : IWebUIActivationStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_BackgroundActivated(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure remove_NewWebUIViewCreated
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIApplication");
+      m_Factory     : IWebUIActivationStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIActivationStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_NewWebUIViewCreated(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    function get_Current
    return Windows.UI.WebUI.IWebUIBackgroundTaskInstance is
       Hr            : Windows.HRESULT := S_OK;
@@ -444,6 +591,43 @@ package body Windows.UI.WebUI is
       Hr := RoGetActivationFactory(m_hString, IID_IWebUIBackgroundTaskInstanceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_Current(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateAsync
+   return Windows.UI.WebUI.IAsyncOperation_IWebUIView is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIView");
+      m_Factory     : IWebUIViewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.WebUI.IAsyncOperation_IWebUIView;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIViewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWithUriAsync
+   (
+      uri : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.UI.WebUI.IAsyncOperation_IWebUIView is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.WebUI.WebUIView");
+      m_Factory     : IWebUIViewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.WebUI.IAsyncOperation_IWebUIView;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IWebUIViewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWithUriAsync(uri, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

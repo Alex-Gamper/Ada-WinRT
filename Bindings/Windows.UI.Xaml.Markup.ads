@@ -90,6 +90,9 @@ package Windows.UI.Xaml.Markup is
    type IXamlBindingHelperStatics_Interface;
    type IXamlBindingHelperStatics is access all IXamlBindingHelperStatics_Interface'Class;
    type IXamlBindingHelperStatics_Ptr is access all IXamlBindingHelperStatics;
+   type IXamlBindScopeDiagnostics_Interface;
+   type IXamlBindScopeDiagnostics is access all IXamlBindScopeDiagnostics_Interface'Class;
+   type IXamlBindScopeDiagnostics_Ptr is access all IXamlBindScopeDiagnostics;
    type IXamlMarkupHelper_Interface;
    type IXamlMarkupHelper is access all IXamlMarkupHelper_Interface'Class;
    type IXamlMarkupHelper_Ptr is access all IXamlMarkupHelper;
@@ -111,6 +114,9 @@ package Windows.UI.Xaml.Markup is
    type IXamlType_Interface;
    type IXamlType is access all IXamlType_Interface'Class;
    type IXamlType_Ptr is access all IXamlType;
+   type IXamlType2_Interface;
+   type IXamlType2 is access all IXamlType2_Interface'Class;
+   type IXamlType2_Ptr is access all IXamlType2;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -182,8 +188,8 @@ package Windows.UI.Xaml.Markup is
    function CreateInstance
    (
       This       : access IMarkupExtensionFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Markup.IMarkupExtension
    )
    return Windows.HRESULT is abstract;
@@ -431,6 +437,20 @@ package Windows.UI.Xaml.Markup is
       ; dependencyObject : Windows.Object
       ; propertyToSet : Windows.UI.Xaml.IDependencyProperty
       ; value : Windows.Object
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlBindScopeDiagnostics : aliased constant Windows.IID := (4066681501, 48621, 17322, (165, 176, 38, 172, 33, 168, 30, 184 ));
+   
+   type IXamlBindScopeDiagnostics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Disable
+   (
+      This       : access IXamlBindScopeDiagnostics_Interface
+      ; lineNumber : Windows.Int32
+      ; columnNumber : Windows.Int32
    )
    return Windows.HRESULT is abstract;
    
@@ -711,6 +731,19 @@ package Windows.UI.Xaml.Markup is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IXamlType2 : aliased constant Windows.IID := (2668391995, 17211, 22189, (143, 105, 120, 164, 221, 62, 100, 249 ));
+   
+   type IXamlType2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BoxedType
+   (
+      This       : access IXamlType2_Interface
+      ; RetVal : access Windows.UI.Xaml.Markup.IXamlType
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -837,8 +870,8 @@ package Windows.UI.Xaml.Markup is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Markup.IMarkupExtension;
    

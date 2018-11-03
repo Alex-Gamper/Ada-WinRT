@@ -484,6 +484,11 @@ package Windows.Gaming.Input is
    
    type GamepadVibration_Ptr is access GamepadVibration;
    
+   type GamingInputPreviewContract is null record;
+   pragma Convention (C_Pass_By_Copy , GamingInputPreviewContract);
+   
+   type GamingInputPreviewContract_Ptr is access GamingInputPreviewContract;
+   
    type RacingWheelReading is record
       Timestamp : Windows.UInt64;
       Buttons : Windows.Gaming.Input.RacingWheelButtons;
@@ -506,11 +511,6 @@ package Windows.Gaming.Input is
    pragma Convention (C_Pass_By_Copy , UINavigationReading);
    
    type UINavigationReading_Ptr is access UINavigationReading;
-   
-   type GamingInputPreviewContract is null record;
-   pragma Convention (C_Pass_By_Copy , GamingInputPreviewContract);
-   
-   type GamingInputPreviewContract_Ptr is access GamingInputPreviewContract;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events

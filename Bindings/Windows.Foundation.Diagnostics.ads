@@ -2187,12 +2187,6 @@ package Windows.Foundation.Diagnostics is
    return Windows.Foundation.Diagnostics.ILoggingActivity;
    
    subtype LoggingChannel is Windows.Foundation.Diagnostics.ILoggingChannel;
-   function Create
-   (
-      name : Windows.String
-   )
-   return Windows.Foundation.Diagnostics.ILoggingChannel;
-   
    function CreateWithOptions
    (
       name : Windows.String
@@ -2205,6 +2199,12 @@ package Windows.Foundation.Diagnostics is
       name : Windows.String
       ; options : Windows.Foundation.Diagnostics.ILoggingChannelOptions
       ; id : Windows.Guid
+   )
+   return Windows.Foundation.Diagnostics.ILoggingChannel;
+   
+   function Create
+   (
+      name : Windows.String
    )
    return Windows.Foundation.Diagnostics.ILoggingChannel;
    

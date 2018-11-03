@@ -30,6 +30,7 @@ with Windows.Graphics;
 with Windows.Graphics.DirectX;
 with Windows.Graphics.DirectX.Direct3D11;
 with Windows.System;
+with Windows.UI.Composition;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Graphics.Capture is
@@ -123,6 +124,49 @@ package body Windows.Graphics.Capture is
       Hr := RoGetActivationFactory(m_hString, IID_IDirect3D11CaptureFramePoolStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Create(device, pixelFormat, numberOfBuffers, size, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFreeThreaded
+   (
+      device : Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice
+      ; pixelFormat : Windows.Graphics.DirectX.DirectXPixelFormat
+      ; numberOfBuffers : Windows.Int32
+      ; size : Windows.Graphics.SizeInt32
+   )
+   return Windows.Graphics.Capture.IDirect3D11CaptureFramePool is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Capture.Direct3D11CaptureFramePool");
+      m_Factory     : IDirect3D11CaptureFramePoolStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Capture.IDirect3D11CaptureFramePool;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDirect3D11CaptureFramePoolStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFreeThreaded(device, pixelFormat, numberOfBuffers, size, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromVisual
+   (
+      visual : Windows.UI.Composition.IVisual
+   )
+   return Windows.Graphics.Capture.IGraphicsCaptureItem is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Graphics.Capture.GraphicsCaptureItem");
+      m_Factory     : IGraphicsCaptureItemStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Graphics.Capture.IGraphicsCaptureItem;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IGraphicsCaptureItemStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromVisual(visual, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

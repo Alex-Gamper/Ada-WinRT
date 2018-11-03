@@ -399,9 +399,9 @@ package Windows.UI.Notifications is
    type AsyncOperationCompletedHandler_IToastCollection_Interface;
    type AsyncOperationCompletedHandler_IToastCollection is access all AsyncOperationCompletedHandler_IToastCollection_Interface'Class;
    type AsyncOperationCompletedHandler_IToastCollection_Ptr is access all AsyncOperationCompletedHandler_IToastCollection;
-   type AsyncOperationCompletedHandler_IToastNotificationHistory_Interface;
-   type AsyncOperationCompletedHandler_IToastNotificationHistory is access all AsyncOperationCompletedHandler_IToastNotificationHistory_Interface'Class;
-   type AsyncOperationCompletedHandler_IToastNotificationHistory_Ptr is access all AsyncOperationCompletedHandler_IToastNotificationHistory;
+   type AsyncOperationCompletedHandler_IToastNotificationHistory2_Interface;
+   type AsyncOperationCompletedHandler_IToastNotificationHistory2 is access all AsyncOperationCompletedHandler_IToastNotificationHistory2_Interface'Class;
+   type AsyncOperationCompletedHandler_IToastNotificationHistory2_Ptr is access all AsyncOperationCompletedHandler_IToastNotificationHistory2;
    type AsyncOperationCompletedHandler_IToastNotifier_Interface;
    type AsyncOperationCompletedHandler_IToastNotifier is access all AsyncOperationCompletedHandler_IToastNotifier_Interface'Class;
    type AsyncOperationCompletedHandler_IToastNotifier_Ptr is access all AsyncOperationCompletedHandler_IToastNotifier;
@@ -414,6 +414,9 @@ package Windows.UI.Notifications is
    type TypedEventHandler_IToastNotification_add_Failed_Interface;
    type TypedEventHandler_IToastNotification_add_Failed is access all TypedEventHandler_IToastNotification_add_Failed_Interface'Class;
    type TypedEventHandler_IToastNotification_add_Failed_Ptr is access all TypedEventHandler_IToastNotification_add_Failed;
+   type TypedEventHandler_IToastNotifier3_add_ScheduledToastNotificationShowing_Interface;
+   type TypedEventHandler_IToastNotifier3_add_ScheduledToastNotificationShowing is access all TypedEventHandler_IToastNotifier3_add_ScheduledToastNotificationShowing_Interface'Class;
+   type TypedEventHandler_IToastNotifier3_add_ScheduledToastNotificationShowing_Ptr is access all TypedEventHandler_IToastNotifier3_add_ScheduledToastNotificationShowing;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -428,9 +431,9 @@ package Windows.UI.Notifications is
    type IAsyncOperation_IToastCollection_Interface;
    type IAsyncOperation_IToastCollection is access all IAsyncOperation_IToastCollection_Interface'Class;
    type IAsyncOperation_IToastCollection_Ptr is access all IAsyncOperation_IToastCollection;
-   type IAsyncOperation_IToastNotificationHistory_Interface;
-   type IAsyncOperation_IToastNotificationHistory is access all IAsyncOperation_IToastNotificationHistory_Interface'Class;
-   type IAsyncOperation_IToastNotificationHistory_Ptr is access all IAsyncOperation_IToastNotificationHistory;
+   type IAsyncOperation_IToastNotificationHistory2_Interface;
+   type IAsyncOperation_IToastNotificationHistory2 is access all IAsyncOperation_IToastNotificationHistory2_Interface'Class;
+   type IAsyncOperation_IToastNotificationHistory2_Ptr is access all IAsyncOperation_IToastNotificationHistory2;
    type IAsyncOperation_IToastNotifier_Interface;
    type IAsyncOperation_IToastNotifier is access all IAsyncOperation_IToastNotifier_Interface'Class;
    type IAsyncOperation_IToastNotifier_Ptr is access all IAsyncOperation_IToastNotifier;
@@ -533,6 +536,9 @@ package Windows.UI.Notifications is
    type IScheduledToastNotificationFactory_Interface;
    type IScheduledToastNotificationFactory is access all IScheduledToastNotificationFactory_Interface'Class;
    type IScheduledToastNotificationFactory_Ptr is access all IScheduledToastNotificationFactory;
+   type IScheduledToastNotificationShowingEventArgs_Interface;
+   type IScheduledToastNotificationShowingEventArgs is access all IScheduledToastNotificationShowingEventArgs_Interface'Class;
+   type IScheduledToastNotificationShowingEventArgs_Ptr is access all IScheduledToastNotificationShowingEventArgs;
    type IShownTileNotification_Interface;
    type IShownTileNotification is access all IShownTileNotification_Interface'Class;
    type IShownTileNotification_Ptr is access all IShownTileNotification;
@@ -641,6 +647,9 @@ package Windows.UI.Notifications is
    type IToastNotifier2_Interface;
    type IToastNotifier2 is access all IToastNotifier2_Interface'Class;
    type IToastNotifier2_Ptr is access all IToastNotifier2;
+   type IToastNotifier3_Interface;
+   type IToastNotifier3 is access all IToastNotifier3_Interface'Class;
+   type IToastNotifier3_Ptr is access all IToastNotifier3;
    type IUserNotification_Interface;
    type IUserNotification is access all IUserNotification_Interface'Class;
    type IUserNotification_Ptr is access all IUserNotification;
@@ -756,28 +765,28 @@ package Windows.UI.Notifications is
    
    ------------------------------------------------------------------------
    
-   IID_IAsyncOperation_IToastNotificationHistory : aliased constant Windows.IID := (706936523, 19350, 21791, (183, 185, 167, 181, 190, 236, 173, 5 ));
+   IID_IAsyncOperation_IToastNotificationHistory2 : aliased constant Windows.IID := (706936523, 19350, 21791, (183, 185, 167, 181, 190, 236, 173, 5 ));
    
-   type IAsyncOperation_IToastNotificationHistory_Interface is interface and Windows.IInspectable_Interface;
+   type IAsyncOperation_IToastNotificationHistory2_Interface is interface and Windows.IInspectable_Interface;
    
    function put_Completed
    (
-      This       : access IAsyncOperation_IToastNotificationHistory_Interface
-      ; handler : Windows.UI.Notifications.AsyncOperationCompletedHandler_IToastNotificationHistory
+      This       : access IAsyncOperation_IToastNotificationHistory2_Interface
+      ; handler : Windows.UI.Notifications.AsyncOperationCompletedHandler_IToastNotificationHistory2
    )
    return Windows.HRESULT is abstract;
    
    function get_Completed
    (
-      This       : access IAsyncOperation_IToastNotificationHistory_Interface
-      ; RetVal : access Windows.UI.Notifications.AsyncOperationCompletedHandler_IToastNotificationHistory
+      This       : access IAsyncOperation_IToastNotificationHistory2_Interface
+      ; RetVal : access Windows.UI.Notifications.AsyncOperationCompletedHandler_IToastNotificationHistory2
    )
    return Windows.HRESULT is abstract;
    
    function GetResults
    (
-      This       : access IAsyncOperation_IToastNotificationHistory_Interface
-      ; RetVal : access Windows.UI.Notifications.IToastNotificationHistory
+      This       : access IAsyncOperation_IToastNotificationHistory2_Interface
+      ; RetVal : access Windows.UI.Notifications.IToastNotificationHistory2
    )
    return Windows.HRESULT is abstract;
    
@@ -1888,6 +1897,40 @@ package Windows.UI.Notifications is
    
    ------------------------------------------------------------------------
    
+   IID_IScheduledToastNotificationShowingEventArgs : aliased constant Windows.IID := (1634989748, 16682, 24108, (166, 237, 160, 32, 154, 239, 154, 9 ));
+   
+   type IScheduledToastNotificationShowingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Cancel
+   (
+      This       : access IScheduledToastNotificationShowingEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Cancel
+   (
+      This       : access IScheduledToastNotificationShowingEventArgs_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ScheduledToastNotification
+   (
+      This       : access IScheduledToastNotificationShowingEventArgs_Interface
+      ; RetVal : access Windows.UI.Notifications.IScheduledToastNotification
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeferral
+   (
+      This       : access IScheduledToastNotificationShowingEventArgs_Interface
+      ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IShownTileNotification : aliased constant Windows.IID := (875399560, 23282, 18458, (166, 163, 242, 253, 199, 141, 232, 142 ));
    
    type IShownTileNotification_Interface is interface and Windows.IInspectable_Interface;
@@ -2496,7 +2539,7 @@ package Windows.UI.Notifications is
    function remove_Dismissed
    (
       This       : access IToastNotification_Interface
-      ; cookie : Windows.Foundation.EventRegistrationToken
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -2511,7 +2554,7 @@ package Windows.UI.Notifications is
    function remove_Activated
    (
       This       : access IToastNotification_Interface
-      ; cookie : Windows.Foundation.EventRegistrationToken
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -2809,7 +2852,7 @@ package Windows.UI.Notifications is
    function get_History
    (
       This       : access IToastNotificationManagerForUser_Interface
-      ; RetVal : access Windows.UI.Notifications.IToastNotificationHistory
+      ; RetVal : access Windows.UI.Notifications.IToastNotificationHistory2
    )
    return Windows.HRESULT is abstract;
    
@@ -2838,7 +2881,7 @@ package Windows.UI.Notifications is
    (
       This       : access IToastNotificationManagerForUser2_Interface
       ; collectionId : Windows.String
-      ; RetVal : access Windows.UI.Notifications.IAsyncOperation_IToastNotificationHistory -- Generic Parameter Type
+      ; RetVal : access Windows.UI.Notifications.IAsyncOperation_IToastNotificationHistory2 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -2895,7 +2938,7 @@ package Windows.UI.Notifications is
    function get_History
    (
       This       : access IToastNotificationManagerStatics2_Interface
-      ; RetVal : access Windows.UI.Notifications.IToastNotificationHistory
+      ; RetVal : access Windows.UI.Notifications.IToastNotificationHistory2
    )
    return Windows.HRESULT is abstract;
    
@@ -3003,6 +3046,27 @@ package Windows.UI.Notifications is
       ; data : Windows.UI.Notifications.INotificationData
       ; tag : Windows.String
       ; RetVal : access Windows.UI.Notifications.NotificationUpdateResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IToastNotifier3 : aliased constant Windows.IID := (2926944330, 15116, 20909, (183, 232, 176, 138, 182, 5, 37, 73 ));
+   
+   type IToastNotifier3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_ScheduledToastNotificationShowing
+   (
+      This       : access IToastNotifier3_Interface
+      ; handler : TypedEventHandler_IToastNotifier3_add_ScheduledToastNotificationShowing
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ScheduledToastNotificationShowing
+   (
+      This       : access IToastNotifier3_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -3408,13 +3472,13 @@ package Windows.UI.Notifications is
    
    ------------------------------------------------------------------------
    
-   IID_AsyncOperationCompletedHandler_IToastNotificationHistory : aliased constant Windows.IID := (3328300506, 26466, 23955, (145, 56, 231, 218, 205, 87, 16, 86 ));
+   IID_AsyncOperationCompletedHandler_IToastNotificationHistory2 : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
-   type AsyncOperationCompletedHandler_IToastNotificationHistory_Interface(Callback : access procedure (asyncInfo : Windows.UI.Notifications.IAsyncOperation_IToastNotificationHistory ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IToastNotificationHistory'access) with null record;
+   type AsyncOperationCompletedHandler_IToastNotificationHistory2_Interface(Callback : access procedure (asyncInfo : Windows.UI.Notifications.IAsyncOperation_IToastNotificationHistory2 ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IToastNotificationHistory2'access) with null record;
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IToastNotificationHistory_Interface
-      ; asyncInfo : Windows.UI.Notifications.IAsyncOperation_IToastNotificationHistory
+      This       : access AsyncOperationCompletedHandler_IToastNotificationHistory2_Interface
+      ; asyncInfo : Windows.UI.Notifications.IAsyncOperation_IToastNotificationHistory2
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT;
@@ -3468,6 +3532,19 @@ package Windows.UI.Notifications is
       This       : access TypedEventHandler_IToastNotification_add_Failed_Interface
       ; sender : Windows.UI.Notifications.IToastNotification
       ; args : Windows.UI.Notifications.IToastFailedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IToastNotifier3_add_ScheduledToastNotificationShowing : aliased constant Windows.IID := (2981825707, 63673, 22793, (168, 114, 239, 41, 224, 90, 140, 122 ));
+   
+   type TypedEventHandler_IToastNotifier3_add_ScheduledToastNotificationShowing_Interface(Callback : access procedure (sender : Windows.UI.Notifications.IToastNotifier ; args : Windows.UI.Notifications.IScheduledToastNotificationShowingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IToastNotifier3_add_ScheduledToastNotificationShowing'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IToastNotifier3_add_ScheduledToastNotificationShowing_Interface
+      ; sender : Windows.UI.Notifications.IToastNotifier
+      ; args : Windows.UI.Notifications.IScheduledToastNotificationShowingEventArgs
    )
    return Windows.HRESULT;
    
@@ -3533,6 +3610,7 @@ package Windows.UI.Notifications is
    )
    return Windows.UI.Notifications.IScheduledToastNotification;
    
+   subtype ScheduledToastNotificationShowingEventArgs is Windows.UI.Notifications.IScheduledToastNotificationShowingEventArgs;
    subtype ShownTileNotification is Windows.UI.Notifications.IShownTileNotification;
    subtype TileFlyoutNotification is Windows.UI.Notifications.ITileFlyoutNotification;
    function CreateTileFlyoutNotification
@@ -3573,7 +3651,7 @@ package Windows.UI.Notifications is
    return Windows.UI.Notifications.IToastNotification;
    
    subtype ToastNotificationActionTriggerDetail is Windows.UI.Notifications.IToastNotificationActionTriggerDetail;
-   subtype ToastNotificationHistory is Windows.UI.Notifications.IToastNotificationHistory;
+   subtype ToastNotificationHistory is Windows.UI.Notifications.IToastNotificationHistory2;
    subtype ToastNotificationHistoryChangedTriggerDetail is Windows.UI.Notifications.IToastNotificationHistoryChangedTriggerDetail;
    subtype ToastNotificationManagerForUser is Windows.UI.Notifications.IToastNotificationManagerForUser;
    subtype ToastNotifier is Windows.UI.Notifications.IToastNotifier;
@@ -3753,7 +3831,7 @@ package Windows.UI.Notifications is
    return Windows.Data.Xml.Dom.IXmlDocument;
    
    function get_History
-   return Windows.UI.Notifications.IToastNotificationHistory;
+   return Windows.UI.Notifications.IToastNotificationHistory2;
    
    procedure ConfigureNotificationMirroring
    (

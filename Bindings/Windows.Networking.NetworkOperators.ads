@@ -107,7 +107,18 @@ package Windows.Networking.NetworkOperators is
       ConfirmationCodeMaxRetriesExceeded,
       CardRemoved,
       CardBusy,
-      Other
+      Other,
+      CardGeneralFailure,
+      ConfirmationCodeMissing,
+      InvalidMatchingId,
+      NoEligibleProfileForThisDevice,
+      OperationAborted,
+      EidMismatch,
+      ProfileNotAvailableForNewBinding,
+      ProfileNotReleasedByOperator,
+      OperationProhibitedByProfileClass,
+      ProfileNotPresent,
+      NoCorrespondingRequest
    );
    for ESimOperationStatus use (
       Success => 0,
@@ -122,7 +133,18 @@ package Windows.Networking.NetworkOperators is
       ConfirmationCodeMaxRetriesExceeded => 9,
       CardRemoved => 10,
       CardBusy => 11,
-      Other => 12
+      Other => 12,
+      CardGeneralFailure => 13,
+      ConfirmationCodeMissing => 14,
+      InvalidMatchingId => 15,
+      NoEligibleProfileForThisDevice => 16,
+      OperationAborted => 17,
+      EidMismatch => 18,
+      ProfileNotAvailableForNewBinding => 19,
+      ProfileNotReleasedByOperator => 20,
+      OperationProhibitedByProfileClass => 21,
+      ProfileNotPresent => 22,
+      NoCorrespondingRequest => 23
    );
    for ESimOperationStatus'Size use 32;
    
@@ -636,14 +658,6 @@ package Windows.Networking.NetworkOperators is
    
    type ESimProfileInstallProgress_Ptr is access ESimProfileInstallProgress;
    
-   type ProfileUsage is record
-      UsageInMegabytes : Windows.UInt32;
-      LastSyncTime : Windows.Foundation.DateTime;
-   end record;
-   pragma Convention (C_Pass_By_Copy , ProfileUsage);
-   
-   type ProfileUsage_Ptr is access ProfileUsage;
-   
    type LegacyNetworkOperatorsContract is null record;
    pragma Convention (C_Pass_By_Copy , LegacyNetworkOperatorsContract);
    
@@ -653,6 +667,14 @@ package Windows.Networking.NetworkOperators is
    pragma Convention (C_Pass_By_Copy , NetworkOperatorsFdnContract);
    
    type NetworkOperatorsFdnContract_Ptr is access NetworkOperatorsFdnContract;
+   
+   type ProfileUsage is record
+      UsageInMegabytes : Windows.UInt32;
+      LastSyncTime : Windows.Foundation.DateTime;
+   end record;
+   pragma Convention (C_Pass_By_Copy , ProfileUsage);
+   
+   type ProfileUsage_Ptr is access ProfileUsage;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events

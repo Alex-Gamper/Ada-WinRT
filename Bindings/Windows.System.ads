@@ -571,6 +571,21 @@ package Windows.System is
    type IAppResourceGroupStateReport_Interface;
    type IAppResourceGroupStateReport is access all IAppResourceGroupStateReport_Interface'Class;
    type IAppResourceGroupStateReport_Ptr is access all IAppResourceGroupStateReport;
+   type IAppUriHandlerHost_Interface;
+   type IAppUriHandlerHost is access all IAppUriHandlerHost_Interface'Class;
+   type IAppUriHandlerHost_Ptr is access all IAppUriHandlerHost;
+   type IAppUriHandlerHostFactory_Interface;
+   type IAppUriHandlerHostFactory is access all IAppUriHandlerHostFactory_Interface'Class;
+   type IAppUriHandlerHostFactory_Ptr is access all IAppUriHandlerHostFactory;
+   type IAppUriHandlerRegistration_Interface;
+   type IAppUriHandlerRegistration is access all IAppUriHandlerRegistration_Interface'Class;
+   type IAppUriHandlerRegistration_Ptr is access all IAppUriHandlerRegistration;
+   type IAppUriHandlerRegistrationManager_Interface;
+   type IAppUriHandlerRegistrationManager is access all IAppUriHandlerRegistrationManager_Interface'Class;
+   type IAppUriHandlerRegistrationManager_Ptr is access all IAppUriHandlerRegistrationManager;
+   type IAppUriHandlerRegistrationManagerStatics_Interface;
+   type IAppUriHandlerRegistrationManagerStatics is access all IAppUriHandlerRegistrationManagerStatics_Interface'Class;
+   type IAppUriHandlerRegistrationManagerStatics_Ptr is access all IAppUriHandlerRegistrationManagerStatics;
    type IAsyncOperation_AutoUpdateTimeZoneStatus_Interface;
    type IAsyncOperation_AutoUpdateTimeZoneStatus is access all IAsyncOperation_AutoUpdateTimeZoneStatus_Interface'Class;
    type IAsyncOperation_AutoUpdateTimeZoneStatus_Ptr is access all IAsyncOperation_AutoUpdateTimeZoneStatus;
@@ -634,6 +649,9 @@ package Windows.System is
    type IIterable_IAppResourceGroupInfo_Interface;
    type IIterable_IAppResourceGroupInfo is access all IIterable_IAppResourceGroupInfo_Interface'Class;
    type IIterable_IAppResourceGroupInfo_Ptr is access all IIterable_IAppResourceGroupInfo;
+   type IIterable_IAppUriHandlerHost_Interface;
+   type IIterable_IAppUriHandlerHost is access all IIterable_IAppUriHandlerHost_Interface'Class;
+   type IIterable_IAppUriHandlerHost_Ptr is access all IIterable_IAppUriHandlerHost;
    type IIterator_IAppDiagnosticInfo_Interface;
    type IIterator_IAppDiagnosticInfo is access all IIterator_IAppDiagnosticInfo_Interface'Class;
    type IIterator_IAppDiagnosticInfo_Ptr is access all IIterator_IAppDiagnosticInfo;
@@ -643,6 +661,9 @@ package Windows.System is
    type IIterator_IAppResourceGroupInfo_Interface;
    type IIterator_IAppResourceGroupInfo is access all IIterator_IAppResourceGroupInfo_Interface'Class;
    type IIterator_IAppResourceGroupInfo_Ptr is access all IIterator_IAppResourceGroupInfo;
+   type IIterator_IAppUriHandlerHost_Interface;
+   type IIterator_IAppUriHandlerHost is access all IIterator_IAppUriHandlerHost_Interface'Class;
+   type IIterator_IAppUriHandlerHost_Ptr is access all IIterator_IAppUriHandlerHost;
    type IKnownUserPropertiesStatics_Interface;
    type IKnownUserPropertiesStatics is access all IKnownUserPropertiesStatics_Interface'Class;
    type IKnownUserPropertiesStatics_Ptr is access all IKnownUserPropertiesStatics;
@@ -670,6 +691,9 @@ package Windows.System is
    type ILauncherStatics4_Interface;
    type ILauncherStatics4 is access all ILauncherStatics4_Interface'Class;
    type ILauncherStatics4_Ptr is access all ILauncherStatics4;
+   type ILauncherStatics5_Interface;
+   type ILauncherStatics5 is access all ILauncherStatics5_Interface'Class;
+   type ILauncherStatics5_Ptr is access all ILauncherStatics5;
    type ILauncherUIOptions_Interface;
    type ILauncherUIOptions is access all ILauncherUIOptions_Interface'Class;
    type ILauncherUIOptions_Ptr is access all ILauncherUIOptions;
@@ -1382,6 +1406,117 @@ package Windows.System is
    
    ------------------------------------------------------------------------
    
+   IID_IAppUriHandlerHost : aliased constant Windows.IID := (1565575877, 37586, 21513, (181, 111, 127, 115, 225, 14, 164, 195 ));
+   
+   type IAppUriHandlerHost_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Name
+   (
+      This       : access IAppUriHandlerHost_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Name
+   (
+      This       : access IAppUriHandlerHost_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppUriHandlerHostFactory : aliased constant Windows.IID := (628898966, 52740, 24472, (150, 187, 62, 189, 62, 146, 117, 187 ));
+   
+   type IAppUriHandlerHostFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IAppUriHandlerHostFactory_Interface
+      ; name : Windows.String
+      ; RetVal : access Windows.System.IAppUriHandlerHost
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppUriHandlerRegistration : aliased constant Windows.IID := (1869852337, 17769, 23615, (155, 160, 153, 18, 62, 234, 50, 195 ));
+   
+   type IAppUriHandlerRegistration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Name
+   (
+      This       : access IAppUriHandlerRegistration_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_User
+   (
+      This       : access IAppUriHandlerRegistration_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetAppAddedHostsAsync
+   (
+      This       : access IAppUriHandlerRegistration_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAppAddedHostsAsync
+   (
+      This       : access IAppUriHandlerRegistration_Interface
+      ; hosts : Windows.System.IIterable_IAppUriHandlerHost
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppUriHandlerRegistrationManager : aliased constant Windows.IID := (3861682770, 44180, 22352, (172, 27, 108, 251, 111, 37, 2, 99 ));
+   
+   type IAppUriHandlerRegistrationManager_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_User
+   (
+      This       : access IAppUriHandlerRegistrationManager_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryGetRegistration
+   (
+      This       : access IAppUriHandlerRegistrationManager_Interface
+      ; name : Windows.String
+      ; RetVal : access Windows.System.IAppUriHandlerRegistration
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppUriHandlerRegistrationManagerStatics : aliased constant Windows.IID := (3587104159, 22313, 23414, (161, 212, 2, 133, 242, 149, 193, 36 ));
+   
+   type IAppUriHandlerRegistrationManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDefault
+   (
+      This       : access IAppUriHandlerRegistrationManagerStatics_Interface
+      ; RetVal : access Windows.System.IAppUriHandlerRegistrationManager
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetForUser
+   (
+      This       : access IAppUriHandlerRegistrationManagerStatics_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.System.IAppUriHandlerRegistrationManager
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAsyncOperation_AutoUpdateTimeZoneStatus : aliased constant Windows.IID := (3063182764, 42452, 21463, (165, 58, 187, 1, 182, 150, 32, 250 ));
    
    type IAsyncOperation_AutoUpdateTimeZoneStatus_Interface is interface and Windows.IInspectable_Interface;
@@ -1904,6 +2039,19 @@ package Windows.System is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_IAppUriHandlerHost : aliased constant Windows.IID := (4142233021, 60087, 22913, (186, 1, 73, 255, 151, 108, 161, 134 ));
+   
+   type IIterable_IAppUriHandlerHost_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IAppUriHandlerHost_Interface
+      ; RetVal : access Windows.System.IIterator_IAppUriHandlerHost
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_IAppDiagnosticInfo : aliased constant Windows.IID := (406789706, 8740, 24548, (176, 100, 104, 134, 156, 83, 227, 97 ));
    
    type IIterator_IAppDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
@@ -2003,6 +2151,41 @@ package Windows.System is
    (
       This       : access IIterator_IAppResourceGroupInfo_Interface
       ; items : Windows.System.IAppResourceGroupInfo_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IAppUriHandlerHost : aliased constant Windows.IID := (1711768119, 43412, 20702, (177, 234, 51, 141, 124, 248, 154, 44 ));
+   
+   type IIterator_IAppUriHandlerHost_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IAppUriHandlerHost_Interface
+      ; RetVal : access Windows.System.IAppUriHandlerHost
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IAppUriHandlerHost_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IAppUriHandlerHost_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IAppUriHandlerHost_Interface
+      ; items : Windows.System.IAppUriHandlerHost_Ptr
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
@@ -2485,6 +2668,48 @@ package Windows.System is
       ; options : Windows.System.ILauncherOptions
       ; inputData : Windows.Foundation.Collections.IPropertySet
       ; RetVal : access Windows.System.IAsyncOperation_ILaunchUriResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILauncherStatics5 : aliased constant Windows.IID := (1529147268, 55445, 24554, (145, 83, 26, 196, 154, 237, 155, 169 ));
+   
+   type ILauncherStatics5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function LaunchFolderPathAsync
+   (
+      This       : access ILauncherStatics5_Interface
+      ; path : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LaunchFolderPathWithOptionsAsync
+   (
+      This       : access ILauncherStatics5_Interface
+      ; path : Windows.String
+      ; options : Windows.System.IFolderLauncherOptions
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LaunchFolderPathForUserAsync
+   (
+      This       : access ILauncherStatics5_Interface
+      ; user : Windows.System.IUser
+      ; path : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function LaunchFolderPathWithOptionsForUserAsync
+   (
+      This       : access ILauncherStatics5_Interface
+      ; user : Windows.System.IUser
+      ; path : Windows.String
+      ; options : Windows.System.IFolderLauncherOptions
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -4221,6 +4446,17 @@ package Windows.System is
    subtype AppResourceGroupInfoWatcherExecutionStateChangedEventArgs is Windows.System.IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs;
    subtype AppResourceGroupMemoryReport is Windows.System.IAppResourceGroupMemoryReport;
    subtype AppResourceGroupStateReport is Windows.System.IAppResourceGroupStateReport;
+   subtype AppUriHandlerHost is Windows.System.IAppUriHandlerHost;
+   function Create return Windows.System.IAppUriHandlerHost;
+   
+   function CreateInstance
+   (
+      name : Windows.String
+   )
+   return Windows.System.IAppUriHandlerHost;
+   
+   subtype AppUriHandlerRegistration is Windows.System.IAppUriHandlerRegistration;
+   subtype AppUriHandlerRegistrationManager is Windows.System.IAppUriHandlerRegistrationManager;
    subtype DispatcherQueue is Windows.System.IDispatcherQueue;
    subtype DispatcherQueueController is Windows.System.IDispatcherQueueController;
    subtype DispatcherQueueShutdownStartingEventArgs is Windows.System.IDispatcherQueueShutdownStartingEventArgs;
@@ -4279,6 +4515,15 @@ package Windows.System is
       packageFamilyName : Windows.String
    )
    return Windows.Address;
+   
+   function GetDefault
+   return Windows.System.IAppUriHandlerRegistrationManager;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.System.IAppUriHandlerRegistrationManager;
    
    procedure SetSystemDateTime
    (
@@ -4487,6 +4732,34 @@ package Windows.System is
       ; packageFamilyName : Windows.String
    )
    return Windows.System.IAsyncOperation_LaunchQuerySupportStatus;
+   
+   function LaunchFolderPathAsync
+   (
+      path : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function LaunchFolderPathForUserAsync
+   (
+      user : Windows.System.IUser
+      ; path : Windows.String
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function LaunchFolderPathWithOptionsAsync
+   (
+      path : Windows.String
+      ; options : Windows.System.IFolderLauncherOptions
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function LaunchFolderPathWithOptionsForUserAsync
+   (
+      user : Windows.System.IUser
+      ; path : Windows.String
+      ; options : Windows.System.IFolderLauncherOptions
+   )
+   return Windows.Foundation.IAsyncOperation_Boolean;
    
    function add_AppMemoryUsageDecreased
    (

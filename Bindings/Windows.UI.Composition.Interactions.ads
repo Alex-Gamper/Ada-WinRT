@@ -67,6 +67,30 @@ package Windows.UI.Composition.Interactions is
    
    type InteractionSourceMode_Ptr is access InteractionSourceMode;
    
+   type InteractionSourceRedirectionMode is (
+      Disabled,
+      Enabled
+   );
+   for InteractionSourceRedirectionMode use (
+      Disabled => 0,
+      Enabled => 1
+   );
+   for InteractionSourceRedirectionMode'Size use 32;
+   
+   type InteractionSourceRedirectionMode_Ptr is access InteractionSourceRedirectionMode;
+   
+   type InteractionTrackerClampingOption is (
+      Auto,
+      Disabled
+   );
+   for InteractionTrackerClampingOption use (
+      Auto => 0,
+      Disabled => 1
+   );
+   for InteractionTrackerClampingOption'Size use 32;
+   
+   type InteractionTrackerClampingOption_Ptr is access InteractionTrackerClampingOption;
+   
    type VisualInteractionSourceRedirectionMode is (
       Off,
       CapableTouchpadOnly,
@@ -99,6 +123,9 @@ package Windows.UI.Composition.Interactions is
    type ICompositionInteractionSourceCollection_Interface;
    type ICompositionInteractionSourceCollection is access all ICompositionInteractionSourceCollection_Interface'Class;
    type ICompositionInteractionSourceCollection_Ptr is access all ICompositionInteractionSourceCollection;
+   type IInteractionSourceConfiguration_Interface;
+   type IInteractionSourceConfiguration is access all IInteractionSourceConfiguration_Interface'Class;
+   type IInteractionSourceConfiguration_Ptr is access all IInteractionSourceConfiguration;
    type IInteractionTracker_Interface;
    type IInteractionTracker is access all IInteractionTracker_Interface'Class;
    type IInteractionTracker_Ptr is access all IInteractionTracker;
@@ -108,6 +135,9 @@ package Windows.UI.Composition.Interactions is
    type IInteractionTracker3_Interface;
    type IInteractionTracker3 is access all IInteractionTracker3_Interface'Class;
    type IInteractionTracker3_Ptr is access all IInteractionTracker3;
+   type IInteractionTracker4_Interface;
+   type IInteractionTracker4 is access all IInteractionTracker4_Interface'Class;
+   type IInteractionTracker4_Ptr is access all IInteractionTracker4;
    type IInteractionTrackerCustomAnimationStateEnteredArgs_Interface;
    type IInteractionTrackerCustomAnimationStateEnteredArgs is access all IInteractionTrackerCustomAnimationStateEnteredArgs_Interface'Class;
    type IInteractionTrackerCustomAnimationStateEnteredArgs_Ptr is access all IInteractionTrackerCustomAnimationStateEnteredArgs;
@@ -141,6 +171,9 @@ package Windows.UI.Composition.Interactions is
    type IInteractionTrackerInertiaStateEnteredArgs_Interface;
    type IInteractionTrackerInertiaStateEnteredArgs is access all IInteractionTrackerInertiaStateEnteredArgs_Interface'Class;
    type IInteractionTrackerInertiaStateEnteredArgs_Ptr is access all IInteractionTrackerInertiaStateEnteredArgs;
+   type IInteractionTrackerInertiaStateEnteredArgs2_Interface;
+   type IInteractionTrackerInertiaStateEnteredArgs2 is access all IInteractionTrackerInertiaStateEnteredArgs2_Interface'Class;
+   type IInteractionTrackerInertiaStateEnteredArgs2_Ptr is access all IInteractionTrackerInertiaStateEnteredArgs2;
    type IInteractionTrackerInteractingStateEnteredArgs_Interface;
    type IInteractionTrackerInteractingStateEnteredArgs is access all IInteractionTrackerInteractingStateEnteredArgs_Interface'Class;
    type IInteractionTrackerInteractingStateEnteredArgs_Ptr is access all IInteractionTrackerInteractingStateEnteredArgs;
@@ -195,6 +228,9 @@ package Windows.UI.Composition.Interactions is
    type IVisualInteractionSource2_Interface;
    type IVisualInteractionSource2 is access all IVisualInteractionSource2_Interface'Class;
    type IVisualInteractionSource2_Ptr is access all IVisualInteractionSource2;
+   type IVisualInteractionSource3_Interface;
+   type IVisualInteractionSource3 is access all IVisualInteractionSource3_Interface'Class;
+   type IVisualInteractionSource3_Ptr is access all IVisualInteractionSource3;
    type IVisualInteractionSourceObjectFactory_Interface;
    type IVisualInteractionSourceObjectFactory is access all IVisualInteractionSourceObjectFactory_Interface'Class;
    type IVisualInteractionSourceObjectFactory_Ptr is access all IVisualInteractionSourceObjectFactory;
@@ -290,6 +326,54 @@ package Windows.UI.Composition.Interactions is
    function RemoveAll
    (
       This       : access ICompositionInteractionSourceCollection_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInteractionSourceConfiguration : aliased constant Windows.IID := (2810398693, 43473, 19714, (152, 94, 185, 48, 205, 11, 157, 164 ));
+   
+   type IInteractionSourceConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PositionXSourceMode
+   (
+      This       : access IInteractionSourceConfiguration_Interface
+      ; RetVal : access Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PositionXSourceMode
+   (
+      This       : access IInteractionSourceConfiguration_Interface
+      ; value : Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PositionYSourceMode
+   (
+      This       : access IInteractionSourceConfiguration_Interface
+      ; RetVal : access Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PositionYSourceMode
+   (
+      This       : access IInteractionSourceConfiguration_Interface
+      ; value : Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ScaleSourceMode
+   (
+      This       : access IInteractionSourceConfiguration_Interface
+      ; RetVal : access Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ScaleSourceMode
+   (
+      This       : access IInteractionSourceConfiguration_Interface
+      ; value : Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode
    )
    return Windows.HRESULT is abstract;
    
@@ -577,6 +661,37 @@ package Windows.UI.Composition.Interactions is
    
    ------------------------------------------------------------------------
    
+   IID_IInteractionTracker4 : aliased constant Windows.IID := (3956417212, 1199, 19143, (132, 125, 6, 234, 54, 232, 10, 22 ));
+   
+   type IInteractionTracker4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryUpdatePositionWithOption
+   (
+      This       : access IInteractionTracker4_Interface
+      ; value : Windows.Foundation.Numerics.Vector3
+      ; option : Windows.UI.Composition.Interactions.InteractionTrackerClampingOption
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryUpdatePositionByWithOption
+   (
+      This       : access IInteractionTracker4_Interface
+      ; amount : Windows.Foundation.Numerics.Vector3
+      ; option : Windows.UI.Composition.Interactions.InteractionTrackerClampingOption
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsInertiaFromImpulse
+   (
+      This       : access IInteractionTracker4_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IInteractionTrackerCustomAnimationStateEnteredArgs : aliased constant Windows.IID := (2367458545, 55216, 17228, (165, 210, 45, 118, 17, 134, 72, 52 ));
    
    type IInteractionTrackerCustomAnimationStateEnteredArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -809,6 +924,19 @@ package Windows.UI.Composition.Interactions is
    (
       This       : access IInteractionTrackerInertiaStateEnteredArgs_Interface
       ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInteractionTrackerInertiaStateEnteredArgs2 : aliased constant Windows.IID := (2984981238, 49772, 16886, (161, 137, 250, 188, 34, 179, 35, 204 ));
+   
+   type IInteractionTrackerInertiaStateEnteredArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsInertiaFromImpulse
+   (
+      This       : access IInteractionTrackerInertiaStateEnteredArgs2_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -1390,6 +1518,19 @@ package Windows.UI.Composition.Interactions is
    
    ------------------------------------------------------------------------
    
+   IID_IVisualInteractionSource3 : aliased constant Windows.IID := (3644976938, 3420, 16471, (146, 215, 201, 113, 21, 51, 32, 79 ));
+   
+   type IVisualInteractionSource3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PointerWheelConfig
+   (
+      This       : access IVisualInteractionSource3_Interface
+      ; RetVal : access Windows.UI.Composition.Interactions.IInteractionSourceConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVisualInteractionSourceObjectFactory : aliased constant Windows.IID := (2999619964, 59786, 16882, (179, 201, 137, 28, 146, 102, 200, 246 ));
    
    type IVisualInteractionSourceObjectFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -1414,6 +1555,7 @@ package Windows.UI.Composition.Interactions is
    
    subtype CompositionConditionalValue is Windows.UI.Composition.Interactions.ICompositionConditionalValue;
    subtype CompositionInteractionSourceCollection is Windows.UI.Composition.Interactions.ICompositionInteractionSourceCollection;
+   subtype InteractionSourceConfiguration is Windows.UI.Composition.Interactions.IInteractionSourceConfiguration;
    subtype InteractionTracker is Windows.UI.Composition.Interactions.IInteractionTracker;
    subtype InteractionTrackerCustomAnimationStateEnteredArgs is Windows.UI.Composition.Interactions.IInteractionTrackerCustomAnimationStateEnteredArgs;
    subtype InteractionTrackerIdleStateEnteredArgs is Windows.UI.Composition.Interactions.IInteractionTrackerIdleStateEnteredArgs;

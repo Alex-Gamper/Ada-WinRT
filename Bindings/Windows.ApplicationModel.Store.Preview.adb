@@ -64,6 +64,23 @@ package body Windows.ApplicationModel.Store.Preview is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function GetCurrentSettings
+   return Windows.ApplicationModel.Store.Preview.IDeliveryOptimizationSettings is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings");
+      m_Factory     : IDeliveryOptimizationSettingsStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Store.Preview.IDeliveryOptimizationSettings;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDeliveryOptimizationSettingsStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetCurrentSettings(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function FilterUnsupportedSystemFeaturesAsync
    (
       systemFeatures : Windows.ApplicationModel.Store.Preview.IIterable_StoreSystemFeature
@@ -497,6 +514,94 @@ package body Windows.ApplicationModel.Store.Preview is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function IsPinToDesktopSupported
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsPinToDesktopSupported(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsPinToStartSupported
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsPinToStartSupported(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function IsPinToTaskbarSupported
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsPinToTaskbarSupported(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure PinToDesktop
+   (
+      appPackageFamilyName : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.PinToDesktop(appPackageFamilyName);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure PinToDesktopForUser
+   (
+      user : Windows.System.IUser
+      ; appPackageFamilyName : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Store.Preview.StoreConfiguration");
+      m_Factory     : IStoreConfigurationStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStoreConfigurationStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.PinToDesktopForUser(user, appPackageFamilyName);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
    function LoadAddOnProductInfosAsync

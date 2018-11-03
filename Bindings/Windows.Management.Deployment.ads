@@ -61,7 +61,8 @@ package Windows.Management.Deployment is
       DevelopmentMode,
       InstallAllResources,
       ForceTargetApplicationShutdown,
-      RequiredContentGroupOnly
+      RequiredContentGroupOnly,
+      ForceUpdateFromAnyVersion
    );
    for DeploymentOptions use (
       None => 0,
@@ -69,7 +70,8 @@ package Windows.Management.Deployment is
       DevelopmentMode => 2,
       InstallAllResources => 32,
       ForceTargetApplicationShutdown => 64,
-      RequiredContentGroupOnly => 256
+      RequiredContentGroupOnly => 256,
+      ForceUpdateFromAnyVersion => 262144
    );
    for DeploymentOptions'Size use 32;
    
@@ -161,11 +163,13 @@ package Windows.Management.Deployment is
    
    type RemovalOptions is (
       None,
-      PreserveApplicationData
+      PreserveApplicationData,
+      RemoveForAllUsers
    );
    for RemovalOptions use (
       None => 0,
-      PreserveApplicationData => 4096
+      PreserveApplicationData => 4096,
+      RemoveForAllUsers => 524288
    );
    for RemovalOptions'Size use 32;
    
@@ -237,6 +241,9 @@ package Windows.Management.Deployment is
    type IPackageManager7_Interface;
    type IPackageManager7 is access all IPackageManager7_Interface'Class;
    type IPackageManager7_Ptr is access all IPackageManager7;
+   type IPackageManager8_Interface;
+   type IPackageManager8 is access all IPackageManager8_Interface'Class;
+   type IPackageManager8_Ptr is access all IPackageManager8;
    type IPackageManagerDebugSettings_Interface;
    type IPackageManagerDebugSettings is access all IPackageManagerDebugSettings_Interface'Class;
    type IPackageManagerDebugSettings_Ptr is access all IPackageManagerDebugSettings;
@@ -953,6 +960,20 @@ package Windows.Management.Deployment is
       ; optionalPackageFamilyNames : Windows.Foundation.Collections.IIterable_String
       ; relatedPackageUris : Windows.Foundation.IIterable_IUriRuntimeClass
       ; packageUrisToInstall : Windows.Foundation.IIterable_IUriRuntimeClass
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPackageManager8 : aliased constant Windows.IID := (3092730672, 4760, 20194, (128, 238, 127, 101, 156, 93, 39, 130 ));
+   
+   type IPackageManager8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function DeprovisionPackageForAllUsersAsync
+   (
+      This       : access IPackageManager8_Interface
+      ; packageFamilyName : Windows.String
       ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;

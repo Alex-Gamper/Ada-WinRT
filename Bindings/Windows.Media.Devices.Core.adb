@@ -36,6 +36,31 @@ package body Windows.Media.Devices.Core is
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
    
+   function Create
+   (
+      focalLength : Windows.Foundation.Numerics.Vector2
+      ; principalPoint : Windows.Foundation.Numerics.Vector2
+      ; radialDistortion : Windows.Foundation.Numerics.Vector3
+      ; tangentialDistortion : Windows.Foundation.Numerics.Vector2
+      ; imageWidth : Windows.UInt32
+      ; imageHeight : Windows.UInt32
+   )
+   return Windows.Media.Devices.Core.ICameraIntrinsics is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Devices.Core.CameraIntrinsics");
+      m_Factory     : Windows.Media.Devices.Core.ICameraIntrinsicsFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Devices.Core.ICameraIntrinsics := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICameraIntrinsicsFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(focalLength, principalPoint, radialDistortion, tangentialDistortion, imageWidth, imageHeight, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create return Windows.Media.Devices.Core.IFrameController is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Media.Devices.Core.FrameController");

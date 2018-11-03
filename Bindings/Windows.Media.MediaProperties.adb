@@ -593,6 +593,23 @@ package body Windows.Media.MediaProperties is
       return RetVal;
    end;
    
+   function CreateHeif
+   return Windows.Media.MediaProperties.IImageEncodingProperties is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.ImageEncodingProperties");
+      m_Factory     : IImageEncodingPropertiesStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.MediaProperties.IImageEncodingProperties;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IImageEncodingPropertiesStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateHeif(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateFromFileAsync
    (
       file : Windows.Storage.IStorageFile
@@ -1626,6 +1643,23 @@ package body Windows.Media.MediaProperties is
       Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingSubtypesStatics4'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_P010(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Heif
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.MediaProperties.MediaEncodingSubtypes");
+      m_Factory     : IMediaEncodingSubtypesStatics5 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMediaEncodingSubtypesStatics5'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Heif(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -625,4 +625,25 @@ package body Windows.Devices.Enumeration is
       return RetVal;
    end;
    
+   function TryRegisterForAllInboundPairingRequestsWithProtectionLevel
+   (
+      pairingKindsSupported : Windows.Devices.Enumeration.DevicePairingKinds
+      ; minProtectionLevel : Windows.Devices.Enumeration.DevicePairingProtectionLevel
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Enumeration.DeviceInformationPairing");
+      m_Factory     : IDeviceInformationPairingStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDeviceInformationPairingStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryRegisterForAllInboundPairingRequestsWithProtectionLevel(pairingKindsSupported, minProtectionLevel, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
 end;

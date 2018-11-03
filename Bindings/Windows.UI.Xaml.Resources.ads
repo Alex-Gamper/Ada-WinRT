@@ -66,8 +66,8 @@ package Windows.UI.Xaml.Resources is
    function CreateInstance
    (
       This       : access ICustomXamlResourceLoaderFactory_Interface
-      ; outer : Windows.Object
-      ; inner : access Windows.Object
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Resources.ICustomXamlResourceLoader
    )
    return Windows.HRESULT is abstract;
@@ -236,8 +236,8 @@ package Windows.UI.Xaml.Resources is
    
    function CreateInstance
    (
-      outer : Windows.Object
-      ; inner : access Windows.Object
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Resources.ICustomXamlResourceLoader;
    

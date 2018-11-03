@@ -143,6 +143,19 @@ package body Windows.Services.Store is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IStoreRateAndReviewResult_Interface
+      ; asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreRateAndReviewResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_IStoreSendRequestResult_Interface
       ; asyncInfo : Windows.Services.Store.IAsyncOperation_IStoreSendRequestResult
       ; asyncStatus : Windows.Foundation.AsyncStatus

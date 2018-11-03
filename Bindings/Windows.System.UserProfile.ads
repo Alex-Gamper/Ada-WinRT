@@ -126,6 +126,12 @@ package Windows.System.UserProfile is
    type IAdvertisingManagerStatics2_Interface;
    type IAdvertisingManagerStatics2 is access all IAdvertisingManagerStatics2_Interface'Class;
    type IAdvertisingManagerStatics2_Ptr is access all IAdvertisingManagerStatics2;
+   type IAssignedAccessSettings_Interface;
+   type IAssignedAccessSettings is access all IAssignedAccessSettings_Interface'Class;
+   type IAssignedAccessSettings_Ptr is access all IAssignedAccessSettings;
+   type IAssignedAccessSettingsStatics_Interface;
+   type IAssignedAccessSettingsStatics is access all IAssignedAccessSettingsStatics_Interface'Class;
+   type IAssignedAccessSettingsStatics_Ptr is access all IAssignedAccessSettingsStatics;
    type IAsyncOperation_SetAccountPictureResult_Interface;
    type IAsyncOperation_SetAccountPictureResult is access all IAsyncOperation_SetAccountPictureResult_Interface'Class;
    type IAsyncOperation_SetAccountPictureResult_Ptr is access all IAsyncOperation_SetAccountPictureResult;
@@ -226,6 +232,54 @@ package Windows.System.UserProfile is
       This       : access IAdvertisingManagerStatics2_Interface
       ; user : Windows.System.IUser
       ; RetVal : access Windows.System.UserProfile.IAdvertisingManagerForUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAssignedAccessSettings : aliased constant Windows.IID := (465927964, 59761, 22359, (184, 224, 81, 47, 139, 140, 70, 210 ));
+   
+   type IAssignedAccessSettings_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsEnabled
+   (
+      This       : access IAssignedAccessSettings_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsSingleAppKioskMode
+   (
+      This       : access IAssignedAccessSettings_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_User
+   (
+      This       : access IAssignedAccessSettings_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAssignedAccessSettingsStatics : aliased constant Windows.IID := (883432717, 35369, 24307, (167, 190, 97, 142, 106, 195, 189, 1 ));
+   
+   type IAssignedAccessSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDefault
+   (
+      This       : access IAssignedAccessSettingsStatics_Interface
+      ; RetVal : access Windows.System.UserProfile.IAssignedAccessSettings
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetForUser
+   (
+      This       : access IAssignedAccessSettingsStatics_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.System.UserProfile.IAssignedAccessSettings
    )
    return Windows.HRESULT is abstract;
    
@@ -787,6 +841,7 @@ package Windows.System.UserProfile is
    ------------------------------------------------------------------------
    
    subtype AdvertisingManagerForUser is Windows.System.UserProfile.IAdvertisingManagerForUser;
+   subtype AssignedAccessSettings is Windows.System.UserProfile.IAssignedAccessSettings;
    subtype DiagnosticsSettings is Windows.System.UserProfile.IDiagnosticsSettings;
    subtype FirstSignInSettings is Windows.System.UserProfile.IFirstSignInSettings;
    subtype GlobalizationPreferencesForUser is Windows.System.UserProfile.IGlobalizationPreferencesForUser;
@@ -804,6 +859,15 @@ package Windows.System.UserProfile is
       user : Windows.System.IUser
    )
    return Windows.System.UserProfile.IAdvertisingManagerForUser;
+   
+   function GetDefault
+   return Windows.System.UserProfile.IAssignedAccessSettings;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.System.UserProfile.IAssignedAccessSettings;
    
    function GetDefault
    return Windows.System.UserProfile.IDiagnosticsSettings;

@@ -26,6 +26,7 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows; use Windows;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.Storage.Streams;
@@ -129,12 +130,14 @@ package Windows.Storage.Provider is
    type StorageProviderHydrationPolicyModifier is (
       None,
       ValidationRequired,
-      StreamingAllowed
+      StreamingAllowed,
+      AutoDehydrationAllowed
    );
    for StorageProviderHydrationPolicyModifier use (
       None => 0,
       ValidationRequired => 1,
-      StreamingAllowed => 2
+      StreamingAllowed => 2,
+      AutoDehydrationAllowed => 4
    );
    for StorageProviderHydrationPolicyModifier'Size use 32;
    
@@ -333,6 +336,9 @@ package Windows.Storage.Provider is
    type IStorageProviderSyncRootInfo_Interface;
    type IStorageProviderSyncRootInfo is access all IStorageProviderSyncRootInfo_Interface'Class;
    type IStorageProviderSyncRootInfo_Ptr is access all IStorageProviderSyncRootInfo;
+   type IStorageProviderSyncRootInfo2_Interface;
+   type IStorageProviderSyncRootInfo2 is access all IStorageProviderSyncRootInfo2_Interface'Class;
+   type IStorageProviderSyncRootInfo2_Ptr is access all IStorageProviderSyncRootInfo2;
    type IStorageProviderSyncRootManagerStatics_Interface;
    type IStorageProviderSyncRootManagerStatics is access all IStorageProviderSyncRootManagerStatics_Interface'Class;
    type IStorageProviderSyncRootManagerStatics_Ptr is access all IStorageProviderSyncRootManagerStatics;
@@ -969,7 +975,7 @@ package Windows.Storage.Provider is
    function put_Path
    (
       This       : access IStorageProviderSyncRootInfo_Interface
-      ; folder : Windows.Storage.IStorageFolder
+      ; value : Windows.Storage.IStorageFolder
    )
    return Windows.HRESULT is abstract;
    
@@ -1145,6 +1151,26 @@ package Windows.Storage.Provider is
    (
       This       : access IStorageProviderSyncRootInfo_Interface
       ; value : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorageProviderSyncRootInfo2 : aliased constant Windows.IID := (3478237219, 31985, 20838, (189, 186, 239, 217, 95, 82, 158, 49 ));
+   
+   type IStorageProviderSyncRootInfo2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ProviderId
+   (
+      This       : access IStorageProviderSyncRootInfo2_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ProviderId
+   (
+      This       : access IStorageProviderSyncRootInfo2_Interface
+      ; value : Windows.Guid
    )
    return Windows.HRESULT is abstract;
    

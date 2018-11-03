@@ -740,15 +740,24 @@ package Windows.Devices.PointOfService is
    type TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived_Interface;
    type TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived is access all TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived_Interface'Class;
    type TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived_Ptr is access all TypedEventHandler_IClaimedBarcodeScanner_add_ImagePreviewReceived;
+   type TypedEventHandler_IClaimedBarcodeScanner4_add_Closed_Interface;
+   type TypedEventHandler_IClaimedBarcodeScanner4_add_Closed is access all TypedEventHandler_IClaimedBarcodeScanner4_add_Closed_Interface'Class;
+   type TypedEventHandler_IClaimedBarcodeScanner4_add_Closed_Ptr is access all TypedEventHandler_IClaimedBarcodeScanner4_add_Closed;
    type TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested_Interface;
    type TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested is access all TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested_Interface'Class;
    type TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested_Ptr is access all TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested;
+   type TypedEventHandler_IClaimedCashDrawer2_add_Closed_Interface;
+   type TypedEventHandler_IClaimedCashDrawer2_add_Closed is access all TypedEventHandler_IClaimedCashDrawer2_add_Closed_Interface'Class;
+   type TypedEventHandler_IClaimedCashDrawer2_add_Closed_Ptr is access all TypedEventHandler_IClaimedCashDrawer2_add_Closed;
    type TypedEventHandler_IClaimedLineDisplay_add_ReleaseDeviceRequested_Interface;
    type TypedEventHandler_IClaimedLineDisplay_add_ReleaseDeviceRequested is access all TypedEventHandler_IClaimedLineDisplay_add_ReleaseDeviceRequested_Interface'Class;
    type TypedEventHandler_IClaimedLineDisplay_add_ReleaseDeviceRequested_Ptr is access all TypedEventHandler_IClaimedLineDisplay_add_ReleaseDeviceRequested;
    type TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated_Interface;
    type TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated is access all TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated_Interface'Class;
    type TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated_Ptr is access all TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated;
+   type TypedEventHandler_IClaimedLineDisplay3_add_Closed_Interface;
+   type TypedEventHandler_IClaimedLineDisplay3_add_Closed is access all TypedEventHandler_IClaimedLineDisplay3_add_Closed_Interface'Class;
+   type TypedEventHandler_IClaimedLineDisplay3_add_Closed_Ptr is access all TypedEventHandler_IClaimedLineDisplay3_add_Closed;
    type TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived_Interface;
    type TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived is access all TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived_Interface'Class;
    type TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived_Ptr is access all TypedEventHandler_IClaimedMagneticStripeReader_add_AamvaCardDataReceived;
@@ -761,9 +770,15 @@ package Windows.Devices.PointOfService is
    type TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived_Interface;
    type TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived is access all TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived_Interface'Class;
    type TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived_Ptr is access all TypedEventHandler_IClaimedMagneticStripeReader_add_VendorSpecificDataReceived;
+   type TypedEventHandler_IClaimedMagneticStripeReader2_add_Closed_Interface;
+   type TypedEventHandler_IClaimedMagneticStripeReader2_add_Closed is access all TypedEventHandler_IClaimedMagneticStripeReader2_add_Closed_Interface'Class;
+   type TypedEventHandler_IClaimedMagneticStripeReader2_add_Closed_Ptr is access all TypedEventHandler_IClaimedMagneticStripeReader2_add_Closed;
    type TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested_Interface;
    type TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested is access all TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested_Interface'Class;
    type TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested_Ptr is access all TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested;
+   type TypedEventHandler_IClaimedPosPrinter2_add_Closed_Interface;
+   type TypedEventHandler_IClaimedPosPrinter2_add_Closed is access all TypedEventHandler_IClaimedPosPrinter2_add_Closed_Interface'Class;
+   type TypedEventHandler_IClaimedPosPrinter2_add_Closed_Ptr is access all TypedEventHandler_IClaimedPosPrinter2_add_Closed;
    type TypedEventHandler_IMagneticStripeReader_add_StatusUpdated_Interface;
    type TypedEventHandler_IMagneticStripeReader_add_StatusUpdated is access all TypedEventHandler_IMagneticStripeReader_add_StatusUpdated_Interface'Class;
    type TypedEventHandler_IMagneticStripeReader_add_StatusUpdated_Ptr is access all TypedEventHandler_IMagneticStripeReader_add_StatusUpdated;
@@ -829,6 +844,9 @@ package Windows.Devices.PointOfService is
    type IBarcodeScannerCapabilities1_Interface;
    type IBarcodeScannerCapabilities1 is access all IBarcodeScannerCapabilities1_Interface'Class;
    type IBarcodeScannerCapabilities1_Ptr is access all IBarcodeScannerCapabilities1;
+   type IBarcodeScannerCapabilities2_Interface;
+   type IBarcodeScannerCapabilities2 is access all IBarcodeScannerCapabilities2_Interface'Class;
+   type IBarcodeScannerCapabilities2_Ptr is access all IBarcodeScannerCapabilities2;
    type IBarcodeScannerDataReceivedEventArgs_Interface;
    type IBarcodeScannerDataReceivedEventArgs is access all IBarcodeScannerDataReceivedEventArgs_Interface'Class;
    type IBarcodeScannerDataReceivedEventArgs_Ptr is access all IBarcodeScannerDataReceivedEventArgs;
@@ -901,9 +919,21 @@ package Windows.Devices.PointOfService is
    type IClaimedBarcodeScanner3_Interface;
    type IClaimedBarcodeScanner3 is access all IClaimedBarcodeScanner3_Interface'Class;
    type IClaimedBarcodeScanner3_Ptr is access all IClaimedBarcodeScanner3;
+   type IClaimedBarcodeScanner4_Interface;
+   type IClaimedBarcodeScanner4 is access all IClaimedBarcodeScanner4_Interface'Class;
+   type IClaimedBarcodeScanner4_Ptr is access all IClaimedBarcodeScanner4;
+   type IClaimedBarcodeScannerClosedEventArgs_Interface;
+   type IClaimedBarcodeScannerClosedEventArgs is access all IClaimedBarcodeScannerClosedEventArgs_Interface'Class;
+   type IClaimedBarcodeScannerClosedEventArgs_Ptr is access all IClaimedBarcodeScannerClosedEventArgs;
    type IClaimedCashDrawer_Interface;
    type IClaimedCashDrawer is access all IClaimedCashDrawer_Interface'Class;
    type IClaimedCashDrawer_Ptr is access all IClaimedCashDrawer;
+   type IClaimedCashDrawer2_Interface;
+   type IClaimedCashDrawer2 is access all IClaimedCashDrawer2_Interface'Class;
+   type IClaimedCashDrawer2_Ptr is access all IClaimedCashDrawer2;
+   type IClaimedCashDrawerClosedEventArgs_Interface;
+   type IClaimedCashDrawerClosedEventArgs is access all IClaimedCashDrawerClosedEventArgs_Interface'Class;
+   type IClaimedCashDrawerClosedEventArgs_Ptr is access all IClaimedCashDrawerClosedEventArgs;
    type IClaimedJournalPrinter_Interface;
    type IClaimedJournalPrinter is access all IClaimedJournalPrinter_Interface'Class;
    type IClaimedJournalPrinter_Ptr is access all IClaimedJournalPrinter;
@@ -913,15 +943,33 @@ package Windows.Devices.PointOfService is
    type IClaimedLineDisplay2_Interface;
    type IClaimedLineDisplay2 is access all IClaimedLineDisplay2_Interface'Class;
    type IClaimedLineDisplay2_Ptr is access all IClaimedLineDisplay2;
+   type IClaimedLineDisplay3_Interface;
+   type IClaimedLineDisplay3 is access all IClaimedLineDisplay3_Interface'Class;
+   type IClaimedLineDisplay3_Ptr is access all IClaimedLineDisplay3;
+   type IClaimedLineDisplayClosedEventArgs_Interface;
+   type IClaimedLineDisplayClosedEventArgs is access all IClaimedLineDisplayClosedEventArgs_Interface'Class;
+   type IClaimedLineDisplayClosedEventArgs_Ptr is access all IClaimedLineDisplayClosedEventArgs;
    type IClaimedLineDisplayStatics_Interface;
    type IClaimedLineDisplayStatics is access all IClaimedLineDisplayStatics_Interface'Class;
    type IClaimedLineDisplayStatics_Ptr is access all IClaimedLineDisplayStatics;
    type IClaimedMagneticStripeReader_Interface;
    type IClaimedMagneticStripeReader is access all IClaimedMagneticStripeReader_Interface'Class;
    type IClaimedMagneticStripeReader_Ptr is access all IClaimedMagneticStripeReader;
+   type IClaimedMagneticStripeReader2_Interface;
+   type IClaimedMagneticStripeReader2 is access all IClaimedMagneticStripeReader2_Interface'Class;
+   type IClaimedMagneticStripeReader2_Ptr is access all IClaimedMagneticStripeReader2;
+   type IClaimedMagneticStripeReaderClosedEventArgs_Interface;
+   type IClaimedMagneticStripeReaderClosedEventArgs is access all IClaimedMagneticStripeReaderClosedEventArgs_Interface'Class;
+   type IClaimedMagneticStripeReaderClosedEventArgs_Ptr is access all IClaimedMagneticStripeReaderClosedEventArgs;
    type IClaimedPosPrinter_Interface;
    type IClaimedPosPrinter is access all IClaimedPosPrinter_Interface'Class;
    type IClaimedPosPrinter_Ptr is access all IClaimedPosPrinter;
+   type IClaimedPosPrinter2_Interface;
+   type IClaimedPosPrinter2 is access all IClaimedPosPrinter2_Interface'Class;
+   type IClaimedPosPrinter2_Ptr is access all IClaimedPosPrinter2;
+   type IClaimedPosPrinterClosedEventArgs_Interface;
+   type IClaimedPosPrinterClosedEventArgs is access all IClaimedPosPrinterClosedEventArgs_Interface'Class;
+   type IClaimedPosPrinterClosedEventArgs_Ptr is access all IClaimedPosPrinterClosedEventArgs;
    type IClaimedReceiptPrinter_Interface;
    type IClaimedReceiptPrinter is access all IClaimedReceiptPrinter_Interface'Class;
    type IClaimedReceiptPrinter_Ptr is access all IClaimedReceiptPrinter;
@@ -1605,6 +1653,19 @@ package Windows.Devices.PointOfService is
    function get_IsSoftwareTriggerSupported
    (
       This       : access IBarcodeScannerCapabilities1_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBarcodeScannerCapabilities2 : aliased constant Windows.IID := (4061253612, 57761, 20136, (154, 188, 146, 177, 89, 98, 112, 171 ));
+   
+   type IBarcodeScannerCapabilities2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsVideoPreviewSupported
+   (
+      This       : access IBarcodeScannerCapabilities2_Interface
       ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
@@ -3145,6 +3206,33 @@ package Windows.Devices.PointOfService is
    
    ------------------------------------------------------------------------
    
+   IID_IClaimedBarcodeScanner4 : aliased constant Windows.IID := (1565532055, 14186, 16808, (162, 48, 47, 55, 193, 148, 157, 222 ));
+   
+   type IClaimedBarcodeScanner4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_Closed
+   (
+      This       : access IClaimedBarcodeScanner4_Interface
+      ; handler : TypedEventHandler_IClaimedBarcodeScanner4_add_Closed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Closed
+   (
+      This       : access IClaimedBarcodeScanner4_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IClaimedBarcodeScannerClosedEventArgs : aliased constant Windows.IID := (3481097353, 41516, 19557, (169, 1, 136, 215, 125, 131, 57, 84 ));
+   
+   type IClaimedBarcodeScannerClosedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
    IID_IClaimedCashDrawer : aliased constant Windows.IID := (3393165743, 43960, 17089, (138, 132, 92, 102, 81, 47, 90, 117 ));
    
    type IClaimedCashDrawer_Interface is interface and Windows.IInspectable_Interface;
@@ -3235,6 +3323,33 @@ package Windows.Devices.PointOfService is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IClaimedCashDrawer2 : aliased constant Windows.IID := (2629481890, 56898, 19803, (176, 193, 155, 87, 162, 186, 137, 195 ));
+   
+   type IClaimedCashDrawer2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_Closed
+   (
+      This       : access IClaimedCashDrawer2_Interface
+      ; handler : TypedEventHandler_IClaimedCashDrawer2_add_Closed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Closed
+   (
+      This       : access IClaimedCashDrawer2_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IClaimedCashDrawerClosedEventArgs : aliased constant Windows.IID := (3428269875, 16180, 19548, (186, 174, 222, 173, 241, 108, 215, 250 ));
+   
+   type IClaimedCashDrawerClosedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -3472,6 +3587,33 @@ package Windows.Devices.PointOfService is
       ; RetVal : access Windows.Devices.PointOfService.IAsyncOperation_ILineDisplayStoredBitmap -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IClaimedLineDisplay3 : aliased constant Windows.IID := (1680788882, 59860, 20172, (175, 117, 50, 156, 39, 76, 209, 143 ));
+   
+   type IClaimedLineDisplay3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_Closed
+   (
+      This       : access IClaimedLineDisplay3_Interface
+      ; handler : TypedEventHandler_IClaimedLineDisplay3_add_Closed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Closed
+   (
+      This       : access IClaimedLineDisplay3_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IClaimedLineDisplayClosedEventArgs : aliased constant Windows.IID := (4178965348, 54229, 20240, (181, 17, 144, 147, 158, 223, 172, 216 ));
+   
+   type IClaimedLineDisplayClosedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -3751,6 +3893,33 @@ package Windows.Devices.PointOfService is
    
    ------------------------------------------------------------------------
    
+   IID_IClaimedMagneticStripeReader2 : aliased constant Windows.IID := (594522079, 58076, 19837, (156, 120, 6, 13, 242, 191, 41, 40 ));
+   
+   type IClaimedMagneticStripeReader2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_Closed
+   (
+      This       : access IClaimedMagneticStripeReader2_Interface
+      ; handler : TypedEventHandler_IClaimedMagneticStripeReader2_add_Closed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Closed
+   (
+      This       : access IClaimedMagneticStripeReader2_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IClaimedMagneticStripeReaderClosedEventArgs : aliased constant Windows.IID := (346925370, 44493, 19584, (172, 218, 195, 234, 237, 38, 71, 225 ));
+   
+   type IClaimedMagneticStripeReaderClosedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
    IID_IClaimedPosPrinter : aliased constant Windows.IID := (1835322892, 57406, 19220, (163, 142, 194, 140, 52, 184, 99, 83 ));
    
    type IClaimedPosPrinter_Interface is interface and Windows.IInspectable_Interface;
@@ -3890,6 +4059,33 @@ package Windows.Devices.PointOfService is
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IClaimedPosPrinter2 : aliased constant Windows.IID := (1542955989, 20888, 17274, (130, 223, 88, 153, 147, 250, 119, 225 ));
+   
+   type IClaimedPosPrinter2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_Closed
+   (
+      This       : access IClaimedPosPrinter2_Interface
+      ; handler : TypedEventHandler_IClaimedPosPrinter2_add_Closed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Closed
+   (
+      This       : access IClaimedPosPrinter2_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IClaimedPosPrinterClosedEventArgs : aliased constant Windows.IID := (3803685499, 19776, 18205, (146, 237, 99, 55, 91, 24, 199, 136 ));
+   
+   type IClaimedPosPrinterClosedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -6769,6 +6965,19 @@ package Windows.Devices.PointOfService is
    
    ------------------------------------------------------------------------
    
+   IID_TypedEventHandler_IClaimedBarcodeScanner4_add_Closed : aliased constant Windows.IID := (2200643796, 28448, 22232, (169, 171, 129, 143, 187, 146, 44, 120 ));
+   
+   type TypedEventHandler_IClaimedBarcodeScanner4_add_Closed_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedBarcodeScanner ; args : Windows.Devices.PointOfService.IClaimedBarcodeScannerClosedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedBarcodeScanner4_add_Closed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IClaimedBarcodeScanner4_add_Closed_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedBarcodeScanner
+      ; args : Windows.Devices.PointOfService.IClaimedBarcodeScannerClosedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested : aliased constant Windows.IID := (3683149185, 9314, 23681, (136, 12, 6, 17, 44, 167, 0, 18 ));
    
    type TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedCashDrawer ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested'access) with null record;
@@ -6777,6 +6986,19 @@ package Windows.Devices.PointOfService is
       This       : access TypedEventHandler_IClaimedCashDrawer_add_ReleaseDeviceRequested_Interface
       ; sender : Windows.Devices.PointOfService.IClaimedCashDrawer
       ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IClaimedCashDrawer2_add_Closed : aliased constant Windows.IID := (3001377502, 52825, 21230, (150, 252, 220, 179, 119, 62, 135, 131 ));
+   
+   type TypedEventHandler_IClaimedCashDrawer2_add_Closed_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedCashDrawer ; args : Windows.Devices.PointOfService.IClaimedCashDrawerClosedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedCashDrawer2_add_Closed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IClaimedCashDrawer2_add_Closed_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedCashDrawer
+      ; args : Windows.Devices.PointOfService.IClaimedCashDrawerClosedEventArgs
    )
    return Windows.HRESULT;
    
@@ -6803,6 +7025,19 @@ package Windows.Devices.PointOfService is
       This       : access TypedEventHandler_IClaimedLineDisplay2_add_StatusUpdated_Interface
       ; sender : Windows.Devices.PointOfService.IClaimedLineDisplay
       ; args : Windows.Devices.PointOfService.ILineDisplayStatusUpdatedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IClaimedLineDisplay3_add_Closed : aliased constant Windows.IID := (1403740886, 45112, 21089, (169, 52, 204, 32, 111, 23, 86, 230 ));
+   
+   type TypedEventHandler_IClaimedLineDisplay3_add_Closed_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedLineDisplay ; args : Windows.Devices.PointOfService.IClaimedLineDisplayClosedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedLineDisplay3_add_Closed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IClaimedLineDisplay3_add_Closed_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedLineDisplay
+      ; args : Windows.Devices.PointOfService.IClaimedLineDisplayClosedEventArgs
    )
    return Windows.HRESULT;
    
@@ -6860,6 +7095,19 @@ package Windows.Devices.PointOfService is
    
    ------------------------------------------------------------------------
    
+   IID_TypedEventHandler_IClaimedMagneticStripeReader2_add_Closed : aliased constant Windows.IID := (2436038221, 42122, 21880, (142, 118, 158, 192, 58, 98, 249, 74 ));
+   
+   type TypedEventHandler_IClaimedMagneticStripeReader2_add_Closed_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader ; args : Windows.Devices.PointOfService.IClaimedMagneticStripeReaderClosedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedMagneticStripeReader2_add_Closed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IClaimedMagneticStripeReader2_add_Closed_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedMagneticStripeReader
+      ; args : Windows.Devices.PointOfService.IClaimedMagneticStripeReaderClosedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested : aliased constant Windows.IID := (826429295, 53227, 20529, (138, 149, 190, 165, 155, 9, 229, 132 ));
    
    type TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedPosPrinter ; args : Windows.Devices.PointOfService.IPosPrinterReleaseDeviceRequestedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested'access) with null record;
@@ -6868,6 +7116,19 @@ package Windows.Devices.PointOfService is
       This       : access TypedEventHandler_IClaimedPosPrinter_add_ReleaseDeviceRequested_Interface
       ; sender : Windows.Devices.PointOfService.IClaimedPosPrinter
       ; args : Windows.Devices.PointOfService.IPosPrinterReleaseDeviceRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IClaimedPosPrinter2_add_Closed : aliased constant Windows.IID := (1512196017, 33964, 22003, (162, 107, 211, 124, 85, 26, 213, 142 ));
+   
+   type TypedEventHandler_IClaimedPosPrinter2_add_Closed_Interface(Callback : access procedure (sender : Windows.Devices.PointOfService.IClaimedPosPrinter ; args : Windows.Devices.PointOfService.IClaimedPosPrinterClosedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IClaimedPosPrinter2_add_Closed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IClaimedPosPrinter2_add_Closed_Interface
+      ; sender : Windows.Devices.PointOfService.IClaimedPosPrinter
+      ; args : Windows.Devices.PointOfService.IClaimedPosPrinterClosedEventArgs
    )
    return Windows.HRESULT;
    
@@ -6926,11 +7187,16 @@ package Windows.Devices.PointOfService is
    subtype CashDrawerStatus is Windows.Devices.PointOfService.ICashDrawerStatus;
    subtype CashDrawerStatusUpdatedEventArgs is Windows.Devices.PointOfService.ICashDrawerStatusUpdatedEventArgs;
    subtype ClaimedBarcodeScanner is Windows.Devices.PointOfService.IClaimedBarcodeScanner;
+   subtype ClaimedBarcodeScannerClosedEventArgs is Windows.Devices.PointOfService.IClaimedBarcodeScannerClosedEventArgs;
    subtype ClaimedCashDrawer is Windows.Devices.PointOfService.IClaimedCashDrawer;
+   subtype ClaimedCashDrawerClosedEventArgs is Windows.Devices.PointOfService.IClaimedCashDrawerClosedEventArgs;
    subtype ClaimedJournalPrinter is Windows.Devices.PointOfService.IClaimedJournalPrinter;
    subtype ClaimedLineDisplay is Windows.Devices.PointOfService.IClaimedLineDisplay;
+   subtype ClaimedLineDisplayClosedEventArgs is Windows.Devices.PointOfService.IClaimedLineDisplayClosedEventArgs;
    subtype ClaimedMagneticStripeReader is Windows.Devices.PointOfService.IClaimedMagneticStripeReader;
+   subtype ClaimedMagneticStripeReaderClosedEventArgs is Windows.Devices.PointOfService.IClaimedMagneticStripeReaderClosedEventArgs;
    subtype ClaimedPosPrinter is Windows.Devices.PointOfService.IClaimedPosPrinter;
+   subtype ClaimedPosPrinterClosedEventArgs is Windows.Devices.PointOfService.IClaimedPosPrinterClosedEventArgs;
    subtype ClaimedReceiptPrinter is Windows.Devices.PointOfService.IClaimedReceiptPrinter;
    subtype ClaimedSlipPrinter is Windows.Devices.PointOfService.IClaimedSlipPrinter;
    subtype JournalPrinterCapabilities is Windows.Devices.PointOfService.IJournalPrinterCapabilities;

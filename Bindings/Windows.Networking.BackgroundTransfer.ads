@@ -72,11 +72,13 @@ package Windows.Networking.BackgroundTransfer is
    
    type BackgroundTransferPriority is (
       Default,
-      High
+      High,
+      Low
    );
    for BackgroundTransferPriority use (
       Default => 0,
-      High => 1
+      High => 1,
+      Low => 2
    );
    for BackgroundTransferPriority'Size use 32;
    
@@ -125,6 +127,14 @@ package Windows.Networking.BackgroundTransfer is
    
    type BackgroundDownloadProgress_Ptr is access BackgroundDownloadProgress;
    
+   type BackgroundTransferFileRange is record
+      Offset : Windows.UInt64;
+      Length : Windows.UInt64;
+   end record;
+   pragma Convention (C_Pass_By_Copy , BackgroundTransferFileRange);
+   
+   type BackgroundTransferFileRange_Ptr is access BackgroundTransferFileRange;
+   
    type BackgroundUploadProgress is record
       BytesReceived : Windows.UInt64;
       BytesSent : Windows.UInt64;
@@ -137,14 +147,6 @@ package Windows.Networking.BackgroundTransfer is
    pragma Convention (C_Pass_By_Copy , BackgroundUploadProgress);
    
    type BackgroundUploadProgress_Ptr is access BackgroundUploadProgress;
-   
-   type BackgroundTransferFileRange is record
-      Offset : Windows.UInt64;
-      Length : Windows.UInt64;
-   end record;
-   pragma Convention (C_Pass_By_Copy , BackgroundTransferFileRange);
-   
-   type BackgroundTransferFileRange_Ptr is access BackgroundTransferFileRange;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events

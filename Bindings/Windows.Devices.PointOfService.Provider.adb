@@ -27,6 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Devices.PointOfService;
+with Windows.Graphics.Imaging;
+with Windows.Storage.Streams;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Devices.PointOfService.Provider is
@@ -34,6 +36,45 @@ package body Windows.Devices.PointOfService.Provider is
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IBarcodeScannerFrameReader_Interface
+      ; asyncInfo : Windows.Devices.PointOfService.Provider.IAsyncOperation_IBarcodeScannerFrameReader
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IBarcodeScannerVideoFrame_Interface
+      ; asyncInfo : Windows.Devices.PointOfService.Provider.IAsyncOperation_IBarcodeScannerVideoFrame
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IBarcodeScannerFrameReader_add_FrameArrived_Interface
+      ; sender : Windows.Devices.PointOfService.Provider.IBarcodeScannerFrameReader
+      ; args : Windows.Devices.PointOfService.Provider.IBarcodeScannerFrameReaderFrameArrivedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.PointOfService.Provider.IBarcodeScannerFrameReader(sender), Windows.Devices.PointOfService.Provider.IBarcodeScannerFrameReaderFrameArrivedEventArgs(args));
+      return Hr;
+   end;
    
    function Invoke
    (

@@ -93,6 +93,19 @@ package body Windows.ApplicationModel is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IPackageUpdateAvailabilityResult_Interface
+      ; asyncInfo : Windows.ApplicationModel.IAsyncOperation_IPackageUpdateAvailabilityResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_IStartupTask_Interface
       ; asyncInfo : Windows.ApplicationModel.IAsyncOperation_IStartupTask
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -453,6 +466,28 @@ package body Windows.ApplicationModel is
       Hr := RoGetActivationFactory(m_hString, IID_IFullTrustProcessLauncherStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.LaunchFullTrustProcessForCurrentAppWithParametersAsync(parameterGroupId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryUnlockFeature
+   (
+      featureId : Windows.String
+      ; token : Windows.String
+      ; attestation : Windows.String
+   )
+   return Windows.ApplicationModel.ILimitedAccessFeatureRequestResult is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.LimitedAccessFeatures");
+      m_Factory     : ILimitedAccessFeaturesStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.ILimitedAccessFeatureRequestResult;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILimitedAccessFeaturesStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryUnlockFeature(featureId, token, attestation, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

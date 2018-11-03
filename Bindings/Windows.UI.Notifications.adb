@@ -52,8 +52,8 @@ package body Windows.UI.Notifications is
    
    function Invoke
    (
-      This       : access AsyncOperationCompletedHandler_IToastNotificationHistory_Interface
-      ; asyncInfo : Windows.UI.Notifications.IAsyncOperation_IToastNotificationHistory
+      This       : access AsyncOperationCompletedHandler_IToastNotificationHistory2_Interface
+      ; asyncInfo : Windows.UI.Notifications.IAsyncOperation_IToastNotificationHistory2
       ; asyncStatus : Windows.Foundation.AsyncStatus
    )
    return Windows.HRESULT is
@@ -112,6 +112,19 @@ package body Windows.UI.Notifications is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Notifications.IToastNotification(sender), Windows.UI.Notifications.IToastFailedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IToastNotifier3_add_ScheduledToastNotificationShowing_Interface
+      ; sender : Windows.UI.Notifications.IToastNotifier
+      ; args : Windows.UI.Notifications.IScheduledToastNotificationShowingEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Notifications.IToastNotifier(sender), Windows.UI.Notifications.IScheduledToastNotificationShowingEventArgs(args));
       return Hr;
    end;
    
@@ -1158,12 +1171,12 @@ package body Windows.UI.Notifications is
    end;
    
    function get_History
-   return Windows.UI.Notifications.IToastNotificationHistory is
+   return Windows.UI.Notifications.IToastNotificationHistory2 is
       Hr            : Windows.HRESULT := S_OK;
       m_hString     : Windows.String := To_String("Windows.UI.Notifications.ToastNotificationManager");
       m_Factory     : IToastNotificationManagerStatics2 := null;
       RefCount      : Windows.UInt32 := 0;
-      RetVal        : aliased Windows.UI.Notifications.IToastNotificationHistory;
+      RetVal        : aliased Windows.UI.Notifications.IToastNotificationHistory2;
    begin
       Hr := RoGetActivationFactory(m_hString, IID_IToastNotificationManagerStatics2'Access , m_Factory'Address);
       if Hr = 0 then

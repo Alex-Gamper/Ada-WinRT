@@ -34,33 +34,6 @@ package Windows.Foundation.Numerics is
    -- Record types
    ------------------------------------------------------------------------
    
-   type Vector2 is record
-      X : Windows.Single;
-      Y : Windows.Single;
-   end record;
-   pragma Convention (C_Pass_By_Copy , Vector2);
-   
-   type Vector2_Ptr is access Vector2;
-   
-   type Vector3 is record
-      X : Windows.Single;
-      Y : Windows.Single;
-      Z : Windows.Single;
-   end record;
-   pragma Convention (C_Pass_By_Copy , Vector3);
-   
-   type Vector3_Ptr is access Vector3;
-   
-   type Vector4 is record
-      X : Windows.Single;
-      Y : Windows.Single;
-      Z : Windows.Single;
-      W : Windows.Single;
-   end record;
-   pragma Convention (C_Pass_By_Copy , Vector4);
-   
-   type Vector4_Ptr is access Vector4;
-   
    type Matrix3x2 is record
       M11 : Windows.Single;
       M12 : Windows.Single;
@@ -95,6 +68,15 @@ package Windows.Foundation.Numerics is
    
    type Matrix4x4_Ptr is access Matrix4x4;
    
+   type Vector3 is record
+      X : Windows.Single;
+      Y : Windows.Single;
+      Z : Windows.Single;
+   end record;
+   pragma Convention (C_Pass_By_Copy , Vector3);
+   
+   type Vector3_Ptr is access Vector3;
+   
    type Plane is record
       Normal : Windows.Foundation.Numerics.Vector3;
       D : Windows.Single;
@@ -120,6 +102,24 @@ package Windows.Foundation.Numerics is
    pragma Convention (C_Pass_By_Copy , Rational);
    
    type Rational_Ptr is access Rational;
+   
+   type Vector2 is record
+      X : Windows.Single;
+      Y : Windows.Single;
+   end record;
+   pragma Convention (C_Pass_By_Copy , Vector2);
+   
+   type Vector2_Ptr is access Vector2;
+   
+   type Vector4 is record
+      X : Windows.Single;
+      Y : Windows.Single;
+      Z : Windows.Single;
+      W : Windows.Single;
+   end record;
+   pragma Convention (C_Pass_By_Copy , Vector4);
+   
+   type Vector4_Ptr is access Vector4;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
