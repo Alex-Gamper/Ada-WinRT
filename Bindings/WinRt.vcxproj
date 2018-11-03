@@ -22,6 +22,7 @@
     <AdaCompile Include="Windows.adb" />
     <AdaCompile Include="Windows.ads" />
     <AdaCompile Include="Windows.AI.ads" />
+    <AdaCompile Include="Windows.AI.MachineLearning.adb" />
     <AdaCompile Include="Windows.AI.MachineLearning.ads" />
     <AdaCompile Include="Windows.AI.MachineLearning.Preview.adb" />
     <AdaCompile Include="Windows.AI.MachineLearning.Preview.ads" />
@@ -163,6 +164,8 @@
     <AdaCompile Include="Windows.Devices.Custom.ads" />
     <AdaCompile Include="Windows.Devices.Display.adb" />
     <AdaCompile Include="Windows.Devices.Display.ads" />
+    <AdaCompile Include="Windows.Devices.Display.Core.adb" />
+    <AdaCompile Include="Windows.Devices.Display.Core.ads" />
     <AdaCompile Include="Windows.Devices.Enumeration.adb" />
     <AdaCompile Include="Windows.Devices.Enumeration.ads" />
     <AdaCompile Include="Windows.Devices.Enumeration.Pnp.adb" />
@@ -188,6 +191,8 @@
     <AdaCompile Include="Windows.Devices.Input.Preview.ads" />
     <AdaCompile Include="Windows.Devices.Lights.adb" />
     <AdaCompile Include="Windows.Devices.Lights.ads" />
+    <AdaCompile Include="Windows.Devices.Lights.Effects.adb" />
+    <AdaCompile Include="Windows.Devices.Lights.Effects.ads" />
     <AdaCompile Include="Windows.Devices.Midi.adb" />
     <AdaCompile Include="Windows.Devices.Midi.ads" />
     <AdaCompile Include="Windows.Devices.Perception.adb" />
@@ -334,6 +339,8 @@
     <AdaCompile Include="Windows.Media.ClosedCaptioning.ads" />
     <AdaCompile Include="Windows.Media.ContentRestrictions.adb" />
     <AdaCompile Include="Windows.Media.ContentRestrictions.ads" />
+    <AdaCompile Include="Windows.Media.Control.adb" />
+    <AdaCompile Include="Windows.Media.Control.ads" />
     <AdaCompile Include="Windows.Media.Core.adb" />
     <AdaCompile Include="Windows.Media.Core.ads" />
     <AdaCompile Include="Windows.Media.Core.Preview.adb" />
@@ -405,6 +412,8 @@
     <AdaCompile Include="Windows.Perception.People.ads" />
     <AdaCompile Include="Windows.Perception.Spatial.adb" />
     <AdaCompile Include="Windows.Perception.Spatial.ads" />
+    <AdaCompile Include="Windows.Perception.Spatial.Preview.adb" />
+    <AdaCompile Include="Windows.Perception.Spatial.Preview.ads" />
     <AdaCompile Include="Windows.Perception.Spatial.Surfaces.adb" />
     <AdaCompile Include="Windows.Perception.Spatial.Surfaces.ads" />
     <AdaCompile Include="Windows.Security.ads" />
@@ -492,6 +501,8 @@
     <AdaCompile Include="Windows.System.Power.ads" />
     <AdaCompile Include="Windows.System.Power.Diagnostics.adb" />
     <AdaCompile Include="Windows.System.Power.Diagnostics.ads" />
+    <AdaCompile Include="Windows.System.Preview.adb" />
+    <AdaCompile Include="Windows.System.Preview.ads" />
     <AdaCompile Include="Windows.System.Profile.adb" />
     <AdaCompile Include="Windows.System.Profile.ads" />
     <AdaCompile Include="Windows.System.Profile.SystemManufacturers.adb" />
@@ -504,8 +515,12 @@
     <AdaCompile Include="Windows.System.Threading.ads" />
     <AdaCompile Include="Windows.System.Threading.Core.adb" />
     <AdaCompile Include="Windows.System.Threading.Core.ads" />
+    <AdaCompile Include="Windows.System.Update.adb" />
+    <AdaCompile Include="Windows.System.Update.ads" />
     <AdaCompile Include="Windows.System.UserProfile.adb" />
     <AdaCompile Include="Windows.System.UserProfile.ads" />
+    <AdaCompile Include="Windows.UI.Accessibility.adb" />
+    <AdaCompile Include="Windows.UI.Accessibility.ads" />
     <AdaCompile Include="Windows.UI.adb" />
     <AdaCompile Include="Windows.UI.ads" />
     <AdaCompile Include="Windows.UI.ApplicationSettings.adb" />
@@ -537,6 +552,8 @@
     <AdaCompile Include="Windows.UI.Input.Inking.Analysis.ads" />
     <AdaCompile Include="Windows.UI.Input.Inking.Core.adb" />
     <AdaCompile Include="Windows.UI.Input.Inking.Core.ads" />
+    <AdaCompile Include="Windows.UI.Input.Inking.Preview.adb" />
+    <AdaCompile Include="Windows.UI.Input.Inking.Preview.ads" />
     <AdaCompile Include="Windows.Ui.Input.Preview.ads" />
     <AdaCompile Include="Windows.UI.Input.Preview.Injection.adb" />
     <AdaCompile Include="Windows.UI.Input.Preview.Injection.ads" />
@@ -578,6 +595,9 @@
     <AdaCompile Include="Windows.UI.Xaml.Controls.Maps.ads" />
     <AdaCompile Include="Windows.UI.Xaml.Controls.Primitives.adb" />
     <AdaCompile Include="Windows.UI.Xaml.Controls.Primitives.ads" />
+    <AdaCompile Include="Windows.UI.Xaml.Core.ads" />
+    <AdaCompile Include="Windows.UI.Xaml.Core.Direct.adb" />
+    <AdaCompile Include="Windows.UI.Xaml.Core.Direct.ads" />
     <AdaCompile Include="Windows.UI.Xaml.Data.adb" />
     <AdaCompile Include="Windows.UI.Xaml.Data.ads" />
     <AdaCompile Include="Windows.UI.Xaml.Documents.adb" />
