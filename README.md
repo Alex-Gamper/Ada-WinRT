@@ -15,8 +15,6 @@ You will need a working gcc/gnat **x64** Windows build environment. This release
 tested against 32 bit environments. You may need to build gcc/gnat **x64** from source if required.
 Details/scripts on how to do this can be found on the mingw64 website, alternatively install using MSYS2
 
-#### Alternatively you can use the Linux shell scripts in Ada-Mingw64 repository to build a native toolchain on Linux
-
 ### Build instructions
 
 From a command prompt that has your gcc/gnat x64 distribution/build environments bin directory in its path,
