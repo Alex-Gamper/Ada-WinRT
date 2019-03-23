@@ -1,4 +1,4 @@
-with "WinRT.gpr";
+with "WinRT_debug_x64.gpr";
 project Network is
 
    for Main use ("Network");
