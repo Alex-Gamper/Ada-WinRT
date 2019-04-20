@@ -85,7 +85,7 @@ project WinRt is
       end case;
    end Clean;
 
-   Base_Installation_Dir := "C:\msys64\mingw64\lib\gcc\x86_64-w64-mingw32\8.3.0";
+   Base_Installation_Dir := "C:\msys64\mingw64\lib\gcc\x86_64-w64-mingw32\9.0.1";
    Default_Prefix        := Base_Installation_Dir & "\rts-Winrt_Runtime";
    Install_Prefix        := external ("PREFIX", Default_Prefix);
 
