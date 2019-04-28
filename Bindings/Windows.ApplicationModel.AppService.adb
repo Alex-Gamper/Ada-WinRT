@@ -78,6 +78,19 @@ package body Windows.ApplicationModel.AppService is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IStatelessAppServiceResponse_Interface
+      ; asyncInfo : Windows.ApplicationModel.AppService.IAsyncOperation_IStatelessAppServiceResponse
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IAppServiceConnection_add_RequestReceived_Interface
       ; sender : Windows.ApplicationModel.AppService.IAppServiceConnection
       ; args : Windows.ApplicationModel.AppService.IAppServiceRequestReceivedEventArgs
@@ -145,6 +158,28 @@ package body Windows.ApplicationModel.AppService is
       Hr := RoGetActivationFactory(m_hString, IID_IAppServiceCatalogStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FindAppServiceProvidersAsync(appServiceName, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function SendStatelessMessageAsync
+   (
+      connection : Windows.ApplicationModel.AppService.IAppServiceConnection
+      ; connectionRequest : Windows.System.RemoteSystems.IRemoteSystemConnectionRequest
+      ; message : Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.ApplicationModel.AppService.IAsyncOperation_IStatelessAppServiceResponse is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.AppService.AppServiceConnection");
+      m_Factory     : IAppServiceConnectionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.AppService.IAsyncOperation_IStatelessAppServiceResponse;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppServiceConnectionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SendStatelessMessageAsync(connection, connectionRequest, message, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

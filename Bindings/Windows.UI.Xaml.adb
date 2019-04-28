@@ -444,6 +444,19 @@ package body Windows.UI.Xaml is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IXamlRoot_add_Changed_Interface
+      ; sender : Windows.UI.Xaml.IXamlRoot
+      ; args : Windows.UI.Xaml.IXamlRootChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Xaml.IXamlRoot(sender), Windows.UI.Xaml.IXamlRootChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access UnhandledExceptionEventHandler_Interface
       ; sender : Windows.Object
       ; e : Windows.UI.Xaml.IUnhandledExceptionEventArgs
@@ -4519,6 +4532,98 @@ package body Windows.UI.Xaml is
    ------------------------------------------------------------------------
    function QueryInterface
    (
+      This       : access IUIElementWeakCollection_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_IUIElementWeakCollection or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access IUIElementWeakCollection_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access IUIElementWeakCollection_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access IUIElementWeakCollection_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IUIElementWeakCollection_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.IUIElementWeakCollection");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access IUIElementWeakCollection_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
       This       : access IVector3Transition_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
       pvObject   : not null access IUnknown
@@ -7849,6 +7954,23 @@ package body Windows.UI.Xaml is
       return RetVal;
    end;
    
+   function get_ShadowProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.UIElement");
+      m_Factory     : IUIElementStatics10 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUIElementStatics10'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ShadowProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_CompositeModeProperty
    return Windows.UI.Xaml.IDependencyProperty is
       Hr            : Windows.HRESULT := S_OK;
@@ -8408,6 +8530,27 @@ package body Windows.UI.Xaml is
       Hr := RoGetActivationFactory(m_hString, IID_IUIElementStatics9'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_CanBeScrollAnchorProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.IUIElementWeakCollection is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.UIElementWeakCollection");
+      m_Factory     : IUIElementWeakCollectionFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IUIElementWeakCollection;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUIElementWeakCollectionFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

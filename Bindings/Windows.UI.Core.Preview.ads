@@ -27,6 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
+limited with Windows.UI.WindowManagement;
+--------------------------------------------------------------------------------
 package Windows.UI.Core.Preview is
 
    pragma preelaborate;
@@ -43,6 +45,12 @@ package Windows.UI.Core.Preview is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type ICoreAppWindowPreview_Interface;
+   type ICoreAppWindowPreview is access all ICoreAppWindowPreview_Interface'Class;
+   type ICoreAppWindowPreview_Ptr is access all ICoreAppWindowPreview;
+   type ICoreAppWindowPreviewStatics_Interface;
+   type ICoreAppWindowPreviewStatics is access all ICoreAppWindowPreviewStatics_Interface'Class;
+   type ICoreAppWindowPreviewStatics_Ptr is access all ICoreAppWindowPreviewStatics;
    type ISystemNavigationCloseRequestedPreviewEventArgs_Interface;
    type ISystemNavigationCloseRequestedPreviewEventArgs is access all ISystemNavigationCloseRequestedPreviewEventArgs_Interface'Class;
    type ISystemNavigationCloseRequestedPreviewEventArgs_Ptr is access all ISystemNavigationCloseRequestedPreviewEventArgs;
@@ -56,6 +64,26 @@ package Windows.UI.Core.Preview is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreAppWindowPreview : aliased constant Windows.IID := (2767644261, 13918, 24542, (135, 165, 149, 67, 195, 161, 90, 168 ));
+   
+   type ICoreAppWindowPreview_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreAppWindowPreviewStatics : aliased constant Windows.IID := (866918846, 16955, 23990, (138, 142, 77, 200, 115, 83, 183, 91 ));
+   
+   type ICoreAppWindowPreviewStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetIdFromWindow
+   (
+      This       : access ICoreAppWindowPreviewStatics_Interface
+      ; window : Windows.UI.WindowManagement.IAppWindow
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -139,12 +167,19 @@ package Windows.UI.Core.Preview is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype CoreAppWindowPreview is Windows.UI.Core.Preview.ICoreAppWindowPreview;
    subtype SystemNavigationCloseRequestedPreviewEventArgs is Windows.UI.Core.Preview.ISystemNavigationCloseRequestedPreviewEventArgs;
    subtype SystemNavigationManagerPreview is Windows.UI.Core.Preview.ISystemNavigationManagerPreview;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetIdFromWindow
+   (
+      window : Windows.UI.WindowManagement.IAppWindow
+   )
+   return Windows.Int32;
    
    function GetForCurrentView
    return Windows.UI.Core.Preview.ISystemNavigationManagerPreview;

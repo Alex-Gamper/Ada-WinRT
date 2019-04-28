@@ -27,6 +27,7 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.UI.Composition;
+with Windows.UI.WindowManagement;
 with Windows.UI.Xaml;
 with Windows.UI.Xaml.Controls;
 with Windows.UI.Xaml.Controls.Primitives;
@@ -560,6 +561,45 @@ package body Windows.UI.Xaml.Hosting is
       Hr := RoGetActivationFactory(m_hString, IID_IElementCompositionPreviewStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.SetIsTranslationEnabled(element, value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function GetAppWindowContent
+   (
+      appWindow : Windows.UI.WindowManagement.IAppWindow
+   )
+   return Windows.UI.Xaml.IUIElement is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Hosting.ElementCompositionPreview");
+      m_Factory     : IElementCompositionPreviewStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IUIElement;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IElementCompositionPreviewStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetAppWindowContent(appWindow, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetAppWindowContent
+   (
+      appWindow : Windows.UI.WindowManagement.IAppWindow
+      ; xamlContent : Windows.UI.Xaml.IUIElement
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Hosting.ElementCompositionPreview");
+      m_Factory     : IElementCompositionPreviewStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IElementCompositionPreviewStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetAppWindowContent(appWindow, xamlContent);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

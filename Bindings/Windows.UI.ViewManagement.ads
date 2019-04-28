@@ -28,8 +28,10 @@
 --------------------------------------------------------------------------------
 limited with Windows.Devices.Enumeration;
 with Windows.Foundation;
+with Windows.Foundation.Collections;
 limited with Windows.UI.Core;
 limited with Windows.UI.Popups;
+limited with Windows.UI.WindowManagement;
 --------------------------------------------------------------------------------
 package Windows.UI.ViewManagement is
 
@@ -312,6 +314,9 @@ package Windows.UI.ViewManagement is
    type TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged_Interface;
    type TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged is access all TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged_Interface'Class;
    type TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged_Ptr is access all TypedEventHandler_IUISettings4_add_AdvancedEffectsEnabledChanged;
+   type TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged_Interface;
+   type TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged is access all TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged_Interface'Class;
+   type TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged_Ptr is access all TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -335,6 +340,12 @@ package Windows.UI.ViewManagement is
    type IApplicationView4_Interface;
    type IApplicationView4 is access all IApplicationView4_Interface'Class;
    type IApplicationView4_Ptr is access all IApplicationView4;
+   type IApplicationView7_Interface;
+   type IApplicationView7 is access all IApplicationView7_Interface'Class;
+   type IApplicationView7_Ptr is access all IApplicationView7;
+   type IApplicationView9_Interface;
+   type IApplicationView9 is access all IApplicationView9_Interface'Class;
+   type IApplicationView9_Ptr is access all IApplicationView9;
    type IApplicationViewConsolidatedEventArgs_Interface;
    type IApplicationViewConsolidatedEventArgs is access all IApplicationViewConsolidatedEventArgs_Interface'Class;
    type IApplicationViewConsolidatedEventArgs_Ptr is access all IApplicationViewConsolidatedEventArgs;
@@ -362,6 +373,9 @@ package Windows.UI.ViewManagement is
    type IApplicationViewStatics3_Interface;
    type IApplicationViewStatics3 is access all IApplicationViewStatics3_Interface'Class;
    type IApplicationViewStatics3_Ptr is access all IApplicationViewStatics3;
+   type IApplicationViewStatics4_Interface;
+   type IApplicationViewStatics4 is access all IApplicationViewStatics4_Interface'Class;
+   type IApplicationViewStatics4_Ptr is access all IApplicationViewStatics4;
    type IApplicationViewSwitcherStatics_Interface;
    type IApplicationViewSwitcherStatics is access all IApplicationViewSwitcherStatics_Interface'Class;
    type IApplicationViewSwitcherStatics_Ptr is access all IApplicationViewSwitcherStatics;
@@ -380,6 +394,9 @@ package Windows.UI.ViewManagement is
    type IApplicationViewTransferContextStatics_Interface;
    type IApplicationViewTransferContextStatics is access all IApplicationViewTransferContextStatics_Interface'Class;
    type IApplicationViewTransferContextStatics_Ptr is access all IApplicationViewTransferContextStatics;
+   type IApplicationViewWithContext_Interface;
+   type IApplicationViewWithContext is access all IApplicationViewWithContext_Interface'Class;
+   type IApplicationViewWithContext_Ptr is access all IApplicationViewWithContext;
    type IInputPane_Interface;
    type IInputPane is access all IInputPane_Interface'Class;
    type IInputPane_Ptr is access all IInputPane;
@@ -392,6 +409,9 @@ package Windows.UI.ViewManagement is
    type IInputPaneStatics_Interface;
    type IInputPaneStatics is access all IInputPaneStatics_Interface'Class;
    type IInputPaneStatics_Ptr is access all IInputPaneStatics;
+   type IInputPaneStatics2_Interface;
+   type IInputPaneStatics2 is access all IInputPaneStatics2_Interface'Class;
+   type IInputPaneStatics2_Ptr is access all IInputPaneStatics2;
    type IInputPaneVisibilityEventArgs_Interface;
    type IInputPaneVisibilityEventArgs is access all IInputPaneVisibilityEventArgs_Interface'Class;
    type IInputPaneVisibilityEventArgs_Ptr is access all IInputPaneVisibilityEventArgs;
@@ -425,6 +445,12 @@ package Windows.UI.ViewManagement is
    type IUISettings4_Interface;
    type IUISettings4 is access all IUISettings4_Interface'Class;
    type IUISettings4_Ptr is access all IUISettings4;
+   type IUISettings5_Interface;
+   type IUISettings5 is access all IUISettings5_Interface'Class;
+   type IUISettings5_Ptr is access all IUISettings5;
+   type IUISettingsAutoHideScrollBarsChangedEventArgs_Interface;
+   type IUISettingsAutoHideScrollBarsChangedEventArgs is access all IUISettingsAutoHideScrollBarsChangedEventArgs_Interface'Class;
+   type IUISettingsAutoHideScrollBarsChangedEventArgs_Ptr is access all IUISettingsAutoHideScrollBarsChangedEventArgs;
    type IUIViewSettings_Interface;
    type IUIViewSettings is access all IUIViewSettings_Interface'Class;
    type IUIViewSettings_Ptr is access all IUIViewSettings;
@@ -771,6 +797,46 @@ package Windows.UI.ViewManagement is
    
    ------------------------------------------------------------------------
    
+   IID_IApplicationView7 : aliased constant Windows.IID := (2687931975, 24495, 23206, (156, 56, 190, 251, 177, 42, 7, 30 ));
+   
+   type IApplicationView7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PersistedStateId
+   (
+      This       : access IApplicationView7_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PersistedStateId
+   (
+      This       : access IApplicationView7_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IApplicationView9 : aliased constant Windows.IID := (2623870713, 538, 24321, (147, 229, 155, 218, 210, 100, 117, 116 ));
+   
+   type IApplicationView9_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_WindowingEnvironment
+   (
+      This       : access IApplicationView9_Interface
+      ; RetVal : access Windows.UI.WindowManagement.IWindowingEnvironment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDisplayRegions
+   (
+      This       : access IApplicationView9_Interface
+      ; RetVal : access Windows.UI.WindowManagement.IVectorView_IDisplayRegion -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IApplicationViewConsolidatedEventArgs : aliased constant Windows.IID := (1363429868, 32418, 19943, (166, 166, 125, 251, 170, 235, 182, 251 ));
    
    type IApplicationViewConsolidatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -927,6 +993,25 @@ package Windows.UI.ViewManagement is
    (
       This       : access IApplicationViewStatics3_Interface
       ; value : Windows.Foundation.Size
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IApplicationViewStatics4 : aliased constant Windows.IID := (150834483, 9745, 21302, (163, 21, 217, 142, 99, 102, 201, 219 ));
+   
+   type IApplicationViewStatics4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ClearAllPersistedState
+   (
+      This       : access IApplicationViewStatics4_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ClearPersistedState
+   (
+      This       : access IApplicationViewStatics4_Interface
+      ; key : Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -1253,6 +1338,19 @@ package Windows.UI.ViewManagement is
    
    ------------------------------------------------------------------------
    
+   IID_IApplicationViewWithContext : aliased constant Windows.IID := (3176518930, 40385, 17660, (133, 1, 102, 102, 37, 223, 96, 220 ));
+   
+   type IApplicationViewWithContext_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_UIContext
+   (
+      This       : access IApplicationViewWithContext_Interface
+      ; RetVal : access Windows.UI.IUIContext
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IInputPane : aliased constant Windows.IID := (1678432880, 1779, 19591, (166, 120, 152, 41, 201, 18, 124, 40 ));
    
    type IInputPane_Interface is interface and Windows.IInspectable_Interface;
@@ -1343,6 +1441,20 @@ package Windows.UI.ViewManagement is
    function GetForCurrentView
    (
       This       : access IInputPaneStatics_Interface
+      ; RetVal : access Windows.UI.ViewManagement.IInputPane
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInputPaneStatics2 : aliased constant Windows.IID := (459494043, 55788, 17713, (132, 69, 113, 186, 185, 251, 130, 142 ));
+   
+   type IInputPaneStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetForUIContext
+   (
+      This       : access IInputPaneStatics2_Interface
+      ; context : Windows.UI.IUIContext
       ; RetVal : access Windows.UI.ViewManagement.IInputPane
    )
    return Windows.HRESULT is abstract;
@@ -1838,6 +1950,40 @@ package Windows.UI.ViewManagement is
    
    ------------------------------------------------------------------------
    
+   IID_IUISettings5 : aliased constant Windows.IID := (1397347720, 3253, 24325, (189, 52, 112, 107, 50, 49, 240, 189 ));
+   
+   type IUISettings5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AutoHideScrollBars
+   (
+      This       : access IUISettings5_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_AutoHideScrollBarsChanged
+   (
+      This       : access IUISettings5_Interface
+      ; handler : TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_AutoHideScrollBarsChanged
+   (
+      This       : access IUISettings5_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUISettingsAutoHideScrollBarsChangedEventArgs : aliased constant Windows.IID := (2276447410, 37190, 24322, (143, 107, 6, 212, 84, 23, 76, 15 ));
+   
+   type IUISettingsAutoHideScrollBarsChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
    IID_IUIViewSettings : aliased constant Windows.IID := (3325450230, 34896, 18189, (136, 248, 69, 94, 22, 234, 44, 38 ));
    
    type IUIViewSettings_Interface is interface and Windows.IInspectable_Interface;
@@ -2045,6 +2191,19 @@ package Windows.UI.ViewManagement is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged : aliased constant Windows.IID := (2156588848, 9824, 20912, (156, 17, 247, 93, 212, 32, 6, 180 ));
+   
+   type TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IUISettings ; args : Windows.UI.ViewManagement.IUISettingsAutoHideScrollBarsChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged_Interface
+      ; sender : Windows.UI.ViewManagement.IUISettings
+      ; args : Windows.UI.ViewManagement.IUISettingsAutoHideScrollBarsChangedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -2066,6 +2225,7 @@ package Windows.UI.ViewManagement is
    subtype UISettings is Windows.UI.ViewManagement.IUISettings;
    function Create return Windows.UI.ViewManagement.IUISettings;
    
+   subtype UISettingsAutoHideScrollBarsChangedEventArgs is Windows.UI.ViewManagement.IUISettingsAutoHideScrollBarsChangedEventArgs;
    subtype UIViewSettings is Windows.UI.ViewManagement.IUIViewSettings;
    subtype ViewModePreferences is Windows.UI.ViewManagement.IViewModePreferences;
    
@@ -2115,6 +2275,15 @@ package Windows.UI.ViewManagement is
    procedure put_PreferredLaunchWindowingMode
    (
       value : Windows.UI.ViewManagement.ApplicationViewWindowingMode
+   )
+   ;
+   
+   procedure ClearAllPersistedState
+   ;
+   
+   procedure ClearPersistedState
+   (
+      key : Windows.String
    )
    ;
    
@@ -2203,6 +2372,12 @@ package Windows.UI.ViewManagement is
    return Windows.String;
    
    function GetForCurrentView
+   return Windows.UI.ViewManagement.IInputPane;
+   
+   function GetForUIContext
+   (
+      context : Windows.UI.IUIContext
+   )
    return Windows.UI.ViewManagement.IInputPane;
    
    function add_ProjectionDisplayAvailableChanged

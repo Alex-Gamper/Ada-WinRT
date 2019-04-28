@@ -5060,6 +5060,23 @@ package body Windows.UI.Xaml.Controls.Primitives is
       return RetVal;
    end;
    
+   function get_ShouldConstrainToRootBoundsProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.FlyoutBase");
+      m_Factory     : IFlyoutBaseStatics6 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFlyoutBaseStatics6'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ShouldConstrainToRootBoundsProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateInstance
    (
       baseInterface : Windows.Object
@@ -6558,6 +6575,23 @@ package body Windows.UI.Xaml.Controls.Primitives is
       Hr := RoGetActivationFactory(m_hString, IID_IPopupStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_LightDismissOverlayModeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ShouldConstrainToRootBoundsProperty_IPopup
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.Primitives.Popup");
+      m_Factory     : IPopupStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPopupStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ShouldConstrainToRootBoundsProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -95,6 +95,18 @@ package Windows.Graphics.Holographic is
    
    type HolographicSpaceUserPresence_Ptr is access HolographicSpaceUserPresence;
    
+   type HolographicViewConfigurationKind is (
+      Display,
+      PhotoVideoCamera
+   );
+   for HolographicViewConfigurationKind use (
+      Display => 0,
+      PhotoVideoCamera => 1
+   );
+   for HolographicViewConfigurationKind'Size use 32;
+   
+   type HolographicViewConfigurationKind_Ptr is access HolographicViewConfigurationKind;
+   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -148,6 +160,9 @@ package Windows.Graphics.Holographic is
    type IHolographicCamera5_Interface;
    type IHolographicCamera5 is access all IHolographicCamera5_Interface'Class;
    type IHolographicCamera5_Ptr is access all IHolographicCamera5;
+   type IHolographicCamera6_Interface;
+   type IHolographicCamera6 is access all IHolographicCamera6_Interface'Class;
+   type IHolographicCamera6_Ptr is access all IHolographicCamera6;
    type IHolographicCameraPose_Interface;
    type IHolographicCameraPose is access all IHolographicCameraPose_Interface'Class;
    type IHolographicCameraPose_Ptr is access all IHolographicCameraPose;
@@ -172,6 +187,9 @@ package Windows.Graphics.Holographic is
    type IHolographicDisplay2_Interface;
    type IHolographicDisplay2 is access all IHolographicDisplay2_Interface'Class;
    type IHolographicDisplay2_Ptr is access all IHolographicDisplay2;
+   type IHolographicDisplay3_Interface;
+   type IHolographicDisplay3 is access all IHolographicDisplay3_Interface'Class;
+   type IHolographicDisplay3_Ptr is access all IHolographicDisplay3;
    type IHolographicDisplayStatics_Interface;
    type IHolographicDisplayStatics is access all IHolographicDisplayStatics_Interface'Class;
    type IHolographicDisplayStatics_Ptr is access all IHolographicDisplayStatics;
@@ -223,6 +241,9 @@ package Windows.Graphics.Holographic is
    type IHolographicSpaceStatics3_Interface;
    type IHolographicSpaceStatics3 is access all IHolographicSpaceStatics3_Interface'Class;
    type IHolographicSpaceStatics3_Ptr is access all IHolographicSpaceStatics3;
+   type IHolographicViewConfiguration_Interface;
+   type IHolographicViewConfiguration is access all IHolographicViewConfiguration_Interface'Class;
+   type IHolographicViewConfiguration_Ptr is access all IHolographicViewConfiguration;
    type IIterable_IHolographicCamera_Interface;
    type IIterable_IHolographicCamera is access all IIterable_IHolographicCamera_Interface'Class;
    type IIterable_IHolographicCamera_Ptr is access all IIterable_IHolographicCamera;
@@ -423,6 +444,19 @@ package Windows.Graphics.Holographic is
    (
       This       : access IHolographicCamera5_Interface
       ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHolographicCamera6 : aliased constant Windows.IID := (34150735, 25389, 20820, (171, 82, 11, 93, 21, 177, 37, 5 ));
+   
+   type IHolographicCamera6_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ViewConfiguration
+   (
+      This       : access IHolographicCamera6_Interface
+      ; RetVal : access Windows.Graphics.Holographic.IHolographicViewConfiguration
    )
    return Windows.HRESULT is abstract;
    
@@ -692,6 +726,20 @@ package Windows.Graphics.Holographic is
    (
       This       : access IHolographicDisplay2_Interface
       ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHolographicDisplay3 : aliased constant Windows.IID := (4232866502, 25728, 20488, (178, 158, 21, 125, 119, 200, 67, 247 ));
+   
+   type IHolographicDisplay3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryGetViewConfiguration
+   (
+      This       : access IHolographicDisplay3_Interface
+      ; kind : Windows.Graphics.Holographic.HolographicViewConfigurationKind
+      ; RetVal : access Windows.Graphics.Holographic.IHolographicViewConfiguration
    )
    return Windows.HRESULT is abstract;
    
@@ -1177,6 +1225,97 @@ package Windows.Graphics.Holographic is
    (
       This       : access IHolographicSpaceStatics3_Interface
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHolographicViewConfiguration : aliased constant Windows.IID := (1545463526, 26601, 20484, (176, 44, 103, 163, 161, 34, 181, 118 ));
+   
+   type IHolographicViewConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_NativeRenderTargetSize
+   (
+      This       : access IHolographicViewConfiguration_Interface
+      ; RetVal : access Windows.Foundation.Size
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RenderTargetSize
+   (
+      This       : access IHolographicViewConfiguration_Interface
+      ; RetVal : access Windows.Foundation.Size
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RequestRenderTargetSize
+   (
+      This       : access IHolographicViewConfiguration_Interface
+      ; size : Windows.Foundation.Size
+      ; RetVal : access Windows.Foundation.Size
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SupportedPixelFormats
+   (
+      This       : access IHolographicViewConfiguration_Interface
+      ; RetVal : access Windows.Graphics.DirectX.IVectorView_DirectXPixelFormat -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PixelFormat
+   (
+      This       : access IHolographicViewConfiguration_Interface
+      ; RetVal : access Windows.Graphics.DirectX.DirectXPixelFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PixelFormat
+   (
+      This       : access IHolographicViewConfiguration_Interface
+      ; value : Windows.Graphics.DirectX.DirectXPixelFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsStereo
+   (
+      This       : access IHolographicViewConfiguration_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RefreshRate
+   (
+      This       : access IHolographicViewConfiguration_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Kind
+   (
+      This       : access IHolographicViewConfiguration_Interface
+      ; RetVal : access Windows.Graphics.Holographic.HolographicViewConfigurationKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Display
+   (
+      This       : access IHolographicViewConfiguration_Interface
+      ; RetVal : access Windows.Graphics.Holographic.IHolographicDisplay
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsEnabled
+   (
+      This       : access IHolographicViewConfiguration_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsEnabled
+   (
+      This       : access IHolographicViewConfiguration_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -1710,6 +1849,7 @@ package Windows.Graphics.Holographic is
    subtype HolographicSpace is Windows.Graphics.Holographic.IHolographicSpace;
    subtype HolographicSpaceCameraAddedEventArgs is Windows.Graphics.Holographic.IHolographicSpaceCameraAddedEventArgs;
    subtype HolographicSpaceCameraRemovedEventArgs is Windows.Graphics.Holographic.IHolographicSpaceCameraRemovedEventArgs;
+   subtype HolographicViewConfiguration is Windows.Graphics.Holographic.IHolographicViewConfiguration;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

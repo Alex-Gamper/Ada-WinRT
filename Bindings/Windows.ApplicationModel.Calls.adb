@@ -27,6 +27,7 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.ApplicationModel.Contacts;
+with Windows.Devices.Enumeration;
 with Windows.System;
 with Windows.UI;
 with Ada.Unchecked_Conversion;
@@ -685,6 +686,63 @@ package body Windows.ApplicationModel.Calls is
       Hr := RoGetActivationFactory(m_hString, IID_IPhoneLineStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.FromIdAsync(lineId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function FromId
+   (
+      id : Windows.String
+   )
+   return Windows.ApplicationModel.Calls.IPhoneLineTransportDevice is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneLineTransportDevice");
+      m_Factory     : IPhoneLineTransportDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Calls.IPhoneLineTransportDevice;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneLineTransportDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.FromId(id, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelector
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneLineTransportDevice");
+      m_Factory     : IPhoneLineTransportDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneLineTransportDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelectorForPhoneLineTransport
+   (
+      transport : Windows.ApplicationModel.Calls.PhoneLineTransport
+   )
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Calls.PhoneLineTransportDevice");
+      m_Factory     : IPhoneLineTransportDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPhoneLineTransportDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelectorForPhoneLineTransport(transport, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

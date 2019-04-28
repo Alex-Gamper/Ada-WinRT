@@ -118,6 +118,9 @@ package Windows.UI.ViewManagement.Core is
    type ICoreInputViewStatics_Interface;
    type ICoreInputViewStatics is access all ICoreInputViewStatics_Interface'Class;
    type ICoreInputViewStatics_Ptr is access all ICoreInputViewStatics;
+   type ICoreInputViewStatics2_Interface;
+   type ICoreInputViewStatics2 is access all ICoreInputViewStatics2_Interface'Class;
+   type ICoreInputViewStatics2_Ptr is access all ICoreInputViewStatics2;
    type ICoreInputViewTransferringXYFocusEventArgs_Interface;
    type ICoreInputViewTransferringXYFocusEventArgs is access all ICoreInputViewTransferringXYFocusEventArgs_Interface'Class;
    type ICoreInputViewTransferringXYFocusEventArgs_Ptr is access all ICoreInputViewTransferringXYFocusEventArgs;
@@ -306,6 +309,20 @@ package Windows.UI.ViewManagement.Core is
    function GetForCurrentView
    (
       This       : access ICoreInputViewStatics_Interface
+      ; RetVal : access Windows.UI.ViewManagement.Core.ICoreInputView
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreInputViewStatics2 : aliased constant Windows.IID := (2126252130, 53321, 20050, (135, 176, 30, 144, 233, 140, 73, 237 ));
+   
+   type ICoreInputViewStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetForUIContext
+   (
+      This       : access ICoreInputViewStatics2_Interface
+      ; context : Windows.UI.IUIContext
       ; RetVal : access Windows.UI.ViewManagement.Core.ICoreInputView
    )
    return Windows.HRESULT is abstract;
@@ -502,6 +519,12 @@ package Windows.UI.ViewManagement.Core is
    ------------------------------------------------------------------------
    
    function GetForCurrentView
+   return Windows.UI.ViewManagement.Core.ICoreInputView;
+   
+   function GetForUIContext
+   (
+      context : Windows.UI.IUIContext
+   )
    return Windows.UI.ViewManagement.Core.ICoreInputView;
    
 end;

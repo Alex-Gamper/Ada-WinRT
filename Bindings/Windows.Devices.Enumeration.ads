@@ -30,6 +30,7 @@ with Windows; use Windows;
 limited with Windows.ApplicationModel.Background;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
+limited with Windows.Security.Credentials;
 limited with Windows.Storage.Streams;
 limited with Windows.UI;
 limited with Windows.UI.Popups;
@@ -111,14 +112,16 @@ package Windows.Devices.Enumeration is
       ConfirmOnly,
       DisplayPin,
       ProvidePin,
-      ConfirmPinMatch
+      ConfirmPinMatch,
+      ProvidePasswordCredential
    );
    for DevicePairingKinds use (
       None => 0,
       ConfirmOnly => 1,
       DisplayPin => 2,
       ProvidePin => 4,
-      ConfirmPinMatch => 8
+      ConfirmPinMatch => 8,
+      ProvidePasswordCredential => 16
    );
    for DevicePairingKinds'Size use 32;
    
@@ -404,6 +407,9 @@ package Windows.Devices.Enumeration is
    type IDevicePairingRequestedEventArgs_Interface;
    type IDevicePairingRequestedEventArgs is access all IDevicePairingRequestedEventArgs_Interface'Class;
    type IDevicePairingRequestedEventArgs_Ptr is access all IDevicePairingRequestedEventArgs;
+   type IDevicePairingRequestedEventArgs2_Interface;
+   type IDevicePairingRequestedEventArgs2 is access all IDevicePairingRequestedEventArgs2_Interface'Class;
+   type IDevicePairingRequestedEventArgs2_Ptr is access all IDevicePairingRequestedEventArgs2;
    type IDevicePairingResult_Interface;
    type IDevicePairingResult is access all IDevicePairingResult_Interface'Class;
    type IDevicePairingResult_Ptr is access all IDevicePairingResult;
@@ -1194,6 +1200,19 @@ package Windows.Devices.Enumeration is
    (
       This       : access IDevicePairingRequestedEventArgs_Interface
       ; RetVal : access Windows.Foundation.IDeferral
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDevicePairingRequestedEventArgs2 : aliased constant Windows.IID := (3359068889, 58579, 19888, (163, 96, 161, 5, 228, 55, 219, 220 ));
+   
+   type IDevicePairingRequestedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function AcceptWithPasswordCredential
+   (
+      This       : access IDevicePairingRequestedEventArgs2_Interface
+      ; passwordCredential : Windows.Security.Credentials.IPasswordCredential
    )
    return Windows.HRESULT is abstract;
    

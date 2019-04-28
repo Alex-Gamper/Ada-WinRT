@@ -126,4 +126,67 @@ package body Windows.Perception.Spatial.Preview is
       return RetVal;
    end;
    
+   function TryCreateFrameOfReference
+   (
+      coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+   )
+   return Windows.Perception.Spatial.Preview.ISpatialGraphInteropFrameOfReferencePreview is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.Preview.SpatialGraphInteropPreview");
+      m_Factory     : ISpatialGraphInteropPreviewStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Perception.Spatial.Preview.ISpatialGraphInteropFrameOfReferencePreview;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialGraphInteropPreviewStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryCreateFrameOfReference(coordinateSystem, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryCreateFrameOfReferenceWithPosition
+   (
+      coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+      ; relativePosition : Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.Perception.Spatial.Preview.ISpatialGraphInteropFrameOfReferencePreview is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.Preview.SpatialGraphInteropPreview");
+      m_Factory     : ISpatialGraphInteropPreviewStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Perception.Spatial.Preview.ISpatialGraphInteropFrameOfReferencePreview;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialGraphInteropPreviewStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryCreateFrameOfReferenceWithPosition(coordinateSystem, relativePosition, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryCreateFrameOfReferenceWithPositionAndOrientation
+   (
+      coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+      ; relativePosition : Windows.Foundation.Numerics.Vector3
+      ; relativeOrientation : Windows.Foundation.Numerics.Quaternion
+   )
+   return Windows.Perception.Spatial.Preview.ISpatialGraphInteropFrameOfReferencePreview is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Perception.Spatial.Preview.SpatialGraphInteropPreview");
+      m_Factory     : ISpatialGraphInteropPreviewStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Perception.Spatial.Preview.ISpatialGraphInteropFrameOfReferencePreview;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialGraphInteropPreviewStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryCreateFrameOfReferenceWithPositionAndOrientation(coordinateSystem, relativePosition, relativeOrientation, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
 end;

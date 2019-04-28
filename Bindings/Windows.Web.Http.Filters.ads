@@ -31,6 +31,7 @@ with Windows.Foundation.Collections;
 limited with Windows.Networking.Sockets;
 limited with Windows.Security.Credentials;
 limited with Windows.Security.Cryptography.Certificates;
+limited with Windows.System;
 --------------------------------------------------------------------------------
 package Windows.Web.Http.Filters is
 
@@ -104,6 +105,12 @@ package Windows.Web.Http.Filters is
    type IHttpBaseProtocolFilter4_Interface;
    type IHttpBaseProtocolFilter4 is access all IHttpBaseProtocolFilter4_Interface'Class;
    type IHttpBaseProtocolFilter4_Ptr is access all IHttpBaseProtocolFilter4;
+   type IHttpBaseProtocolFilter5_Interface;
+   type IHttpBaseProtocolFilter5 is access all IHttpBaseProtocolFilter5_Interface'Class;
+   type IHttpBaseProtocolFilter5_Ptr is access all IHttpBaseProtocolFilter5;
+   type IHttpBaseProtocolFilterStatics_Interface;
+   type IHttpBaseProtocolFilterStatics is access all IHttpBaseProtocolFilterStatics_Interface'Class;
+   type IHttpBaseProtocolFilterStatics_Ptr is access all IHttpBaseProtocolFilterStatics;
    type IHttpCacheControl_Interface;
    type IHttpCacheControl is access all IHttpCacheControl_Interface'Class;
    type IHttpCacheControl_Ptr is access all IHttpCacheControl;
@@ -306,7 +313,7 @@ package Windows.Web.Http.Filters is
    function add_ServerCustomValidationRequested
    (
       This       : access IHttpBaseProtocolFilter4_Interface
-      ; eventHandler : TypedEventHandler_IHttpBaseProtocolFilter4_add_ServerCustomValidationRequested
+      ; handler : TypedEventHandler_IHttpBaseProtocolFilter4_add_ServerCustomValidationRequested
       ; RetVal : access Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -314,13 +321,40 @@ package Windows.Web.Http.Filters is
    function remove_ServerCustomValidationRequested
    (
       This       : access IHttpBaseProtocolFilter4_Interface
-      ; eventCookie : Windows.Foundation.EventRegistrationToken
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
    function ClearAuthenticationCache
    (
       This       : access IHttpBaseProtocolFilter4_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpBaseProtocolFilter5 : aliased constant Windows.IID := (1097746835, 12771, 18454, (191, 9, 224, 24, 238, 141, 193, 245 ));
+   
+   type IHttpBaseProtocolFilter5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_User
+   (
+      This       : access IHttpBaseProtocolFilter5_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpBaseProtocolFilterStatics : aliased constant Windows.IID := (1833823756, 59656, 18766, (181, 163, 18, 99, 201, 184, 36, 42 ));
+   
+   type IHttpBaseProtocolFilterStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateForUser
+   (
+      This       : access IHttpBaseProtocolFilterStatics_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.Web.Http.Filters.IHttpBaseProtocolFilter
    )
    return Windows.HRESULT is abstract;
    
@@ -456,5 +490,11 @@ package Windows.Web.Http.Filters is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function CreateForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Web.Http.Filters.IHttpBaseProtocolFilter;
    
 end;

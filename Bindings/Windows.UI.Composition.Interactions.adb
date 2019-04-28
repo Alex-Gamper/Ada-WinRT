@@ -105,6 +105,47 @@ package body Windows.UI.Composition.Interactions is
       return RetVal;
    end;
    
+   function GetBindingMode
+   (
+      boundTracker1 : Windows.UI.Composition.Interactions.IInteractionTracker
+      ; boundTracker2 : Windows.UI.Composition.Interactions.IInteractionTracker
+   )
+   return Windows.UI.Composition.Interactions.InteractionBindingAxisModes is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.Interactions.InteractionTracker");
+      m_Factory     : IInteractionTrackerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Composition.Interactions.InteractionBindingAxisModes;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IInteractionTrackerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetBindingMode(boundTracker1, boundTracker2, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure SetBindingMode
+   (
+      boundTracker1 : Windows.UI.Composition.Interactions.IInteractionTracker
+      ; boundTracker2 : Windows.UI.Composition.Interactions.IInteractionTracker
+      ; axisMode : Windows.UI.Composition.Interactions.InteractionBindingAxisModes
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.Interactions.InteractionTracker");
+      m_Factory     : IInteractionTrackerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IInteractionTrackerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.SetBindingMode(boundTracker1, boundTracker2, axisMode);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
    function Create
    (
       compositor : Windows.UI.Composition.ICompositor
@@ -199,6 +240,26 @@ package body Windows.UI.Composition.Interactions is
       Hr := RoGetActivationFactory(m_hString, IID_IVisualInteractionSourceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.Create(source, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromIVisualElement
+   (
+      source : Windows.UI.Composition.IVisualElement
+   )
+   return Windows.UI.Composition.Interactions.IVisualInteractionSource is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.Interactions.VisualInteractionSource");
+      m_Factory     : IVisualInteractionSourceStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Composition.Interactions.IVisualInteractionSource;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IVisualInteractionSourceStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromIVisualElement(source, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

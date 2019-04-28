@@ -26,6 +26,7 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.UI;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.ViewManagement.Core is
@@ -96,6 +97,26 @@ package body Windows.UI.ViewManagement.Core is
       Hr := RoGetActivationFactory(m_hString, IID_ICoreInputViewStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForUIContext
+   (
+      context : Windows.UI.IUIContext
+   )
+   return Windows.UI.ViewManagement.Core.ICoreInputView is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.Core.CoreInputView");
+      m_Factory     : ICoreInputViewStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.ViewManagement.Core.ICoreInputView;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICoreInputViewStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForUIContext(context, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

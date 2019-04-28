@@ -30,6 +30,7 @@ with Windows.Devices.Enumeration;
 with Windows.UI;
 with Windows.UI.Core;
 with Windows.UI.Popups;
+with Windows.UI.WindowManagement;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.ViewManagement is
@@ -165,6 +166,19 @@ package body Windows.UI.ViewManagement is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.ViewManagement.IUISettings(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged_Interface
+      ; sender : Windows.UI.ViewManagement.IUISettings
+      ; args : Windows.UI.ViewManagement.IUISettingsAutoHideScrollBarsChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.ViewManagement.IUISettings(sender), Windows.UI.ViewManagement.IUISettingsAutoHideScrollBarsChangedEventArgs(args));
       return Hr;
    end;
    
@@ -419,6 +433,39 @@ package body Windows.UI.ViewManagement is
       Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewStatics3'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.put_PreferredLaunchWindowingMode(value);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure ClearAllPersistedState
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationView");
+      m_Factory     : IApplicationViewStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ClearAllPersistedState;
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   procedure ClearPersistedState
+   (
+      key : Windows.String
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.ApplicationView");
+      m_Factory     : IApplicationViewStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IApplicationViewStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.ClearPersistedState(key);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -711,6 +758,26 @@ package body Windows.UI.ViewManagement is
       Hr := RoGetActivationFactory(m_hString, IID_IInputPaneStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetForCurrentView(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForUIContext
+   (
+      context : Windows.UI.IUIContext
+   )
+   return Windows.UI.ViewManagement.IInputPane is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.InputPane");
+      m_Factory     : IInputPaneStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.ViewManagement.IInputPane;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IInputPaneStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForUIContext(context, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

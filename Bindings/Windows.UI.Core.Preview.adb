@@ -26,6 +26,7 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.UI.WindowManagement;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.UI.Core.Preview is
@@ -58,6 +59,26 @@ package body Windows.UI.Core.Preview is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function GetIdFromWindow
+   (
+      window : Windows.UI.WindowManagement.IAppWindow
+   )
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Core.Preview.CoreAppWindowPreview");
+      m_Factory     : ICoreAppWindowPreviewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICoreAppWindowPreviewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetIdFromWindow(window, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function GetForCurrentView
    return Windows.UI.Core.Preview.ISystemNavigationManagerPreview is

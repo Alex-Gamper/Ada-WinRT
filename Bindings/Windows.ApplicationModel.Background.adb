@@ -485,6 +485,23 @@ package body Windows.ApplicationModel.Background is
       return RetVal;
    end;
    
+   function Create return Windows.ApplicationModel.Background.IBackgroundTrigger is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.ConversationalAgentTrigger");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.ApplicationModel.Background.IBackgroundTrigger) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.ApplicationModel.Background.IID_IBackgroundTrigger'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    function Create
    (
       triggerId : Windows.String
@@ -694,7 +711,7 @@ package body Windows.ApplicationModel.Background is
       return Convert(RetVal);
    end;
    
-   function Create return Windows.ApplicationModel.Background.IBackgroundTrigger is
+   function CreateMobileBroadbandDeviceServiceNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger");
       Instance      : aliased IInspectable := null;

@@ -321,6 +321,9 @@ package Windows.ApplicationModel is
    type IPackage6_Interface;
    type IPackage6 is access all IPackage6_Interface'Class;
    type IPackage6_Ptr is access all IPackage6;
+   type IPackage7_Interface;
+   type IPackage7 is access all IPackage7_Interface'Class;
+   type IPackage7_Ptr is access all IPackage7;
    type IPackageCatalog_Interface;
    type IPackageCatalog is access all IPackageCatalog_Interface'Class;
    type IPackageCatalog_Ptr is access all IPackageCatalog;
@@ -1203,6 +1206,26 @@ package Windows.ApplicationModel is
    (
       This       : access IPackage6_Interface
       ; RetVal : access Windows.ApplicationModel.IAsyncOperation_IPackageUpdateAvailabilityResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPackage7 : aliased constant Windows.IID := (2264894769, 41700, 17888, (151, 50, 40, 58, 109, 136, 253, 225 ));
+   
+   type IPackage7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MutableLocation
+   (
+      This       : access IPackage7_Interface
+      ; RetVal : access Windows.Storage.IStorageFolder
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EffectiveLocation
+   (
+      This       : access IPackage7_Interface
+      ; RetVal : access Windows.Storage.IStorageFolder
    )
    return Windows.HRESULT is abstract;
    

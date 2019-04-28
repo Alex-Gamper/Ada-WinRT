@@ -2815,6 +2815,9 @@ package Windows.ApplicationModel.Background is
    )
    return Windows.ApplicationModel.Background.IContentPrefetchTrigger;
    
+   subtype ConversationalAgentTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function Create return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   
    subtype CustomSystemEventTrigger is Windows.ApplicationModel.Background.ICustomSystemEventTrigger;
    function Create
    (
@@ -2880,7 +2883,7 @@ package Windows.ApplicationModel.Background is
    function Create return Windows.ApplicationModel.Background.IMediaProcessingTrigger;
    
    subtype MobileBroadbandDeviceServiceNotificationTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
-   function Create return Windows.ApplicationModel.Background.IBackgroundTrigger;
+   function CreateMobileBroadbandDeviceServiceNotificationTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;
    
    subtype MobileBroadbandPcoDataChangeTrigger is Windows.ApplicationModel.Background.IBackgroundTrigger;
    function CreateMobileBroadbandPcoDataChangeTrigger return Windows.ApplicationModel.Background.IBackgroundTrigger;

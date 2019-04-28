@@ -41,6 +41,19 @@ package body Windows.Networking.NetworkOperators is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IESimDiscoverResult_Interface
+      ; asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IESimDiscoverResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult_Interface
       ; asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IESimDownloadProfileMetadataResult
       ; asyncStatus : Windows.Foundation.AsyncStatus

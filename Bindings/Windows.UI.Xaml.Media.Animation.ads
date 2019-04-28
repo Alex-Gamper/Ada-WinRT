@@ -393,6 +393,9 @@ package Windows.UI.Xaml.Media.Animation is
    type IGravityConnectedAnimationConfiguration_Interface;
    type IGravityConnectedAnimationConfiguration is access all IGravityConnectedAnimationConfiguration_Interface'Class;
    type IGravityConnectedAnimationConfiguration_Ptr is access all IGravityConnectedAnimationConfiguration;
+   type IGravityConnectedAnimationConfiguration2_Interface;
+   type IGravityConnectedAnimationConfiguration2 is access all IGravityConnectedAnimationConfiguration2_Interface'Class;
+   type IGravityConnectedAnimationConfiguration2_Ptr is access all IGravityConnectedAnimationConfiguration2;
    type IGravityConnectedAnimationConfigurationFactory_Interface;
    type IGravityConnectedAnimationConfigurationFactory is access all IGravityConnectedAnimationConfigurationFactory_Interface'Class;
    type IGravityConnectedAnimationConfigurationFactory_Ptr is access all IGravityConnectedAnimationConfigurationFactory;
@@ -2481,6 +2484,26 @@ package Windows.UI.Xaml.Media.Animation is
    IID_IGravityConnectedAnimationConfiguration : aliased constant Windows.IID := (3344016567, 1113, 20802, (184, 145, 174, 170, 193, 212, 24, 34 ));
    
    type IGravityConnectedAnimationConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGravityConnectedAnimationConfiguration2 : aliased constant Windows.IID := (1647524573, 44756, 24557, (149, 255, 209, 40, 172, 206, 139, 228 ));
+   
+   type IGravityConnectedAnimationConfiguration2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsShadowEnabled
+   (
+      This       : access IGravityConnectedAnimationConfiguration2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsShadowEnabled
+   (
+      This       : access IGravityConnectedAnimationConfiguration2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    

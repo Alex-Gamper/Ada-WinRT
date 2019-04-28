@@ -43,13 +43,15 @@ package Windows.Management.Deployment is
       None,
       InstallAllResources,
       ForceTargetAppShutdown,
-      RequiredContentGroupOnly
+      RequiredContentGroupOnly,
+      LimitToExistingPackages
    );
    for AddPackageByAppInstallerOptions use (
       None => 0,
       InstallAllResources => 32,
       ForceTargetAppShutdown => 64,
-      RequiredContentGroupOnly => 256
+      RequiredContentGroupOnly => 256,
+      LimitToExistingPackages => 512
    );
    for AddPackageByAppInstallerOptions'Size use 32;
    
@@ -62,7 +64,8 @@ package Windows.Management.Deployment is
       InstallAllResources,
       ForceTargetApplicationShutdown,
       RequiredContentGroupOnly,
-      ForceUpdateFromAnyVersion
+      ForceUpdateFromAnyVersion,
+      RetainFilesOnFailure
    );
    for DeploymentOptions use (
       None => 0,
@@ -71,7 +74,8 @@ package Windows.Management.Deployment is
       InstallAllResources => 32,
       ForceTargetApplicationShutdown => 64,
       RequiredContentGroupOnly => 256,
-      ForceUpdateFromAnyVersion => 262144
+      ForceUpdateFromAnyVersion => 262144,
+      RetainFilesOnFailure => 2097152
    );
    for DeploymentOptions'Size use 32;
    

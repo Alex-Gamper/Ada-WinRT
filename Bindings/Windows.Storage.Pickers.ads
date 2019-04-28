@@ -28,6 +28,8 @@
 --------------------------------------------------------------------------------
 with Windows.Foundation;
 with Windows.Foundation.Collections;
+limited with Windows.System;
+--------------------------------------------------------------------------------
 package Windows.Storage.Pickers is
 
    pragma preelaborate;
@@ -86,9 +88,15 @@ package Windows.Storage.Pickers is
    type IFileOpenPicker2_Interface;
    type IFileOpenPicker2 is access all IFileOpenPicker2_Interface'Class;
    type IFileOpenPicker2_Ptr is access all IFileOpenPicker2;
+   type IFileOpenPicker3_Interface;
+   type IFileOpenPicker3 is access all IFileOpenPicker3_Interface'Class;
+   type IFileOpenPicker3_Ptr is access all IFileOpenPicker3;
    type IFileOpenPickerStatics_Interface;
    type IFileOpenPickerStatics is access all IFileOpenPickerStatics_Interface'Class;
    type IFileOpenPickerStatics_Ptr is access all IFileOpenPickerStatics;
+   type IFileOpenPickerStatics2_Interface;
+   type IFileOpenPickerStatics2 is access all IFileOpenPickerStatics2_Interface'Class;
+   type IFileOpenPickerStatics2_Ptr is access all IFileOpenPickerStatics2;
    type IFileOpenPickerWithOperationId_Interface;
    type IFileOpenPickerWithOperationId is access all IFileOpenPickerWithOperationId_Interface'Class;
    type IFileOpenPickerWithOperationId_Ptr is access all IFileOpenPickerWithOperationId;
@@ -101,12 +109,24 @@ package Windows.Storage.Pickers is
    type IFileSavePicker3_Interface;
    type IFileSavePicker3 is access all IFileSavePicker3_Interface'Class;
    type IFileSavePicker3_Ptr is access all IFileSavePicker3;
+   type IFileSavePicker4_Interface;
+   type IFileSavePicker4 is access all IFileSavePicker4_Interface'Class;
+   type IFileSavePicker4_Ptr is access all IFileSavePicker4;
+   type IFileSavePickerStatics_Interface;
+   type IFileSavePickerStatics is access all IFileSavePickerStatics_Interface'Class;
+   type IFileSavePickerStatics_Ptr is access all IFileSavePickerStatics;
    type IFolderPicker_Interface;
    type IFolderPicker is access all IFolderPicker_Interface'Class;
    type IFolderPicker_Ptr is access all IFolderPicker;
    type IFolderPicker2_Interface;
    type IFolderPicker2 is access all IFolderPicker2_Interface'Class;
    type IFolderPicker2_Ptr is access all IFolderPicker2;
+   type IFolderPicker3_Interface;
+   type IFolderPicker3 is access all IFolderPicker3_Interface'Class;
+   type IFolderPicker3_Ptr is access all IFolderPicker3;
+   type IFolderPickerStatics_Interface;
+   type IFolderPickerStatics is access all IFolderPickerStatics_Interface'Class;
+   type IFolderPickerStatics_Ptr is access all IFolderPickerStatics;
    type IIterable_IVector_Interface;
    type IIterable_IVector is access all IIterable_IVector_Interface'Class;
    type IIterable_IVector_Ptr is access all IIterable_IVector;
@@ -240,6 +260,19 @@ package Windows.Storage.Pickers is
    
    ------------------------------------------------------------------------
    
+   IID_IFileOpenPicker3 : aliased constant Windows.IID := (3651519923, 50652, 23448, (189, 128, 168, 208, 202, 5, 132, 216 ));
+   
+   type IFileOpenPicker3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_User
+   (
+      This       : access IFileOpenPicker3_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IFileOpenPickerStatics : aliased constant Windows.IID := (1747015483, 12034, 18483, (150, 212, 171, 191, 173, 114, 182, 123 ));
    
    type IFileOpenPickerStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -248,6 +281,20 @@ package Windows.Storage.Pickers is
    (
       This       : access IFileOpenPickerStatics_Interface
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFile -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFileOpenPickerStatics2 : aliased constant Windows.IID := (3901846549, 60893, 23704, (182, 243, 54, 111, 223, 202, 211, 146 ));
+   
+   type IFileOpenPickerStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateForUser
+   (
+      This       : access IFileOpenPickerStatics2_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.Storage.Pickers.IFileOpenPicker
    )
    return Windows.HRESULT is abstract;
    
@@ -410,6 +457,33 @@ package Windows.Storage.Pickers is
    
    ------------------------------------------------------------------------
    
+   IID_IFileSavePicker4 : aliased constant Windows.IID := (3889707610, 56826, 24032, (139, 112, 200, 66, 194, 25, 136, 236 ));
+   
+   type IFileSavePicker4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_User
+   (
+      This       : access IFileSavePicker4_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFileSavePickerStatics : aliased constant Windows.IID := (686018462, 38428, 24108, (174, 215, 230, 71, 55, 244, 206, 55 ));
+   
+   type IFileSavePickerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateForUser
+   (
+      This       : access IFileSavePickerStatics_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.Storage.Pickers.IFileSavePicker
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IFolderPicker : aliased constant Windows.IID := (139425689, 62459, 16394, (153, 177, 123, 74, 119, 47, 214, 13 ));
    
    type IFolderPicker_Interface is interface and Windows.IInspectable_Interface;
@@ -500,6 +574,33 @@ package Windows.Storage.Pickers is
    function PickFolderAndContinue
    (
       This       : access IFolderPicker2_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFolderPicker3 : aliased constant Windows.IID := (1731927593, 54054, 21440, (189, 36, 162, 92, 113, 76, 238, 54 ));
+   
+   type IFolderPicker3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_User
+   (
+      This       : access IFolderPicker3_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFolderPickerStatics : aliased constant Windows.IID := (2615363392, 31905, 22850, (163, 200, 70, 242, 85, 30, 207, 243 ));
+   
+   type IFolderPickerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateForUser
+   (
+      This       : access IFolderPickerStatics_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.Storage.Pickers.IFolderPicker
    )
    return Windows.HRESULT is abstract;
    
@@ -757,5 +858,23 @@ package Windows.Storage.Pickers is
    
    function ResumePickSingleFileAsync
    return Windows.Storage.IAsyncOperation_IStorageFile;
+   
+   function CreateForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Storage.Pickers.IFileOpenPicker;
+   
+   function CreateForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Storage.Pickers.IFileSavePicker;
+   
+   function CreateForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Storage.Pickers.IFolderPicker;
    
 end;

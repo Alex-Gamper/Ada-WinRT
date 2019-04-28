@@ -36,13 +36,46 @@ package Windows.Perception.Spatial.Preview is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type ISpatialGraphInteropFrameOfReferencePreview_Interface;
+   type ISpatialGraphInteropFrameOfReferencePreview is access all ISpatialGraphInteropFrameOfReferencePreview_Interface'Class;
+   type ISpatialGraphInteropFrameOfReferencePreview_Ptr is access all ISpatialGraphInteropFrameOfReferencePreview;
    type ISpatialGraphInteropPreviewStatics_Interface;
    type ISpatialGraphInteropPreviewStatics is access all ISpatialGraphInteropPreviewStatics_Interface'Class;
    type ISpatialGraphInteropPreviewStatics_Ptr is access all ISpatialGraphInteropPreviewStatics;
+   type ISpatialGraphInteropPreviewStatics2_Interface;
+   type ISpatialGraphInteropPreviewStatics2 is access all ISpatialGraphInteropPreviewStatics2_Interface'Class;
+   type ISpatialGraphInteropPreviewStatics2_Ptr is access all ISpatialGraphInteropPreviewStatics2;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISpatialGraphInteropFrameOfReferencePreview : aliased constant Windows.IID := (2821135139, 29535, 22313, (169, 142, 230, 78, 209, 137, 171, 197 ));
+   
+   type ISpatialGraphInteropFrameOfReferencePreview_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CoordinateSystem
+   (
+      This       : access ISpatialGraphInteropFrameOfReferencePreview_Interface
+      ; RetVal : access Windows.Perception.Spatial.ISpatialCoordinateSystem
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NodeId
+   (
+      This       : access ISpatialGraphInteropFrameOfReferencePreview_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CoordinateSystemToNodeTransform
+   (
+      This       : access ISpatialGraphInteropFrameOfReferencePreview_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Matrix4x4
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -86,9 +119,43 @@ package Windows.Perception.Spatial.Preview is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_ISpatialGraphInteropPreviewStatics2 : aliased constant Windows.IID := (613462367, 27837, 19230, (183, 101, 49, 228, 98, 163, 45, 242 ));
+   
+   type ISpatialGraphInteropPreviewStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryCreateFrameOfReference
+   (
+      This       : access ISpatialGraphInteropPreviewStatics2_Interface
+      ; coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+      ; RetVal : access Windows.Perception.Spatial.Preview.ISpatialGraphInteropFrameOfReferencePreview
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryCreateFrameOfReferenceWithPosition
+   (
+      This       : access ISpatialGraphInteropPreviewStatics2_Interface
+      ; coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+      ; relativePosition : Windows.Foundation.Numerics.Vector3
+      ; RetVal : access Windows.Perception.Spatial.Preview.ISpatialGraphInteropFrameOfReferencePreview
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryCreateFrameOfReferenceWithPositionAndOrientation
+   (
+      This       : access ISpatialGraphInteropPreviewStatics2_Interface
+      ; coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+      ; relativePosition : Windows.Foundation.Numerics.Vector3
+      ; relativeOrientation : Windows.Foundation.Numerics.Quaternion
+      ; RetVal : access Windows.Perception.Spatial.Preview.ISpatialGraphInteropFrameOfReferencePreview
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype SpatialGraphInteropFrameOfReferencePreview is Windows.Perception.Spatial.Preview.ISpatialGraphInteropFrameOfReferencePreview;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
@@ -120,5 +187,26 @@ package Windows.Perception.Spatial.Preview is
       nodeId : Windows.Guid
    )
    return Windows.Perception.Spatial.ISpatialLocator;
+   
+   function TryCreateFrameOfReference
+   (
+      coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+   )
+   return Windows.Perception.Spatial.Preview.ISpatialGraphInteropFrameOfReferencePreview;
+   
+   function TryCreateFrameOfReferenceWithPosition
+   (
+      coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+      ; relativePosition : Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.Perception.Spatial.Preview.ISpatialGraphInteropFrameOfReferencePreview;
+   
+   function TryCreateFrameOfReferenceWithPositionAndOrientation
+   (
+      coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+      ; relativePosition : Windows.Foundation.Numerics.Vector3
+      ; relativeOrientation : Windows.Foundation.Numerics.Quaternion
+   )
+   return Windows.Perception.Spatial.Preview.ISpatialGraphInteropFrameOfReferencePreview;
    
 end;

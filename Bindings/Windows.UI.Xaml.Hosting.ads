@@ -29,6 +29,7 @@
 with Windows; use Windows;
 with Windows.Foundation;
 limited with Windows.UI.Composition;
+limited with Windows.UI.WindowManagement;
 limited with Windows.UI.Xaml.Controls;
 limited with Windows.UI.Xaml.Controls.Primitives;
 --------------------------------------------------------------------------------
@@ -142,6 +143,9 @@ package Windows.UI.Xaml.Hosting is
    type IElementCompositionPreviewStatics2_Interface;
    type IElementCompositionPreviewStatics2 is access all IElementCompositionPreviewStatics2_Interface'Class;
    type IElementCompositionPreviewStatics2_Ptr is access all IElementCompositionPreviewStatics2;
+   type IElementCompositionPreviewStatics3_Interface;
+   type IElementCompositionPreviewStatics3 is access all IElementCompositionPreviewStatics3_Interface'Class;
+   type IElementCompositionPreviewStatics3_Ptr is access all IElementCompositionPreviewStatics3;
    type IWindowsXamlManager_Interface;
    type IWindowsXamlManager is access all IWindowsXamlManager_Interface'Class;
    type IWindowsXamlManager_Ptr is access all IWindowsXamlManager;
@@ -512,6 +516,28 @@ package Windows.UI.Xaml.Hosting is
       This       : access IElementCompositionPreviewStatics2_Interface
       ; targetElement : Windows.UI.Xaml.IUIElement
       ; RetVal : access Windows.UI.Composition.ICompositionPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IElementCompositionPreviewStatics3 : aliased constant Windows.IID := (2218509507, 49413, 23038, (163, 209, 55, 60, 29, 62, 111, 188 ));
+   
+   type IElementCompositionPreviewStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetAppWindowContent
+   (
+      This       : access IElementCompositionPreviewStatics3_Interface
+      ; appWindow : Windows.UI.WindowManagement.IAppWindow
+      ; xamlContent : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetAppWindowContent
+   (
+      This       : access IElementCompositionPreviewStatics3_Interface
+      ; appWindow : Windows.UI.WindowManagement.IAppWindow
+      ; RetVal : access Windows.UI.Xaml.IUIElement
    )
    return Windows.HRESULT is abstract;
    
@@ -1072,6 +1098,19 @@ package Windows.UI.Xaml.Hosting is
    (
       element : Windows.UI.Xaml.IUIElement
       ; value : Windows.Boolean
+   )
+   ;
+   
+   function GetAppWindowContent
+   (
+      appWindow : Windows.UI.WindowManagement.IAppWindow
+   )
+   return Windows.UI.Xaml.IUIElement;
+   
+   procedure SetAppWindowContent
+   (
+      appWindow : Windows.UI.WindowManagement.IAppWindow
+      ; xamlContent : Windows.UI.Xaml.IUIElement
    )
    ;
    

@@ -151,6 +151,45 @@ package body Windows.AI.MachineLearning is
       return RetVal;
    end;
    
+   function CreateFromModelOnDeviceWithSessionOptions
+   (
+      model : Windows.AI.MachineLearning.ILearningModel
+      ; deviceToRunOn : Windows.AI.MachineLearning.ILearningModelDevice
+      ; learningModelSessionOptions : Windows.AI.MachineLearning.ILearningModelSessionOptions
+   )
+   return Windows.AI.MachineLearning.ILearningModelSession is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.LearningModelSession");
+      m_Factory     : Windows.AI.MachineLearning.ILearningModelSessionFactory2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ILearningModelSession := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILearningModelSessionFactory2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromModelOnDeviceWithSessionOptions(model, deviceToRunOn, learningModelSessionOptions, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function Create return Windows.AI.MachineLearning.ILearningModelSessionOptions is
+      Hr            : Windows.HResult := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.LearningModelSessionOptions");
+      Instance      : aliased IInspectable := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased IUnknown := null;
+      function Convert is new Ada.Unchecked_Conversion(IUnknown , Windows.AI.MachineLearning.ILearningModelSessionOptions) with inline;
+   begin
+      Hr := RoActivateInstance(m_hString, Instance'Address);
+      if Hr = 0 then
+         Hr := Instance.QueryInterface(Windows.AI.MachineLearning.IID_ILearningModelSessionOptions'Access, RetVal'access);
+         RefCount := Instance.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return Convert(RetVal);
+   end;
+   
    ------------------------------------------------------------------------
    -- Override Implementations
    ------------------------------------------------------------------------
@@ -442,6 +481,48 @@ package body Windows.AI.MachineLearning is
       return RetVal;
    end;
    
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorBoolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorBoolean");
+      m_Factory     : ITensorBooleanStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorBoolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorBooleanStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromBuffer(shape, buffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.Boolean_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorBoolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorBoolean");
+      m_Factory     : ITensorBooleanStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorBoolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorBooleanStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromShapeArrayAndDataArray(shape, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorDouble is
       Hr            : Windows.HRESULT := S_OK;
@@ -521,6 +602,48 @@ package body Windows.AI.MachineLearning is
       return RetVal;
    end;
    
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorDouble is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorDouble");
+      m_Factory     : ITensorDoubleStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorDouble;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorDoubleStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromBuffer(shape, buffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.Double_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorDouble is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorDouble");
+      m_Factory     : ITensorDoubleStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorDouble;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorDoubleStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromShapeArrayAndDataArray(shape, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorFloat is
       Hr            : Windows.HRESULT := S_OK;
@@ -600,6 +723,48 @@ package body Windows.AI.MachineLearning is
       return RetVal;
    end;
    
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorFloat is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorFloat");
+      m_Factory     : ITensorFloatStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorFloat;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorFloatStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromBuffer(shape, buffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.Single_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorFloat is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorFloat");
+      m_Factory     : ITensorFloatStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorFloat;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorFloatStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromShapeArrayAndDataArray(shape, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorFloat16Bit is
       Hr            : Windows.HRESULT := S_OK;
@@ -673,6 +838,48 @@ package body Windows.AI.MachineLearning is
       Hr := RoGetActivationFactory(m_hString, IID_ITensorFloat16BitStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromIterable(shape, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorFloat16Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorFloat16Bit");
+      m_Factory     : ITensorFloat16BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorFloat16Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorFloat16BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromBuffer(shape, buffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.Single_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorFloat16Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorFloat16Bit");
+      m_Factory     : ITensorFloat16BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorFloat16Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorFloat16BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromShapeArrayAndDataArray(shape, data, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -758,6 +965,48 @@ package body Windows.AI.MachineLearning is
       return RetVal;
    end;
    
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorInt16Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorInt16Bit");
+      m_Factory     : ITensorInt16BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorInt16Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorInt16BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromBuffer(shape, buffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.Int16_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorInt16Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorInt16Bit");
+      m_Factory     : ITensorInt16BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorInt16Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorInt16BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromShapeArrayAndDataArray(shape, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorInt32Bit is
       Hr            : Windows.HRESULT := S_OK;
@@ -831,6 +1080,48 @@ package body Windows.AI.MachineLearning is
       Hr := RoGetActivationFactory(m_hString, IID_ITensorInt32BitStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromIterable(shape, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorInt32Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorInt32Bit");
+      m_Factory     : ITensorInt32BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorInt32Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorInt32BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromBuffer(shape, buffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.Int32_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorInt32Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorInt32Bit");
+      m_Factory     : ITensorInt32BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorInt32Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorInt32BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromShapeArrayAndDataArray(shape, data, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -916,6 +1207,48 @@ package body Windows.AI.MachineLearning is
       return RetVal;
    end;
    
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorInt64Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorInt64Bit");
+      m_Factory     : ITensorInt64BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorInt64Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorInt64BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromBuffer(shape, buffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.Int64_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorInt64Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorInt64Bit");
+      m_Factory     : ITensorInt64BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorInt64Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorInt64BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromShapeArrayAndDataArray(shape, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorInt8Bit is
       Hr            : Windows.HRESULT := S_OK;
@@ -989,6 +1322,48 @@ package body Windows.AI.MachineLearning is
       Hr := RoGetActivationFactory(m_hString, IID_ITensorInt8BitStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromIterable(shape, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorInt8Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorInt8Bit");
+      m_Factory     : ITensorInt8BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorInt8Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorInt8BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromBuffer(shape, buffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.UInt8_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorInt8Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorInt8Bit");
+      m_Factory     : ITensorInt8BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorInt8Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorInt8BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromShapeArrayAndDataArray(shape, data, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1074,6 +1449,27 @@ package body Windows.AI.MachineLearning is
       return RetVal;
    end;
    
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.String_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorString is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorString");
+      m_Factory     : ITensorStringStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorString;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorStringStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromShapeArrayAndDataArray(shape, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorUInt16Bit is
       Hr            : Windows.HRESULT := S_OK;
@@ -1147,6 +1543,48 @@ package body Windows.AI.MachineLearning is
       Hr := RoGetActivationFactory(m_hString, IID_ITensorUInt16BitStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromIterable(shape, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorUInt16Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorUInt16Bit");
+      m_Factory     : ITensorUInt16BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorUInt16Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorUInt16BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromBuffer(shape, buffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.UInt16_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorUInt16Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorUInt16Bit");
+      m_Factory     : ITensorUInt16BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorUInt16Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorUInt16BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromShapeArrayAndDataArray(shape, data, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -1232,6 +1670,48 @@ package body Windows.AI.MachineLearning is
       return RetVal;
    end;
    
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorUInt32Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorUInt32Bit");
+      m_Factory     : ITensorUInt32BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorUInt32Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorUInt32BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromBuffer(shape, buffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.UInt32_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorUInt32Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorUInt32Bit");
+      m_Factory     : ITensorUInt32BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorUInt32Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorUInt32BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromShapeArrayAndDataArray(shape, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorUInt64Bit is
       Hr            : Windows.HRESULT := S_OK;
@@ -1311,6 +1791,48 @@ package body Windows.AI.MachineLearning is
       return RetVal;
    end;
    
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorUInt64Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorUInt64Bit");
+      m_Factory     : ITensorUInt64BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorUInt64Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorUInt64BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromBuffer(shape, buffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.UInt64_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorUInt64Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorUInt64Bit");
+      m_Factory     : ITensorUInt64BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorUInt64Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorUInt64BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromShapeArrayAndDataArray(shape, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorUInt8Bit is
       Hr            : Windows.HRESULT := S_OK;
@@ -1384,6 +1906,48 @@ package body Windows.AI.MachineLearning is
       Hr := RoGetActivationFactory(m_hString, IID_ITensorUInt8BitStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromIterable(shape, data, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorUInt8Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorUInt8Bit");
+      m_Factory     : ITensorUInt8BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorUInt8Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorUInt8BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromBuffer(shape, buffer, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.UInt8_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorUInt8Bit is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.AI.MachineLearning.TensorUInt8Bit");
+      m_Factory     : ITensorUInt8BitStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.AI.MachineLearning.ITensorUInt8Bit;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITensorUInt8BitStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromShapeArrayAndDataArray(shape, data, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

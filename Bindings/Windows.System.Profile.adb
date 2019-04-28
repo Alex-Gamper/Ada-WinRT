@@ -98,6 +98,26 @@ package body Windows.System.Profile is
       return RetVal;
    end;
    
+   function GetUnsupportedAppRequirements
+   (
+      capabilities : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.System.Profile.IVectorView_IUnsupportedAppRequirement is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.Profile.AppApplicability");
+      m_Factory     : IAppApplicabilityStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.Profile.IVectorView_IUnsupportedAppRequirement;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppApplicabilityStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetUnsupportedAppRequirements(capabilities, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_IsEducationEnvironment
    return Windows.Boolean is
       Hr            : Windows.HRESULT := S_OK;

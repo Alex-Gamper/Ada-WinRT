@@ -356,12 +356,18 @@ package Windows.System.RemoteSystems is
    type IRemoteSystem5_Interface;
    type IRemoteSystem5 is access all IRemoteSystem5_Interface'Class;
    type IRemoteSystem5_Ptr is access all IRemoteSystem5;
+   type IRemoteSystem6_Interface;
+   type IRemoteSystem6 is access all IRemoteSystem6_Interface'Class;
+   type IRemoteSystem6_Ptr is access all IRemoteSystem6;
    type IRemoteSystemAddedEventArgs_Interface;
    type IRemoteSystemAddedEventArgs is access all IRemoteSystemAddedEventArgs_Interface'Class;
    type IRemoteSystemAddedEventArgs_Ptr is access all IRemoteSystemAddedEventArgs;
    type IRemoteSystemApp_Interface;
    type IRemoteSystemApp is access all IRemoteSystemApp_Interface'Class;
    type IRemoteSystemApp_Ptr is access all IRemoteSystemApp;
+   type IRemoteSystemApp2_Interface;
+   type IRemoteSystemApp2 is access all IRemoteSystemApp2_Interface'Class;
+   type IRemoteSystemApp2_Ptr is access all IRemoteSystemApp2;
    type IRemoteSystemAppRegistration_Interface;
    type IRemoteSystemAppRegistration is access all IRemoteSystemAppRegistration_Interface'Class;
    type IRemoteSystemAppRegistration_Ptr is access all IRemoteSystemAppRegistration;
@@ -386,12 +392,18 @@ package Windows.System.RemoteSystems is
    type IRemoteSystemConnectionRequest2_Interface;
    type IRemoteSystemConnectionRequest2 is access all IRemoteSystemConnectionRequest2_Interface'Class;
    type IRemoteSystemConnectionRequest2_Ptr is access all IRemoteSystemConnectionRequest2;
+   type IRemoteSystemConnectionRequest3_Interface;
+   type IRemoteSystemConnectionRequest3 is access all IRemoteSystemConnectionRequest3_Interface'Class;
+   type IRemoteSystemConnectionRequest3_Ptr is access all IRemoteSystemConnectionRequest3;
    type IRemoteSystemConnectionRequestFactory_Interface;
    type IRemoteSystemConnectionRequestFactory is access all IRemoteSystemConnectionRequestFactory_Interface'Class;
    type IRemoteSystemConnectionRequestFactory_Ptr is access all IRemoteSystemConnectionRequestFactory;
    type IRemoteSystemConnectionRequestStatics_Interface;
    type IRemoteSystemConnectionRequestStatics is access all IRemoteSystemConnectionRequestStatics_Interface'Class;
    type IRemoteSystemConnectionRequestStatics_Ptr is access all IRemoteSystemConnectionRequestStatics;
+   type IRemoteSystemConnectionRequestStatics2_Interface;
+   type IRemoteSystemConnectionRequestStatics2 is access all IRemoteSystemConnectionRequestStatics2_Interface'Class;
+   type IRemoteSystemConnectionRequestStatics2_Ptr is access all IRemoteSystemConnectionRequestStatics2;
    type IRemoteSystemDiscoveryTypeFilter_Interface;
    type IRemoteSystemDiscoveryTypeFilter is access all IRemoteSystemDiscoveryTypeFilter_Interface'Class;
    type IRemoteSystemDiscoveryTypeFilter_Ptr is access all IRemoteSystemDiscoveryTypeFilter;
@@ -500,6 +512,9 @@ package Windows.System.RemoteSystems is
    type IRemoteSystemStatics2_Interface;
    type IRemoteSystemStatics2 is access all IRemoteSystemStatics2_Interface'Class;
    type IRemoteSystemStatics2_Ptr is access all IRemoteSystemStatics2;
+   type IRemoteSystemStatics3_Interface;
+   type IRemoteSystemStatics3 is access all IRemoteSystemStatics3_Interface'Class;
+   type IRemoteSystemStatics3_Ptr is access all IRemoteSystemStatics3;
    type IRemoteSystemStatusTypeFilter_Interface;
    type IRemoteSystemStatusTypeFilter is access all IRemoteSystemStatusTypeFilter_Interface'Class;
    type IRemoteSystemStatusTypeFilter_Ptr is access all IRemoteSystemStatusTypeFilter;
@@ -515,6 +530,9 @@ package Windows.System.RemoteSystems is
    type IRemoteSystemWatcher2_Interface;
    type IRemoteSystemWatcher2 is access all IRemoteSystemWatcher2_Interface'Class;
    type IRemoteSystemWatcher2_Ptr is access all IRemoteSystemWatcher2;
+   type IRemoteSystemWatcher3_Interface;
+   type IRemoteSystemWatcher3 is access all IRemoteSystemWatcher3_Interface'Class;
+   type IRemoteSystemWatcher3_Ptr is access all IRemoteSystemWatcher3;
    type IRemoteSystemWatcherErrorOccurredEventArgs_Interface;
    type IRemoteSystemWatcherErrorOccurredEventArgs is access all IRemoteSystemWatcherErrorOccurredEventArgs_Interface'Class;
    type IRemoteSystemWatcherErrorOccurredEventArgs_Ptr is access all IRemoteSystemWatcherErrorOccurredEventArgs;
@@ -928,6 +946,19 @@ package Windows.System.RemoteSystems is
    
    ------------------------------------------------------------------------
    
+   IID_IRemoteSystem6 : aliased constant Windows.IID := (3570248002, 49191, 21310, (147, 132, 58, 25, 180, 247, 238, 243 ));
+   
+   type IRemoteSystem6_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_User
+   (
+      This       : access IRemoteSystem6_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IRemoteSystemAddedEventArgs : aliased constant Windows.IID := (2402899471, 58676, 18071, (136, 54, 122, 190, 161, 81, 81, 110 ));
    
    type IRemoteSystemAddedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -977,6 +1008,26 @@ package Windows.System.RemoteSystems is
    (
       This       : access IRemoteSystemApp_Interface
       ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemApp2 : aliased constant Windows.IID := (1667874581, 2710, 22394, (143, 246, 195, 89, 4, 223, 168, 243 ));
+   
+   type IRemoteSystemApp2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_User
+   (
+      This       : access IRemoteSystemApp2_Interface
+      ; RetVal : access Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ConnectionToken
+   (
+      This       : access IRemoteSystemApp2_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -1110,6 +1161,19 @@ package Windows.System.RemoteSystems is
    
    ------------------------------------------------------------------------
    
+   IID_IRemoteSystemConnectionRequest3 : aliased constant Windows.IID := (3733373927, 51660, 23120, (184, 217, 186, 123, 52, 187, 141, 14 ));
+   
+   type IRemoteSystemConnectionRequest3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ConnectionToken
+   (
+      This       : access IRemoteSystemConnectionRequest3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IRemoteSystemConnectionRequestFactory : aliased constant Windows.IID := (2852784672, 47851, 17781, (181, 48, 129, 11, 185, 120, 99, 52 ));
    
    type IRemoteSystemConnectionRequestFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -1132,6 +1196,29 @@ package Windows.System.RemoteSystems is
    (
       This       : access IRemoteSystemConnectionRequestStatics_Interface
       ; remoteSystemApp : Windows.System.RemoteSystems.IRemoteSystemApp
+      ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemConnectionRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemConnectionRequestStatics2 : aliased constant Windows.IID := (1175392295, 25836, 22926, (168, 0, 79, 46, 229, 141, 239, 25 ));
+   
+   type IRemoteSystemConnectionRequestStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromConnectionToken
+   (
+      This       : access IRemoteSystemConnectionRequestStatics2_Interface
+      ; connectionToken : Windows.String
+      ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemConnectionRequest
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromConnectionTokenForUser
+   (
+      This       : access IRemoteSystemConnectionRequestStatics2_Interface
+      ; user : Windows.System.IUser
+      ; connectionToken : Windows.String
       ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemConnectionRequest
    )
    return Windows.HRESULT is abstract;
@@ -1981,6 +2068,29 @@ package Windows.System.RemoteSystems is
    
    ------------------------------------------------------------------------
    
+   IID_IRemoteSystemStatics3 : aliased constant Windows.IID := (2576740719, 2876, 23237, (179, 37, 204, 115, 244, 55, 223, 205 ));
+   
+   type IRemoteSystemStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateWatcherForUser
+   (
+      This       : access IRemoteSystemStatics3_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemWatcher
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateWatcherWithFiltersForUser
+   (
+      This       : access IRemoteSystemStatics3_Interface
+      ; user : Windows.System.IUser
+      ; filters : Windows.System.RemoteSystems.IIterable_IRemoteSystemFilter
+      ; RetVal : access Windows.System.RemoteSystems.IRemoteSystemWatcher
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IRemoteSystemStatusTypeFilter : aliased constant Windows.IID := (205082958, 52150, 18295, (133, 52, 46, 12, 82, 26, 255, 162 ));
    
    type IRemoteSystemStatusTypeFilter_Interface is interface and Windows.IInspectable_Interface;
@@ -2115,6 +2225,19 @@ package Windows.System.RemoteSystems is
    (
       This       : access IRemoteSystemWatcher2_Interface
       ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IRemoteSystemWatcher3 : aliased constant Windows.IID := (4154200015, 43283, 21971, (132, 19, 65, 143, 207, 21, 186, 84 ));
+   
+   type IRemoteSystemWatcher3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_User
+   (
+      This       : access IRemoteSystemWatcher3_Interface
+      ; RetVal : access Windows.System.IUser
    )
    return Windows.HRESULT is abstract;
    
@@ -2599,6 +2722,19 @@ package Windows.System.RemoteSystems is
    )
    return Windows.Boolean;
    
+   function CreateWatcherForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.System.RemoteSystems.IRemoteSystemWatcher;
+   
+   function CreateWatcherWithFiltersForUser
+   (
+      user : Windows.System.IUser
+      ; filters : Windows.System.RemoteSystems.IIterable_IRemoteSystemFilter
+   )
+   return Windows.System.RemoteSystems.IRemoteSystemWatcher;
+   
    function GetDefault
    return Windows.System.RemoteSystems.IRemoteSystemAppRegistration;
    
@@ -2617,6 +2753,19 @@ package Windows.System.RemoteSystems is
    function CreateForApp
    (
       remoteSystemApp : Windows.System.RemoteSystems.IRemoteSystemApp
+   )
+   return Windows.System.RemoteSystems.IRemoteSystemConnectionRequest;
+   
+   function CreateFromConnectionToken
+   (
+      connectionToken : Windows.String
+   )
+   return Windows.System.RemoteSystems.IRemoteSystemConnectionRequest;
+   
+   function CreateFromConnectionTokenForUser
+   (
+      user : Windows.System.IUser
+      ; connectionToken : Windows.String
    )
    return Windows.System.RemoteSystems.IRemoteSystemConnectionRequest;
    

@@ -251,6 +251,23 @@ package body Windows.UI.Composition is
       Hr := WindowsDeleteString(m_hString);
    end;
    
+   function get_MaxRespectedCasters
+   return Windows.Int32 is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Composition.CompositionProjectedShadowCasterCollection");
+      m_Factory     : ICompositionProjectedShadowCasterCollectionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Int32;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICompositionProjectedShadowCasterCollectionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MaxRespectedCasters(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_MaxGlobalPlaybackRate
    return Windows.Single is
       Hr            : Windows.HRESULT := S_OK;

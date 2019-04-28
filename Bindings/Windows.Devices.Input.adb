@@ -127,6 +127,26 @@ package body Windows.Devices.Input is
       return RetVal;
    end;
    
+   function GetFromPointerId
+   (
+      pointerId : Windows.UInt32
+   )
+   return Windows.Devices.Input.IPenDevice is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Input.PenDevice");
+      m_Factory     : IPenDeviceStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Input.IPenDevice;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPenDeviceStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetFromPointerId(pointerId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetPointerDevice
    (
       pointerId : Windows.UInt32

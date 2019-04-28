@@ -26,6 +26,7 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows; use Windows;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
 package Windows.Devices.Input is
@@ -115,6 +116,12 @@ package Windows.Devices.Input is
    type IMouseEventArgs_Interface;
    type IMouseEventArgs is access all IMouseEventArgs_Interface'Class;
    type IMouseEventArgs_Ptr is access all IMouseEventArgs;
+   type IPenDevice_Interface;
+   type IPenDevice is access all IPenDevice_Interface'Class;
+   type IPenDevice_Ptr is access all IPenDevice;
+   type IPenDeviceStatics_Interface;
+   type IPenDeviceStatics is access all IPenDeviceStatics_Interface'Class;
+   type IPenDeviceStatics_Ptr is access all IPenDeviceStatics;
    type IPointerDevice_Interface;
    type IPointerDevice is access all IPointerDevice_Interface'Class;
    type IPointerDevice_Ptr is access all IPointerDevice;
@@ -337,6 +344,33 @@ package Windows.Devices.Input is
    
    ------------------------------------------------------------------------
    
+   IID_IPenDevice : aliased constant Windows.IID := (830828218, 42808, 23180, (184, 246, 249, 126, 246, 141, 24, 239 ));
+   
+   type IPenDevice_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PenId
+   (
+      This       : access IPenDevice_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPenDeviceStatics : aliased constant Windows.IID := (2650521089, 2406, 20864, (188, 180, 184, 80, 96, 227, 148, 121 ));
+   
+   type IPenDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetFromPointerId
+   (
+      This       : access IPenDeviceStatics_Interface
+      ; pointerId : Windows.UInt32
+      ; RetVal : access Windows.Devices.Input.IPenDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPointerDevice : aliased constant Windows.IID := (2479471356, 60363, 18046, (130, 198, 39, 111, 234, 227, 107, 90 ));
    
    type IPointerDevice_Interface is interface and Windows.IInspectable_Interface;
@@ -544,6 +578,7 @@ package Windows.Devices.Input is
    
    subtype MouseDevice is Windows.Devices.Input.IMouseDevice;
    subtype MouseEventArgs is Windows.Devices.Input.IMouseEventArgs;
+   subtype PenDevice is Windows.Devices.Input.IPenDevice;
    subtype PointerDevice is Windows.Devices.Input.IPointerDevice;
    subtype TouchCapabilities is Windows.Devices.Input.ITouchCapabilities;
    function Create return Windows.Devices.Input.ITouchCapabilities;
@@ -555,6 +590,12 @@ package Windows.Devices.Input is
    
    function GetForCurrentView
    return Windows.Devices.Input.IMouseDevice;
+   
+   function GetFromPointerId
+   (
+      pointerId : Windows.UInt32
+   )
+   return Windows.Devices.Input.IPenDevice;
    
    function GetPointerDevice
    (

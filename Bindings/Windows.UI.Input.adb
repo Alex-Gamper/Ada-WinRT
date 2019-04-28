@@ -40,6 +40,19 @@ package body Windows.UI.Input is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_GazeInputAccessStatus_Interface
+      ; asyncInfo : Windows.UI.Input.IAsyncOperation_GazeInputAccessStatus
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IEdgeGesture_add_Canceled_Interface
       ; sender : Windows.UI.Input.IEdgeGesture
       ; args : Windows.UI.Input.IEdgeGestureEventArgs
@@ -191,6 +204,19 @@ package body Windows.UI.Input is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Input.IGestureRecognizer(sender), Windows.UI.Input.ITappedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IInputActivationListener_add_InputActivationChanged_Interface
+      ; sender : Windows.UI.Input.IInputActivationListener
+      ; args : Windows.UI.Input.IInputActivationListenerActivationChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.IInputActivationListener(sender), Windows.UI.Input.IInputActivationListenerActivationChangedEventArgs(args));
       return Hr;
    end;
    

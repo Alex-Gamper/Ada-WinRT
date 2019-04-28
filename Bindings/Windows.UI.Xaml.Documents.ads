@@ -254,6 +254,9 @@ package Windows.UI.Xaml.Documents is
    type ITextElement4_Interface;
    type ITextElement4 is access all ITextElement4_Interface'Class;
    type ITextElement4_Ptr is access all ITextElement4;
+   type ITextElement5_Interface;
+   type ITextElement5 is access all ITextElement5_Interface'Class;
+   type ITextElement5_Ptr is access all ITextElement5;
    type ITextElementFactory_Interface;
    type ITextElementFactory is access all ITextElementFactory_Interface'Class;
    type ITextElementFactory_Ptr is access all ITextElementFactory;
@@ -2218,6 +2221,26 @@ package Windows.UI.Xaml.Documents is
    (
       This       : access ITextElement4_Interface
       ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITextElement5 : aliased constant Windows.IID := (3180679923, 21517, 22719, (182, 168, 7, 85, 106, 237, 162, 234 ));
+   
+   type ITextElement5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_XamlRoot
+   (
+      This       : access ITextElement5_Interface
+      ; RetVal : access Windows.UI.Xaml.IXamlRoot
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_XamlRoot
+   (
+      This       : access ITextElement5_Interface
+      ; value : Windows.UI.Xaml.IXamlRoot
    )
    return Windows.HRESULT is abstract;
    

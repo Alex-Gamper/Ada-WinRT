@@ -27,6 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 limited with Windows.ApplicationModel.Activation;
+with Windows.Foundation.Numerics;
+limited with Windows.Perception.Spatial;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.Preview.Holographic is
 
@@ -39,6 +41,12 @@ package Windows.ApplicationModel.Preview.Holographic is
    type IHolographicApplicationPreviewStatics_Interface;
    type IHolographicApplicationPreviewStatics is access all IHolographicApplicationPreviewStatics_Interface'Class;
    type IHolographicApplicationPreviewStatics_Ptr is access all IHolographicApplicationPreviewStatics;
+   type IHolographicKeyboardPlacementOverridePreview_Interface;
+   type IHolographicKeyboardPlacementOverridePreview is access all IHolographicKeyboardPlacementOverridePreview_Interface'Class;
+   type IHolographicKeyboardPlacementOverridePreview_Ptr is access all IHolographicKeyboardPlacementOverridePreview;
+   type IHolographicKeyboardPlacementOverridePreviewStatics_Interface;
+   type IHolographicKeyboardPlacementOverridePreviewStatics is access all IHolographicKeyboardPlacementOverridePreviewStatics_Interface'Class;
+   type IHolographicKeyboardPlacementOverridePreviewStatics_Ptr is access all IHolographicKeyboardPlacementOverridePreviewStatics;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -66,9 +74,54 @@ package Windows.ApplicationModel.Preview.Holographic is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IHolographicKeyboardPlacementOverridePreview : aliased constant Windows.IID := (3366506042, 57310, 23060, (141, 95, 24, 44, 82, 109, 217, 196 ));
+   
+   type IHolographicKeyboardPlacementOverridePreview_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetPlacementOverride
+   (
+      This       : access IHolographicKeyboardPlacementOverridePreview_Interface
+      ; coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+      ; topCenterPosition : Windows.Foundation.Numerics.Vector3
+      ; normal : Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetPlacementOverrideWithMaxSize
+   (
+      This       : access IHolographicKeyboardPlacementOverridePreview_Interface
+      ; coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
+      ; topCenterPosition : Windows.Foundation.Numerics.Vector3
+      ; normal : Windows.Foundation.Numerics.Vector3
+      ; maxSize : Windows.Foundation.Numerics.Vector2
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ResetPlacementOverride
+   (
+      This       : access IHolographicKeyboardPlacementOverridePreview_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHolographicKeyboardPlacementOverridePreviewStatics : aliased constant Windows.IID := (539910201, 8182, 23046, (170, 196, 165, 226, 79, 163, 236, 75 ));
+   
+   type IHolographicKeyboardPlacementOverridePreviewStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetForCurrentView
+   (
+      This       : access IHolographicKeyboardPlacementOverridePreviewStatics_Interface
+      ; RetVal : access Windows.ApplicationModel.Preview.Holographic.IHolographicKeyboardPlacementOverridePreview
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype HolographicKeyboardPlacementOverridePreview is Windows.ApplicationModel.Preview.Holographic.IHolographicKeyboardPlacementOverridePreview;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
@@ -82,5 +135,8 @@ package Windows.ApplicationModel.Preview.Holographic is
       activatedEventArgs : Windows.ApplicationModel.Activation.IActivatedEventArgs
    )
    return Windows.Boolean;
+   
+   function GetForCurrentView
+   return Windows.ApplicationModel.Preview.Holographic.IHolographicKeyboardPlacementOverridePreview;
    
 end;

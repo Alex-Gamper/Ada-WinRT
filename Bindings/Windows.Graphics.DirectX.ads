@@ -354,6 +354,26 @@ package Windows.Graphics.DirectX is
    
    type DirectXPixelFormat_Ptr is access DirectXPixelFormat;
    
+   type DirectXPrimitiveTopology is (
+      Undefined,
+      PointList,
+      LineList,
+      LineStrip,
+      TriangleList,
+      TriangleStrip
+   );
+   for DirectXPrimitiveTopology use (
+      Undefined => 0,
+      PointList => 1,
+      LineList => 2,
+      LineStrip => 3,
+      TriangleList => 4,
+      TriangleStrip => 5
+   );
+   for DirectXPrimitiveTopology'Size use 32;
+   
+   type DirectXPrimitiveTopology_Ptr is access DirectXPrimitiveTopology;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------

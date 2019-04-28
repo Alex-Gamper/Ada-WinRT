@@ -72,6 +72,12 @@ package Windows.UI is
    type IReference_Color_Interface;
    type IReference_Color is access all IReference_Color_Interface'Class;
    type IReference_Color_Ptr is access all IReference_Color;
+   type IUIContentRoot_Interface;
+   type IUIContentRoot is access all IUIContentRoot_Interface'Class;
+   type IUIContentRoot_Ptr is access all IUIContentRoot;
+   type IUIContext_Interface;
+   type IUIContext is access all IUIContext_Interface'Class;
+   type IUIContext_Ptr is access all IUIContext;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -1175,11 +1181,32 @@ package Windows.UI is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IUIContentRoot : aliased constant Windows.IID := (503102150, 45931, 23737, (155, 197, 43, 122, 14, 221, 195, 120 ));
+   
+   type IUIContentRoot_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_UIContext
+   (
+      This       : access IUIContentRoot_Interface
+      ; RetVal : access Windows.UI.IUIContext
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUIContext : aliased constant Windows.IID := (3143432909, 23512, 22992, (165, 158, 28, 23, 164, 214, 210, 67 ));
+   
+   type IUIContext_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype ColorHelper is Windows.UI.IColorHelper;
    subtype Colors is Windows.UI.IColors;
+   subtype UIContentRoot is Windows.UI.IUIContentRoot;
+   subtype UIContext is Windows.UI.IUIContext;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

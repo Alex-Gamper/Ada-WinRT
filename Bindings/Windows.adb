@@ -3,9 +3,9 @@
 --    Copyright(c) 2018 Alexander Gamper, All Rights Reserved.                --
 --                                                                            --
 --    Ada-WinRT                                                               --
---    Version   : 1.2.0.0                                                     --
---    Microsoft SDK Version : 10.0.17763.0                                    --
---    Microsoft Windows Release : 1809                                        --
+--    Version   : 1.3.0.0                                                     --
+--    Microsoft SDK Version : 10.0.18362.0                                    --
+--    Microsoft Windows Release : 19H1                                        --
 --                                                                            --
 -- This program is free software: you can redistribute it and / or modify     --
 -- it under the terms of the GNU Lesser General Public License as published by--

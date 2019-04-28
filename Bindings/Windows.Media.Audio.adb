@@ -46,6 +46,19 @@ package body Windows.Media.Audio is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IAudioDeviceInputNode_Interface
+      ; asyncInfo : Windows.Media.Audio.IAsyncOperation_IAudioDeviceInputNode
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface
       ; asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioDeviceInputNodeResult
       ; asyncStatus : Windows.Foundation.AsyncStatus

@@ -27,6 +27,7 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.ApplicationModel.Background;
+with Windows.Security.Credentials;
 with Windows.Storage.Streams;
 with Windows.UI;
 with Windows.UI.Popups;

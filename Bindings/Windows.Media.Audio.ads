@@ -229,6 +229,9 @@ package Windows.Media.Audio is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type AsyncOperationCompletedHandler_IAudioDeviceInputNode_Interface;
+   type AsyncOperationCompletedHandler_IAudioDeviceInputNode is access all AsyncOperationCompletedHandler_IAudioDeviceInputNode_Interface'Class;
+   type AsyncOperationCompletedHandler_IAudioDeviceInputNode_Ptr is access all AsyncOperationCompletedHandler_IAudioDeviceInputNode;
    type AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface;
    type AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult is access all AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface'Class;
    type AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Ptr is access all AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult;
@@ -282,6 +285,9 @@ package Windows.Media.Audio is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IAudioDeviceInputNode_Interface;
+   type IAsyncOperation_IAudioDeviceInputNode is access all IAsyncOperation_IAudioDeviceInputNode_Interface'Class;
+   type IAsyncOperation_IAudioDeviceInputNode_Ptr is access all IAsyncOperation_IAudioDeviceInputNode;
    type IAsyncOperation_ICreateAudioDeviceInputNodeResult_Interface;
    type IAsyncOperation_ICreateAudioDeviceInputNodeResult is access all IAsyncOperation_ICreateAudioDeviceInputNodeResult_Interface'Class;
    type IAsyncOperation_ICreateAudioDeviceInputNodeResult_Ptr is access all IAsyncOperation_ICreateAudioDeviceInputNodeResult;
@@ -511,6 +517,33 @@ package Windows.Media.Audio is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IAudioDeviceInputNode : aliased constant Windows.IID := (3490298315, 59841, 23949, (149, 117, 195, 58, 194, 108, 228, 74 ));
+   
+   type IAsyncOperation_IAudioDeviceInputNode_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IAudioDeviceInputNode_Interface
+      ; handler : Windows.Media.Audio.AsyncOperationCompletedHandler_IAudioDeviceInputNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IAudioDeviceInputNode_Interface
+      ; RetVal : access Windows.Media.Audio.AsyncOperationCompletedHandler_IAudioDeviceInputNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IAudioDeviceInputNode_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioDeviceInputNode
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -3256,6 +3289,19 @@ package Windows.Media.Audio is
    ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IAudioDeviceInputNode : aliased constant Windows.IID := (431052909, 56189, 21992, (151, 41, 34, 86, 189, 153, 132, 212 ));
+   
+   type AsyncOperationCompletedHandler_IAudioDeviceInputNode_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_IAudioDeviceInputNode ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAudioDeviceInputNode'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IAudioDeviceInputNode_Interface
+      ; asyncInfo : Windows.Media.Audio.IAsyncOperation_IAudioDeviceInputNode
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
    
    ------------------------------------------------------------------------
    

@@ -28,6 +28,7 @@
 --------------------------------------------------------------------------------
 with Windows; use Windows;
 limited with Windows.ApplicationModel.Contacts;
+limited with Windows.Devices.Enumeration;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.System;
@@ -177,11 +178,13 @@ package Windows.ApplicationModel.Calls is
    
    type PhoneLineTransport is (
       Cellular,
-      VoipApp
+      VoipApp,
+      Bluetooth
    );
    for PhoneLineTransport use (
       Cellular => 0,
-      VoipApp => 1
+      VoipApp => 1,
+      Bluetooth => 2
    );
    for PhoneLineTransport'Size use 32;
    
@@ -511,6 +514,9 @@ package Windows.ApplicationModel.Calls is
    type IPhoneLine_Interface;
    type IPhoneLine is access all IPhoneLine_Interface'Class;
    type IPhoneLine_Ptr is access all IPhoneLine;
+   type IPhoneLine2_Interface;
+   type IPhoneLine2 is access all IPhoneLine2_Interface'Class;
+   type IPhoneLine2_Ptr is access all IPhoneLine2;
    type IPhoneLineCellularDetails_Interface;
    type IPhoneLineCellularDetails is access all IPhoneLineCellularDetails_Interface'Class;
    type IPhoneLineCellularDetails_Ptr is access all IPhoneLineCellularDetails;
@@ -520,6 +526,12 @@ package Windows.ApplicationModel.Calls is
    type IPhoneLineStatics_Interface;
    type IPhoneLineStatics is access all IPhoneLineStatics_Interface'Class;
    type IPhoneLineStatics_Ptr is access all IPhoneLineStatics;
+   type IPhoneLineTransportDevice_Interface;
+   type IPhoneLineTransportDevice is access all IPhoneLineTransportDevice_Interface'Class;
+   type IPhoneLineTransportDevice_Ptr is access all IPhoneLineTransportDevice;
+   type IPhoneLineTransportDeviceStatics_Interface;
+   type IPhoneLineTransportDeviceStatics is access all IPhoneLineTransportDeviceStatics_Interface'Class;
+   type IPhoneLineTransportDeviceStatics_Ptr is access all IPhoneLineTransportDeviceStatics;
    type IPhoneLineWatcher_Interface;
    type IPhoneLineWatcher is access all IPhoneLineWatcher_Interface'Class;
    type IPhoneLineWatcher_Ptr is access all IPhoneLineWatcher;
@@ -1796,6 +1808,26 @@ package Windows.ApplicationModel.Calls is
    
    ------------------------------------------------------------------------
    
+   IID_IPhoneLine2 : aliased constant Windows.IID := (23590250, 21316, 23908, (138, 243, 163, 26, 149, 14, 145, 106 ));
+   
+   type IPhoneLine2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function EnableTextReply
+   (
+      This       : access IPhoneLine2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TransportDeviceId
+   (
+      This       : access IPhoneLine2_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPhoneLineCellularDetails : aliased constant Windows.IID := (421921237, 5244, 18281, (182, 115, 152, 165, 236, 132, 38, 203 ));
    
    type IPhoneLineCellularDetails_Interface is interface and Windows.IInspectable_Interface;
@@ -1867,6 +1899,109 @@ package Windows.ApplicationModel.Calls is
       This       : access IPhoneLineStatics_Interface
       ; lineId : Windows.Guid
       ; RetVal : access Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneLine -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPhoneLineTransportDevice : aliased constant Windows.IID := (4020828297, 53242, 23028, (151, 228, 116, 112, 91, 125, 196, 144 ));
+   
+   type IPhoneLineTransportDevice_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DeviceId
+   (
+      This       : access IPhoneLineTransportDevice_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Transport
+   (
+      This       : access IPhoneLineTransportDevice_Interface
+      ; RetVal : access Windows.ApplicationModel.Calls.PhoneLineTransport
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RequestAccessAsync
+   (
+      This       : access IPhoneLineTransportDevice_Interface
+      ; RetVal : access Windows.Devices.Enumeration.IAsyncOperation_DeviceAccessStatus -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RegisterApp
+   (
+      This       : access IPhoneLineTransportDevice_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RegisterAppForUser
+   (
+      This       : access IPhoneLineTransportDevice_Interface
+      ; user : Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   function UnregisterApp
+   (
+      This       : access IPhoneLineTransportDevice_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function UnregisterAppForUser
+   (
+      This       : access IPhoneLineTransportDevice_Interface
+      ; user : Windows.System.IUser
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IsRegistered
+   (
+      This       : access IPhoneLineTransportDevice_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Connect
+   (
+      This       : access IPhoneLineTransportDevice_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ConnectAsync
+   (
+      This       : access IPhoneLineTransportDevice_Interface
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPhoneLineTransportDeviceStatics : aliased constant Windows.IID := (254878124, 54793, 20897, (150, 243, 251, 0, 209, 129, 146, 82 ));
+   
+   type IPhoneLineTransportDeviceStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FromId
+   (
+      This       : access IPhoneLineTransportDeviceStatics_Interface
+      ; id : Windows.String
+      ; RetVal : access Windows.ApplicationModel.Calls.IPhoneLineTransportDevice
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeviceSelector
+   (
+      This       : access IPhoneLineTransportDeviceStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDeviceSelectorForPhoneLineTransport
+   (
+      This       : access IPhoneLineTransportDeviceStatics_Interface
+      ; transport : Windows.ApplicationModel.Calls.PhoneLineTransport
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -2681,6 +2816,7 @@ package Windows.ApplicationModel.Calls is
    subtype PhoneLine is Windows.ApplicationModel.Calls.IPhoneLine;
    subtype PhoneLineCellularDetails is Windows.ApplicationModel.Calls.IPhoneLineCellularDetails;
    subtype PhoneLineConfiguration is Windows.ApplicationModel.Calls.IPhoneLineConfiguration;
+   subtype PhoneLineTransportDevice is Windows.ApplicationModel.Calls.IPhoneLineTransportDevice;
    subtype PhoneLineWatcher is Windows.ApplicationModel.Calls.IPhoneLineWatcher;
    subtype PhoneLineWatcherEventArgs is Windows.ApplicationModel.Calls.IPhoneLineWatcherEventArgs;
    subtype PhoneVoicemail is Windows.ApplicationModel.Calls.IPhoneVoicemail;
@@ -2769,6 +2905,21 @@ package Windows.ApplicationModel.Calls is
       lineId : Windows.Guid
    )
    return Windows.ApplicationModel.Calls.IAsyncOperation_IPhoneLine;
+   
+   function FromId
+   (
+      id : Windows.String
+   )
+   return Windows.ApplicationModel.Calls.IPhoneLineTransportDevice;
+   
+   function GetDeviceSelector
+   return Windows.String;
+   
+   function GetDeviceSelectorForPhoneLineTransport
+   (
+      transport : Windows.ApplicationModel.Calls.PhoneLineTransport
+   )
+   return Windows.String;
    
    function GetDefault
    return Windows.ApplicationModel.Calls.IVoipCallCoordinator;

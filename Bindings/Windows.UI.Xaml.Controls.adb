@@ -1626,6 +1626,19 @@ package body Windows.UI.Xaml.Controls is
    
    function Invoke
    (
+      This       : access TypedEventHandler_ITwoPaneView_add_ModeChanged_Interface
+      ; sender : Windows.UI.Xaml.Controls.ITwoPaneView
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Xaml.Controls.ITwoPaneView(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IWebView2_add_ContentLoading_Interface
       ; sender : Windows.UI.Xaml.Controls.IWebView
       ; args : Windows.UI.Xaml.Controls.IWebViewContentLoadingEventArgs
@@ -25175,6 +25188,330 @@ package body Windows.UI.Xaml.Controls is
    ------------------------------------------------------------------------
    function QueryInterface
    (
+      This       : access ITwoPaneView_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+      m_IUnknown : aliased Windows.IUnknown;
+      RefCount : aliased UInt32 := 0;
+      RetVal : aliased IUnknown := null;
+      pragma suppress(Accessibility_Check); -- This can be called from Windows
+   begin
+      if riid.all = IID_ITwoPaneView or riid.all = IID_IInspectable or riid.all = IID_IUnknown then
+         pvObject.all := This;
+         Hr := S_OK;
+      else
+         if riid.all = IID_IMarshal or riid.all = IID_IAgileObject then
+            if This.m_FTM = null then
+               Hr := This.QueryInterface(IID_IUnknown'access, m_IUnknown'access);
+               Hr := CoCreateFreeThreadedMarshaler(m_IUnknown, This.m_FTM'access);
+            end if;
+            Hr := This.m_FTM.QueryInterface(riid, pvObject);
+         else
+            Hr := E_NOINTERFACE;
+         end if;
+      end if;
+      return Hr;
+   end;
+   
+   function AddRef
+   (
+      This       : access ITwoPaneView_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount + 1;
+      RetVal := This.m_RefCount;   --InterlockedIncrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function Release
+   (
+      This       : access ITwoPaneView_Interface_Impl
+   )
+   return Windows.UInt32 is
+      RetVal : Windows.UInt32;
+   begin
+      This.m_RefCount := This.m_RefCount - 1;
+      RetVal := This.m_RefCount;   --InterlockedDecrement(This.m_RefCount'access)
+      return RetVal;
+   end;
+   
+   function GetIids
+   (
+      This       : access ITwoPaneView_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := E_NOTIMPL;
+   begin
+      return Hr;
+   end;
+   
+   function GetRuntimeClassName
+   (
+      This       : access ITwoPaneView_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+      InterfaceName : Windows.String := To_String("Windows.UI.Xaml.Controls.ITwoPaneView");
+   begin
+      className.all := InterfaceName;
+      return Hr;
+   end;
+   
+   function GetTrustLevel
+   (
+      This       : access ITwoPaneView_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HResult := S_OK;
+   begin
+      trustLevel.all := FullTrust;
+      return Hr;
+   end;
+   
+   function get_Pane1
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Pane1
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_Pane2
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Pane2
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_Pane1Length
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.GridLength
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Pane1Length
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.UI.Xaml.GridLength
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_Pane2Length
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.GridLength
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_Pane2Length
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.UI.Xaml.GridLength
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_PanePriority
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.TwoPaneViewPriority
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_PanePriority
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.UI.Xaml.Controls.TwoPaneViewPriority
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_Mode
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.TwoPaneViewMode
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_WideModeConfiguration
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.TwoPaneViewWideModeConfiguration
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_WideModeConfiguration
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.UI.Xaml.Controls.TwoPaneViewWideModeConfiguration
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_TallModeConfiguration
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.TwoPaneViewTallModeConfiguration
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_TallModeConfiguration
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.UI.Xaml.Controls.TwoPaneViewTallModeConfiguration
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_MinWideModeWidth
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_MinWideModeWidth
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function get_MinTallModeHeight
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function put_MinTallModeHeight
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function add_ModeChanged
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; handler : TypedEventHandler_ITwoPaneView_add_ModeChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   function remove_ModeChanged
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      return Hr;
+   end;
+   
+   ------------------------------------------------------------------------
+   function QueryInterface
+   (
       This       : access IUserControl_Interface_Impl;
       riid       : in Windows.GUID_Ptr;
       pvObject   : not null access IUnknown
@@ -30702,6 +31039,23 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function get_IsDefaultShadowEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.DatePickerFlyoutPresenter");
+      m_Factory     : IDatePickerFlyoutPresenterStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IDatePickerFlyoutPresenterStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsDefaultShadowEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateInstance
    (
       baseInterface : Windows.Object
@@ -30874,6 +31228,23 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IFlyoutPresenterFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsDefaultShadowEnabledProperty_IFlyoutPresenter
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.FlyoutPresenter");
+      m_Factory     : IFlyoutPresenterStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFlyoutPresenterStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsDefaultShadowEnabledProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -32509,6 +32880,23 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IInkToolbarStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_OrientationProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TargetInkPresenterProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.InkToolbar");
+      m_Factory     : IInkToolbarStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IInkToolbarStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TargetInkPresenterProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -36075,6 +36463,23 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_IMenuFlyoutPresenterFactory'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_IsDefaultShadowEnabledProperty_IMenuFlyoutPresenter
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.MenuFlyoutPresenter");
+      m_Factory     : IMenuFlyoutPresenterStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IMenuFlyoutPresenterStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsDefaultShadowEnabledProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
@@ -45001,6 +45406,23 @@ package body Windows.UI.Xaml.Controls is
       return RetVal;
    end;
    
+   function get_IsDefaultShadowEnabledProperty_ITimePickerFlyoutPresenter
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TimePickerFlyoutPresenter");
+      m_Factory     : ITimePickerFlyoutPresenterStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITimePickerFlyoutPresenterStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_IsDefaultShadowEnabledProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateInstance
    (
       baseInterface : Windows.Object
@@ -46033,6 +46455,197 @@ package body Windows.UI.Xaml.Controls is
       Hr := RoGetActivationFactory(m_hString, IID_ITreeViewNodeStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_IsExpandedProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ITwoPaneView is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TwoPaneView");
+      m_Factory     : ITwoPaneViewFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.Controls.ITwoPaneView;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITwoPaneViewFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateInstance(baseInterface, innerInterface, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MinTallModeHeightProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TwoPaneView");
+      m_Factory     : ITwoPaneViewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITwoPaneViewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MinTallModeHeightProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_MinWideModeWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TwoPaneView");
+      m_Factory     : ITwoPaneViewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITwoPaneViewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_MinWideModeWidthProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_ModeProperty_ITwoPaneView
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TwoPaneView");
+      m_Factory     : ITwoPaneViewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITwoPaneViewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_ModeProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Pane1LengthProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TwoPaneView");
+      m_Factory     : ITwoPaneViewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITwoPaneViewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Pane1LengthProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Pane1Property
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TwoPaneView");
+      m_Factory     : ITwoPaneViewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITwoPaneViewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Pane1Property(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Pane2LengthProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TwoPaneView");
+      m_Factory     : ITwoPaneViewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITwoPaneViewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Pane2LengthProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_Pane2Property
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TwoPaneView");
+      m_Factory     : ITwoPaneViewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITwoPaneViewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Pane2Property(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_PanePriorityProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TwoPaneView");
+      m_Factory     : ITwoPaneViewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITwoPaneViewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_PanePriorityProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_TallModeConfigurationProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TwoPaneView");
+      m_Factory     : ITwoPaneViewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITwoPaneViewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_TallModeConfigurationProperty(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function get_WideModeConfigurationProperty
+   return Windows.UI.Xaml.IDependencyProperty is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Controls.TwoPaneView");
+      m_Factory     : ITwoPaneViewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Xaml.IDependencyProperty;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ITwoPaneViewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_WideModeConfigurationProperty(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

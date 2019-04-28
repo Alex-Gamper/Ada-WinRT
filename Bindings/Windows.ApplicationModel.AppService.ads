@@ -99,6 +99,36 @@ package Windows.ApplicationModel.AppService is
    
    type AppServiceResponseStatus_Ptr is access AppServiceResponseStatus;
    
+   type StatelessAppServiceResponseStatus is (
+      Success,
+      AppNotInstalled,
+      AppUnavailable,
+      AppServiceUnavailable,
+      RemoteSystemUnavailable,
+      RemoteSystemNotSupportedByApp,
+      NotAuthorized,
+      ResourceLimitsExceeded,
+      MessageSizeTooLarge,
+      Failure,
+      Unknown
+   );
+   for StatelessAppServiceResponseStatus use (
+      Success => 0,
+      AppNotInstalled => 1,
+      AppUnavailable => 2,
+      AppServiceUnavailable => 3,
+      RemoteSystemUnavailable => 4,
+      RemoteSystemNotSupportedByApp => 5,
+      NotAuthorized => 6,
+      ResourceLimitsExceeded => 7,
+      MessageSizeTooLarge => 8,
+      Failure => 9,
+      Unknown => 10
+   );
+   for StatelessAppServiceResponseStatus'Size use 32;
+   
+   type StatelessAppServiceResponseStatus_Ptr is access StatelessAppServiceResponseStatus;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -112,6 +142,9 @@ package Windows.ApplicationModel.AppService is
    type AsyncOperationCompletedHandler_IAppServiceResponse_Interface;
    type AsyncOperationCompletedHandler_IAppServiceResponse is access all AsyncOperationCompletedHandler_IAppServiceResponse_Interface'Class;
    type AsyncOperationCompletedHandler_IAppServiceResponse_Ptr is access all AsyncOperationCompletedHandler_IAppServiceResponse;
+   type AsyncOperationCompletedHandler_IStatelessAppServiceResponse_Interface;
+   type AsyncOperationCompletedHandler_IStatelessAppServiceResponse is access all AsyncOperationCompletedHandler_IStatelessAppServiceResponse_Interface'Class;
+   type AsyncOperationCompletedHandler_IStatelessAppServiceResponse_Ptr is access all AsyncOperationCompletedHandler_IStatelessAppServiceResponse;
    type TypedEventHandler_IAppServiceConnection_add_RequestReceived_Interface;
    type TypedEventHandler_IAppServiceConnection_add_RequestReceived is access all TypedEventHandler_IAppServiceConnection_add_RequestReceived_Interface'Class;
    type TypedEventHandler_IAppServiceConnection_add_RequestReceived_Ptr is access all TypedEventHandler_IAppServiceConnection_add_RequestReceived;
@@ -135,6 +168,9 @@ package Windows.ApplicationModel.AppService is
    type IAppServiceConnection2_Interface;
    type IAppServiceConnection2 is access all IAppServiceConnection2_Interface'Class;
    type IAppServiceConnection2_Ptr is access all IAppServiceConnection2;
+   type IAppServiceConnectionStatics_Interface;
+   type IAppServiceConnectionStatics is access all IAppServiceConnectionStatics_Interface'Class;
+   type IAppServiceConnectionStatics_Ptr is access all IAppServiceConnectionStatics;
    type IAppServiceDeferral_Interface;
    type IAppServiceDeferral is access all IAppServiceDeferral_Interface'Class;
    type IAppServiceDeferral_Ptr is access all IAppServiceDeferral;
@@ -156,6 +192,9 @@ package Windows.ApplicationModel.AppService is
    type IAppServiceTriggerDetails3_Interface;
    type IAppServiceTriggerDetails3 is access all IAppServiceTriggerDetails3_Interface'Class;
    type IAppServiceTriggerDetails3_Ptr is access all IAppServiceTriggerDetails3;
+   type IAppServiceTriggerDetails4_Interface;
+   type IAppServiceTriggerDetails4 is access all IAppServiceTriggerDetails4_Interface'Class;
+   type IAppServiceTriggerDetails4_Ptr is access all IAppServiceTriggerDetails4;
    type IAsyncOperation_AppServiceConnectionStatus_Interface;
    type IAsyncOperation_AppServiceConnectionStatus is access all IAsyncOperation_AppServiceConnectionStatus_Interface'Class;
    type IAsyncOperation_AppServiceConnectionStatus_Ptr is access all IAsyncOperation_AppServiceConnectionStatus;
@@ -165,6 +204,12 @@ package Windows.ApplicationModel.AppService is
    type IAsyncOperation_IAppServiceResponse_Interface;
    type IAsyncOperation_IAppServiceResponse is access all IAsyncOperation_IAppServiceResponse_Interface'Class;
    type IAsyncOperation_IAppServiceResponse_Ptr is access all IAsyncOperation_IAppServiceResponse;
+   type IAsyncOperation_IStatelessAppServiceResponse_Interface;
+   type IAsyncOperation_IStatelessAppServiceResponse is access all IAsyncOperation_IStatelessAppServiceResponse_Interface'Class;
+   type IAsyncOperation_IStatelessAppServiceResponse_Ptr is access all IAsyncOperation_IStatelessAppServiceResponse;
+   type IStatelessAppServiceResponse_Interface;
+   type IStatelessAppServiceResponse is access all IStatelessAppServiceResponse_Interface'Class;
+   type IStatelessAppServiceResponse_Ptr is access all IStatelessAppServiceResponse;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -306,6 +351,22 @@ package Windows.ApplicationModel.AppService is
    
    ------------------------------------------------------------------------
    
+   IID_IAppServiceConnectionStatics : aliased constant Windows.IID := (2915396841, 54280, 22131, (134, 55, 130, 122, 75, 39, 65, 104 ));
+   
+   type IAppServiceConnectionStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SendStatelessMessageAsync
+   (
+      This       : access IAppServiceConnectionStatics_Interface
+      ; connection : Windows.ApplicationModel.AppService.IAppServiceConnection
+      ; connectionRequest : Windows.System.RemoteSystems.IRemoteSystemConnectionRequest
+      ; message : Windows.Foundation.Collections.IPropertySet
+      ; RetVal : access Windows.ApplicationModel.AppService.IAsyncOperation_IStatelessAppServiceResponse -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAppServiceDeferral : aliased constant Windows.IID := (2115719970, 60080, 16968, (174, 4, 253, 249, 56, 56, 228, 114 ));
    
    type IAppServiceDeferral_Interface is interface and Windows.IInspectable_Interface;
@@ -433,6 +494,19 @@ package Windows.ApplicationModel.AppService is
    
    ------------------------------------------------------------------------
    
+   IID_IAppServiceTriggerDetails4 : aliased constant Windows.IID := (293974400, 34913, 24112, (171, 85, 28, 244, 208, 139, 191, 109 ));
+   
+   type IAppServiceTriggerDetails4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CallerRemoteConnectionToken
+   (
+      This       : access IAppServiceTriggerDetails4_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAsyncOperation_AppServiceConnectionStatus : aliased constant Windows.IID := (219047523, 9785, 23194, (156, 188, 48, 215, 212, 206, 83, 59 ));
    
    type IAsyncOperation_AppServiceConnectionStatus_Interface is interface and Windows.IInspectable_Interface;
@@ -513,6 +587,53 @@ package Windows.ApplicationModel.AppService is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IStatelessAppServiceResponse : aliased constant Windows.IID := (2996916814, 48811, 23531, (170, 233, 180, 53, 1, 195, 164, 136 ));
+   
+   type IAsyncOperation_IStatelessAppServiceResponse_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IStatelessAppServiceResponse_Interface
+      ; handler : Windows.ApplicationModel.AppService.AsyncOperationCompletedHandler_IStatelessAppServiceResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IStatelessAppServiceResponse_Interface
+      ; RetVal : access Windows.ApplicationModel.AppService.AsyncOperationCompletedHandler_IStatelessAppServiceResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IStatelessAppServiceResponse_Interface
+      ; RetVal : access Windows.ApplicationModel.AppService.IStatelessAppServiceResponse
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStatelessAppServiceResponse : aliased constant Windows.IID := (1131760375, 43500, 21246, (130, 231, 147, 155, 104, 220, 147, 136 ));
+   
+   type IStatelessAppServiceResponse_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Message
+   (
+      This       : access IStatelessAppServiceResponse_Interface
+      ; RetVal : access Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Status
+   (
+      This       : access IStatelessAppServiceResponse_Interface
+      ; RetVal : access Windows.ApplicationModel.AppService.StatelessAppServiceResponseStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -557,6 +678,19 @@ package Windows.ApplicationModel.AppService is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IStatelessAppServiceResponse : aliased constant Windows.IID := (1293870317, 19833, 21498, (169, 215, 201, 201, 53, 78, 79, 85 ));
+   
+   type AsyncOperationCompletedHandler_IStatelessAppServiceResponse_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.AppService.IAsyncOperation_IStatelessAppServiceResponse ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IStatelessAppServiceResponse'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IStatelessAppServiceResponse_Interface
+      ; asyncInfo : Windows.ApplicationModel.AppService.IAsyncOperation_IStatelessAppServiceResponse
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IAppServiceConnection_add_RequestReceived : aliased constant Windows.IID := (415661409, 16758, 21843, (177, 141, 216, 245, 127, 231, 149, 82 ));
    
    type TypedEventHandler_IAppServiceConnection_add_RequestReceived_Interface(Callback : access procedure (sender : Windows.ApplicationModel.AppService.IAppServiceConnection ; args : Windows.ApplicationModel.AppService.IAppServiceRequestReceivedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAppServiceConnection_add_RequestReceived'access) with null record;
@@ -594,6 +728,7 @@ package Windows.ApplicationModel.AppService is
    subtype AppServiceRequestReceivedEventArgs is Windows.ApplicationModel.AppService.IAppServiceRequestReceivedEventArgs;
    subtype AppServiceResponse is Windows.ApplicationModel.AppService.IAppServiceResponse;
    subtype AppServiceTriggerDetails is Windows.ApplicationModel.AppService.IAppServiceTriggerDetails;
+   subtype StatelessAppServiceResponse is Windows.ApplicationModel.AppService.IStatelessAppServiceResponse;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
@@ -604,5 +739,13 @@ package Windows.ApplicationModel.AppService is
       appServiceName : Windows.String
    )
    return Windows.Address;
+   
+   function SendStatelessMessageAsync
+   (
+      connection : Windows.ApplicationModel.AppService.IAppServiceConnection
+      ; connectionRequest : Windows.System.RemoteSystems.IRemoteSystemConnectionRequest
+      ; message : Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.ApplicationModel.AppService.IAsyncOperation_IStatelessAppServiceResponse;
    
 end;

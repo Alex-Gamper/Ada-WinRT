@@ -328,6 +328,9 @@ package Windows.UI.Xaml.Controls.Primitives is
    type IAppBarTemplateSettings_Interface;
    type IAppBarTemplateSettings is access all IAppBarTemplateSettings_Interface'Class;
    type IAppBarTemplateSettings_Ptr is access all IAppBarTemplateSettings;
+   type IAppBarTemplateSettings2_Interface;
+   type IAppBarTemplateSettings2 is access all IAppBarTemplateSettings2_Interface'Class;
+   type IAppBarTemplateSettings2_Ptr is access all IAppBarTemplateSettings2;
    type IAppBarToggleButtonTemplateSettings_Interface;
    type IAppBarToggleButtonTemplateSettings is access all IAppBarToggleButtonTemplateSettings_Interface'Class;
    type IAppBarToggleButtonTemplateSettings_Ptr is access all IAppBarToggleButtonTemplateSettings;
@@ -394,6 +397,9 @@ package Windows.UI.Xaml.Controls.Primitives is
    type ICommandBarTemplateSettings3_Interface;
    type ICommandBarTemplateSettings3 is access all ICommandBarTemplateSettings3_Interface'Class;
    type ICommandBarTemplateSettings3_Ptr is access all ICommandBarTemplateSettings3;
+   type ICommandBarTemplateSettings4_Interface;
+   type ICommandBarTemplateSettings4 is access all ICommandBarTemplateSettings4_Interface'Class;
+   type ICommandBarTemplateSettings4_Ptr is access all ICommandBarTemplateSettings4;
    type IDragCompletedEventArgs_Interface;
    type IDragCompletedEventArgs is access all IDragCompletedEventArgs_Interface'Class;
    type IDragCompletedEventArgs_Ptr is access all IDragCompletedEventArgs;
@@ -427,6 +433,9 @@ package Windows.UI.Xaml.Controls.Primitives is
    type IFlyoutBase5_Interface;
    type IFlyoutBase5 is access all IFlyoutBase5_Interface'Class;
    type IFlyoutBase5_Ptr is access all IFlyoutBase5;
+   type IFlyoutBase6_Interface;
+   type IFlyoutBase6 is access all IFlyoutBase6_Interface'Class;
+   type IFlyoutBase6_Ptr is access all IFlyoutBase6;
    type IFlyoutBaseClosingEventArgs_Interface;
    type IFlyoutBaseClosingEventArgs is access all IFlyoutBaseClosingEventArgs_Interface'Class;
    type IFlyoutBaseClosingEventArgs_Ptr is access all IFlyoutBaseClosingEventArgs;
@@ -451,6 +460,9 @@ package Windows.UI.Xaml.Controls.Primitives is
    type IFlyoutBaseStatics5_Interface;
    type IFlyoutBaseStatics5 is access all IFlyoutBaseStatics5_Interface'Class;
    type IFlyoutBaseStatics5_Ptr is access all IFlyoutBaseStatics5;
+   type IFlyoutBaseStatics6_Interface;
+   type IFlyoutBaseStatics6 is access all IFlyoutBaseStatics6_Interface'Class;
+   type IFlyoutBaseStatics6_Ptr is access all IFlyoutBaseStatics6;
    type IFlyoutShowOptions_Interface;
    type IFlyoutShowOptions is access all IFlyoutShowOptions_Interface'Class;
    type IFlyoutShowOptions_Ptr is access all IFlyoutShowOptions;
@@ -592,12 +604,18 @@ package Windows.UI.Xaml.Controls.Primitives is
    type IPopup2_Interface;
    type IPopup2 is access all IPopup2_Interface'Class;
    type IPopup2_Ptr is access all IPopup2;
+   type IPopup3_Interface;
+   type IPopup3 is access all IPopup3_Interface'Class;
+   type IPopup3_Ptr is access all IPopup3;
    type IPopupStatics_Interface;
    type IPopupStatics is access all IPopupStatics_Interface'Class;
    type IPopupStatics_Ptr is access all IPopupStatics;
    type IPopupStatics2_Interface;
    type IPopupStatics2 is access all IPopupStatics2_Interface'Class;
    type IPopupStatics2_Ptr is access all IPopupStatics2;
+   type IPopupStatics3_Interface;
+   type IPopupStatics3 is access all IPopupStatics3_Interface'Class;
+   type IPopupStatics3_Ptr is access all IPopupStatics3;
    type IProgressBarTemplateSettings_Interface;
    type IProgressBarTemplateSettings is access all IProgressBarTemplateSettings_Interface'Class;
    type IProgressBarTemplateSettings_Ptr is access all IProgressBarTemplateSettings;
@@ -767,6 +785,33 @@ package Windows.UI.Xaml.Controls.Primitives is
    (
       This       : access IAppBarTemplateSettings_Interface
       ; RetVal : access Windows.UI.Xaml.Thickness
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppBarTemplateSettings2 : aliased constant Windows.IID := (3420873305, 921, 23500, (185, 37, 77, 95, 92, 154, 69, 104 ));
+   
+   type IAppBarTemplateSettings2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_NegativeCompactVerticalDelta
+   (
+      This       : access IAppBarTemplateSettings2_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NegativeMinimalVerticalDelta
+   (
+      This       : access IAppBarTemplateSettings2_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_NegativeHiddenVerticalDelta
+   (
+      This       : access IAppBarTemplateSettings2_Interface
+      ; RetVal : access Windows.Double
    )
    return Windows.HRESULT is abstract;
    
@@ -1837,6 +1882,33 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    ------------------------------------------------------------------------
    
+   IID_ICommandBarTemplateSettings4 : aliased constant Windows.IID := (4065734099, 43608, 22981, (133, 59, 130, 138, 25, 209, 33, 78 ));
+   
+   type ICommandBarTemplateSettings4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_OverflowContentCompactYTranslation
+   (
+      This       : access ICommandBarTemplateSettings4_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OverflowContentMinimalYTranslation
+   (
+      This       : access ICommandBarTemplateSettings4_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OverflowContentHiddenYTranslation
+   (
+      This       : access ICommandBarTemplateSettings4_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IDragCompletedEventArgs : aliased constant Windows.IID := (2957978017, 48406, 18678, (165, 17, 156, 39, 99, 100, 19, 49 ));
    
    type IDragCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -2207,6 +2279,47 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    ------------------------------------------------------------------------
    
+   IID_IFlyoutBase6 : aliased constant Windows.IID := (1402592908, 1740, 23378, (182, 90, 255, 147, 34, 209, 201, 64 ));
+   
+   type IFlyoutBase6_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ShouldConstrainToRootBounds
+   (
+      This       : access IFlyoutBase6_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ShouldConstrainToRootBounds
+   (
+      This       : access IFlyoutBase6_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsConstrainedToRootBounds
+   (
+      This       : access IFlyoutBase6_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XamlRoot
+   (
+      This       : access IFlyoutBase6_Interface
+      ; RetVal : access Windows.UI.Xaml.IXamlRoot
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_XamlRoot
+   (
+      This       : access IFlyoutBase6_Interface
+      ; value : Windows.UI.Xaml.IXamlRoot
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IFlyoutBaseClosingEventArgs : aliased constant Windows.IID := (3497362733, 45210, 20433, (176, 5, 219, 43, 160, 18, 6, 251 ));
    
    type IFlyoutBaseClosingEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -2393,6 +2506,19 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_IsOpenProperty
    (
       This       : access IFlyoutBaseStatics5_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFlyoutBaseStatics6 : aliased constant Windows.IID := (2530513492, 51483, 21062, (139, 57, 175, 194, 162, 197, 12, 248 ));
+   
+   type IFlyoutBaseStatics6_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ShouldConstrainToRootBoundsProperty
+   (
+      This       : access IFlyoutBaseStatics6_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -4667,6 +4793,33 @@ package Windows.UI.Xaml.Controls.Primitives is
    
    ------------------------------------------------------------------------
    
+   IID_IPopup3 : aliased constant Windows.IID := (4190398741, 42588, 24424, (159, 84, 49, 10, 27, 81, 9, 95 ));
+   
+   type IPopup3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ShouldConstrainToRootBounds
+   (
+      This       : access IPopup3_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ShouldConstrainToRootBounds
+   (
+      This       : access IPopup3_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsConstrainedToRootBounds
+   (
+      This       : access IPopup3_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPopupStatics : aliased constant Windows.IID := (1524875034, 28212, 16598, (138, 127, 202, 130, 42, 175, 89, 227 ));
    
    type IPopupStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -4722,6 +4875,19 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_LightDismissOverlayModeProperty
    (
       This       : access IPopupStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPopupStatics3 : aliased constant Windows.IID := (7902601, 50560, 21903, (148, 90, 125, 2, 238, 0, 77, 62 ));
+   
+   type IPopupStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ShouldConstrainToRootBoundsProperty
+   (
+      This       : access IPopupStatics3_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -8673,6 +8839,9 @@ package Windows.UI.Xaml.Controls.Primitives is
    function get_TargetProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_ShouldConstrainToRootBoundsProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
       baseInterface : Windows.Object
@@ -8973,6 +9142,9 @@ package Windows.UI.Xaml.Controls.Primitives is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_LightDismissOverlayModeProperty_IPopup
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ShouldConstrainToRootBoundsProperty_IPopup
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance

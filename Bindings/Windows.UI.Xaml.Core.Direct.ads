@@ -1829,6 +1829,7 @@ package Windows.UI.Xaml.Core.Direct is
       FontIconSource_MirroredWhenRightToLeft,
       PathIconSource_Data,
       SymbolIconSource_Symbol,
+      UIElement_Shadow,
       IconSourceElement_IconSource,
       PasswordBox_CanPasteClipboardContent,
       TextBox_CanPasteClipboardContent,
@@ -1900,6 +1901,7 @@ package Windows.UI.Xaml.Core.Direct is
       FlyoutBase_IsOpen,
       StandardUICommand_Kind,
       UIElement_CanBeScrollAnchor,
+      ThemeShadow_Receivers,
       ScrollContentPresenter_SizesContentToTemplatedParent,
       ComboBox_TextBoxStyle,
       Frame_IsNavigationStackEnabled,
@@ -1920,7 +1922,19 @@ package Windows.UI.Xaml.Core.Direct is
       XamlUICommand_KeyboardAccelerators,
       XamlUICommand_Label,
       DatePicker_SelectedDate,
-      TimePicker_SelectedTime
+      TimePicker_SelectedTime,
+      AppBarTemplateSettings_NegativeCompactVerticalDelta,
+      AppBarTemplateSettings_NegativeHiddenVerticalDelta,
+      AppBarTemplateSettings_NegativeMinimalVerticalDelta,
+      FlyoutBase_ShouldConstrainToRootBounds,
+      Popup_ShouldConstrainToRootBounds,
+      FlyoutPresenter_IsDefaultShadowEnabled,
+      MenuFlyoutPresenter_IsDefaultShadowEnabled,
+      UIElement_ActualOffset,
+      UIElement_ActualSize,
+      CommandBarTemplateSettings_OverflowContentCompactYTranslation,
+      CommandBarTemplateSettings_OverflowContentHiddenYTranslation,
+      CommandBarTemplateSettings_OverflowContentMinimalYTranslation
    );
    for XamlPropertyIndex use (
       AutomationProperties_AcceleratorKey => 5,
@@ -3429,6 +3443,7 @@ package Windows.UI.Xaml.Core.Direct is
       FontIconSource_MirroredWhenRightToLeft => 2121,
       PathIconSource_Data => 2122,
       SymbolIconSource_Symbol => 2123,
+      UIElement_Shadow => 2130,
       IconSourceElement_IconSource => 2131,
       PasswordBox_CanPasteClipboardContent => 2137,
       TextBox_CanPasteClipboardContent => 2138,
@@ -3500,6 +3515,7 @@ package Windows.UI.Xaml.Core.Direct is
       FlyoutBase_IsOpen => 2267,
       StandardUICommand_Kind => 2275,
       UIElement_CanBeScrollAnchor => 2276,
+      ThemeShadow_Receivers => 2279,
       ScrollContentPresenter_SizesContentToTemplatedParent => 2280,
       ComboBox_TextBoxStyle => 2281,
       Frame_IsNavigationStackEnabled => 2282,
@@ -3520,7 +3536,19 @@ package Windows.UI.Xaml.Core.Direct is
       XamlUICommand_KeyboardAccelerators => 2351,
       XamlUICommand_Label => 2352,
       DatePicker_SelectedDate => 2355,
-      TimePicker_SelectedTime => 2356
+      TimePicker_SelectedTime => 2356,
+      AppBarTemplateSettings_NegativeCompactVerticalDelta => 2367,
+      AppBarTemplateSettings_NegativeHiddenVerticalDelta => 2368,
+      AppBarTemplateSettings_NegativeMinimalVerticalDelta => 2369,
+      FlyoutBase_ShouldConstrainToRootBounds => 2378,
+      Popup_ShouldConstrainToRootBounds => 2379,
+      FlyoutPresenter_IsDefaultShadowEnabled => 2380,
+      MenuFlyoutPresenter_IsDefaultShadowEnabled => 2381,
+      UIElement_ActualOffset => 2382,
+      UIElement_ActualSize => 2383,
+      CommandBarTemplateSettings_OverflowContentCompactYTranslation => 2384,
+      CommandBarTemplateSettings_OverflowContentHiddenYTranslation => 2385,
+      CommandBarTemplateSettings_OverflowContentMinimalYTranslation => 2386
    );
    for XamlPropertyIndex'Size use 32;
    
@@ -3775,6 +3803,7 @@ package Windows.UI.Xaml.Core.Direct is
       AppBarElementContainer,
       ColorPaletteResources,
       StandardUICommand,
+      ThemeShadow,
       XamlUICommand
    );
    for XamlTypeIndex use (
@@ -4026,6 +4055,7 @@ package Windows.UI.Xaml.Core.Direct is
       AppBarElementContainer => 945,
       ColorPaletteResources => 952,
       StandardUICommand => 961,
+      ThemeShadow => 964,
       XamlUICommand => 969
    );
    for XamlTypeIndex'Size use 32;

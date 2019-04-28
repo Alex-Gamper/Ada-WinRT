@@ -253,6 +253,9 @@ package Windows.UI.Input.Spatial is
    type ISpatialInteractionManagerStatics_Interface;
    type ISpatialInteractionManagerStatics is access all ISpatialInteractionManagerStatics_Interface'Class;
    type ISpatialInteractionManagerStatics_Ptr is access all ISpatialInteractionManagerStatics;
+   type ISpatialInteractionManagerStatics2_Interface;
+   type ISpatialInteractionManagerStatics2 is access all ISpatialInteractionManagerStatics2_Interface'Class;
+   type ISpatialInteractionManagerStatics2_Ptr is access all ISpatialInteractionManagerStatics2;
    type ISpatialInteractionSource_Interface;
    type ISpatialInteractionSource is access all ISpatialInteractionSource_Interface'Class;
    type ISpatialInteractionSource_Ptr is access all ISpatialInteractionSource;
@@ -262,6 +265,9 @@ package Windows.UI.Input.Spatial is
    type ISpatialInteractionSource3_Interface;
    type ISpatialInteractionSource3 is access all ISpatialInteractionSource3_Interface'Class;
    type ISpatialInteractionSource3_Ptr is access all ISpatialInteractionSource3;
+   type ISpatialInteractionSource4_Interface;
+   type ISpatialInteractionSource4 is access all ISpatialInteractionSource4_Interface'Class;
+   type ISpatialInteractionSource4_Ptr is access all ISpatialInteractionSource4;
    type ISpatialInteractionSourceEventArgs_Interface;
    type ISpatialInteractionSourceEventArgs is access all ISpatialInteractionSourceEventArgs_Interface'Class;
    type ISpatialInteractionSourceEventArgs_Ptr is access all ISpatialInteractionSourceEventArgs;
@@ -286,6 +292,9 @@ package Windows.UI.Input.Spatial is
    type ISpatialInteractionSourceState2_Interface;
    type ISpatialInteractionSourceState2 is access all ISpatialInteractionSourceState2_Interface'Class;
    type ISpatialInteractionSourceState2_Ptr is access all ISpatialInteractionSourceState2;
+   type ISpatialInteractionSourceState3_Interface;
+   type ISpatialInteractionSourceState3 is access all ISpatialInteractionSourceState3_Interface'Class;
+   type ISpatialInteractionSourceState3_Ptr is access all ISpatialInteractionSourceState3;
    type ISpatialManipulationCanceledEventArgs_Interface;
    type ISpatialManipulationCanceledEventArgs is access all ISpatialManipulationCanceledEventArgs_Interface'Class;
    type ISpatialManipulationCanceledEventArgs_Ptr is access all ISpatialManipulationCanceledEventArgs;
@@ -325,6 +334,9 @@ package Windows.UI.Input.Spatial is
    type ISpatialPointerPose2_Interface;
    type ISpatialPointerPose2 is access all ISpatialPointerPose2_Interface'Class;
    type ISpatialPointerPose2_Ptr is access all ISpatialPointerPose2;
+   type ISpatialPointerPose3_Interface;
+   type ISpatialPointerPose3 is access all ISpatialPointerPose3_Interface'Class;
+   type ISpatialPointerPose3_Ptr is access all ISpatialPointerPose3;
    type ISpatialPointerPoseStatics_Interface;
    type ISpatialPointerPoseStatics is access all ISpatialPointerPoseStatics_Interface'Class;
    type ISpatialPointerPoseStatics_Ptr is access all ISpatialPointerPoseStatics;
@@ -1000,6 +1012,20 @@ package Windows.UI.Input.Spatial is
    
    ------------------------------------------------------------------------
    
+   IID_ISpatialInteractionManagerStatics2 : aliased constant Windows.IID := (2482072658, 47242, 22825, (141, 124, 72, 203, 148, 139, 8, 28 ));
+   
+   type ISpatialInteractionManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function IsSourceKindSupported
+   (
+      This       : access ISpatialInteractionManagerStatics2_Interface
+      ; kind : Windows.UI.Input.Spatial.SpatialInteractionSourceKind
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISpatialInteractionSource : aliased constant Windows.IID := (4216599482, 45235, 12616, (159, 59, 233, 245, 222, 86, 143, 93 ));
    
    type ISpatialInteractionSource_Interface is interface and Windows.IInspectable_Interface;
@@ -1070,6 +1096,26 @@ package Windows.UI.Input.Spatial is
    (
       This       : access ISpatialInteractionSource3_Interface
       ; RetVal : access Windows.UI.Input.Spatial.SpatialInteractionSourceHandedness
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISpatialInteractionSource4 : aliased constant Windows.IID := (7584845, 57190, 23185, (162, 186, 206, 163, 229, 197, 138, 25 ));
+   
+   type ISpatialInteractionSource4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryCreateHandMeshObserver
+   (
+      This       : access ISpatialInteractionSource4_Interface
+      ; RetVal : access Windows.Perception.People.IHandMeshObserver
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryCreateHandMeshObserverAsync
+   (
+      This       : access ISpatialInteractionSource4_Interface
+      ; RetVal : access Windows.Perception.People.IAsyncOperation_IHandMeshObserver -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -1268,6 +1314,19 @@ package Windows.UI.Input.Spatial is
    (
       This       : access ISpatialInteractionSourceState2_Interface
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialInteractionControllerProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISpatialInteractionSourceState3 : aliased constant Windows.IID := (4075817922, 48427, 18945, (168, 251, 50, 62, 1, 88, 82, 124 ));
+   
+   type ISpatialInteractionSourceState3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryGetHandPose
+   (
+      This       : access ISpatialInteractionSourceState3_Interface
+      ; RetVal : access Windows.Perception.People.IHandPose
    )
    return Windows.HRESULT is abstract;
    
@@ -1533,6 +1592,26 @@ package Windows.UI.Input.Spatial is
       This       : access ISpatialPointerPose2_Interface
       ; source : Windows.UI.Input.Spatial.ISpatialInteractionSource
       ; RetVal : access Windows.UI.Input.Spatial.ISpatialPointerInteractionSourcePose
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISpatialPointerPose3 : aliased constant Windows.IID := (1665332208, 60489, 23371, (184, 209, 209, 108, 187, 22, 190, 132 ));
+   
+   type ISpatialPointerPose3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Eyes
+   (
+      This       : access ISpatialPointerPose3_Interface
+      ; RetVal : access Windows.Perception.People.IEyesPose
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsHeadCapturedBySystem
+   (
+      This       : access ISpatialPointerPose3_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -1969,6 +2048,12 @@ package Windows.UI.Input.Spatial is
    
    function GetForCurrentView
    return Windows.UI.Input.Spatial.ISpatialInteractionManager;
+   
+   function IsSourceKindSupported
+   (
+      kind : Windows.UI.Input.Spatial.SpatialInteractionSourceKind
+   )
+   return Windows.Boolean;
    
    function TryGetAtTimestamp
    (

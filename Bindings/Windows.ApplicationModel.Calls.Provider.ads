@@ -53,6 +53,9 @@ package Windows.ApplicationModel.Calls.Provider is
    type IPhoneCallOriginManagerStatics2_Interface;
    type IPhoneCallOriginManagerStatics2 is access all IPhoneCallOriginManagerStatics2_Interface'Class;
    type IPhoneCallOriginManagerStatics2_Ptr is access all IPhoneCallOriginManagerStatics2;
+   type IPhoneCallOriginManagerStatics3_Interface;
+   type IPhoneCallOriginManagerStatics3 is access all IPhoneCallOriginManagerStatics3_Interface'Class;
+   type IPhoneCallOriginManagerStatics3_Ptr is access all IPhoneCallOriginManagerStatics3;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -187,6 +190,19 @@ package Windows.ApplicationModel.Calls.Provider is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IPhoneCallOriginManagerStatics3 : aliased constant Windows.IID := (785815396, 42723, 20720, (183, 106, 214, 124, 179, 155, 223, 222 ));
+   
+   type IPhoneCallOriginManagerStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsSupported
+   (
+      This       : access IPhoneCallOriginManagerStatics3_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -213,5 +229,8 @@ package Windows.ApplicationModel.Calls.Provider is
    
    function RequestSetAsActiveCallOriginAppAsync
    return Windows.Foundation.IAsyncOperation_Boolean;
+   
+   function get_IsSupported
+   return Windows.Boolean;
    
 end;

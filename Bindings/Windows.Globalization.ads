@@ -116,6 +116,12 @@ package Windows.Globalization is
    type IClockIdentifiersStatics_Interface;
    type IClockIdentifiersStatics is access all IClockIdentifiersStatics_Interface'Class;
    type IClockIdentifiersStatics_Ptr is access all IClockIdentifiersStatics;
+   type ICurrencyAmount_Interface;
+   type ICurrencyAmount is access all ICurrencyAmount_Interface'Class;
+   type ICurrencyAmount_Ptr is access all ICurrencyAmount;
+   type ICurrencyAmountFactory_Interface;
+   type ICurrencyAmountFactory is access all ICurrencyAmountFactory_Interface'Class;
+   type ICurrencyAmountFactory_Ptr is access all ICurrencyAmountFactory;
    type ICurrencyIdentifiersStatics_Interface;
    type ICurrencyIdentifiersStatics is access all ICurrencyIdentifiersStatics_Interface'Class;
    type ICurrencyIdentifiersStatics_Ptr is access all ICurrencyIdentifiersStatics;
@@ -1124,6 +1130,41 @@ package Windows.Globalization is
    (
       This       : access IClockIdentifiersStatics_Interface
       ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICurrencyAmount : aliased constant Windows.IID := (1957992770, 60277, 17466, (149, 179, 125, 114, 63, 86, 249, 60 ));
+   
+   type ICurrencyAmount_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Amount
+   (
+      This       : access ICurrencyAmount_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Currency
+   (
+      This       : access ICurrencyAmount_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICurrencyAmountFactory : aliased constant Windows.IID := (1222055567, 61243, 19182, (166, 161, 75, 3, 111, 224, 63, 240 ));
+   
+   type ICurrencyAmountFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Create
+   (
+      This       : access ICurrencyAmountFactory_Interface
+      ; amount : Windows.String
+      ; currency : Windows.String
+      ; RetVal : access Windows.Globalization.ICurrencyAmount
    )
    return Windows.HRESULT is abstract;
    
@@ -3108,6 +3149,14 @@ package Windows.Globalization is
       ; clock : Windows.String
    )
    return Windows.Globalization.ICalendar;
+   
+   subtype CurrencyAmount is Windows.Globalization.ICurrencyAmount;
+   function Create
+   (
+      amount : Windows.String
+      ; currency : Windows.String
+   )
+   return Windows.Globalization.ICurrencyAmount;
    
    subtype GeographicRegion is Windows.Globalization.IGeographicRegion;
    function Create return Windows.Globalization.IGeographicRegion;

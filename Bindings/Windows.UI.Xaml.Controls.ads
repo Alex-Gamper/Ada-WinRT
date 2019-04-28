@@ -1359,6 +1359,60 @@ package Windows.UI.Xaml.Controls is
    
    type TreeViewSelectionMode_Ptr is access TreeViewSelectionMode;
    
+   type TwoPaneViewMode is (
+      SinglePane,
+      Wide,
+      Tall
+   );
+   for TwoPaneViewMode use (
+      SinglePane => 0,
+      Wide => 1,
+      Tall => 2
+   );
+   for TwoPaneViewMode'Size use 32;
+   
+   type TwoPaneViewMode_Ptr is access TwoPaneViewMode;
+   
+   type TwoPaneViewPriority is (
+      Pane1,
+      Pane2
+   );
+   for TwoPaneViewPriority use (
+      Pane1 => 0,
+      Pane2 => 1
+   );
+   for TwoPaneViewPriority'Size use 32;
+   
+   type TwoPaneViewPriority_Ptr is access TwoPaneViewPriority;
+   
+   type TwoPaneViewTallModeConfiguration is (
+      SinglePane,
+      TopBottom,
+      BottomTop
+   );
+   for TwoPaneViewTallModeConfiguration use (
+      SinglePane => 0,
+      TopBottom => 1,
+      BottomTop => 2
+   );
+   for TwoPaneViewTallModeConfiguration'Size use 32;
+   
+   type TwoPaneViewTallModeConfiguration_Ptr is access TwoPaneViewTallModeConfiguration;
+   
+   type TwoPaneViewWideModeConfiguration is (
+      SinglePane,
+      LeftRight,
+      RightLeft
+   );
+   for TwoPaneViewWideModeConfiguration use (
+      SinglePane => 0,
+      LeftRight => 1,
+      RightLeft => 2
+   );
+   for TwoPaneViewWideModeConfiguration'Size use 32;
+   
+   type TwoPaneViewWideModeConfiguration_Ptr is access TwoPaneViewWideModeConfiguration;
+   
    type VirtualizationMode is (
       Standard_x,
       Recycling
@@ -1799,6 +1853,9 @@ package Windows.UI.Xaml.Controls is
    type TypedEventHandler_ITreeView2_add_DragItemsStarting_Interface;
    type TypedEventHandler_ITreeView2_add_DragItemsStarting is access all TypedEventHandler_ITreeView2_add_DragItemsStarting_Interface'Class;
    type TypedEventHandler_ITreeView2_add_DragItemsStarting_Ptr is access all TypedEventHandler_ITreeView2_add_DragItemsStarting;
+   type TypedEventHandler_ITwoPaneView_add_ModeChanged_Interface;
+   type TypedEventHandler_ITwoPaneView_add_ModeChanged is access all TypedEventHandler_ITwoPaneView_add_ModeChanged_Interface'Class;
+   type TypedEventHandler_ITwoPaneView_add_ModeChanged_Ptr is access all TypedEventHandler_ITwoPaneView_add_ModeChanged;
    type TypedEventHandler_IWebView2_add_ContentLoading_Interface;
    type TypedEventHandler_IWebView2_add_ContentLoading is access all TypedEventHandler_IWebView2_add_ContentLoading_Interface'Class;
    type TypedEventHandler_IWebView2_add_ContentLoading_Ptr is access all TypedEventHandler_IWebView2_add_ContentLoading;
@@ -2440,6 +2497,12 @@ package Windows.UI.Xaml.Controls is
    type IDatePickerFlyoutPresenter_Interface;
    type IDatePickerFlyoutPresenter is access all IDatePickerFlyoutPresenter_Interface'Class;
    type IDatePickerFlyoutPresenter_Ptr is access all IDatePickerFlyoutPresenter;
+   type IDatePickerFlyoutPresenter2_Interface;
+   type IDatePickerFlyoutPresenter2 is access all IDatePickerFlyoutPresenter2_Interface'Class;
+   type IDatePickerFlyoutPresenter2_Ptr is access all IDatePickerFlyoutPresenter2;
+   type IDatePickerFlyoutPresenterStatics2_Interface;
+   type IDatePickerFlyoutPresenterStatics2 is access all IDatePickerFlyoutPresenterStatics2_Interface'Class;
+   type IDatePickerFlyoutPresenterStatics2_Ptr is access all IDatePickerFlyoutPresenterStatics2;
    type IDatePickerFlyoutStatics_Interface;
    type IDatePickerFlyoutStatics is access all IDatePickerFlyoutStatics_Interface'Class;
    type IDatePickerFlyoutStatics_Ptr is access all IDatePickerFlyoutStatics;
@@ -2512,9 +2575,15 @@ package Windows.UI.Xaml.Controls is
    type IFlyoutPresenter_Interface;
    type IFlyoutPresenter is access all IFlyoutPresenter_Interface'Class;
    type IFlyoutPresenter_Ptr is access all IFlyoutPresenter;
+   type IFlyoutPresenter2_Interface;
+   type IFlyoutPresenter2 is access all IFlyoutPresenter2_Interface'Class;
+   type IFlyoutPresenter2_Ptr is access all IFlyoutPresenter2;
    type IFlyoutPresenterFactory_Interface;
    type IFlyoutPresenterFactory is access all IFlyoutPresenterFactory_Interface'Class;
    type IFlyoutPresenterFactory_Ptr is access all IFlyoutPresenterFactory;
+   type IFlyoutPresenterStatics2_Interface;
+   type IFlyoutPresenterStatics2 is access all IFlyoutPresenterStatics2_Interface'Class;
+   type IFlyoutPresenterStatics2_Ptr is access all IFlyoutPresenterStatics2;
    type IFlyoutStatics_Interface;
    type IFlyoutStatics is access all IFlyoutStatics_Interface'Class;
    type IFlyoutStatics_Ptr is access all IFlyoutStatics;
@@ -2749,6 +2818,9 @@ package Windows.UI.Xaml.Controls is
    type IInkToolbar2_Interface;
    type IInkToolbar2 is access all IInkToolbar2_Interface'Class;
    type IInkToolbar2_Ptr is access all IInkToolbar2;
+   type IInkToolbar3_Interface;
+   type IInkToolbar3 is access all IInkToolbar3_Interface'Class;
+   type IInkToolbar3_Ptr is access all IInkToolbar3;
    type IInkToolbarBallpointPenButton_Interface;
    type IInkToolbarBallpointPenButton is access all IInkToolbarBallpointPenButton_Interface'Class;
    type IInkToolbarBallpointPenButton_Ptr is access all IInkToolbarBallpointPenButton;
@@ -2869,6 +2941,9 @@ package Windows.UI.Xaml.Controls is
    type IInkToolbarStatics2_Interface;
    type IInkToolbarStatics2 is access all IInkToolbarStatics2_Interface'Class;
    type IInkToolbarStatics2_Ptr is access all IInkToolbarStatics2;
+   type IInkToolbarStatics3_Interface;
+   type IInkToolbarStatics3 is access all IInkToolbarStatics3_Interface'Class;
+   type IInkToolbarStatics3_Ptr is access all IInkToolbarStatics3;
    type IInkToolbarStencilButton_Interface;
    type IInkToolbarStencilButton is access all IInkToolbarStencilButton_Interface'Class;
    type IInkToolbarStencilButton_Ptr is access all IInkToolbarStencilButton;
@@ -3259,9 +3334,15 @@ package Windows.UI.Xaml.Controls is
    type IMenuFlyoutPresenter2_Interface;
    type IMenuFlyoutPresenter2 is access all IMenuFlyoutPresenter2_Interface'Class;
    type IMenuFlyoutPresenter2_Ptr is access all IMenuFlyoutPresenter2;
+   type IMenuFlyoutPresenter3_Interface;
+   type IMenuFlyoutPresenter3 is access all IMenuFlyoutPresenter3_Interface'Class;
+   type IMenuFlyoutPresenter3_Ptr is access all IMenuFlyoutPresenter3;
    type IMenuFlyoutPresenterFactory_Interface;
    type IMenuFlyoutPresenterFactory is access all IMenuFlyoutPresenterFactory_Interface'Class;
    type IMenuFlyoutPresenterFactory_Ptr is access all IMenuFlyoutPresenterFactory;
+   type IMenuFlyoutPresenterStatics3_Interface;
+   type IMenuFlyoutPresenterStatics3 is access all IMenuFlyoutPresenterStatics3_Interface'Class;
+   type IMenuFlyoutPresenterStatics3_Ptr is access all IMenuFlyoutPresenterStatics3;
    type IMenuFlyoutSeparator_Interface;
    type IMenuFlyoutSeparator is access all IMenuFlyoutSeparator_Interface'Class;
    type IMenuFlyoutSeparator_Ptr is access all IMenuFlyoutSeparator;
@@ -4153,6 +4234,12 @@ package Windows.UI.Xaml.Controls is
    type ITimePickerFlyoutPresenter_Interface;
    type ITimePickerFlyoutPresenter is access all ITimePickerFlyoutPresenter_Interface'Class;
    type ITimePickerFlyoutPresenter_Ptr is access all ITimePickerFlyoutPresenter;
+   type ITimePickerFlyoutPresenter2_Interface;
+   type ITimePickerFlyoutPresenter2 is access all ITimePickerFlyoutPresenter2_Interface'Class;
+   type ITimePickerFlyoutPresenter2_Ptr is access all ITimePickerFlyoutPresenter2;
+   type ITimePickerFlyoutPresenterStatics2_Interface;
+   type ITimePickerFlyoutPresenterStatics2 is access all ITimePickerFlyoutPresenterStatics2_Interface'Class;
+   type ITimePickerFlyoutPresenterStatics2_Ptr is access all ITimePickerFlyoutPresenterStatics2;
    type ITimePickerFlyoutStatics_Interface;
    type ITimePickerFlyoutStatics is access all ITimePickerFlyoutStatics_Interface'Class;
    type ITimePickerFlyoutStatics_Ptr is access all ITimePickerFlyoutStatics;
@@ -4303,6 +4390,15 @@ package Windows.UI.Xaml.Controls is
    type ITreeViewStatics2_Interface;
    type ITreeViewStatics2 is access all ITreeViewStatics2_Interface'Class;
    type ITreeViewStatics2_Ptr is access all ITreeViewStatics2;
+   type ITwoPaneView_Interface;
+   type ITwoPaneView is access all ITwoPaneView_Interface'Class;
+   type ITwoPaneView_Ptr is access all ITwoPaneView;
+   type ITwoPaneViewFactory_Interface;
+   type ITwoPaneViewFactory is access all ITwoPaneViewFactory_Interface'Class;
+   type ITwoPaneViewFactory_Ptr is access all ITwoPaneViewFactory;
+   type ITwoPaneViewStatics_Interface;
+   type ITwoPaneViewStatics is access all ITwoPaneViewStatics_Interface'Class;
+   type ITwoPaneViewStatics_Ptr is access all ITwoPaneViewStatics;
    type IUIElementCollection_Interface;
    type IUIElementCollection is access all IUIElementCollection_Interface'Class;
    type IUIElementCollection_Ptr is access all IUIElementCollection;
@@ -12856,6 +12952,39 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IDatePickerFlyoutPresenter2 : aliased constant Windows.IID := (3316799375, 38616, 21964, (151, 238, 63, 136, 252, 133, 228, 121 ));
+   
+   type IDatePickerFlyoutPresenter2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsDefaultShadowEnabled
+   (
+      This       : access IDatePickerFlyoutPresenter2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsDefaultShadowEnabled
+   (
+      This       : access IDatePickerFlyoutPresenter2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDatePickerFlyoutPresenterStatics2 : aliased constant Windows.IID := (1304478878, 8078, 22886, (187, 219, 33, 87, 80, 199, 58, 186 ));
+   
+   type IDatePickerFlyoutPresenterStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsDefaultShadowEnabledProperty
+   (
+      This       : access IDatePickerFlyoutPresenterStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IDatePickerFlyoutStatics : aliased constant Windows.IID := (3445031799, 22597, 19474, (140, 16, 89, 45, 159, 204, 124, 217 ));
    
    type IDatePickerFlyoutStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -13364,6 +13493,26 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IFlyoutPresenter2 : aliased constant Windows.IID := (1334148754, 14004, 20552, (144, 81, 169, 146, 180, 62, 138, 29 ));
+   
+   type IFlyoutPresenter2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsDefaultShadowEnabled
+   (
+      This       : access IFlyoutPresenter2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsDefaultShadowEnabled
+   (
+      This       : access IFlyoutPresenter2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IFlyoutPresenterFactory : aliased constant Windows.IID := (3998049935, 55926, 18074, (172, 215, 48, 96, 230, 19, 173, 231 ));
    
    type IFlyoutPresenterFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -13374,6 +13523,19 @@ package Windows.UI.Xaml.Controls is
       ; baseInterface : Windows.Object
       ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IFlyoutPresenter
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFlyoutPresenterStatics2 : aliased constant Windows.IID := (345157195, 10023, 24206, (145, 5, 109, 122, 43, 17, 133, 178 ));
+   
+   type IFlyoutPresenterStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsDefaultShadowEnabledProperty
+   (
+      This       : access IFlyoutPresenterStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
@@ -15764,6 +15926,26 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IInkToolbar3 : aliased constant Windows.IID := (2829508336, 31400, 21286, (183, 196, 136, 174, 37, 1, 51, 98 ));
+   
+   type IInkToolbar3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TargetInkPresenter
+   (
+      This       : access IInkToolbar3_Interface
+      ; RetVal : access Windows.UI.Input.Inking.IInkPresenter
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TargetInkPresenter
+   (
+      This       : access IInkToolbar3_Interface
+      ; value : Windows.UI.Input.Inking.IInkPresenter
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IInkToolbarBallpointPenButton : aliased constant Windows.IID := (360917496, 7833, 15052, (145, 15, 157, 162, 216, 114, 174, 18 ));
    
    type IInkToolbarBallpointPenButton_Interface is interface and Windows.IInspectable_Interface;
@@ -16532,6 +16714,19 @@ package Windows.UI.Xaml.Controls is
    function get_OrientationProperty
    (
       This       : access IInkToolbarStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkToolbarStatics3 : aliased constant Windows.IID := (2699978301, 46655, 20846, (160, 164, 7, 4, 196, 84, 77, 98 ));
+   
+   type IInkToolbarStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TargetInkPresenterProperty
+   (
+      This       : access IInkToolbarStatics3_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -21806,6 +22001,26 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_IMenuFlyoutPresenter3 : aliased constant Windows.IID := (1794985494, 44768, 22602, (152, 73, 237, 170, 50, 58, 72, 79 ));
+   
+   type IMenuFlyoutPresenter3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsDefaultShadowEnabled
+   (
+      This       : access IMenuFlyoutPresenter3_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsDefaultShadowEnabled
+   (
+      This       : access IMenuFlyoutPresenter3_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMenuFlyoutPresenterFactory : aliased constant Windows.IID := (3096137873, 4124, 16888, (170, 193, 27, 16, 92, 20, 251, 153 ));
    
    type IMenuFlyoutPresenterFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -21816,6 +22031,19 @@ package Windows.UI.Xaml.Controls is
       ; baseInterface : Windows.Object
       ; innerInterface : access Windows.Object
       ; RetVal : access Windows.UI.Xaml.Controls.IMenuFlyoutPresenter
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMenuFlyoutPresenterStatics3 : aliased constant Windows.IID := (930261016, 33370, 21004, (128, 174, 77, 57, 162, 213, 154, 181 ));
+   
+   type IMenuFlyoutPresenterStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsDefaultShadowEnabledProperty
+   (
+      This       : access IMenuFlyoutPresenterStatics3_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
    
@@ -35068,6 +35296,39 @@ package Windows.UI.Xaml.Controls is
    
    ------------------------------------------------------------------------
    
+   IID_ITimePickerFlyoutPresenter2 : aliased constant Windows.IID := (2705021800, 32489, 23031, (170, 214, 101, 50, 168, 168, 195, 191 ));
+   
+   type ITimePickerFlyoutPresenter2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsDefaultShadowEnabled
+   (
+      This       : access ITimePickerFlyoutPresenter2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsDefaultShadowEnabled
+   (
+      This       : access ITimePickerFlyoutPresenter2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITimePickerFlyoutPresenterStatics2 : aliased constant Windows.IID := (2858356188, 62139, 21490, (165, 77, 179, 74, 204, 207, 81, 228 ));
+   
+   type ITimePickerFlyoutPresenterStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsDefaultShadowEnabledProperty
+   (
+      This       : access ITimePickerFlyoutPresenterStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITimePickerFlyoutStatics : aliased constant Windows.IID := (1063725262, 8553, 16387, (180, 168, 141, 231, 3, 90, 10, 214 ));
    
    type ITimePickerFlyoutStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -36791,6 +37052,251 @@ package Windows.UI.Xaml.Controls is
    function get_ItemsSourceProperty
    (
       This       : access ITreeViewStatics2_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITwoPaneView : aliased constant Windows.IID := (458034613, 5293, 22822, (187, 138, 91, 10, 92, 0, 133, 240 ));
+   
+   type ITwoPaneView_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Pane1
+   (
+      This       : access ITwoPaneView_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Pane1
+   (
+      This       : access ITwoPaneView_Interface
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Pane2
+   (
+      This       : access ITwoPaneView_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Pane2
+   (
+      This       : access ITwoPaneView_Interface
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Pane1Length
+   (
+      This       : access ITwoPaneView_Interface
+      ; RetVal : access Windows.UI.Xaml.GridLength
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Pane1Length
+   (
+      This       : access ITwoPaneView_Interface
+      ; value : Windows.UI.Xaml.GridLength
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Pane2Length
+   (
+      This       : access ITwoPaneView_Interface
+      ; RetVal : access Windows.UI.Xaml.GridLength
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Pane2Length
+   (
+      This       : access ITwoPaneView_Interface
+      ; value : Windows.UI.Xaml.GridLength
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PanePriority
+   (
+      This       : access ITwoPaneView_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.TwoPaneViewPriority
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PanePriority
+   (
+      This       : access ITwoPaneView_Interface
+      ; value : Windows.UI.Xaml.Controls.TwoPaneViewPriority
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Mode
+   (
+      This       : access ITwoPaneView_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.TwoPaneViewMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WideModeConfiguration
+   (
+      This       : access ITwoPaneView_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.TwoPaneViewWideModeConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_WideModeConfiguration
+   (
+      This       : access ITwoPaneView_Interface
+      ; value : Windows.UI.Xaml.Controls.TwoPaneViewWideModeConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TallModeConfiguration
+   (
+      This       : access ITwoPaneView_Interface
+      ; RetVal : access Windows.UI.Xaml.Controls.TwoPaneViewTallModeConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TallModeConfiguration
+   (
+      This       : access ITwoPaneView_Interface
+      ; value : Windows.UI.Xaml.Controls.TwoPaneViewTallModeConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MinWideModeWidth
+   (
+      This       : access ITwoPaneView_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_MinWideModeWidth
+   (
+      This       : access ITwoPaneView_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MinTallModeHeight
+   (
+      This       : access ITwoPaneView_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_MinTallModeHeight
+   (
+      This       : access ITwoPaneView_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_ModeChanged
+   (
+      This       : access ITwoPaneView_Interface
+      ; handler : TypedEventHandler_ITwoPaneView_add_ModeChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ModeChanged
+   (
+      This       : access ITwoPaneView_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITwoPaneViewFactory : aliased constant Windows.IID := (419395885, 22708, 23021, (160, 81, 81, 172, 239, 251, 204, 169 ));
+   
+   type ITwoPaneViewFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access ITwoPaneViewFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Controls.ITwoPaneView
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITwoPaneViewStatics : aliased constant Windows.IID := (1513472905, 34244, 22004, (171, 177, 151, 69, 27, 195, 45, 113 ));
+   
+   type ITwoPaneViewStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Pane1Property
+   (
+      This       : access ITwoPaneViewStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Pane2Property
+   (
+      This       : access ITwoPaneViewStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Pane1LengthProperty
+   (
+      This       : access ITwoPaneViewStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Pane2LengthProperty
+   (
+      This       : access ITwoPaneViewStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PanePriorityProperty
+   (
+      This       : access ITwoPaneViewStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ModeProperty
+   (
+      This       : access ITwoPaneViewStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_WideModeConfigurationProperty
+   (
+      This       : access ITwoPaneViewStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TallModeConfigurationProperty
+   (
+      This       : access ITwoPaneViewStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MinWideModeWidthProperty
+   (
+      This       : access ITwoPaneViewStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MinTallModeHeightProperty
+   (
+      This       : access ITwoPaneViewStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -41720,6 +42226,19 @@ package Windows.UI.Xaml.Controls is
       This       : access TypedEventHandler_ITreeView2_add_DragItemsStarting_Interface
       ; sender : Windows.UI.Xaml.Controls.ITreeView
       ; args : Windows.UI.Xaml.Controls.ITreeViewDragItemsStartingEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ITwoPaneView_add_ModeChanged : aliased constant Windows.IID := (574442071, 37061, 24436, (139, 175, 146, 80, 176, 48, 189, 53 ));
+   
+   type TypedEventHandler_ITwoPaneView_add_ModeChanged_Interface(Callback : access procedure (sender : Windows.UI.Xaml.Controls.ITwoPaneView ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ITwoPaneView_add_ModeChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ITwoPaneView_add_ModeChanged_Interface
+      ; sender : Windows.UI.Xaml.Controls.ITwoPaneView
+      ; args : Windows.Object
    )
    return Windows.HRESULT;
    
@@ -55781,6 +56300,207 @@ package Windows.UI.Xaml.Controls is
    )
    return Windows.HRESULT;
    
+   subtype TwoPaneView is Windows.UI.Xaml.Controls.ITwoPaneView;
+   
+   type ITwoPaneView_Interface_Impl is new ITwoPaneView_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased ITwoPaneView := null;
+      m_ITwoPaneView : ITwoPaneView := null;
+   end record;
+   type ITwoPaneView_Impl is access all ITwoPaneView_Interface_Impl'Class;
+   type ITwoPaneView_Impl_Ptr is access all ITwoPaneView_Impl;
+   
+   function QueryInterface
+   (
+      This       : access ITwoPaneView_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access ITwoPaneView_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access ITwoPaneView_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access ITwoPaneView_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access ITwoPaneView_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access ITwoPaneView_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Pane1
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT;
+   
+   function put_Pane1
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT;
+   
+   function get_Pane2
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT;
+   
+   function put_Pane2
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT;
+   
+   function get_Pane1Length
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.GridLength
+   )
+   return Windows.HRESULT;
+   
+   function put_Pane1Length
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.UI.Xaml.GridLength
+   )
+   return Windows.HRESULT;
+   
+   function get_Pane2Length
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.GridLength
+   )
+   return Windows.HRESULT;
+   
+   function put_Pane2Length
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.UI.Xaml.GridLength
+   )
+   return Windows.HRESULT;
+   
+   function get_PanePriority
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.TwoPaneViewPriority
+   )
+   return Windows.HRESULT;
+   
+   function put_PanePriority
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.UI.Xaml.Controls.TwoPaneViewPriority
+   )
+   return Windows.HRESULT;
+   
+   function get_Mode
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.TwoPaneViewMode
+   )
+   return Windows.HRESULT;
+   
+   function get_WideModeConfiguration
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.TwoPaneViewWideModeConfiguration
+   )
+   return Windows.HRESULT;
+   
+   function put_WideModeConfiguration
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.UI.Xaml.Controls.TwoPaneViewWideModeConfiguration
+   )
+   return Windows.HRESULT;
+   
+   function get_TallModeConfiguration
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.Controls.TwoPaneViewTallModeConfiguration
+   )
+   return Windows.HRESULT;
+   
+   function put_TallModeConfiguration
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.UI.Xaml.Controls.TwoPaneViewTallModeConfiguration
+   )
+   return Windows.HRESULT;
+   
+   function get_MinWideModeWidth
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT;
+   
+   function put_MinWideModeWidth
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT;
+   
+   function get_MinTallModeHeight
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT;
+   
+   function put_MinTallModeHeight
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT;
+   
+   function add_ModeChanged
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; handler : TypedEventHandler_ITwoPaneView_add_ModeChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT;
+   
+   function remove_ModeChanged
+   (
+      This       : access ITwoPaneView_Interface_Impl
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT;
+   
    subtype UIElementCollection is Windows.UI.Xaml.Controls.IUIElementCollection;
    subtype UserControl is Windows.UI.Xaml.Controls.IUserControl;
    
@@ -56962,6 +57682,9 @@ package Windows.UI.Xaml.Controls is
    function get_SecondaryTextProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_IsDefaultShadowEnabledProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
       baseInterface : Windows.Object
@@ -57013,6 +57736,9 @@ package Windows.UI.Xaml.Controls is
       ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IFlyoutPresenter;
+   
+   function get_IsDefaultShadowEnabledProperty_IFlyoutPresenter
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -57381,6 +58107,9 @@ package Windows.UI.Xaml.Controls is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_OrientationProperty_IInkToolbar
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TargetInkPresenterProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
@@ -58122,6 +58851,9 @@ package Windows.UI.Xaml.Controls is
       ; innerInterface : access Windows.Object
    )
    return Windows.UI.Xaml.Controls.IMenuFlyoutPresenter;
+   
+   function get_IsDefaultShadowEnabledProperty_IMenuFlyoutPresenter
+   return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance
    (
@@ -60037,6 +60769,9 @@ package Windows.UI.Xaml.Controls is
    function get_TimeProperty_ITimePickerFlyout
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_IsDefaultShadowEnabledProperty_ITimePickerFlyoutPresenter
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function CreateInstance
    (
       baseInterface : Windows.Object
@@ -60267,6 +61002,43 @@ package Windows.UI.Xaml.Controls is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsExpandedProperty_ITreeViewNode
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.Controls.ITwoPaneView;
+   
+   function get_MinTallModeHeightProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_MinWideModeWidthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_ModeProperty_ITwoPaneView
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_Pane1LengthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_Pane1Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_Pane2LengthProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_Pane2Property
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_PanePriorityProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TallModeConfigurationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_WideModeConfigurationProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateInstance

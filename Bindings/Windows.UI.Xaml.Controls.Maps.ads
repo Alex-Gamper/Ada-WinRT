@@ -104,12 +104,14 @@ package Windows.UI.Xaml.Controls.Maps is
    type MapLoadingStatus is (
       Loading,
       Loaded,
-      DataUnavailable
+      DataUnavailable,
+      DownloadedMapsManagerUnavailable
    );
    for MapLoadingStatus use (
       Loading => 0,
       Loaded => 1,
-      DataUnavailable => 2
+      DataUnavailable => 2,
+      DownloadedMapsManagerUnavailable => 3
    );
    for MapLoadingStatus'Size use 32;
    
@@ -467,6 +469,9 @@ package Windows.UI.Xaml.Controls.Maps is
    type IMapControl7_Interface;
    type IMapControl7 is access all IMapControl7_Interface'Class;
    type IMapControl7_Ptr is access all IMapControl7;
+   type IMapControl8_Interface;
+   type IMapControl8 is access all IMapControl8_Interface'Class;
+   type IMapControl8_Ptr is access all IMapControl8;
    type IMapControlBusinessLandmarkClickEventArgs_Interface;
    type IMapControlBusinessLandmarkClickEventArgs is access all IMapControlBusinessLandmarkClickEventArgs_Interface'Class;
    type IMapControlBusinessLandmarkClickEventArgs_Ptr is access all IMapControlBusinessLandmarkClickEventArgs;
@@ -509,6 +514,9 @@ package Windows.UI.Xaml.Controls.Maps is
    type IMapControlStatics7_Interface;
    type IMapControlStatics7 is access all IMapControlStatics7_Interface'Class;
    type IMapControlStatics7_Ptr is access all IMapControlStatics7;
+   type IMapControlStatics8_Interface;
+   type IMapControlStatics8 is access all IMapControlStatics8_Interface'Class;
+   type IMapControlStatics8_Ptr is access all IMapControlStatics8;
    type IMapControlTransitFeatureClickEventArgs_Interface;
    type IMapControlTransitFeatureClickEventArgs is access all IMapControlTransitFeatureClickEventArgs_Interface'Class;
    type IMapControlTransitFeatureClickEventArgs_Ptr is access all IMapControlTransitFeatureClickEventArgs;
@@ -2588,6 +2596,40 @@ package Windows.UI.Xaml.Controls.Maps is
    
    ------------------------------------------------------------------------
    
+   IID_IMapControl8 : aliased constant Windows.IID := (10394694, 29261, 21450, (148, 33, 122, 72, 252, 115, 21, 35 ));
+   
+   type IMapControl8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanTiltDown
+   (
+      This       : access IMapControl8_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanTiltUp
+   (
+      This       : access IMapControl8_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanZoomIn
+   (
+      This       : access IMapControl8_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanZoomOut
+   (
+      This       : access IMapControl8_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMapControlBusinessLandmarkClickEventArgs : aliased constant Windows.IID := (1581664546, 18970, 18327, (190, 183, 92, 247, 117, 76, 184, 103 ));
    
    type IMapControlBusinessLandmarkClickEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -3114,6 +3156,40 @@ package Windows.UI.Xaml.Controls.Maps is
    function get_RegionProperty
    (
       This       : access IMapControlStatics7_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMapControlStatics8 : aliased constant Windows.IID := (2914494384, 1541, 22828, (191, 157, 209, 11, 220, 43, 228, 123 ));
+   
+   type IMapControlStatics8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CanTiltDownProperty
+   (
+      This       : access IMapControlStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanTiltUpProperty
+   (
+      This       : access IMapControlStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanZoomInProperty
+   (
+      This       : access IMapControlStatics8_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanZoomOutProperty
+   (
+      This       : access IMapControlStatics8_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -8113,6 +8189,18 @@ package Windows.UI.Xaml.Controls.Maps is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_RegionProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CanTiltDownProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CanTiltUpProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CanZoomInProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_CanZoomOutProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function CreateMapControl

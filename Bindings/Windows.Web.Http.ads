@@ -262,6 +262,9 @@ package Windows.Web.Http is
    type IHttpClient_Interface;
    type IHttpClient is access all IHttpClient_Interface'Class;
    type IHttpClient_Ptr is access all IHttpClient;
+   type IHttpClient2_Interface;
+   type IHttpClient2 is access all IHttpClient2_Interface'Class;
+   type IHttpClient2_Ptr is access all IHttpClient2;
    type IHttpClientFactory_Interface;
    type IHttpClientFactory is access all IHttpClientFactory_Interface'Class;
    type IHttpClientFactory_Ptr is access all IHttpClientFactory;
@@ -280,6 +283,15 @@ package Windows.Web.Http is
    type IHttpFormUrlEncodedContentFactory_Interface;
    type IHttpFormUrlEncodedContentFactory is access all IHttpFormUrlEncodedContentFactory_Interface'Class;
    type IHttpFormUrlEncodedContentFactory_Ptr is access all IHttpFormUrlEncodedContentFactory;
+   type IHttpGetBufferResult_Interface;
+   type IHttpGetBufferResult is access all IHttpGetBufferResult_Interface'Class;
+   type IHttpGetBufferResult_Ptr is access all IHttpGetBufferResult;
+   type IHttpGetInputStreamResult_Interface;
+   type IHttpGetInputStreamResult is access all IHttpGetInputStreamResult_Interface'Class;
+   type IHttpGetInputStreamResult_Ptr is access all IHttpGetInputStreamResult;
+   type IHttpGetStringResult_Interface;
+   type IHttpGetStringResult is access all IHttpGetStringResult_Interface'Class;
+   type IHttpGetStringResult_Ptr is access all IHttpGetStringResult;
    type IHttpMethod_Interface;
    type IHttpMethod is access all IHttpMethod_Interface'Class;
    type IHttpMethod_Ptr is access all IHttpMethod;
@@ -307,6 +319,9 @@ package Windows.Web.Http is
    type IHttpRequestMessageFactory_Interface;
    type IHttpRequestMessageFactory is access all IHttpRequestMessageFactory_Interface'Class;
    type IHttpRequestMessageFactory_Ptr is access all IHttpRequestMessageFactory;
+   type IHttpRequestResult_Interface;
+   type IHttpRequestResult is access all IHttpRequestResult_Interface'Class;
+   type IHttpRequestResult_Ptr is access all IHttpRequestResult;
    type IHttpResponseMessage_Interface;
    type IHttpResponseMessage is access all IHttpResponseMessage_Interface'Class;
    type IHttpResponseMessage_Ptr is access all IHttpResponseMessage;
@@ -466,6 +481,96 @@ package Windows.Web.Http is
    (
       This       : access IHttpClient_Interface
       ; RetVal : access Windows.Web.Http.Headers.IHttpRequestHeaderCollection
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpClient2 : aliased constant Windows.IID := (3453498184, 59575, 19692, (177, 176, 220, 69, 95, 231, 44, 146 ));
+   
+   type IHttpClient2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryDeleteAsync
+   (
+      This       : access IHttpClient2_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryGetAsync
+   (
+      This       : access IHttpClient2_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryGetAsync2
+   (
+      This       : access IHttpClient2_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; completionOption : Windows.Web.Http.HttpCompletionOption
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryGetBufferAsync
+   (
+      This       : access IHttpClient2_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryGetInputStreamAsync
+   (
+      This       : access IHttpClient2_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryGetStringAsync
+   (
+      This       : access IHttpClient2_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryPostAsync
+   (
+      This       : access IHttpClient2_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; content : Windows.Web.Http.IHttpContent
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryPutAsync
+   (
+      This       : access IHttpClient2_Interface
+      ; uri : Windows.Foundation.IUriRuntimeClass
+      ; content : Windows.Web.Http.IHttpContent
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TrySendRequestAsync
+   (
+      This       : access IHttpClient2_Interface
+      ; request : Windows.Web.Http.IHttpRequestMessage
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TrySendRequestAsync2
+   (
+      This       : access IHttpClient2_Interface
+      ; request : Windows.Web.Http.IHttpRequestMessage
+      ; completionOption : Windows.Web.Http.HttpCompletionOption
+      ; RetVal : access Windows.Address -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -688,6 +793,129 @@ package Windows.Web.Http is
       This       : access IHttpFormUrlEncodedContentFactory_Interface
       ; content : Windows.Address
       ; RetVal : access Windows.Web.Http.IHttpContent
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpGetBufferResult : aliased constant Windows.IID := (1406176892, 57865, 16462, (154, 73, 116, 45, 130, 54, 253, 58 ));
+   
+   type IHttpGetBufferResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access IHttpGetBufferResult_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RequestMessage
+   (
+      This       : access IHttpGetBufferResult_Interface
+      ; RetVal : access Windows.Web.Http.IHttpRequestMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResponseMessage
+   (
+      This       : access IHttpGetBufferResult_Interface
+      ; RetVal : access Windows.Web.Http.IHttpResponseMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Succeeded
+   (
+      This       : access IHttpGetBufferResult_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Value
+   (
+      This       : access IHttpGetBufferResult_Interface
+      ; RetVal : access Windows.Storage.Streams.IBuffer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpGetInputStreamResult : aliased constant Windows.IID := (3587585123, 5034, 20192, (190, 149, 160, 195, 159, 233, 18, 3 ));
+   
+   type IHttpGetInputStreamResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access IHttpGetInputStreamResult_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RequestMessage
+   (
+      This       : access IHttpGetInputStreamResult_Interface
+      ; RetVal : access Windows.Web.Http.IHttpRequestMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResponseMessage
+   (
+      This       : access IHttpGetInputStreamResult_Interface
+      ; RetVal : access Windows.Web.Http.IHttpResponseMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Succeeded
+   (
+      This       : access IHttpGetInputStreamResult_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Value
+   (
+      This       : access IHttpGetInputStreamResult_Interface
+      ; RetVal : access Windows.Storage.Streams.IInputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpGetStringResult : aliased constant Windows.IID := (2611758701, 34057, 18293, (177, 109, 137, 83, 244, 122, 127, 95 ));
+   
+   type IHttpGetStringResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access IHttpGetStringResult_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RequestMessage
+   (
+      This       : access IHttpGetStringResult_Interface
+      ; RetVal : access Windows.Web.Http.IHttpRequestMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResponseMessage
+   (
+      This       : access IHttpGetStringResult_Interface
+      ; RetVal : access Windows.Web.Http.IHttpResponseMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Succeeded
+   (
+      This       : access IHttpGetStringResult_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Value
+   (
+      This       : access IHttpGetStringResult_Interface
+      ; RetVal : access Windows.String
    )
    return Windows.HRESULT is abstract;
    
@@ -934,6 +1162,40 @@ package Windows.Web.Http is
       ; method : Windows.Web.Http.IHttpMethod
       ; uri : Windows.Foundation.IUriRuntimeClass
       ; RetVal : access Windows.Web.Http.IHttpRequestMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHttpRequestResult : aliased constant Windows.IID := (1791970728, 46571, 18997, (169, 2, 66, 23, 251, 232, 32, 197 ));
+   
+   type IHttpRequestResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExtendedError
+   (
+      This       : access IHttpRequestResult_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RequestMessage
+   (
+      This       : access IHttpRequestResult_Interface
+      ; RetVal : access Windows.Web.Http.IHttpRequestMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ResponseMessage
+   (
+      This       : access IHttpRequestResult_Interface
+      ; RetVal : access Windows.Web.Http.IHttpResponseMessage
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Succeeded
+   (
+      This       : access IHttpRequestResult_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -1436,6 +1698,9 @@ package Windows.Web.Http is
    )
    return Windows.Web.Http.IHttpContent;
    
+   subtype HttpGetBufferResult is Windows.Web.Http.IHttpGetBufferResult;
+   subtype HttpGetInputStreamResult is Windows.Web.Http.IHttpGetInputStreamResult;
+   subtype HttpGetStringResult is Windows.Web.Http.IHttpGetStringResult;
    subtype HttpMethod is Windows.Web.Http.IHttpMethod;
    function Create
    (
@@ -1478,6 +1743,7 @@ package Windows.Web.Http is
    )
    return Windows.Web.Http.IHttpRequestMessage;
    
+   subtype HttpRequestResult is Windows.Web.Http.IHttpRequestResult;
    subtype HttpResponseMessage is Windows.Web.Http.IHttpResponseMessage;
    function Create return Windows.Web.Http.IHttpResponseMessage;
    

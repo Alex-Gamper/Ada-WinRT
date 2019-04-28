@@ -487,6 +487,9 @@ package Windows.UI.Xaml.Input is
    type IFocusManagerStatics6_Interface;
    type IFocusManagerStatics6 is access all IFocusManagerStatics6_Interface'Class;
    type IFocusManagerStatics6_Ptr is access all IFocusManagerStatics6;
+   type IFocusManagerStatics7_Interface;
+   type IFocusManagerStatics7 is access all IFocusManagerStatics7_Interface'Class;
+   type IFocusManagerStatics7_Ptr is access all IFocusManagerStatics7;
    type IFocusMovementResult_Interface;
    type IFocusMovementResult is access all IFocusMovementResult_Interface'Class;
    type IFocusMovementResult_Ptr is access all IFocusMovementResult;
@@ -616,6 +619,9 @@ package Windows.UI.Xaml.Input is
    type IStandardUICommand_Interface;
    type IStandardUICommand is access all IStandardUICommand_Interface'Class;
    type IStandardUICommand_Ptr is access all IStandardUICommand;
+   type IStandardUICommand2_Interface;
+   type IStandardUICommand2 is access all IStandardUICommand2_Interface'Class;
+   type IStandardUICommand2_Ptr is access all IStandardUICommand2;
    type IStandardUICommandFactory_Interface;
    type IStandardUICommandFactory is access all IStandardUICommandFactory_Interface'Class;
    type IStandardUICommandFactory_Ptr is access all IStandardUICommandFactory;
@@ -1255,6 +1261,20 @@ package Windows.UI.Xaml.Input is
    (
       This       : access IFocusManagerStatics6_Interface
       ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IFocusManagerStatics7 : aliased constant Windows.IID := (2513894039, 61692, 23602, (178, 157, 7, 192, 78, 201, 102, 176 ));
+   
+   type IFocusManagerStatics7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetFocusedElement
+   (
+      This       : access IFocusManagerStatics7_Interface
+      ; xamlRoot : Windows.UI.Xaml.IXamlRoot
+      ; RetVal : access Windows.Object
    )
    return Windows.HRESULT is abstract;
    
@@ -2676,6 +2696,19 @@ package Windows.UI.Xaml.Input is
    (
       This       : access IStandardUICommand_Interface
       ; RetVal : access Windows.UI.Xaml.Input.StandardUICommandKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStandardUICommand2 : aliased constant Windows.IID := (3815137385, 63972, 20971, (136, 91, 122, 98, 10, 7, 130, 234 ));
+   
+   type IStandardUICommand2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Kind
+   (
+      This       : access IStandardUICommand2_Interface
+      ; value : Windows.UI.Xaml.Input.StandardUICommandKind
    )
    return Windows.HRESULT is abstract;
    
@@ -4193,6 +4226,12 @@ package Windows.UI.Xaml.Input is
       token : Windows.Foundation.EventRegistrationToken
    )
    ;
+   
+   function GetFocusedElement
+   (
+      xamlRoot : Windows.UI.Xaml.IXamlRoot
+   )
+   return Windows.Object;
    
    function CreateInstance
    (

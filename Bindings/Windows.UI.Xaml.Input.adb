@@ -1867,6 +1867,26 @@ package body Windows.UI.Xaml.Input is
       Hr := WindowsDeleteString(m_hString);
    end;
    
+   function GetFocusedElement
+   (
+      xamlRoot : Windows.UI.Xaml.IXamlRoot
+   )
+   return Windows.Object is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Xaml.Input.FocusManager");
+      m_Factory     : IFocusManagerStatics7 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Object;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFocusManagerStatics7'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetFocusedElement(xamlRoot, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function CreateInstance
    (
       baseInterface : Windows.Object

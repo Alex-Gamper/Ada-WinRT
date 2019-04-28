@@ -29,6 +29,7 @@
 with Windows.Networking.Sockets;
 with Windows.Security.Credentials;
 with Windows.Security.Cryptography.Certificates;
+with Windows.System;
 with Windows.Web.Http;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
@@ -79,5 +80,25 @@ package body Windows.Web.Http.Filters is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function CreateForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Web.Http.Filters.IHttpBaseProtocolFilter is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Web.Http.Filters.HttpBaseProtocolFilter");
+      m_Factory     : IHttpBaseProtocolFilterStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Web.Http.Filters.IHttpBaseProtocolFilter;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHttpBaseProtocolFilterStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
 end;

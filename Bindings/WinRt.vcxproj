@@ -57,6 +57,8 @@
     <AdaCompile Include="Windows.ApplicationModel.Contacts.DataProvider.ads" />
     <AdaCompile Include="Windows.ApplicationModel.Contacts.Provider.adb" />
     <AdaCompile Include="Windows.ApplicationModel.Contacts.Provider.ads" />
+    <AdaCompile Include="Windows.ApplicationModel.ConversationalAgent.adb" />
+    <AdaCompile Include="Windows.ApplicationModel.ConversationalAgent.ads" />
     <AdaCompile Include="Windows.ApplicationModel.Core.adb" />
     <AdaCompile Include="Windows.ApplicationModel.Core.ads" />
     <AdaCompile Include="Windows.ApplicationModel.DataTransfer.adb" />
@@ -361,6 +363,8 @@
     <AdaCompile Include="Windows.Media.Import.ads" />
     <AdaCompile Include="Windows.Media.MediaProperties.adb" />
     <AdaCompile Include="Windows.Media.MediaProperties.ads" />
+    <AdaCompile Include="Windows.Media.Miracast.adb" />
+    <AdaCompile Include="Windows.Media.Miracast.ads" />
     <AdaCompile Include="Windows.Media.Ocr.adb" />
     <AdaCompile Include="Windows.Media.Ocr.ads" />
     <AdaCompile Include="Windows.Media.Playback.adb" />
@@ -409,6 +413,7 @@
     <AdaCompile Include="Windows.Perception.Automation.ads" />
     <AdaCompile Include="Windows.Perception.Automation.Core.adb" />
     <AdaCompile Include="Windows.Perception.Automation.Core.ads" />
+    <AdaCompile Include="Windows.Perception.People.adb" />
     <AdaCompile Include="Windows.Perception.People.ads" />
     <AdaCompile Include="Windows.Perception.Spatial.adb" />
     <AdaCompile Include="Windows.Perception.Spatial.ads" />
@@ -432,6 +437,8 @@
     <AdaCompile Include="Windows.Security.Authentication.Web.Core.ads" />
     <AdaCompile Include="Windows.Security.Authentication.Web.Provider.adb" />
     <AdaCompile Include="Windows.Security.Authentication.Web.Provider.ads" />
+    <AdaCompile Include="Windows.Security.Authorization.AppCapabilityAccess.adb" />
+    <AdaCompile Include="Windows.Security.Authorization.AppCapabilityAccess.ads" />
     <AdaCompile Include="Windows.Security.Credentials.adb" />
     <AdaCompile Include="Windows.Security.Credentials.ads" />
     <AdaCompile Include="Windows.Security.Credentials.UI.adb" />
@@ -444,6 +451,8 @@
     <AdaCompile Include="Windows.Security.Cryptography.Core.ads" />
     <AdaCompile Include="Windows.Security.Cryptography.DataProtection.adb" />
     <AdaCompile Include="Windows.Security.Cryptography.DataProtection.ads" />
+    <AdaCompile Include="Windows.Security.DataProtection.adb" />
+    <AdaCompile Include="Windows.Security.DataProtection.ads" />
     <AdaCompile Include="Windows.Security.EnterpriseData.adb" />
     <AdaCompile Include="Windows.Security.EnterpriseData.ads" />
     <AdaCompile Include="Windows.Security.ExchangeActiveSyncProvisioning.adb" />
@@ -536,6 +545,8 @@
     <AdaCompile Include="Windows.UI.Composition.Effects.ads" />
     <AdaCompile Include="Windows.UI.Composition.Interactions.adb" />
     <AdaCompile Include="Windows.UI.Composition.Interactions.ads" />
+    <AdaCompile Include="Windows.UI.Composition.Scenes.adb" />
+    <AdaCompile Include="Windows.UI.Composition.Scenes.ads" />
     <AdaCompile Include="Windows.UI.Core.adb" />
     <AdaCompile Include="Windows.UI.Core.ads" />
     <AdaCompile Include="Windows.UI.Core.AnimationMetrics.adb" />
@@ -554,6 +565,7 @@
     <AdaCompile Include="Windows.UI.Input.Inking.Core.ads" />
     <AdaCompile Include="Windows.UI.Input.Inking.Preview.adb" />
     <AdaCompile Include="Windows.UI.Input.Inking.Preview.ads" />
+    <AdaCompile Include="Windows.UI.Input.Preview.adb" />
     <AdaCompile Include="Windows.Ui.Input.Preview.ads" />
     <AdaCompile Include="Windows.UI.Input.Preview.Injection.adb" />
     <AdaCompile Include="Windows.UI.Input.Preview.Injection.ads" />
@@ -581,6 +593,10 @@
     <AdaCompile Include="Windows.UI.WebUI.ads" />
     <AdaCompile Include="Windows.UI.WebUI.Core.adb" />
     <AdaCompile Include="Windows.UI.WebUI.Core.ads" />
+    <AdaCompile Include="Windows.UI.WindowManagement.adb" />
+    <AdaCompile Include="Windows.UI.WindowManagement.ads" />
+    <AdaCompile Include="Windows.UI.WindowManagement.Preview.adb" />
+    <AdaCompile Include="Windows.UI.WindowManagement.Preview.ads" />
     <AdaCompile Include="Windows.UI.Xaml.adb" />
     <AdaCompile Include="Windows.UI.Xaml.ads" />
     <AdaCompile Include="Windows.UI.Xaml.Automation.adb" />

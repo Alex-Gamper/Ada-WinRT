@@ -665,6 +665,18 @@ package Windows.Devices.PointOfService is
    type UnifiedPosPowerReportingType_Ptr is access UnifiedPosPowerReportingType;
    
    ------------------------------------------------------------------------
+   -- Record types
+   ------------------------------------------------------------------------
+   
+   type SizeUInt32 is record
+      Width : Windows.UInt32;
+      Height : Windows.UInt32;
+   end record;
+   pragma Convention (C_Pass_By_Copy , SizeUInt32);
+   
+   type SizeUInt32_Ptr is access SizeUInt32;
+   
+   ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
@@ -988,12 +1000,24 @@ package Windows.Devices.PointOfService is
    type IIterable_PosPrinterRotation_Interface;
    type IIterable_PosPrinterRotation is access all IIterable_PosPrinterRotation_Interface'Class;
    type IIterable_PosPrinterRotation_Ptr is access all IIterable_PosPrinterRotation;
+   type IIterable_SizeUInt32_Interface;
+   type IIterable_SizeUInt32 is access all IIterable_SizeUInt32_Interface'Class;
+   type IIterable_SizeUInt32_Ptr is access all IIterable_SizeUInt32;
    type IIterator_PosPrinterRotation_Interface;
    type IIterator_PosPrinterRotation is access all IIterator_PosPrinterRotation_Interface'Class;
    type IIterator_PosPrinterRotation_Ptr is access all IIterator_PosPrinterRotation;
+   type IIterator_SizeUInt32_Interface;
+   type IIterator_SizeUInt32 is access all IIterator_SizeUInt32_Interface'Class;
+   type IIterator_SizeUInt32_Ptr is access all IIterator_SizeUInt32;
    type IJournalPrinterCapabilities_Interface;
    type IJournalPrinterCapabilities is access all IJournalPrinterCapabilities_Interface'Class;
    type IJournalPrinterCapabilities_Ptr is access all IJournalPrinterCapabilities;
+   type IJournalPrinterCapabilities2_Interface;
+   type IJournalPrinterCapabilities2 is access all IJournalPrinterCapabilities2_Interface'Class;
+   type IJournalPrinterCapabilities2_Ptr is access all IJournalPrinterCapabilities2;
+   type IJournalPrintJob_Interface;
+   type IJournalPrintJob is access all IJournalPrintJob_Interface'Class;
+   type IJournalPrintJob_Ptr is access all IJournalPrintJob;
    type ILineDisplay_Interface;
    type ILineDisplay is access all ILineDisplay_Interface'Class;
    type ILineDisplay_Ptr is access all ILineDisplay;
@@ -1081,15 +1105,24 @@ package Windows.Devices.PointOfService is
    type IPosPrinter_Interface;
    type IPosPrinter is access all IPosPrinter_Interface'Class;
    type IPosPrinter_Ptr is access all IPosPrinter;
+   type IPosPrinter2_Interface;
+   type IPosPrinter2 is access all IPosPrinter2_Interface'Class;
+   type IPosPrinter2_Ptr is access all IPosPrinter2;
    type IPosPrinterCapabilities_Interface;
    type IPosPrinterCapabilities is access all IPosPrinterCapabilities_Interface'Class;
    type IPosPrinterCapabilities_Ptr is access all IPosPrinterCapabilities;
    type IPosPrinterCharacterSetIdsStatics_Interface;
    type IPosPrinterCharacterSetIdsStatics is access all IPosPrinterCharacterSetIdsStatics_Interface'Class;
    type IPosPrinterCharacterSetIdsStatics_Ptr is access all IPosPrinterCharacterSetIdsStatics;
+   type IPosPrinterFontProperty_Interface;
+   type IPosPrinterFontProperty is access all IPosPrinterFontProperty_Interface'Class;
+   type IPosPrinterFontProperty_Ptr is access all IPosPrinterFontProperty;
    type IPosPrinterJob_Interface;
    type IPosPrinterJob is access all IPosPrinterJob_Interface'Class;
    type IPosPrinterJob_Ptr is access all IPosPrinterJob;
+   type IPosPrinterPrintOptions_Interface;
+   type IPosPrinterPrintOptions is access all IPosPrinterPrintOptions_Interface'Class;
+   type IPosPrinterPrintOptions_Ptr is access all IPosPrinterPrintOptions;
    type IPosPrinterReleaseDeviceRequestedEventArgs_Interface;
    type IPosPrinterReleaseDeviceRequestedEventArgs is access all IPosPrinterReleaseDeviceRequestedEventArgs_Interface'Class;
    type IPosPrinterReleaseDeviceRequestedEventArgs_Ptr is access all IPosPrinterReleaseDeviceRequestedEventArgs;
@@ -1111,12 +1144,24 @@ package Windows.Devices.PointOfService is
    type IReceiptPrinterCapabilities_Interface;
    type IReceiptPrinterCapabilities is access all IReceiptPrinterCapabilities_Interface'Class;
    type IReceiptPrinterCapabilities_Ptr is access all IReceiptPrinterCapabilities;
+   type IReceiptPrinterCapabilities2_Interface;
+   type IReceiptPrinterCapabilities2 is access all IReceiptPrinterCapabilities2_Interface'Class;
+   type IReceiptPrinterCapabilities2_Ptr is access all IReceiptPrinterCapabilities2;
    type IReceiptPrintJob_Interface;
    type IReceiptPrintJob is access all IReceiptPrintJob_Interface'Class;
    type IReceiptPrintJob_Ptr is access all IReceiptPrintJob;
+   type IReceiptPrintJob2_Interface;
+   type IReceiptPrintJob2 is access all IReceiptPrintJob2_Interface'Class;
+   type IReceiptPrintJob2_Ptr is access all IReceiptPrintJob2;
    type ISlipPrinterCapabilities_Interface;
    type ISlipPrinterCapabilities is access all ISlipPrinterCapabilities_Interface'Class;
    type ISlipPrinterCapabilities_Ptr is access all ISlipPrinterCapabilities;
+   type ISlipPrinterCapabilities2_Interface;
+   type ISlipPrinterCapabilities2 is access all ISlipPrinterCapabilities2_Interface'Class;
+   type ISlipPrinterCapabilities2_Ptr is access all ISlipPrinterCapabilities2;
+   type ISlipPrintJob_Interface;
+   type ISlipPrintJob is access all ISlipPrintJob_Interface'Class;
+   type ISlipPrintJob_Ptr is access all ISlipPrintJob;
    type IUnifiedPosErrorData_Interface;
    type IUnifiedPosErrorData is access all IUnifiedPosErrorData_Interface'Class;
    type IUnifiedPosErrorData_Ptr is access all IUnifiedPosErrorData;
@@ -1126,6 +1171,9 @@ package Windows.Devices.PointOfService is
    type IVectorView_PosPrinterRotation_Interface;
    type IVectorView_PosPrinterRotation is access all IVectorView_PosPrinterRotation_Interface'Class;
    type IVectorView_PosPrinterRotation_Ptr is access all IVectorView_PosPrinterRotation;
+   type IVectorView_SizeUInt32_Interface;
+   type IVectorView_SizeUInt32 is access all IVectorView_SizeUInt32_Interface'Class;
+   type IVectorView_SizeUInt32_Ptr is access all IVectorView_SizeUInt32;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -3360,7 +3408,7 @@ package Windows.Devices.PointOfService is
    function CreateJob
    (
       This       : access IClaimedJournalPrinter_Interface
-      ; RetVal : access Windows.Devices.PointOfService.IPosPrinterJob
+      ; RetVal : access Windows.Devices.PointOfService.IJournalPrintJob
    )
    return Windows.HRESULT is abstract;
    
@@ -4228,7 +4276,7 @@ package Windows.Devices.PointOfService is
    function CreateJob
    (
       This       : access IClaimedSlipPrinter_Interface
-      ; RetVal : access Windows.Devices.PointOfService.IReceiptOrSlipJob
+      ; RetVal : access Windows.Devices.PointOfService.ISlipPrintJob
    )
    return Windows.HRESULT is abstract;
    
@@ -4553,6 +4601,19 @@ package Windows.Devices.PointOfService is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_SizeUInt32 : aliased constant Windows.IID := (351642241, 26351, 21145, (174, 209, 150, 161, 220, 30, 132, 22 ));
+   
+   type IIterable_SizeUInt32_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_SizeUInt32_Interface
+      ; RetVal : access Windows.Devices.PointOfService.IIterator_SizeUInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_PosPrinterRotation : aliased constant Windows.IID := (4136103804, 45342, 22211, (145, 88, 230, 186, 21, 189, 82, 27 ));
    
    type IIterator_PosPrinterRotation_Interface is interface and Windows.IInspectable_Interface;
@@ -4588,9 +4649,120 @@ package Windows.Devices.PointOfService is
    
    ------------------------------------------------------------------------
    
+   IID_IIterator_SizeUInt32 : aliased constant Windows.IID := (702159041, 32990, 23493, (139, 130, 40, 214, 60, 160, 30, 70 ));
+   
+   type IIterator_SizeUInt32_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_SizeUInt32_Interface
+      ; RetVal : access Windows.Devices.PointOfService.SizeUInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_SizeUInt32_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_SizeUInt32_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_SizeUInt32_Interface
+      ; items : Windows.Devices.PointOfService.SizeUInt32_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IJournalPrinterCapabilities : aliased constant Windows.IID := (995937347, 57415, 17507, (187, 88, 23, 181, 186, 29, 128, 86 ));
    
    type IJournalPrinterCapabilities_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IJournalPrinterCapabilities2 : aliased constant Windows.IID := (61912645, 13240, 21307, (186, 170, 164, 56, 146, 131, 171, 10 ));
+   
+   type IJournalPrinterCapabilities2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsReverseVideoSupported
+   (
+      This       : access IJournalPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsStrikethroughSupported
+   (
+      This       : access IJournalPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsSuperscriptSupported
+   (
+      This       : access IJournalPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsSubscriptSupported
+   (
+      This       : access IJournalPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsReversePaperFeedByLineSupported
+   (
+      This       : access IJournalPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsReversePaperFeedByMapModeUnitSupported
+   (
+      This       : access IJournalPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IJournalPrintJob : aliased constant Windows.IID := (2672765028, 62448, 21968, (140, 57, 116, 204, 145, 120, 62, 237 ));
+   
+   type IJournalPrintJob_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Print
+   (
+      This       : access IJournalPrintJob_Interface
+      ; data : Windows.String
+      ; printOptions : Windows.Devices.PointOfService.IPosPrinterPrintOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FeedPaperByLine
+   (
+      This       : access IJournalPrintJob_Interface
+      ; lineCount : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FeedPaperByMapModeUnit
+   (
+      This       : access IJournalPrintJob_Interface
+      ; distance : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -6127,6 +6299,27 @@ package Windows.Devices.PointOfService is
    
    ------------------------------------------------------------------------
    
+   IID_IPosPrinter2 : aliased constant Windows.IID := (612660712, 35736, 21783, (142, 72, 118, 14, 134, 246, 137, 135 ));
+   
+   type IPosPrinter2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SupportedBarcodeSymbologies
+   (
+      This       : access IPosPrinter2_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_UInt32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetFontProperty
+   (
+      This       : access IPosPrinter2_Interface
+      ; typeface : Windows.String
+      ; RetVal : access Windows.Devices.PointOfService.IPosPrinterFontProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPosPrinterCapabilities : aliased constant Windows.IID := (3454621473, 17280, 18821, (173, 197, 57, 219, 48, 205, 147, 188 ));
    
    type IPosPrinterCapabilities_Interface is interface and Windows.IInspectable_Interface;
@@ -6230,6 +6423,33 @@ package Windows.Devices.PointOfService is
    
    ------------------------------------------------------------------------
    
+   IID_IPosPrinterFontProperty : aliased constant Windows.IID := (2817845562, 63660, 24324, (132, 210, 41, 177, 109, 138, 99, 60 ));
+   
+   type IPosPrinterFontProperty_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TypeFace
+   (
+      This       : access IPosPrinterFontProperty_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsScalableToAnySize
+   (
+      This       : access IPosPrinterFontProperty_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CharacterSizes
+   (
+      This       : access IPosPrinterFontProperty_Interface
+      ; RetVal : access Windows.Devices.PointOfService.IVectorView_SizeUInt32 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPosPrinterJob : aliased constant Windows.IID := (2593390684, 1557, 17809, (165, 143, 48, 248, 126, 223, 226, 228 ));
    
    type IPosPrinterJob_Interface is interface and Windows.IInspectable_Interface;
@@ -6258,6 +6478,194 @@ package Windows.Devices.PointOfService is
    (
       This       : access IPosPrinterJob_Interface
       ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPosPrinterPrintOptions : aliased constant Windows.IID := (170792701, 7426, 23128, (157, 89, 191, 205, 231, 111, 222, 134 ));
+   
+   type IPosPrinterPrintOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TypeFace
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TypeFace
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CharacterHeight
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CharacterHeight
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Bold
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Bold
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Italic
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Italic
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Underline
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Underline
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ReverseVideo
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ReverseVideo
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Strikethrough
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Strikethrough
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Superscript
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Superscript
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Subscript
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Subscript
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DoubleWide
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DoubleWide
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DoubleHigh
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DoubleHigh
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Alignment
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; RetVal : access Windows.Devices.PointOfService.PosPrinterAlignment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Alignment
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; value : Windows.Devices.PointOfService.PosPrinterAlignment
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CharacterSet
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CharacterSet
+   (
+      This       : access IPosPrinterPrintOptions_Interface
+      ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -6513,6 +6921,54 @@ package Windows.Devices.PointOfService is
    
    ------------------------------------------------------------------------
    
+   IID_IReceiptPrinterCapabilities2 : aliased constant Windows.IID := (537069112, 35372, 21932, (154, 123, 117, 118, 216, 134, 158, 153 ));
+   
+   type IReceiptPrinterCapabilities2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsReverseVideoSupported
+   (
+      This       : access IReceiptPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsStrikethroughSupported
+   (
+      This       : access IReceiptPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsSuperscriptSupported
+   (
+      This       : access IReceiptPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsSubscriptSupported
+   (
+      This       : access IReceiptPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsReversePaperFeedByLineSupported
+   (
+      This       : access IReceiptPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsReversePaperFeedByMapModeUnitSupported
+   (
+      This       : access IReceiptPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IReceiptPrintJob : aliased constant Windows.IID := (2861958766, 44205, 19321, (157, 15, 192, 207, 192, 141, 199, 123 ));
    
    type IReceiptPrintJob_Interface is interface and Windows.IInspectable_Interface;
@@ -6539,6 +6995,40 @@ package Windows.Devices.PointOfService is
    
    ------------------------------------------------------------------------
    
+   IID_IReceiptPrintJob2 : aliased constant Windows.IID := (213652195, 40489, 20857, (188, 216, 24, 17, 211, 185, 161, 14 ));
+   
+   type IReceiptPrintJob2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function StampPaper
+   (
+      This       : access IReceiptPrintJob2_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Print
+   (
+      This       : access IReceiptPrintJob2_Interface
+      ; data : Windows.String
+      ; printOptions : Windows.Devices.PointOfService.IPosPrinterPrintOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FeedPaperByLine
+   (
+      This       : access IReceiptPrintJob2_Interface
+      ; lineCount : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FeedPaperByMapModeUnit
+   (
+      This       : access IReceiptPrintJob2_Interface
+      ; distance : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISlipPrinterCapabilities : aliased constant Windows.IID := (2578539417, 18572, 16727, (138, 194, 159, 87, 247, 8, 211, 219 ));
    
    type ISlipPrinterCapabilities_Interface is interface and Windows.IInspectable_Interface;
@@ -6554,6 +7044,82 @@ package Windows.Devices.PointOfService is
    (
       This       : access ISlipPrinterCapabilities_Interface
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISlipPrinterCapabilities2 : aliased constant Windows.IID := (1878562417, 11546, 20480, (135, 194, 176, 133, 27, 253, 240, 126 ));
+   
+   type ISlipPrinterCapabilities2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsReverseVideoSupported
+   (
+      This       : access ISlipPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsStrikethroughSupported
+   (
+      This       : access ISlipPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsSuperscriptSupported
+   (
+      This       : access ISlipPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsSubscriptSupported
+   (
+      This       : access ISlipPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsReversePaperFeedByLineSupported
+   (
+      This       : access ISlipPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsReversePaperFeedByMapModeUnitSupported
+   (
+      This       : access ISlipPrinterCapabilities2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISlipPrintJob : aliased constant Windows.IID := (1569257821, 24881, 23115, (183, 213, 142, 242, 218, 123, 65, 101 ));
+   
+   type ISlipPrintJob_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Print
+   (
+      This       : access ISlipPrintJob_Interface
+      ; data : Windows.String
+      ; printOptions : Windows.Devices.PointOfService.IPosPrinterPrintOptions
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FeedPaperByLine
+   (
+      This       : access ISlipPrintJob_Interface
+      ; lineCount : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function FeedPaperByMapModeUnit
+   (
+      This       : access ISlipPrintJob_Interface
+      ; distance : Windows.Int32
    )
    return Windows.HRESULT is abstract;
    
@@ -6643,6 +7209,45 @@ package Windows.Devices.PointOfService is
       This       : access IVectorView_PosPrinterRotation_Interface
       ; startIndex : Windows.UInt32
       ; items : Windows.Devices.PointOfService.PosPrinterRotation_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_SizeUInt32 : aliased constant Windows.IID := (2288421168, 44646, 24009, (185, 165, 204, 171, 160, 115, 81, 17 ));
+   
+   type IVectorView_SizeUInt32_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_SizeUInt32_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Devices.PointOfService.SizeUInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_SizeUInt32_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_SizeUInt32_Interface
+      ; value : Windows.Devices.PointOfService.SizeUInt32
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_SizeUInt32_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Devices.PointOfService.SizeUInt32_Ptr
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
@@ -7200,7 +7805,7 @@ package Windows.Devices.PointOfService is
    subtype ClaimedReceiptPrinter is Windows.Devices.PointOfService.IClaimedReceiptPrinter;
    subtype ClaimedSlipPrinter is Windows.Devices.PointOfService.IClaimedSlipPrinter;
    subtype JournalPrinterCapabilities is Windows.Devices.PointOfService.IJournalPrinterCapabilities;
-   subtype JournalPrintJob is Windows.Devices.PointOfService.IPosPrinterJob;
+   subtype JournalPrintJob is Windows.Devices.PointOfService.IJournalPrintJob;
    subtype LineDisplay is Windows.Devices.PointOfService.ILineDisplay;
    subtype LineDisplayAttributes is Windows.Devices.PointOfService.ILineDisplayAttributes;
    subtype LineDisplayCapabilities is Windows.Devices.PointOfService.ILineDisplayCapabilities;
@@ -7223,13 +7828,17 @@ package Windows.Devices.PointOfService is
    subtype MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs is Windows.Devices.PointOfService.IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs;
    subtype PosPrinter is Windows.Devices.PointOfService.IPosPrinter;
    subtype PosPrinterCapabilities is Windows.Devices.PointOfService.IPosPrinterCapabilities;
+   subtype PosPrinterFontProperty is Windows.Devices.PointOfService.IPosPrinterFontProperty;
+   subtype PosPrinterPrintOptions is Windows.Devices.PointOfService.IPosPrinterPrintOptions;
+   function Create return Windows.Devices.PointOfService.IPosPrinterPrintOptions;
+   
    subtype PosPrinterReleaseDeviceRequestedEventArgs is Windows.Devices.PointOfService.IPosPrinterReleaseDeviceRequestedEventArgs;
    subtype PosPrinterStatus is Windows.Devices.PointOfService.IPosPrinterStatus;
    subtype PosPrinterStatusUpdatedEventArgs is Windows.Devices.PointOfService.IPosPrinterStatusUpdatedEventArgs;
    subtype ReceiptPrinterCapabilities is Windows.Devices.PointOfService.IReceiptPrinterCapabilities;
    subtype ReceiptPrintJob is Windows.Devices.PointOfService.IReceiptPrintJob;
    subtype SlipPrinterCapabilities is Windows.Devices.PointOfService.ISlipPrinterCapabilities;
-   subtype SlipPrintJob is Windows.Devices.PointOfService.IReceiptOrSlipJob;
+   subtype SlipPrintJob is Windows.Devices.PointOfService.ISlipPrintJob;
    subtype UnifiedPosErrorData is Windows.Devices.PointOfService.IUnifiedPosErrorData;
    function CreateInstance
    (

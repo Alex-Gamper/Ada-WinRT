@@ -27,6 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
+limited with Windows.UI;
+--------------------------------------------------------------------------------
 package Windows.ApplicationModel.Resources is
 
    pragma preelaborate;
@@ -50,6 +52,9 @@ package Windows.ApplicationModel.Resources is
    type IResourceLoaderStatics2_Interface;
    type IResourceLoaderStatics2 is access all IResourceLoaderStatics2_Interface'Class;
    type IResourceLoaderStatics2_Ptr is access all IResourceLoaderStatics2;
+   type IResourceLoaderStatics3_Interface;
+   type IResourceLoaderStatics3 is access all IResourceLoaderStatics3_Interface'Class;
+   type IResourceLoaderStatics3_Ptr is access all IResourceLoaderStatics3;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -148,6 +153,20 @@ package Windows.ApplicationModel.Resources is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IResourceLoaderStatics3 : aliased constant Windows.IID := (1684053499, 25772, 18715, (129, 0, 14, 85, 141, 97, 193, 208 ));
+   
+   type IResourceLoaderStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetForUIContext
+   (
+      This       : access IResourceLoaderStatics3_Interface
+      ; context : Windows.UI.IUIContext
+      ; RetVal : access Windows.ApplicationModel.Resources.IResourceLoader
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -186,6 +205,12 @@ package Windows.ApplicationModel.Resources is
    function GetForViewIndependentUseWithName
    (
       name : Windows.String
+   )
+   return Windows.ApplicationModel.Resources.IResourceLoader;
+   
+   function GetForUIContext
+   (
+      context : Windows.UI.IUIContext
    )
    return Windows.ApplicationModel.Resources.IResourceLoader;
    

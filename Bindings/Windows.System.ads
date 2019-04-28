@@ -259,6 +259,8 @@ package Windows.System is
       Arm,
       X64,
       Neutral,
+      Arm64,
+      X86OnArm64,
       Unknown
    );
    for ProcessorArchitecture use (
@@ -266,6 +268,8 @@ package Windows.System is
       Arm => 5,
       X64 => 9,
       Neutral => 11,
+      Arm64 => 12,
+      X86OnArm64 => 14,
       Unknown => 65535
    );
    for ProcessorArchitecture'Size use 32;
@@ -622,6 +626,9 @@ package Windows.System is
    type IDispatcherQueue_Interface;
    type IDispatcherQueue is access all IDispatcherQueue_Interface'Class;
    type IDispatcherQueue_Ptr is access all IDispatcherQueue;
+   type IDispatcherQueue2_Interface;
+   type IDispatcherQueue2 is access all IDispatcherQueue2_Interface'Class;
+   type IDispatcherQueue2_Ptr is access all IDispatcherQueue2;
    type IDispatcherQueueController_Interface;
    type IDispatcherQueueController is access all IDispatcherQueueController_Interface'Class;
    type IDispatcherQueueController_Ptr is access all IDispatcherQueueController;
@@ -1855,6 +1862,19 @@ package Windows.System is
    (
       This       : access IDispatcherQueue_Interface
       ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDispatcherQueue2 : aliased constant Windows.IID := (3357722183, 12527, 20590, (189, 30, 166, 71, 174, 102, 117, 255 ));
+   
+   type IDispatcherQueue2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_HasThreadAccess
+   (
+      This       : access IDispatcherQueue2_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    

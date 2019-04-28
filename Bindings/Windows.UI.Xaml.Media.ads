@@ -406,12 +406,18 @@ package Windows.UI.Xaml.Media is
    type IAcrylicBrush_Interface;
    type IAcrylicBrush is access all IAcrylicBrush_Interface'Class;
    type IAcrylicBrush_Ptr is access all IAcrylicBrush;
+   type IAcrylicBrush2_Interface;
+   type IAcrylicBrush2 is access all IAcrylicBrush2_Interface'Class;
+   type IAcrylicBrush2_Ptr is access all IAcrylicBrush2;
    type IAcrylicBrushFactory_Interface;
    type IAcrylicBrushFactory is access all IAcrylicBrushFactory_Interface'Class;
    type IAcrylicBrushFactory_Ptr is access all IAcrylicBrushFactory;
    type IAcrylicBrushStatics_Interface;
    type IAcrylicBrushStatics is access all IAcrylicBrushStatics_Interface'Class;
    type IAcrylicBrushStatics_Ptr is access all IAcrylicBrushStatics;
+   type IAcrylicBrushStatics2_Interface;
+   type IAcrylicBrushStatics2 is access all IAcrylicBrushStatics2_Interface'Class;
+   type IAcrylicBrushStatics2_Ptr is access all IAcrylicBrushStatics2;
    type IAnimationObject_Imported_Interface;
    type IAnimationObject_Imported is access all IAnimationObject_Imported_Interface'Class;
    type IAnimationObject_Imported_Ptr is access all IAnimationObject_Imported;
@@ -730,6 +736,12 @@ package Windows.UI.Xaml.Media is
    type IScaleTransformStatics_Interface;
    type IScaleTransformStatics is access all IScaleTransformStatics_Interface'Class;
    type IScaleTransformStatics_Ptr is access all IScaleTransformStatics;
+   type IShadow_Interface;
+   type IShadow is access all IShadow_Interface'Class;
+   type IShadow_Ptr is access all IShadow;
+   type IShadowFactory_Interface;
+   type IShadowFactory is access all IShadowFactory_Interface'Class;
+   type IShadowFactory_Ptr is access all IShadowFactory;
    type ISkewTransform_Interface;
    type ISkewTransform is access all ISkewTransform_Interface'Class;
    type ISkewTransform_Ptr is access all ISkewTransform;
@@ -745,6 +757,12 @@ package Windows.UI.Xaml.Media is
    type ISolidColorBrushStatics_Interface;
    type ISolidColorBrushStatics is access all ISolidColorBrushStatics_Interface'Class;
    type ISolidColorBrushStatics_Ptr is access all ISolidColorBrushStatics;
+   type IThemeShadow_Interface;
+   type IThemeShadow is access all IThemeShadow_Interface'Class;
+   type IThemeShadow_Ptr is access all IThemeShadow;
+   type IThemeShadowFactory_Interface;
+   type IThemeShadowFactory is access all IThemeShadowFactory_Interface'Class;
+   type IThemeShadowFactory_Ptr is access all IThemeShadowFactory;
    type ITileBrush_Interface;
    type ITileBrush is access all ITileBrush_Interface'Class;
    type ITileBrush_Ptr is access all ITileBrush;
@@ -829,6 +847,9 @@ package Windows.UI.Xaml.Media is
    type IVisualTreeHelperStatics2_Interface;
    type IVisualTreeHelperStatics2 is access all IVisualTreeHelperStatics2_Interface'Class;
    type IVisualTreeHelperStatics2_Ptr is access all IVisualTreeHelperStatics2;
+   type IVisualTreeHelperStatics3_Interface;
+   type IVisualTreeHelperStatics3 is access all IVisualTreeHelperStatics3_Interface'Class;
+   type IVisualTreeHelperStatics3_Ptr is access all IVisualTreeHelperStatics3;
    type IXamlCompositionBrushBase_Interface;
    type IXamlCompositionBrushBase is access all IXamlCompositionBrushBase_Interface'Class;
    type IXamlCompositionBrushBase_Ptr is access all IXamlCompositionBrushBase;
@@ -942,6 +963,26 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
+   IID_IAcrylicBrush2 : aliased constant Windows.IID := (3378795395, 45470, 23232, (134, 255, 61, 144, 80, 109, 188, 218 ));
+   
+   type IAcrylicBrush2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TintLuminosityOpacity
+   (
+      This       : access IAcrylicBrush2_Interface
+      ; RetVal : access Windows.Foundation.IReference_Double -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TintLuminosityOpacity
+   (
+      This       : access IAcrylicBrush2_Interface
+      ; value : Windows.Foundation.IReference_Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAcrylicBrushFactory : aliased constant Windows.IID := (2174952808, 63180, 16403, (131, 99, 146, 138, 226, 59, 122, 97 ));
    
    type IAcrylicBrushFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -992,6 +1033,19 @@ package Windows.UI.Xaml.Media is
    function get_AlwaysUseFallbackProperty
    (
       This       : access IAcrylicBrushStatics_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAcrylicBrushStatics2 : aliased constant Windows.IID := (311527592, 48913, 23484, (132, 69, 140, 81, 14, 89, 38, 192 ));
+   
+   type IAcrylicBrushStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TintLuminosityOpacityProperty
+   (
+      This       : access IAcrylicBrushStatics2_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
    )
    return Windows.HRESULT is abstract;
@@ -3785,6 +3839,18 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
+   IID_IShadow : aliased constant Windows.IID := (1746118019, 62388, 24527, (134, 148, 44, 208, 174, 252, 47, 173 ));
+   
+   type IShadow_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IShadowFactory : aliased constant Windows.IID := (428449573, 53899, 20966, (148, 176, 215, 231, 9, 104, 99, 5 ));
+   
+   type IShadowFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
    IID_ISkewTransform : aliased constant Windows.IID := (1317681941, 31247, 17943, (158, 152, 30, 101, 189, 201, 33, 21 ));
    
    type ISkewTransform_Interface is interface and Windows.IInspectable_Interface;
@@ -3923,6 +3989,34 @@ package Windows.UI.Xaml.Media is
    (
       This       : access ISolidColorBrushStatics_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IThemeShadow : aliased constant Windows.IID := (1053601033, 31109, 24377, (139, 98, 108, 16, 105, 109, 202, 111 ));
+   
+   type IThemeShadow_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Receivers
+   (
+      This       : access IThemeShadow_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElementWeakCollection
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IThemeShadowFactory : aliased constant Windows.IID := (779175517, 3943, 22798, (131, 27, 126, 94, 42, 50, 183, 120 ));
+   
+   type IThemeShadowFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IThemeShadowFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.Media.IThemeShadow
    )
    return Windows.HRESULT is abstract;
    
@@ -5438,6 +5532,20 @@ package Windows.UI.Xaml.Media is
    
    ------------------------------------------------------------------------
    
+   IID_IVisualTreeHelperStatics3 : aliased constant Windows.IID := (1078070608, 51734, 22490, (138, 172, 148, 76, 138, 245, 119, 253 ));
+   
+   type IVisualTreeHelperStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetOpenPopupsForXamlRoot
+   (
+      This       : access IVisualTreeHelperStatics3_Interface
+      ; xamlRoot : Windows.UI.Xaml.IXamlRoot
+      ; RetVal : access Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IXamlCompositionBrushBase : aliased constant Windows.IID := (65286873, 45916, 19065, (129, 28, 197, 101, 32, 4, 218, 14 ));
    
    type IXamlCompositionBrushBase_Interface is interface and Windows.IInspectable_Interface;
@@ -6503,6 +6611,7 @@ package Windows.UI.Xaml.Media is
    subtype ScaleTransform is Windows.UI.Xaml.Media.IScaleTransform;
    function Create return Windows.UI.Xaml.Media.IScaleTransform;
    
+   subtype Shadow is Windows.UI.Xaml.Media.IShadow;
    subtype SkewTransform is Windows.UI.Xaml.Media.ISkewTransform;
    function Create return Windows.UI.Xaml.Media.ISkewTransform;
    
@@ -6514,6 +6623,66 @@ package Windows.UI.Xaml.Media is
       color : Windows.UI.Color
    )
    return Windows.UI.Xaml.Media.ISolidColorBrush;
+   
+   subtype ThemeShadow is Windows.UI.Xaml.Media.IThemeShadow;
+   
+   type IThemeShadow_Interface_Impl is new IThemeShadow_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IThemeShadow := null;
+      m_IThemeShadow : IThemeShadow := null;
+   end record;
+   type IThemeShadow_Impl is access all IThemeShadow_Interface_Impl'Class;
+   type IThemeShadow_Impl_Ptr is access all IThemeShadow_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IThemeShadow_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IThemeShadow_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IThemeShadow_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IThemeShadow_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IThemeShadow_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IThemeShadow_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
+   function get_Receivers
+   (
+      This       : access IThemeShadow_Interface_Impl
+      ; RetVal : access Windows.UI.Xaml.IUIElementWeakCollection
+   )
+   return Windows.HRESULT;
    
    subtype TileBrush is Windows.UI.Xaml.Media.ITileBrush;
    
@@ -6912,6 +7081,9 @@ package Windows.UI.Xaml.Media is
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_TintTransitionDurationProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
+   function get_TintLuminosityOpacityProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
    function get_IsLargeArcProperty
@@ -7337,6 +7509,13 @@ package Windows.UI.Xaml.Media is
       baseInterface : Windows.Object
       ; innerInterface : access Windows.Object
    )
+   return Windows.UI.Xaml.Media.IThemeShadow;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
    return Windows.UI.Xaml.Media.ITileBrush;
    
    function get_AlignmentXProperty
@@ -7424,6 +7603,12 @@ package Windows.UI.Xaml.Media is
    function GetOpenPopups
    (
       window : Windows.UI.Xaml.IWindow
+   )
+   return Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup;
+   
+   function GetOpenPopupsForXamlRoot
+   (
+      xamlRoot : Windows.UI.Xaml.IXamlRoot
    )
    return Windows.UI.Xaml.Controls.Primitives.IVectorView_IPopup;
    

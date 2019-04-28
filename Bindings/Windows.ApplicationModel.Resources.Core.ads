@@ -30,6 +30,7 @@ with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.Storage;
 limited with Windows.Storage.Streams;
+limited with Windows.UI;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.Resources.Core is
 
@@ -38,6 +39,20 @@ package Windows.ApplicationModel.Resources.Core is
    ------------------------------------------------------------------------
    -- Enums
    ------------------------------------------------------------------------
+   
+   type ResourceCandidateKind is (
+      String,
+      File,
+      EmbeddedData
+   );
+   for ResourceCandidateKind use (
+      String => 0,
+      File => 1,
+      EmbeddedData => 2
+   );
+   for ResourceCandidateKind'Size use 32;
+   
+   type ResourceCandidateKind_Ptr is access ResourceCandidateKind;
    
    type ResourceQualifierPersistence is (
       None,
@@ -142,6 +157,9 @@ package Windows.ApplicationModel.Resources.Core is
    type IResourceCandidate2_Interface;
    type IResourceCandidate2 is access all IResourceCandidate2_Interface'Class;
    type IResourceCandidate2_Ptr is access all IResourceCandidate2;
+   type IResourceCandidate3_Interface;
+   type IResourceCandidate3 is access all IResourceCandidate3_Interface'Class;
+   type IResourceCandidate3_Ptr is access all IResourceCandidate3;
    type IResourceContext_Interface;
    type IResourceContext is access all IResourceContext_Interface'Class;
    type IResourceContext_Ptr is access all IResourceContext;
@@ -154,6 +172,9 @@ package Windows.ApplicationModel.Resources.Core is
    type IResourceContextStatics3_Interface;
    type IResourceContextStatics3 is access all IResourceContextStatics3_Interface'Class;
    type IResourceContextStatics3_Ptr is access all IResourceContextStatics3;
+   type IResourceContextStatics4_Interface;
+   type IResourceContextStatics4 is access all IResourceContextStatics4_Interface'Class;
+   type IResourceContextStatics4_Ptr is access all IResourceContextStatics4;
    type IResourceManager_Interface;
    type IResourceManager is access all IResourceManager_Interface'Class;
    type IResourceManager_Ptr is access all IResourceManager;
@@ -846,6 +867,19 @@ package Windows.ApplicationModel.Resources.Core is
    
    ------------------------------------------------------------------------
    
+   IID_IResourceCandidate3 : aliased constant Windows.IID := (145659896, 20858, 18036, (149, 140, 74, 60, 124, 210, 204, 107 ));
+   
+   type IResourceCandidate3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Kind
+   (
+      This       : access IResourceCandidate3_Interface
+      ; RetVal : access Windows.ApplicationModel.Resources.Core.ResourceCandidateKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IResourceContext : aliased constant Windows.IID := (799158091, 28798, 19239, (173, 13, 208, 216, 205, 70, 143, 210 ));
    
    type IResourceContext_Interface is interface and Windows.IInspectable_Interface;
@@ -965,6 +999,20 @@ package Windows.ApplicationModel.Resources.Core is
       ; key : Windows.String
       ; value : Windows.String
       ; persistence : Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IResourceContextStatics4 : aliased constant Windows.IID := (585866445, 64305, 19450, (184, 107, 223, 157, 157, 123, 220, 57 ));
+   
+   type IResourceContextStatics4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetForUIContext
+   (
+      This       : access IResourceContextStatics4_Interface
+      ; context : Windows.UI.IUIContext
+      ; RetVal : access Windows.ApplicationModel.Resources.Core.IResourceContext
    )
    return Windows.HRESULT is abstract;
    
@@ -1466,6 +1514,12 @@ package Windows.ApplicationModel.Resources.Core is
       ; persistence : Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence
    )
    ;
+   
+   function GetForUIContext
+   (
+      context : Windows.UI.IUIContext
+   )
+   return Windows.ApplicationModel.Resources.Core.IResourceContext;
    
    function get_Current
    return Windows.ApplicationModel.Resources.Core.IResourceManager;

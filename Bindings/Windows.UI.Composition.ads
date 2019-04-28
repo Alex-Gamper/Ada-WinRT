@@ -159,11 +159,27 @@ package Windows.UI.Composition is
    
    type CompositionBitmapInterpolationMode is (
       NearestNeighbor,
-      Linear
+      Linear,
+      MagLinearMinLinearMipLinear,
+      MagLinearMinLinearMipNearest,
+      MagLinearMinNearestMipLinear,
+      MagLinearMinNearestMipNearest,
+      MagNearestMinLinearMipLinear,
+      MagNearestMinLinearMipNearest,
+      MagNearestMinNearestMipLinear,
+      MagNearestMinNearestMipNearest
    );
    for CompositionBitmapInterpolationMode use (
       NearestNeighbor => 0,
-      Linear => 1
+      Linear => 1,
+      MagLinearMinLinearMipLinear => 2,
+      MagLinearMinLinearMipNearest => 3,
+      MagLinearMinNearestMipLinear => 4,
+      MagLinearMinNearestMipNearest => 5,
+      MagNearestMinLinearMipLinear => 6,
+      MagNearestMinLinearMipNearest => 7,
+      MagNearestMinNearestMipLinear => 8,
+      MagNearestMinNearestMipNearest => 9
    );
    for CompositionBitmapInterpolationMode'Size use 32;
    
@@ -504,6 +520,9 @@ package Windows.UI.Composition is
    type ICompositionGraphicsDevice2_Interface;
    type ICompositionGraphicsDevice2 is access all ICompositionGraphicsDevice2_Interface'Class;
    type ICompositionGraphicsDevice2_Ptr is access all ICompositionGraphicsDevice2;
+   type ICompositionGraphicsDevice3_Interface;
+   type ICompositionGraphicsDevice3 is access all ICompositionGraphicsDevice3_Interface'Class;
+   type ICompositionGraphicsDevice3_Ptr is access all ICompositionGraphicsDevice3;
    type ICompositionLight_Interface;
    type ICompositionLight is access all ICompositionLight_Interface'Class;
    type ICompositionLight_Ptr is access all ICompositionLight;
@@ -525,6 +544,9 @@ package Windows.UI.Composition is
    type ICompositionMaskBrush_Interface;
    type ICompositionMaskBrush is access all ICompositionMaskBrush_Interface'Class;
    type ICompositionMaskBrush_Ptr is access all ICompositionMaskBrush;
+   type ICompositionMipmapSurface_Interface;
+   type ICompositionMipmapSurface is access all ICompositionMipmapSurface_Interface'Class;
+   type ICompositionMipmapSurface_Ptr is access all ICompositionMipmapSurface;
    type ICompositionNineGridBrush_Interface;
    type ICompositionNineGridBrush is access all ICompositionNineGridBrush_Interface'Class;
    type ICompositionNineGridBrush_Ptr is access all ICompositionNineGridBrush;
@@ -555,12 +577,33 @@ package Windows.UI.Composition is
    type ICompositionPathGeometry_Interface;
    type ICompositionPathGeometry is access all ICompositionPathGeometry_Interface'Class;
    type ICompositionPathGeometry_Ptr is access all ICompositionPathGeometry;
+   type ICompositionProjectedShadow_Interface;
+   type ICompositionProjectedShadow is access all ICompositionProjectedShadow_Interface'Class;
+   type ICompositionProjectedShadow_Ptr is access all ICompositionProjectedShadow;
+   type ICompositionProjectedShadowCaster_Interface;
+   type ICompositionProjectedShadowCaster is access all ICompositionProjectedShadowCaster_Interface'Class;
+   type ICompositionProjectedShadowCaster_Ptr is access all ICompositionProjectedShadowCaster;
+   type ICompositionProjectedShadowCasterCollection_Interface;
+   type ICompositionProjectedShadowCasterCollection is access all ICompositionProjectedShadowCasterCollection_Interface'Class;
+   type ICompositionProjectedShadowCasterCollection_Ptr is access all ICompositionProjectedShadowCasterCollection;
+   type ICompositionProjectedShadowCasterCollectionStatics_Interface;
+   type ICompositionProjectedShadowCasterCollectionStatics is access all ICompositionProjectedShadowCasterCollectionStatics_Interface'Class;
+   type ICompositionProjectedShadowCasterCollectionStatics_Ptr is access all ICompositionProjectedShadowCasterCollectionStatics;
+   type ICompositionProjectedShadowReceiver_Interface;
+   type ICompositionProjectedShadowReceiver is access all ICompositionProjectedShadowReceiver_Interface'Class;
+   type ICompositionProjectedShadowReceiver_Ptr is access all ICompositionProjectedShadowReceiver;
+   type ICompositionProjectedShadowReceiverUnorderedCollection_Interface;
+   type ICompositionProjectedShadowReceiverUnorderedCollection is access all ICompositionProjectedShadowReceiverUnorderedCollection_Interface'Class;
+   type ICompositionProjectedShadowReceiverUnorderedCollection_Ptr is access all ICompositionProjectedShadowReceiverUnorderedCollection;
    type ICompositionPropertySet_Interface;
    type ICompositionPropertySet is access all ICompositionPropertySet_Interface'Class;
    type ICompositionPropertySet_Ptr is access all ICompositionPropertySet;
    type ICompositionPropertySet2_Interface;
    type ICompositionPropertySet2 is access all ICompositionPropertySet2_Interface'Class;
    type ICompositionPropertySet2_Ptr is access all ICompositionPropertySet2;
+   type ICompositionRadialGradientBrush_Interface;
+   type ICompositionRadialGradientBrush is access all ICompositionRadialGradientBrush_Interface'Class;
+   type ICompositionRadialGradientBrush_Ptr is access all ICompositionRadialGradientBrush;
    type ICompositionRectangleGeometry_Interface;
    type ICompositionRectangleGeometry is access all ICompositionRectangleGeometry_Interface'Class;
    type ICompositionRectangleGeometry_Ptr is access all ICompositionRectangleGeometry;
@@ -594,12 +637,21 @@ package Windows.UI.Composition is
    type ICompositionSurfaceBrush2_Interface;
    type ICompositionSurfaceBrush2 is access all ICompositionSurfaceBrush2_Interface'Class;
    type ICompositionSurfaceBrush2_Ptr is access all ICompositionSurfaceBrush2;
+   type ICompositionSurfaceBrush3_Interface;
+   type ICompositionSurfaceBrush3 is access all ICompositionSurfaceBrush3_Interface'Class;
+   type ICompositionSurfaceBrush3_Ptr is access all ICompositionSurfaceBrush3;
    type ICompositionTarget_Interface;
    type ICompositionTarget is access all ICompositionTarget_Interface'Class;
    type ICompositionTarget_Ptr is access all ICompositionTarget;
    type ICompositionTargetFactory_Interface;
    type ICompositionTargetFactory is access all ICompositionTargetFactory_Interface'Class;
    type ICompositionTargetFactory_Ptr is access all ICompositionTargetFactory;
+   type ICompositionTransform_Interface;
+   type ICompositionTransform is access all ICompositionTransform_Interface'Class;
+   type ICompositionTransform_Ptr is access all ICompositionTransform;
+   type ICompositionTransformFactory_Interface;
+   type ICompositionTransformFactory is access all ICompositionTransformFactory_Interface'Class;
+   type ICompositionTransformFactory_Ptr is access all ICompositionTransformFactory;
    type ICompositionViewBox_Interface;
    type ICompositionViewBox is access all ICompositionViewBox_Interface'Class;
    type ICompositionViewBox_Ptr is access all ICompositionViewBox;
@@ -609,6 +661,9 @@ package Windows.UI.Composition is
    type ICompositionVirtualDrawingSurfaceFactory_Interface;
    type ICompositionVirtualDrawingSurfaceFactory is access all ICompositionVirtualDrawingSurfaceFactory_Interface'Class;
    type ICompositionVirtualDrawingSurfaceFactory_Ptr is access all ICompositionVirtualDrawingSurfaceFactory;
+   type ICompositionVisualSurface_Interface;
+   type ICompositionVisualSurface is access all ICompositionVisualSurface_Interface'Class;
+   type ICompositionVisualSurface_Ptr is access all ICompositionVisualSurface;
    type ICompositor_Interface;
    type ICompositor is access all ICompositor_Interface'Class;
    type ICompositor_Ptr is access all ICompositor;
@@ -630,6 +685,15 @@ package Windows.UI.Composition is
    type ICompositorStatics_Interface;
    type ICompositorStatics is access all ICompositorStatics_Interface'Class;
    type ICompositorStatics_Ptr is access all ICompositorStatics;
+   type ICompositorWithProjectedShadow_Interface;
+   type ICompositorWithProjectedShadow is access all ICompositorWithProjectedShadow_Interface'Class;
+   type ICompositorWithProjectedShadow_Ptr is access all ICompositorWithProjectedShadow;
+   type ICompositorWithRadialGradient_Interface;
+   type ICompositorWithRadialGradient is access all ICompositorWithRadialGradient_Interface'Class;
+   type ICompositorWithRadialGradient_Ptr is access all ICompositorWithRadialGradient;
+   type ICompositorWithVisualSurface_Interface;
+   type ICompositorWithVisualSurface is access all ICompositorWithVisualSurface_Interface'Class;
+   type ICompositorWithVisualSurface_Ptr is access all ICompositorWithVisualSurface;
    type IContainerVisual_Interface;
    type IContainerVisual is access all IContainerVisual_Interface'Class;
    type IContainerVisual_Ptr is access all IContainerVisual;
@@ -672,6 +736,12 @@ package Windows.UI.Composition is
    type IIterable_CompositionColorGradientStop_Interface;
    type IIterable_CompositionColorGradientStop is access all IIterable_CompositionColorGradientStop_Interface'Class;
    type IIterable_CompositionColorGradientStop_Ptr is access all IIterable_CompositionColorGradientStop;
+   type IIterable_CompositionProjectedShadowCaster_Interface;
+   type IIterable_CompositionProjectedShadowCaster is access all IIterable_CompositionProjectedShadowCaster_Interface'Class;
+   type IIterable_CompositionProjectedShadowCaster_Ptr is access all IIterable_CompositionProjectedShadowCaster;
+   type IIterable_CompositionProjectedShadowReceiver_Interface;
+   type IIterable_CompositionProjectedShadowReceiver is access all IIterable_CompositionProjectedShadowReceiver_Interface'Class;
+   type IIterable_CompositionProjectedShadowReceiver_Ptr is access all IIterable_CompositionProjectedShadowReceiver;
    type IIterable_CompositionShape_Interface;
    type IIterable_CompositionShape is access all IIterable_CompositionShape_Interface'Class;
    type IIterable_CompositionShape_Ptr is access all IIterable_CompositionShape;
@@ -681,12 +751,18 @@ package Windows.UI.Composition is
    type IIterable_IKeyValuePair_Interface;
    type IIterable_IKeyValuePair is access all IIterable_IKeyValuePair_Interface'Class;
    type IIterable_IKeyValuePair_Ptr is access all IIterable_IKeyValuePair;
+   type IIterable_IVisualElement_Interface;
+   type IIterable_IVisualElement is access all IIterable_IVisualElement_Interface'Class;
+   type IIterable_IVisualElement_Ptr is access all IIterable_IVisualElement;
    type IIterable_Single_Interface;
    type IIterable_Single is access all IIterable_Single_Interface'Class;
    type IIterable_Single_Ptr is access all IIterable_Single;
    type IIterable_Visual_Interface;
    type IIterable_Visual is access all IIterable_Visual_Interface'Class;
    type IIterable_Visual_Ptr is access all IIterable_Visual;
+   type IIterator_IVisualElement_Interface;
+   type IIterator_IVisualElement is access all IIterator_IVisualElement_Interface'Class;
+   type IIterator_IVisualElement_Ptr is access all IIterator_IVisualElement;
    type IKeyFrameAnimation_Interface;
    type IKeyFrameAnimation is access all IKeyFrameAnimation_Interface'Class;
    type IKeyFrameAnimation_Ptr is access all IKeyFrameAnimation;
@@ -786,6 +862,9 @@ package Windows.UI.Composition is
    type IVector_CompositionShape_Interface;
    type IVector_CompositionShape is access all IVector_CompositionShape_Interface'Class;
    type IVector_CompositionShape_Ptr is access all IVector_CompositionShape;
+   type IVector_IVisualElement_Interface;
+   type IVector_IVisualElement is access all IVector_IVisualElement_Interface'Class;
+   type IVector_IVisualElement_Ptr is access all IVector_IVisualElement;
    type IVector_Single_Interface;
    type IVector_Single is access all IVector_Single_Interface'Class;
    type IVector_Single_Ptr is access all IVector_Single;
@@ -810,6 +889,9 @@ package Windows.UI.Composition is
    type IVector4KeyFrameAnimation_Interface;
    type IVector4KeyFrameAnimation is access all IVector4KeyFrameAnimation_Interface'Class;
    type IVector4KeyFrameAnimation_Ptr is access all IVector4KeyFrameAnimation;
+   type IVectorView_IVisualElement_Interface;
+   type IVectorView_IVisualElement is access all IVectorView_IVisualElement_Interface'Class;
+   type IVectorView_IVisualElement_Ptr is access all IVectorView_IVisualElement;
    type IVisual_Interface;
    type IVisual is access all IVisual_Interface'Class;
    type IVisual_Ptr is access all IVisual;
@@ -819,6 +901,9 @@ package Windows.UI.Composition is
    type IVisualCollection_Interface;
    type IVisualCollection is access all IVisualCollection_Interface'Class;
    type IVisualCollection_Ptr is access all IVisualCollection;
+   type IVisualElement_Interface;
+   type IVisualElement is access all IVisualElement_Interface'Class;
+   type IVisualElement_Ptr is access all IVisualElement;
    type IVisualFactory_Interface;
    type IVisualFactory is access all IVisualFactory_Interface'Class;
    type IVisualFactory_Ptr is access all IVisualFactory;
@@ -2143,6 +2228,28 @@ package Windows.UI.Composition is
    
    ------------------------------------------------------------------------
    
+   IID_ICompositionGraphicsDevice3 : aliased constant Windows.IID := (938898708, 54255, 18897, (182, 157, 13, 142, 171, 235, 54, 38 ));
+   
+   type ICompositionGraphicsDevice3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateMipmapSurface
+   (
+      This       : access ICompositionGraphicsDevice3_Interface
+      ; sizePixels : Windows.Graphics.SizeInt32
+      ; pixelFormat : Windows.Graphics.DirectX.DirectXPixelFormat
+      ; alphaMode : Windows.Graphics.DirectX.DirectXAlphaMode
+      ; RetVal : access Windows.UI.Composition.ICompositionMipmapSurface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Trim
+   (
+      This       : access ICompositionGraphicsDevice3_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICompositionLight : aliased constant Windows.IID := (1101453250, 11869, 19393, (176, 158, 143, 10, 3, 227, 216, 211 ));
    
    type ICompositionLight_Interface is interface and Windows.IInspectable_Interface;
@@ -2292,6 +2399,48 @@ package Windows.UI.Composition is
    (
       This       : access ICompositionMaskBrush_Interface
       ; value : Windows.UI.Composition.ICompositionBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositionMipmapSurface : aliased constant Windows.IID := (1214474076, 53066, 19228, (158, 206, 197, 236, 12, 43, 47, 230 ));
+   
+   type ICompositionMipmapSurface_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_LevelCount
+   (
+      This       : access ICompositionMipmapSurface_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AlphaMode
+   (
+      This       : access ICompositionMipmapSurface_Interface
+      ; RetVal : access Windows.Graphics.DirectX.DirectXAlphaMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PixelFormat
+   (
+      This       : access ICompositionMipmapSurface_Interface
+      ; RetVal : access Windows.Graphics.DirectX.DirectXPixelFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SizeInt32
+   (
+      This       : access ICompositionMipmapSurface_Interface
+      ; RetVal : access Windows.Graphics.SizeInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetDrawingSurfaceForLevel
+   (
+      This       : access ICompositionMipmapSurface_Interface
+      ; level : Windows.UInt32
+      ; RetVal : access Windows.UI.Composition.ICompositionDrawingSurface
    )
    return Windows.HRESULT is abstract;
    
@@ -2663,6 +2812,238 @@ package Windows.UI.Composition is
    
    ------------------------------------------------------------------------
    
+   IID_ICompositionProjectedShadow : aliased constant Windows.IID := (677088882, 17192, 21055, (188, 242, 85, 87, 197, 44, 59, 37 ));
+   
+   type ICompositionProjectedShadow_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BlurRadiusMultiplier
+   (
+      This       : access ICompositionProjectedShadow_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BlurRadiusMultiplier
+   (
+      This       : access ICompositionProjectedShadow_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Casters
+   (
+      This       : access ICompositionProjectedShadow_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionProjectedShadowCasterCollection
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_LightSource
+   (
+      This       : access ICompositionProjectedShadow_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionLight
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_LightSource
+   (
+      This       : access ICompositionProjectedShadow_Interface
+      ; value : Windows.UI.Composition.ICompositionLight
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MaxBlurRadius
+   (
+      This       : access ICompositionProjectedShadow_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_MaxBlurRadius
+   (
+      This       : access ICompositionProjectedShadow_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MinBlurRadius
+   (
+      This       : access ICompositionProjectedShadow_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_MinBlurRadius
+   (
+      This       : access ICompositionProjectedShadow_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Receivers
+   (
+      This       : access ICompositionProjectedShadow_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionProjectedShadowReceiverUnorderedCollection
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositionProjectedShadowCaster : aliased constant Windows.IID := (2983711782, 7734, 23138, (190, 86, 161, 97, 18, 253, 209, 72 ));
+   
+   type ICompositionProjectedShadowCaster_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Brush
+   (
+      This       : access ICompositionProjectedShadowCaster_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Brush
+   (
+      This       : access ICompositionProjectedShadowCaster_Interface
+      ; value : Windows.UI.Composition.ICompositionBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CastingVisual
+   (
+      This       : access ICompositionProjectedShadowCaster_Interface
+      ; RetVal : access Windows.UI.Composition.IVisual
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CastingVisual
+   (
+      This       : access ICompositionProjectedShadowCaster_Interface
+      ; value : Windows.UI.Composition.IVisual
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositionProjectedShadowCasterCollection : aliased constant Windows.IID := (3528612876, 57471, 22691, (172, 145, 55, 247, 62, 233, 23, 64 ));
+   
+   type ICompositionProjectedShadowCasterCollection_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Count
+   (
+      This       : access ICompositionProjectedShadowCasterCollection_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAbove
+   (
+      This       : access ICompositionProjectedShadowCasterCollection_Interface
+      ; newCaster : Windows.UI.Composition.ICompositionProjectedShadowCaster
+      ; reference : Windows.UI.Composition.ICompositionProjectedShadowCaster
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAtBottom
+   (
+      This       : access ICompositionProjectedShadowCasterCollection_Interface
+      ; newCaster : Windows.UI.Composition.ICompositionProjectedShadowCaster
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAtTop
+   (
+      This       : access ICompositionProjectedShadowCasterCollection_Interface
+      ; newCaster : Windows.UI.Composition.ICompositionProjectedShadowCaster
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertBelow
+   (
+      This       : access ICompositionProjectedShadowCasterCollection_Interface
+      ; newCaster : Windows.UI.Composition.ICompositionProjectedShadowCaster
+      ; reference : Windows.UI.Composition.ICompositionProjectedShadowCaster
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Remove
+   (
+      This       : access ICompositionProjectedShadowCasterCollection_Interface
+      ; caster : Windows.UI.Composition.ICompositionProjectedShadowCaster
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAll
+   (
+      This       : access ICompositionProjectedShadowCasterCollection_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositionProjectedShadowCasterCollectionStatics : aliased constant Windows.IID := (1459335478, 59727, 21145, (171, 91, 110, 21, 227, 139, 216, 153 ));
+   
+   type ICompositionProjectedShadowCasterCollectionStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MaxRespectedCasters
+   (
+      This       : access ICompositionProjectedShadowCasterCollectionStatics_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositionProjectedShadowReceiver : aliased constant Windows.IID := (326604890, 27209, 21354, (155, 228, 169, 106, 142, 82, 152, 169 ));
+   
+   type ICompositionProjectedShadowReceiver_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ReceivingVisual
+   (
+      This       : access ICompositionProjectedShadowReceiver_Interface
+      ; RetVal : access Windows.UI.Composition.IVisual
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ReceivingVisual
+   (
+      This       : access ICompositionProjectedShadowReceiver_Interface
+      ; value : Windows.UI.Composition.IVisual
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositionProjectedShadowReceiverUnorderedCollection : aliased constant Windows.IID := (45343671, 10194, 22943, (172, 75, 171, 120, 124, 221, 230, 253 ));
+   
+   type ICompositionProjectedShadowReceiverUnorderedCollection_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Add
+   (
+      This       : access ICompositionProjectedShadowReceiverUnorderedCollection_Interface
+      ; value : Windows.UI.Composition.ICompositionProjectedShadowReceiver
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Count
+   (
+      This       : access ICompositionProjectedShadowReceiverUnorderedCollection_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Remove
+   (
+      This       : access ICompositionProjectedShadowReceiverUnorderedCollection_Interface
+      ; value : Windows.UI.Composition.ICompositionProjectedShadowReceiver
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAll
+   (
+      This       : access ICompositionProjectedShadowReceiverUnorderedCollection_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICompositionPropertySet : aliased constant Windows.IID := (3386298882, 24423, 17491, (145, 23, 158, 173, 212, 48, 211, 194 ));
    
    type ICompositionPropertySet_Interface is interface and Windows.IInspectable_Interface;
@@ -2823,6 +3204,54 @@ package Windows.UI.Composition is
       ; propertyName : Windows.String
       ; value : access Windows.Boolean
       ; RetVal : access Windows.UI.Composition.CompositionGetValueStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositionRadialGradientBrush : aliased constant Windows.IID := (1027297477, 58362, 19682, (185, 252, 62, 225, 37, 97, 120, 143 ));
+   
+   type ICompositionRadialGradientBrush_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EllipseCenter
+   (
+      This       : access ICompositionRadialGradientBrush_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector2
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_EllipseCenter
+   (
+      This       : access ICompositionRadialGradientBrush_Interface
+      ; value : Windows.Foundation.Numerics.Vector2
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EllipseRadius
+   (
+      This       : access ICompositionRadialGradientBrush_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector2
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_EllipseRadius
+   (
+      This       : access ICompositionRadialGradientBrush_Interface
+      ; value : Windows.Foundation.Numerics.Vector2
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_GradientOriginOffset
+   (
+      This       : access ICompositionRadialGradientBrush_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector2
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_GradientOriginOffset
+   (
+      This       : access ICompositionRadialGradientBrush_Interface
+      ; value : Windows.Foundation.Numerics.Vector2
    )
    return Windows.HRESULT is abstract;
    
@@ -3424,6 +3853,26 @@ package Windows.UI.Composition is
    
    ------------------------------------------------------------------------
    
+   IID_ICompositionSurfaceBrush3 : aliased constant Windows.IID := (1426829961, 8160, 17125, (129, 149, 30, 239, 168, 127, 240, 142 ));
+   
+   type ICompositionSurfaceBrush3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SnapToPixels
+   (
+      This       : access ICompositionSurfaceBrush3_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SnapToPixels
+   (
+      This       : access ICompositionSurfaceBrush3_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICompositionTarget : aliased constant Windows.IID := (2713626810, 55078, 18019, (129, 41, 107, 94, 121, 39, 255, 166 ));
    
    type ICompositionTarget_Interface is interface and Windows.IInspectable_Interface;
@@ -3447,6 +3896,18 @@ package Windows.UI.Composition is
    IID_ICompositionTargetFactory : aliased constant Windows.IID := (2479725867, 34070, 19220, (168, 206, 244, 158, 33, 25, 236, 66 ));
    
    type ICompositionTargetFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositionTransform : aliased constant Windows.IID := (2094351657, 64493, 16658, (171, 197, 24, 89, 6, 221, 146, 124 ));
+   
+   type ICompositionTransform_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositionTransformFactory : aliased constant Windows.IID := (2863581734, 49481, 20858, (143, 114, 107, 255, 122, 101, 206, 8 ));
+   
+   type ICompositionTransformFactory_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -3542,6 +4003,54 @@ package Windows.UI.Composition is
    IID_ICompositionVirtualDrawingSurfaceFactory : aliased constant Windows.IID := (1734742124, 54635, 19017, (177, 223, 80, 118, 160, 98, 7, 104 ));
    
    type ICompositionVirtualDrawingSurfaceFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositionVisualSurface : aliased constant Windows.IID := (2988759043, 20334, 19007, (140, 174, 61, 193, 205, 167, 79, 198 ));
+   
+   type ICompositionVisualSurface_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SourceVisual
+   (
+      This       : access ICompositionVisualSurface_Interface
+      ; RetVal : access Windows.UI.Composition.IVisual
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SourceVisual
+   (
+      This       : access ICompositionVisualSurface_Interface
+      ; value : Windows.UI.Composition.IVisual
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SourceOffset
+   (
+      This       : access ICompositionVisualSurface_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector2
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SourceOffset
+   (
+      This       : access ICompositionVisualSurface_Interface
+      ; value : Windows.Foundation.Numerics.Vector2
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SourceSize
+   (
+      This       : access ICompositionVisualSurface_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector2
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_SourceSize
+   (
+      This       : access ICompositionVisualSurface_Interface
+      ; value : Windows.Foundation.Numerics.Vector2
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -4105,6 +4614,59 @@ package Windows.UI.Composition is
    
    ------------------------------------------------------------------------
    
+   IID_ICompositorWithProjectedShadow : aliased constant Windows.IID := (2732995342, 35424, 23096, (187, 133, 180, 78, 169, 1, 103, 124 ));
+   
+   type ICompositorWithProjectedShadow_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateProjectedShadowCaster
+   (
+      This       : access ICompositorWithProjectedShadow_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionProjectedShadowCaster
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateProjectedShadow
+   (
+      This       : access ICompositorWithProjectedShadow_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionProjectedShadow
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateProjectedShadowReceiver
+   (
+      This       : access ICompositorWithProjectedShadow_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionProjectedShadowReceiver
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositorWithRadialGradient : aliased constant Windows.IID := (2562310567, 36465, 19283, (180, 168, 105, 186, 93, 25, 220, 91 ));
+   
+   type ICompositorWithRadialGradient_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateRadialGradientBrush
+   (
+      This       : access ICompositorWithRadialGradient_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionRadialGradientBrush
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompositorWithVisualSurface : aliased constant Windows.IID := (3483461003, 291, 17745, (136, 145, 137, 189, 204, 64, 50, 43 ));
+   
+   type ICompositorWithVisualSurface_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateVisualSurface
+   (
+      This       : access ICompositorWithVisualSurface_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionVisualSurface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IContainerVisual : aliased constant Windows.IID := (49724532, 60704, 18291, (175, 230, 212, 155, 74, 147, 219, 50 ));
    
    type IContainerVisual_Interface is interface and Windows.IInspectable_Interface;
@@ -4430,6 +4992,32 @@ package Windows.UI.Composition is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_CompositionProjectedShadowCaster : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IIterable_CompositionProjectedShadowCaster_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_CompositionProjectedShadowCaster_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionProjectedShadowCaster
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_CompositionProjectedShadowReceiver : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
+   
+   type IIterable_CompositionProjectedShadowReceiver_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_CompositionProjectedShadowReceiver_Interface
+      ; RetVal : access Windows.UI.Composition.ICompositionProjectedShadowReceiver
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterable_CompositionShape : aliased constant Windows.IID := (288730613, 56082, 21992, (174, 15, 189, 141, 145, 75, 211, 153 ));
    
    type IIterable_CompositionShape_Interface is interface and Windows.IInspectable_Interface;
@@ -4469,6 +5057,19 @@ package Windows.UI.Composition is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_IVisualElement : aliased constant Windows.IID := (2688106615, 6758, 22684, (153, 125, 42, 203, 169, 5, 31, 119 ));
+   
+   type IIterable_IVisualElement_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IVisualElement_Interface
+      ; RetVal : access Windows.UI.Composition.IIterator_IVisualElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterable_Single : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type IIterable_Single_Interface is interface and Windows.IInspectable_Interface;
@@ -4490,6 +5091,41 @@ package Windows.UI.Composition is
    (
       This       : access IIterable_Visual_Interface
       ; RetVal : access Windows.UI.Composition.IVisual
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IVisualElement : aliased constant Windows.IID := (826473907, 16656, 22553, (185, 102, 156, 42, 23, 46, 32, 159 ));
+   
+   type IIterator_IVisualElement_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IVisualElement_Interface
+      ; RetVal : access Windows.UI.Composition.IVisualElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IVisualElement_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IVisualElement_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IVisualElement_Interface
+      ; items : Windows.UI.Composition.IVisualElement_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -5834,6 +6470,101 @@ package Windows.UI.Composition is
    
    ------------------------------------------------------------------------
    
+   IID_IVector_IVisualElement : aliased constant Windows.IID := (3478767371, 27956, 22011, (147, 19, 151, 129, 67, 62, 119, 138 ));
+   
+   type IVector_IVisualElement_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_IVisualElement_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Composition.IVisualElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_IVisualElement_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_IVisualElement_Interface
+      ; RetVal : access Windows.UI.Composition.IVectorView_IVisualElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_IVisualElement_Interface
+      ; value : Windows.UI.Composition.IVisualElement
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_IVisualElement_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Composition.IVisualElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_IVisualElement_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Composition.IVisualElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_IVisualElement_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_IVisualElement_Interface
+      ; value : Windows.UI.Composition.IVisualElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_IVisualElement_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_IVisualElement_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_IVisualElement_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Composition.IVisualElement_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_IVisualElement_Interface
+      ; items : Windows.UI.Composition.IVisualElement_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVector_Single : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type IVector_Single_Interface is interface and Windows.IInspectable_Interface;
@@ -6101,6 +6832,45 @@ package Windows.UI.Composition is
       ; normalizedProgressKey : Windows.Single
       ; value : Windows.Foundation.Numerics.Vector4
       ; easingFunction : Windows.UI.Composition.ICompositionEasingFunction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IVisualElement : aliased constant Windows.IID := (1223034278, 8102, 23371, (168, 2, 23, 245, 76, 75, 204, 204 ));
+   
+   type IVectorView_IVisualElement_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IVisualElement_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Composition.IVisualElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IVisualElement_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IVisualElement_Interface
+      ; value : Windows.UI.Composition.IVisualElement
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IVisualElement_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Composition.IVisualElement_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -6447,6 +7217,12 @@ package Windows.UI.Composition is
    
    ------------------------------------------------------------------------
    
+   IID_IVisualElement : aliased constant Windows.IID := (31868434, 7554, 17140, (142, 63, 167, 34, 222, 211, 63, 199 ));
+   
+   type IVisualElement_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVisualFactory : aliased constant Windows.IID := (2903505214, 46338, 20149, (135, 180, 154, 56, 167, 29, 1, 55 ));
    
    type IVisualFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -6584,6 +7360,7 @@ package Windows.UI.Composition is
    subtype CompositionLinearGradientBrush is Windows.UI.Composition.ICompositionLinearGradientBrush;
    subtype CompositionLineGeometry is Windows.UI.Composition.ICompositionLineGeometry;
    subtype CompositionMaskBrush is Windows.UI.Composition.ICompositionMaskBrush;
+   subtype CompositionMipmapSurface is Windows.UI.Composition.ICompositionMipmapSurface;
    subtype CompositionNineGridBrush is Windows.UI.Composition.ICompositionNineGridBrush;
    subtype CompositionObject is Windows.UI.Composition.ICompositionObject;
    subtype CompositionPath is Windows.UI.Composition.ICompositionPath;
@@ -6594,7 +7371,13 @@ package Windows.UI.Composition is
    return Windows.UI.Composition.ICompositionPath;
    
    subtype CompositionPathGeometry is Windows.UI.Composition.ICompositionPathGeometry;
+   subtype CompositionProjectedShadow is Windows.UI.Composition.ICompositionProjectedShadow;
+   subtype CompositionProjectedShadowCaster is Windows.UI.Composition.ICompositionProjectedShadowCaster;
+   subtype CompositionProjectedShadowCasterCollection is Windows.UI.Composition.ICompositionProjectedShadowCasterCollection;
+   subtype CompositionProjectedShadowReceiver is Windows.UI.Composition.ICompositionProjectedShadowReceiver;
+   subtype CompositionProjectedShadowReceiverUnorderedCollection is Windows.UI.Composition.ICompositionProjectedShadowReceiverUnorderedCollection;
    subtype CompositionPropertySet is Windows.UI.Composition.ICompositionPropertySet;
+   subtype CompositionRadialGradientBrush is Windows.UI.Composition.ICompositionRadialGradientBrush;
    subtype CompositionRectangleGeometry is Windows.UI.Composition.ICompositionRectangleGeometry;
    subtype CompositionRoundedRectangleGeometry is Windows.UI.Composition.ICompositionRoundedRectangleGeometry;
    subtype CompositionScopedBatch is Windows.UI.Composition.ICompositionScopedBatch;
@@ -6605,8 +7388,10 @@ package Windows.UI.Composition is
    subtype CompositionStrokeDashArray is Windows.UI.Composition.IVector_Single;
    subtype CompositionSurfaceBrush is Windows.UI.Composition.ICompositionSurfaceBrush;
    subtype CompositionTarget is Windows.UI.Composition.ICompositionTarget;
+   subtype CompositionTransform is Windows.UI.Composition.ICompositionTransform;
    subtype CompositionViewBox is Windows.UI.Composition.ICompositionViewBox;
    subtype CompositionVirtualDrawingSurface is Windows.UI.Composition.ICompositionVirtualDrawingSurface;
+   subtype CompositionVisualSurface is Windows.UI.Composition.ICompositionVisualSurface;
    subtype Compositor is Windows.UI.Composition.ICompositor;
    function Create return Windows.UI.Composition.ICompositor;
    
@@ -6672,6 +7457,9 @@ package Windows.UI.Composition is
       ; animation : Windows.UI.Composition.ICompositionAnimation
    )
    ;
+   
+   function get_MaxRespectedCasters
+   return Windows.Int32;
    
    function get_MaxGlobalPlaybackRate
    return Windows.Single;

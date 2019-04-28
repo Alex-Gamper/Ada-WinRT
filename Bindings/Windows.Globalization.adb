@@ -117,6 +117,27 @@ package body Windows.Globalization is
       return RetVal;
    end;
    
+   function Create
+   (
+      amount : Windows.String
+      ; currency : Windows.String
+   )
+   return Windows.Globalization.ICurrencyAmount is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.CurrencyAmount");
+      m_Factory     : Windows.Globalization.ICurrencyAmountFactory := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Globalization.ICurrencyAmount := null;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ICurrencyAmountFactory'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.Create(amount, currency, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function Create return Windows.Globalization.IGeographicRegion is
       Hr            : Windows.HResult := S_OK;
       m_hString     : Windows.String := To_String("Windows.Globalization.GeographicRegion");

@@ -27,6 +27,8 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Foundation;
+limited with Windows.System;
+--------------------------------------------------------------------------------
 package Windows.Storage.AccessCache is
 
    pragma preelaborate;
@@ -98,6 +100,9 @@ package Windows.Storage.AccessCache is
    type IStorageApplicationPermissionsStatics_Interface;
    type IStorageApplicationPermissionsStatics is access all IStorageApplicationPermissionsStatics_Interface'Class;
    type IStorageApplicationPermissionsStatics_Ptr is access all IStorageApplicationPermissionsStatics;
+   type IStorageApplicationPermissionsStatics2_Interface;
+   type IStorageApplicationPermissionsStatics2 is access all IStorageApplicationPermissionsStatics2_Interface'Class;
+   type IStorageApplicationPermissionsStatics2_Ptr is access all IStorageApplicationPermissionsStatics2;
    type IStorageItemAccessList_Interface;
    type IStorageItemAccessList is access all IStorageItemAccessList_Interface'Class;
    type IStorageItemAccessList_Ptr is access all IStorageItemAccessList;
@@ -157,6 +162,28 @@ package Windows.Storage.AccessCache is
    function get_MostRecentlyUsedList
    (
       This       : access IStorageApplicationPermissionsStatics_Interface
+      ; RetVal : access Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorageApplicationPermissionsStatics2 : aliased constant Windows.IID := (120002284, 43525, 17044, (154, 17, 26, 61, 4, 81, 154, 208 ));
+   
+   type IStorageApplicationPermissionsStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetFutureAccessListForUser
+   (
+      This       : access IStorageApplicationPermissionsStatics2_Interface
+      ; user : Windows.System.IUser
+      ; RetVal : access Windows.Storage.AccessCache.IStorageItemAccessList
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMostRecentlyUsedListForUser
+   (
+      This       : access IStorageApplicationPermissionsStatics2_Interface
+      ; user : Windows.System.IUser
       ; RetVal : access Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList
    )
    return Windows.HRESULT is abstract;
@@ -415,6 +442,18 @@ package Windows.Storage.AccessCache is
    return Windows.Storage.AccessCache.IStorageItemAccessList;
    
    function get_MostRecentlyUsedList
+   return Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList;
+   
+   function GetFutureAccessListForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Storage.AccessCache.IStorageItemAccessList;
+   
+   function GetMostRecentlyUsedListForUser
+   (
+      user : Windows.System.IUser
+   )
    return Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList;
    
 end;

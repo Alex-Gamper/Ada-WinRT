@@ -221,6 +221,20 @@ package Windows.Media.Devices is
    
    type HdrVideoMode_Ptr is access HdrVideoMode;
    
+   type InfraredTorchMode is (
+      Off,
+      On,
+      AlternatingFrameIllumination
+   );
+   for InfraredTorchMode use (
+      Off => 0,
+      On => 1,
+      AlternatingFrameIllumination => 2
+   );
+   for InfraredTorchMode'Size use 32;
+   
+   type InfraredTorchMode_Ptr is access InfraredTorchMode;
+   
    type IsoSpeedPreset is (
       Auto,
       Iso50,
@@ -533,6 +547,9 @@ package Windows.Media.Devices is
    type IAdvancedVideoCaptureDeviceController6_Interface;
    type IAdvancedVideoCaptureDeviceController6 is access all IAdvancedVideoCaptureDeviceController6_Interface'Class;
    type IAdvancedVideoCaptureDeviceController6_Ptr is access all IAdvancedVideoCaptureDeviceController6;
+   type IAdvancedVideoCaptureDeviceController7_Interface;
+   type IAdvancedVideoCaptureDeviceController7 is access all IAdvancedVideoCaptureDeviceController7_Interface'Class;
+   type IAdvancedVideoCaptureDeviceController7_Ptr is access all IAdvancedVideoCaptureDeviceController7;
    type IAsyncOperation_IModuleCommandResult_Interface;
    type IAsyncOperation_IModuleCommandResult is access all IAsyncOperation_IModuleCommandResult_Interface'Class;
    type IAsyncOperation_IModuleCommandResult_Ptr is access all IAsyncOperation_IModuleCommandResult;
@@ -590,6 +607,9 @@ package Windows.Media.Devices is
    type IHdrVideoControl_Interface;
    type IHdrVideoControl is access all IHdrVideoControl_Interface'Class;
    type IHdrVideoControl_Ptr is access all IHdrVideoControl;
+   type IInfraredTorchControl_Interface;
+   type IInfraredTorchControl is access all IInfraredTorchControl_Interface'Class;
+   type IInfraredTorchControl_Ptr is access all IInfraredTorchControl;
    type IIsoSpeedControl_Interface;
    type IIsoSpeedControl is access all IIsoSpeedControl_Interface'Class;
    type IIsoSpeedControl_Ptr is access all IIsoSpeedControl;
@@ -617,6 +637,9 @@ package Windows.Media.Devices is
    type IIterable_IAudioDeviceModule_Interface;
    type IIterable_IAudioDeviceModule is access all IIterable_IAudioDeviceModule_Interface'Class;
    type IIterable_IAudioDeviceModule_Ptr is access all IIterable_IAudioDeviceModule;
+   type IIterable_InfraredTorchMode_Interface;
+   type IIterable_InfraredTorchMode is access all IIterable_InfraredTorchMode_Interface'Class;
+   type IIterable_InfraredTorchMode_Ptr is access all IIterable_InfraredTorchMode;
    type IIterable_IRegionOfInterest_Interface;
    type IIterable_IRegionOfInterest is access all IIterable_IRegionOfInterest_Interface'Class;
    type IIterable_IRegionOfInterest_Ptr is access all IIterable_IRegionOfInterest;
@@ -656,6 +679,9 @@ package Windows.Media.Devices is
    type IIterator_IAudioDeviceModule_Interface;
    type IIterator_IAudioDeviceModule is access all IIterator_IAudioDeviceModule_Interface'Class;
    type IIterator_IAudioDeviceModule_Ptr is access all IIterator_IAudioDeviceModule;
+   type IIterator_InfraredTorchMode_Interface;
+   type IIterator_InfraredTorchMode is access all IIterator_InfraredTorchMode_Interface'Class;
+   type IIterator_InfraredTorchMode_Ptr is access all IIterator_InfraredTorchMode;
    type IIterator_IRegionOfInterest_Interface;
    type IIterator_IRegionOfInterest is access all IIterator_IRegionOfInterest_Interface'Class;
    type IIterator_IRegionOfInterest_Ptr is access all IIterator_IRegionOfInterest;
@@ -752,6 +778,9 @@ package Windows.Media.Devices is
    type IVectorView_IAudioDeviceModule_Interface;
    type IVectorView_IAudioDeviceModule is access all IVectorView_IAudioDeviceModule_Interface'Class;
    type IVectorView_IAudioDeviceModule_Ptr is access all IVectorView_IAudioDeviceModule;
+   type IVectorView_InfraredTorchMode_Interface;
+   type IVectorView_InfraredTorchMode is access all IVectorView_InfraredTorchMode_Interface'Class;
+   type IVectorView_InfraredTorchMode_Ptr is access all IVectorView_InfraredTorchMode;
    type IVectorView_IsoSpeedPreset_Interface;
    type IVectorView_IsoSpeedPreset is access all IVectorView_IsoSpeedPreset_Interface'Class;
    type IVectorView_IsoSpeedPreset_Ptr is access all IVectorView_IsoSpeedPreset;
@@ -1100,6 +1129,19 @@ package Windows.Media.Devices is
    (
       This       : access IAdvancedVideoCaptureDeviceController6_Interface
       ; RetVal : access Windows.Media.Devices.IVideoTemporalDenoisingControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAdvancedVideoCaptureDeviceController7 : aliased constant Windows.IID := (2368284656, 41044, 20711, (183, 223, 124, 4, 35, 77, 16, 240 ));
+   
+   type IAdvancedVideoCaptureDeviceController7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_InfraredTorchControl
+   (
+      This       : access IAdvancedVideoCaptureDeviceController7_Interface
+      ; RetVal : access Windows.Media.Devices.IInfraredTorchControl
    )
    return Windows.HRESULT is abstract;
    
@@ -2015,6 +2057,75 @@ package Windows.Media.Devices is
    
    ------------------------------------------------------------------------
    
+   IID_IInfraredTorchControl : aliased constant Windows.IID := (481963139, 27830, 23044, (166, 252, 59, 231, 179, 63, 240, 86 ));
+   
+   type IInfraredTorchControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsSupported
+   (
+      This       : access IInfraredTorchControl_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SupportedModes
+   (
+      This       : access IInfraredTorchControl_Interface
+      ; RetVal : access Windows.Media.Devices.IVectorView_InfraredTorchMode -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CurrentMode
+   (
+      This       : access IInfraredTorchControl_Interface
+      ; RetVal : access Windows.Media.Devices.InfraredTorchMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CurrentMode
+   (
+      This       : access IInfraredTorchControl_Interface
+      ; value : Windows.Media.Devices.InfraredTorchMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MinPower
+   (
+      This       : access IInfraredTorchControl_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MaxPower
+   (
+      This       : access IInfraredTorchControl_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PowerStep
+   (
+      This       : access IInfraredTorchControl_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Power
+   (
+      This       : access IInfraredTorchControl_Interface
+      ; RetVal : access Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Power
+   (
+      This       : access IInfraredTorchControl_Interface
+      ; value : Windows.Int32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIsoSpeedControl : aliased constant Windows.IID := (666288930, 9645, 20251, (170, 171, 82, 74, 179, 118, 202, 51 ));
    
    type IIsoSpeedControl_Interface is interface and Windows.IInspectable_Interface;
@@ -2192,6 +2303,19 @@ package Windows.Media.Devices is
    (
       This       : access IIterable_IAudioDeviceModule_Interface
       ; RetVal : access Windows.Media.Devices.IIterator_IAudioDeviceModule
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_InfraredTorchMode : aliased constant Windows.IID := (1487189942, 14019, 21825, (179, 131, 54, 144, 215, 41, 60, 16 ));
+   
+   type IIterable_InfraredTorchMode_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_InfraredTorchMode_Interface
+      ; RetVal : access Windows.Media.Devices.IIterator_InfraredTorchMode
    )
    return Windows.HRESULT is abstract;
    
@@ -2514,6 +2638,41 @@ package Windows.Media.Devices is
    (
       This       : access IIterator_IAudioDeviceModule_Interface
       ; items : Windows.Media.Devices.IAudioDeviceModule_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_InfraredTorchMode : aliased constant Windows.IID := (1118431294, 6022, 22516, (144, 110, 47, 155, 111, 159, 132, 154 ));
+   
+   type IIterator_InfraredTorchMode_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_InfraredTorchMode_Interface
+      ; RetVal : access Windows.Media.Devices.InfraredTorchMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_InfraredTorchMode_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_InfraredTorchMode_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_InfraredTorchMode_Interface
+      ; items : Windows.Media.Devices.InfraredTorchMode_Ptr
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
@@ -3792,6 +3951,45 @@ package Windows.Media.Devices is
    
    ------------------------------------------------------------------------
    
+   IID_IVectorView_InfraredTorchMode : aliased constant Windows.IID := (3048170974, 48628, 20821, (178, 182, 49, 57, 151, 142, 156, 36 ));
+   
+   type IVectorView_InfraredTorchMode_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_InfraredTorchMode_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Media.Devices.InfraredTorchMode
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_InfraredTorchMode_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_InfraredTorchMode_Interface
+      ; value : Windows.Media.Devices.InfraredTorchMode
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_InfraredTorchMode_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Media.Devices.InfraredTorchMode_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVectorView_IsoSpeedPreset : aliased constant Windows.IID := (4016873443, 1785, 24319, (152, 168, 145, 125, 150, 68, 201, 70 ));
    
    type IVectorView_IsoSpeedPreset_Interface is interface and Windows.IInspectable_Interface;
@@ -4449,6 +4647,7 @@ package Windows.Media.Devices is
    function Create return Windows.Media.Devices.IFocusSettings;
    
    subtype HdrVideoControl is Windows.Media.Devices.IHdrVideoControl;
+   subtype InfraredTorchControl is Windows.Media.Devices.IInfraredTorchControl;
    subtype IsoSpeedControl is Windows.Media.Devices.IIsoSpeedControl;
    subtype KeypadPressedEventArgs is Windows.Media.Devices.IKeypadPressedEventArgs;
    subtype LowLagPhotoControl is Windows.Media.Devices.ILowLagPhotoControl;

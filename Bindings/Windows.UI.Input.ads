@@ -91,6 +91,22 @@ package Windows.UI.Input is
    
    type EdgeGestureKind_Ptr is access EdgeGestureKind;
    
+   type GazeInputAccessStatus is (
+      Unspecified,
+      Allowed,
+      DeniedByUser,
+      DeniedBySystem
+   );
+   for GazeInputAccessStatus use (
+      Unspecified => 0,
+      Allowed => 1,
+      DeniedByUser => 2,
+      DeniedBySystem => 3
+   );
+   for GazeInputAccessStatus'Size use 32;
+   
+   type GazeInputAccessStatus_Ptr is access GazeInputAccessStatus;
+   
    type GestureSettings is (
       None,
       Tap,
@@ -148,6 +164,22 @@ package Windows.UI.Input is
    for HoldingState'Size use 32;
    
    type HoldingState_Ptr is access HoldingState;
+   
+   type InputActivationState is (
+      None,
+      Deactivated,
+      ActivatedNotForeground,
+      ActivatedInForeground
+   );
+   for InputActivationState use (
+      None => 0,
+      Deactivated => 1,
+      ActivatedNotForeground => 2,
+      ActivatedInForeground => 3
+   );
+   for InputActivationState'Size use 32;
+   
+   type InputActivationState_Ptr is access InputActivationState;
    
    type PointerUpdateKind is (
       Other,
@@ -260,6 +292,9 @@ package Windows.UI.Input is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type AsyncOperationCompletedHandler_GazeInputAccessStatus_Interface;
+   type AsyncOperationCompletedHandler_GazeInputAccessStatus is access all AsyncOperationCompletedHandler_GazeInputAccessStatus_Interface'Class;
+   type AsyncOperationCompletedHandler_GazeInputAccessStatus_Ptr is access all AsyncOperationCompletedHandler_GazeInputAccessStatus;
    type TypedEventHandler_IEdgeGesture_add_Canceled_Interface;
    type TypedEventHandler_IEdgeGesture_add_Canceled is access all TypedEventHandler_IEdgeGesture_add_Canceled_Interface'Class;
    type TypedEventHandler_IEdgeGesture_add_Canceled_Ptr is access all TypedEventHandler_IEdgeGesture_add_Canceled;
@@ -296,6 +331,9 @@ package Windows.UI.Input is
    type TypedEventHandler_IGestureRecognizer_add_Tapped_Interface;
    type TypedEventHandler_IGestureRecognizer_add_Tapped is access all TypedEventHandler_IGestureRecognizer_add_Tapped_Interface'Class;
    type TypedEventHandler_IGestureRecognizer_add_Tapped_Ptr is access all TypedEventHandler_IGestureRecognizer_add_Tapped;
+   type TypedEventHandler_IInputActivationListener_add_InputActivationChanged_Interface;
+   type TypedEventHandler_IInputActivationListener_add_InputActivationChanged is access all TypedEventHandler_IInputActivationListener_add_InputActivationChanged_Interface'Class;
+   type TypedEventHandler_IInputActivationListener_add_InputActivationChanged_Ptr is access all TypedEventHandler_IInputActivationListener_add_InputActivationChanged;
    type TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown_Interface;
    type TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown is access all TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown_Interface'Class;
    type TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown_Ptr is access all TypedEventHandler_IKeyboardDeliveryInterceptor_add_KeyDown;
@@ -340,6 +378,15 @@ package Windows.UI.Input is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_GazeInputAccessStatus_Interface;
+   type IAsyncOperation_GazeInputAccessStatus is access all IAsyncOperation_GazeInputAccessStatus_Interface'Class;
+   type IAsyncOperation_GazeInputAccessStatus_Ptr is access all IAsyncOperation_GazeInputAccessStatus;
+   type IAttachableInputObject_Interface;
+   type IAttachableInputObject is access all IAttachableInputObject_Interface'Class;
+   type IAttachableInputObject_Ptr is access all IAttachableInputObject;
+   type IAttachableInputObjectFactory_Interface;
+   type IAttachableInputObjectFactory is access all IAttachableInputObjectFactory_Interface'Class;
+   type IAttachableInputObjectFactory_Ptr is access all IAttachableInputObjectFactory;
    type ICrossSlidingEventArgs_Interface;
    type ICrossSlidingEventArgs is access all ICrossSlidingEventArgs_Interface'Class;
    type ICrossSlidingEventArgs_Ptr is access all ICrossSlidingEventArgs;
@@ -361,6 +408,12 @@ package Windows.UI.Input is
    type IHoldingEventArgs_Interface;
    type IHoldingEventArgs is access all IHoldingEventArgs_Interface'Class;
    type IHoldingEventArgs_Ptr is access all IHoldingEventArgs;
+   type IInputActivationListener_Interface;
+   type IInputActivationListener is access all IInputActivationListener_Interface'Class;
+   type IInputActivationListener_Ptr is access all IInputActivationListener;
+   type IInputActivationListenerActivationChangedEventArgs_Interface;
+   type IInputActivationListenerActivationChangedEventArgs is access all IInputActivationListenerActivationChangedEventArgs_Interface'Class;
+   type IInputActivationListenerActivationChangedEventArgs_Ptr is access all IInputActivationListenerActivationChangedEventArgs;
    type IIterable_IPointerPoint_Interface;
    type IIterable_IPointerPoint is access all IIterable_IPointerPoint_Interface'Class;
    type IIterable_IPointerPoint_Ptr is access all IIterable_IPointerPoint;
@@ -521,6 +574,45 @@ package Windows.UI.Input is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_GazeInputAccessStatus : aliased constant Windows.IID := (1466231619, 56143, 24554, (155, 197, 175, 1, 88, 242, 105, 41 ));
+   
+   type IAsyncOperation_GazeInputAccessStatus_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_GazeInputAccessStatus_Interface
+      ; handler : Windows.UI.Input.AsyncOperationCompletedHandler_GazeInputAccessStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_GazeInputAccessStatus_Interface
+      ; RetVal : access Windows.UI.Input.AsyncOperationCompletedHandler_GazeInputAccessStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_GazeInputAccessStatus_Interface
+      ; RetVal : access Windows.UI.Input.GazeInputAccessStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAttachableInputObject : aliased constant Windows.IID := (2608998196, 41921, 21546, (178, 244, 14, 50, 183, 115, 251, 7 ));
+   
+   type IAttachableInputObject_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAttachableInputObjectFactory : aliased constant Windows.IID := (2764393550, 17084, 22778, (166, 64, 234, 21, 22, 244, 192, 107 ));
+   
+   type IAttachableInputObjectFactory_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -1099,6 +1191,47 @@ package Windows.UI.Input is
    (
       This       : access IHoldingEventArgs_Interface
       ; RetVal : access Windows.UI.Input.HoldingState
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInputActivationListener : aliased constant Windows.IID := (1567444690, 10439, 23267, (170, 116, 201, 24, 169, 242, 67, 202 ));
+   
+   type IInputActivationListener_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_State
+   (
+      This       : access IInputActivationListener_Interface
+      ; RetVal : access Windows.UI.Input.InputActivationState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_InputActivationChanged
+   (
+      This       : access IInputActivationListener_Interface
+      ; handler : TypedEventHandler_IInputActivationListener_add_InputActivationChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_InputActivationChanged
+   (
+      This       : access IInputActivationListener_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInputActivationListenerActivationChangedEventArgs : aliased constant Windows.IID := (1989784677, 7631, 22417, (180, 185, 108, 175, 190, 237, 32, 86 ));
+   
+   type IInputActivationListenerActivationChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_State
+   (
+      This       : access IInputActivationListenerActivationChangedEventArgs_Interface
+      ; RetVal : access Windows.UI.Input.InputActivationState
    )
    return Windows.HRESULT is abstract;
    
@@ -2936,6 +3069,19 @@ package Windows.UI.Input is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_GazeInputAccessStatus : aliased constant Windows.IID := (664859332, 17951, 20651, (175, 143, 217, 217, 159, 48, 182, 125 ));
+   
+   type AsyncOperationCompletedHandler_GazeInputAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.UI.Input.IAsyncOperation_GazeInputAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_GazeInputAccessStatus'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_GazeInputAccessStatus_Interface
+      ; asyncInfo : Windows.UI.Input.IAsyncOperation_GazeInputAccessStatus
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IEdgeGesture_add_Canceled : aliased constant Windows.IID := (3056434961, 51121, 23536, (163, 71, 51, 102, 37, 45, 180, 206 ));
    
    type TypedEventHandler_IEdgeGesture_add_Canceled_Interface(Callback : access procedure (sender : Windows.UI.Input.IEdgeGesture ; args : Windows.UI.Input.IEdgeGestureEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IEdgeGesture_add_Canceled'access) with null record;
@@ -3087,6 +3233,19 @@ package Windows.UI.Input is
       This       : access TypedEventHandler_IGestureRecognizer_add_Tapped_Interface
       ; sender : Windows.UI.Input.IGestureRecognizer
       ; args : Windows.UI.Input.ITappedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IInputActivationListener_add_InputActivationChanged : aliased constant Windows.IID := (656762177, 51715, 20882, (187, 46, 142, 241, 218, 240, 189, 235 ));
+   
+   type TypedEventHandler_IInputActivationListener_add_InputActivationChanged_Interface(Callback : access procedure (sender : Windows.UI.Input.IInputActivationListener ; args : Windows.UI.Input.IInputActivationListenerActivationChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IInputActivationListener_add_InputActivationChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IInputActivationListener_add_InputActivationChanged_Interface
+      ; sender : Windows.UI.Input.IInputActivationListener
+      ; args : Windows.UI.Input.IInputActivationListenerActivationChangedEventArgs
    )
    return Windows.HRESULT;
    
@@ -3263,6 +3422,7 @@ package Windows.UI.Input is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype AttachableInputObject is Windows.UI.Input.IAttachableInputObject;
    subtype CrossSlidingEventArgs is Windows.UI.Input.ICrossSlidingEventArgs;
    subtype DraggingEventArgs is Windows.UI.Input.IDraggingEventArgs;
    subtype EdgeGesture is Windows.UI.Input.IEdgeGesture;
@@ -3271,6 +3431,8 @@ package Windows.UI.Input is
    function Create return Windows.UI.Input.IGestureRecognizer;
    
    subtype HoldingEventArgs is Windows.UI.Input.IHoldingEventArgs;
+   subtype InputActivationListener is Windows.UI.Input.IInputActivationListener;
+   subtype InputActivationListenerActivationChangedEventArgs is Windows.UI.Input.IInputActivationListenerActivationChangedEventArgs;
    subtype KeyboardDeliveryInterceptor is Windows.UI.Input.IKeyboardDeliveryInterceptor;
    subtype ManipulationCompletedEventArgs is Windows.UI.Input.IManipulationCompletedEventArgs;
    subtype ManipulationInertiaStartingEventArgs is Windows.UI.Input.IManipulationInertiaStartingEventArgs;

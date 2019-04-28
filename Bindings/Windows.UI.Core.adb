@@ -27,6 +27,7 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.System;
+with Windows.UI;
 with Windows.UI.Input;
 with Windows.UI.Popups;
 with Ada.Unchecked_Conversion;

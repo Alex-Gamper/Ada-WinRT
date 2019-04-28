@@ -28,6 +28,7 @@
 --------------------------------------------------------------------------------
 with Windows.Storage;
 with Windows.Storage.Streams;
+with Windows.UI;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.ApplicationModel.Resources.Core is
@@ -185,6 +186,26 @@ package body Windows.ApplicationModel.Resources.Core is
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);
+   end;
+   
+   function GetForUIContext
+   (
+      context : Windows.UI.IUIContext
+   )
+   return Windows.ApplicationModel.Resources.Core.IResourceContext is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Resources.Core.ResourceContext");
+      m_Factory     : IResourceContextStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Resources.Core.IResourceContext;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IResourceContextStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForUIContext(context, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
    end;
    
    function get_Current

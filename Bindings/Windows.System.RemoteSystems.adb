@@ -697,6 +697,47 @@ package body Windows.System.RemoteSystems is
       return RetVal;
    end;
    
+   function CreateWatcherForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.System.RemoteSystems.IRemoteSystemWatcher is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystem");
+      m_Factory     : IRemoteSystemStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.RemoteSystems.IRemoteSystemWatcher;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWatcherForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateWatcherWithFiltersForUser
+   (
+      user : Windows.System.IUser
+      ; filters : Windows.System.RemoteSystems.IIterable_IRemoteSystemFilter
+   )
+   return Windows.System.RemoteSystems.IRemoteSystemWatcher is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystem");
+      m_Factory     : IRemoteSystemStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.RemoteSystems.IRemoteSystemWatcher;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateWatcherWithFiltersForUser(user, filters, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetDefault
    return Windows.System.RemoteSystems.IRemoteSystemAppRegistration is
       Hr            : Windows.HRESULT := S_OK;
@@ -768,6 +809,47 @@ package body Windows.System.RemoteSystems is
       Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemConnectionRequestStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateForApp(remoteSystemApp, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromConnectionToken
+   (
+      connectionToken : Windows.String
+   )
+   return Windows.System.RemoteSystems.IRemoteSystemConnectionRequest is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemConnectionRequest");
+      m_Factory     : IRemoteSystemConnectionRequestStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.RemoteSystems.IRemoteSystemConnectionRequest;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemConnectionRequestStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromConnectionToken(connectionToken, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateFromConnectionTokenForUser
+   (
+      user : Windows.System.IUser
+      ; connectionToken : Windows.String
+   )
+   return Windows.System.RemoteSystems.IRemoteSystemConnectionRequest is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.System.RemoteSystems.RemoteSystemConnectionRequest");
+      m_Factory     : IRemoteSystemConnectionRequestStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.System.RemoteSystems.IRemoteSystemConnectionRequest;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IRemoteSystemConnectionRequestStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateFromConnectionTokenForUser(user, connectionToken, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

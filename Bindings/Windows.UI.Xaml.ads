@@ -756,6 +756,9 @@ package Windows.UI.Xaml is
    type TypedEventHandler_IUIElement8_add_BringIntoViewRequested_Interface;
    type TypedEventHandler_IUIElement8_add_BringIntoViewRequested is access all TypedEventHandler_IUIElement8_add_BringIntoViewRequested_Interface'Class;
    type TypedEventHandler_IUIElement8_add_BringIntoViewRequested_Ptr is access all TypedEventHandler_IUIElement8_add_BringIntoViewRequested;
+   type TypedEventHandler_IXamlRoot_add_Changed_Interface;
+   type TypedEventHandler_IXamlRoot_add_Changed is access all TypedEventHandler_IXamlRoot_add_Changed_Interface'Class;
+   type TypedEventHandler_IXamlRoot_add_Changed_Ptr is access all TypedEventHandler_IXamlRoot_add_Changed;
    type UnhandledExceptionEventHandler_Interface;
    type UnhandledExceptionEventHandler is access all UnhandledExceptionEventHandler_Interface'Class;
    type UnhandledExceptionEventHandler_Ptr is access all UnhandledExceptionEventHandler;
@@ -1079,6 +1082,9 @@ package Windows.UI.Xaml is
    type IIterable_TriggerBase_Interface;
    type IIterable_TriggerBase is access all IIterable_TriggerBase_Interface'Class;
    type IIterable_TriggerBase_Ptr is access all IIterable_TriggerBase;
+   type IIterable_UIElement_Interface;
+   type IIterable_UIElement is access all IIterable_UIElement_Interface'Class;
+   type IIterable_UIElement_Ptr is access all IIterable_UIElement;
    type IIterator_IDependencyObject_Interface;
    type IIterator_IDependencyObject is access all IIterator_IDependencyObject_Interface'Class;
    type IIterator_IDependencyObject_Ptr is access all IIterator_IDependencyObject;
@@ -1235,6 +1241,9 @@ package Windows.UI.Xaml is
    type IUIElement_Interface;
    type IUIElement is access all IUIElement_Interface'Class;
    type IUIElement_Ptr is access all IUIElement;
+   type IUIElement10_Interface;
+   type IUIElement10 is access all IUIElement10_Interface'Class;
+   type IUIElement10_Ptr is access all IUIElement10;
    type IUIElement2_Interface;
    type IUIElement2 is access all IUIElement2_Interface'Class;
    type IUIElement2_Ptr is access all IUIElement2;
@@ -1274,6 +1283,9 @@ package Windows.UI.Xaml is
    type IUIElementStatics_Interface;
    type IUIElementStatics is access all IUIElementStatics_Interface'Class;
    type IUIElementStatics_Ptr is access all IUIElementStatics;
+   type IUIElementStatics10_Interface;
+   type IUIElementStatics10 is access all IUIElementStatics10_Interface'Class;
+   type IUIElementStatics10_Ptr is access all IUIElementStatics10;
    type IUIElementStatics2_Interface;
    type IUIElementStatics2 is access all IUIElementStatics2_Interface'Class;
    type IUIElementStatics2_Ptr is access all IUIElementStatics2;
@@ -1298,6 +1310,12 @@ package Windows.UI.Xaml is
    type IUIElementStatics9_Interface;
    type IUIElementStatics9 is access all IUIElementStatics9_Interface'Class;
    type IUIElementStatics9_Ptr is access all IUIElementStatics9;
+   type IUIElementWeakCollection_Interface;
+   type IUIElementWeakCollection is access all IUIElementWeakCollection_Interface'Class;
+   type IUIElementWeakCollection_Ptr is access all IUIElementWeakCollection;
+   type IUIElementWeakCollectionFactory_Interface;
+   type IUIElementWeakCollectionFactory is access all IUIElementWeakCollectionFactory_Interface'Class;
+   type IUIElementWeakCollectionFactory_Ptr is access all IUIElementWeakCollectionFactory;
    type IUnhandledExceptionEventArgs_Interface;
    type IUnhandledExceptionEventArgs is access all IUnhandledExceptionEventArgs_Interface'Class;
    type IUnhandledExceptionEventArgs_Ptr is access all IUnhandledExceptionEventArgs;
@@ -1334,6 +1352,9 @@ package Windows.UI.Xaml is
    type IVector_TriggerBase_Interface;
    type IVector_TriggerBase is access all IVector_TriggerBase_Interface'Class;
    type IVector_TriggerBase_Ptr is access all IVector_TriggerBase;
+   type IVector_UIElement_Interface;
+   type IVector_UIElement is access all IVector_UIElement_Interface'Class;
+   type IVector_UIElement_Ptr is access all IVector_UIElement;
    type IVector3Transition_Interface;
    type IVector3Transition is access all IVector3Transition_Interface'Class;
    type IVector3Transition_Ptr is access all IVector3Transition;
@@ -1361,6 +1382,9 @@ package Windows.UI.Xaml is
    type IVectorView_IVisualTransition_Interface;
    type IVectorView_IVisualTransition is access all IVectorView_IVisualTransition_Interface'Class;
    type IVectorView_IVisualTransition_Ptr is access all IVectorView_IVisualTransition;
+   type IVisualElement_Imported_Interface;
+   type IVisualElement_Imported is access all IVisualElement_Imported_Interface'Class;
+   type IVisualElement_Imported_Ptr is access all IVisualElement_Imported;
    type IVisualState_Interface;
    type IVisualState is access all IVisualState_Interface'Class;
    type IVisualState_Ptr is access all IVisualState;
@@ -1403,12 +1427,21 @@ package Windows.UI.Xaml is
    type IWindow3_Interface;
    type IWindow3 is access all IWindow3_Interface'Class;
    type IWindow3_Ptr is access all IWindow3;
+   type IWindow4_Interface;
+   type IWindow4 is access all IWindow4_Interface'Class;
+   type IWindow4_Ptr is access all IWindow4;
    type IWindowCreatedEventArgs_Interface;
    type IWindowCreatedEventArgs is access all IWindowCreatedEventArgs_Interface'Class;
    type IWindowCreatedEventArgs_Ptr is access all IWindowCreatedEventArgs;
    type IWindowStatics_Interface;
    type IWindowStatics is access all IWindowStatics_Interface'Class;
    type IWindowStatics_Ptr is access all IWindowStatics;
+   type IXamlRoot_Interface;
+   type IXamlRoot is access all IXamlRoot_Interface'Class;
+   type IXamlRoot_Ptr is access all IXamlRoot;
+   type IXamlRootChangedEventArgs_Interface;
+   type IXamlRootChangedEventArgs is access all IXamlRootChangedEventArgs_Interface'Class;
+   type IXamlRootChangedEventArgs_Ptr is access all IXamlRootChangedEventArgs;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -4862,6 +4895,19 @@ package Windows.UI.Xaml is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_UIElement : aliased constant Windows.IID := (1122134753, 54103, 22504, (187, 72, 247, 92, 159, 246, 157, 145 ));
+   
+   type IIterable_UIElement_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_UIElement_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_IDependencyObject : aliased constant Windows.IID := (704173140, 36957, 22654, (185, 216, 191, 212, 24, 128, 90, 101 ));
    
    type IIterator_IDependencyObject_Interface is interface and Windows.IInspectable_Interface;
@@ -6706,6 +6752,61 @@ package Windows.UI.Xaml is
    
    ------------------------------------------------------------------------
    
+   IID_IUIElement10 : aliased constant Windows.IID := (3576809001, 44332, 24427, (173, 207, 251, 135, 40, 125, 24, 215 ));
+   
+   type IUIElement10_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ActualOffset
+   (
+      This       : access IUIElement10_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector3
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ActualSize
+   (
+      This       : access IUIElement10_Interface
+      ; RetVal : access Windows.Foundation.Numerics.Vector2
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_XamlRoot
+   (
+      This       : access IUIElement10_Interface
+      ; RetVal : access Windows.UI.Xaml.IXamlRoot
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_XamlRoot
+   (
+      This       : access IUIElement10_Interface
+      ; value : Windows.UI.Xaml.IXamlRoot
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UIContext
+   (
+      This       : access IUIElement10_Interface
+      ; RetVal : access Windows.UI.IUIContext
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Shadow
+   (
+      This       : access IUIElement10_Interface
+      ; RetVal : access Windows.UI.Xaml.Media.IShadow
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Shadow
+   (
+      This       : access IUIElement10_Interface
+      ; value : Windows.UI.Xaml.Media.IShadow
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IUIElement2 : aliased constant Windows.IID := (1735199737, 46700, 16854, (186, 80, 88, 207, 135, 242, 1, 209 ));
    
    type IUIElement2_Interface is interface and Windows.IInspectable_Interface;
@@ -7858,6 +7959,19 @@ package Windows.UI.Xaml is
    
    ------------------------------------------------------------------------
    
+   IID_IUIElementStatics10 : aliased constant Windows.IID := (1624396642, 19262, 21466, (139, 120, 56, 219, 148, 174, 143, 38 ));
+   
+   type IUIElementStatics10_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ShadowProperty
+   (
+      This       : access IUIElementStatics10_Interface
+      ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IUIElementStatics2 : aliased constant Windows.IID := (1490245451, 62780, 17854, (152, 155, 165, 134, 149, 100, 135, 76 ));
    
    type IUIElementStatics2_Interface is interface and Windows.IInspectable_Interface;
@@ -8133,6 +8247,27 @@ package Windows.UI.Xaml is
    (
       This       : access IUIElementStatics9_Interface
       ; RetVal : access Windows.UI.Xaml.IDependencyProperty
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUIElementWeakCollection : aliased constant Windows.IID := (271847971, 58989, 20894, (172, 248, 85, 107, 210, 68, 234, 195 ));
+   
+   type IUIElementWeakCollection_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUIElementWeakCollectionFactory : aliased constant Windows.IID := (1461986657, 6282, 21252, (135, 146, 164, 63, 53, 217, 15, 153 ));
+   
+   type IUIElementWeakCollectionFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IUIElementWeakCollectionFactory_Interface
+      ; baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+      ; RetVal : access Windows.UI.Xaml.IUIElementWeakCollection
    )
    return Windows.HRESULT is abstract;
    
@@ -9217,6 +9352,101 @@ package Windows.UI.Xaml is
    
    ------------------------------------------------------------------------
    
+   IID_IVector_UIElement : aliased constant Windows.IID := (3032605612, 34664, 23453, (166, 97, 246, 51, 48, 184, 80, 123 ));
+   
+   type IVector_UIElement_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_UIElement_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_UIElement_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_UIElement_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_UIElement_Interface
+      ; value : Windows.UI.Xaml.IUIElement
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_UIElement_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_UIElement_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_UIElement_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_UIElement_Interface
+      ; value : Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_UIElement_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_UIElement_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_UIElement_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.UI.Xaml.IUIElement_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_UIElement_Interface
+      ; items : Windows.UI.Xaml.IUIElement_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVector3Transition : aliased constant Windows.IID := (3538029020, 50338, 20737, (154, 104, 250, 1, 80, 80, 85, 137 ));
    
    type IVector3Transition_Interface is interface and Windows.IInspectable_Interface;
@@ -9536,6 +9766,10 @@ package Windows.UI.Xaml is
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   type IVisualElement_Imported_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -10048,6 +10282,19 @@ package Windows.UI.Xaml is
    
    ------------------------------------------------------------------------
    
+   IID_IWindow4 : aliased constant Windows.IID := (3219241166, 27712, 20729, (133, 76, 112, 33, 210, 188, 157, 230 ));
+   
+   type IWindow4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_UIContext
+   (
+      This       : access IWindow4_Interface
+      ; RetVal : access Windows.UI.IUIContext
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IWindowCreatedEventArgs : aliased constant Windows.IID := (834081904, 65279, 18004, (175, 72, 155, 57, 138, 181, 119, 43 ));
    
    type IWindowCreatedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -10071,6 +10318,68 @@ package Windows.UI.Xaml is
       ; RetVal : access Windows.UI.Xaml.IWindow
    )
    return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlRoot : aliased constant Windows.IID := (884279126, 5782, 23405, (142, 155, 199, 20, 100, 204, 173, 90 ));
+   
+   type IXamlRoot_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Content
+   (
+      This       : access IXamlRoot_Interface
+      ; RetVal : access Windows.UI.Xaml.IUIElement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IXamlRoot_Interface
+      ; RetVal : access Windows.Foundation.Size
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RasterizationScale
+   (
+      This       : access IXamlRoot_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsHostVisible
+   (
+      This       : access IXamlRoot_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UIContext
+   (
+      This       : access IXamlRoot_Interface
+      ; RetVal : access Windows.UI.IUIContext
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Changed
+   (
+      This       : access IXamlRoot_Interface
+      ; handler : TypedEventHandler_IXamlRoot_add_Changed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Changed
+   (
+      This       : access IXamlRoot_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IXamlRootChangedEventArgs : aliased constant Windows.IID := (2463570977, 53820, 23063, (188, 184, 0, 21, 4, 182, 187, 25 ));
+   
+   type IXamlRootChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    -- Delegates/Events
@@ -10461,6 +10770,19 @@ package Windows.UI.Xaml is
       This       : access TypedEventHandler_IUIElement8_add_BringIntoViewRequested_Interface
       ; sender : Windows.UI.Xaml.IUIElement
       ; args : Windows.UI.Xaml.IBringIntoViewRequestedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IXamlRoot_add_Changed : aliased constant Windows.IID := (3093500347, 12015, 23340, (141, 13, 193, 120, 243, 151, 155, 106 ));
+   
+   type TypedEventHandler_IXamlRoot_add_Changed_Interface(Callback : access procedure (sender : Windows.UI.Xaml.IXamlRoot ; args : Windows.UI.Xaml.IXamlRootChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IXamlRoot_add_Changed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IXamlRoot_add_Changed_Interface
+      ; sender : Windows.UI.Xaml.IXamlRoot
+      ; args : Windows.UI.Xaml.IXamlRootChangedEventArgs
    )
    return Windows.HRESULT;
    
@@ -12853,6 +13175,59 @@ package Windows.UI.Xaml is
    subtype TriggerBase is Windows.UI.Xaml.ITriggerBase;
    subtype TriggerCollection is Windows.UI.Xaml.IVector_TriggerBase;
    subtype UIElement is Windows.UI.Xaml.IUIElement;
+   subtype UIElementWeakCollection is Windows.UI.Xaml.IUIElementWeakCollection;
+   
+   type IUIElementWeakCollection_Interface_Impl is new IUIElementWeakCollection_Interface with record
+      m_RefCount : aliased Windows.UInt32 := 0;
+      m_FTM      : aliased IUnknown := null;
+      m_Inner    : aliased IUIElementWeakCollection := null;
+      m_IUIElementWeakCollection : IUIElementWeakCollection := null;
+   end record;
+   type IUIElementWeakCollection_Impl is access all IUIElementWeakCollection_Interface_Impl'Class;
+   type IUIElementWeakCollection_Impl_Ptr is access all IUIElementWeakCollection_Impl;
+   
+   function QueryInterface
+   (
+      This       : access IUIElementWeakCollection_Interface_Impl;
+      riid       : in Windows.GUID_Ptr;
+      pvObject   : not null access IUnknown
+   )
+   return Windows.HRESULT;
+   
+   function AddRef
+   (
+      This       : access IUIElementWeakCollection_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function Release
+   (
+      This       : access IUIElementWeakCollection_Interface_Impl
+   )
+   return Windows.UInt32;
+   
+   function GetIids
+   (
+      This       : access IUIElementWeakCollection_Interface_Impl;
+      iidCount   : access Windows.UINT32;
+      iids       : in Windows.IID_Ptr
+   )
+   return Windows.HRESULT;
+   
+   function GetRuntimeClassName
+   (
+      This       : access IUIElementWeakCollection_Interface_Impl;
+      className  : access Windows.String
+   )
+   return Windows.HRESULT;
+   
+   function GetTrustLevel
+   (
+      This       : access IUIElementWeakCollection_Interface_Impl;
+      trustLevel : access Windows.TrustLevel
+   )
+   return Windows.HRESULT;
+   
    subtype UnhandledExceptionEventArgs is Windows.UI.Xaml.IUnhandledExceptionEventArgs;
    subtype Vector3Transition is Windows.UI.Xaml.IVector3Transition;
    
@@ -13187,6 +13562,8 @@ package Windows.UI.Xaml is
    
    subtype Window is Windows.UI.Xaml.IWindow;
    subtype WindowCreatedEventArgs is Windows.UI.Xaml.IWindowCreatedEventArgs;
+   subtype XamlRoot is Windows.UI.Xaml.IXamlRoot;
+   subtype XamlRootChangedEventArgs is Windows.UI.Xaml.IXamlRootChangedEventArgs;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
@@ -13907,6 +14284,9 @@ package Windows.UI.Xaml is
    function get_VisibilityProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
+   function get_ShadowProperty
+   return Windows.UI.Xaml.IDependencyProperty;
+   
    function get_CompositeModeProperty
    return Windows.UI.Xaml.IDependencyProperty;
    
@@ -14011,6 +14391,13 @@ package Windows.UI.Xaml is
    
    function get_CanBeScrollAnchorProperty
    return Windows.UI.Xaml.IDependencyProperty;
+   
+   function CreateInstance
+   (
+      baseInterface : Windows.Object
+      ; innerInterface : access Windows.Object
+   )
+   return Windows.UI.Xaml.IUIElementWeakCollection;
    
    function CreateInstance
    (

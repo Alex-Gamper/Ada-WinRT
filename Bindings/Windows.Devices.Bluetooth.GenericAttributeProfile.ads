@@ -154,13 +154,15 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
       Created,
       Stopped,
       Started,
-      Aborted
+      Aborted,
+      StartedWithoutAllAdvertisementData
    );
    for GattServiceProviderAdvertisementStatus use (
       Created => 0,
       Stopped => 1,
       Started => 2,
-      Aborted => 3
+      Aborted => 3,
+      StartedWithoutAllAdvertisementData => 4
    );
    for GattServiceProviderAdvertisementStatus'Size use 32;
    
@@ -479,6 +481,9 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    type IGattServiceProviderAdvertisingParameters_Interface;
    type IGattServiceProviderAdvertisingParameters is access all IGattServiceProviderAdvertisingParameters_Interface'Class;
    type IGattServiceProviderAdvertisingParameters_Ptr is access all IGattServiceProviderAdvertisingParameters;
+   type IGattServiceProviderAdvertisingParameters2_Interface;
+   type IGattServiceProviderAdvertisingParameters2 is access all IGattServiceProviderAdvertisingParameters2_Interface'Class;
+   type IGattServiceProviderAdvertisingParameters2_Ptr is access all IGattServiceProviderAdvertisingParameters2;
    type IGattServiceProviderResult_Interface;
    type IGattServiceProviderResult is access all IGattServiceProviderResult_Interface'Class;
    type IGattServiceProviderResult_Ptr is access all IGattServiceProviderResult;
@@ -3458,6 +3463,26 @@ package Windows.Devices.Bluetooth.GenericAttributeProfile is
    (
       This       : access IGattServiceProviderAdvertisingParameters_Interface
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGattServiceProviderAdvertisingParameters2 : aliased constant Windows.IID := (4285023885, 51858, 17460, (151, 67, 14, 144, 152, 138, 216, 121 ));
+   
+   type IGattServiceProviderAdvertisingParameters2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_ServiceData
+   (
+      This       : access IGattServiceProviderAdvertisingParameters2_Interface
+      ; value : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ServiceData
+   (
+      This       : access IGattServiceProviderAdvertisingParameters2_Interface
+      ; RetVal : access Windows.Storage.Streams.IBuffer
    )
    return Windows.HRESULT is abstract;
    

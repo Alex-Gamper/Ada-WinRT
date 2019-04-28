@@ -4994,6 +4994,12 @@ package Windows.Media.Playback is
    subtype MediaPlaybackCommandManagerRewindReceivedEventArgs is Windows.Media.Playback.IMediaPlaybackCommandManagerRewindReceivedEventArgs;
    subtype MediaPlaybackCommandManagerShuffleReceivedEventArgs is Windows.Media.Playback.IMediaPlaybackCommandManagerShuffleReceivedEventArgs;
    subtype MediaPlaybackItem is Windows.Media.Playback.IMediaPlaybackItem;
+   function Create
+   (
+      source : Windows.Media.Core.IMediaSource2
+   )
+   return Windows.Media.Playback.IMediaPlaybackItem;
+   
    function CreateWithStartTime
    (
       source : Windows.Media.Core.IMediaSource2
@@ -5006,12 +5012,6 @@ package Windows.Media.Playback is
       source : Windows.Media.Core.IMediaSource2
       ; startTime : Windows.Foundation.TimeSpan
       ; durationLimit : Windows.Foundation.TimeSpan
-   )
-   return Windows.Media.Playback.IMediaPlaybackItem;
-   
-   function Create
-   (
-      source : Windows.Media.Core.IMediaSource2
    )
    return Windows.Media.Playback.IMediaPlaybackItem;
    

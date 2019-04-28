@@ -26,8 +26,51 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
-package Windows.Ui.Input.Preview is
+limited with Windows.UI.WindowManagement;
+--------------------------------------------------------------------------------
+package Windows.UI.Input.Preview is
 
    pragma preelaborate;
+   
+   ------------------------------------------------------------------------
+   -- Forward Declaration - Interfaces
+   ------------------------------------------------------------------------
+   
+   type IInputActivationListenerPreviewStatics_Interface;
+   type IInputActivationListenerPreviewStatics is access all IInputActivationListenerPreviewStatics_Interface'Class;
+   type IInputActivationListenerPreviewStatics_Ptr is access all IInputActivationListenerPreviewStatics;
+   
+   ------------------------------------------------------------------------
+   -- Interfaces
+   ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInputActivationListenerPreviewStatics : aliased constant Windows.IID := (4032109797, 3558, 23520, (165, 137, 247, 55, 32, 26, 69, 130 ));
+   
+   type IInputActivationListenerPreviewStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateForApplicationWindow
+   (
+      This       : access IInputActivationListenerPreviewStatics_Interface
+      ; window : Windows.UI.WindowManagement.IAppWindow
+      ; RetVal : access Windows.UI.Input.IInputActivationListener
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   -- Classes
+   ------------------------------------------------------------------------
+   
+   
+   ------------------------------------------------------------------------
+   -- Static Procedures/functions
+   ------------------------------------------------------------------------
+   
+   function CreateForApplicationWindow
+   (
+      window : Windows.UI.WindowManagement.IAppWindow
+   )
+   return Windows.UI.Input.IInputActivationListener;
    
 end;

@@ -171,6 +171,14 @@ package Windows.Perception.Spatial is
    
    type SpatialBoundingSphere_Ptr is access SpatialBoundingSphere;
    
+   type SpatialRay is record
+      Origin : Windows.Foundation.Numerics.Vector3;
+      Direction : Windows.Foundation.Numerics.Vector3;
+   end record;
+   pragma Convention (C_Pass_By_Copy , SpatialRay);
+   
+   type SpatialRay_Ptr is access SpatialRay;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -240,6 +248,9 @@ package Windows.Perception.Spatial is
    type IReference_SpatialBoundingOrientedBox_Interface;
    type IReference_SpatialBoundingOrientedBox is access all IReference_SpatialBoundingOrientedBox_Interface'Class;
    type IReference_SpatialBoundingOrientedBox_Ptr is access all IReference_SpatialBoundingOrientedBox;
+   type IReference_SpatialRay_Interface;
+   type IReference_SpatialRay is access all IReference_SpatialRay_Interface'Class;
+   type IReference_SpatialRay_Ptr is access all IReference_SpatialRay;
    type ISpatialAnchor_Interface;
    type ISpatialAnchor is access all ISpatialAnchor_Interface'Class;
    type ISpatialAnchor_Ptr is access all ISpatialAnchor;
@@ -527,6 +538,19 @@ package Windows.Perception.Spatial is
    (
       This       : access IReference_SpatialBoundingOrientedBox_Interface
       ; RetVal : access Windows.Perception.Spatial.SpatialBoundingOrientedBox
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IReference_SpatialRay : aliased constant Windows.IID := (1155360875, 51160, 22572, (145, 194, 217, 142, 96, 77, 207, 212 ));
+   
+   type IReference_SpatialRay_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Value
+   (
+      This       : access IReference_SpatialRay_Interface
+      ; RetVal : access Windows.Perception.Spatial.SpatialRay
    )
    return Windows.HRESULT is abstract;
    

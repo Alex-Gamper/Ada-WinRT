@@ -94,6 +94,20 @@ package Windows.Networking.NetworkOperators is
    
    type ESimAuthenticationPreference_Ptr is access ESimAuthenticationPreference;
    
+   type ESimDiscoverResultKind is (
+      None,
+      Events,
+      ProfileMetadata
+   );
+   for ESimDiscoverResultKind use (
+      None => 0,
+      Events => 1,
+      ProfileMetadata => 2
+   );
+   for ESimDiscoverResultKind'Size use 32;
+   
+   type ESimDiscoverResultKind_Ptr is access ESimDiscoverResultKind;
+   
    type ESimOperationStatus is (
       Success,
       NotAuthorized,
@@ -680,6 +694,9 @@ package Windows.Networking.NetworkOperators is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type AsyncOperationCompletedHandler_IESimDiscoverResult_Interface;
+   type AsyncOperationCompletedHandler_IESimDiscoverResult is access all AsyncOperationCompletedHandler_IESimDiscoverResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IESimDiscoverResult_Ptr is access all AsyncOperationCompletedHandler_IESimDiscoverResult;
    type AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult_Interface;
    type AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult is access all AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult_Interface'Class;
    type AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult_Ptr is access all AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult;
@@ -775,6 +792,9 @@ package Windows.Networking.NetworkOperators is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IESimDiscoverResult_Interface;
+   type IAsyncOperation_IESimDiscoverResult is access all IAsyncOperation_IESimDiscoverResult_Interface'Class;
+   type IAsyncOperation_IESimDiscoverResult_Ptr is access all IAsyncOperation_IESimDiscoverResult;
    type IAsyncOperation_IESimDownloadProfileMetadataResult_Interface;
    type IAsyncOperation_IESimDownloadProfileMetadataResult is access all IAsyncOperation_IESimDownloadProfileMetadataResult_Interface'Class;
    type IAsyncOperation_IESimDownloadProfileMetadataResult_Ptr is access all IAsyncOperation_IESimDownloadProfileMetadataResult;
@@ -823,9 +843,18 @@ package Windows.Networking.NetworkOperators is
    type IESim_Interface;
    type IESim is access all IESim_Interface'Class;
    type IESim_Ptr is access all IESim;
+   type IESim2_Interface;
+   type IESim2 is access all IESim2_Interface'Class;
+   type IESim2_Ptr is access all IESim2;
    type IESimAddedEventArgs_Interface;
    type IESimAddedEventArgs is access all IESimAddedEventArgs_Interface'Class;
    type IESimAddedEventArgs_Ptr is access all IESimAddedEventArgs;
+   type IESimDiscoverEvent_Interface;
+   type IESimDiscoverEvent is access all IESimDiscoverEvent_Interface'Class;
+   type IESimDiscoverEvent_Ptr is access all IESimDiscoverEvent;
+   type IESimDiscoverResult_Interface;
+   type IESimDiscoverResult is access all IESimDiscoverResult_Interface'Class;
+   type IESimDiscoverResult_Ptr is access all IESimDiscoverResult;
    type IESimDownloadProfileMetadataResult_Interface;
    type IESimDownloadProfileMetadataResult is access all IESimDownloadProfileMetadataResult_Interface'Class;
    type IESimDownloadProfileMetadataResult_Ptr is access all IESimDownloadProfileMetadataResult;
@@ -877,6 +906,9 @@ package Windows.Networking.NetworkOperators is
    type IHotspotCredentialsAuthenticationResult_Interface;
    type IHotspotCredentialsAuthenticationResult is access all IHotspotCredentialsAuthenticationResult_Interface'Class;
    type IHotspotCredentialsAuthenticationResult_Ptr is access all IHotspotCredentialsAuthenticationResult;
+   type IIterable_IESimDiscoverEvent_Interface;
+   type IIterable_IESimDiscoverEvent is access all IIterable_IESimDiscoverEvent_Interface'Class;
+   type IIterable_IESimDiscoverEvent_Ptr is access all IIterable_IESimDiscoverEvent;
    type IIterable_IESimProfile_Interface;
    type IIterable_IESimProfile is access all IIterable_IESimProfile_Interface'Class;
    type IIterable_IESimProfile_Ptr is access all IIterable_IESimProfile;
@@ -919,6 +951,9 @@ package Windows.Networking.NetworkOperators is
    type IIterable_MobileBroadbandPinType_Interface;
    type IIterable_MobileBroadbandPinType is access all IIterable_MobileBroadbandPinType_Interface'Class;
    type IIterable_MobileBroadbandPinType_Ptr is access all IIterable_MobileBroadbandPinType;
+   type IIterator_IESimDiscoverEvent_Interface;
+   type IIterator_IESimDiscoverEvent is access all IIterator_IESimDiscoverEvent_Interface'Class;
+   type IIterator_IESimDiscoverEvent_Ptr is access all IIterator_IESimDiscoverEvent;
    type IIterator_IESimProfile_Interface;
    type IIterator_IESimProfile is access all IIterator_IESimProfile_Interface'Class;
    type IIterator_IESimProfile_Ptr is access all IIterator_IESimProfile;
@@ -1198,6 +1233,9 @@ package Windows.Networking.NetworkOperators is
    type IUssdSessionStatics_Interface;
    type IUssdSessionStatics is access all IUssdSessionStatics_Interface'Class;
    type IUssdSessionStatics_Ptr is access all IUssdSessionStatics;
+   type IVectorView_IESimDiscoverEvent_Interface;
+   type IVectorView_IESimDiscoverEvent is access all IVectorView_IESimDiscoverEvent_Interface'Class;
+   type IVectorView_IESimDiscoverEvent_Ptr is access all IVectorView_IESimDiscoverEvent;
    type IVectorView_IESimProfile_Interface;
    type IVectorView_IESimProfile is access all IVectorView_IESimProfile_Interface'Class;
    type IVectorView_IESimProfile_Ptr is access all IVectorView_IESimProfile;
@@ -1244,6 +1282,33 @@ package Windows.Networking.NetworkOperators is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IESimDiscoverResult : aliased constant Windows.IID := (2214938697, 19280, 22069, (188, 201, 118, 39, 58, 60, 80, 7 ));
+   
+   type IAsyncOperation_IESimDiscoverResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IESimDiscoverResult_Interface
+      ; handler : Windows.Networking.NetworkOperators.AsyncOperationCompletedHandler_IESimDiscoverResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IESimDiscoverResult_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.AsyncOperationCompletedHandler_IESimDiscoverResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IESimDiscoverResult_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimDiscoverResult
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -1745,6 +1810,44 @@ package Windows.Networking.NetworkOperators is
    
    ------------------------------------------------------------------------
    
+   IID_IESim2 : aliased constant Windows.IID := (3176124576, 50831, 22251, (185, 155, 143, 52, 184, 16, 2, 153 ));
+   
+   type IESim2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Discover
+   (
+      This       : access IESim2_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimDiscoverResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DiscoverWithServerAddressAndMatchingId
+   (
+      This       : access IESim2_Interface
+      ; serverAddress : Windows.String
+      ; matchingId : Windows.String
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimDiscoverResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DiscoverAsync
+   (
+      This       : access IESim2_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IAsyncOperation_IESimDiscoverResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DiscoverWithServerAddressAndMatchingIdAsync
+   (
+      This       : access IESim2_Interface
+      ; serverAddress : Windows.String
+      ; matchingId : Windows.String
+      ; RetVal : access Windows.Networking.NetworkOperators.IAsyncOperation_IESimDiscoverResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IESimAddedEventArgs : aliased constant Windows.IID := (951913048, 19802, 19720, (141, 167, 231, 62, 255, 54, 157, 221 ));
    
    type IESimAddedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -1753,6 +1856,60 @@ package Windows.Networking.NetworkOperators is
    (
       This       : access IESimAddedEventArgs_Interface
       ; RetVal : access Windows.Networking.NetworkOperators.IESim
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IESimDiscoverEvent : aliased constant Windows.IID := (3852125155, 14780, 24431, (147, 33, 13, 74, 24, 45, 38, 27 ));
+   
+   type IESimDiscoverEvent_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_MatchingId
+   (
+      This       : access IESimDiscoverEvent_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RspServerAddress
+   (
+      This       : access IESimDiscoverEvent_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IESimDiscoverResult : aliased constant Windows.IID := (1454685022, 43823, 23238, (179, 89, 221, 90, 142, 35, 121, 38 ));
+   
+   type IESimDiscoverResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Events
+   (
+      This       : access IESimDiscoverResult_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IVectorView_IESimDiscoverEvent -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Kind
+   (
+      This       : access IESimDiscoverResult_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.ESimDiscoverResultKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ProfileMetadata
+   (
+      This       : access IESimDiscoverResult_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimProfileMetadata
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Result
+   (
+      This       : access IESimDiscoverResult_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimOperationResult
    )
    return Windows.HRESULT is abstract;
    
@@ -2360,6 +2517,19 @@ package Windows.Networking.NetworkOperators is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_IESimDiscoverEvent : aliased constant Windows.IID := (2203077651, 42007, 22017, (154, 219, 241, 255, 24, 41, 77, 201 ));
+   
+   type IIterable_IESimDiscoverEvent_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IESimDiscoverEvent_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IIterator_IESimDiscoverEvent
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterable_IESimProfile : aliased constant Windows.IID := (753196328, 20820, 22490, (142, 146, 193, 201, 201, 100, 66, 123 ));
    
    type IIterable_IESimProfile_Interface is interface and Windows.IInspectable_Interface;
@@ -2537,6 +2707,41 @@ package Windows.Networking.NetworkOperators is
    (
       This       : access IIterable_MobileBroadbandPinType_Interface
       ; RetVal : access Windows.Networking.NetworkOperators.IIterator_MobileBroadbandPinType
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IESimDiscoverEvent : aliased constant Windows.IID := (528625460, 45059, 21957, (176, 249, 137, 23, 67, 18, 140, 243 ));
+   
+   type IIterator_IESimDiscoverEvent_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IESimDiscoverEvent_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimDiscoverEvent
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IESimDiscoverEvent_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IESimDiscoverEvent_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IESimDiscoverEvent_Interface
+      ; items : Windows.Networking.NetworkOperators.IESimDiscoverEvent_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -5564,6 +5769,45 @@ package Windows.Networking.NetworkOperators is
    
    ------------------------------------------------------------------------
    
+   IID_IVectorView_IESimDiscoverEvent : aliased constant Windows.IID := (556233798, 50518, 24527, (141, 45, 242, 205, 6, 31, 38, 3 ));
+   
+   type IVectorView_IESimDiscoverEvent_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IESimDiscoverEvent_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Networking.NetworkOperators.IESimDiscoverEvent
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IESimDiscoverEvent_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IESimDiscoverEvent_Interface
+      ; value : Windows.Networking.NetworkOperators.IESimDiscoverEvent
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IESimDiscoverEvent_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Networking.NetworkOperators.IESimDiscoverEvent_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVectorView_IESimProfile : aliased constant Windows.IID := (3346461609, 28287, 20804, (137, 247, 143, 94, 193, 22, 91, 164 ));
    
    type IVectorView_IESimProfile_Interface is interface and Windows.IInspectable_Interface;
@@ -6114,6 +6358,19 @@ package Windows.Networking.NetworkOperators is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IESimDiscoverResult : aliased constant Windows.IID := (3847919519, 2148, 23069, (186, 132, 88, 61, 212, 132, 183, 53 ));
+   
+   type AsyncOperationCompletedHandler_IESimDiscoverResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IESimDiscoverResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IESimDiscoverResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IESimDiscoverResult_Interface
+      ; asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IESimDiscoverResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult : aliased constant Windows.IID := (2148349334, 64267, 20506, (189, 166, 128, 36, 9, 193, 234, 34 ));
    
    type AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult_Interface(Callback : access procedure (asyncInfo : Windows.Networking.NetworkOperators.IAsyncOperation_IESimDownloadProfileMetadataResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IESimDownloadProfileMetadataResult'access) with null record;
@@ -6508,6 +6765,8 @@ package Windows.Networking.NetworkOperators is
    
    subtype ESim is Windows.Networking.NetworkOperators.IESim;
    subtype ESimAddedEventArgs is Windows.Networking.NetworkOperators.IESimAddedEventArgs;
+   subtype ESimDiscoverEvent is Windows.Networking.NetworkOperators.IESimDiscoverEvent;
+   subtype ESimDiscoverResult is Windows.Networking.NetworkOperators.IESimDiscoverResult;
    subtype ESimDownloadProfileMetadataResult is Windows.Networking.NetworkOperators.IESimDownloadProfileMetadataResult;
    subtype ESimOperationResult is Windows.Networking.NetworkOperators.IESimOperationResult;
    subtype ESimPolicy is Windows.Networking.NetworkOperators.IESimPolicy;

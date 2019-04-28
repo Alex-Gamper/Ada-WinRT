@@ -27,6 +27,7 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Storage;
+with Windows.System;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Storage.AccessCache is
@@ -88,6 +89,46 @@ package body Windows.Storage.AccessCache is
       Hr := RoGetActivationFactory(m_hString, IID_IStorageApplicationPermissionsStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.get_MostRecentlyUsedList(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetFutureAccessListForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Storage.AccessCache.IStorageItemAccessList is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.AccessCache.StorageApplicationPermissions");
+      m_Factory     : IStorageApplicationPermissionsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.AccessCache.IStorageItemAccessList;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorageApplicationPermissionsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetFutureAccessListForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetMostRecentlyUsedListForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.AccessCache.StorageApplicationPermissions");
+      m_Factory     : IStorageApplicationPermissionsStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorageApplicationPermissionsStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetMostRecentlyUsedListForUser(user, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -207,6 +207,12 @@ package Windows.AI.MachineLearning is
    type ILearningModelSessionFactory_Interface;
    type ILearningModelSessionFactory is access all ILearningModelSessionFactory_Interface'Class;
    type ILearningModelSessionFactory_Ptr is access all ILearningModelSessionFactory;
+   type ILearningModelSessionFactory2_Interface;
+   type ILearningModelSessionFactory2 is access all ILearningModelSessionFactory2_Interface'Class;
+   type ILearningModelSessionFactory2_Ptr is access all ILearningModelSessionFactory2;
+   type ILearningModelSessionOptions_Interface;
+   type ILearningModelSessionOptions is access all ILearningModelSessionOptions_Interface'Class;
+   type ILearningModelSessionOptions_Ptr is access all ILearningModelSessionOptions;
    type ILearningModelStatics_Interface;
    type ILearningModelStatics is access all ILearningModelStatics_Interface'Class;
    type ILearningModelStatics_Ptr is access all ILearningModelStatics;
@@ -234,12 +240,18 @@ package Windows.AI.MachineLearning is
    type ITensorBooleanStatics_Interface;
    type ITensorBooleanStatics is access all ITensorBooleanStatics_Interface'Class;
    type ITensorBooleanStatics_Ptr is access all ITensorBooleanStatics;
+   type ITensorBooleanStatics2_Interface;
+   type ITensorBooleanStatics2 is access all ITensorBooleanStatics2_Interface'Class;
+   type ITensorBooleanStatics2_Ptr is access all ITensorBooleanStatics2;
    type ITensorDouble_Interface;
    type ITensorDouble is access all ITensorDouble_Interface'Class;
    type ITensorDouble_Ptr is access all ITensorDouble;
    type ITensorDoubleStatics_Interface;
    type ITensorDoubleStatics is access all ITensorDoubleStatics_Interface'Class;
    type ITensorDoubleStatics_Ptr is access all ITensorDoubleStatics;
+   type ITensorDoubleStatics2_Interface;
+   type ITensorDoubleStatics2 is access all ITensorDoubleStatics2_Interface'Class;
+   type ITensorDoubleStatics2_Ptr is access all ITensorDoubleStatics2;
    type ITensorFeatureDescriptor_Interface;
    type ITensorFeatureDescriptor is access all ITensorFeatureDescriptor_Interface'Class;
    type ITensorFeatureDescriptor_Ptr is access all ITensorFeatureDescriptor;
@@ -252,63 +264,96 @@ package Windows.AI.MachineLearning is
    type ITensorFloat16BitStatics_Interface;
    type ITensorFloat16BitStatics is access all ITensorFloat16BitStatics_Interface'Class;
    type ITensorFloat16BitStatics_Ptr is access all ITensorFloat16BitStatics;
+   type ITensorFloat16BitStatics2_Interface;
+   type ITensorFloat16BitStatics2 is access all ITensorFloat16BitStatics2_Interface'Class;
+   type ITensorFloat16BitStatics2_Ptr is access all ITensorFloat16BitStatics2;
    type ITensorFloatStatics_Interface;
    type ITensorFloatStatics is access all ITensorFloatStatics_Interface'Class;
    type ITensorFloatStatics_Ptr is access all ITensorFloatStatics;
+   type ITensorFloatStatics2_Interface;
+   type ITensorFloatStatics2 is access all ITensorFloatStatics2_Interface'Class;
+   type ITensorFloatStatics2_Ptr is access all ITensorFloatStatics2;
    type ITensorInt16Bit_Interface;
    type ITensorInt16Bit is access all ITensorInt16Bit_Interface'Class;
    type ITensorInt16Bit_Ptr is access all ITensorInt16Bit;
    type ITensorInt16BitStatics_Interface;
    type ITensorInt16BitStatics is access all ITensorInt16BitStatics_Interface'Class;
    type ITensorInt16BitStatics_Ptr is access all ITensorInt16BitStatics;
+   type ITensorInt16BitStatics2_Interface;
+   type ITensorInt16BitStatics2 is access all ITensorInt16BitStatics2_Interface'Class;
+   type ITensorInt16BitStatics2_Ptr is access all ITensorInt16BitStatics2;
    type ITensorInt32Bit_Interface;
    type ITensorInt32Bit is access all ITensorInt32Bit_Interface'Class;
    type ITensorInt32Bit_Ptr is access all ITensorInt32Bit;
    type ITensorInt32BitStatics_Interface;
    type ITensorInt32BitStatics is access all ITensorInt32BitStatics_Interface'Class;
    type ITensorInt32BitStatics_Ptr is access all ITensorInt32BitStatics;
+   type ITensorInt32BitStatics2_Interface;
+   type ITensorInt32BitStatics2 is access all ITensorInt32BitStatics2_Interface'Class;
+   type ITensorInt32BitStatics2_Ptr is access all ITensorInt32BitStatics2;
    type ITensorInt64Bit_Interface;
    type ITensorInt64Bit is access all ITensorInt64Bit_Interface'Class;
    type ITensorInt64Bit_Ptr is access all ITensorInt64Bit;
    type ITensorInt64BitStatics_Interface;
    type ITensorInt64BitStatics is access all ITensorInt64BitStatics_Interface'Class;
    type ITensorInt64BitStatics_Ptr is access all ITensorInt64BitStatics;
+   type ITensorInt64BitStatics2_Interface;
+   type ITensorInt64BitStatics2 is access all ITensorInt64BitStatics2_Interface'Class;
+   type ITensorInt64BitStatics2_Ptr is access all ITensorInt64BitStatics2;
    type ITensorInt8Bit_Interface;
    type ITensorInt8Bit is access all ITensorInt8Bit_Interface'Class;
    type ITensorInt8Bit_Ptr is access all ITensorInt8Bit;
    type ITensorInt8BitStatics_Interface;
    type ITensorInt8BitStatics is access all ITensorInt8BitStatics_Interface'Class;
    type ITensorInt8BitStatics_Ptr is access all ITensorInt8BitStatics;
+   type ITensorInt8BitStatics2_Interface;
+   type ITensorInt8BitStatics2 is access all ITensorInt8BitStatics2_Interface'Class;
+   type ITensorInt8BitStatics2_Ptr is access all ITensorInt8BitStatics2;
    type ITensorString_Interface;
    type ITensorString is access all ITensorString_Interface'Class;
    type ITensorString_Ptr is access all ITensorString;
    type ITensorStringStatics_Interface;
    type ITensorStringStatics is access all ITensorStringStatics_Interface'Class;
    type ITensorStringStatics_Ptr is access all ITensorStringStatics;
+   type ITensorStringStatics2_Interface;
+   type ITensorStringStatics2 is access all ITensorStringStatics2_Interface'Class;
+   type ITensorStringStatics2_Ptr is access all ITensorStringStatics2;
    type ITensorUInt16Bit_Interface;
    type ITensorUInt16Bit is access all ITensorUInt16Bit_Interface'Class;
    type ITensorUInt16Bit_Ptr is access all ITensorUInt16Bit;
    type ITensorUInt16BitStatics_Interface;
    type ITensorUInt16BitStatics is access all ITensorUInt16BitStatics_Interface'Class;
    type ITensorUInt16BitStatics_Ptr is access all ITensorUInt16BitStatics;
+   type ITensorUInt16BitStatics2_Interface;
+   type ITensorUInt16BitStatics2 is access all ITensorUInt16BitStatics2_Interface'Class;
+   type ITensorUInt16BitStatics2_Ptr is access all ITensorUInt16BitStatics2;
    type ITensorUInt32Bit_Interface;
    type ITensorUInt32Bit is access all ITensorUInt32Bit_Interface'Class;
    type ITensorUInt32Bit_Ptr is access all ITensorUInt32Bit;
    type ITensorUInt32BitStatics_Interface;
    type ITensorUInt32BitStatics is access all ITensorUInt32BitStatics_Interface'Class;
    type ITensorUInt32BitStatics_Ptr is access all ITensorUInt32BitStatics;
+   type ITensorUInt32BitStatics2_Interface;
+   type ITensorUInt32BitStatics2 is access all ITensorUInt32BitStatics2_Interface'Class;
+   type ITensorUInt32BitStatics2_Ptr is access all ITensorUInt32BitStatics2;
    type ITensorUInt64Bit_Interface;
    type ITensorUInt64Bit is access all ITensorUInt64Bit_Interface'Class;
    type ITensorUInt64Bit_Ptr is access all ITensorUInt64Bit;
    type ITensorUInt64BitStatics_Interface;
    type ITensorUInt64BitStatics is access all ITensorUInt64BitStatics_Interface'Class;
    type ITensorUInt64BitStatics_Ptr is access all ITensorUInt64BitStatics;
+   type ITensorUInt64BitStatics2_Interface;
+   type ITensorUInt64BitStatics2 is access all ITensorUInt64BitStatics2_Interface'Class;
+   type ITensorUInt64BitStatics2_Ptr is access all ITensorUInt64BitStatics2;
    type ITensorUInt8Bit_Interface;
    type ITensorUInt8Bit is access all ITensorUInt8Bit_Interface'Class;
    type ITensorUInt8Bit_Ptr is access all ITensorUInt8Bit;
    type ITensorUInt8BitStatics_Interface;
    type ITensorUInt8BitStatics is access all ITensorUInt8BitStatics_Interface'Class;
    type ITensorUInt8BitStatics_Ptr is access all ITensorUInt8BitStatics;
+   type ITensorUInt8BitStatics2_Interface;
+   type ITensorUInt8BitStatics2 is access all ITensorUInt8BitStatics2_Interface'Class;
+   type ITensorUInt8BitStatics2_Ptr is access all ITensorUInt8BitStatics2;
    type IVectorView_ILearningModelFeatureDescriptor_Interface;
    type IVectorView_ILearningModelFeatureDescriptor is access all IVectorView_ILearningModelFeatureDescriptor_Interface'Class;
    type IVectorView_ILearningModelFeatureDescriptor_Ptr is access all IVectorView_ILearningModelFeatureDescriptor;
@@ -847,6 +892,42 @@ package Windows.AI.MachineLearning is
    
    ------------------------------------------------------------------------
    
+   IID_ILearningModelSessionFactory2 : aliased constant Windows.IID := (1314687167, 2591, 24556, (173, 224, 47, 217, 30, 78, 242, 155 ));
+   
+   type ILearningModelSessionFactory2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromModelOnDeviceWithSessionOptions
+   (
+      This       : access ILearningModelSessionFactory2_Interface
+      ; model : Windows.AI.MachineLearning.ILearningModel
+      ; deviceToRunOn : Windows.AI.MachineLearning.ILearningModelDevice
+      ; learningModelSessionOptions : Windows.AI.MachineLearning.ILearningModelSessionOptions
+      ; RetVal : access Windows.AI.MachineLearning.ILearningModelSession
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILearningModelSessionOptions : aliased constant Windows.IID := (3103145889, 4941, 20787, (140, 255, 58, 92, 60, 38, 59, 235 ));
+   
+   type ILearningModelSessionOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BatchSizeOverride
+   (
+      This       : access ILearningModelSessionOptions_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_BatchSizeOverride
+   (
+      This       : access ILearningModelSessionOptions_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ILearningModelStatics : aliased constant Windows.IID := (3820582888, 26962, 20039, (142, 244, 31, 127, 7, 137, 124, 109 ));
    
    type ILearningModelStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -1179,6 +1260,30 @@ package Windows.AI.MachineLearning is
    
    ------------------------------------------------------------------------
    
+   IID_ITensorBooleanStatics2 : aliased constant Windows.IID := (2745476353, 27181, 21207, (176, 75, 196, 53, 186, 238, 1, 21 ));
+   
+   type ITensorBooleanStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      This       : access ITensorBooleanStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; data : Windows.Boolean_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorBoolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromBuffer
+   (
+      This       : access ITensorBooleanStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.AI.MachineLearning.ITensorBoolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITensorDouble : aliased constant Windows.IID := (2447643218, 31375, 20238, (162, 143, 150, 55, 255, 200, 163, 208 ));
    
    type ITensorDouble_Interface is interface and Windows.IInspectable_Interface;
@@ -1225,6 +1330,30 @@ package Windows.AI.MachineLearning is
       This       : access ITensorDoubleStatics_Interface
       ; shape : Windows.Foundation.Collections.IIterable_Int64
       ; data : Windows.Foundation.Collections.IIterable_Double
+      ; RetVal : access Windows.AI.MachineLearning.ITensorDouble
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorDoubleStatics2 : aliased constant Windows.IID := (2477093086, 24218, 20628, (133, 200, 89, 44, 101, 94, 104, 172 ));
+   
+   type ITensorDoubleStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      This       : access ITensorDoubleStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; data : Windows.Double_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorDouble
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromBuffer
+   (
+      This       : access ITensorDoubleStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
       ; RetVal : access Windows.AI.MachineLearning.ITensorDouble
    )
    return Windows.HRESULT is abstract;
@@ -1316,6 +1445,30 @@ package Windows.AI.MachineLearning is
    
    ------------------------------------------------------------------------
    
+   IID_ITensorFloat16BitStatics2 : aliased constant Windows.IID := (1750357798, 11719, 20927, (180, 112, 11, 52, 76, 194, 161, 188 ));
+   
+   type ITensorFloat16BitStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      This       : access ITensorFloat16BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; data : Windows.Single_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorFloat16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromBuffer
+   (
+      This       : access ITensorFloat16BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.AI.MachineLearning.ITensorFloat16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITensorFloatStatics : aliased constant Windows.IID := (3687659867, 15267, 17711, (177, 13, 60, 19, 94, 87, 63, 169 ));
    
    type ITensorFloatStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -1349,6 +1502,30 @@ package Windows.AI.MachineLearning is
       This       : access ITensorFloatStatics_Interface
       ; shape : Windows.Foundation.Collections.IIterable_Int64
       ; data : Windows.Foundation.Collections.IIterable_Single
+      ; RetVal : access Windows.AI.MachineLearning.ITensorFloat
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorFloatStatics2 : aliased constant Windows.IID := (610339777, 24132, 22291, (178, 129, 143, 74, 212, 213, 85, 232 ));
+   
+   type ITensorFloatStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      This       : access ITensorFloatStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; data : Windows.Single_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorFloat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromBuffer
+   (
+      This       : access ITensorFloatStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
       ; RetVal : access Windows.AI.MachineLearning.ITensorFloat
    )
    return Windows.HRESULT is abstract;
@@ -1407,6 +1584,30 @@ package Windows.AI.MachineLearning is
    
    ------------------------------------------------------------------------
    
+   IID_ITensorInt16BitStatics2 : aliased constant Windows.IID := (215420148, 26988, 24159, (149, 216, 94, 191, 150, 112, 20, 139 ));
+   
+   type ITensorInt16BitStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      This       : access ITensorInt16BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; data : Windows.Int16_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromBuffer
+   (
+      This       : access ITensorInt16BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITensorInt32Bit : aliased constant Windows.IID := (738994387, 8316, 17542, (167, 210, 136, 69, 34, 197, 229, 137 ));
    
    type ITensorInt32Bit_Interface is interface and Windows.IInspectable_Interface;
@@ -1453,6 +1654,30 @@ package Windows.AI.MachineLearning is
       This       : access ITensorInt32BitStatics_Interface
       ; shape : Windows.Foundation.Collections.IIterable_Int64
       ; data : Windows.Foundation.Collections.IIterable_Int32
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt32Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorInt32BitStatics2 : aliased constant Windows.IID := (2085291930, 59734, 23776, (163, 189, 21, 125, 157, 121, 181, 236 ));
+   
+   type ITensorInt32BitStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      This       : access ITensorInt32BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; data : Windows.Int32_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt32Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromBuffer
+   (
+      This       : access ITensorInt32BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
       ; RetVal : access Windows.AI.MachineLearning.ITensorInt32Bit
    )
    return Windows.HRESULT is abstract;
@@ -1511,6 +1736,30 @@ package Windows.AI.MachineLearning is
    
    ------------------------------------------------------------------------
    
+   IID_ITensorInt64BitStatics2 : aliased constant Windows.IID := (1832754635, 65344, 24258, (137, 254, 8, 78, 43, 107, 198, 219 ));
+   
+   type ITensorInt64BitStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      This       : access ITensorInt64BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; data : Windows.Int64_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt64Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromBuffer
+   (
+      This       : access ITensorInt64BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt64Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITensorInt8Bit : aliased constant Windows.IID := (3453851589, 65496, 20463, (174, 251, 48, 225, 164, 133, 178, 238 ));
    
    type ITensorInt8Bit_Interface is interface and Windows.IInspectable_Interface;
@@ -1557,6 +1806,30 @@ package Windows.AI.MachineLearning is
       This       : access ITensorInt8BitStatics_Interface
       ; shape : Windows.Foundation.Collections.IIterable_Int64
       ; data : Windows.Foundation.Collections.IIterable_UInt8
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt8Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorInt8BitStatics2 : aliased constant Windows.IID := (3235223095, 50280, 22267, (149, 53, 192, 82, 189, 185, 61, 192 ));
+   
+   type ITensorInt8BitStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      This       : access ITensorInt8BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; data : Windows.UInt8_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorInt8Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromBuffer
+   (
+      This       : access ITensorInt8BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
       ; RetVal : access Windows.AI.MachineLearning.ITensorInt8Bit
    )
    return Windows.HRESULT is abstract;
@@ -1615,6 +1888,21 @@ package Windows.AI.MachineLearning is
    
    ------------------------------------------------------------------------
    
+   IID_ITensorStringStatics2 : aliased constant Windows.IID := (2654297808, 51426, 21076, (145, 55, 1, 147, 163, 102, 143, 216 ));
+   
+   type ITensorStringStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      This       : access ITensorStringStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; data : Windows.String_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorString
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITensorUInt16Bit : aliased constant Windows.IID := (1746145099, 9152, 17139, (129, 246, 168, 145, 192, 17, 188, 63 ));
    
    type ITensorUInt16Bit_Interface is interface and Windows.IInspectable_Interface;
@@ -1661,6 +1949,30 @@ package Windows.AI.MachineLearning is
       This       : access ITensorUInt16BitStatics_Interface
       ; shape : Windows.Foundation.Collections.IIterable_Int64
       ; data : Windows.Foundation.Collections.IIterable_UInt16
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorUInt16BitStatics2 : aliased constant Windows.IID := (2331249764, 54943, 21269, (147, 72, 73, 8, 119, 187, 214, 66 ));
+   
+   type ITensorUInt16BitStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      This       : access ITensorUInt16BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; data : Windows.UInt16_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt16Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromBuffer
+   (
+      This       : access ITensorUInt16BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
       ; RetVal : access Windows.AI.MachineLearning.ITensorUInt16Bit
    )
    return Windows.HRESULT is abstract;
@@ -1719,6 +2031,30 @@ package Windows.AI.MachineLearning is
    
    ------------------------------------------------------------------------
    
+   IID_ITensorUInt32BitStatics2 : aliased constant Windows.IID := (4011466524, 12622, 22173, (180, 150, 92, 132, 71, 210, 12, 210 ));
+   
+   type ITensorUInt32BitStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      This       : access ITensorUInt32BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; data : Windows.UInt32_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt32Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromBuffer
+   (
+      This       : access ITensorUInt32BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt32Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITensorUInt64Bit : aliased constant Windows.IID := (779157421, 1215, 18469, (131, 154, 130, 186, 239, 140, 120, 134 ));
    
    type ITensorUInt64Bit_Interface is interface and Windows.IInspectable_Interface;
@@ -1771,6 +2107,30 @@ package Windows.AI.MachineLearning is
    
    ------------------------------------------------------------------------
    
+   IID_ITensorUInt64BitStatics2 : aliased constant Windows.IID := (140142717, 26593, 23326, (178, 50, 79, 171, 233, 202, 32, 179 ));
+   
+   type ITensorUInt64BitStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      This       : access ITensorUInt64BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; data : Windows.UInt64_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt64Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromBuffer
+   (
+      This       : access ITensorUInt64BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt64Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITensorUInt8Bit : aliased constant Windows.IID := (1491185191, 25131, 18659, (190, 34, 216, 103, 174, 209, 218, 172 ));
    
    type ITensorUInt8Bit_Interface is interface and Windows.IInspectable_Interface;
@@ -1817,6 +2177,30 @@ package Windows.AI.MachineLearning is
       This       : access ITensorUInt8BitStatics_Interface
       ; shape : Windows.Foundation.Collections.IIterable_Int64
       ; data : Windows.Foundation.Collections.IIterable_UInt8
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt8Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITensorUInt8BitStatics2 : aliased constant Windows.IID := (731923158, 14142, 23098, (162, 252, 166, 196, 27, 213, 39, 137 ));
+   
+   type ITensorUInt8BitStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      This       : access ITensorUInt8BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; data : Windows.UInt8_Ptr
+      ; RetVal : access Windows.AI.MachineLearning.ITensorUInt8Bit
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateFromBuffer
+   (
+      This       : access ITensorUInt8BitStatics2_Interface
+      ; shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
       ; RetVal : access Windows.AI.MachineLearning.ITensorUInt8Bit
    )
    return Windows.HRESULT is abstract;
@@ -1913,6 +2297,14 @@ package Windows.AI.MachineLearning is
    
    subtype LearningModelEvaluationResult is Windows.AI.MachineLearning.ILearningModelEvaluationResult;
    subtype LearningModelSession is Windows.AI.MachineLearning.ILearningModelSession;
+   function CreateFromModelOnDeviceWithSessionOptions
+   (
+      model : Windows.AI.MachineLearning.ILearningModel
+      ; deviceToRunOn : Windows.AI.MachineLearning.ILearningModelDevice
+      ; learningModelSessionOptions : Windows.AI.MachineLearning.ILearningModelSessionOptions
+   )
+   return Windows.AI.MachineLearning.ILearningModelSession;
+   
    function CreateFromModel
    (
       model : Windows.AI.MachineLearning.ILearningModel
@@ -1925,6 +2317,9 @@ package Windows.AI.MachineLearning is
       ; deviceToRunOn : Windows.AI.MachineLearning.ILearningModelDevice
    )
    return Windows.AI.MachineLearning.ILearningModelSession;
+   
+   subtype LearningModelSessionOptions is Windows.AI.MachineLearning.ILearningModelSessionOptions;
+   function Create return Windows.AI.MachineLearning.ILearningModelSessionOptions;
    
    subtype MapFeatureDescriptor is Windows.AI.MachineLearning.IMapFeatureDescriptor;
    subtype SequenceFeatureDescriptor is Windows.AI.MachineLearning.ISequenceFeatureDescriptor;
@@ -2034,6 +2429,20 @@ package Windows.AI.MachineLearning is
    )
    return Windows.AI.MachineLearning.ITensorBoolean;
    
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorBoolean;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.Boolean_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorBoolean;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorDouble;
    
@@ -2057,6 +2466,20 @@ package Windows.AI.MachineLearning is
    )
    return Windows.AI.MachineLearning.ITensorDouble;
    
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorDouble;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.Double_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorDouble;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorFloat;
    
@@ -2080,6 +2503,20 @@ package Windows.AI.MachineLearning is
    )
    return Windows.AI.MachineLearning.ITensorFloat;
    
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorFloat;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.Single_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorFloat;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorFloat16Bit;
    
@@ -2100,6 +2537,20 @@ package Windows.AI.MachineLearning is
    (
       shape : Windows.Foundation.Collections.IIterable_Int64
       ; data : Windows.Foundation.Collections.IIterable_Single
+   )
+   return Windows.AI.MachineLearning.ITensorFloat16Bit;
+   
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorFloat16Bit;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.Single_Ptr
    )
    return Windows.AI.MachineLearning.ITensorFloat16Bit;
    
@@ -2126,6 +2577,20 @@ package Windows.AI.MachineLearning is
    )
    return Windows.AI.MachineLearning.ITensorInt16Bit;
    
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorInt16Bit;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.Int16_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorInt16Bit;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorInt32Bit;
    
@@ -2146,6 +2611,20 @@ package Windows.AI.MachineLearning is
    (
       shape : Windows.Foundation.Collections.IIterable_Int64
       ; data : Windows.Foundation.Collections.IIterable_Int32
+   )
+   return Windows.AI.MachineLearning.ITensorInt32Bit;
+   
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorInt32Bit;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.Int32_Ptr
    )
    return Windows.AI.MachineLearning.ITensorInt32Bit;
    
@@ -2172,6 +2651,20 @@ package Windows.AI.MachineLearning is
    )
    return Windows.AI.MachineLearning.ITensorInt64Bit;
    
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorInt64Bit;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.Int64_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorInt64Bit;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorInt8Bit;
    
@@ -2192,6 +2685,20 @@ package Windows.AI.MachineLearning is
    (
       shape : Windows.Foundation.Collections.IIterable_Int64
       ; data : Windows.Foundation.Collections.IIterable_UInt8
+   )
+   return Windows.AI.MachineLearning.ITensorInt8Bit;
+   
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorInt8Bit;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.UInt8_Ptr
    )
    return Windows.AI.MachineLearning.ITensorInt8Bit;
    
@@ -2218,6 +2725,13 @@ package Windows.AI.MachineLearning is
    )
    return Windows.AI.MachineLearning.ITensorString;
    
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.String_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorString;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorUInt16Bit;
    
@@ -2238,6 +2752,20 @@ package Windows.AI.MachineLearning is
    (
       shape : Windows.Foundation.Collections.IIterable_Int64
       ; data : Windows.Foundation.Collections.IIterable_UInt16
+   )
+   return Windows.AI.MachineLearning.ITensorUInt16Bit;
+   
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorUInt16Bit;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.UInt16_Ptr
    )
    return Windows.AI.MachineLearning.ITensorUInt16Bit;
    
@@ -2264,6 +2792,20 @@ package Windows.AI.MachineLearning is
    )
    return Windows.AI.MachineLearning.ITensorUInt32Bit;
    
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorUInt32Bit;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.UInt32_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorUInt32Bit;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorUInt64Bit;
    
@@ -2287,6 +2829,20 @@ package Windows.AI.MachineLearning is
    )
    return Windows.AI.MachineLearning.ITensorUInt64Bit;
    
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorUInt64Bit;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.UInt64_Ptr
+   )
+   return Windows.AI.MachineLearning.ITensorUInt64Bit;
+   
    function Create
    return Windows.AI.MachineLearning.ITensorUInt8Bit;
    
@@ -2307,6 +2863,20 @@ package Windows.AI.MachineLearning is
    (
       shape : Windows.Foundation.Collections.IIterable_Int64
       ; data : Windows.Foundation.Collections.IIterable_UInt8
+   )
+   return Windows.AI.MachineLearning.ITensorUInt8Bit;
+   
+   function CreateFromBuffer
+   (
+      shape : Windows.Int64_Ptr
+      ; buffer : Windows.Storage.Streams.IBuffer
+   )
+   return Windows.AI.MachineLearning.ITensorUInt8Bit;
+   
+   function CreateFromShapeArrayAndDataArray
+   (
+      shape : Windows.Int64_Ptr
+      ; data : Windows.UInt8_Ptr
    )
    return Windows.AI.MachineLearning.ITensorUInt8Bit;
    

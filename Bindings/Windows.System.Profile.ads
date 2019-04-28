@@ -84,6 +84,18 @@ package Windows.System.Profile is
    
    type SystemOutOfBoxExperienceState_Ptr is access SystemOutOfBoxExperienceState;
    
+   type UnsupportedAppRequirementReasons is (
+      Unknown,
+      DeniedBySystem
+   );
+   for UnsupportedAppRequirementReasons use (
+      Unknown => 0,
+      DeniedBySystem => 1
+   );
+   for UnsupportedAppRequirementReasons'Size use 32;
+   
+   type UnsupportedAppRequirementReasons_Ptr is access UnsupportedAppRequirementReasons;
+   
    ------------------------------------------------------------------------
    -- Record types
    ------------------------------------------------------------------------
@@ -116,6 +128,9 @@ package Windows.System.Profile is
    type IAnalyticsVersionInfo_Interface;
    type IAnalyticsVersionInfo is access all IAnalyticsVersionInfo_Interface'Class;
    type IAnalyticsVersionInfo_Ptr is access all IAnalyticsVersionInfo;
+   type IAppApplicabilityStatics_Interface;
+   type IAppApplicabilityStatics is access all IAppApplicabilityStatics_Interface'Class;
+   type IAppApplicabilityStatics_Ptr is access all IAppApplicabilityStatics;
    type IEducationSettingsStatics_Interface;
    type IEducationSettingsStatics is access all IEducationSettingsStatics_Interface'Class;
    type IEducationSettingsStatics_Ptr is access all IEducationSettingsStatics;
@@ -125,6 +140,12 @@ package Windows.System.Profile is
    type IHardwareToken_Interface;
    type IHardwareToken is access all IHardwareToken_Interface'Class;
    type IHardwareToken_Ptr is access all IHardwareToken;
+   type IIterable_IUnsupportedAppRequirement_Interface;
+   type IIterable_IUnsupportedAppRequirement is access all IIterable_IUnsupportedAppRequirement_Interface'Class;
+   type IIterable_IUnsupportedAppRequirement_Ptr is access all IIterable_IUnsupportedAppRequirement;
+   type IIterator_IUnsupportedAppRequirement_Interface;
+   type IIterator_IUnsupportedAppRequirement is access all IIterator_IUnsupportedAppRequirement_Interface'Class;
+   type IIterator_IUnsupportedAppRequirement_Ptr is access all IIterator_IUnsupportedAppRequirement;
    type IKnownRetailInfoPropertiesStatics_Interface;
    type IKnownRetailInfoPropertiesStatics is access all IKnownRetailInfoPropertiesStatics_Interface'Class;
    type IKnownRetailInfoPropertiesStatics_Ptr is access all IKnownRetailInfoPropertiesStatics;
@@ -149,6 +170,12 @@ package Windows.System.Profile is
    type ISystemSetupInfoStatics_Interface;
    type ISystemSetupInfoStatics is access all ISystemSetupInfoStatics_Interface'Class;
    type ISystemSetupInfoStatics_Ptr is access all ISystemSetupInfoStatics;
+   type IUnsupportedAppRequirement_Interface;
+   type IUnsupportedAppRequirement is access all IUnsupportedAppRequirement_Interface'Class;
+   type IUnsupportedAppRequirement_Ptr is access all IUnsupportedAppRequirement;
+   type IVectorView_IUnsupportedAppRequirement_Interface;
+   type IVectorView_IUnsupportedAppRequirement is access all IVectorView_IUnsupportedAppRequirement_Interface'Class;
+   type IVectorView_IUnsupportedAppRequirement_Ptr is access all IVectorView_IUnsupportedAppRequirement;
    type IWindowsIntegrityPolicyStatics_Interface;
    type IWindowsIntegrityPolicyStatics is access all IWindowsIntegrityPolicyStatics_Interface'Class;
    type IWindowsIntegrityPolicyStatics_Ptr is access all IWindowsIntegrityPolicyStatics;
@@ -213,6 +240,20 @@ package Windows.System.Profile is
    
    ------------------------------------------------------------------------
    
+   IID_IAppApplicabilityStatics : aliased constant Windows.IID := (375693442, 3896, 23705, (131, 228, 72, 153, 89, 112, 134, 28 ));
+   
+   type IAppApplicabilityStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetUnsupportedAppRequirements
+   (
+      This       : access IAppApplicabilityStatics_Interface
+      ; capabilities : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.System.Profile.IVectorView_IUnsupportedAppRequirement -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IEducationSettingsStatics : aliased constant Windows.IID := (4233359599, 19774, 19987, (155, 35, 80, 95, 77, 9, 30, 146 ));
    
    type IEducationSettingsStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -262,6 +303,54 @@ package Windows.System.Profile is
    (
       This       : access IHardwareToken_Interface
       ; RetVal : access Windows.Storage.Streams.IBuffer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IUnsupportedAppRequirement : aliased constant Windows.IID := (3181243677, 889, 20803, (164, 144, 22, 139, 107, 132, 19, 163 ));
+   
+   type IIterable_IUnsupportedAppRequirement_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IUnsupportedAppRequirement_Interface
+      ; RetVal : access Windows.System.Profile.IIterator_IUnsupportedAppRequirement
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IUnsupportedAppRequirement : aliased constant Windows.IID := (278225248, 25655, 21552, (147, 34, 223, 13, 106, 178, 235, 230 ));
+   
+   type IIterator_IUnsupportedAppRequirement_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IUnsupportedAppRequirement_Interface
+      ; RetVal : access Windows.System.Profile.IUnsupportedAppRequirement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IUnsupportedAppRequirement_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IUnsupportedAppRequirement_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IUnsupportedAppRequirement_Interface
+      ; items : Windows.System.Profile.IUnsupportedAppRequirement_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -578,6 +667,65 @@ package Windows.System.Profile is
    
    ------------------------------------------------------------------------
    
+   IID_IUnsupportedAppRequirement : aliased constant Windows.IID := (1635927132, 35147, 23740, (137, 118, 169, 142, 10, 155, 153, 141 ));
+   
+   type IUnsupportedAppRequirement_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Requirement
+   (
+      This       : access IUnsupportedAppRequirement_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Reasons
+   (
+      This       : access IUnsupportedAppRequirement_Interface
+      ; RetVal : access Windows.System.Profile.UnsupportedAppRequirementReasons
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IUnsupportedAppRequirement : aliased constant Windows.IID := (1533250648, 40196, 23834, (146, 251, 134, 8, 82, 195, 228, 208 ));
+   
+   type IVectorView_IUnsupportedAppRequirement_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IUnsupportedAppRequirement_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.System.Profile.IUnsupportedAppRequirement
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IUnsupportedAppRequirement_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IUnsupportedAppRequirement_Interface
+      ; value : Windows.System.Profile.IUnsupportedAppRequirement
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IUnsupportedAppRequirement_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.System.Profile.IUnsupportedAppRequirement_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IWindowsIntegrityPolicyStatics : aliased constant Windows.IID := (2099085787, 36195, 18313, (158, 165, 221, 207, 101, 169, 79, 60 ));
    
    type IWindowsIntegrityPolicyStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -632,6 +780,7 @@ package Windows.System.Profile is
    subtype AnalyticsVersionInfo is Windows.System.Profile.IAnalyticsVersionInfo;
    subtype HardwareToken is Windows.System.Profile.IHardwareToken;
    subtype SystemIdentificationInfo is Windows.System.Profile.ISystemIdentificationInfo;
+   subtype UnsupportedAppRequirement is Windows.System.Profile.IUnsupportedAppRequirement;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
@@ -648,6 +797,12 @@ package Windows.System.Profile is
       attributeNames : Windows.Foundation.Collections.IIterable_String
    )
    return Windows.Address;
+   
+   function GetUnsupportedAppRequirements
+   (
+      capabilities : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.System.Profile.IVectorView_IUnsupportedAppRequirement;
    
    function get_IsEducationEnvironment
    return Windows.Boolean;

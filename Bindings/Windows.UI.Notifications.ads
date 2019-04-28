@@ -578,6 +578,9 @@ package Windows.UI.Notifications is
    type IToastActivatedEventArgs_Interface;
    type IToastActivatedEventArgs is access all IToastActivatedEventArgs_Interface'Class;
    type IToastActivatedEventArgs_Ptr is access all IToastActivatedEventArgs;
+   type IToastActivatedEventArgs2_Interface;
+   type IToastActivatedEventArgs2 is access all IToastActivatedEventArgs2_Interface'Class;
+   type IToastActivatedEventArgs2_Ptr is access all IToastActivatedEventArgs2;
    type IToastCollection_Interface;
    type IToastCollection is access all IToastCollection_Interface'Class;
    type IToastCollection_Ptr is access all IToastCollection;
@@ -605,6 +608,9 @@ package Windows.UI.Notifications is
    type IToastNotification4_Interface;
    type IToastNotification4 is access all IToastNotification4_Interface'Class;
    type IToastNotification4_Ptr is access all IToastNotification4;
+   type IToastNotification6_Interface;
+   type IToastNotification6 is access all IToastNotification6_Interface'Class;
+   type IToastNotification6_Ptr is access all IToastNotification6;
    type IToastNotificationActionTriggerDetail_Interface;
    type IToastNotificationActionTriggerDetail is access all IToastNotificationActionTriggerDetail_Interface'Class;
    type IToastNotificationActionTriggerDetail_Ptr is access all IToastNotificationActionTriggerDetail;
@@ -2347,6 +2353,19 @@ package Windows.UI.Notifications is
    
    ------------------------------------------------------------------------
    
+   IID_IToastActivatedEventArgs2 : aliased constant Windows.IID := (2877138194, 52321, 22158, (129, 190, 48, 74, 195, 16, 56, 250 ));
+   
+   type IToastActivatedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_UserInput
+   (
+      This       : access IToastActivatedEventArgs2_Interface
+      ; RetVal : access Windows.Foundation.Collections.IPropertySet
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IToastCollection : aliased constant Windows.IID := (176931760, 57534, 18520, (188, 42, 137, 223, 224, 179, 40, 99 ));
    
    type IToastCollection_Interface is interface and Windows.IInspectable_Interface;
@@ -2686,6 +2705,26 @@ package Windows.UI.Notifications is
    (
       This       : access IToastNotification4_Interface
       ; value : Windows.UI.Notifications.ToastNotificationPriority
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IToastNotification6 : aliased constant Windows.IID := (1139539539, 35246, 23582, (162, 121, 58, 236, 254, 155, 111, 84 ));
+   
+   type IToastNotification6_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ExpiresOnReboot
+   (
+      This       : access IToastNotification6_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ExpiresOnReboot
+   (
+      This       : access IToastNotification6_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    

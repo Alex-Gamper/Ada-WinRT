@@ -27,6 +27,7 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.ApplicationModel.Activation;
+with Windows.Perception.Spatial;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.ApplicationModel.Preview.Holographic is
@@ -74,6 +75,23 @@ package body Windows.ApplicationModel.Preview.Holographic is
       Hr := RoGetActivationFactory(m_hString, IID_IHolographicApplicationPreviewStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.IsHolographicActivation(activatedEventArgs, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetForCurrentView
+   return Windows.ApplicationModel.Preview.Holographic.IHolographicKeyboardPlacementOverridePreview is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview");
+      m_Factory     : IHolographicKeyboardPlacementOverridePreviewStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.Preview.Holographic.IHolographicKeyboardPlacementOverridePreview;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IHolographicKeyboardPlacementOverridePreviewStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetForCurrentView(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

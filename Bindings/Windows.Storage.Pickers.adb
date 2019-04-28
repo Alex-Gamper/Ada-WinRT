@@ -27,6 +27,7 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Storage;
+with Windows.System;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Storage.Pickers is
@@ -105,6 +106,66 @@ package body Windows.Storage.Pickers is
       Hr := RoGetActivationFactory(m_hString, IID_IFileOpenPickerStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.ResumePickSingleFileAsync(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Storage.Pickers.IFileOpenPicker is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.Pickers.FileOpenPicker");
+      m_Factory     : IFileOpenPickerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Pickers.IFileOpenPicker;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileOpenPickerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Storage.Pickers.IFileSavePicker is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.Pickers.FileSavePicker");
+      m_Factory     : IFileSavePickerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Pickers.IFileSavePicker;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFileSavePickerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateForUser(user, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateForUser
+   (
+      user : Windows.System.IUser
+   )
+   return Windows.Storage.Pickers.IFolderPicker is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.Pickers.FolderPicker");
+      m_Factory     : IFolderPickerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.Pickers.IFolderPicker;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IFolderPickerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateForUser(user, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -514,6 +514,9 @@ package Windows.UI.Core is
    type ICoreWindowStatic_Interface;
    type ICoreWindowStatic is access all ICoreWindowStatic_Interface'Class;
    type ICoreWindowStatic_Ptr is access all ICoreWindowStatic;
+   type ICoreWindowWithContext_Interface;
+   type ICoreWindowWithContext is access all ICoreWindowWithContext_Interface'Class;
+   type ICoreWindowWithContext_Ptr is access all ICoreWindowWithContext;
    type IIdleDispatchedHandlerArgs_Interface;
    type IIdleDispatchedHandlerArgs is access all IIdleDispatchedHandlerArgs_Interface'Class;
    type IIdleDispatchedHandlerArgs_Ptr is access all IIdleDispatchedHandlerArgs;
@@ -2094,6 +2097,19 @@ package Windows.UI.Core is
    (
       This       : access ICoreWindowStatic_Interface
       ; RetVal : access Windows.UI.Core.ICoreWindow
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreWindowWithContext : aliased constant Windows.IID := (2596536897, 13685, 19515, (175, 102, 232, 197, 41, 212, 208, 108 ));
+   
+   type ICoreWindowWithContext_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_UIContext
+   (
+      This       : access ICoreWindowWithContext_Interface
+      ; RetVal : access Windows.UI.IUIContext
    )
    return Windows.HRESULT is abstract;
    

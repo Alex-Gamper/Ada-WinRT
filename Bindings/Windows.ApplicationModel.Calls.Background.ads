@@ -27,6 +27,7 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows; use Windows;
+with Windows.Foundation;
 package Windows.ApplicationModel.Calls.Background is
 
    pragma preelaborate;
@@ -48,6 +49,22 @@ package Windows.ApplicationModel.Calls.Background is
    for PhoneCallBlockedReason'Size use 32;
    
    type PhoneCallBlockedReason_Ptr is access PhoneCallBlockedReason;
+   
+   type PhoneIncomingCallDismissedReason is (
+      Unknown,
+      CallRejected,
+      TextReply,
+      ConnectionLost
+   );
+   for PhoneIncomingCallDismissedReason use (
+      Unknown => 0,
+      CallRejected => 1,
+      TextReply => 2,
+      ConnectionLost => 3
+   );
+   for PhoneIncomingCallDismissedReason'Size use 32;
+   
+   type PhoneIncomingCallDismissedReason_Ptr is access PhoneIncomingCallDismissedReason;
    
    type PhoneLineChangeKind is (
       Added,
@@ -97,7 +114,8 @@ package Windows.ApplicationModel.Calls.Background is
       LineChanged,
       AirplaneModeDisabledForEmergencyCall,
       CallOriginDataRequest,
-      CallBlocked
+      CallBlocked,
+      IncomingCallDismissed
    );
    for PhoneTriggerType use (
       NewVoicemailMessage => 0,
@@ -105,7 +123,8 @@ package Windows.ApplicationModel.Calls.Background is
       LineChanged => 2,
       AirplaneModeDisabledForEmergencyCall => 3,
       CallOriginDataRequest => 4,
-      CallBlocked => 5
+      CallBlocked => 5,
+      IncomingCallDismissed => 6
    );
    for PhoneTriggerType'Size use 32;
    
@@ -130,6 +149,9 @@ package Windows.ApplicationModel.Calls.Background is
    type IPhoneCallOriginDataRequestTriggerDetails_Interface;
    type IPhoneCallOriginDataRequestTriggerDetails is access all IPhoneCallOriginDataRequestTriggerDetails_Interface'Class;
    type IPhoneCallOriginDataRequestTriggerDetails_Ptr is access all IPhoneCallOriginDataRequestTriggerDetails;
+   type IPhoneIncomingCallDismissedTriggerDetails_Interface;
+   type IPhoneIncomingCallDismissedTriggerDetails is access all IPhoneIncomingCallDismissedTriggerDetails_Interface'Class;
+   type IPhoneIncomingCallDismissedTriggerDetails_Ptr is access all IPhoneIncomingCallDismissedTriggerDetails;
    type IPhoneLineChangedTriggerDetails_Interface;
    type IPhoneLineChangedTriggerDetails is access all IPhoneLineChangedTriggerDetails_Interface'Class;
    type IPhoneLineChangedTriggerDetails_Ptr is access all IPhoneLineChangedTriggerDetails;
@@ -185,6 +207,54 @@ package Windows.ApplicationModel.Calls.Background is
    (
       This       : access IPhoneCallOriginDataRequestTriggerDetails_Interface
       ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPhoneIncomingCallDismissedTriggerDetails : aliased constant Windows.IID := (3134390902, 33718, 22322, (156, 56, 12, 32, 101, 70, 25, 106 ));
+   
+   type IPhoneIncomingCallDismissedTriggerDetails_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_LineId
+   (
+      This       : access IPhoneIncomingCallDismissedTriggerDetails_Interface
+      ; RetVal : access Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_PhoneNumber
+   (
+      This       : access IPhoneIncomingCallDismissedTriggerDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DisplayName
+   (
+      This       : access IPhoneIncomingCallDismissedTriggerDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DismissalTime
+   (
+      This       : access IPhoneIncomingCallDismissedTriggerDetails_Interface
+      ; RetVal : access Windows.Foundation.DateTime
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TextReplyMessage
+   (
+      This       : access IPhoneIncomingCallDismissedTriggerDetails_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Reason
+   (
+      This       : access IPhoneIncomingCallDismissedTriggerDetails_Interface
+      ; RetVal : access Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedReason
    )
    return Windows.HRESULT is abstract;
    
@@ -249,6 +319,7 @@ package Windows.ApplicationModel.Calls.Background is
    
    subtype PhoneCallBlockedTriggerDetails is Windows.ApplicationModel.Calls.Background.IPhoneCallBlockedTriggerDetails;
    subtype PhoneCallOriginDataRequestTriggerDetails is Windows.ApplicationModel.Calls.Background.IPhoneCallOriginDataRequestTriggerDetails;
+   subtype PhoneIncomingCallDismissedTriggerDetails is Windows.ApplicationModel.Calls.Background.IPhoneIncomingCallDismissedTriggerDetails;
    subtype PhoneLineChangedTriggerDetails is Windows.ApplicationModel.Calls.Background.IPhoneLineChangedTriggerDetails;
    subtype PhoneNewVoicemailMessageTriggerDetails is Windows.ApplicationModel.Calls.Background.IPhoneNewVoicemailMessageTriggerDetails;
    

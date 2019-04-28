@@ -111,7 +111,9 @@ package Windows.Networking.Connectivity is
       WpaNone,
       Rsna,
       RsnaPsk,
-      Ihv
+      Ihv,
+      Wpa3,
+      Wpa3Sae
    );
    for NetworkAuthenticationType use (
       None => 0,
@@ -123,7 +125,9 @@ package Windows.Networking.Connectivity is
       WpaNone => 6,
       Rsna => 7,
       RsnaPsk => 8,
-      Ihv => 9
+      Ihv => 9,
+      Wpa3 => 10,
+      Wpa3Sae => 11
    );
    for NetworkAuthenticationType'Size use 32;
    

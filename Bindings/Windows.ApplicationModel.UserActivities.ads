@@ -29,6 +29,7 @@
 with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.Security.Credentials;
+limited with Windows.System;
 limited with Windows.UI;
 limited with Windows.UI.Shell;
 --------------------------------------------------------------------------------
@@ -103,6 +104,9 @@ package Windows.ApplicationModel.UserActivities is
    type IUserActivityChannelStatics2_Interface;
    type IUserActivityChannelStatics2 is access all IUserActivityChannelStatics2_Interface'Class;
    type IUserActivityChannelStatics2_Ptr is access all IUserActivityChannelStatics2;
+   type IUserActivityChannelStatics3_Interface;
+   type IUserActivityChannelStatics3 is access all IUserActivityChannelStatics3_Interface'Class;
+   type IUserActivityChannelStatics3_Ptr is access all IUserActivityChannelStatics3;
    type IUserActivityContentInfo_Interface;
    type IUserActivityContentInfo is access all IUserActivityContentInfo_Interface'Class;
    type IUserActivityContentInfo_Ptr is access all IUserActivityContentInfo;
@@ -512,6 +516,20 @@ package Windows.ApplicationModel.UserActivities is
    (
       This       : access IUserActivityChannelStatics2_Interface
       ; account : Windows.Security.Credentials.IWebAccount
+      ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivityChannel
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUserActivityChannelStatics3 : aliased constant Windows.IID := (1404849627, 48095, 22916, (128, 42, 83, 5, 135, 78, 32, 92 ));
+   
+   type IUserActivityChannelStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetForUser
+   (
+      This       : access IUserActivityChannelStatics3_Interface
+      ; user : Windows.System.IUser
       ; RetVal : access Windows.ApplicationModel.UserActivities.IUserActivityChannel
    )
    return Windows.HRESULT is abstract;
@@ -1014,6 +1032,12 @@ package Windows.ApplicationModel.UserActivities is
    function TryGetForWebAccount
    (
       account : Windows.Security.Credentials.IWebAccount
+   )
+   return Windows.ApplicationModel.UserActivities.IUserActivityChannel;
+   
+   function GetForUser
+   (
+      user : Windows.System.IUser
    )
    return Windows.ApplicationModel.UserActivities.IUserActivityChannel;
    

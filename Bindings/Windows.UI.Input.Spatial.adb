@@ -349,6 +349,26 @@ package body Windows.UI.Input.Spatial is
       return RetVal;
    end;
    
+   function IsSourceKindSupported
+   (
+      kind : Windows.UI.Input.Spatial.SpatialInteractionSourceKind
+   )
+   return Windows.Boolean is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.Spatial.SpatialInteractionManager");
+      m_Factory     : ISpatialInteractionManagerStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Boolean;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISpatialInteractionManagerStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.IsSourceKindSupported(kind, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function TryGetAtTimestamp
    (
       coordinateSystem : Windows.Perception.Spatial.ISpatialCoordinateSystem
