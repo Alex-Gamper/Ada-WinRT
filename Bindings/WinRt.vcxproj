@@ -437,6 +437,7 @@
     <AdaCompile Include="Windows.Security.Authentication.Web.Core.ads" />
     <AdaCompile Include="Windows.Security.Authentication.Web.Provider.adb" />
     <AdaCompile Include="Windows.Security.Authentication.Web.Provider.ads" />
+    <AdaCompile Include="Windows.Security.Authorization.ads" />
     <AdaCompile Include="Windows.Security.Authorization.AppCapabilityAccess.adb" />
     <AdaCompile Include="Windows.Security.Authorization.AppCapabilityAccess.ads" />
     <AdaCompile Include="Windows.Security.Credentials.adb" />
