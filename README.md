@@ -35,7 +35,7 @@ For example
 * MSYS2 (gcc version 8.3) - Base_Installation_Dir := "lib\gcc\x86_64-w64-mingw32\8.3.1/";
 * MSYS2 (gcc version 9.1) - Base_Installation_Dir := "lib\gcc\x86_64-w64-mingw32\9.1.1/";
 * AdaCore CE 2018 (gcc version 7.3) - Base_Installation_Dir := "lib\gcc\x86_64-pc-mingw32\7.3.1/";
-* AdaCore CE 2019 (gcc version ?.?) - Base_Installation_Dir := "lib\gcc\x86_64-pc-mingw32\?.?.?/";
+* AdaCore CE 2019 (gcc version ?.?) - Base_Installation_Dir := "lib\gcc\x86_64-pc-mingw32\\?.?.?/";
 
 ### Build instructions
 
