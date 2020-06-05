@@ -9,22 +9,50 @@ and is targeted at two distinct use cases
 These bindings have been generated from the metadata describing the WinRT api provided in the
 Microsoft Windows 10 SDK *19H1 (build 10.0.18362)*
 
+### Project Status
+
+v 1.0 Released
+
 ### Prerequisites
 
 You will need a working gcc/gnat **x64** Windows build environment. This release has **NOT** yet been
 tested against 32 bit environments. You may need to build gcc/gnat **x64** from source if required.
 Details/scripts on how to do this can be found on the mingw64 website, alternatively install using MSYS2
 
-### Project Status
+### Project Dependencies
 
-v 1.0 Released
+**Winrt** is dependent upon **Winrt_Runtime** project. Please clone and build/install this project before attempting
+to use this project.
+
+### Configuration Instructions
+
+The Winrt.gpr needs to know where to install the project files/artifacts, this is specified by the
+variable named Base_Installation_Dir within the gpr file. You will need to change this value to suit your
+environment.
+
+For example
+
+* MSYS2 (gcc version 8.3) - Base_Installation_Dir := "lib\gcc\x86_64-w64-mingw32\8.3.1/";
+* MSYS2 (gcc version 9.1) - Base_Installation_Dir := "lib\gcc\x86_64-w64-mingw32\9.1.1/";
+* AdaCore CE 2018 (gcc version 7.3) - Base_Installation_Dir := "lib\gcc\x86_64-pc-mingw32\7.3.1/";
+* AdaCore CE 2019 (gcc version ?.?) - Base_Installation_Dir := "lib\gcc\x86_64-pc-mingw32\\?.?.?/";
 
 ### Build instructions
 
 From a command prompt that has your gcc/gnat x64 distribution/build environments bin directory in its path,
-simply run the following command. This will do a gprbuild & gprinstall of the WinRT.gpr
+simply run the following commands.
 
-* .\Build.cmd
+* .\gprbuild -p -P Winrt.gpr
+* .\gprinstall -f -p -P Winrt.gpr
+
+Alternatively, their is a build.cmd script as part of the distribution that runs the above two commands.
+
+### Notes
+
+If you have previously built this runtime for a different target/version. Then please clean your previous env
+by executing the following command
+
+* .\gprclean -P Winnrt.gpr
 
 ### Examples
 
