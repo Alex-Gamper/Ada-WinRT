@@ -155,6 +155,19 @@ package body Windows.ApplicationModel.DataTransfer is
    
    function Invoke
    (
+      This       : access TypedEventHandler_IDataPackage4_add_ShareCanceled_Interface
+      ; sender : Windows.ApplicationModel.DataTransfer.IDataPackage
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.DataTransfer.IDataPackage(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IDataTransferManager_add_DataRequested_Interface
       ; sender : Windows.ApplicationModel.DataTransfer.IDataTransferManager
       ; args : Windows.ApplicationModel.DataTransfer.IDataRequestedEventArgs

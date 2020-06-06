@@ -47,6 +47,97 @@ package body Windows.Devices.Input is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPenButtonListener_add_IsSupportedChanged_Interface
+      ; sender : Windows.Devices.Input.IPenButtonListener
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Input.IPenButtonListener(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPenButtonListener_add_TailButtonClicked_Interface
+      ; sender : Windows.Devices.Input.IPenButtonListener
+      ; args : Windows.Devices.Input.IPenTailButtonClickedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Input.IPenButtonListener(sender), Windows.Devices.Input.IPenTailButtonClickedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPenButtonListener_add_TailButtonDoubleClicked_Interface
+      ; sender : Windows.Devices.Input.IPenButtonListener
+      ; args : Windows.Devices.Input.IPenTailButtonDoubleClickedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Input.IPenButtonListener(sender), Windows.Devices.Input.IPenTailButtonDoubleClickedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPenButtonListener_add_TailButtonLongPressed_Interface
+      ; sender : Windows.Devices.Input.IPenButtonListener
+      ; args : Windows.Devices.Input.IPenTailButtonLongPressedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Input.IPenButtonListener(sender), Windows.Devices.Input.IPenTailButtonLongPressedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPenDockListener_add_Docked_Interface
+      ; sender : Windows.Devices.Input.IPenDockListener
+      ; args : Windows.Devices.Input.IPenDockedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Input.IPenDockListener(sender), Windows.Devices.Input.IPenDockedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPenDockListener_add_IsSupportedChanged_Interface
+      ; sender : Windows.Devices.Input.IPenDockListener
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Input.IPenDockListener(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPenDockListener_add_Undocked_Interface
+      ; sender : Windows.Devices.Input.IPenDockListener
+      ; args : Windows.Devices.Input.IPenUndockedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Devices.Input.IPenDockListener(sender), Windows.Devices.Input.IPenUndockedEventArgs(args));
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------
@@ -127,6 +218,23 @@ package body Windows.Devices.Input is
       return RetVal;
    end;
    
+   function GetDefault
+   return Windows.Devices.Input.IPenButtonListener is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Input.PenButtonListener");
+      m_Factory     : IPenButtonListenerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Input.IPenButtonListener;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPenButtonListenerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetFromPointerId
    (
       pointerId : Windows.UInt32
@@ -141,6 +249,23 @@ package body Windows.Devices.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IPenDeviceStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetFromPointerId(pointerId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDefault
+   return Windows.Devices.Input.IPenDockListener is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Devices.Input.PenDockListener");
+      m_Factory     : IPenDockListenerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Devices.Input.IPenDockListener;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPenDockListenerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDefault(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

@@ -149,9 +149,15 @@ package Windows.ApplicationModel.Core is
    type IHostedViewClosingEventArgs_Interface;
    type IHostedViewClosingEventArgs is access all IHostedViewClosingEventArgs_Interface'Class;
    type IHostedViewClosingEventArgs_Ptr is access all IHostedViewClosingEventArgs;
+   type IIterable_IAppListEntry_Interface;
+   type IIterable_IAppListEntry is access all IIterable_IAppListEntry_Interface'Class;
+   type IIterable_IAppListEntry_Ptr is access all IIterable_IAppListEntry;
    type IIterable_ICoreApplicationView_Interface;
    type IIterable_ICoreApplicationView is access all IIterable_ICoreApplicationView_Interface'Class;
    type IIterable_ICoreApplicationView_Ptr is access all IIterable_ICoreApplicationView;
+   type IIterator_IAppListEntry_Interface;
+   type IIterator_IAppListEntry is access all IIterator_IAppListEntry_Interface'Class;
+   type IIterator_IAppListEntry_Ptr is access all IIterator_IAppListEntry;
    type IIterator_ICoreApplicationView_Interface;
    type IIterator_ICoreApplicationView is access all IIterator_ICoreApplicationView_Interface'Class;
    type IIterator_ICoreApplicationView_Ptr is access all IIterator_ICoreApplicationView;
@@ -161,6 +167,9 @@ package Windows.ApplicationModel.Core is
    type IUnhandledErrorDetectedEventArgs_Interface;
    type IUnhandledErrorDetectedEventArgs is access all IUnhandledErrorDetectedEventArgs_Interface'Class;
    type IUnhandledErrorDetectedEventArgs_Ptr is access all IUnhandledErrorDetectedEventArgs;
+   type IVectorView_IAppListEntry_Interface;
+   type IVectorView_IAppListEntry is access all IVectorView_IAppListEntry_Interface'Class;
+   type IVectorView_IAppListEntry_Ptr is access all IVectorView_IAppListEntry;
    type IVectorView_ICoreApplicationView_Interface;
    type IVectorView_ICoreApplicationView is access all IVectorView_ICoreApplicationView_Interface'Class;
    type IVectorView_ICoreApplicationView_Ptr is access all IVectorView_ICoreApplicationView;
@@ -778,6 +787,19 @@ package Windows.ApplicationModel.Core is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_IAppListEntry : aliased constant Windows.IID := (2264192239, 55549, 24501, (128, 124, 114, 218, 143, 201, 229, 68 ));
+   
+   type IIterable_IAppListEntry_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IAppListEntry_Interface
+      ; RetVal : access Windows.ApplicationModel.Core.IIterator_IAppListEntry
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterable_ICoreApplicationView : aliased constant Windows.IID := (851186385, 9811, 23105, (165, 94, 136, 161, 42, 242, 2, 106 ));
    
    type IIterable_ICoreApplicationView_Interface is interface and Windows.IInspectable_Interface;
@@ -786,6 +808,41 @@ package Windows.ApplicationModel.Core is
    (
       This       : access IIterable_ICoreApplicationView_Interface
       ; RetVal : access Windows.ApplicationModel.Core.IIterator_ICoreApplicationView
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IAppListEntry : aliased constant Windows.IID := (3107856424, 20668, 22942, (179, 217, 66, 123, 97, 210, 108, 1 ));
+   
+   type IIterator_IAppListEntry_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IAppListEntry_Interface
+      ; RetVal : access Windows.ApplicationModel.Core.IAppListEntry
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IAppListEntry_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IAppListEntry_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IAppListEntry_Interface
+      ; items : Windows.ApplicationModel.Core.IAppListEntry_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -853,6 +910,45 @@ package Windows.ApplicationModel.Core is
    (
       This       : access IUnhandledErrorDetectedEventArgs_Interface
       ; RetVal : access Windows.ApplicationModel.Core.IUnhandledError
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IAppListEntry : aliased constant Windows.IID := (2450295698, 54767, 22681, (135, 118, 42, 217, 122, 202, 110, 29 ));
+   
+   type IVectorView_IAppListEntry_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IAppListEntry_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.ApplicationModel.Core.IAppListEntry
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IAppListEntry_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IAppListEntry_Interface
+      ; value : Windows.ApplicationModel.Core.IAppListEntry
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IAppListEntry_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.ApplicationModel.Core.IAppListEntry_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    

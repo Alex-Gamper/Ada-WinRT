@@ -271,6 +271,9 @@ package Windows.Networking.BackgroundTransfer is
    type IDownloadOperation4_Interface;
    type IDownloadOperation4 is access all IDownloadOperation4_Interface'Class;
    type IDownloadOperation4_Ptr is access all IDownloadOperation4;
+   type IDownloadOperation5_Interface;
+   type IDownloadOperation5 is access all IDownloadOperation5_Interface'Class;
+   type IDownloadOperation5_Ptr is access all IDownloadOperation5;
    type IIterable_BackgroundTransferFileRange_Interface;
    type IIterable_BackgroundTransferFileRange is access all IIterable_BackgroundTransferFileRange_Interface'Class;
    type IIterable_BackgroundTransferFileRange_Ptr is access all IIterable_BackgroundTransferFileRange;
@@ -310,6 +313,9 @@ package Windows.Networking.BackgroundTransfer is
    type IUploadOperation3_Interface;
    type IUploadOperation3 is access all IUploadOperation3_Interface'Class;
    type IUploadOperation3_Ptr is access all IUploadOperation3;
+   type IUploadOperation4_Interface;
+   type IUploadOperation4 is access all IUploadOperation4_Interface'Class;
+   type IUploadOperation4_Ptr is access all IUploadOperation4;
    type IVector_BackgroundTransferFileRange_Interface;
    type IVector_BackgroundTransferFileRange is access all IVector_BackgroundTransferFileRange_Interface'Class;
    type IVector_BackgroundTransferFileRange_Ptr is access all IVector_BackgroundTransferFileRange;
@@ -1330,6 +1336,27 @@ package Windows.Networking.BackgroundTransfer is
    
    ------------------------------------------------------------------------
    
+   IID_IDownloadOperation5 : aliased constant Windows.IID := (2795087983, 21904, 17978, (184, 214, 30, 73, 26, 39, 96, 165 ));
+   
+   type IDownloadOperation5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetRequestHeader
+   (
+      This       : access IDownloadOperation5_Interface
+      ; headerName : Windows.String
+      ; headerValue : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveRequestHeader
+   (
+      This       : access IDownloadOperation5_Interface
+      ; headerName : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterable_BackgroundTransferFileRange : aliased constant Windows.IID := (750965913, 38732, 20600, (137, 174, 45, 78, 225, 19, 151, 33 ));
    
    type IIterable_BackgroundTransferFileRange_Interface is interface and Windows.IInspectable_Interface;
@@ -1623,6 +1650,27 @@ package Windows.Networking.BackgroundTransfer is
    function MakeCurrentInTransferGroup
    (
       This       : access IUploadOperation3_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUploadOperation4 : aliased constant Windows.IID := (1357770545, 64197, 16878, (176, 48, 220, 119, 202, 238, 159, 170 ));
+   
+   type IUploadOperation4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetRequestHeader
+   (
+      This       : access IUploadOperation4_Interface
+      ; headerName : Windows.String
+      ; headerValue : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveRequestHeader
+   (
+      This       : access IUploadOperation4_Interface
+      ; headerName : Windows.String
    )
    return Windows.HRESULT is abstract;
    

@@ -1163,7 +1163,7 @@ package Windows.Foundation is
    
    ------------------------------------------------------------------------
    
-   IID_IIterable_IUriRuntimeClass : aliased constant Windows.IID := (2966829944, 30893, 24113, (182, 216, 227, 42, 14, 22, 196, 71 ));
+   IID_IIterable_IUriRuntimeClass : aliased constant Windows.IID := (0, 0, 0, (0, 0, 0, 0, 0, 0, 0, 0 ));
    
    type IIterable_IUriRuntimeClass_Interface is interface and Windows.IInspectable_Interface;
    

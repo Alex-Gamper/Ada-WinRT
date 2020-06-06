@@ -101,6 +101,19 @@ package body Windows.Security.Authentication.Web.Core is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebAccountMonitor2_add_AccountPictureUpdated_Interface
+      ; sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor
+      ; args : Windows.Security.Authentication.Web.Core.IWebAccountEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Security.Authentication.Web.Core.IWebAccountMonitor(sender), Windows.Security.Authentication.Web.Core.IWebAccountEventArgs(args));
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------

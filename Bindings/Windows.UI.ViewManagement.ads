@@ -317,6 +317,12 @@ package Windows.UI.ViewManagement is
    type TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged_Interface;
    type TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged is access all TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged_Interface'Class;
    type TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged_Ptr is access all TypedEventHandler_IUISettings5_add_AutoHideScrollBarsChanged;
+   type TypedEventHandler_IUISettings6_add_AnimationsEnabledChanged_Interface;
+   type TypedEventHandler_IUISettings6_add_AnimationsEnabledChanged is access all TypedEventHandler_IUISettings6_add_AnimationsEnabledChanged_Interface'Class;
+   type TypedEventHandler_IUISettings6_add_AnimationsEnabledChanged_Ptr is access all TypedEventHandler_IUISettings6_add_AnimationsEnabledChanged;
+   type TypedEventHandler_IUISettings6_add_MessageDurationChanged_Interface;
+   type TypedEventHandler_IUISettings6_add_MessageDurationChanged is access all TypedEventHandler_IUISettings6_add_MessageDurationChanged_Interface'Class;
+   type TypedEventHandler_IUISettings6_add_MessageDurationChanged_Ptr is access all TypedEventHandler_IUISettings6_add_MessageDurationChanged;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -448,9 +454,18 @@ package Windows.UI.ViewManagement is
    type IUISettings5_Interface;
    type IUISettings5 is access all IUISettings5_Interface'Class;
    type IUISettings5_Ptr is access all IUISettings5;
+   type IUISettings6_Interface;
+   type IUISettings6 is access all IUISettings6_Interface'Class;
+   type IUISettings6_Ptr is access all IUISettings6;
+   type IUISettingsAnimationsEnabledChangedEventArgs_Interface;
+   type IUISettingsAnimationsEnabledChangedEventArgs is access all IUISettingsAnimationsEnabledChangedEventArgs_Interface'Class;
+   type IUISettingsAnimationsEnabledChangedEventArgs_Ptr is access all IUISettingsAnimationsEnabledChangedEventArgs;
    type IUISettingsAutoHideScrollBarsChangedEventArgs_Interface;
    type IUISettingsAutoHideScrollBarsChangedEventArgs is access all IUISettingsAutoHideScrollBarsChangedEventArgs_Interface'Class;
    type IUISettingsAutoHideScrollBarsChangedEventArgs_Ptr is access all IUISettingsAutoHideScrollBarsChangedEventArgs;
+   type IUISettingsMessageDurationChangedEventArgs_Interface;
+   type IUISettingsMessageDurationChangedEventArgs is access all IUISettingsMessageDurationChangedEventArgs_Interface'Class;
+   type IUISettingsMessageDurationChangedEventArgs_Ptr is access all IUISettingsMessageDurationChangedEventArgs;
    type IUIViewSettings_Interface;
    type IUIViewSettings is access all IUIViewSettings_Interface'Class;
    type IUIViewSettings_Ptr is access all IUIViewSettings;
@@ -1978,9 +1993,57 @@ package Windows.UI.ViewManagement is
    
    ------------------------------------------------------------------------
    
+   IID_IUISettings6 : aliased constant Windows.IID := (2935069655, 65073, 23044, (173, 164, 70, 154, 174, 198, 223, 169 ));
+   
+   type IUISettings6_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_AnimationsEnabledChanged
+   (
+      This       : access IUISettings6_Interface
+      ; handler : TypedEventHandler_IUISettings6_add_AnimationsEnabledChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_AnimationsEnabledChanged
+   (
+      This       : access IUISettings6_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_MessageDurationChanged
+   (
+      This       : access IUISettings6_Interface
+      ; handler : TypedEventHandler_IUISettings6_add_MessageDurationChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_MessageDurationChanged
+   (
+      This       : access IUISettings6_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUISettingsAnimationsEnabledChangedEventArgs : aliased constant Windows.IID := (209406781, 11937, 21310, (137, 77, 65, 91, 197, 36, 60, 41 ));
+   
+   type IUISettingsAnimationsEnabledChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
    IID_IUISettingsAutoHideScrollBarsChangedEventArgs : aliased constant Windows.IID := (2276447410, 37190, 24322, (143, 107, 6, 212, 84, 23, 76, 15 ));
    
    type IUISettingsAutoHideScrollBarsChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUISettingsMessageDurationChangedEventArgs : aliased constant Windows.IID := (864726354, 19037, 23385, (128, 2, 217, 48, 246, 8, 253, 110 ));
+   
+   type IUISettingsMessageDurationChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -2204,6 +2267,32 @@ package Windows.UI.ViewManagement is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IUISettings6_add_AnimationsEnabledChanged : aliased constant Windows.IID := (3741257616, 23009, 22617, (162, 69, 61, 39, 80, 129, 194, 173 ));
+   
+   type TypedEventHandler_IUISettings6_add_AnimationsEnabledChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IUISettings ; args : Windows.UI.ViewManagement.IUISettingsAnimationsEnabledChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUISettings6_add_AnimationsEnabledChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IUISettings6_add_AnimationsEnabledChanged_Interface
+      ; sender : Windows.UI.ViewManagement.IUISettings
+      ; args : Windows.UI.ViewManagement.IUISettingsAnimationsEnabledChangedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IUISettings6_add_MessageDurationChanged : aliased constant Windows.IID := (3967843080, 6854, 23351, (154, 247, 26, 175, 28, 147, 87, 126 ));
+   
+   type TypedEventHandler_IUISettings6_add_MessageDurationChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.IUISettings ; args : Windows.UI.ViewManagement.IUISettingsMessageDurationChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IUISettings6_add_MessageDurationChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IUISettings6_add_MessageDurationChanged_Interface
+      ; sender : Windows.UI.ViewManagement.IUISettings
+      ; args : Windows.UI.ViewManagement.IUISettingsMessageDurationChangedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -2225,7 +2314,9 @@ package Windows.UI.ViewManagement is
    subtype UISettings is Windows.UI.ViewManagement.IUISettings;
    function Create return Windows.UI.ViewManagement.IUISettings;
    
+   subtype UISettingsAnimationsEnabledChangedEventArgs is Windows.UI.ViewManagement.IUISettingsAnimationsEnabledChangedEventArgs;
    subtype UISettingsAutoHideScrollBarsChangedEventArgs is Windows.UI.ViewManagement.IUISettingsAutoHideScrollBarsChangedEventArgs;
+   subtype UISettingsMessageDurationChangedEventArgs is Windows.UI.ViewManagement.IUISettingsMessageDurationChangedEventArgs;
    subtype UIViewSettings is Windows.UI.ViewManagement.IUIViewSettings;
    subtype ViewModePreferences is Windows.UI.ViewManagement.IViewModePreferences;
    

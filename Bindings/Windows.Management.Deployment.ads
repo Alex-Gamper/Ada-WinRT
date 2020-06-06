@@ -65,7 +65,8 @@ package Windows.Management.Deployment is
       ForceTargetApplicationShutdown,
       RequiredContentGroupOnly,
       ForceUpdateFromAnyVersion,
-      RetainFilesOnFailure
+      RetainFilesOnFailure,
+      StageInPlace
    );
    for DeploymentOptions use (
       None => 0,
@@ -75,7 +76,8 @@ package Windows.Management.Deployment is
       ForceTargetApplicationShutdown => 64,
       RequiredContentGroupOnly => 256,
       ForceUpdateFromAnyVersion => 262144,
-      RetainFilesOnFailure => 2097152
+      RetainFilesOnFailure => 2097152,
+      StageInPlace => 4194304
    );
    for DeploymentOptions'Size use 32;
    
@@ -143,6 +145,18 @@ package Windows.Management.Deployment is
    
    type PackageStatus_Ptr is access PackageStatus;
    
+   type PackageStubPreference is (
+      Full,
+      Stub
+   );
+   for PackageStubPreference use (
+      Full => 0,
+      Stub => 1
+   );
+   for PackageStubPreference'Size use 32;
+   
+   type PackageStubPreference_Ptr is access PackageStubPreference;
+   
    type PackageTypes is (
       None,
       Main,
@@ -150,7 +164,8 @@ package Windows.Management.Deployment is
       Resource,
       Bundle,
       Xap,
-      Optional
+      Optional,
+      All_x
    );
    for PackageTypes use (
       None => 0,
@@ -159,7 +174,8 @@ package Windows.Management.Deployment is
       Resource => 4,
       Bundle => 8,
       Xap => 16,
-      Optional => 32
+      Optional => 32,
+      All_x => 4294967295
    );
    for PackageTypes'Size use 32;
    
@@ -167,17 +183,35 @@ package Windows.Management.Deployment is
    
    type RemovalOptions is (
       None,
+      PreserveRoamableApplicationData,
       PreserveApplicationData,
       RemoveForAllUsers
    );
    for RemovalOptions use (
       None => 0,
+      PreserveRoamableApplicationData => 128,
       PreserveApplicationData => 4096,
       RemoveForAllUsers => 524288
    );
    for RemovalOptions'Size use 32;
    
    type RemovalOptions_Ptr is access RemovalOptions;
+   
+   type StubPackageOption is (
+      Default,
+      InstallFull,
+      InstallStub,
+      UsePreference
+   );
+   for StubPackageOption use (
+      Default => 0,
+      InstallFull => 1,
+      InstallStub => 2,
+      UsePreference => 3
+   );
+   for StubPackageOption'Size use 32;
+   
+   type StubPackageOption_Ptr is access StubPackageOption;
    
    ------------------------------------------------------------------------
    -- Record types
@@ -203,6 +237,9 @@ package Windows.Management.Deployment is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAddPackageOptions_Interface;
+   type IAddPackageOptions is access all IAddPackageOptions_Interface'Class;
+   type IAddPackageOptions_Ptr is access all IAddPackageOptions;
    type IAsyncOperation_IPackageVolume_Interface;
    type IAsyncOperation_IPackageVolume is access all IAsyncOperation_IPackageVolume_Interface'Class;
    type IAsyncOperation_IPackageVolume_Ptr is access all IAsyncOperation_IPackageVolume;
@@ -248,6 +285,9 @@ package Windows.Management.Deployment is
    type IPackageManager8_Interface;
    type IPackageManager8 is access all IPackageManager8_Interface'Class;
    type IPackageManager8_Ptr is access all IPackageManager8;
+   type IPackageManager9_Interface;
+   type IPackageManager9 is access all IPackageManager9_Interface'Class;
+   type IPackageManager9_Ptr is access all IPackageManager9;
    type IPackageManagerDebugSettings_Interface;
    type IPackageManagerDebugSettings is access all IPackageManagerDebugSettings_Interface'Class;
    type IPackageManagerDebugSettings_Ptr is access all IPackageManagerDebugSettings;
@@ -260,10 +300,232 @@ package Windows.Management.Deployment is
    type IPackageVolume2_Interface;
    type IPackageVolume2 is access all IPackageVolume2_Interface'Class;
    type IPackageVolume2_Ptr is access all IPackageVolume2;
+   type IRegisterPackageOptions_Interface;
+   type IRegisterPackageOptions is access all IRegisterPackageOptions_Interface'Class;
+   type IRegisterPackageOptions_Ptr is access all IRegisterPackageOptions;
+   type IStagePackageOptions_Interface;
+   type IStagePackageOptions is access all IStagePackageOptions_Interface'Class;
+   type IStagePackageOptions_Ptr is access all IStagePackageOptions;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAddPackageOptions : aliased constant Windows.IID := (97443864, 63119, 16939, (149, 164, 102, 103, 158, 199, 127, 192 ));
+   
+   type IAddPackageOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DependencyPackageUris
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Foundation.IVector_IUriRuntimeClass -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TargetVolume
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Management.Deployment.IPackageVolume
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TargetVolume
+   (
+      This       : access IAddPackageOptions_Interface
+      ; value : Windows.Management.Deployment.IPackageVolume
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OptionalPackageFamilyNames
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OptionalPackageUris
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Foundation.IVector_IUriRuntimeClass -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RelatedPackageUris
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Foundation.IVector_IUriRuntimeClass -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExternalLocationUri
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ExternalLocationUri
+   (
+      This       : access IAddPackageOptions_Interface
+      ; value : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StubPackageOption
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Management.Deployment.StubPackageOption
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_StubPackageOption
+   (
+      This       : access IAddPackageOptions_Interface
+      ; value : Windows.Management.Deployment.StubPackageOption
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeveloperMode
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DeveloperMode
+   (
+      This       : access IAddPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ForceAppShutdown
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ForceAppShutdown
+   (
+      This       : access IAddPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ForceTargetAppShutdown
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ForceTargetAppShutdown
+   (
+      This       : access IAddPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ForceUpdateFromAnyVersion
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ForceUpdateFromAnyVersion
+   (
+      This       : access IAddPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InstallAllResources
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_InstallAllResources
+   (
+      This       : access IAddPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RequiredContentGroupOnly
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RequiredContentGroupOnly
+   (
+      This       : access IAddPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RetainFilesOnFailure
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RetainFilesOnFailure
+   (
+      This       : access IAddPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StageInPlace
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_StageInPlace
+   (
+      This       : access IAddPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AllowUnsigned
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AllowUnsigned
+   (
+      This       : access IAddPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeferRegistrationWhenPackagesAreInUse
+   (
+      This       : access IAddPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DeferRegistrationWhenPackagesAreInUse
+   (
+      This       : access IAddPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -984,6 +1246,71 @@ package Windows.Management.Deployment is
    
    ------------------------------------------------------------------------
    
+   IID_IPackageManager9 : aliased constant Windows.IID := (447189045, 52337, 19246, (128, 166, 199, 4, 29, 133, 121, 167 ));
+   
+   type IPackageManager9_Interface is interface and Windows.IInspectable_Interface;
+   
+   function FindProvisionedPackages
+   (
+      This       : access IPackageManager9_Interface
+      ; RetVal : access Windows.ApplicationModel.IVector_IPackage -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function AddPackageByUriAsync
+   (
+      This       : access IPackageManager9_Interface
+      ; packageUri : Windows.Foundation.IUriRuntimeClass
+      ; options : Windows.Management.Deployment.IAddPackageOptions
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StagePackageByUriAsync
+   (
+      This       : access IPackageManager9_Interface
+      ; packageUri : Windows.Foundation.IUriRuntimeClass
+      ; options : Windows.Management.Deployment.IStagePackageOptions
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RegisterPackageByUriAsync
+   (
+      This       : access IPackageManager9_Interface
+      ; manifestUri : Windows.Foundation.IUriRuntimeClass
+      ; options : Windows.Management.Deployment.IRegisterPackageOptions
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RegisterPackagesByFullNameAsync
+   (
+      This       : access IPackageManager9_Interface
+      ; packageFullNames : Windows.Foundation.Collections.IIterable_String
+      ; options : Windows.Management.Deployment.IRegisterPackageOptions
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetPackageStubPreference
+   (
+      This       : access IPackageManager9_Interface
+      ; packageFamilyName : Windows.String
+      ; useStub : Windows.Management.Deployment.PackageStubPreference
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetPackageStubPreference
+   (
+      This       : access IPackageManager9_Interface
+      ; packageFamilyName : Windows.String
+      ; RetVal : access Windows.Management.Deployment.PackageStubPreference
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPackageManagerDebugSettings : aliased constant Windows.IID := (442570371, 43400, 20431, (143, 15, 206, 23, 88, 152, 232, 235 ));
    
    type IPackageManagerDebugSettings_Interface is interface and Windows.IInspectable_Interface;
@@ -1230,6 +1557,326 @@ package Windows.Management.Deployment is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IRegisterPackageOptions : aliased constant Windows.IID := (1735463591, 20692, 18796, (132, 21, 6, 2, 180, 198, 211, 191 ));
+   
+   type IRegisterPackageOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DependencyPackageUris
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; RetVal : access Windows.Foundation.IVector_IUriRuntimeClass -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AppDataVolume
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; RetVal : access Windows.Management.Deployment.IPackageVolume
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AppDataVolume
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; value : Windows.Management.Deployment.IPackageVolume
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OptionalPackageFamilyNames
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExternalLocationUri
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ExternalLocationUri
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; value : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeveloperMode
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DeveloperMode
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ForceAppShutdown
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ForceAppShutdown
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ForceTargetAppShutdown
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ForceTargetAppShutdown
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ForceUpdateFromAnyVersion
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ForceUpdateFromAnyVersion
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InstallAllResources
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_InstallAllResources
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StageInPlace
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_StageInPlace
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AllowUnsigned
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AllowUnsigned
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeferRegistrationWhenPackagesAreInUse
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DeferRegistrationWhenPackagesAreInUse
+   (
+      This       : access IRegisterPackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStagePackageOptions : aliased constant Windows.IID := (185666716, 47453, 19542, (189, 54, 109, 101, 104, 0, 208, 107 ));
+   
+   type IStagePackageOptions_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DependencyPackageUris
+   (
+      This       : access IStagePackageOptions_Interface
+      ; RetVal : access Windows.Foundation.IVector_IUriRuntimeClass -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TargetVolume
+   (
+      This       : access IStagePackageOptions_Interface
+      ; RetVal : access Windows.Management.Deployment.IPackageVolume
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TargetVolume
+   (
+      This       : access IStagePackageOptions_Interface
+      ; value : Windows.Management.Deployment.IPackageVolume
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OptionalPackageFamilyNames
+   (
+      This       : access IStagePackageOptions_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_OptionalPackageUris
+   (
+      This       : access IStagePackageOptions_Interface
+      ; RetVal : access Windows.Foundation.IVector_IUriRuntimeClass -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RelatedPackageUris
+   (
+      This       : access IStagePackageOptions_Interface
+      ; RetVal : access Windows.Foundation.IVector_IUriRuntimeClass -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExternalLocationUri
+   (
+      This       : access IStagePackageOptions_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ExternalLocationUri
+   (
+      This       : access IStagePackageOptions_Interface
+      ; value : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StubPackageOption
+   (
+      This       : access IStagePackageOptions_Interface
+      ; RetVal : access Windows.Management.Deployment.StubPackageOption
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_StubPackageOption
+   (
+      This       : access IStagePackageOptions_Interface
+      ; value : Windows.Management.Deployment.StubPackageOption
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeveloperMode
+   (
+      This       : access IStagePackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DeveloperMode
+   (
+      This       : access IStagePackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ForceUpdateFromAnyVersion
+   (
+      This       : access IStagePackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ForceUpdateFromAnyVersion
+   (
+      This       : access IStagePackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InstallAllResources
+   (
+      This       : access IStagePackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_InstallAllResources
+   (
+      This       : access IStagePackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RequiredContentGroupOnly
+   (
+      This       : access IStagePackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RequiredContentGroupOnly
+   (
+      This       : access IStagePackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_StageInPlace
+   (
+      This       : access IStagePackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_StageInPlace
+   (
+      This       : access IStagePackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AllowUnsigned
+   (
+      This       : access IStagePackageOptions_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AllowUnsigned
+   (
+      This       : access IStagePackageOptions_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -1250,6 +1897,9 @@ package Windows.Management.Deployment is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype AddPackageOptions is Windows.Management.Deployment.IAddPackageOptions;
+   function Create return Windows.Management.Deployment.IAddPackageOptions;
+   
    subtype DeploymentResult is Windows.Management.Deployment.IDeploymentResult;
    subtype PackageManager is Windows.Management.Deployment.IPackageManager;
    function Create return Windows.Management.Deployment.IPackageManager;
@@ -1257,6 +1907,12 @@ package Windows.Management.Deployment is
    subtype PackageManagerDebugSettings is Windows.Management.Deployment.IPackageManagerDebugSettings;
    subtype PackageUserInformation is Windows.Management.Deployment.IPackageUserInformation;
    subtype PackageVolume is Windows.Management.Deployment.IPackageVolume;
+   subtype RegisterPackageOptions is Windows.Management.Deployment.IRegisterPackageOptions;
+   function Create return Windows.Management.Deployment.IRegisterPackageOptions;
+   
+   subtype StagePackageOptions is Windows.Management.Deployment.IStagePackageOptions;
+   function Create return Windows.Management.Deployment.IStagePackageOptions;
+   
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions

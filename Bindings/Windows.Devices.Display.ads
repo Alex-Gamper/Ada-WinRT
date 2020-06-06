@@ -121,6 +121,9 @@ package Windows.Devices.Display is
    type IDisplayMonitor_Interface;
    type IDisplayMonitor is access all IDisplayMonitor_Interface'Class;
    type IDisplayMonitor_Ptr is access all IDisplayMonitor;
+   type IDisplayMonitor2_Interface;
+   type IDisplayMonitor2 is access all IDisplayMonitor2_Interface'Class;
+   type IDisplayMonitor2_Ptr is access all IDisplayMonitor2;
    type IDisplayMonitorStatics_Interface;
    type IDisplayMonitorStatics is access all IDisplayMonitorStatics_Interface'Class;
    type IDisplayMonitorStatics_Ptr is access all IDisplayMonitorStatics;
@@ -300,6 +303,19 @@ package Windows.Devices.Display is
       This       : access IDisplayMonitor_Interface
       ; descriptorKind : Windows.Devices.Display.DisplayMonitorDescriptorKind
       ; RetVal : access UInt8_Ptr -- Array Parameter type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDisplayMonitor2 : aliased constant Windows.IID := (36706534, 52003, 22576, (150, 223, 167, 191, 110, 96, 37, 119 ));
+   
+   type IDisplayMonitor2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsDolbyVisionSupportedInHdrMode
+   (
+      This       : access IDisplayMonitor2_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    

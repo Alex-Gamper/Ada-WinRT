@@ -119,6 +119,13 @@ package Windows.Graphics.Holographic is
    
    type HolographicAdapterId_Ptr is access HolographicAdapterId;
    
+   type HolographicFrameId is record
+      Value : Windows.UInt64;
+   end record;
+   pragma Convention (C_Pass_By_Copy , HolographicFrameId);
+   
+   type HolographicFrameId_Ptr is access HolographicFrameId;
+   
    type HolographicStereoTransform is record
       Left : Windows.Foundation.Numerics.Matrix4x4;
       Right : Windows.Foundation.Numerics.Matrix4x4;
@@ -199,6 +206,9 @@ package Windows.Graphics.Holographic is
    type IHolographicFrame2_Interface;
    type IHolographicFrame2 is access all IHolographicFrame2_Interface'Class;
    type IHolographicFrame2_Ptr is access all IHolographicFrame2;
+   type IHolographicFrame3_Interface;
+   type IHolographicFrame3 is access all IHolographicFrame3_Interface'Class;
+   type IHolographicFrame3_Ptr is access all IHolographicFrame3;
    type IHolographicFramePrediction_Interface;
    type IHolographicFramePrediction is access all IHolographicFramePrediction_Interface'Class;
    type IHolographicFramePrediction_Ptr is access all IHolographicFramePrediction;
@@ -208,6 +218,15 @@ package Windows.Graphics.Holographic is
    type IHolographicFramePresentationReport_Interface;
    type IHolographicFramePresentationReport is access all IHolographicFramePresentationReport_Interface'Class;
    type IHolographicFramePresentationReport_Ptr is access all IHolographicFramePresentationReport;
+   type IHolographicFrameRenderingReport_Interface;
+   type IHolographicFrameRenderingReport is access all IHolographicFrameRenderingReport_Interface'Class;
+   type IHolographicFrameRenderingReport_Ptr is access all IHolographicFrameRenderingReport;
+   type IHolographicFrameScanoutMonitor_Interface;
+   type IHolographicFrameScanoutMonitor is access all IHolographicFrameScanoutMonitor_Interface'Class;
+   type IHolographicFrameScanoutMonitor_Ptr is access all IHolographicFrameScanoutMonitor;
+   type IHolographicFrameScanoutReport_Interface;
+   type IHolographicFrameScanoutReport is access all IHolographicFrameScanoutReport_Interface'Class;
+   type IHolographicFrameScanoutReport_Ptr is access all IHolographicFrameScanoutReport;
    type IHolographicQuadLayer_Interface;
    type IHolographicQuadLayer is access all IHolographicQuadLayer_Interface'Class;
    type IHolographicQuadLayer_Ptr is access all IHolographicQuadLayer;
@@ -226,6 +245,9 @@ package Windows.Graphics.Holographic is
    type IHolographicSpace2_Interface;
    type IHolographicSpace2 is access all IHolographicSpace2_Interface'Class;
    type IHolographicSpace2_Ptr is access all IHolographicSpace2;
+   type IHolographicSpace3_Interface;
+   type IHolographicSpace3 is access all IHolographicSpace3_Interface'Class;
+   type IHolographicSpace3_Ptr is access all IHolographicSpace3;
    type IHolographicSpaceCameraAddedEventArgs_Interface;
    type IHolographicSpaceCameraAddedEventArgs is access all IHolographicSpaceCameraAddedEventArgs_Interface'Class;
    type IHolographicSpaceCameraAddedEventArgs_Ptr is access all IHolographicSpaceCameraAddedEventArgs;
@@ -253,6 +275,9 @@ package Windows.Graphics.Holographic is
    type IIterable_IHolographicFramePresentationReport_Interface;
    type IIterable_IHolographicFramePresentationReport is access all IIterable_IHolographicFramePresentationReport_Interface'Class;
    type IIterable_IHolographicFramePresentationReport_Ptr is access all IIterable_IHolographicFramePresentationReport;
+   type IIterable_IHolographicFrameScanoutReport_Interface;
+   type IIterable_IHolographicFrameScanoutReport is access all IIterable_IHolographicFrameScanoutReport_Interface'Class;
+   type IIterable_IHolographicFrameScanoutReport_Ptr is access all IIterable_IHolographicFrameScanoutReport;
    type IIterable_IHolographicQuadLayer_Interface;
    type IIterable_IHolographicQuadLayer is access all IIterable_IHolographicQuadLayer_Interface'Class;
    type IIterable_IHolographicQuadLayer_Ptr is access all IIterable_IHolographicQuadLayer;
@@ -265,12 +290,18 @@ package Windows.Graphics.Holographic is
    type IIterator_IHolographicFramePresentationReport_Interface;
    type IIterator_IHolographicFramePresentationReport is access all IIterator_IHolographicFramePresentationReport_Interface'Class;
    type IIterator_IHolographicFramePresentationReport_Ptr is access all IIterator_IHolographicFramePresentationReport;
+   type IIterator_IHolographicFrameScanoutReport_Interface;
+   type IIterator_IHolographicFrameScanoutReport is access all IIterator_IHolographicFrameScanoutReport_Interface'Class;
+   type IIterator_IHolographicFrameScanoutReport_Ptr is access all IIterator_IHolographicFrameScanoutReport;
    type IIterator_IHolographicQuadLayer_Interface;
    type IIterator_IHolographicQuadLayer is access all IIterator_IHolographicQuadLayer_Interface'Class;
    type IIterator_IHolographicQuadLayer_Ptr is access all IIterator_IHolographicQuadLayer;
    type IReference_HolographicStereoTransform_Interface;
    type IReference_HolographicStereoTransform is access all IReference_HolographicStereoTransform_Interface'Class;
    type IReference_HolographicStereoTransform_Ptr is access all IReference_HolographicStereoTransform;
+   type IVector_IHolographicFrameScanoutReport_Interface;
+   type IVector_IHolographicFrameScanoutReport is access all IVector_IHolographicFrameScanoutReport_Interface'Class;
+   type IVector_IHolographicFrameScanoutReport_Ptr is access all IVector_IHolographicFrameScanoutReport;
    type IVector_IHolographicQuadLayer_Interface;
    type IVector_IHolographicQuadLayer is access all IVector_IHolographicQuadLayer_Interface'Class;
    type IVector_IHolographicQuadLayer_Ptr is access all IVector_IHolographicQuadLayer;
@@ -283,6 +314,9 @@ package Windows.Graphics.Holographic is
    type IVectorView_IHolographicFramePresentationReport_Interface;
    type IVectorView_IHolographicFramePresentationReport is access all IVectorView_IHolographicFramePresentationReport_Interface'Class;
    type IVectorView_IHolographicFramePresentationReport_Ptr is access all IVectorView_IHolographicFramePresentationReport;
+   type IVectorView_IHolographicFrameScanoutReport_Interface;
+   type IVectorView_IHolographicFrameScanoutReport is access all IVectorView_IHolographicFrameScanoutReport_Interface'Class;
+   type IVectorView_IHolographicFrameScanoutReport_Ptr is access all IVectorView_IHolographicFrameScanoutReport;
    type IVectorView_IHolographicQuadLayer_Interface;
    type IVectorView_IHolographicQuadLayer is access all IVectorView_IHolographicQuadLayer_Interface'Class;
    type IVectorView_IHolographicQuadLayer_Ptr is access all IVectorView_IHolographicQuadLayer;
@@ -841,6 +875,19 @@ package Windows.Graphics.Holographic is
    
    ------------------------------------------------------------------------
    
+   IID_IHolographicFrame3 : aliased constant Windows.IID := (3857278153, 35367, 21971, (159, 152, 148, 83, 13, 54, 144, 82 ));
+   
+   type IHolographicFrame3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Id
+   (
+      This       : access IHolographicFrame3_Interface
+      ; RetVal : access Windows.Graphics.Holographic.HolographicFrameId
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IHolographicFramePrediction : aliased constant Windows.IID := (1376734689, 23562, 20089, (168, 30, 106, 190, 2, 187, 39, 57 ));
    
    type IHolographicFramePrediction_Interface is interface and Windows.IInspectable_Interface;
@@ -910,6 +957,101 @@ package Windows.Graphics.Holographic is
    (
       This       : access IHolographicFramePresentationReport_Interface
       ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHolographicFrameRenderingReport : aliased constant Windows.IID := (99823076, 58244, 20915, (185, 52, 240, 211, 160, 247, 134, 6 ));
+   
+   type IHolographicFrameRenderingReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FrameId
+   (
+      This       : access IHolographicFrameRenderingReport_Interface
+      ; RetVal : access Windows.Graphics.Holographic.HolographicFrameId
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MissedLatchCount
+   (
+      This       : access IHolographicFrameRenderingReport_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SystemRelativeFrameReadyTime
+   (
+      This       : access IHolographicFrameRenderingReport_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SystemRelativeActualGpuFinishTime
+   (
+      This       : access IHolographicFrameRenderingReport_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SystemRelativeTargetLatchTime
+   (
+      This       : access IHolographicFrameRenderingReport_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHolographicFrameScanoutMonitor : aliased constant Windows.IID := (2122575785, 33852, 21505, (128, 149, 155, 193, 184, 176, 134, 56 ));
+   
+   type IHolographicFrameScanoutMonitor_Interface is interface and Windows.IInspectable_Interface;
+   
+   function ReadReports
+   (
+      This       : access IHolographicFrameScanoutMonitor_Interface
+      ; RetVal : access Windows.Graphics.Holographic.IVector_IHolographicFrameScanoutReport -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHolographicFrameScanoutReport : aliased constant Windows.IID := (247195142, 928, 23712, (180, 110, 187, 160, 104, 215, 35, 63 ));
+   
+   type IHolographicFrameScanoutReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RenderingReport
+   (
+      This       : access IHolographicFrameScanoutReport_Interface
+      ; RetVal : access Windows.Graphics.Holographic.IHolographicFrameRenderingReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MissedScanoutCount
+   (
+      This       : access IHolographicFrameScanoutReport_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SystemRelativeLatchTime
+   (
+      This       : access IHolographicFrameScanoutReport_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SystemRelativeScanoutStartTime
+   (
+      This       : access IHolographicFrameScanoutReport_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SystemRelativePhotonTime
+   (
+      This       : access IHolographicFrameScanoutReport_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
    )
    return Windows.HRESULT is abstract;
    
@@ -1130,6 +1272,20 @@ package Windows.Graphics.Holographic is
       This       : access IHolographicSpace2_Interface
       ; maxQueuedReports : Windows.UInt32
       ; RetVal : access Windows.Graphics.Holographic.IHolographicFramePresentationMonitor
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHolographicSpace3 : aliased constant Windows.IID := (3742839761, 61988, 22654, (141, 113, 30, 143, 200, 240, 123, 31 ));
+   
+   type IHolographicSpace3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateFrameScanoutMonitor
+   (
+      This       : access IHolographicSpace3_Interface
+      ; maxQueuedReports : Windows.UInt32
+      ; RetVal : access Windows.Graphics.Holographic.IHolographicFrameScanoutMonitor
    )
    return Windows.HRESULT is abstract;
    
@@ -1360,6 +1516,19 @@ package Windows.Graphics.Holographic is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_IHolographicFrameScanoutReport : aliased constant Windows.IID := (3484019220, 18435, 20481, (158, 218, 203, 79, 252, 210, 112, 233 ));
+   
+   type IIterable_IHolographicFrameScanoutReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IHolographicFrameScanoutReport_Interface
+      ; RetVal : access Windows.Graphics.Holographic.IIterator_IHolographicFrameScanoutReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterable_IHolographicQuadLayer : aliased constant Windows.IID := (2222212705, 38110, 22630, (161, 93, 158, 251, 25, 169, 154, 84 ));
    
    type IIterable_IHolographicQuadLayer_Interface is interface and Windows.IInspectable_Interface;
@@ -1478,6 +1647,41 @@ package Windows.Graphics.Holographic is
    
    ------------------------------------------------------------------------
    
+   IID_IIterator_IHolographicFrameScanoutReport : aliased constant Windows.IID := (1786635641, 1499, 22774, (163, 113, 151, 253, 25, 146, 33, 48 ));
+   
+   type IIterator_IHolographicFrameScanoutReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IHolographicFrameScanoutReport_Interface
+      ; RetVal : access Windows.Graphics.Holographic.IHolographicFrameScanoutReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IHolographicFrameScanoutReport_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IHolographicFrameScanoutReport_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IHolographicFrameScanoutReport_Interface
+      ; items : Windows.Graphics.Holographic.IHolographicFrameScanoutReport_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_IHolographicQuadLayer : aliased constant Windows.IID := (2239123824, 18779, 21532, (174, 240, 116, 146, 133, 109, 227, 223 ));
    
    type IIterator_IHolographicQuadLayer_Interface is interface and Windows.IInspectable_Interface;
@@ -1521,6 +1725,101 @@ package Windows.Graphics.Holographic is
    (
       This       : access IReference_HolographicStereoTransform_Interface
       ; RetVal : access Windows.Graphics.Holographic.HolographicStereoTransform
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_IHolographicFrameScanoutReport : aliased constant Windows.IID := (2819104299, 17421, 21500, (163, 16, 207, 138, 7, 234, 9, 53 ));
+   
+   type IVector_IHolographicFrameScanoutReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_IHolographicFrameScanoutReport_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Graphics.Holographic.IHolographicFrameScanoutReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_IHolographicFrameScanoutReport_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_IHolographicFrameScanoutReport_Interface
+      ; RetVal : access Windows.Graphics.Holographic.IVectorView_IHolographicFrameScanoutReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_IHolographicFrameScanoutReport_Interface
+      ; value : Windows.Graphics.Holographic.IHolographicFrameScanoutReport
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_IHolographicFrameScanoutReport_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Graphics.Holographic.IHolographicFrameScanoutReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_IHolographicFrameScanoutReport_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Graphics.Holographic.IHolographicFrameScanoutReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_IHolographicFrameScanoutReport_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_IHolographicFrameScanoutReport_Interface
+      ; value : Windows.Graphics.Holographic.IHolographicFrameScanoutReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_IHolographicFrameScanoutReport_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_IHolographicFrameScanoutReport_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_IHolographicFrameScanoutReport_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Graphics.Holographic.IHolographicFrameScanoutReport_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_IHolographicFrameScanoutReport_Interface
+      ; items : Windows.Graphics.Holographic.IHolographicFrameScanoutReport_Ptr
    )
    return Windows.HRESULT is abstract;
    
@@ -1738,6 +2037,45 @@ package Windows.Graphics.Holographic is
    
    ------------------------------------------------------------------------
    
+   IID_IVectorView_IHolographicFrameScanoutReport : aliased constant Windows.IID := (2703749361, 64339, 20706, (138, 152, 14, 202, 234, 98, 227, 43 ));
+   
+   type IVectorView_IHolographicFrameScanoutReport_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IHolographicFrameScanoutReport_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Graphics.Holographic.IHolographicFrameScanoutReport
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IHolographicFrameScanoutReport_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IHolographicFrameScanoutReport_Interface
+      ; value : Windows.Graphics.Holographic.IHolographicFrameScanoutReport
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IHolographicFrameScanoutReport_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Graphics.Holographic.IHolographicFrameScanoutReport_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVectorView_IHolographicQuadLayer : aliased constant Windows.IID := (525462751, 53037, 23422, (170, 233, 214, 98, 138, 81, 141, 190 ));
    
    type IVectorView_IHolographicQuadLayer_Interface is interface and Windows.IInspectable_Interface;
@@ -1831,6 +2169,9 @@ package Windows.Graphics.Holographic is
    subtype HolographicFramePrediction is Windows.Graphics.Holographic.IHolographicFramePrediction;
    subtype HolographicFramePresentationMonitor is Windows.Graphics.Holographic.IHolographicFramePresentationMonitor;
    subtype HolographicFramePresentationReport is Windows.Graphics.Holographic.IHolographicFramePresentationReport;
+   subtype HolographicFrameRenderingReport is Windows.Graphics.Holographic.IHolographicFrameRenderingReport;
+   subtype HolographicFrameScanoutMonitor is Windows.Graphics.Holographic.IHolographicFrameScanoutMonitor;
+   subtype HolographicFrameScanoutReport is Windows.Graphics.Holographic.IHolographicFrameScanoutReport;
    subtype HolographicQuadLayer is Windows.Graphics.Holographic.IHolographicQuadLayer;
    function Create
    (

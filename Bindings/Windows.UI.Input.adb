@@ -29,6 +29,7 @@
 with Windows.Devices.Haptics;
 with Windows.Devices.Input;
 with Windows.Storage.Streams;
+with Windows.System;
 with Windows.UI.Core;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
@@ -386,6 +387,58 @@ package body Windows.UI.Input is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.Input.IRadialControllerMenuItem(sender), args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonPressed_Interface
+      ; sender : Windows.UI.Input.ISystemButtonEventController
+      ; args : Windows.UI.Input.ISystemFunctionButtonEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.ISystemButtonEventController(sender), Windows.UI.Input.ISystemFunctionButtonEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonReleased_Interface
+      ; sender : Windows.UI.Input.ISystemButtonEventController
+      ; args : Windows.UI.Input.ISystemFunctionButtonEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.ISystemButtonEventController(sender), Windows.UI.Input.ISystemFunctionButtonEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockChanged_Interface
+      ; sender : Windows.UI.Input.ISystemButtonEventController
+      ; args : Windows.UI.Input.ISystemFunctionLockChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.ISystemButtonEventController(sender), Windows.UI.Input.ISystemFunctionLockChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockIndicatorChanged_Interface
+      ; sender : Windows.UI.Input.ISystemButtonEventController
+      ; args : Windows.UI.Input.ISystemFunctionLockIndicatorChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.Input.ISystemButtonEventController(sender), Windows.UI.Input.ISystemFunctionLockIndicatorChangedEventArgs(args));
       return Hr;
    end;
    
@@ -753,6 +806,26 @@ package body Windows.UI.Input is
       Hr := RoGetActivationFactory(m_hString, IID_IRadialControllerMenuItemStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateFromFontGlyphWithUri(displayText, glyph, fontFamily, fontUri, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function CreateForDispatcherQueue
+   (
+      queue : Windows.System.IDispatcherQueue
+   )
+   return Windows.UI.Input.ISystemButtonEventController is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.Input.SystemButtonEventController");
+      m_Factory     : ISystemButtonEventControllerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.Input.ISystemButtonEventController;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ISystemButtonEventControllerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.CreateForDispatcherQueue(queue, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

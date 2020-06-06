@@ -158,6 +158,24 @@ package Windows.Storage is
    
    type KnownFolderId_Ptr is access KnownFolderId;
    
+   type KnownFoldersAccessStatus is (
+      DeniedBySystem,
+      NotDeclaredByApp,
+      DeniedByUser,
+      UserPromptRequired,
+      Allowed
+   );
+   for KnownFoldersAccessStatus use (
+      DeniedBySystem => 0,
+      NotDeclaredByApp => 1,
+      DeniedByUser => 2,
+      UserPromptRequired => 3,
+      Allowed => 4
+   );
+   for KnownFoldersAccessStatus'Size use 32;
+   
+   type KnownFoldersAccessStatus_Ptr is access KnownFoldersAccessStatus;
+   
    type KnownLibraryId is (
       Music,
       Pictures,
@@ -295,6 +313,9 @@ package Windows.Storage is
    type AsyncOperationCompletedHandler_IStorageStreamTransaction_Interface;
    type AsyncOperationCompletedHandler_IStorageStreamTransaction is access all AsyncOperationCompletedHandler_IStorageStreamTransaction_Interface'Class;
    type AsyncOperationCompletedHandler_IStorageStreamTransaction_Ptr is access all AsyncOperationCompletedHandler_IStorageStreamTransaction;
+   type AsyncOperationCompletedHandler_KnownFoldersAccessStatus_Interface;
+   type AsyncOperationCompletedHandler_KnownFoldersAccessStatus is access all AsyncOperationCompletedHandler_KnownFoldersAccessStatus_Interface'Class;
+   type AsyncOperationCompletedHandler_KnownFoldersAccessStatus_Ptr is access all AsyncOperationCompletedHandler_KnownFoldersAccessStatus;
    type StreamedFileDataRequestedHandler_Interface;
    type StreamedFileDataRequestedHandler is access all StreamedFileDataRequestedHandler_Interface'Class;
    type StreamedFileDataRequestedHandler_Ptr is access all StreamedFileDataRequestedHandler;
@@ -354,6 +375,9 @@ package Windows.Storage is
    type IAsyncOperation_IStorageStreamTransaction_Interface;
    type IAsyncOperation_IStorageStreamTransaction is access all IAsyncOperation_IStorageStreamTransaction_Interface'Class;
    type IAsyncOperation_IStorageStreamTransaction_Ptr is access all IAsyncOperation_IStorageStreamTransaction;
+   type IAsyncOperation_KnownFoldersAccessStatus_Interface;
+   type IAsyncOperation_KnownFoldersAccessStatus is access all IAsyncOperation_KnownFoldersAccessStatus_Interface'Class;
+   type IAsyncOperation_KnownFoldersAccessStatus_Ptr is access all IAsyncOperation_KnownFoldersAccessStatus;
    type ICachedFileManagerStatics_Interface;
    type ICachedFileManagerStatics is access all ICachedFileManagerStatics_Interface'Class;
    type ICachedFileManagerStatics_Ptr is access all ICachedFileManagerStatics;
@@ -414,6 +438,9 @@ package Windows.Storage is
    type IKnownFoldersStatics3_Interface;
    type IKnownFoldersStatics3 is access all IKnownFoldersStatics3_Interface'Class;
    type IKnownFoldersStatics3_Ptr is access all IKnownFoldersStatics3;
+   type IKnownFoldersStatics4_Interface;
+   type IKnownFoldersStatics4 is access all IKnownFoldersStatics4_Interface'Class;
+   type IKnownFoldersStatics4_Ptr is access all IKnownFoldersStatics4;
    type IMap_String_Object_Interface;
    type IMap_String_Object is access all IMap_String_Object_Interface'Class;
    type IMap_String_Object_Ptr is access all IMap_String_Object;
@@ -453,6 +480,9 @@ package Windows.Storage is
    type IStorageFileStatics_Interface;
    type IStorageFileStatics is access all IStorageFileStatics_Interface'Class;
    type IStorageFileStatics_Ptr is access all IStorageFileStatics;
+   type IStorageFileStatics2_Interface;
+   type IStorageFileStatics2 is access all IStorageFileStatics2_Interface'Class;
+   type IStorageFileStatics2_Ptr is access all IStorageFileStatics2;
    type IStorageFolder_Interface;
    type IStorageFolder is access all IStorageFolder_Interface'Class;
    type IStorageFolder_Ptr is access all IStorageFolder;
@@ -468,6 +498,9 @@ package Windows.Storage is
    type IStorageFolderStatics_Interface;
    type IStorageFolderStatics is access all IStorageFolderStatics_Interface'Class;
    type IStorageFolderStatics_Ptr is access all IStorageFolderStatics;
+   type IStorageFolderStatics2_Interface;
+   type IStorageFolderStatics2 is access all IStorageFolderStatics2_Interface'Class;
+   type IStorageFolderStatics2_Ptr is access all IStorageFolderStatics2;
    type IStorageItem_Interface;
    type IStorageItem is access all IStorageItem_Interface'Class;
    type IStorageItem_Ptr is access all IStorageItem;
@@ -1046,6 +1079,33 @@ package Windows.Storage is
    (
       This       : access IAsyncOperation_IStorageStreamTransaction_Interface
       ; RetVal : access Windows.Storage.IStorageStreamTransaction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_KnownFoldersAccessStatus : aliased constant Windows.IID := (3622868149, 3746, 22100, (133, 185, 56, 238, 93, 233, 15, 250 ));
+   
+   type IAsyncOperation_KnownFoldersAccessStatus_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_KnownFoldersAccessStatus_Interface
+      ; handler : Windows.Storage.AsyncOperationCompletedHandler_KnownFoldersAccessStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_KnownFoldersAccessStatus_Interface
+      ; RetVal : access Windows.Storage.AsyncOperationCompletedHandler_KnownFoldersAccessStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_KnownFoldersAccessStatus_Interface
+      ; RetVal : access Windows.Storage.KnownFoldersAccessStatus
    )
    return Windows.HRESULT is abstract;
    
@@ -1650,6 +1710,37 @@ package Windows.Storage is
    
    ------------------------------------------------------------------------
    
+   IID_IKnownFoldersStatics4 : aliased constant Windows.IID := (388163263, 40953, 19233, (190, 213, 144, 236, 177, 58, 25, 46 ));
+   
+   type IKnownFoldersStatics4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RequestAccessAsync
+   (
+      This       : access IKnownFoldersStatics4_Interface
+      ; folderId : Windows.Storage.KnownFolderId
+      ; RetVal : access Windows.Storage.IAsyncOperation_KnownFoldersAccessStatus -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RequestAccessForUserAsync
+   (
+      This       : access IKnownFoldersStatics4_Interface
+      ; user : Windows.System.IUser
+      ; folderId : Windows.Storage.KnownFolderId
+      ; RetVal : access Windows.Storage.IAsyncOperation_KnownFoldersAccessStatus -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetFolderAsync
+   (
+      This       : access IKnownFoldersStatics4_Interface
+      ; folderId : Windows.Storage.KnownFolderId
+      ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFolder -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMap_String_Object : aliased constant Windows.IID := (453850480, 2167, 24258, (138, 44, 59, 149, 57, 80, 106, 202 ));
    
    type IMap_String_Object_Interface is interface and Windows.IInspectable_Interface;
@@ -2168,6 +2259,21 @@ package Windows.Storage is
    
    ------------------------------------------------------------------------
    
+   IID_IStorageFileStatics2 : aliased constant Windows.IID := (1551280001, 8494, 19193, (143, 4, 116, 12, 174, 16, 137, 116 ));
+   
+   type IStorageFileStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetFileFromPathForUserAsync
+   (
+      This       : access IStorageFileStatics2_Interface
+      ; user : Windows.System.IUser
+      ; path : Windows.String
+      ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFile -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IStorageFolder : aliased constant Windows.IID := (1926351736, 46063, 20341, (168, 11, 111, 217, 218, 226, 148, 75 ));
    
    type IStorageFolder_Interface is interface and Windows.IInspectable_Interface;
@@ -2428,6 +2534,21 @@ package Windows.Storage is
    function GetFolderFromPathAsync
    (
       This       : access IStorageFolderStatics_Interface
+      ; path : Windows.String
+      ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFolder -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorageFolderStatics2 : aliased constant Windows.IID := (3026546115, 29138, 18045, (139, 41, 55, 31, 15, 98, 191, 111 ));
+   
+   type IStorageFolderStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetFolderFromPathForUserAsync
+   (
+      This       : access IStorageFolderStatics2_Interface
+      ; user : Windows.System.IUser
       ; path : Windows.String
       ; RetVal : access Windows.Storage.IAsyncOperation_IStorageFolder -- Generic Parameter Type
    )
@@ -4032,6 +4153,19 @@ package Windows.Storage is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_KnownFoldersAccessStatus : aliased constant Windows.IID := (2734194630, 20133, 22735, (148, 144, 24, 22, 4, 251, 214, 162 ));
+   
+   type AsyncOperationCompletedHandler_KnownFoldersAccessStatus_Interface(Callback : access procedure (asyncInfo : Windows.Storage.IAsyncOperation_KnownFoldersAccessStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_KnownFoldersAccessStatus'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_KnownFoldersAccessStatus_Interface
+      ; asyncInfo : Windows.Storage.IAsyncOperation_KnownFoldersAccessStatus
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_StreamedFileDataRequestedHandler : aliased constant Windows.IID := (4277577764, 12257, 19719, (163, 91, 183, 124, 80, 181, 244, 204 ));
    
    type StreamedFileDataRequestedHandler_Interface(Callback : access procedure (stream : Windows.Storage.Streams.IOutputStream)) is new Windows.IMulticastDelegate_Interface(IID_StreamedFileDataRequestedHandler'access) with null record;
@@ -4355,6 +4489,25 @@ package Windows.Storage is
    )
    return Windows.Storage.IAsyncOperation_IStorageFolder;
    
+   function GetFolderAsync
+   (
+      folderId : Windows.Storage.KnownFolderId
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFolder;
+   
+   function RequestAccessAsync
+   (
+      folderId : Windows.Storage.KnownFolderId
+   )
+   return Windows.Storage.IAsyncOperation_KnownFoldersAccessStatus;
+   
+   function RequestAccessForUserAsync
+   (
+      user : Windows.System.IUser
+      ; folderId : Windows.Storage.KnownFolderId
+   )
+   return Windows.Storage.IAsyncOperation_KnownFoldersAccessStatus;
+   
    function AppendLinesAsync
    (
       absolutePath : Windows.String
@@ -4505,9 +4658,23 @@ package Windows.Storage is
    )
    return Windows.Storage.IAsyncOperation_IStorageFile;
    
+   function GetFileFromPathForUserAsync
+   (
+      user : Windows.System.IUser
+      ; path : Windows.String
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFile;
+   
    function GetFolderFromPathAsync
    (
       path : Windows.String
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFolder;
+   
+   function GetFolderFromPathForUserAsync
+   (
+      user : Windows.System.IUser
+      ; path : Windows.String
    )
    return Windows.Storage.IAsyncOperation_IStorageFolder;
    

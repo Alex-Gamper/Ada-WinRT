@@ -84,14 +84,16 @@ package Windows.Devices.Bluetooth.Advertisement is
       ConnectableDirected,
       ScannableUndirected,
       NonConnectableUndirected,
-      ScanResponse
+      ScanResponse,
+      Extended
    );
    for BluetoothLEAdvertisementType use (
       ConnectableUndirected => 0,
       ConnectableDirected => 1,
       ScannableUndirected => 2,
       NonConnectableUndirected => 3,
-      ScanResponse => 4
+      ScanResponse => 4,
+      Extended => 5
    );
    for BluetoothLEAdvertisementType'Size use 32;
    
@@ -117,11 +119,13 @@ package Windows.Devices.Bluetooth.Advertisement is
    
    type BluetoothLEScanningMode is (
       Passive,
-      Active
+      Active,
+      None
    );
    for BluetoothLEScanningMode use (
       Passive => 0,
-      Active => 1
+      Active => 1,
+      None => 2
    );
    for BluetoothLEScanningMode'Size use 32;
    
@@ -169,18 +173,30 @@ package Windows.Devices.Bluetooth.Advertisement is
    type IBluetoothLEAdvertisementPublisher_Interface;
    type IBluetoothLEAdvertisementPublisher is access all IBluetoothLEAdvertisementPublisher_Interface'Class;
    type IBluetoothLEAdvertisementPublisher_Ptr is access all IBluetoothLEAdvertisementPublisher;
+   type IBluetoothLEAdvertisementPublisher2_Interface;
+   type IBluetoothLEAdvertisementPublisher2 is access all IBluetoothLEAdvertisementPublisher2_Interface'Class;
+   type IBluetoothLEAdvertisementPublisher2_Ptr is access all IBluetoothLEAdvertisementPublisher2;
    type IBluetoothLEAdvertisementPublisherFactory_Interface;
    type IBluetoothLEAdvertisementPublisherFactory is access all IBluetoothLEAdvertisementPublisherFactory_Interface'Class;
    type IBluetoothLEAdvertisementPublisherFactory_Ptr is access all IBluetoothLEAdvertisementPublisherFactory;
    type IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Interface;
    type IBluetoothLEAdvertisementPublisherStatusChangedEventArgs is access all IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Interface'Class;
    type IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Ptr is access all IBluetoothLEAdvertisementPublisherStatusChangedEventArgs;
+   type IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2_Interface;
+   type IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2 is access all IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2_Interface'Class;
+   type IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2_Ptr is access all IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2;
    type IBluetoothLEAdvertisementReceivedEventArgs_Interface;
    type IBluetoothLEAdvertisementReceivedEventArgs is access all IBluetoothLEAdvertisementReceivedEventArgs_Interface'Class;
    type IBluetoothLEAdvertisementReceivedEventArgs_Ptr is access all IBluetoothLEAdvertisementReceivedEventArgs;
+   type IBluetoothLEAdvertisementReceivedEventArgs2_Interface;
+   type IBluetoothLEAdvertisementReceivedEventArgs2 is access all IBluetoothLEAdvertisementReceivedEventArgs2_Interface'Class;
+   type IBluetoothLEAdvertisementReceivedEventArgs2_Ptr is access all IBluetoothLEAdvertisementReceivedEventArgs2;
    type IBluetoothLEAdvertisementWatcher_Interface;
    type IBluetoothLEAdvertisementWatcher is access all IBluetoothLEAdvertisementWatcher_Interface'Class;
    type IBluetoothLEAdvertisementWatcher_Ptr is access all IBluetoothLEAdvertisementWatcher;
+   type IBluetoothLEAdvertisementWatcher2_Interface;
+   type IBluetoothLEAdvertisementWatcher2 is access all IBluetoothLEAdvertisementWatcher2_Interface'Class;
+   type IBluetoothLEAdvertisementWatcher2_Ptr is access all IBluetoothLEAdvertisementWatcher2;
    type IBluetoothLEAdvertisementWatcherFactory_Interface;
    type IBluetoothLEAdvertisementWatcherFactory is access all IBluetoothLEAdvertisementWatcherFactory_Interface'Class;
    type IBluetoothLEAdvertisementWatcherFactory_Ptr is access all IBluetoothLEAdvertisementWatcherFactory;
@@ -666,6 +682,68 @@ package Windows.Devices.Bluetooth.Advertisement is
    
    ------------------------------------------------------------------------
    
+   IID_IBluetoothLEAdvertisementPublisher2 : aliased constant Windows.IID := (4225455198, 22257, 20751, (164, 52, 33, 127, 189, 158, 123, 210 ));
+   
+   type IBluetoothLEAdvertisementPublisher2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PreferredTransmitPowerLevelInDBm
+   (
+      This       : access IBluetoothLEAdvertisementPublisher2_Interface
+      ; RetVal : access Windows.Foundation.IReference_Int16 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PreferredTransmitPowerLevelInDBm
+   (
+      This       : access IBluetoothLEAdvertisementPublisher2_Interface
+      ; value : Windows.Foundation.IReference_Int16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UseExtendedAdvertisement
+   (
+      This       : access IBluetoothLEAdvertisementPublisher2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_UseExtendedAdvertisement
+   (
+      This       : access IBluetoothLEAdvertisementPublisher2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsAnonymous
+   (
+      This       : access IBluetoothLEAdvertisementPublisher2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsAnonymous
+   (
+      This       : access IBluetoothLEAdvertisementPublisher2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IncludeTransmitPowerLevel
+   (
+      This       : access IBluetoothLEAdvertisementPublisher2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IncludeTransmitPowerLevel
+   (
+      This       : access IBluetoothLEAdvertisementPublisher2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IBluetoothLEAdvertisementPublisherFactory : aliased constant Windows.IID := (1549731422, 47203, 18817, (161, 175, 28, 84, 77, 139, 12, 13 ));
    
    type IBluetoothLEAdvertisementPublisherFactory_Interface is interface and Windows.IInspectable_Interface;
@@ -695,6 +773,19 @@ package Windows.Devices.Bluetooth.Advertisement is
    (
       This       : access IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Interface
       ; RetVal : access Windows.Devices.Bluetooth.BluetoothError
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2 : aliased constant Windows.IID := (2405595406, 56456, 23691, (179, 78, 16, 179, 33, 133, 15, 136 ));
+   
+   type IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectedTransmitPowerLevelInDBm
+   (
+      This       : access IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2_Interface
+      ; RetVal : access Windows.Foundation.IReference_Int16 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -736,6 +827,61 @@ package Windows.Devices.Bluetooth.Advertisement is
    (
       This       : access IBluetoothLEAdvertisementReceivedEventArgs_Interface
       ; RetVal : access Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisement
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBluetoothLEAdvertisementReceivedEventArgs2 : aliased constant Windows.IID := (316262523, 921, 24334, (163, 72, 83, 176, 43, 107, 22, 46 ));
+   
+   type IBluetoothLEAdvertisementReceivedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_BluetoothAddressType
+   (
+      This       : access IBluetoothLEAdvertisementReceivedEventArgs2_Interface
+      ; RetVal : access Windows.Devices.Bluetooth.BluetoothAddressType
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TransmitPowerLevelInDBm
+   (
+      This       : access IBluetoothLEAdvertisementReceivedEventArgs2_Interface
+      ; RetVal : access Windows.Foundation.IReference_Int16 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsAnonymous
+   (
+      This       : access IBluetoothLEAdvertisementReceivedEventArgs2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsConnectable
+   (
+      This       : access IBluetoothLEAdvertisementReceivedEventArgs2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsScannable
+   (
+      This       : access IBluetoothLEAdvertisementReceivedEventArgs2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsDirected
+   (
+      This       : access IBluetoothLEAdvertisementReceivedEventArgs2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsScanResponse
+   (
+      This       : access IBluetoothLEAdvertisementReceivedEventArgs2_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -861,6 +1007,26 @@ package Windows.Devices.Bluetooth.Advertisement is
    (
       This       : access IBluetoothLEAdvertisementWatcher_Interface
       ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBluetoothLEAdvertisementWatcher2 : aliased constant Windows.IID := (29304508, 45412, 22533, (144, 163, 232, 167, 153, 127, 242, 37 ));
+   
+   type IBluetoothLEAdvertisementWatcher2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AllowExtendedAdvertisements
+   (
+      This       : access IBluetoothLEAdvertisementWatcher2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AllowExtendedAdvertisements
+   (
+      This       : access IBluetoothLEAdvertisementWatcher2_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    

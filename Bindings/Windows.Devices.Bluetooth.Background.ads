@@ -29,6 +29,7 @@
 limited with Windows.Devices.Bluetooth.Advertisement;
 limited with Windows.Devices.Bluetooth.GenericAttributeProfile;
 limited with Windows.Devices.Bluetooth.Rfcomm;
+with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.Networking.Sockets;
 limited with Windows.Storage.Streams;
@@ -62,6 +63,9 @@ package Windows.Devices.Bluetooth.Background is
    type IBluetoothLEAdvertisementPublisherTriggerDetails_Interface;
    type IBluetoothLEAdvertisementPublisherTriggerDetails is access all IBluetoothLEAdvertisementPublisherTriggerDetails_Interface'Class;
    type IBluetoothLEAdvertisementPublisherTriggerDetails_Ptr is access all IBluetoothLEAdvertisementPublisherTriggerDetails;
+   type IBluetoothLEAdvertisementPublisherTriggerDetails2_Interface;
+   type IBluetoothLEAdvertisementPublisherTriggerDetails2 is access all IBluetoothLEAdvertisementPublisherTriggerDetails2_Interface'Class;
+   type IBluetoothLEAdvertisementPublisherTriggerDetails2_Ptr is access all IBluetoothLEAdvertisementPublisherTriggerDetails2;
    type IBluetoothLEAdvertisementWatcherTriggerDetails_Interface;
    type IBluetoothLEAdvertisementWatcherTriggerDetails is access all IBluetoothLEAdvertisementWatcherTriggerDetails_Interface'Class;
    type IBluetoothLEAdvertisementWatcherTriggerDetails_Ptr is access all IBluetoothLEAdvertisementWatcherTriggerDetails;
@@ -111,6 +115,19 @@ package Windows.Devices.Bluetooth.Background is
    (
       This       : access IBluetoothLEAdvertisementPublisherTriggerDetails_Interface
       ; RetVal : access Windows.Devices.Bluetooth.BluetoothError
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBluetoothLEAdvertisementPublisherTriggerDetails2 : aliased constant Windows.IID := (3567505445, 50689, 17110, (152, 41, 76, 203, 63, 92, 215, 127 ));
+   
+   type IBluetoothLEAdvertisementPublisherTriggerDetails2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SelectedTransmitPowerLevelInDBm
+   (
+      This       : access IBluetoothLEAdvertisementPublisherTriggerDetails2_Interface
+      ; RetVal : access Windows.Foundation.IReference_Int16 -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    

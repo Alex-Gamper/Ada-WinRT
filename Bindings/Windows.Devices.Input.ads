@@ -84,6 +84,27 @@ package Windows.Devices.Input is
    type TypedEventHandler_IMouseDevice_add_MouseMoved_Interface;
    type TypedEventHandler_IMouseDevice_add_MouseMoved is access all TypedEventHandler_IMouseDevice_add_MouseMoved_Interface'Class;
    type TypedEventHandler_IMouseDevice_add_MouseMoved_Ptr is access all TypedEventHandler_IMouseDevice_add_MouseMoved;
+   type TypedEventHandler_IPenButtonListener_add_IsSupportedChanged_Interface;
+   type TypedEventHandler_IPenButtonListener_add_IsSupportedChanged is access all TypedEventHandler_IPenButtonListener_add_IsSupportedChanged_Interface'Class;
+   type TypedEventHandler_IPenButtonListener_add_IsSupportedChanged_Ptr is access all TypedEventHandler_IPenButtonListener_add_IsSupportedChanged;
+   type TypedEventHandler_IPenButtonListener_add_TailButtonClicked_Interface;
+   type TypedEventHandler_IPenButtonListener_add_TailButtonClicked is access all TypedEventHandler_IPenButtonListener_add_TailButtonClicked_Interface'Class;
+   type TypedEventHandler_IPenButtonListener_add_TailButtonClicked_Ptr is access all TypedEventHandler_IPenButtonListener_add_TailButtonClicked;
+   type TypedEventHandler_IPenButtonListener_add_TailButtonDoubleClicked_Interface;
+   type TypedEventHandler_IPenButtonListener_add_TailButtonDoubleClicked is access all TypedEventHandler_IPenButtonListener_add_TailButtonDoubleClicked_Interface'Class;
+   type TypedEventHandler_IPenButtonListener_add_TailButtonDoubleClicked_Ptr is access all TypedEventHandler_IPenButtonListener_add_TailButtonDoubleClicked;
+   type TypedEventHandler_IPenButtonListener_add_TailButtonLongPressed_Interface;
+   type TypedEventHandler_IPenButtonListener_add_TailButtonLongPressed is access all TypedEventHandler_IPenButtonListener_add_TailButtonLongPressed_Interface'Class;
+   type TypedEventHandler_IPenButtonListener_add_TailButtonLongPressed_Ptr is access all TypedEventHandler_IPenButtonListener_add_TailButtonLongPressed;
+   type TypedEventHandler_IPenDockListener_add_Docked_Interface;
+   type TypedEventHandler_IPenDockListener_add_Docked is access all TypedEventHandler_IPenDockListener_add_Docked_Interface'Class;
+   type TypedEventHandler_IPenDockListener_add_Docked_Ptr is access all TypedEventHandler_IPenDockListener_add_Docked;
+   type TypedEventHandler_IPenDockListener_add_IsSupportedChanged_Interface;
+   type TypedEventHandler_IPenDockListener_add_IsSupportedChanged is access all TypedEventHandler_IPenDockListener_add_IsSupportedChanged_Interface'Class;
+   type TypedEventHandler_IPenDockListener_add_IsSupportedChanged_Ptr is access all TypedEventHandler_IPenDockListener_add_IsSupportedChanged;
+   type TypedEventHandler_IPenDockListener_add_Undocked_Interface;
+   type TypedEventHandler_IPenDockListener_add_Undocked is access all TypedEventHandler_IPenDockListener_add_Undocked_Interface'Class;
+   type TypedEventHandler_IPenDockListener_add_Undocked_Ptr is access all TypedEventHandler_IPenDockListener_add_Undocked;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -116,12 +137,39 @@ package Windows.Devices.Input is
    type IMouseEventArgs_Interface;
    type IMouseEventArgs is access all IMouseEventArgs_Interface'Class;
    type IMouseEventArgs_Ptr is access all IMouseEventArgs;
+   type IPenButtonListener_Interface;
+   type IPenButtonListener is access all IPenButtonListener_Interface'Class;
+   type IPenButtonListener_Ptr is access all IPenButtonListener;
+   type IPenButtonListenerStatics_Interface;
+   type IPenButtonListenerStatics is access all IPenButtonListenerStatics_Interface'Class;
+   type IPenButtonListenerStatics_Ptr is access all IPenButtonListenerStatics;
    type IPenDevice_Interface;
    type IPenDevice is access all IPenDevice_Interface'Class;
    type IPenDevice_Ptr is access all IPenDevice;
    type IPenDeviceStatics_Interface;
    type IPenDeviceStatics is access all IPenDeviceStatics_Interface'Class;
    type IPenDeviceStatics_Ptr is access all IPenDeviceStatics;
+   type IPenDockedEventArgs_Interface;
+   type IPenDockedEventArgs is access all IPenDockedEventArgs_Interface'Class;
+   type IPenDockedEventArgs_Ptr is access all IPenDockedEventArgs;
+   type IPenDockListener_Interface;
+   type IPenDockListener is access all IPenDockListener_Interface'Class;
+   type IPenDockListener_Ptr is access all IPenDockListener;
+   type IPenDockListenerStatics_Interface;
+   type IPenDockListenerStatics is access all IPenDockListenerStatics_Interface'Class;
+   type IPenDockListenerStatics_Ptr is access all IPenDockListenerStatics;
+   type IPenTailButtonClickedEventArgs_Interface;
+   type IPenTailButtonClickedEventArgs is access all IPenTailButtonClickedEventArgs_Interface'Class;
+   type IPenTailButtonClickedEventArgs_Ptr is access all IPenTailButtonClickedEventArgs;
+   type IPenTailButtonDoubleClickedEventArgs_Interface;
+   type IPenTailButtonDoubleClickedEventArgs is access all IPenTailButtonDoubleClickedEventArgs_Interface'Class;
+   type IPenTailButtonDoubleClickedEventArgs_Ptr is access all IPenTailButtonDoubleClickedEventArgs;
+   type IPenTailButtonLongPressedEventArgs_Interface;
+   type IPenTailButtonLongPressedEventArgs is access all IPenTailButtonLongPressedEventArgs_Interface'Class;
+   type IPenTailButtonLongPressedEventArgs_Ptr is access all IPenTailButtonLongPressedEventArgs;
+   type IPenUndockedEventArgs_Interface;
+   type IPenUndockedEventArgs is access all IPenUndockedEventArgs_Interface'Class;
+   type IPenUndockedEventArgs_Ptr is access all IPenUndockedEventArgs;
    type IPointerDevice_Interface;
    type IPointerDevice is access all IPointerDevice_Interface'Class;
    type IPointerDevice_Ptr is access all IPointerDevice;
@@ -344,6 +392,92 @@ package Windows.Devices.Input is
    
    ------------------------------------------------------------------------
    
+   IID_IPenButtonListener : aliased constant Windows.IID := (2185610102, 7907, 21495, (177, 247, 131, 52, 161, 111, 40, 21 ));
+   
+   type IPenButtonListener_Interface is interface and Windows.IInspectable_Interface;
+   
+   function IsSupported
+   (
+      This       : access IPenButtonListener_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_IsSupportedChanged
+   (
+      This       : access IPenButtonListener_Interface
+      ; handler : TypedEventHandler_IPenButtonListener_add_IsSupportedChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_IsSupportedChanged
+   (
+      This       : access IPenButtonListener_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_TailButtonClicked
+   (
+      This       : access IPenButtonListener_Interface
+      ; handler : TypedEventHandler_IPenButtonListener_add_TailButtonClicked
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_TailButtonClicked
+   (
+      This       : access IPenButtonListener_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_TailButtonDoubleClicked
+   (
+      This       : access IPenButtonListener_Interface
+      ; handler : TypedEventHandler_IPenButtonListener_add_TailButtonDoubleClicked
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_TailButtonDoubleClicked
+   (
+      This       : access IPenButtonListener_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_TailButtonLongPressed
+   (
+      This       : access IPenButtonListener_Interface
+      ; handler : TypedEventHandler_IPenButtonListener_add_TailButtonLongPressed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_TailButtonLongPressed
+   (
+      This       : access IPenButtonListener_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPenButtonListenerStatics : aliased constant Windows.IID := (430482820, 34351, 24425, (191, 234, 5, 246, 88, 79, 19, 63 ));
+   
+   type IPenButtonListenerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDefault
+   (
+      This       : access IPenButtonListenerStatics_Interface
+      ; RetVal : access Windows.Devices.Input.IPenButtonListener
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPenDevice : aliased constant Windows.IID := (830828218, 42808, 23180, (184, 246, 249, 126, 246, 141, 24, 239 ));
    
    type IPenDevice_Interface is interface and Windows.IInspectable_Interface;
@@ -368,6 +502,107 @@ package Windows.Devices.Input is
       ; RetVal : access Windows.Devices.Input.IPenDevice
    )
    return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPenDockedEventArgs : aliased constant Windows.IID := (4248991686, 51811, 23886, (158, 211, 162, 138, 84, 82, 28, 140 ));
+   
+   type IPenDockedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPenDockListener : aliased constant Windows.IID := (1973374352, 7616, 21963, (173, 24, 185, 16, 20, 86, 245, 146 ));
+   
+   type IPenDockListener_Interface is interface and Windows.IInspectable_Interface;
+   
+   function IsSupported
+   (
+      This       : access IPenDockListener_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_IsSupportedChanged
+   (
+      This       : access IPenDockListener_Interface
+      ; handler : TypedEventHandler_IPenDockListener_add_IsSupportedChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_IsSupportedChanged
+   (
+      This       : access IPenDockListener_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Docked
+   (
+      This       : access IPenDockListener_Interface
+      ; handler : TypedEventHandler_IPenDockListener_add_Docked
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Docked
+   (
+      This       : access IPenDockListener_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Undocked
+   (
+      This       : access IPenDockListener_Interface
+      ; handler : TypedEventHandler_IPenDockListener_add_Undocked
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Undocked
+   (
+      This       : access IPenDockListener_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPenDockListenerStatics : aliased constant Windows.IID := (3401014938, 22, 23666, (150, 158, 169, 126, 17, 153, 42, 147 ));
+   
+   type IPenDockListenerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDefault
+   (
+      This       : access IPenDockListenerStatics_Interface
+      ; RetVal : access Windows.Devices.Input.IPenDockListener
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPenTailButtonClickedEventArgs : aliased constant Windows.IID := (1563408310, 27347, 23870, (171, 41, 5, 234, 36, 16, 227, 144 ));
+   
+   type IPenTailButtonClickedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPenTailButtonDoubleClickedEventArgs : aliased constant Windows.IID := (2221089186, 24970, 21624, (176, 76, 179, 88, 35, 29, 164, 167 ));
+   
+   type IPenTailButtonDoubleClickedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPenTailButtonLongPressedEventArgs : aliased constant Windows.IID := (4085014638, 50698, 24386, (184, 24, 165, 49, 18, 64, 108, 19 ));
+   
+   type IPenTailButtonLongPressedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPenUndockedEventArgs : aliased constant Windows.IID := (3436220752, 9755, 23014, (165, 212, 193, 150, 76, 208, 63, 235 ));
+   
+   type IPenUndockedEventArgs_Interface is interface and Windows.IInspectable_Interface;
    
    ------------------------------------------------------------------------
    
@@ -567,6 +802,97 @@ package Windows.Devices.Input is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPenButtonListener_add_IsSupportedChanged : aliased constant Windows.IID := (168748525, 1051, 21865, (180, 164, 161, 229, 143, 19, 67, 162 ));
+   
+   type TypedEventHandler_IPenButtonListener_add_IsSupportedChanged_Interface(Callback : access procedure (sender : Windows.Devices.Input.IPenButtonListener ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPenButtonListener_add_IsSupportedChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPenButtonListener_add_IsSupportedChanged_Interface
+      ; sender : Windows.Devices.Input.IPenButtonListener
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPenButtonListener_add_TailButtonClicked : aliased constant Windows.IID := (786067721, 61897, 24358, (160, 84, 61, 37, 6, 44, 192, 222 ));
+   
+   type TypedEventHandler_IPenButtonListener_add_TailButtonClicked_Interface(Callback : access procedure (sender : Windows.Devices.Input.IPenButtonListener ; args : Windows.Devices.Input.IPenTailButtonClickedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPenButtonListener_add_TailButtonClicked'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPenButtonListener_add_TailButtonClicked_Interface
+      ; sender : Windows.Devices.Input.IPenButtonListener
+      ; args : Windows.Devices.Input.IPenTailButtonClickedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPenButtonListener_add_TailButtonDoubleClicked : aliased constant Windows.IID := (3873803668, 28539, 22847, (129, 240, 3, 49, 80, 180, 67, 44 ));
+   
+   type TypedEventHandler_IPenButtonListener_add_TailButtonDoubleClicked_Interface(Callback : access procedure (sender : Windows.Devices.Input.IPenButtonListener ; args : Windows.Devices.Input.IPenTailButtonDoubleClickedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPenButtonListener_add_TailButtonDoubleClicked'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPenButtonListener_add_TailButtonDoubleClicked_Interface
+      ; sender : Windows.Devices.Input.IPenButtonListener
+      ; args : Windows.Devices.Input.IPenTailButtonDoubleClickedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPenButtonListener_add_TailButtonLongPressed : aliased constant Windows.IID := (3396184863, 8406, 21168, (148, 206, 109, 204, 117, 161, 169, 132 ));
+   
+   type TypedEventHandler_IPenButtonListener_add_TailButtonLongPressed_Interface(Callback : access procedure (sender : Windows.Devices.Input.IPenButtonListener ; args : Windows.Devices.Input.IPenTailButtonLongPressedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPenButtonListener_add_TailButtonLongPressed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPenButtonListener_add_TailButtonLongPressed_Interface
+      ; sender : Windows.Devices.Input.IPenButtonListener
+      ; args : Windows.Devices.Input.IPenTailButtonLongPressedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPenDockListener_add_Docked : aliased constant Windows.IID := (427321964, 36387, 24039, (167, 115, 231, 17, 165, 160, 104, 197 ));
+   
+   type TypedEventHandler_IPenDockListener_add_Docked_Interface(Callback : access procedure (sender : Windows.Devices.Input.IPenDockListener ; args : Windows.Devices.Input.IPenDockedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPenDockListener_add_Docked'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPenDockListener_add_Docked_Interface
+      ; sender : Windows.Devices.Input.IPenDockListener
+      ; args : Windows.Devices.Input.IPenDockedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPenDockListener_add_IsSupportedChanged : aliased constant Windows.IID := (2095769647, 18842, 23345, (161, 216, 59, 17, 197, 60, 120, 113 ));
+   
+   type TypedEventHandler_IPenDockListener_add_IsSupportedChanged_Interface(Callback : access procedure (sender : Windows.Devices.Input.IPenDockListener ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPenDockListener_add_IsSupportedChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPenDockListener_add_IsSupportedChanged_Interface
+      ; sender : Windows.Devices.Input.IPenDockListener
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IPenDockListener_add_Undocked : aliased constant Windows.IID := (1373349128, 12692, 23697, (162, 231, 249, 70, 55, 231, 90, 19 ));
+   
+   type TypedEventHandler_IPenDockListener_add_Undocked_Interface(Callback : access procedure (sender : Windows.Devices.Input.IPenDockListener ; args : Windows.Devices.Input.IPenUndockedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IPenDockListener_add_Undocked'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IPenDockListener_add_Undocked_Interface
+      ; sender : Windows.Devices.Input.IPenDockListener
+      ; args : Windows.Devices.Input.IPenUndockedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -578,7 +904,14 @@ package Windows.Devices.Input is
    
    subtype MouseDevice is Windows.Devices.Input.IMouseDevice;
    subtype MouseEventArgs is Windows.Devices.Input.IMouseEventArgs;
+   subtype PenButtonListener is Windows.Devices.Input.IPenButtonListener;
    subtype PenDevice is Windows.Devices.Input.IPenDevice;
+   subtype PenDockedEventArgs is Windows.Devices.Input.IPenDockedEventArgs;
+   subtype PenDockListener is Windows.Devices.Input.IPenDockListener;
+   subtype PenTailButtonClickedEventArgs is Windows.Devices.Input.IPenTailButtonClickedEventArgs;
+   subtype PenTailButtonDoubleClickedEventArgs is Windows.Devices.Input.IPenTailButtonDoubleClickedEventArgs;
+   subtype PenTailButtonLongPressedEventArgs is Windows.Devices.Input.IPenTailButtonLongPressedEventArgs;
+   subtype PenUndockedEventArgs is Windows.Devices.Input.IPenUndockedEventArgs;
    subtype PointerDevice is Windows.Devices.Input.IPointerDevice;
    subtype TouchCapabilities is Windows.Devices.Input.ITouchCapabilities;
    function Create return Windows.Devices.Input.ITouchCapabilities;
@@ -591,11 +924,17 @@ package Windows.Devices.Input is
    function GetForCurrentView
    return Windows.Devices.Input.IMouseDevice;
    
+   function GetDefault
+   return Windows.Devices.Input.IPenButtonListener;
+   
    function GetFromPointerId
    (
       pointerId : Windows.UInt32
    )
    return Windows.Devices.Input.IPenDevice;
+   
+   function GetDefault
+   return Windows.Devices.Input.IPenDockListener;
    
    function GetPointerDevice
    (

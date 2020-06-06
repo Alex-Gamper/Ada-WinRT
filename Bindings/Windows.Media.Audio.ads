@@ -151,6 +151,34 @@ package Windows.Media.Audio is
    
    type AudioNodeEmitterShapeKind_Ptr is access AudioNodeEmitterShapeKind;
    
+   type AudioPlaybackConnectionOpenResultStatus is (
+      Success,
+      RequestTimedOut,
+      DeniedBySystem,
+      UnknownFailure
+   );
+   for AudioPlaybackConnectionOpenResultStatus use (
+      Success => 0,
+      RequestTimedOut => 1,
+      DeniedBySystem => 2,
+      UnknownFailure => 3
+   );
+   for AudioPlaybackConnectionOpenResultStatus'Size use 32;
+   
+   type AudioPlaybackConnectionOpenResultStatus_Ptr is access AudioPlaybackConnectionOpenResultStatus;
+   
+   type AudioPlaybackConnectionState is (
+      Closed,
+      Opened
+   );
+   for AudioPlaybackConnectionState use (
+      Closed => 0,
+      Opened => 1
+   );
+   for AudioPlaybackConnectionState'Size use 32;
+   
+   type AudioPlaybackConnectionState_Ptr is access AudioPlaybackConnectionState;
+   
    type MediaSourceAudioInputNodeCreationStatus is (
       Success,
       FormatNotSupported,
@@ -232,6 +260,9 @@ package Windows.Media.Audio is
    type AsyncOperationCompletedHandler_IAudioDeviceInputNode_Interface;
    type AsyncOperationCompletedHandler_IAudioDeviceInputNode is access all AsyncOperationCompletedHandler_IAudioDeviceInputNode_Interface'Class;
    type AsyncOperationCompletedHandler_IAudioDeviceInputNode_Ptr is access all AsyncOperationCompletedHandler_IAudioDeviceInputNode;
+   type AsyncOperationCompletedHandler_IAudioPlaybackConnectionOpenResult_Interface;
+   type AsyncOperationCompletedHandler_IAudioPlaybackConnectionOpenResult is access all AsyncOperationCompletedHandler_IAudioPlaybackConnectionOpenResult_Interface'Class;
+   type AsyncOperationCompletedHandler_IAudioPlaybackConnectionOpenResult_Ptr is access all AsyncOperationCompletedHandler_IAudioPlaybackConnectionOpenResult;
    type AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface;
    type AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult is access all AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface'Class;
    type AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Ptr is access all AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult;
@@ -271,6 +302,9 @@ package Windows.Media.Audio is
    type TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface;
    type TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred is access all TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Interface'Class;
    type TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred_Ptr is access all TypedEventHandler_IAudioGraph_add_UnrecoverableErrorOccurred;
+   type TypedEventHandler_IAudioPlaybackConnection_add_StateChanged_Interface;
+   type TypedEventHandler_IAudioPlaybackConnection_add_StateChanged is access all TypedEventHandler_IAudioPlaybackConnection_add_StateChanged_Interface'Class;
+   type TypedEventHandler_IAudioPlaybackConnection_add_StateChanged_Ptr is access all TypedEventHandler_IAudioPlaybackConnection_add_StateChanged;
    type TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Interface;
    type TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged is access all TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Interface'Class;
    type TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Ptr is access all TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged;
@@ -288,6 +322,9 @@ package Windows.Media.Audio is
    type IAsyncOperation_IAudioDeviceInputNode_Interface;
    type IAsyncOperation_IAudioDeviceInputNode is access all IAsyncOperation_IAudioDeviceInputNode_Interface'Class;
    type IAsyncOperation_IAudioDeviceInputNode_Ptr is access all IAsyncOperation_IAudioDeviceInputNode;
+   type IAsyncOperation_IAudioPlaybackConnectionOpenResult_Interface;
+   type IAsyncOperation_IAudioPlaybackConnectionOpenResult is access all IAsyncOperation_IAudioPlaybackConnectionOpenResult_Interface'Class;
+   type IAsyncOperation_IAudioPlaybackConnectionOpenResult_Ptr is access all IAsyncOperation_IAudioPlaybackConnectionOpenResult;
    type IAsyncOperation_ICreateAudioDeviceInputNodeResult_Interface;
    type IAsyncOperation_ICreateAudioDeviceInputNodeResult is access all IAsyncOperation_ICreateAudioDeviceInputNodeResult_Interface'Class;
    type IAsyncOperation_ICreateAudioDeviceInputNodeResult_Ptr is access all IAsyncOperation_ICreateAudioDeviceInputNodeResult;
@@ -402,6 +439,15 @@ package Windows.Media.Audio is
    type IAudioNodeWithListener_Interface;
    type IAudioNodeWithListener is access all IAudioNodeWithListener_Interface'Class;
    type IAudioNodeWithListener_Ptr is access all IAudioNodeWithListener;
+   type IAudioPlaybackConnection_Interface;
+   type IAudioPlaybackConnection is access all IAudioPlaybackConnection_Interface'Class;
+   type IAudioPlaybackConnection_Ptr is access all IAudioPlaybackConnection;
+   type IAudioPlaybackConnectionOpenResult_Interface;
+   type IAudioPlaybackConnectionOpenResult is access all IAudioPlaybackConnectionOpenResult_Interface'Class;
+   type IAudioPlaybackConnectionOpenResult_Ptr is access all IAudioPlaybackConnectionOpenResult;
+   type IAudioPlaybackConnectionStatics_Interface;
+   type IAudioPlaybackConnectionStatics is access all IAudioPlaybackConnectionStatics_Interface'Class;
+   type IAudioPlaybackConnectionStatics_Ptr is access all IAudioPlaybackConnectionStatics;
    type IAudioStateMonitor_Interface;
    type IAudioStateMonitor is access all IAudioStateMonitor_Interface'Class;
    type IAudioStateMonitor_Ptr is access all IAudioStateMonitor;
@@ -542,6 +588,33 @@ package Windows.Media.Audio is
    (
       This       : access IAsyncOperation_IAudioDeviceInputNode_Interface
       ; RetVal : access Windows.Media.Audio.IAudioDeviceInputNode
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IAudioPlaybackConnectionOpenResult : aliased constant Windows.IID := (4112801674, 15825, 22194, (130, 155, 152, 136, 37, 29, 104, 156 ));
+   
+   type IAsyncOperation_IAudioPlaybackConnectionOpenResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IAudioPlaybackConnectionOpenResult_Interface
+      ; handler : Windows.Media.Audio.AsyncOperationCompletedHandler_IAudioPlaybackConnectionOpenResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IAudioPlaybackConnectionOpenResult_Interface
+      ; RetVal : access Windows.Media.Audio.AsyncOperationCompletedHandler_IAudioPlaybackConnectionOpenResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IAudioPlaybackConnectionOpenResult_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioPlaybackConnectionOpenResult
    )
    return Windows.HRESULT is abstract;
    
@@ -1982,6 +2055,109 @@ package Windows.Media.Audio is
    
    ------------------------------------------------------------------------
    
+   IID_IAudioPlaybackConnection : aliased constant Windows.IID := (441196010, 51964, 20711, (135, 24, 234, 63, 129, 203, 250, 81 ));
+   
+   type IAudioPlaybackConnection_Interface is interface and Windows.IInspectable_Interface;
+   
+   function Start
+   (
+      This       : access IAudioPlaybackConnection_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function StartAsync
+   (
+      This       : access IAudioPlaybackConnection_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeviceId
+   (
+      This       : access IAudioPlaybackConnection_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_State
+   (
+      This       : access IAudioPlaybackConnection_Interface
+      ; RetVal : access Windows.Media.Audio.AudioPlaybackConnectionState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Open
+   (
+      This       : access IAudioPlaybackConnection_Interface
+      ; RetVal : access Windows.Media.Audio.IAudioPlaybackConnectionOpenResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   function OpenAsync
+   (
+      This       : access IAudioPlaybackConnection_Interface
+      ; RetVal : access Windows.Media.Audio.IAsyncOperation_IAudioPlaybackConnectionOpenResult -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_StateChanged
+   (
+      This       : access IAudioPlaybackConnection_Interface
+      ; handler : TypedEventHandler_IAudioPlaybackConnection_add_StateChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_StateChanged
+   (
+      This       : access IAudioPlaybackConnection_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioPlaybackConnectionOpenResult : aliased constant Windows.IID := (1315269359, 14841, 24521, (165, 25, 165, 187, 253, 159, 233, 33 ));
+   
+   type IAudioPlaybackConnectionOpenResult_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Status
+   (
+      This       : access IAudioPlaybackConnectionOpenResult_Interface
+      ; RetVal : access Windows.Media.Audio.AudioPlaybackConnectionOpenResultStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ExtendedError
+   (
+      This       : access IAudioPlaybackConnectionOpenResult_Interface
+      ; RetVal : access Windows.HResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAudioPlaybackConnectionStatics : aliased constant Windows.IID := (3859375010, 27110, 24572, (158, 19, 130, 74, 133, 33, 61, 175 ));
+   
+   type IAudioPlaybackConnectionStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetDeviceSelector
+   (
+      This       : access IAudioPlaybackConnectionStatics_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function TryCreateFromId
+   (
+      This       : access IAudioPlaybackConnectionStatics_Interface
+      ; id : Windows.String
+      ; RetVal : access Windows.Media.Audio.IAudioPlaybackConnection
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAudioStateMonitor : aliased constant Windows.IID := (487838006, 409, 19676, (184, 78, 231, 44, 43, 88, 30, 206 ));
    
    type IAudioStateMonitor_Interface is interface and Windows.IInspectable_Interface;
@@ -3305,6 +3481,19 @@ package Windows.Media.Audio is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IAudioPlaybackConnectionOpenResult : aliased constant Windows.IID := (1457370445, 60301, 24571, (165, 75, 143, 175, 145, 140, 128, 49 ));
+   
+   type AsyncOperationCompletedHandler_IAudioPlaybackConnectionOpenResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_IAudioPlaybackConnectionOpenResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IAudioPlaybackConnectionOpenResult'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IAudioPlaybackConnectionOpenResult_Interface
+      ; asyncInfo : Windows.Media.Audio.IAsyncOperation_IAudioPlaybackConnectionOpenResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult : aliased constant Windows.IID := (1824875600, 58600, 22985, (131, 216, 99, 228, 110, 172, 178, 11 ));
    
    type AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface(Callback : access procedure (asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioDeviceInputNodeResult ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult'access) with null record;
@@ -3474,6 +3663,19 @@ package Windows.Media.Audio is
    
    ------------------------------------------------------------------------
    
+   IID_TypedEventHandler_IAudioPlaybackConnection_add_StateChanged : aliased constant Windows.IID := (238590725, 12710, 22769, (158, 164, 12, 30, 77, 112, 167, 184 ));
+   
+   type TypedEventHandler_IAudioPlaybackConnection_add_StateChanged_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioPlaybackConnection ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioPlaybackConnection_add_StateChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAudioPlaybackConnection_add_StateChanged_Interface
+      ; sender : Windows.Media.Audio.IAudioPlaybackConnection
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged : aliased constant Windows.IID := (322166591, 50523, 23075, (149, 150, 52, 101, 124, 42, 52, 6 ));
    
    type TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged_Interface(Callback : access procedure (sender : Windows.Media.Audio.IAudioStateMonitor ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IAudioStateMonitor_add_SoundLevelChanged'access) with null record;
@@ -3551,6 +3753,8 @@ package Windows.Media.Audio is
    subtype AudioNodeListener is Windows.Media.Audio.IAudioNodeListener;
    function Create return Windows.Media.Audio.IAudioNodeListener;
    
+   subtype AudioPlaybackConnection is Windows.Media.Audio.IAudioPlaybackConnection;
+   subtype AudioPlaybackConnectionOpenResult is Windows.Media.Audio.IAudioPlaybackConnectionOpenResult;
    subtype AudioStateMonitor is Windows.Media.Audio.IAudioStateMonitor;
    subtype AudioSubmixNode is Windows.Media.Audio.IAudioInputNode;
    subtype CreateAudioDeviceInputNodeResult is Windows.Media.Audio.ICreateAudioDeviceInputNodeResult;
@@ -3630,6 +3834,15 @@ package Windows.Media.Audio is
    
    function CreateOmnidirectional
    return Windows.Media.Audio.IAudioNodeEmitterShape;
+   
+   function GetDeviceSelector
+   return Windows.String;
+   
+   function TryCreateFromId
+   (
+      id : Windows.String
+   )
+   return Windows.Media.Audio.IAudioPlaybackConnection;
    
    function CreateForCaptureMonitoring
    return Windows.Media.Audio.IAudioStateMonitor;

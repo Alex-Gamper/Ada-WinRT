@@ -385,6 +385,18 @@ package Windows.UI.Text is
    
    type RangeGravity_Ptr is access RangeGravity;
    
+   type RichEditMathMode is (
+      NoMath,
+      MathOnly
+   );
+   for RichEditMathMode use (
+      NoMath => 0,
+      MathOnly => 1
+   );
+   for RichEditMathMode'Size use 32;
+   
+   type RichEditMathMode_Ptr is access RichEditMathMode;
+   
    type SelectionOptions is (
       StartActive,
       AtEndOfLine,
@@ -838,6 +850,9 @@ package Windows.UI.Text is
    type ITextDocument3_Interface;
    type ITextDocument3 is access all ITextDocument3_Interface'Class;
    type ITextDocument3_Ptr is access all ITextDocument3;
+   type ITextDocument4_Interface;
+   type ITextDocument4 is access all ITextDocument4_Interface'Class;
+   type ITextDocument4_Ptr is access all ITextDocument4;
    type ITextParagraphFormat_Interface;
    type ITextParagraphFormat is access all ITextParagraphFormat_Interface'Class;
    type ITextParagraphFormat_Ptr is access all ITextParagraphFormat;
@@ -1711,6 +1726,33 @@ package Windows.UI.Text is
    function ClearUndoRedoHistory
    (
       This       : access ITextDocument3_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITextDocument4 : aliased constant Windows.IID := (1637622002, 52027, 17697, (152, 31, 40, 101, 177, 185, 63, 4 ));
+   
+   type ITextDocument4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetMath
+   (
+      This       : access ITextDocument4_Interface
+      ; value : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMath
+   (
+      This       : access ITextDocument4_Interface
+      ; value : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetMathMode
+   (
+      This       : access ITextDocument4_Interface
+      ; mode : Windows.UI.Text.RichEditMathMode
    )
    return Windows.HRESULT is abstract;
    

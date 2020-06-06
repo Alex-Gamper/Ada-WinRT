@@ -26,6 +26,7 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.Devices.Enumeration;
 with Windows.Graphics.DirectX.Direct3D11;
 with Windows.Graphics.Imaging;
 with Windows.Media;
@@ -36,9 +37,11 @@ with Windows.Media.Devices;
 with Windows.Media.Effects;
 with Windows.Media.MediaProperties;
 with Windows.Security.Authentication.Web;
+with Windows.Security.Credentials;
 with Windows.Storage;
 with Windows.Storage.Streams;
 with Windows.System;
+with Windows.UI.WindowManagement;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Media.Capture is
@@ -641,6 +644,19 @@ package body Windows.Media.Capture is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Media.Capture.IMediaCapture(sender), Windows.Media.Capture.IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaCaptureRelativePanelWatcher_add_Changed_Interface
+      ; sender : Windows.Media.Capture.IMediaCaptureRelativePanelWatcher
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Capture.IMediaCaptureRelativePanelWatcher(sender), args);
       return Hr;
    end;
    

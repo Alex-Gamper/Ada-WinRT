@@ -306,6 +306,12 @@ package Windows.Devices.Sensors is
    type IAccelerometer4_Interface;
    type IAccelerometer4 is access all IAccelerometer4_Interface'Class;
    type IAccelerometer4_Ptr is access all IAccelerometer4;
+   type IAccelerometer5_Interface;
+   type IAccelerometer5 is access all IAccelerometer5_Interface'Class;
+   type IAccelerometer5_Ptr is access all IAccelerometer5;
+   type IAccelerometerDataThreshold_Interface;
+   type IAccelerometerDataThreshold is access all IAccelerometerDataThreshold_Interface'Class;
+   type IAccelerometerDataThreshold_Ptr is access all IAccelerometerDataThreshold;
    type IAccelerometerDeviceId_Interface;
    type IAccelerometerDeviceId is access all IAccelerometerDeviceId_Interface'Class;
    type IAccelerometerDeviceId_Ptr is access all IAccelerometerDeviceId;
@@ -414,6 +420,12 @@ package Windows.Devices.Sensors is
    type IBarometer2_Interface;
    type IBarometer2 is access all IBarometer2_Interface'Class;
    type IBarometer2_Ptr is access all IBarometer2;
+   type IBarometer3_Interface;
+   type IBarometer3 is access all IBarometer3_Interface'Class;
+   type IBarometer3_Ptr is access all IBarometer3;
+   type IBarometerDataThreshold_Interface;
+   type IBarometerDataThreshold is access all IBarometerDataThreshold_Interface'Class;
+   type IBarometerDataThreshold_Ptr is access all IBarometerDataThreshold;
    type IBarometerReading_Interface;
    type IBarometerReading is access all IBarometerReading_Interface'Class;
    type IBarometerReading_Ptr is access all IBarometerReading;
@@ -438,6 +450,12 @@ package Windows.Devices.Sensors is
    type ICompass3_Interface;
    type ICompass3 is access all ICompass3_Interface'Class;
    type ICompass3_Ptr is access all ICompass3;
+   type ICompass4_Interface;
+   type ICompass4 is access all ICompass4_Interface'Class;
+   type ICompass4_Ptr is access all ICompass4;
+   type ICompassDataThreshold_Interface;
+   type ICompassDataThreshold is access all ICompassDataThreshold_Interface'Class;
+   type ICompassDataThreshold_Ptr is access all ICompassDataThreshold;
    type ICompassDeviceId_Interface;
    type ICompassDeviceId is access all ICompassDeviceId_Interface'Class;
    type ICompassDeviceId_Ptr is access all ICompassDeviceId;
@@ -468,6 +486,12 @@ package Windows.Devices.Sensors is
    type IGyrometer3_Interface;
    type IGyrometer3 is access all IGyrometer3_Interface'Class;
    type IGyrometer3_Ptr is access all IGyrometer3;
+   type IGyrometer4_Interface;
+   type IGyrometer4 is access all IGyrometer4_Interface'Class;
+   type IGyrometer4_Ptr is access all IGyrometer4;
+   type IGyrometerDataThreshold_Interface;
+   type IGyrometerDataThreshold is access all IGyrometerDataThreshold_Interface'Class;
+   type IGyrometerDataThreshold_Ptr is access all IGyrometerDataThreshold;
    type IGyrometerDeviceId_Interface;
    type IGyrometerDeviceId is access all IGyrometerDeviceId_Interface'Class;
    type IGyrometerDeviceId_Ptr is access all IGyrometerDeviceId;
@@ -507,6 +531,12 @@ package Windows.Devices.Sensors is
    type IInclinometer3_Interface;
    type IInclinometer3 is access all IInclinometer3_Interface'Class;
    type IInclinometer3_Ptr is access all IInclinometer3;
+   type IInclinometer4_Interface;
+   type IInclinometer4 is access all IInclinometer4_Interface'Class;
+   type IInclinometer4_Ptr is access all IInclinometer4;
+   type IInclinometerDataThreshold_Interface;
+   type IInclinometerDataThreshold is access all IInclinometerDataThreshold_Interface'Class;
+   type IInclinometerDataThreshold_Ptr is access all IInclinometerDataThreshold;
    type IInclinometerDeviceId_Interface;
    type IInclinometerDeviceId is access all IInclinometerDeviceId_Interface'Class;
    type IInclinometerDeviceId_Ptr is access all IInclinometerDeviceId;
@@ -564,6 +594,12 @@ package Windows.Devices.Sensors is
    type ILightSensor2_Interface;
    type ILightSensor2 is access all ILightSensor2_Interface'Class;
    type ILightSensor2_Ptr is access all ILightSensor2;
+   type ILightSensor3_Interface;
+   type ILightSensor3 is access all ILightSensor3_Interface'Class;
+   type ILightSensor3_Ptr is access all ILightSensor3;
+   type ILightSensorDataThreshold_Interface;
+   type ILightSensorDataThreshold is access all ILightSensorDataThreshold_Interface'Class;
+   type ILightSensorDataThreshold_Ptr is access all ILightSensorDataThreshold;
    type ILightSensorDeviceId_Interface;
    type ILightSensorDeviceId is access all ILightSensorDeviceId_Interface'Class;
    type ILightSensorDeviceId_Ptr is access all ILightSensorDeviceId;
@@ -591,6 +627,12 @@ package Windows.Devices.Sensors is
    type IMagnetometer3_Interface;
    type IMagnetometer3 is access all IMagnetometer3_Interface'Class;
    type IMagnetometer3_Ptr is access all IMagnetometer3;
+   type IMagnetometer4_Interface;
+   type IMagnetometer4 is access all IMagnetometer4_Interface'Class;
+   type IMagnetometer4_Ptr is access all IMagnetometer4;
+   type IMagnetometerDataThreshold_Interface;
+   type IMagnetometerDataThreshold is access all IMagnetometerDataThreshold_Interface'Class;
+   type IMagnetometerDataThreshold_Ptr is access all IMagnetometerDataThreshold;
    type IMagnetometerDeviceId_Interface;
    type IMagnetometerDeviceId is access all IMagnetometerDeviceId_Interface'Class;
    type IMagnetometerDeviceId_Ptr is access all IMagnetometerDeviceId;
@@ -855,6 +897,67 @@ package Windows.Devices.Sensors is
    (
       This       : access IAccelerometer4_Interface
       ; RetVal : access Windows.Devices.Sensors.AccelerometerReadingType
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAccelerometer5 : aliased constant Windows.IID := (2122215457, 57076, 21414, (175, 67, 128, 111, 213, 56, 237, 246 ));
+   
+   type IAccelerometer5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ReportThreshold
+   (
+      This       : access IAccelerometer5_Interface
+      ; RetVal : access Windows.Devices.Sensors.IAccelerometerDataThreshold
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAccelerometerDataThreshold : aliased constant Windows.IID := (4180417384, 25376, 21879, (135, 158, 153, 66, 98, 28, 61, 217 ));
+   
+   type IAccelerometerDataThreshold_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_XAxisInGForce
+   (
+      This       : access IAccelerometerDataThreshold_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_XAxisInGForce
+   (
+      This       : access IAccelerometerDataThreshold_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_YAxisInGForce
+   (
+      This       : access IAccelerometerDataThreshold_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_YAxisInGForce
+   (
+      This       : access IAccelerometerDataThreshold_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ZAxisInGForce
+   (
+      This       : access IAccelerometerDataThreshold_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ZAxisInGForce
+   (
+      This       : access IAccelerometerDataThreshold_Interface
+      ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
    
@@ -1786,6 +1889,39 @@ package Windows.Devices.Sensors is
    
    ------------------------------------------------------------------------
    
+   IID_IBarometer3 : aliased constant Windows.IID := (238416106, 693, 23044, (176, 61, 130, 32, 132, 134, 58, 84 ));
+   
+   type IBarometer3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ReportThreshold
+   (
+      This       : access IBarometer3_Interface
+      ; RetVal : access Windows.Devices.Sensors.IBarometerDataThreshold
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBarometerDataThreshold : aliased constant Windows.IID := (124491052, 52066, 23184, (160, 209, 248, 94, 74, 147, 99, 148 ));
+   
+   type IBarometerDataThreshold_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Hectopascals
+   (
+      This       : access IBarometerDataThreshold_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Hectopascals
+   (
+      This       : access IBarometerDataThreshold_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IBarometerReading : aliased constant Windows.IID := (4122596070, 7670, 18970, (167, 173, 50, 29, 79, 93, 178, 71 ));
    
    type IBarometerReading_Interface is interface and Windows.IInspectable_Interface;
@@ -1964,6 +2100,39 @@ package Windows.Devices.Sensors is
    (
       This       : access ICompass3_Interface
       ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompass4 : aliased constant Windows.IID := (689864465, 60466, 24012, (191, 203, 11, 179, 158, 186, 87, 116 ));
+   
+   type ICompass4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ReportThreshold
+   (
+      This       : access ICompass4_Interface
+      ; RetVal : access Windows.Devices.Sensors.ICompassDataThreshold
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICompassDataThreshold : aliased constant Windows.IID := (3512423091, 54173, 24264, (178, 228, 241, 147, 230, 171, 52, 237 ));
+   
+   type ICompassDataThreshold_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Degrees
+   (
+      This       : access ICompassDataThreshold_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Degrees
+   (
+      This       : access ICompassDataThreshold_Interface
+      ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
    
@@ -2180,6 +2349,67 @@ package Windows.Devices.Sensors is
    (
       This       : access IGyrometer3_Interface
       ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGyrometer4 : aliased constant Windows.IID := (103327244, 19531, 20630, (148, 230, 195, 86, 223, 104, 190, 247 ));
+   
+   type IGyrometer4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ReportThreshold
+   (
+      This       : access IGyrometer4_Interface
+      ; RetVal : access Windows.Devices.Sensors.IGyrometerDataThreshold
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGyrometerDataThreshold : aliased constant Windows.IID := (2252911390, 28242, 21081, (187, 173, 36, 42, 105, 220, 56, 200 ));
+   
+   type IGyrometerDataThreshold_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_XAxisInDegreesPerSecond
+   (
+      This       : access IGyrometerDataThreshold_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_XAxisInDegreesPerSecond
+   (
+      This       : access IGyrometerDataThreshold_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_YAxisInDegreesPerSecond
+   (
+      This       : access IGyrometerDataThreshold_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_YAxisInDegreesPerSecond
+   (
+      This       : access IGyrometerDataThreshold_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ZAxisInDegreesPerSecond
+   (
+      This       : access IGyrometerDataThreshold_Interface
+      ; RetVal : access Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ZAxisInDegreesPerSecond
+   (
+      This       : access IGyrometerDataThreshold_Interface
+      ; value : Windows.Double
    )
    return Windows.HRESULT is abstract;
    
@@ -2530,6 +2760,67 @@ package Windows.Devices.Sensors is
    (
       This       : access IInclinometer3_Interface
       ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInclinometer4 : aliased constant Windows.IID := (1132799512, 36810, 21646, (187, 245, 92, 80, 65, 43, 106, 164 ));
+   
+   type IInclinometer4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ReportThreshold
+   (
+      This       : access IInclinometer4_Interface
+      ; RetVal : access Windows.Devices.Sensors.IInclinometerDataThreshold
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInclinometerDataThreshold : aliased constant Windows.IID := (4161423235, 31742, 21598, (187, 96, 160, 235, 196, 123, 210, 251 ));
+   
+   type IInclinometerDataThreshold_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PitchInDegrees
+   (
+      This       : access IInclinometerDataThreshold_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PitchInDegrees
+   (
+      This       : access IInclinometerDataThreshold_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_RollInDegrees
+   (
+      This       : access IInclinometerDataThreshold_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_RollInDegrees
+   (
+      This       : access IInclinometerDataThreshold_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_YawInDegrees
+   (
+      This       : access IInclinometerDataThreshold_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_YawInDegrees
+   (
+      This       : access IInclinometerDataThreshold_Interface
+      ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
    
@@ -2958,6 +3249,53 @@ package Windows.Devices.Sensors is
    
    ------------------------------------------------------------------------
    
+   IID_ILightSensor3 : aliased constant Windows.IID := (1215746303, 40780, 24434, (173, 189, 163, 71, 27, 6, 60, 0 ));
+   
+   type ILightSensor3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ReportThreshold
+   (
+      This       : access ILightSensor3_Interface
+      ; RetVal : access Windows.Devices.Sensors.ILightSensorDataThreshold
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILightSensorDataThreshold : aliased constant Windows.IID := (2975903697, 34703, 21650, (159, 44, 51, 220, 58, 229, 132, 163 ));
+   
+   type ILightSensorDataThreshold_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_LuxPercentage
+   (
+      This       : access ILightSensorDataThreshold_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_LuxPercentage
+   (
+      This       : access ILightSensorDataThreshold_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AbsoluteLux
+   (
+      This       : access ILightSensorDataThreshold_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AbsoluteLux
+   (
+      This       : access ILightSensorDataThreshold_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ILightSensorDeviceId : aliased constant Windows.IID := (2146322936, 2811, 20305, (135, 240, 108, 38, 55, 92, 233, 79 ));
    
    type ILightSensorDeviceId_Interface is interface and Windows.IInspectable_Interface;
@@ -3149,6 +3487,67 @@ package Windows.Devices.Sensors is
    (
       This       : access IMagnetometer3_Interface
       ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMagnetometer4 : aliased constant Windows.IID := (3752950017, 15887, 20623, (178, 75, 242, 187, 117, 1, 95, 64 ));
+   
+   type IMagnetometer4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ReportThreshold
+   (
+      This       : access IMagnetometer4_Interface
+      ; RetVal : access Windows.Devices.Sensors.IMagnetometerDataThreshold
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMagnetometerDataThreshold : aliased constant Windows.IID := (3514288897, 36963, 24485, (181, 150, 180, 69, 233, 220, 52, 1 ));
+   
+   type IMagnetometerDataThreshold_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_XAxisMicroteslas
+   (
+      This       : access IMagnetometerDataThreshold_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_XAxisMicroteslas
+   (
+      This       : access IMagnetometerDataThreshold_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_YAxisMicroteslas
+   (
+      This       : access IMagnetometerDataThreshold_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_YAxisMicroteslas
+   (
+      This       : access IMagnetometerDataThreshold_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ZAxisMicroteslas
+   (
+      This       : access IMagnetometerDataThreshold_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_ZAxisMicroteslas
+   (
+      This       : access IMagnetometerDataThreshold_Interface
+      ; value : Windows.Single
    )
    return Windows.HRESULT is abstract;
    
@@ -4758,6 +5157,7 @@ package Windows.Devices.Sensors is
    ------------------------------------------------------------------------
    
    subtype Accelerometer is Windows.Devices.Sensors.IAccelerometer;
+   subtype AccelerometerDataThreshold is Windows.Devices.Sensors.IAccelerometerDataThreshold;
    subtype AccelerometerReading is Windows.Devices.Sensors.IAccelerometerReading;
    subtype AccelerometerReadingChangedEventArgs is Windows.Devices.Sensors.IAccelerometerReadingChangedEventArgs;
    subtype AccelerometerShakenEventArgs is Windows.Devices.Sensors.IAccelerometerShakenEventArgs;
@@ -4770,24 +5170,30 @@ package Windows.Devices.Sensors is
    subtype AltimeterReading is Windows.Devices.Sensors.IAltimeterReading;
    subtype AltimeterReadingChangedEventArgs is Windows.Devices.Sensors.IAltimeterReadingChangedEventArgs;
    subtype Barometer is Windows.Devices.Sensors.IBarometer;
+   subtype BarometerDataThreshold is Windows.Devices.Sensors.IBarometerDataThreshold;
    subtype BarometerReading is Windows.Devices.Sensors.IBarometerReading;
    subtype BarometerReadingChangedEventArgs is Windows.Devices.Sensors.IBarometerReadingChangedEventArgs;
    subtype Compass is Windows.Devices.Sensors.ICompass;
+   subtype CompassDataThreshold is Windows.Devices.Sensors.ICompassDataThreshold;
    subtype CompassReading is Windows.Devices.Sensors.ICompassReading;
    subtype CompassReadingChangedEventArgs is Windows.Devices.Sensors.ICompassReadingChangedEventArgs;
    subtype Gyrometer is Windows.Devices.Sensors.IGyrometer;
+   subtype GyrometerDataThreshold is Windows.Devices.Sensors.IGyrometerDataThreshold;
    subtype GyrometerReading is Windows.Devices.Sensors.IGyrometerReading;
    subtype GyrometerReadingChangedEventArgs is Windows.Devices.Sensors.IGyrometerReadingChangedEventArgs;
    subtype HingeAngleReading is Windows.Devices.Sensors.IHingeAngleReading;
    subtype HingeAngleSensor is Windows.Devices.Sensors.IHingeAngleSensor;
    subtype HingeAngleSensorReadingChangedEventArgs is Windows.Devices.Sensors.IHingeAngleSensorReadingChangedEventArgs;
    subtype Inclinometer is Windows.Devices.Sensors.IInclinometer;
+   subtype InclinometerDataThreshold is Windows.Devices.Sensors.IInclinometerDataThreshold;
    subtype InclinometerReading is Windows.Devices.Sensors.IInclinometerReading;
    subtype InclinometerReadingChangedEventArgs is Windows.Devices.Sensors.IInclinometerReadingChangedEventArgs;
    subtype LightSensor is Windows.Devices.Sensors.ILightSensor;
+   subtype LightSensorDataThreshold is Windows.Devices.Sensors.ILightSensorDataThreshold;
    subtype LightSensorReading is Windows.Devices.Sensors.ILightSensorReading;
    subtype LightSensorReadingChangedEventArgs is Windows.Devices.Sensors.ILightSensorReadingChangedEventArgs;
    subtype Magnetometer is Windows.Devices.Sensors.IMagnetometer;
+   subtype MagnetometerDataThreshold is Windows.Devices.Sensors.IMagnetometerDataThreshold;
    subtype MagnetometerReading is Windows.Devices.Sensors.IMagnetometerReading;
    subtype MagnetometerReadingChangedEventArgs is Windows.Devices.Sensors.IMagnetometerReadingChangedEventArgs;
    subtype OrientationSensor is Windows.Devices.Sensors.IOrientationSensor;

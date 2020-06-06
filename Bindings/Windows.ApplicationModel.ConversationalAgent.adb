@@ -27,6 +27,7 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows.Media.Audio;
+with Windows.Storage.Streams;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.ApplicationModel.ConversationalAgent is
@@ -50,6 +51,32 @@ package body Windows.ApplicationModel.ConversationalAgent is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_DetectionConfigurationTrainingStatus_Interface
+      ; asyncInfo : Windows.ApplicationModel.ConversationalAgent.IAsyncOperation_DetectionConfigurationTrainingStatus
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IActivationSignalDetectionConfiguration_Interface
+      ; asyncInfo : Windows.ApplicationModel.ConversationalAgent.IAsyncOperation_IActivationSignalDetectionConfiguration
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_IConversationalAgentSession_Interface
       ; asyncInfo : Windows.ApplicationModel.ConversationalAgent.IAsyncOperation_IConversationalAgentSession
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -58,6 +85,19 @@ package body Windows.ApplicationModel.ConversationalAgent is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IActivationSignalDetectionConfiguration_add_AvailabilityChanged_Interface
+      ; sender : Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration
+      ; args : Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration(sender), Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityChangedEventArgs(args));
       return Hr;
    end;
    
@@ -111,6 +151,23 @@ package body Windows.ApplicationModel.ConversationalAgent is
    ------------------------------------------------------------------------
    -- Static procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_Default
+   return Windows.ApplicationModel.ConversationalAgent.IConversationalAgentDetectorManager is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager");
+      m_Factory     : IConversationalAgentDetectorManagerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.ConversationalAgent.IConversationalAgentDetectorManager;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IConversationalAgentDetectorManagerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Default(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
    
    function GetCurrentSessionAsync
    return Windows.ApplicationModel.ConversationalAgent.IAsyncOperation_IConversationalAgentSession is

@@ -222,6 +222,9 @@ package Windows.Devices.Bluetooth is
    type IBluetoothAdapter2_Interface;
    type IBluetoothAdapter2 is access all IBluetoothAdapter2_Interface'Class;
    type IBluetoothAdapter2_Ptr is access all IBluetoothAdapter2;
+   type IBluetoothAdapter3_Interface;
+   type IBluetoothAdapter3 is access all IBluetoothAdapter3_Interface'Class;
+   type IBluetoothAdapter3_Ptr is access all IBluetoothAdapter3;
    type IBluetoothAdapterStatics_Interface;
    type IBluetoothAdapterStatics is access all IBluetoothAdapterStatics_Interface'Class;
    type IBluetoothAdapterStatics_Ptr is access all IBluetoothAdapterStatics;
@@ -462,6 +465,26 @@ package Windows.Devices.Bluetooth is
    (
       This       : access IBluetoothAdapter2_Interface
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBluetoothAdapter3 : aliased constant Windows.IID := (2407933152, 52137, 21009, (159, 137, 58, 172, 98, 180, 198, 184 ));
+   
+   type IBluetoothAdapter3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsExtendedAdvertisingSupported
+   (
+      This       : access IBluetoothAdapter3_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MaxAdvertisementDataLength
+   (
+      This       : access IBluetoothAdapter3_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    

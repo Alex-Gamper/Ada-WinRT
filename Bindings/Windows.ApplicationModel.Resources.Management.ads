@@ -306,16 +306,16 @@ package Windows.ApplicationModel.Resources.Management is
    subtype IndexedResourceCandidate is Windows.ApplicationModel.Resources.Management.IIndexedResourceCandidate;
    subtype IndexedResourceQualifier is Windows.ApplicationModel.Resources.Management.IIndexedResourceQualifier;
    subtype ResourceIndexer is Windows.ApplicationModel.Resources.Management.IResourceIndexer;
+   function CreateResourceIndexer
+   (
+      projectRoot : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.ApplicationModel.Resources.Management.IResourceIndexer;
+   
    function CreateResourceIndexerWithExtension
    (
       projectRoot : Windows.Foundation.IUriRuntimeClass
       ; extensionDllPath : Windows.Foundation.IUriRuntimeClass
-   )
-   return Windows.ApplicationModel.Resources.Management.IResourceIndexer;
-   
-   function CreateResourceIndexer
-   (
-      projectRoot : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.ApplicationModel.Resources.Management.IResourceIndexer;
    

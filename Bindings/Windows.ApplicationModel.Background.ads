@@ -417,6 +417,9 @@ package Windows.ApplicationModel.Background is
    type IBackgroundTaskBuilder4_Interface;
    type IBackgroundTaskBuilder4 is access all IBackgroundTaskBuilder4_Interface'Class;
    type IBackgroundTaskBuilder4_Ptr is access all IBackgroundTaskBuilder4;
+   type IBackgroundTaskBuilder5_Interface;
+   type IBackgroundTaskBuilder5 is access all IBackgroundTaskBuilder5_Interface'Class;
+   type IBackgroundTaskBuilder5_Ptr is access all IBackgroundTaskBuilder5;
    type IBackgroundTaskCompletedEventArgs_Interface;
    type IBackgroundTaskCompletedEventArgs is access all IBackgroundTaskCompletedEventArgs_Interface'Class;
    type IBackgroundTaskCompletedEventArgs_Ptr is access all IBackgroundTaskCompletedEventArgs;
@@ -465,9 +468,15 @@ package Windows.ApplicationModel.Background is
    type IBluetoothLEAdvertisementPublisherTrigger_Interface;
    type IBluetoothLEAdvertisementPublisherTrigger is access all IBluetoothLEAdvertisementPublisherTrigger_Interface'Class;
    type IBluetoothLEAdvertisementPublisherTrigger_Ptr is access all IBluetoothLEAdvertisementPublisherTrigger;
+   type IBluetoothLEAdvertisementPublisherTrigger2_Interface;
+   type IBluetoothLEAdvertisementPublisherTrigger2 is access all IBluetoothLEAdvertisementPublisherTrigger2_Interface'Class;
+   type IBluetoothLEAdvertisementPublisherTrigger2_Ptr is access all IBluetoothLEAdvertisementPublisherTrigger2;
    type IBluetoothLEAdvertisementWatcherTrigger_Interface;
    type IBluetoothLEAdvertisementWatcherTrigger is access all IBluetoothLEAdvertisementWatcherTrigger_Interface'Class;
    type IBluetoothLEAdvertisementWatcherTrigger_Ptr is access all IBluetoothLEAdvertisementWatcherTrigger;
+   type IBluetoothLEAdvertisementWatcherTrigger2_Interface;
+   type IBluetoothLEAdvertisementWatcherTrigger2 is access all IBluetoothLEAdvertisementWatcherTrigger2_Interface'Class;
+   type IBluetoothLEAdvertisementWatcherTrigger2_Ptr is access all IBluetoothLEAdvertisementWatcherTrigger2;
    type ICachedFileUpdaterTrigger_Interface;
    type ICachedFileUpdaterTrigger is access all ICachedFileUpdaterTrigger_Interface'Class;
    type ICachedFileUpdaterTrigger_Ptr is access all ICachedFileUpdaterTrigger;
@@ -1268,6 +1277,19 @@ package Windows.ApplicationModel.Background is
    
    ------------------------------------------------------------------------
    
+   IID_IBackgroundTaskBuilder5 : aliased constant Windows.IID := (124847094, 39413, 19188, (188, 173, 71, 49, 208, 51, 13, 67 ));
+   
+   type IBackgroundTaskBuilder5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetTaskEntryPointClsid
+   (
+      This       : access IBackgroundTaskBuilder5_Interface
+      ; TaskEntryPoint : Windows.Guid
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IBackgroundTaskCompletedEventArgs : aliased constant Windows.IID := (1448945103, 61961, 18676, (153, 103, 43, 24, 79, 123, 251, 240 ));
    
    type IBackgroundTaskCompletedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -1630,6 +1652,68 @@ package Windows.ApplicationModel.Background is
    
    ------------------------------------------------------------------------
    
+   IID_IBluetoothLEAdvertisementPublisherTrigger2 : aliased constant Windows.IID := (2854801508, 14580, 22909, (181, 151, 78, 85, 88, 140, 101, 3 ));
+   
+   type IBluetoothLEAdvertisementPublisherTrigger2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PreferredTransmitPowerLevelInDBm
+   (
+      This       : access IBluetoothLEAdvertisementPublisherTrigger2_Interface
+      ; RetVal : access Windows.Foundation.IReference_Int16 -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_PreferredTransmitPowerLevelInDBm
+   (
+      This       : access IBluetoothLEAdvertisementPublisherTrigger2_Interface
+      ; value : Windows.Foundation.IReference_Int16
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UseExtendedFormat
+   (
+      This       : access IBluetoothLEAdvertisementPublisherTrigger2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_UseExtendedFormat
+   (
+      This       : access IBluetoothLEAdvertisementPublisherTrigger2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsAnonymous
+   (
+      This       : access IBluetoothLEAdvertisementPublisherTrigger2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsAnonymous
+   (
+      This       : access IBluetoothLEAdvertisementPublisherTrigger2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IncludeTransmitPowerLevel
+   (
+      This       : access IBluetoothLEAdvertisementPublisherTrigger2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IncludeTransmitPowerLevel
+   (
+      This       : access IBluetoothLEAdvertisementPublisherTrigger2_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IBluetoothLEAdvertisementWatcherTrigger : aliased constant Windows.IID := (447420441, 48353, 18667, (168, 39, 89, 251, 124, 238, 82, 166 ));
    
    type IBluetoothLEAdvertisementWatcherTrigger_Interface is interface and Windows.IInspectable_Interface;
@@ -1687,6 +1771,26 @@ package Windows.ApplicationModel.Background is
    (
       This       : access IBluetoothLEAdvertisementWatcherTrigger_Interface
       ; value : Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementFilter
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IBluetoothLEAdvertisementWatcherTrigger2 : aliased constant Windows.IID := (968189849, 60217, 23222, (153, 50, 170, 158, 69, 73, 96, 77 ));
+   
+   type IBluetoothLEAdvertisementWatcherTrigger2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AllowExtendedAdvertisements
+   (
+      This       : access IBluetoothLEAdvertisementWatcherTrigger2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_AllowExtendedAdvertisements
+   (
+      This       : access IBluetoothLEAdvertisementWatcherTrigger2_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    

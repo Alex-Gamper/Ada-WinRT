@@ -213,6 +213,9 @@ package Windows.AI.MachineLearning is
    type ILearningModelSessionOptions_Interface;
    type ILearningModelSessionOptions is access all ILearningModelSessionOptions_Interface'Class;
    type ILearningModelSessionOptions_Ptr is access all ILearningModelSessionOptions;
+   type ILearningModelSessionOptions2_Interface;
+   type ILearningModelSessionOptions2 is access all ILearningModelSessionOptions2_Interface'Class;
+   type ILearningModelSessionOptions2_Ptr is access all ILearningModelSessionOptions2;
    type ILearningModelStatics_Interface;
    type ILearningModelStatics is access all ILearningModelStatics_Interface'Class;
    type ILearningModelStatics_Ptr is access all ILearningModelStatics;
@@ -923,6 +926,26 @@ package Windows.AI.MachineLearning is
    (
       This       : access ILearningModelSessionOptions_Interface
       ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILearningModelSessionOptions2 : aliased constant Windows.IID := (1875713476, 5983, 23506, (141, 229, 47, 32, 6, 162, 90, 223 ));
+   
+   type ILearningModelSessionOptions2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_CloseModelOnSessionCreation
+   (
+      This       : access ILearningModelSessionOptions2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_CloseModelOnSessionCreation
+   (
+      This       : access ILearningModelSessionOptions2_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -2297,14 +2320,6 @@ package Windows.AI.MachineLearning is
    
    subtype LearningModelEvaluationResult is Windows.AI.MachineLearning.ILearningModelEvaluationResult;
    subtype LearningModelSession is Windows.AI.MachineLearning.ILearningModelSession;
-   function CreateFromModelOnDeviceWithSessionOptions
-   (
-      model : Windows.AI.MachineLearning.ILearningModel
-      ; deviceToRunOn : Windows.AI.MachineLearning.ILearningModelDevice
-      ; learningModelSessionOptions : Windows.AI.MachineLearning.ILearningModelSessionOptions
-   )
-   return Windows.AI.MachineLearning.ILearningModelSession;
-   
    function CreateFromModel
    (
       model : Windows.AI.MachineLearning.ILearningModel
@@ -2315,6 +2330,14 @@ package Windows.AI.MachineLearning is
    (
       model : Windows.AI.MachineLearning.ILearningModel
       ; deviceToRunOn : Windows.AI.MachineLearning.ILearningModelDevice
+   )
+   return Windows.AI.MachineLearning.ILearningModelSession;
+   
+   function CreateFromModelOnDeviceWithSessionOptions
+   (
+      model : Windows.AI.MachineLearning.ILearningModel
+      ; deviceToRunOn : Windows.AI.MachineLearning.ILearningModelDevice
+      ; learningModelSessionOptions : Windows.AI.MachineLearning.ILearningModelSessionOptions
    )
    return Windows.AI.MachineLearning.ILearningModelSession;
    

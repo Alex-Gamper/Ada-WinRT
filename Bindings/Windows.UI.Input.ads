@@ -31,6 +31,7 @@ limited with Windows.Devices.Input;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.Storage.Streams;
+limited with Windows.System;
 limited with Windows.UI.Core;
 --------------------------------------------------------------------------------
 package Windows.UI.Input is
@@ -373,6 +374,18 @@ package Windows.UI.Input is
    type TypedEventHandler_IRadialControllerMenuItem_add_Invoked_Interface;
    type TypedEventHandler_IRadialControllerMenuItem_add_Invoked is access all TypedEventHandler_IRadialControllerMenuItem_add_Invoked_Interface'Class;
    type TypedEventHandler_IRadialControllerMenuItem_add_Invoked_Ptr is access all TypedEventHandler_IRadialControllerMenuItem_add_Invoked;
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonPressed_Interface;
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonPressed is access all TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonPressed_Interface'Class;
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonPressed_Ptr is access all TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonPressed;
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonReleased_Interface;
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonReleased is access all TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonReleased_Interface'Class;
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonReleased_Ptr is access all TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonReleased;
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockChanged_Interface;
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockChanged is access all TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockChanged_Interface'Class;
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockChanged_Ptr is access all TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockChanged;
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockIndicatorChanged_Interface;
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockIndicatorChanged is access all TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockIndicatorChanged_Interface'Class;
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockIndicatorChanged_Ptr is access all TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockIndicatorChanged;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -390,9 +403,15 @@ package Windows.UI.Input is
    type ICrossSlidingEventArgs_Interface;
    type ICrossSlidingEventArgs is access all ICrossSlidingEventArgs_Interface'Class;
    type ICrossSlidingEventArgs_Ptr is access all ICrossSlidingEventArgs;
+   type ICrossSlidingEventArgs2_Interface;
+   type ICrossSlidingEventArgs2 is access all ICrossSlidingEventArgs2_Interface'Class;
+   type ICrossSlidingEventArgs2_Ptr is access all ICrossSlidingEventArgs2;
    type IDraggingEventArgs_Interface;
    type IDraggingEventArgs is access all IDraggingEventArgs_Interface'Class;
    type IDraggingEventArgs_Ptr is access all IDraggingEventArgs;
+   type IDraggingEventArgs2_Interface;
+   type IDraggingEventArgs2 is access all IDraggingEventArgs2_Interface'Class;
+   type IDraggingEventArgs2_Ptr is access all IDraggingEventArgs2;
    type IEdgeGesture_Interface;
    type IEdgeGesture is access all IEdgeGesture_Interface'Class;
    type IEdgeGesture_Ptr is access all IEdgeGesture;
@@ -405,9 +424,15 @@ package Windows.UI.Input is
    type IGestureRecognizer_Interface;
    type IGestureRecognizer is access all IGestureRecognizer_Interface'Class;
    type IGestureRecognizer_Ptr is access all IGestureRecognizer;
+   type IGestureRecognizer2_Interface;
+   type IGestureRecognizer2 is access all IGestureRecognizer2_Interface'Class;
+   type IGestureRecognizer2_Ptr is access all IGestureRecognizer2;
    type IHoldingEventArgs_Interface;
    type IHoldingEventArgs is access all IHoldingEventArgs_Interface'Class;
    type IHoldingEventArgs_Ptr is access all IHoldingEventArgs;
+   type IHoldingEventArgs2_Interface;
+   type IHoldingEventArgs2 is access all IHoldingEventArgs2_Interface'Class;
+   type IHoldingEventArgs2_Ptr is access all IHoldingEventArgs2;
    type IInputActivationListener_Interface;
    type IInputActivationListener is access all IInputActivationListener_Interface'Class;
    type IInputActivationListener_Ptr is access all IInputActivationListener;
@@ -441,15 +466,27 @@ package Windows.UI.Input is
    type IManipulationCompletedEventArgs_Interface;
    type IManipulationCompletedEventArgs is access all IManipulationCompletedEventArgs_Interface'Class;
    type IManipulationCompletedEventArgs_Ptr is access all IManipulationCompletedEventArgs;
+   type IManipulationCompletedEventArgs2_Interface;
+   type IManipulationCompletedEventArgs2 is access all IManipulationCompletedEventArgs2_Interface'Class;
+   type IManipulationCompletedEventArgs2_Ptr is access all IManipulationCompletedEventArgs2;
    type IManipulationInertiaStartingEventArgs_Interface;
    type IManipulationInertiaStartingEventArgs is access all IManipulationInertiaStartingEventArgs_Interface'Class;
    type IManipulationInertiaStartingEventArgs_Ptr is access all IManipulationInertiaStartingEventArgs;
+   type IManipulationInertiaStartingEventArgs2_Interface;
+   type IManipulationInertiaStartingEventArgs2 is access all IManipulationInertiaStartingEventArgs2_Interface'Class;
+   type IManipulationInertiaStartingEventArgs2_Ptr is access all IManipulationInertiaStartingEventArgs2;
    type IManipulationStartedEventArgs_Interface;
    type IManipulationStartedEventArgs is access all IManipulationStartedEventArgs_Interface'Class;
    type IManipulationStartedEventArgs_Ptr is access all IManipulationStartedEventArgs;
+   type IManipulationStartedEventArgs2_Interface;
+   type IManipulationStartedEventArgs2 is access all IManipulationStartedEventArgs2_Interface'Class;
+   type IManipulationStartedEventArgs2_Ptr is access all IManipulationStartedEventArgs2;
    type IManipulationUpdatedEventArgs_Interface;
    type IManipulationUpdatedEventArgs is access all IManipulationUpdatedEventArgs_Interface'Class;
    type IManipulationUpdatedEventArgs_Ptr is access all IManipulationUpdatedEventArgs;
+   type IManipulationUpdatedEventArgs2_Interface;
+   type IManipulationUpdatedEventArgs2 is access all IManipulationUpdatedEventArgs2_Interface'Class;
+   type IManipulationUpdatedEventArgs2_Ptr is access all IManipulationUpdatedEventArgs2;
    type IMouseWheelParameters_Interface;
    type IMouseWheelParameters is access all IMouseWheelParameters_Interface'Class;
    type IMouseWheelParameters_Ptr is access all IMouseWheelParameters;
@@ -555,9 +592,30 @@ package Windows.UI.Input is
    type IRightTappedEventArgs_Interface;
    type IRightTappedEventArgs is access all IRightTappedEventArgs_Interface'Class;
    type IRightTappedEventArgs_Ptr is access all IRightTappedEventArgs;
+   type IRightTappedEventArgs2_Interface;
+   type IRightTappedEventArgs2 is access all IRightTappedEventArgs2_Interface'Class;
+   type IRightTappedEventArgs2_Ptr is access all IRightTappedEventArgs2;
+   type ISystemButtonEventController_Interface;
+   type ISystemButtonEventController is access all ISystemButtonEventController_Interface'Class;
+   type ISystemButtonEventController_Ptr is access all ISystemButtonEventController;
+   type ISystemButtonEventControllerStatics_Interface;
+   type ISystemButtonEventControllerStatics is access all ISystemButtonEventControllerStatics_Interface'Class;
+   type ISystemButtonEventControllerStatics_Ptr is access all ISystemButtonEventControllerStatics;
+   type ISystemFunctionButtonEventArgs_Interface;
+   type ISystemFunctionButtonEventArgs is access all ISystemFunctionButtonEventArgs_Interface'Class;
+   type ISystemFunctionButtonEventArgs_Ptr is access all ISystemFunctionButtonEventArgs;
+   type ISystemFunctionLockChangedEventArgs_Interface;
+   type ISystemFunctionLockChangedEventArgs is access all ISystemFunctionLockChangedEventArgs_Interface'Class;
+   type ISystemFunctionLockChangedEventArgs_Ptr is access all ISystemFunctionLockChangedEventArgs;
+   type ISystemFunctionLockIndicatorChangedEventArgs_Interface;
+   type ISystemFunctionLockIndicatorChangedEventArgs is access all ISystemFunctionLockIndicatorChangedEventArgs_Interface'Class;
+   type ISystemFunctionLockIndicatorChangedEventArgs_Ptr is access all ISystemFunctionLockIndicatorChangedEventArgs;
    type ITappedEventArgs_Interface;
    type ITappedEventArgs is access all ITappedEventArgs_Interface'Class;
    type ITappedEventArgs_Ptr is access all ITappedEventArgs;
+   type ITappedEventArgs2_Interface;
+   type ITappedEventArgs2 is access all ITappedEventArgs2_Interface'Class;
+   type ITappedEventArgs2_Ptr is access all ITappedEventArgs2;
    type IVector_IPointerPoint_Interface;
    type IVector_IPointerPoint is access all IVector_IPointerPoint_Interface'Class;
    type IVector_IPointerPoint_Ptr is access all IVector_IPointerPoint;
@@ -643,6 +701,19 @@ package Windows.UI.Input is
    
    ------------------------------------------------------------------------
    
+   IID_ICrossSlidingEventArgs2 : aliased constant Windows.IID := (4009459016, 49264, 23027, (141, 171, 188, 175, 98, 29, 134, 135 ));
+   
+   type ICrossSlidingEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContactCount
+   (
+      This       : access ICrossSlidingEventArgs2_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IDraggingEventArgs : aliased constant Windows.IID := (479220612, 2108, 19411, (181, 89, 23, 156, 221, 235, 51, 236 ));
    
    type IDraggingEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -665,6 +736,19 @@ package Windows.UI.Input is
    (
       This       : access IDraggingEventArgs_Interface
       ; RetVal : access Windows.UI.Input.DraggingState
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDraggingEventArgs2 : aliased constant Windows.IID := (1911544825, 14378, 21962, (180, 185, 0, 129, 35, 193, 191, 26 ));
+   
+   type IDraggingEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContactCount
+   (
+      This       : access IDraggingEventArgs2_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -1043,7 +1127,7 @@ package Windows.UI.Input is
    function remove_Tapped
    (
       This       : access IGestureRecognizer_Interface
-      ; cookie : Windows.Foundation.EventRegistrationToken
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -1058,7 +1142,7 @@ package Windows.UI.Input is
    function remove_RightTapped
    (
       This       : access IGestureRecognizer_Interface
-      ; cookie : Windows.Foundation.EventRegistrationToken
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -1073,7 +1157,7 @@ package Windows.UI.Input is
    function remove_Holding
    (
       This       : access IGestureRecognizer_Interface
-      ; cookie : Windows.Foundation.EventRegistrationToken
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -1088,7 +1172,7 @@ package Windows.UI.Input is
    function remove_Dragging
    (
       This       : access IGestureRecognizer_Interface
-      ; cookie : Windows.Foundation.EventRegistrationToken
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -1103,7 +1187,7 @@ package Windows.UI.Input is
    function remove_ManipulationStarted
    (
       This       : access IGestureRecognizer_Interface
-      ; cookie : Windows.Foundation.EventRegistrationToken
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -1118,7 +1202,7 @@ package Windows.UI.Input is
    function remove_ManipulationUpdated
    (
       This       : access IGestureRecognizer_Interface
-      ; cookie : Windows.Foundation.EventRegistrationToken
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -1133,7 +1217,7 @@ package Windows.UI.Input is
    function remove_ManipulationInertiaStarting
    (
       This       : access IGestureRecognizer_Interface
-      ; cookie : Windows.Foundation.EventRegistrationToken
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -1148,7 +1232,7 @@ package Windows.UI.Input is
    function remove_ManipulationCompleted
    (
       This       : access IGestureRecognizer_Interface
-      ; cookie : Windows.Foundation.EventRegistrationToken
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -1163,7 +1247,125 @@ package Windows.UI.Input is
    function remove_CrossSliding
    (
       This       : access IGestureRecognizer_Interface
-      ; cookie : Windows.Foundation.EventRegistrationToken
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGestureRecognizer2 : aliased constant Windows.IID := (3594914175, 28407, 22342, (139, 168, 143, 242, 32, 110, 111, 59 ));
+   
+   type IGestureRecognizer2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_TapMinContactCount
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TapMinContactCount
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TapMaxContactCount
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TapMaxContactCount
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HoldMinContactCount
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_HoldMinContactCount
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HoldMaxContactCount
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_HoldMaxContactCount
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HoldRadius
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; RetVal : access Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_HoldRadius
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HoldStartDelay
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_HoldStartDelay
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; value : Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TranslationMinContactCount
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TranslationMinContactCount
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TranslationMaxContactCount
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_TranslationMaxContactCount
+   (
+      This       : access IGestureRecognizer2_Interface
+      ; value : Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -1191,6 +1393,26 @@ package Windows.UI.Input is
    (
       This       : access IHoldingEventArgs_Interface
       ; RetVal : access Windows.UI.Input.HoldingState
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IHoldingEventArgs2 : aliased constant Windows.IID := (337488362, 19577, 22132, (175, 234, 73, 63, 222, 185, 31, 25 ));
+   
+   type IHoldingEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContactCount
+   (
+      This       : access IHoldingEventArgs2_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CurrentContactCount
+   (
+      This       : access IHoldingEventArgs2_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -1478,6 +1700,26 @@ package Windows.UI.Input is
    
    ------------------------------------------------------------------------
    
+   IID_IManipulationCompletedEventArgs2 : aliased constant Windows.IID := (4039171303, 12457, 23446, (136, 111, 101, 96, 168, 94, 71, 87 ));
+   
+   type IManipulationCompletedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContactCount
+   (
+      This       : access IManipulationCompletedEventArgs2_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CurrentContactCount
+   (
+      This       : access IManipulationCompletedEventArgs2_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IManipulationInertiaStartingEventArgs : aliased constant Windows.IID := (3711412376, 9919, 18042, (156, 229, 204, 243, 251, 17, 55, 30 ));
    
    type IManipulationInertiaStartingEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -1519,6 +1761,19 @@ package Windows.UI.Input is
    
    ------------------------------------------------------------------------
    
+   IID_IManipulationInertiaStartingEventArgs2 : aliased constant Windows.IID := (3260287416, 63994, 23109, (189, 151, 220, 187, 178, 32, 24, 96 ));
+   
+   type IManipulationInertiaStartingEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContactCount
+   (
+      This       : access IManipulationInertiaStartingEventArgs2_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IManipulationStartedEventArgs : aliased constant Windows.IID := (3723265854, 53198, 18738, (140, 29, 60, 61, 1, 26, 52, 192 ));
    
    type IManipulationStartedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -1541,6 +1796,19 @@ package Windows.UI.Input is
    (
       This       : access IManipulationStartedEventArgs_Interface
       ; RetVal : access Windows.UI.Input.ManipulationDelta
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IManipulationStartedEventArgs2 : aliased constant Windows.IID := (765713230, 58755, 20565, (175, 170, 22, 253, 152, 101, 49, 166 ));
+   
+   type IManipulationStartedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContactCount
+   (
+      This       : access IManipulationStartedEventArgs2_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -1582,6 +1850,26 @@ package Windows.UI.Input is
    (
       This       : access IManipulationUpdatedEventArgs_Interface
       ; RetVal : access Windows.UI.Input.ManipulationVelocities
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IManipulationUpdatedEventArgs2 : aliased constant Windows.IID := (4091525482, 13062, 22787, (161, 197, 255, 151, 87, 168, 104, 158 ));
+   
+   type IManipulationUpdatedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContactCount
+   (
+      This       : access IManipulationUpdatedEventArgs2_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CurrentContactCount
+   (
+      This       : access IManipulationUpdatedEventArgs2_Interface
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -2770,6 +3058,194 @@ package Windows.UI.Input is
    
    ------------------------------------------------------------------------
    
+   IID_IRightTappedEventArgs2 : aliased constant Windows.IID := (1640478651, 40791, 22615, (163, 60, 197, 140, 61, 250, 149, 158 ));
+   
+   type IRightTappedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContactCount
+   (
+      This       : access IRightTappedEventArgs2_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISystemButtonEventController : aliased constant Windows.IID := (1505268649, 29628, 21173, (186, 65, 130, 81, 27, 44, 180, 108 ));
+   
+   type ISystemButtonEventController_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_SystemFunctionButtonPressed
+   (
+      This       : access ISystemButtonEventController_Interface
+      ; handler : TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonPressed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_SystemFunctionButtonPressed
+   (
+      This       : access ISystemButtonEventController_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_SystemFunctionButtonReleased
+   (
+      This       : access ISystemButtonEventController_Interface
+      ; handler : TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonReleased
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_SystemFunctionButtonReleased
+   (
+      This       : access ISystemButtonEventController_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_SystemFunctionLockChanged
+   (
+      This       : access ISystemButtonEventController_Interface
+      ; handler : TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_SystemFunctionLockChanged
+   (
+      This       : access ISystemButtonEventController_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_SystemFunctionLockIndicatorChanged
+   (
+      This       : access ISystemButtonEventController_Interface
+      ; handler : TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockIndicatorChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_SystemFunctionLockIndicatorChanged
+   (
+      This       : access ISystemButtonEventController_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISystemButtonEventControllerStatics : aliased constant Windows.IID := (1664069755, 8381, 24085, (175, 74, 0, 219, 242, 6, 79, 250 ));
+   
+   type ISystemButtonEventControllerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateForDispatcherQueue
+   (
+      This       : access ISystemButtonEventControllerStatics_Interface
+      ; queue : Windows.System.IDispatcherQueue
+      ; RetVal : access Windows.UI.Input.ISystemButtonEventController
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISystemFunctionButtonEventArgs : aliased constant Windows.IID := (1211337071, 32977, 24022, (146, 167, 98, 165, 8, 255, 239, 90 ));
+   
+   type ISystemFunctionButtonEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Timestamp
+   (
+      This       : access ISystemFunctionButtonEventArgs_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Handled
+   (
+      This       : access ISystemFunctionButtonEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Handled
+   (
+      This       : access ISystemFunctionButtonEventArgs_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISystemFunctionLockChangedEventArgs : aliased constant Windows.IID := (3439592968, 64761, 22620, (190, 171, 241, 210, 234, 243, 100, 171 ));
+   
+   type ISystemFunctionLockChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Timestamp
+   (
+      This       : access ISystemFunctionLockChangedEventArgs_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsLocked
+   (
+      This       : access ISystemFunctionLockChangedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Handled
+   (
+      This       : access ISystemFunctionLockChangedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Handled
+   (
+      This       : access ISystemFunctionLockChangedEventArgs_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ISystemFunctionLockIndicatorChangedEventArgs : aliased constant Windows.IID := (2987571534, 31343, 22702, (179, 4, 186, 230, 29, 3, 113, 185 ));
+   
+   type ISystemFunctionLockIndicatorChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Timestamp
+   (
+      This       : access ISystemFunctionLockIndicatorChangedEventArgs_Interface
+      ; RetVal : access Windows.UInt64
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsIndicatorOn
+   (
+      This       : access ISystemFunctionLockIndicatorChangedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Handled
+   (
+      This       : access ISystemFunctionLockIndicatorChangedEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Handled
+   (
+      This       : access ISystemFunctionLockIndicatorChangedEventArgs_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ITappedEventArgs : aliased constant Windows.IID := (3483444964, 9530, 19516, (149, 59, 57, 92, 55, 174, 211, 9 ));
    
    type ITappedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -2791,6 +3267,19 @@ package Windows.UI.Input is
    function get_TapCount
    (
       This       : access ITappedEventArgs_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITappedEventArgs2 : aliased constant Windows.IID := (692291826, 6014, 20949, (190, 86, 238, 8, 102, 250, 150, 140 ));
+   
+   type ITappedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContactCount
+   (
+      This       : access ITappedEventArgs2_Interface
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
@@ -3419,6 +3908,58 @@ package Windows.UI.Input is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonPressed : aliased constant Windows.IID := (2979822378, 43271, 21143, (130, 121, 173, 186, 17, 64, 33, 141 ));
+   
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonPressed_Interface(Callback : access procedure (sender : Windows.UI.Input.ISystemButtonEventController ; args : Windows.UI.Input.ISystemFunctionButtonEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonPressed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonPressed_Interface
+      ; sender : Windows.UI.Input.ISystemButtonEventController
+      ; args : Windows.UI.Input.ISystemFunctionButtonEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonReleased : aliased constant Windows.IID := (2979822378, 43271, 21143, (130, 121, 173, 186, 17, 64, 33, 141 ));
+   
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonReleased_Interface(Callback : access procedure (sender : Windows.UI.Input.ISystemButtonEventController ; args : Windows.UI.Input.ISystemFunctionButtonEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonReleased'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISystemButtonEventController_add_SystemFunctionButtonReleased_Interface
+      ; sender : Windows.UI.Input.ISystemButtonEventController
+      ; args : Windows.UI.Input.ISystemFunctionButtonEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockChanged : aliased constant Windows.IID := (1388400400, 65382, 21336, (187, 254, 2, 45, 242, 14, 121, 234 ));
+   
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockChanged_Interface(Callback : access procedure (sender : Windows.UI.Input.ISystemButtonEventController ; args : Windows.UI.Input.ISystemFunctionLockChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockChanged_Interface
+      ; sender : Windows.UI.Input.ISystemButtonEventController
+      ; args : Windows.UI.Input.ISystemFunctionLockChangedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockIndicatorChanged : aliased constant Windows.IID := (3766772531, 1064, 21568, (147, 215, 24, 41, 211, 202, 103, 79 ));
+   
+   type TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockIndicatorChanged_Interface(Callback : access procedure (sender : Windows.UI.Input.ISystemButtonEventController ; args : Windows.UI.Input.ISystemFunctionLockIndicatorChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockIndicatorChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ISystemButtonEventController_add_SystemFunctionLockIndicatorChanged_Interface
+      ; sender : Windows.UI.Input.ISystemButtonEventController
+      ; args : Windows.UI.Input.ISystemFunctionLockIndicatorChangedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
@@ -3457,6 +3998,10 @@ package Windows.UI.Input is
    subtype RadialControllerScreenContactEndedEventArgs is Windows.UI.Input.IRadialControllerScreenContactEndedEventArgs;
    subtype RadialControllerScreenContactStartedEventArgs is Windows.UI.Input.IRadialControllerScreenContactStartedEventArgs;
    subtype RightTappedEventArgs is Windows.UI.Input.IRightTappedEventArgs;
+   subtype SystemButtonEventController is Windows.UI.Input.ISystemButtonEventController;
+   subtype SystemFunctionButtonEventArgs is Windows.UI.Input.ISystemFunctionButtonEventArgs;
+   subtype SystemFunctionLockChangedEventArgs is Windows.UI.Input.ISystemFunctionLockChangedEventArgs;
+   subtype SystemFunctionLockIndicatorChangedEventArgs is Windows.UI.Input.ISystemFunctionLockIndicatorChangedEventArgs;
    subtype TappedEventArgs is Windows.UI.Input.ITappedEventArgs;
    
    ------------------------------------------------------------------------
@@ -3555,5 +4100,11 @@ package Windows.UI.Input is
       ; fontUri : Windows.Foundation.IUriRuntimeClass
    )
    return Windows.UI.Input.IRadialControllerMenuItem;
+   
+   function CreateForDispatcherQueue
+   (
+      queue : Windows.System.IDispatcherQueue
+   )
+   return Windows.UI.Input.ISystemButtonEventController;
    
 end;

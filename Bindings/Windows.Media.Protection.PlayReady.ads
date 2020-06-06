@@ -2459,19 +2459,6 @@ package Windows.Media.Protection.PlayReady is
    return Windows.Media.Protection.PlayReady.INDMessenger;
    
    subtype PlayReadyContentHeader is Windows.Media.Protection.PlayReady.IPlayReadyContentHeader;
-   function CreateInstanceFromComponents2
-   (
-      dwFlags : Windows.UInt32
-      ; contentKeyIds : Windows.Guid_Ptr
-      ; contentKeyIdStrings : Windows.String_Ptr
-      ; contentEncryptionAlgorithm : Windows.Media.Protection.PlayReady.PlayReadyEncryptionAlgorithm
-      ; licenseAcquisitionUrl : Windows.Foundation.IUriRuntimeClass
-      ; licenseAcquisitionUserInterfaceUrl : Windows.Foundation.IUriRuntimeClass
-      ; customAttributes : Windows.String
-      ; domainServiceId : Windows.Guid
-   )
-   return Windows.Media.Protection.PlayReady.IPlayReadyContentHeader;
-   
    function CreateInstanceFromWindowsMediaDrmHeader
    (
       headerBytes : Windows.UInt8_Ptr
@@ -2497,6 +2484,19 @@ package Windows.Media.Protection.PlayReady is
    function CreateInstanceFromPlayReadyHeader
    (
       headerBytes : Windows.UInt8_Ptr
+   )
+   return Windows.Media.Protection.PlayReady.IPlayReadyContentHeader;
+   
+   function CreateInstanceFromComponents2
+   (
+      dwFlags : Windows.UInt32
+      ; contentKeyIds : Windows.Guid_Ptr
+      ; contentKeyIdStrings : Windows.String_Ptr
+      ; contentEncryptionAlgorithm : Windows.Media.Protection.PlayReady.PlayReadyEncryptionAlgorithm
+      ; licenseAcquisitionUrl : Windows.Foundation.IUriRuntimeClass
+      ; licenseAcquisitionUserInterfaceUrl : Windows.Foundation.IUriRuntimeClass
+      ; customAttributes : Windows.String
+      ; domainServiceId : Windows.Guid
    )
    return Windows.Media.Protection.PlayReady.IPlayReadyContentHeader;
    

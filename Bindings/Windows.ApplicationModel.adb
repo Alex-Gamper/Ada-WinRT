@@ -259,6 +259,64 @@ package body Windows.ApplicationModel is
    -- Static procedures/functions
    ------------------------------------------------------------------------
    
+   function get_Current
+   return Windows.ApplicationModel.IAppInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.AppInfo");
+      m_Factory     : IAppInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.IAppInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.get_Current(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetFromAppUserModelId
+   (
+      appUserModelId : Windows.String
+   )
+   return Windows.ApplicationModel.IAppInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.AppInfo");
+      m_Factory     : IAppInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.IAppInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetFromAppUserModelId(appUserModelId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetFromAppUserModelIdForUser
+   (
+      user : Windows.System.IUser
+      ; appUserModelId : Windows.String
+   )
+   return Windows.ApplicationModel.IAppInfo is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.ApplicationModel.AppInfo");
+      m_Factory     : IAppInfoStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.ApplicationModel.IAppInfo;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAppInfoStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetFromAppUserModelIdForUser(user, appUserModelId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function FindOrRegisterInstanceForKey
    (
       key : Windows.String

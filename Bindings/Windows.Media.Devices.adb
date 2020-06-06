@@ -26,6 +26,7 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+with Windows.Devices.Enumeration;
 with Windows.Media.Capture;
 with Windows.Media.Devices.Core;
 with Windows.Media.MediaProperties;

@@ -164,6 +164,9 @@ package Windows.Globalization is
    type ILanguage2_Interface;
    type ILanguage2 is access all ILanguage2_Interface'Class;
    type ILanguage2_Ptr is access all ILanguage2;
+   type ILanguage3_Interface;
+   type ILanguage3 is access all ILanguage3_Interface'Class;
+   type ILanguage3_Ptr is access all ILanguage3;
    type ILanguageExtensionSubtags_Interface;
    type ILanguageExtensionSubtags is access all ILanguageExtensionSubtags_Interface'Class;
    type ILanguageExtensionSubtags_Ptr is access all ILanguageExtensionSubtags;
@@ -176,6 +179,9 @@ package Windows.Globalization is
    type ILanguageStatics2_Interface;
    type ILanguageStatics2 is access all ILanguageStatics2_Interface'Class;
    type ILanguageStatics2_Ptr is access all ILanguageStatics2;
+   type ILanguageStatics3_Interface;
+   type ILanguageStatics3 is access all ILanguageStatics3_Interface'Class;
+   type ILanguageStatics3_Ptr is access all ILanguageStatics3;
    type INumeralSystemIdentifiersStatics_Interface;
    type INumeralSystemIdentifiersStatics is access all INumeralSystemIdentifiersStatics_Interface'Class;
    type INumeralSystemIdentifiersStatics_Ptr is access all INumeralSystemIdentifiersStatics;
@@ -2598,6 +2604,19 @@ package Windows.Globalization is
    
    ------------------------------------------------------------------------
    
+   IID_ILanguage3 : aliased constant Windows.IID := (3333373200, 25626, 23460, (187, 67, 94, 18, 174, 215, 89, 84 ));
+   
+   type ILanguage3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_AbbreviatedName
+   (
+      This       : access ILanguage3_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ILanguageExtensionSubtags : aliased constant Windows.IID := (2105388869, 13965, 17252, (133, 43, 222, 201, 39, 3, 123, 133 ));
    
    type ILanguageExtensionSubtags_Interface is interface and Windows.IInspectable_Interface;
@@ -2656,6 +2675,20 @@ package Windows.Globalization is
       This       : access ILanguageStatics2_Interface
       ; languageTag : Windows.String
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ILanguageStatics3 : aliased constant Windows.IID := (3512650586, 29150, 22354, (149, 66, 250, 197, 180, 242, 114, 97 ));
+   
+   type ILanguageStatics3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetMuiCompatibleLanguageListFromLanguageTags
+   (
+      This       : access ILanguageStatics3_Interface
+      ; languageTags : Windows.Foundation.Collections.IIterable_String
+      ; RetVal : access Windows.Foundation.Collections.IVector_String -- Generic Parameter Type
    )
    return Windows.HRESULT is abstract;
    
@@ -3127,15 +3160,6 @@ package Windows.Globalization is
    subtype Calendar is Windows.Globalization.ICalendar;
    function Create return Windows.Globalization.ICalendar;
    
-   function CreateCalendarWithTimeZone
-   (
-      languages : Windows.Foundation.Collections.IIterable_String
-      ; calendar : Windows.String
-      ; clock : Windows.String
-      ; timeZoneId : Windows.String
-   )
-   return Windows.Globalization.ICalendar;
-   
    function CreateCalendarDefaultCalendarAndClock
    (
       languages : Windows.Foundation.Collections.IIterable_String
@@ -3147,6 +3171,15 @@ package Windows.Globalization is
       languages : Windows.Foundation.Collections.IIterable_String
       ; calendar : Windows.String
       ; clock : Windows.String
+   )
+   return Windows.Globalization.ICalendar;
+   
+   function CreateCalendarWithTimeZone
+   (
+      languages : Windows.Foundation.Collections.IIterable_String
+      ; calendar : Windows.String
+      ; clock : Windows.String
+      ; timeZoneId : Windows.String
    )
    return Windows.Globalization.ICalendar;
    
@@ -3771,6 +3804,12 @@ package Windows.Globalization is
       languageTag : Windows.String
    )
    return Windows.Boolean;
+   
+   function GetMuiCompatibleLanguageListFromLanguageTags
+   (
+      languageTags : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.Foundation.Collections.IVector_String;
    
    function get_Arab
    return Windows.String;

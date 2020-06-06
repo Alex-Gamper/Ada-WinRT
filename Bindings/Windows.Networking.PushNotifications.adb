@@ -52,6 +52,19 @@ package body Windows.Networking.PushNotifications is
    
    function Invoke
    (
+      This       : access EventHandler_IPushNotificationChannelsRevokedEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.Networking.PushNotifications.IPushNotificationChannelsRevokedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(sender, args);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_IPushNotificationChannel_add_PushNotificationReceived_Interface
       ; sender : Windows.Networking.PushNotifications.IPushNotificationChannel
       ; args : Windows.Networking.PushNotifications.IPushNotificationReceivedEventArgs
@@ -167,6 +180,44 @@ package body Windows.Networking.PushNotifications is
       end if;
       Hr := WindowsDeleteString(m_hString);
       return RetVal;
+   end;
+   
+   function add_ChannelsRevoked
+   (
+      handler : Windows.Networking.PushNotifications.EventHandler_IPushNotificationChannelsRevokedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.PushNotifications.PushNotificationChannelManager");
+      m_Factory     : IPushNotificationChannelManagerStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.EventRegistrationToken;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPushNotificationChannelManagerStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.add_ChannelsRevoked(handler, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   procedure remove_ChannelsRevoked
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Networking.PushNotifications.PushNotificationChannelManager");
+      m_Factory     : IPushNotificationChannelManagerStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IPushNotificationChannelManagerStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.remove_ChannelsRevoked(token);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
    end;
    
 end;

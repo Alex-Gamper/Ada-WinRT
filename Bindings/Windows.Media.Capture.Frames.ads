@@ -37,6 +37,7 @@ limited with Windows.Media.Devices.Core;
 limited with Windows.Media.MediaProperties;
 limited with Windows.Perception.Spatial;
 limited with Windows.Storage.Streams;
+limited with Windows.UI.WindowManagement;
 --------------------------------------------------------------------------------
 package Windows.Media.Capture.Frames is
 
@@ -298,6 +299,9 @@ package Windows.Media.Capture.Frames is
    type IMediaFrameSourceInfo2_Interface;
    type IMediaFrameSourceInfo2 is access all IMediaFrameSourceInfo2_Interface'Class;
    type IMediaFrameSourceInfo2_Ptr is access all IMediaFrameSourceInfo2;
+   type IMediaFrameSourceInfo3_Interface;
+   type IMediaFrameSourceInfo3 is access all IMediaFrameSourceInfo3_Interface'Class;
+   type IMediaFrameSourceInfo3_Ptr is access all IMediaFrameSourceInfo3;
    type IMultiSourceMediaFrameArrivedEventArgs_Interface;
    type IMultiSourceMediaFrameArrivedEventArgs is access all IMultiSourceMediaFrameArrivedEventArgs_Interface'Class;
    type IMultiSourceMediaFrameArrivedEventArgs_Ptr is access all IMultiSourceMediaFrameArrivedEventArgs;
@@ -1286,6 +1290,20 @@ package Windows.Media.Capture.Frames is
    (
       This       : access IMediaFrameSourceInfo2_Interface
       ; RetVal : access Windows.Media.Capture.IVectorView_IMediaCaptureVideoProfileMediaDescription -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMediaFrameSourceInfo3 : aliased constant Windows.IID := (3397536438, 26346, 22661, (162, 182, 38, 192, 238, 236, 60, 123 ));
+   
+   type IMediaFrameSourceInfo3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetRelativePanel
+   (
+      This       : access IMediaFrameSourceInfo3_Interface
+      ; displayRegion : Windows.UI.WindowManagement.IDisplayRegion
+      ; RetVal : access Windows.Devices.Enumeration.Panel
    )
    return Windows.HRESULT is abstract;
    

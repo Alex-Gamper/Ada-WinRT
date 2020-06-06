@@ -182,6 +182,32 @@ package body Windows.UI.ViewManagement is
       return Hr;
    end;
    
+   function Invoke
+   (
+      This       : access TypedEventHandler_IUISettings6_add_AnimationsEnabledChanged_Interface
+      ; sender : Windows.UI.ViewManagement.IUISettings
+      ; args : Windows.UI.ViewManagement.IUISettingsAnimationsEnabledChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.ViewManagement.IUISettings(sender), Windows.UI.ViewManagement.IUISettingsAnimationsEnabledChangedEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IUISettings6_add_MessageDurationChanged_Interface
+      ; sender : Windows.UI.ViewManagement.IUISettings
+      ; args : Windows.UI.ViewManagement.IUISettingsMessageDurationChangedEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.ViewManagement.IUISettings(sender), Windows.UI.ViewManagement.IUISettingsMessageDurationChangedEventArgs(args));
+      return Hr;
+   end;
+   
    ------------------------------------------------------------------------
    -- Create functions (for activatable classes)
    ------------------------------------------------------------------------

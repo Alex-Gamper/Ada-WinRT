@@ -237,6 +237,12 @@ package Windows.ApplicationModel is
    type IAppInfo_Interface;
    type IAppInfo is access all IAppInfo_Interface'Class;
    type IAppInfo_Ptr is access all IAppInfo;
+   type IAppInfo2_Interface;
+   type IAppInfo2 is access all IAppInfo2_Interface'Class;
+   type IAppInfo2_Ptr is access all IAppInfo2;
+   type IAppInfoStatics_Interface;
+   type IAppInfoStatics is access all IAppInfoStatics_Interface'Class;
+   type IAppInfoStatics_Ptr is access all IAppInfoStatics;
    type IAppInstallerInfo_Interface;
    type IAppInstallerInfo is access all IAppInstallerInfo_Interface'Class;
    type IAppInstallerInfo_Ptr is access all IAppInstallerInfo;
@@ -324,6 +330,9 @@ package Windows.ApplicationModel is
    type IPackage7_Interface;
    type IPackage7 is access all IPackage7_Interface'Class;
    type IPackage7_Ptr is access all IPackage7;
+   type IPackage8_Interface;
+   type IPackage8 is access all IPackage8_Interface'Class;
+   type IPackage8_Ptr is access all IPackage8;
    type IPackageCatalog_Interface;
    type IPackageCatalog is access all IPackageCatalog_Interface'Class;
    type IPackageCatalog_Ptr is access all IPackageCatalog;
@@ -487,6 +496,49 @@ package Windows.ApplicationModel is
    (
       This       : access IAppInfo_Interface
       ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppInfo2 : aliased constant Windows.IID := (3192594266, 8344, 17179, (189, 37, 179, 8, 120, 116, 141, 71 ));
+   
+   type IAppInfo2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Package
+   (
+      This       : access IAppInfo2_Interface
+      ; RetVal : access Windows.ApplicationModel.IPackage
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAppInfoStatics : aliased constant Windows.IID := (3474946090, 58507, 20236, (155, 11, 121, 195, 248, 149, 125, 215 ));
+   
+   type IAppInfoStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IAppInfoStatics_Interface
+      ; RetVal : access Windows.ApplicationModel.IAppInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetFromAppUserModelId
+   (
+      This       : access IAppInfoStatics_Interface
+      ; appUserModelId : Windows.String
+      ; RetVal : access Windows.ApplicationModel.IAppInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetFromAppUserModelIdForUser
+   (
+      This       : access IAppInfoStatics_Interface
+      ; user : Windows.System.IUser
+      ; appUserModelId : Windows.String
+      ; RetVal : access Windows.ApplicationModel.IAppInfo
    )
    return Windows.HRESULT is abstract;
    
@@ -1226,6 +1278,97 @@ package Windows.ApplicationModel is
    (
       This       : access IPackage7_Interface
       ; RetVal : access Windows.Storage.IStorageFolder
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPackage8 : aliased constant Windows.IID := (743985019, 52778, 19430, (160, 147, 119, 207, 187, 42, 126, 161 ));
+   
+   type IPackage8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_EffectiveExternalLocation
+   (
+      This       : access IPackage8_Interface
+      ; RetVal : access Windows.Storage.IStorageFolder
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MachineExternalLocation
+   (
+      This       : access IPackage8_Interface
+      ; RetVal : access Windows.Storage.IStorageFolder
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UserExternalLocation
+   (
+      This       : access IPackage8_Interface
+      ; RetVal : access Windows.Storage.IStorageFolder
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_InstalledPath
+   (
+      This       : access IPackage8_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MutablePath
+   (
+      This       : access IPackage8_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EffectivePath
+   (
+      This       : access IPackage8_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_EffectiveExternalPath
+   (
+      This       : access IPackage8_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_MachineExternalPath
+   (
+      This       : access IPackage8_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_UserExternalPath
+   (
+      This       : access IPackage8_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetLogoAsRandomAccessStreamReference
+   (
+      This       : access IPackage8_Interface
+      ; size : Windows.Foundation.Size
+      ; RetVal : access Windows.Storage.Streams.IRandomAccessStreamReference
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetAppListEntries
+   (
+      This       : access IPackage8_Interface
+      ; RetVal : access Windows.ApplicationModel.Core.IVectorView_IAppListEntry -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsStub
+   (
+      This       : access IPackage8_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -2629,6 +2772,22 @@ package Windows.ApplicationModel is
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_Current
+   return Windows.ApplicationModel.IAppInfo;
+   
+   function GetFromAppUserModelId
+   (
+      appUserModelId : Windows.String
+   )
+   return Windows.ApplicationModel.IAppInfo;
+   
+   function GetFromAppUserModelIdForUser
+   (
+      user : Windows.System.IUser
+      ; appUserModelId : Windows.String
+   )
+   return Windows.ApplicationModel.IAppInfo;
    
    function FindOrRegisterInstanceForKey
    (

@@ -63,7 +63,11 @@ package Windows.ApplicationModel.AppService is
       Unknown,
       RemoteSystemUnavailable,
       RemoteSystemNotSupportedByApp,
-      NotAuthorized
+      NotAuthorized,
+      AuthenticationError,
+      NetworkNotAvailable,
+      DisabledByPolicy,
+      WebServiceUnavailable
    );
    for AppServiceConnectionStatus use (
       Success => 0,
@@ -73,7 +77,11 @@ package Windows.ApplicationModel.AppService is
       Unknown => 4,
       RemoteSystemUnavailable => 5,
       RemoteSystemNotSupportedByApp => 6,
-      NotAuthorized => 7
+      NotAuthorized => 7,
+      AuthenticationError => 8,
+      NetworkNotAvailable => 9,
+      DisabledByPolicy => 10,
+      WebServiceUnavailable => 11
    );
    for AppServiceConnectionStatus'Size use 32;
    
@@ -85,7 +93,12 @@ package Windows.ApplicationModel.AppService is
       ResourceLimitsExceeded,
       Unknown,
       RemoteSystemUnavailable,
-      MessageSizeTooLarge
+      MessageSizeTooLarge,
+      AppUnavailable,
+      AuthenticationError,
+      NetworkNotAvailable,
+      DisabledByPolicy,
+      WebServiceUnavailable
    );
    for AppServiceResponseStatus use (
       Success => 0,
@@ -93,7 +106,12 @@ package Windows.ApplicationModel.AppService is
       ResourceLimitsExceeded => 2,
       Unknown => 3,
       RemoteSystemUnavailable => 4,
-      MessageSizeTooLarge => 5
+      MessageSizeTooLarge => 5,
+      AppUnavailable => 6,
+      AuthenticationError => 7,
+      NetworkNotAvailable => 8,
+      DisabledByPolicy => 9,
+      WebServiceUnavailable => 10
    );
    for AppServiceResponseStatus'Size use 32;
    
@@ -110,7 +128,11 @@ package Windows.ApplicationModel.AppService is
       ResourceLimitsExceeded,
       MessageSizeTooLarge,
       Failure,
-      Unknown
+      Unknown,
+      AuthenticationError,
+      NetworkNotAvailable,
+      DisabledByPolicy,
+      WebServiceUnavailable
    );
    for StatelessAppServiceResponseStatus use (
       Success => 0,
@@ -123,7 +145,11 @@ package Windows.ApplicationModel.AppService is
       ResourceLimitsExceeded => 7,
       MessageSizeTooLarge => 8,
       Failure => 9,
-      Unknown => 10
+      Unknown => 10,
+      AuthenticationError => 11,
+      NetworkNotAvailable => 12,
+      DisabledByPolicy => 13,
+      WebServiceUnavailable => 14
    );
    for StatelessAppServiceResponseStatus'Size use 32;
    

@@ -59,6 +59,19 @@ package body Windows.Media.Audio is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IAudioPlaybackConnectionOpenResult_Interface
+      ; asyncInfo : Windows.Media.Audio.IAsyncOperation_IAudioPlaybackConnectionOpenResult
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access AsyncOperationCompletedHandler_ICreateAudioDeviceInputNodeResult_Interface
       ; asyncInfo : Windows.Media.Audio.IAsyncOperation_ICreateAudioDeviceInputNodeResult
       ; asyncStatus : Windows.Foundation.AsyncStatus
@@ -223,6 +236,19 @@ package body Windows.Media.Audio is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.Media.Audio.IAudioGraph(sender), Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_IAudioPlaybackConnection_add_StateChanged_Interface
+      ; sender : Windows.Media.Audio.IAudioPlaybackConnection
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.Media.Audio.IAudioPlaybackConnection(sender), args);
       return Hr;
    end;
    
@@ -530,6 +556,43 @@ package body Windows.Media.Audio is
       Hr := RoGetActivationFactory(m_hString, IID_IAudioNodeEmitterShapeStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.CreateOmnidirectional(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetDeviceSelector
+   return Windows.String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioPlaybackConnection");
+      m_Factory     : IAudioPlaybackConnectionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioPlaybackConnectionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetDeviceSelector(RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function TryCreateFromId
+   (
+      id : Windows.String
+   )
+   return Windows.Media.Audio.IAudioPlaybackConnection is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Media.Audio.AudioPlaybackConnection");
+      m_Factory     : IAudioPlaybackConnectionStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Media.Audio.IAudioPlaybackConnection;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IAudioPlaybackConnectionStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.TryCreateFromId(id, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

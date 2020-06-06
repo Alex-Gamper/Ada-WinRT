@@ -36,6 +36,7 @@ with Windows.Media.Devices.Core;
 with Windows.Media.MediaProperties;
 with Windows.Perception.Spatial;
 with Windows.Storage.Streams;
+with Windows.UI.WindowManagement;
 with Ada.Unchecked_Conversion;
 --------------------------------------------------------------------------------
 package body Windows.Media.Capture.Frames is

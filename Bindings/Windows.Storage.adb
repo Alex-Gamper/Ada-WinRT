@@ -131,6 +131,19 @@ package body Windows.Storage is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_KnownFoldersAccessStatus_Interface
+      ; asyncInfo : Windows.Storage.IAsyncOperation_KnownFoldersAccessStatus
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access StreamedFileDataRequestedHandler_Interface
       ; stream : Windows.Storage.Streams.IOutputStream
    )
@@ -1047,6 +1060,67 @@ package body Windows.Storage is
       return RetVal;
    end;
    
+   function GetFolderAsync
+   (
+      folderId : Windows.Storage.KnownFolderId
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetFolderAsync(folderId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestAccessAsync
+   (
+      folderId : Windows.Storage.KnownFolderId
+   )
+   return Windows.Storage.IAsyncOperation_KnownFoldersAccessStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_KnownFoldersAccessStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestAccessAsync(folderId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestAccessForUserAsync
+   (
+      user : Windows.System.IUser
+      ; folderId : Windows.Storage.KnownFolderId
+   )
+   return Windows.Storage.IAsyncOperation_KnownFoldersAccessStatus is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.KnownFolders");
+      m_Factory     : IKnownFoldersStatics4 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_KnownFoldersAccessStatus;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IKnownFoldersStatics4'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestAccessForUserAsync(user, folderId, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function AppendLinesAsync
    (
       absolutePath : Windows.String
@@ -1491,6 +1565,27 @@ package body Windows.Storage is
       return RetVal;
    end;
    
+   function GetFileFromPathForUserAsync
+   (
+      user : Windows.System.IUser
+      ; path : Windows.String
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFile is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.StorageFile");
+      m_Factory     : IStorageFileStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFile;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorageFileStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetFileFromPathForUserAsync(user, path, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function GetFolderFromPathAsync
    (
       path : Windows.String
@@ -1505,6 +1600,27 @@ package body Windows.Storage is
       Hr := RoGetActivationFactory(m_hString, IID_IStorageFolderStatics'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetFolderFromPathAsync(path, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function GetFolderFromPathForUserAsync
+   (
+      user : Windows.System.IUser
+      ; path : Windows.String
+   )
+   return Windows.Storage.IAsyncOperation_IStorageFolder is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Storage.StorageFolder");
+      m_Factory     : IStorageFolderStatics2 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Storage.IAsyncOperation_IStorageFolder;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IStorageFolderStatics2'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetFolderFromPathForUserAsync(user, path, RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

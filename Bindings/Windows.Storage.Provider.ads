@@ -294,6 +294,9 @@ package Windows.Storage.Provider is
    type IFileUpdateRequestedEventArgs_Interface;
    type IFileUpdateRequestedEventArgs is access all IFileUpdateRequestedEventArgs_Interface'Class;
    type IFileUpdateRequestedEventArgs_Ptr is access all IFileUpdateRequestedEventArgs;
+   type IIterable_IStorageProviderFileTypeInfo_Interface;
+   type IIterable_IStorageProviderFileTypeInfo is access all IIterable_IStorageProviderFileTypeInfo_Interface'Class;
+   type IIterable_IStorageProviderFileTypeInfo_Ptr is access all IIterable_IStorageProviderFileTypeInfo;
    type IIterable_IStorageProviderItemProperty_Interface;
    type IIterable_IStorageProviderItemProperty is access all IIterable_IStorageProviderItemProperty_Interface'Class;
    type IIterable_IStorageProviderItemProperty_Ptr is access all IIterable_IStorageProviderItemProperty;
@@ -303,6 +306,9 @@ package Windows.Storage.Provider is
    type IIterable_IStorageProviderSyncRootInfo_Interface;
    type IIterable_IStorageProviderSyncRootInfo is access all IIterable_IStorageProviderSyncRootInfo_Interface'Class;
    type IIterable_IStorageProviderSyncRootInfo_Ptr is access all IIterable_IStorageProviderSyncRootInfo;
+   type IIterator_IStorageProviderFileTypeInfo_Interface;
+   type IIterator_IStorageProviderFileTypeInfo is access all IIterator_IStorageProviderFileTypeInfo_Interface'Class;
+   type IIterator_IStorageProviderFileTypeInfo_Ptr is access all IIterator_IStorageProviderFileTypeInfo;
    type IIterator_IStorageProviderItemProperty_Interface;
    type IIterator_IStorageProviderItemProperty is access all IIterator_IStorageProviderItemProperty_Interface'Class;
    type IIterator_IStorageProviderItemProperty_Ptr is access all IIterator_IStorageProviderItemProperty;
@@ -312,6 +318,12 @@ package Windows.Storage.Provider is
    type IIterator_IStorageProviderSyncRootInfo_Interface;
    type IIterator_IStorageProviderSyncRootInfo is access all IIterator_IStorageProviderSyncRootInfo_Interface'Class;
    type IIterator_IStorageProviderSyncRootInfo_Ptr is access all IIterator_IStorageProviderSyncRootInfo;
+   type IStorageProviderFileTypeInfo_Interface;
+   type IStorageProviderFileTypeInfo is access all IStorageProviderFileTypeInfo_Interface'Class;
+   type IStorageProviderFileTypeInfo_Ptr is access all IStorageProviderFileTypeInfo;
+   type IStorageProviderFileTypeInfoFactory_Interface;
+   type IStorageProviderFileTypeInfoFactory is access all IStorageProviderFileTypeInfoFactory_Interface'Class;
+   type IStorageProviderFileTypeInfoFactory_Ptr is access all IStorageProviderFileTypeInfoFactory;
    type IStorageProviderGetContentInfoForPathResult_Interface;
    type IStorageProviderGetContentInfoForPathResult is access all IStorageProviderGetContentInfoForPathResult_Interface'Class;
    type IStorageProviderGetContentInfoForPathResult_Ptr is access all IStorageProviderGetContentInfoForPathResult;
@@ -339,15 +351,27 @@ package Windows.Storage.Provider is
    type IStorageProviderSyncRootInfo2_Interface;
    type IStorageProviderSyncRootInfo2 is access all IStorageProviderSyncRootInfo2_Interface'Class;
    type IStorageProviderSyncRootInfo2_Ptr is access all IStorageProviderSyncRootInfo2;
+   type IStorageProviderSyncRootInfo3_Interface;
+   type IStorageProviderSyncRootInfo3 is access all IStorageProviderSyncRootInfo3_Interface'Class;
+   type IStorageProviderSyncRootInfo3_Ptr is access all IStorageProviderSyncRootInfo3;
    type IStorageProviderSyncRootManagerStatics_Interface;
    type IStorageProviderSyncRootManagerStatics is access all IStorageProviderSyncRootManagerStatics_Interface'Class;
    type IStorageProviderSyncRootManagerStatics_Ptr is access all IStorageProviderSyncRootManagerStatics;
+   type IStorageProviderSyncRootManagerStatics2_Interface;
+   type IStorageProviderSyncRootManagerStatics2 is access all IStorageProviderSyncRootManagerStatics2_Interface'Class;
+   type IStorageProviderSyncRootManagerStatics2_Ptr is access all IStorageProviderSyncRootManagerStatics2;
    type IStorageProviderUriSource_Interface;
    type IStorageProviderUriSource is access all IStorageProviderUriSource_Interface'Class;
    type IStorageProviderUriSource_Ptr is access all IStorageProviderUriSource;
+   type IVector_IStorageProviderFileTypeInfo_Interface;
+   type IVector_IStorageProviderFileTypeInfo is access all IVector_IStorageProviderFileTypeInfo_Interface'Class;
+   type IVector_IStorageProviderFileTypeInfo_Ptr is access all IVector_IStorageProviderFileTypeInfo;
    type IVector_IStorageProviderItemPropertyDefinition_Interface;
    type IVector_IStorageProviderItemPropertyDefinition is access all IVector_IStorageProviderItemPropertyDefinition_Interface'Class;
    type IVector_IStorageProviderItemPropertyDefinition_Ptr is access all IVector_IStorageProviderItemPropertyDefinition;
+   type IVectorView_IStorageProviderFileTypeInfo_Interface;
+   type IVectorView_IStorageProviderFileTypeInfo is access all IVectorView_IStorageProviderFileTypeInfo_Interface'Class;
+   type IVectorView_IStorageProviderFileTypeInfo_Ptr is access all IVectorView_IStorageProviderFileTypeInfo;
    type IVectorView_IStorageProviderItemPropertyDefinition_Interface;
    type IVectorView_IStorageProviderItemPropertyDefinition is access all IVectorView_IStorageProviderItemPropertyDefinition_Interface'Class;
    type IVectorView_IStorageProviderItemPropertyDefinition_Ptr is access all IVectorView_IStorageProviderItemPropertyDefinition;
@@ -582,6 +606,19 @@ package Windows.Storage.Provider is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_IStorageProviderFileTypeInfo : aliased constant Windows.IID := (2987402684, 17253, 22312, (181, 46, 81, 71, 81, 102, 241, 65 ));
+   
+   type IIterable_IStorageProviderFileTypeInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IStorageProviderFileTypeInfo_Interface
+      ; RetVal : access Windows.Storage.Provider.IIterator_IStorageProviderFileTypeInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterable_IStorageProviderItemProperty : aliased constant Windows.IID := (1166330729, 60966, 23008, (176, 93, 201, 167, 133, 26, 115, 23 ));
    
    type IIterable_IStorageProviderItemProperty_Interface is interface and Windows.IInspectable_Interface;
@@ -616,6 +653,41 @@ package Windows.Storage.Provider is
    (
       This       : access IIterable_IStorageProviderSyncRootInfo_Interface
       ; RetVal : access Windows.Storage.Provider.IIterator_IStorageProviderSyncRootInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IStorageProviderFileTypeInfo : aliased constant Windows.IID := (2103121202, 15522, 22832, (163, 200, 124, 72, 143, 106, 194, 251 ));
+   
+   type IIterator_IStorageProviderFileTypeInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IStorageProviderFileTypeInfo_Interface
+      ; RetVal : access Windows.Storage.Provider.IStorageProviderFileTypeInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IStorageProviderFileTypeInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IStorageProviderFileTypeInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IStorageProviderFileTypeInfo_Interface
+      ; items : Windows.Storage.Provider.IStorageProviderFileTypeInfo_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -721,6 +793,41 @@ package Windows.Storage.Provider is
       This       : access IIterator_IStorageProviderSyncRootInfo_Interface
       ; items : Windows.Storage.Provider.IStorageProviderSyncRootInfo_Ptr
       ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorageProviderFileTypeInfo : aliased constant Windows.IID := (425048513, 388, 23176, (135, 223, 69, 68, 244, 100, 54, 93 ));
+   
+   type IStorageProviderFileTypeInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FileExtension
+   (
+      This       : access IStorageProviderFileTypeInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IconResource
+   (
+      This       : access IStorageProviderFileTypeInfo_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IStorageProviderFileTypeInfoFactory : aliased constant Windows.IID := (1067527279, 52454, 23901, (128, 177, 56, 158, 124, 249, 45, 191 ));
+   
+   type IStorageProviderFileTypeInfoFactory_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateInstance
+   (
+      This       : access IStorageProviderFileTypeInfoFactory_Interface
+      ; fileExtension : Windows.String
+      ; iconResource : Windows.String
+      ; RetVal : access Windows.Storage.Provider.IStorageProviderFileTypeInfo
    )
    return Windows.HRESULT is abstract;
    
@@ -1176,6 +1283,19 @@ package Windows.Storage.Provider is
    
    ------------------------------------------------------------------------
    
+   IID_IStorageProviderSyncRootInfo3 : aliased constant Windows.IID := (1350198807, 48886, 22269, (133, 94, 117, 172, 226, 228, 92, 245 ));
+   
+   type IStorageProviderSyncRootInfo3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_FallbackFileTypeInfo
+   (
+      This       : access IStorageProviderSyncRootInfo3_Interface
+      ; RetVal : access Windows.Storage.Provider.IVector_IStorageProviderFileTypeInfo -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IStorageProviderSyncRootManagerStatics : aliased constant Windows.IID := (1050278847, 36835, 19264, (171, 199, 246, 252, 61, 116, 201, 142 ));
    
    type IStorageProviderSyncRootManagerStatics_Interface is interface and Windows.IInspectable_Interface;
@@ -1219,6 +1339,19 @@ package Windows.Storage.Provider is
    
    ------------------------------------------------------------------------
    
+   IID_IStorageProviderSyncRootManagerStatics2 : aliased constant Windows.IID := (4021735406, 4980, 21582, (157, 241, 85, 152, 210, 233, 207, 221 ));
+   
+   type IStorageProviderSyncRootManagerStatics2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function IsSupported
+   (
+      This       : access IStorageProviderSyncRootManagerStatics2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IStorageProviderUriSource : aliased constant Windows.IID := (2996307665, 35808, 18786, (139, 182, 13, 76, 46, 20, 212, 122 ));
    
    type IStorageProviderUriSource_Interface is interface and Windows.IInspectable_Interface;
@@ -1236,6 +1369,101 @@ package Windows.Storage.Provider is
       This       : access IStorageProviderUriSource_Interface
       ; path : Windows.String
       ; result : Windows.Storage.Provider.IStorageProviderGetContentInfoForPathResult
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVector_IStorageProviderFileTypeInfo : aliased constant Windows.IID := (2440225963, 43466, 23748, (147, 17, 54, 63, 159, 9, 125, 165 ));
+   
+   type IVector_IStorageProviderFileTypeInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVector_IStorageProviderFileTypeInfo_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Storage.Provider.IStorageProviderFileTypeInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVector_IStorageProviderFileTypeInfo_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetView
+   (
+      This       : access IVector_IStorageProviderFileTypeInfo_Interface
+      ; RetVal : access Windows.Storage.Provider.IVectorView_IStorageProviderFileTypeInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVector_IStorageProviderFileTypeInfo_Interface
+      ; value : Windows.Storage.Provider.IStorageProviderFileTypeInfo
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAt
+   (
+      This       : access IVector_IStorageProviderFileTypeInfo_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Storage.Provider.IStorageProviderFileTypeInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function InsertAt
+   (
+      This       : access IVector_IStorageProviderFileTypeInfo_Interface
+      ; index : Windows.UInt32
+      ; value : Windows.Storage.Provider.IStorageProviderFileTypeInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAt
+   (
+      This       : access IVector_IStorageProviderFileTypeInfo_Interface
+      ; index : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Append
+   (
+      This       : access IVector_IStorageProviderFileTypeInfo_Interface
+      ; value : Windows.Storage.Provider.IStorageProviderFileTypeInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveAtEnd
+   (
+      This       : access IVector_IStorageProviderFileTypeInfo_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Clear
+   (
+      This       : access IVector_IStorageProviderFileTypeInfo_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVector_IStorageProviderFileTypeInfo_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Storage.Provider.IStorageProviderFileTypeInfo_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ReplaceAll
+   (
+      This       : access IVector_IStorageProviderFileTypeInfo_Interface
+      ; items : Windows.Storage.Provider.IStorageProviderFileTypeInfo_Ptr
    )
    return Windows.HRESULT is abstract;
    
@@ -1331,6 +1559,45 @@ package Windows.Storage.Provider is
    (
       This       : access IVector_IStorageProviderItemPropertyDefinition_Interface
       ; items : Windows.Storage.Provider.IStorageProviderItemPropertyDefinition_Ptr
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IStorageProviderFileTypeInfo : aliased constant Windows.IID := (2328187023, 40901, 23220, (153, 39, 157, 122, 37, 193, 208, 210 ));
+   
+   type IVectorView_IStorageProviderFileTypeInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IStorageProviderFileTypeInfo_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.Storage.Provider.IStorageProviderFileTypeInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IStorageProviderFileTypeInfo_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IStorageProviderFileTypeInfo_Interface
+      ; value : Windows.Storage.Provider.IStorageProviderFileTypeInfo
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IStorageProviderFileTypeInfo_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.Storage.Provider.IStorageProviderFileTypeInfo_Ptr
+      ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
    
@@ -1463,6 +1730,14 @@ package Windows.Storage.Provider is
    subtype FileUpdateRequest is Windows.Storage.Provider.IFileUpdateRequest;
    subtype FileUpdateRequestDeferral is Windows.Storage.Provider.IFileUpdateRequestDeferral;
    subtype FileUpdateRequestedEventArgs is Windows.Storage.Provider.IFileUpdateRequestedEventArgs;
+   subtype StorageProviderFileTypeInfo is Windows.Storage.Provider.IStorageProviderFileTypeInfo;
+   function CreateInstance
+   (
+      fileExtension : Windows.String
+      ; iconResource : Windows.String
+   )
+   return Windows.Storage.Provider.IStorageProviderFileTypeInfo;
+   
    subtype StorageProviderGetContentInfoForPathResult is Windows.Storage.Provider.IStorageProviderGetContentInfoForPathResult;
    function Create return Windows.Storage.Provider.IStorageProviderGetContentInfoForPathResult;
    
@@ -1526,5 +1801,8 @@ package Windows.Storage.Provider is
       id : Windows.String
    )
    ;
+   
+   function IsSupported
+   return Windows.Boolean;
    
 end;

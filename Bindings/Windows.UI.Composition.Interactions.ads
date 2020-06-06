@@ -107,6 +107,18 @@ package Windows.UI.Composition.Interactions is
    
    type InteractionTrackerClampingOption_Ptr is access InteractionTrackerClampingOption;
    
+   type InteractionTrackerPositionUpdateOption is (
+      Default,
+      AllowActiveCustomScaleAnimation
+   );
+   for InteractionTrackerPositionUpdateOption use (
+      Default => 0,
+      AllowActiveCustomScaleAnimation => 1
+   );
+   for InteractionTrackerPositionUpdateOption'Size use 32;
+   
+   type InteractionTrackerPositionUpdateOption_Ptr is access InteractionTrackerPositionUpdateOption;
+   
    type VisualInteractionSourceRedirectionMode is (
       Off,
       CapableTouchpadOnly,
@@ -154,6 +166,9 @@ package Windows.UI.Composition.Interactions is
    type IInteractionTracker4_Interface;
    type IInteractionTracker4 is access all IInteractionTracker4_Interface'Class;
    type IInteractionTracker4_Ptr is access all IInteractionTracker4;
+   type IInteractionTracker5_Interface;
+   type IInteractionTracker5 is access all IInteractionTracker5_Interface'Class;
+   type IInteractionTracker5_Ptr is access all IInteractionTracker5;
    type IInteractionTrackerCustomAnimationStateEnteredArgs_Interface;
    type IInteractionTrackerCustomAnimationStateEnteredArgs is access all IInteractionTrackerCustomAnimationStateEnteredArgs_Interface'Class;
    type IInteractionTrackerCustomAnimationStateEnteredArgs_Ptr is access all IInteractionTrackerCustomAnimationStateEnteredArgs;
@@ -721,6 +736,22 @@ package Windows.UI.Composition.Interactions is
    (
       This       : access IInteractionTracker4_Interface
       ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInteractionTracker5 : aliased constant Windows.IID := (3555679650, 41556, 16612, (136, 213, 68, 228, 225, 107, 88, 9 ));
+   
+   type IInteractionTracker5_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryUpdatePositionWithOption
+   (
+      This       : access IInteractionTracker5_Interface
+      ; value : Windows.Foundation.Numerics.Vector3
+      ; option : Windows.UI.Composition.Interactions.InteractionTrackerClampingOption
+      ; posUpdateOption : Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption
+      ; RetVal : access Windows.Int32
    )
    return Windows.HRESULT is abstract;
    

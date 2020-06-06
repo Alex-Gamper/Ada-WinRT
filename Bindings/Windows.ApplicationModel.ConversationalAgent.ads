@@ -29,6 +29,7 @@
 with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.Media.Audio;
+limited with Windows.Storage.Streams;
 --------------------------------------------------------------------------------
 package Windows.ApplicationModel.ConversationalAgent is
 
@@ -37,6 +38,64 @@ package Windows.ApplicationModel.ConversationalAgent is
    ------------------------------------------------------------------------
    -- Enums
    ------------------------------------------------------------------------
+   
+   type ActivationSignalDetectionTrainingDataFormat is (
+      Voice8kHz8BitMono,
+      Voice8kHz16BitMono,
+      Voice16kHz8BitMono,
+      Voice16kHz16BitMono,
+      VoiceOEMDefined,
+      Audio44kHz8BitMono,
+      Audio44kHz16BitMono,
+      Audio48kHz8BitMono,
+      Audio48kHz16BitMono,
+      AudioOEMDefined,
+      OtherOEMDefined
+   );
+   for ActivationSignalDetectionTrainingDataFormat use (
+      Voice8kHz8BitMono => 0,
+      Voice8kHz16BitMono => 1,
+      Voice16kHz8BitMono => 2,
+      Voice16kHz16BitMono => 3,
+      VoiceOEMDefined => 4,
+      Audio44kHz8BitMono => 5,
+      Audio44kHz16BitMono => 6,
+      Audio48kHz8BitMono => 7,
+      Audio48kHz16BitMono => 8,
+      AudioOEMDefined => 9,
+      OtherOEMDefined => 10
+   );
+   for ActivationSignalDetectionTrainingDataFormat'Size use 32;
+   
+   type ActivationSignalDetectionTrainingDataFormat_Ptr is access ActivationSignalDetectionTrainingDataFormat;
+   
+   type ActivationSignalDetectorKind is (
+      AudioPattern,
+      AudioImpulse,
+      HardwareEvent
+   );
+   for ActivationSignalDetectorKind use (
+      AudioPattern => 0,
+      AudioImpulse => 1,
+      HardwareEvent => 2
+   );
+   for ActivationSignalDetectorKind'Size use 32;
+   
+   type ActivationSignalDetectorKind_Ptr is access ActivationSignalDetectorKind;
+   
+   type ActivationSignalDetectorPowerState is (
+      HighPower,
+      ConnectedLowPower,
+      DisconnectedLowPower
+   );
+   for ActivationSignalDetectorPowerState use (
+      HighPower => 0,
+      ConnectedLowPower => 1,
+      DisconnectedLowPower => 2
+   );
+   for ActivationSignalDetectorPowerState'Size use 32;
+   
+   type ActivationSignalDetectorPowerState_Ptr is access ActivationSignalDetectorPowerState;
    
    type ConversationalAgentSessionUpdateResponse is (
       Success,
@@ -86,6 +145,44 @@ package Windows.ApplicationModel.ConversationalAgent is
    
    type ConversationalAgentSystemStateChangeType_Ptr is access ConversationalAgentSystemStateChangeType;
    
+   type DetectionConfigurationAvailabilityChangeKind is (
+      SystemResourceAccess,
+      Permission,
+      LockScreenPermission
+   );
+   for DetectionConfigurationAvailabilityChangeKind use (
+      SystemResourceAccess => 0,
+      Permission => 1,
+      LockScreenPermission => 2
+   );
+   for DetectionConfigurationAvailabilityChangeKind'Size use 32;
+   
+   type DetectionConfigurationAvailabilityChangeKind_Ptr is access DetectionConfigurationAvailabilityChangeKind;
+   
+   type DetectionConfigurationTrainingStatus is (
+      Success,
+      FormatNotSupported,
+      VoiceTooQuiet,
+      VoiceTooLoud,
+      VoiceTooFast,
+      VoiceTooSlow,
+      VoiceQualityProblem,
+      TrainingSystemInternalError
+   );
+   for DetectionConfigurationTrainingStatus use (
+      Success => 0,
+      FormatNotSupported => 1,
+      VoiceTooQuiet => 2,
+      VoiceTooLoud => 3,
+      VoiceTooFast => 4,
+      VoiceTooSlow => 5,
+      VoiceQualityProblem => 6,
+      TrainingSystemInternalError => 7
+   );
+   for DetectionConfigurationTrainingStatus'Size use 32;
+   
+   type DetectionConfigurationTrainingStatus_Ptr is access DetectionConfigurationTrainingStatus;
+   
    ------------------------------------------------------------------------
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
@@ -93,9 +190,18 @@ package Windows.ApplicationModel.ConversationalAgent is
    type AsyncOperationCompletedHandler_ConversationalAgentSessionUpdateResponse_Interface;
    type AsyncOperationCompletedHandler_ConversationalAgentSessionUpdateResponse is access all AsyncOperationCompletedHandler_ConversationalAgentSessionUpdateResponse_Interface'Class;
    type AsyncOperationCompletedHandler_ConversationalAgentSessionUpdateResponse_Ptr is access all AsyncOperationCompletedHandler_ConversationalAgentSessionUpdateResponse;
+   type AsyncOperationCompletedHandler_DetectionConfigurationTrainingStatus_Interface;
+   type AsyncOperationCompletedHandler_DetectionConfigurationTrainingStatus is access all AsyncOperationCompletedHandler_DetectionConfigurationTrainingStatus_Interface'Class;
+   type AsyncOperationCompletedHandler_DetectionConfigurationTrainingStatus_Ptr is access all AsyncOperationCompletedHandler_DetectionConfigurationTrainingStatus;
+   type AsyncOperationCompletedHandler_IActivationSignalDetectionConfiguration_Interface;
+   type AsyncOperationCompletedHandler_IActivationSignalDetectionConfiguration is access all AsyncOperationCompletedHandler_IActivationSignalDetectionConfiguration_Interface'Class;
+   type AsyncOperationCompletedHandler_IActivationSignalDetectionConfiguration_Ptr is access all AsyncOperationCompletedHandler_IActivationSignalDetectionConfiguration;
    type AsyncOperationCompletedHandler_IConversationalAgentSession_Interface;
    type AsyncOperationCompletedHandler_IConversationalAgentSession is access all AsyncOperationCompletedHandler_IConversationalAgentSession_Interface'Class;
    type AsyncOperationCompletedHandler_IConversationalAgentSession_Ptr is access all AsyncOperationCompletedHandler_IConversationalAgentSession;
+   type TypedEventHandler_IActivationSignalDetectionConfiguration_add_AvailabilityChanged_Interface;
+   type TypedEventHandler_IActivationSignalDetectionConfiguration_add_AvailabilityChanged is access all TypedEventHandler_IActivationSignalDetectionConfiguration_add_AvailabilityChanged_Interface'Class;
+   type TypedEventHandler_IActivationSignalDetectionConfiguration_add_AvailabilityChanged_Ptr is access all TypedEventHandler_IActivationSignalDetectionConfiguration_add_AvailabilityChanged;
    type TypedEventHandler_IConversationalAgentSession_add_SessionInterrupted_Interface;
    type TypedEventHandler_IConversationalAgentSession_add_SessionInterrupted is access all TypedEventHandler_IConversationalAgentSession_add_SessionInterrupted_Interface'Class;
    type TypedEventHandler_IConversationalAgentSession_add_SessionInterrupted_Ptr is access all TypedEventHandler_IConversationalAgentSession_add_SessionInterrupted;
@@ -110,12 +216,30 @@ package Windows.ApplicationModel.ConversationalAgent is
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IActivationSignalDetectionConfiguration_Interface;
+   type IActivationSignalDetectionConfiguration is access all IActivationSignalDetectionConfiguration_Interface'Class;
+   type IActivationSignalDetectionConfiguration_Ptr is access all IActivationSignalDetectionConfiguration;
+   type IActivationSignalDetector_Interface;
+   type IActivationSignalDetector is access all IActivationSignalDetector_Interface'Class;
+   type IActivationSignalDetector_Ptr is access all IActivationSignalDetector;
    type IAsyncOperation_ConversationalAgentSessionUpdateResponse_Interface;
    type IAsyncOperation_ConversationalAgentSessionUpdateResponse is access all IAsyncOperation_ConversationalAgentSessionUpdateResponse_Interface'Class;
    type IAsyncOperation_ConversationalAgentSessionUpdateResponse_Ptr is access all IAsyncOperation_ConversationalAgentSessionUpdateResponse;
+   type IAsyncOperation_DetectionConfigurationTrainingStatus_Interface;
+   type IAsyncOperation_DetectionConfigurationTrainingStatus is access all IAsyncOperation_DetectionConfigurationTrainingStatus_Interface'Class;
+   type IAsyncOperation_DetectionConfigurationTrainingStatus_Ptr is access all IAsyncOperation_DetectionConfigurationTrainingStatus;
+   type IAsyncOperation_IActivationSignalDetectionConfiguration_Interface;
+   type IAsyncOperation_IActivationSignalDetectionConfiguration is access all IAsyncOperation_IActivationSignalDetectionConfiguration_Interface'Class;
+   type IAsyncOperation_IActivationSignalDetectionConfiguration_Ptr is access all IAsyncOperation_IActivationSignalDetectionConfiguration;
    type IAsyncOperation_IConversationalAgentSession_Interface;
    type IAsyncOperation_IConversationalAgentSession is access all IAsyncOperation_IConversationalAgentSession_Interface'Class;
    type IAsyncOperation_IConversationalAgentSession_Ptr is access all IAsyncOperation_IConversationalAgentSession;
+   type IConversationalAgentDetectorManager_Interface;
+   type IConversationalAgentDetectorManager is access all IConversationalAgentDetectorManager_Interface'Class;
+   type IConversationalAgentDetectorManager_Ptr is access all IConversationalAgentDetectorManager;
+   type IConversationalAgentDetectorManagerStatics_Interface;
+   type IConversationalAgentDetectorManagerStatics is access all IConversationalAgentDetectorManagerStatics_Interface'Class;
+   type IConversationalAgentDetectorManagerStatics_Ptr is access all IConversationalAgentDetectorManagerStatics;
    type IConversationalAgentSession_Interface;
    type IConversationalAgentSession is access all IConversationalAgentSession_Interface'Class;
    type IConversationalAgentSession_Ptr is access all IConversationalAgentSession;
@@ -134,10 +258,365 @@ package Windows.ApplicationModel.ConversationalAgent is
    type IConversationalAgentSystemStateChangedEventArgs_Interface;
    type IConversationalAgentSystemStateChangedEventArgs is access all IConversationalAgentSystemStateChangedEventArgs_Interface'Class;
    type IConversationalAgentSystemStateChangedEventArgs_Ptr is access all IConversationalAgentSystemStateChangedEventArgs;
+   type IDetectionConfigurationAvailabilityChangedEventArgs_Interface;
+   type IDetectionConfigurationAvailabilityChangedEventArgs is access all IDetectionConfigurationAvailabilityChangedEventArgs_Interface'Class;
+   type IDetectionConfigurationAvailabilityChangedEventArgs_Ptr is access all IDetectionConfigurationAvailabilityChangedEventArgs;
+   type IDetectionConfigurationAvailabilityInfo_Interface;
+   type IDetectionConfigurationAvailabilityInfo is access all IDetectionConfigurationAvailabilityInfo_Interface'Class;
+   type IDetectionConfigurationAvailabilityInfo_Ptr is access all IDetectionConfigurationAvailabilityInfo;
+   type IIterable_ActivationSignalDetectionTrainingDataFormat_Interface;
+   type IIterable_ActivationSignalDetectionTrainingDataFormat is access all IIterable_ActivationSignalDetectionTrainingDataFormat_Interface'Class;
+   type IIterable_ActivationSignalDetectionTrainingDataFormat_Ptr is access all IIterable_ActivationSignalDetectionTrainingDataFormat;
+   type IIterable_ActivationSignalDetectorPowerState_Interface;
+   type IIterable_ActivationSignalDetectorPowerState is access all IIterable_ActivationSignalDetectorPowerState_Interface'Class;
+   type IIterable_ActivationSignalDetectorPowerState_Ptr is access all IIterable_ActivationSignalDetectorPowerState;
+   type IIterable_IActivationSignalDetectionConfiguration_Interface;
+   type IIterable_IActivationSignalDetectionConfiguration is access all IIterable_IActivationSignalDetectionConfiguration_Interface'Class;
+   type IIterable_IActivationSignalDetectionConfiguration_Ptr is access all IIterable_IActivationSignalDetectionConfiguration;
+   type IIterable_IActivationSignalDetector_Interface;
+   type IIterable_IActivationSignalDetector is access all IIterable_IActivationSignalDetector_Interface'Class;
+   type IIterable_IActivationSignalDetector_Ptr is access all IIterable_IActivationSignalDetector;
+   type IIterator_ActivationSignalDetectionTrainingDataFormat_Interface;
+   type IIterator_ActivationSignalDetectionTrainingDataFormat is access all IIterator_ActivationSignalDetectionTrainingDataFormat_Interface'Class;
+   type IIterator_ActivationSignalDetectionTrainingDataFormat_Ptr is access all IIterator_ActivationSignalDetectionTrainingDataFormat;
+   type IIterator_ActivationSignalDetectorPowerState_Interface;
+   type IIterator_ActivationSignalDetectorPowerState is access all IIterator_ActivationSignalDetectorPowerState_Interface'Class;
+   type IIterator_ActivationSignalDetectorPowerState_Ptr is access all IIterator_ActivationSignalDetectorPowerState;
+   type IIterator_IActivationSignalDetectionConfiguration_Interface;
+   type IIterator_IActivationSignalDetectionConfiguration is access all IIterator_IActivationSignalDetectionConfiguration_Interface'Class;
+   type IIterator_IActivationSignalDetectionConfiguration_Ptr is access all IIterator_IActivationSignalDetectionConfiguration;
+   type IIterator_IActivationSignalDetector_Interface;
+   type IIterator_IActivationSignalDetector is access all IIterator_IActivationSignalDetector_Interface'Class;
+   type IIterator_IActivationSignalDetector_Ptr is access all IIterator_IActivationSignalDetector;
+   type IVectorView_ActivationSignalDetectionTrainingDataFormat_Interface;
+   type IVectorView_ActivationSignalDetectionTrainingDataFormat is access all IVectorView_ActivationSignalDetectionTrainingDataFormat_Interface'Class;
+   type IVectorView_ActivationSignalDetectionTrainingDataFormat_Ptr is access all IVectorView_ActivationSignalDetectionTrainingDataFormat;
+   type IVectorView_ActivationSignalDetectorPowerState_Interface;
+   type IVectorView_ActivationSignalDetectorPowerState is access all IVectorView_ActivationSignalDetectorPowerState_Interface'Class;
+   type IVectorView_ActivationSignalDetectorPowerState_Ptr is access all IVectorView_ActivationSignalDetectorPowerState;
+   type IVectorView_IActivationSignalDetectionConfiguration_Interface;
+   type IVectorView_IActivationSignalDetectionConfiguration is access all IVectorView_IActivationSignalDetectionConfiguration_Interface'Class;
+   type IVectorView_IActivationSignalDetectionConfiguration_Ptr is access all IVectorView_IActivationSignalDetectionConfiguration;
+   type IVectorView_IActivationSignalDetector_Interface;
+   type IVectorView_IActivationSignalDetector is access all IVectorView_IActivationSignalDetector_Interface'Class;
+   type IVectorView_IActivationSignalDetector_Ptr is access all IVectorView_IActivationSignalDetector;
    
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IActivationSignalDetectionConfiguration : aliased constant Windows.IID := (1087946262, 21015, 22556, (154, 178, 206, 155, 47, 46, 142, 0 ));
+   
+   type IActivationSignalDetectionConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_SignalId
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_ModelId
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DisplayName
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_IsActive
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetEnabled
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetEnabledAsync
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; value : Windows.Boolean
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_AvailabilityInfo
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityInfo
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_AvailabilityChanged
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; handler : TypedEventHandler_IActivationSignalDetectionConfiguration_add_AvailabilityChanged
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_AvailabilityChanged
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetModelData
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; dataType : Windows.String
+      ; data : Windows.Storage.Streams.IInputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetModelDataAsync
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; dataType : Windows.String
+      ; data : Windows.Storage.Streams.IInputStream
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetModelDataType
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetModelDataTypeAsync
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.Foundation.IAsyncOperation_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetModelData
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.Storage.Streams.IInputStream
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetModelDataAsync
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.Storage.Streams.IAsyncOperation_IInputStream -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ClearModelData
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ClearModelDataAsync
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TrainingStepsCompleted
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TrainingStepsRemaining
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_TrainingDataFormat
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ApplyTrainingData
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; trainingDataFormat : Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat
+      ; trainingData : Windows.Storage.Streams.IInputStream
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationTrainingStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ApplyTrainingDataAsync
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; trainingDataFormat : Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat
+      ; trainingData : Windows.Storage.Streams.IInputStream
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IAsyncOperation_DetectionConfigurationTrainingStatus -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ClearTrainingData
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function ClearTrainingDataAsync
+   (
+      This       : access IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IActivationSignalDetector : aliased constant Windows.IID := (3049206879, 42192, 23339, (142, 101, 179, 197, 94, 231, 86, 255 ));
+   
+   type IActivationSignalDetector_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ProviderId
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Kind
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_CanCreateConfigurations
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SupportedModelDataTypes
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SupportedTrainingDataFormats
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IVectorView_ActivationSignalDetectionTrainingDataFormat -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_SupportedPowerStates
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IVectorView_ActivationSignalDetectorPowerState -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetSupportedModelIdsForSignalId
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; signalId : Windows.String
+      ; RetVal : access Windows.Foundation.Collections.IVectorView_String -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetSupportedModelIdsForSignalIdAsync
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; signalId : Windows.String
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateConfiguration
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; signalId : Windows.String
+      ; modelId : Windows.String
+      ; displayName : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateConfigurationAsync
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; signalId : Windows.String
+      ; modelId : Windows.String
+      ; displayName : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetConfigurations
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IVectorView_IActivationSignalDetectionConfiguration -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetConfigurationsAsync
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetConfiguration
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; signalId : Windows.String
+      ; modelId : Windows.String
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetConfigurationAsync
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; signalId : Windows.String
+      ; modelId : Windows.String
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IAsyncOperation_IActivationSignalDetectionConfiguration -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveConfiguration
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; signalId : Windows.String
+      ; modelId : Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function RemoveConfigurationAsync
+   (
+      This       : access IActivationSignalDetector_Interface
+      ; signalId : Windows.String
+      ; modelId : Windows.String
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -168,6 +647,60 @@ package Windows.ApplicationModel.ConversationalAgent is
    
    ------------------------------------------------------------------------
    
+   IID_IAsyncOperation_DetectionConfigurationTrainingStatus : aliased constant Windows.IID := (1982963719, 37798, 21838, (188, 221, 59, 174, 231, 200, 194, 198 ));
+   
+   type IAsyncOperation_DetectionConfigurationTrainingStatus_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_DetectionConfigurationTrainingStatus_Interface
+      ; handler : Windows.ApplicationModel.ConversationalAgent.AsyncOperationCompletedHandler_DetectionConfigurationTrainingStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_DetectionConfigurationTrainingStatus_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.AsyncOperationCompletedHandler_DetectionConfigurationTrainingStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_DetectionConfigurationTrainingStatus_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationTrainingStatus
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IActivationSignalDetectionConfiguration : aliased constant Windows.IID := (1967934161, 38882, 21571, (133, 88, 93, 157, 83, 5, 208, 27 ));
+   
+   type IAsyncOperation_IActivationSignalDetectionConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IActivationSignalDetectionConfiguration_Interface
+      ; handler : Windows.ApplicationModel.ConversationalAgent.AsyncOperationCompletedHandler_IActivationSignalDetectionConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.AsyncOperationCompletedHandler_IActivationSignalDetectionConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IAsyncOperation_IConversationalAgentSession : aliased constant Windows.IID := (1367547401, 28561, 22960, (130, 13, 96, 185, 119, 117, 197, 117 ));
    
    type IAsyncOperation_IConversationalAgentSession_Interface is interface and Windows.IInspectable_Interface;
@@ -190,6 +723,55 @@ package Windows.ApplicationModel.ConversationalAgent is
    (
       This       : access IAsyncOperation_IConversationalAgentSession_Interface
       ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSession
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IConversationalAgentDetectorManager : aliased constant Windows.IID := (3734305712, 22906, 24056, (140, 251, 157, 187, 88, 59, 163, 255 ));
+   
+   type IConversationalAgentDetectorManager_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAllActivationSignalDetectors
+   (
+      This       : access IConversationalAgentDetectorManager_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IVectorView_IActivationSignalDetector -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetAllActivationSignalDetectorsAsync
+   (
+      This       : access IConversationalAgentDetectorManager_Interface
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetActivationSignalDetectors
+   (
+      This       : access IConversationalAgentDetectorManager_Interface
+      ; kind : Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IVectorView_IActivationSignalDetector -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetActivationSignalDetectorsAsync
+   (
+      This       : access IConversationalAgentDetectorManager_Interface
+      ; kind : Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind
+      ; RetVal : access Windows.Address -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IConversationalAgentDetectorManagerStatics : aliased constant Windows.IID := (917033603, 64014, 22163, (132, 137, 15, 178, 240, 171, 64, 211 ));
+   
+   type IConversationalAgentDetectorManagerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Default
+   (
+      This       : access IConversationalAgentDetectorManagerStatics_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IConversationalAgentDetectorManager
    )
    return Windows.HRESULT is abstract;
    
@@ -584,6 +1166,401 @@ package Windows.ApplicationModel.ConversationalAgent is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IDetectionConfigurationAvailabilityChangedEventArgs : aliased constant Windows.IID := (1361693179, 19432, 24340, (175, 43, 136, 214, 43, 27, 68, 98 ));
+   
+   type IDetectionConfigurationAvailabilityChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Kind
+   (
+      This       : access IDetectionConfigurationAvailabilityChangedEventArgs_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangeKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDetectionConfigurationAvailabilityInfo : aliased constant Windows.IID := (3048210096, 16624, 21400, (184, 56, 145, 151, 156, 44, 98, 8 ));
+   
+   type IDetectionConfigurationAvailabilityInfo_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsEnabled
+   (
+      This       : access IDetectionConfigurationAvailabilityInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasSystemResourceAccess
+   (
+      This       : access IDetectionConfigurationAvailabilityInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasPermission
+   (
+      This       : access IDetectionConfigurationAvailabilityInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasLockScreenPermission
+   (
+      This       : access IDetectionConfigurationAvailabilityInfo_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_ActivationSignalDetectionTrainingDataFormat : aliased constant Windows.IID := (2293661228, 60479, 21004, (174, 101, 191, 230, 50, 114, 250, 221 ));
+   
+   type IIterable_ActivationSignalDetectionTrainingDataFormat_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_ActivationSignalDetectionTrainingDataFormat_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IIterator_ActivationSignalDetectionTrainingDataFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_ActivationSignalDetectorPowerState : aliased constant Windows.IID := (3062238536, 52933, 23040, (134, 83, 76, 146, 74, 153, 21, 117 ));
+   
+   type IIterable_ActivationSignalDetectorPowerState_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_ActivationSignalDetectorPowerState_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IIterator_ActivationSignalDetectorPowerState
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IActivationSignalDetectionConfiguration : aliased constant Windows.IID := (3406015628, 14984, 23605, (152, 114, 0, 164, 102, 228, 154, 18 ));
+   
+   type IIterable_IActivationSignalDetectionConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IIterator_IActivationSignalDetectionConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterable_IActivationSignalDetector : aliased constant Windows.IID := (3791080079, 14571, 22718, (183, 112, 120, 175, 90, 74, 107, 46 ));
+   
+   type IIterable_IActivationSignalDetector_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_IActivationSignalDetector_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IIterator_IActivationSignalDetector
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_ActivationSignalDetectionTrainingDataFormat : aliased constant Windows.IID := (527364757, 19761, 22644, (162, 45, 41, 135, 94, 232, 22, 92 ));
+   
+   type IIterator_ActivationSignalDetectionTrainingDataFormat_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_ActivationSignalDetectionTrainingDataFormat_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_ActivationSignalDetectionTrainingDataFormat_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_ActivationSignalDetectionTrainingDataFormat_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_ActivationSignalDetectionTrainingDataFormat_Interface
+      ; items : Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_ActivationSignalDetectorPowerState : aliased constant Windows.IID := (4124748956, 37583, 22853, (156, 91, 28, 11, 142, 172, 129, 67 ));
+   
+   type IIterator_ActivationSignalDetectorPowerState_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_ActivationSignalDetectorPowerState_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_ActivationSignalDetectorPowerState_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_ActivationSignalDetectorPowerState_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_ActivationSignalDetectorPowerState_Interface
+      ; items : Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IActivationSignalDetectionConfiguration : aliased constant Windows.IID := (602233433, 55221, 23119, (165, 29, 69, 209, 86, 119, 110, 63 ));
+   
+   type IIterator_IActivationSignalDetectionConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IActivationSignalDetectionConfiguration_Interface
+      ; items : Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_IActivationSignalDetector : aliased constant Windows.IID := (3155963420, 48579, 20664, (150, 171, 46, 18, 83, 31, 107, 192 ));
+   
+   type IIterator_IActivationSignalDetector_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_IActivationSignalDetector_Interface
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetector
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_IActivationSignalDetector_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_IActivationSignalDetector_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_IActivationSignalDetector_Interface
+      ; items : Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetector_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_ActivationSignalDetectionTrainingDataFormat : aliased constant Windows.IID := (1737591238, 29636, 21141, (139, 4, 108, 224, 92, 171, 77, 23 ));
+   
+   type IVectorView_ActivationSignalDetectionTrainingDataFormat_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_ActivationSignalDetectionTrainingDataFormat_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_ActivationSignalDetectionTrainingDataFormat_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_ActivationSignalDetectionTrainingDataFormat_Interface
+      ; value : Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_ActivationSignalDetectionTrainingDataFormat_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_ActivationSignalDetectorPowerState : aliased constant Windows.IID := (3271818623, 53363, 21699, (132, 17, 193, 24, 34, 99, 35, 172 ));
+   
+   type IVectorView_ActivationSignalDetectorPowerState_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_ActivationSignalDetectorPowerState_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_ActivationSignalDetectorPowerState_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_ActivationSignalDetectorPowerState_Interface
+      ; value : Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_ActivationSignalDetectorPowerState_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IActivationSignalDetectionConfiguration : aliased constant Windows.IID := (622166078, 19845, 24055, (168, 138, 136, 56, 135, 48, 214, 89 ));
+   
+   type IVectorView_IActivationSignalDetectionConfiguration_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IActivationSignalDetectionConfiguration_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IActivationSignalDetectionConfiguration_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IActivationSignalDetectionConfiguration_Interface
+      ; value : Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IActivationSignalDetectionConfiguration_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_IActivationSignalDetector : aliased constant Windows.IID := (1850820184, 55869, 20993, (158, 178, 178, 239, 28, 141, 209, 186 ));
+   
+   type IVectorView_IActivationSignalDetector_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_IActivationSignalDetector_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetector
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_IActivationSignalDetector_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_IActivationSignalDetector_Interface
+      ; value : Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetector
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_IActivationSignalDetector_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetector_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -602,6 +1579,32 @@ package Windows.ApplicationModel.ConversationalAgent is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_DetectionConfigurationTrainingStatus : aliased constant Windows.IID := (1813191559, 2431, 22885, (132, 213, 150, 76, 82, 177, 120, 126 ));
+   
+   type AsyncOperationCompletedHandler_DetectionConfigurationTrainingStatus_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.ConversationalAgent.IAsyncOperation_DetectionConfigurationTrainingStatus ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_DetectionConfigurationTrainingStatus'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_DetectionConfigurationTrainingStatus_Interface
+      ; asyncInfo : Windows.ApplicationModel.ConversationalAgent.IAsyncOperation_DetectionConfigurationTrainingStatus
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_AsyncOperationCompletedHandler_IActivationSignalDetectionConfiguration : aliased constant Windows.IID := (4072888290, 45896, 21585, (130, 163, 240, 0, 72, 195, 162, 23 ));
+   
+   type AsyncOperationCompletedHandler_IActivationSignalDetectionConfiguration_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.ConversationalAgent.IAsyncOperation_IActivationSignalDetectionConfiguration ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IActivationSignalDetectionConfiguration'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IActivationSignalDetectionConfiguration_Interface
+      ; asyncInfo : Windows.ApplicationModel.ConversationalAgent.IAsyncOperation_IActivationSignalDetectionConfiguration
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_AsyncOperationCompletedHandler_IConversationalAgentSession : aliased constant Windows.IID := (125474465, 31026, 23987, (165, 3, 52, 163, 5, 113, 243, 242 ));
    
    type AsyncOperationCompletedHandler_IConversationalAgentSession_Interface(Callback : access procedure (asyncInfo : Windows.ApplicationModel.ConversationalAgent.IAsyncOperation_IConversationalAgentSession ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IConversationalAgentSession'access) with null record;
@@ -610,6 +1613,19 @@ package Windows.ApplicationModel.ConversationalAgent is
       This       : access AsyncOperationCompletedHandler_IConversationalAgentSession_Interface
       ; asyncInfo : Windows.ApplicationModel.ConversationalAgent.IAsyncOperation_IConversationalAgentSession
       ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IActivationSignalDetectionConfiguration_add_AvailabilityChanged : aliased constant Windows.IID := (1225869034, 11206, 24323, (163, 23, 9, 122, 174, 5, 81, 152 ));
+   
+   type TypedEventHandler_IActivationSignalDetectionConfiguration_add_AvailabilityChanged_Interface(Callback : access procedure (sender : Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration ; args : Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IActivationSignalDetectionConfiguration_add_AvailabilityChanged'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IActivationSignalDetectionConfiguration_add_AvailabilityChanged_Interface
+      ; sender : Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration
+      ; args : Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityChangedEventArgs
    )
    return Windows.HRESULT;
    
@@ -656,15 +1672,23 @@ package Windows.ApplicationModel.ConversationalAgent is
    -- Classes
    ------------------------------------------------------------------------
    
+   subtype ActivationSignalDetectionConfiguration is Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration;
+   subtype ActivationSignalDetector is Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetector;
+   subtype ConversationalAgentDetectorManager is Windows.ApplicationModel.ConversationalAgent.IConversationalAgentDetectorManager;
    subtype ConversationalAgentSession is Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSession;
    subtype ConversationalAgentSessionInterruptedEventArgs is Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSessionInterruptedEventArgs;
    subtype ConversationalAgentSignal is Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSignal;
    subtype ConversationalAgentSignalDetectedEventArgs is Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSignalDetectedEventArgs;
    subtype ConversationalAgentSystemStateChangedEventArgs is Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSystemStateChangedEventArgs;
+   subtype DetectionConfigurationAvailabilityChangedEventArgs is Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityChangedEventArgs;
+   subtype DetectionConfigurationAvailabilityInfo is Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityInfo;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
    ------------------------------------------------------------------------
+   
+   function get_Default
+   return Windows.ApplicationModel.ConversationalAgent.IConversationalAgentDetectorManager;
    
    function GetCurrentSessionAsync
    return Windows.ApplicationModel.ConversationalAgent.IAsyncOperation_IConversationalAgentSession;

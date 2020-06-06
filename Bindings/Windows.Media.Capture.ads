@@ -27,6 +27,7 @@
 --                                                                            --
 --------------------------------------------------------------------------------
 with Windows; use Windows;
+limited with Windows.Devices.Enumeration;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.Graphics.DirectX.Direct3D11;
@@ -38,9 +39,11 @@ limited with Windows.Media.Devices;
 limited with Windows.Media.Effects;
 limited with Windows.Media.MediaProperties;
 limited with Windows.Security.Authentication.Web;
+limited with Windows.Security.Credentials;
 limited with Windows.Storage;
 limited with Windows.Storage.Streams;
 limited with Windows.System;
+limited with Windows.UI.WindowManagement;
 --------------------------------------------------------------------------------
 package Windows.Media.Capture is
 
@@ -916,6 +919,9 @@ package Windows.Media.Capture is
    type TypedEventHandler_IMediaCapture6_add_CaptureDeviceExclusiveControlStatusChanged_Interface;
    type TypedEventHandler_IMediaCapture6_add_CaptureDeviceExclusiveControlStatusChanged is access all TypedEventHandler_IMediaCapture6_add_CaptureDeviceExclusiveControlStatusChanged_Interface'Class;
    type TypedEventHandler_IMediaCapture6_add_CaptureDeviceExclusiveControlStatusChanged_Ptr is access all TypedEventHandler_IMediaCapture6_add_CaptureDeviceExclusiveControlStatusChanged;
+   type TypedEventHandler_IMediaCaptureRelativePanelWatcher_add_Changed_Interface;
+   type TypedEventHandler_IMediaCaptureRelativePanelWatcher_add_Changed is access all TypedEventHandler_IMediaCaptureRelativePanelWatcher_add_Changed_Interface'Class;
+   type TypedEventHandler_IMediaCaptureRelativePanelWatcher_add_Changed_Ptr is access all TypedEventHandler_IMediaCaptureRelativePanelWatcher_add_Changed;
    type TypedEventHandler_IScreenCapture_add_SourceSuspensionChanged_Interface;
    type TypedEventHandler_IScreenCapture_add_SourceSuspensionChanged is access all TypedEventHandler_IScreenCapture_add_SourceSuspensionChanged_Interface'Class;
    type TypedEventHandler_IScreenCapture_add_SourceSuspensionChanged_Ptr is access all TypedEventHandler_IScreenCapture_add_SourceSuspensionChanged;
@@ -1218,6 +1224,9 @@ package Windows.Media.Capture is
    type IMediaCapture6_Interface;
    type IMediaCapture6 is access all IMediaCapture6_Interface'Class;
    type IMediaCapture6_Ptr is access all IMediaCapture6;
+   type IMediaCapture7_Interface;
+   type IMediaCapture7 is access all IMediaCapture7_Interface'Class;
+   type IMediaCapture7_Ptr is access all IMediaCapture7;
    type IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Interface;
    type IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs is access all IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Interface'Class;
    type IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Ptr is access all IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs;
@@ -1245,9 +1254,15 @@ package Windows.Media.Capture is
    type IMediaCaptureInitializationSettings6_Interface;
    type IMediaCaptureInitializationSettings6 is access all IMediaCaptureInitializationSettings6_Interface'Class;
    type IMediaCaptureInitializationSettings6_Ptr is access all IMediaCaptureInitializationSettings6;
+   type IMediaCaptureInitializationSettings7_Interface;
+   type IMediaCaptureInitializationSettings7 is access all IMediaCaptureInitializationSettings7_Interface'Class;
+   type IMediaCaptureInitializationSettings7_Ptr is access all IMediaCaptureInitializationSettings7;
    type IMediaCapturePauseResult_Interface;
    type IMediaCapturePauseResult is access all IMediaCapturePauseResult_Interface'Class;
    type IMediaCapturePauseResult_Ptr is access all IMediaCapturePauseResult;
+   type IMediaCaptureRelativePanelWatcher_Interface;
+   type IMediaCaptureRelativePanelWatcher is access all IMediaCaptureRelativePanelWatcher_Interface'Class;
+   type IMediaCaptureRelativePanelWatcher_Ptr is access all IMediaCaptureRelativePanelWatcher;
    type IMediaCaptureSettings_Interface;
    type IMediaCaptureSettings is access all IMediaCaptureSettings_Interface'Class;
    type IMediaCaptureSettings_Ptr is access all IMediaCaptureSettings;
@@ -5805,6 +5820,21 @@ package Windows.Media.Capture is
    
    ------------------------------------------------------------------------
    
+   IID_IMediaCapture7 : aliased constant Windows.IID := (2439639298, 34952, 21530, (149, 188, 36, 228, 212, 98, 84, 42 ));
+   
+   type IMediaCapture7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreateRelativePanelWatcher
+   (
+      This       : access IMediaCapture7_Interface
+      ; captureMode : Windows.Media.Capture.StreamingCaptureMode
+      ; displayRegion : Windows.UI.WindowManagement.IDisplayRegion
+      ; RetVal : access Windows.Media.Capture.IMediaCaptureRelativePanelWatcher
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs : aliased constant Windows.IID := (2637140493, 42376, 17350, (137, 214, 90, 211, 34, 175, 0, 106 ));
    
    type IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -6118,6 +6148,40 @@ package Windows.Media.Capture is
    
    ------------------------------------------------------------------------
    
+   IID_IMediaCaptureInitializationSettings7 : aliased constant Windows.IID := (1096051047, 62858, 23938, (158, 244, 237, 87, 47, 181, 227, 78 ));
+   
+   type IMediaCaptureInitializationSettings7_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_DeviceUriPasswordCredential
+   (
+      This       : access IMediaCaptureInitializationSettings7_Interface
+      ; RetVal : access Windows.Security.Credentials.IPasswordCredential
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DeviceUriPasswordCredential
+   (
+      This       : access IMediaCaptureInitializationSettings7_Interface
+      ; value : Windows.Security.Credentials.IPasswordCredential
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_DeviceUri
+   (
+      This       : access IMediaCaptureInitializationSettings7_Interface
+      ; RetVal : access Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_DeviceUri
+   (
+      This       : access IMediaCaptureInitializationSettings7_Interface
+      ; value : Windows.Foundation.IUriRuntimeClass
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMediaCapturePauseResult : aliased constant Windows.IID := (2932112547, 17527, 19204, (160, 111, 44, 28, 81, 130, 254, 157 ));
    
    type IMediaCapturePauseResult_Interface is interface and Windows.IInspectable_Interface;
@@ -6133,6 +6197,46 @@ package Windows.Media.Capture is
    (
       This       : access IMediaCapturePauseResult_Interface
       ; RetVal : access Windows.Foundation.TimeSpan
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IMediaCaptureRelativePanelWatcher : aliased constant Windows.IID := (2106156390, 1214, 23433, (179, 14, 189, 52, 169, 241, 45, 176 ));
+   
+   type IMediaCaptureRelativePanelWatcher_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_RelativePanel
+   (
+      This       : access IMediaCaptureRelativePanelWatcher_Interface
+      ; RetVal : access Windows.Devices.Enumeration.Panel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_Changed
+   (
+      This       : access IMediaCaptureRelativePanelWatcher_Interface
+      ; handler : TypedEventHandler_IMediaCaptureRelativePanelWatcher_add_Changed
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_Changed
+   (
+      This       : access IMediaCaptureRelativePanelWatcher_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Start
+   (
+      This       : access IMediaCaptureRelativePanelWatcher_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function Stop
+   (
+      This       : access IMediaCaptureRelativePanelWatcher_Interface
    )
    return Windows.HRESULT is abstract;
    
@@ -7473,6 +7577,19 @@ package Windows.Media.Capture is
    
    ------------------------------------------------------------------------
    
+   IID_TypedEventHandler_IMediaCaptureRelativePanelWatcher_add_Changed : aliased constant Windows.IID := (3828436128, 33416, 22885, (160, 211, 103, 208, 181, 50, 189, 197 ));
+   
+   type TypedEventHandler_IMediaCaptureRelativePanelWatcher_add_Changed_Interface(Callback : access procedure (sender : Windows.Media.Capture.IMediaCaptureRelativePanelWatcher ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IMediaCaptureRelativePanelWatcher_add_Changed'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IMediaCaptureRelativePanelWatcher_add_Changed_Interface
+      ; sender : Windows.Media.Capture.IMediaCaptureRelativePanelWatcher
+      ; args : Windows.Object
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_IScreenCapture_add_SourceSuspensionChanged : aliased constant Windows.IID := (2212238669, 47983, 22926, (168, 135, 65, 186, 24, 1, 240, 25 ));
    
    type TypedEventHandler_IScreenCapture_add_SourceSuspensionChanged_Interface(Callback : access procedure (sender : Windows.Media.Capture.IScreenCapture ; args : Windows.Media.Capture.ISourceSuspensionChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IScreenCapture_add_SourceSuspensionChanged'access) with null record;
@@ -7556,6 +7673,7 @@ package Windows.Media.Capture is
    function Create return Windows.Media.Capture.IMediaCaptureInitializationSettings;
    
    subtype MediaCapturePauseResult is Windows.Media.Capture.IMediaCapturePauseResult;
+   subtype MediaCaptureRelativePanelWatcher is Windows.Media.Capture.IMediaCaptureRelativePanelWatcher;
    subtype MediaCaptureSettings is Windows.Media.Capture.IMediaCaptureSettings;
    subtype MediaCaptureStopResult is Windows.Media.Capture.IMediaCaptureStopResult;
    subtype MediaCaptureVideoProfile is Windows.Media.Capture.IMediaCaptureVideoProfile;

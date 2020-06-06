@@ -227,7 +227,9 @@ package Windows.Graphics.DirectX is
       B4G4R4A4UIntNormalized,
       P208,
       V208,
-      V408
+      V408,
+      SamplerFeedbackMinMipOpaque,
+      SamplerFeedbackMipRegionUsedOpaque
    );
    for DirectXPixelFormat use (
       Unknown => 0,
@@ -348,7 +350,9 @@ package Windows.Graphics.DirectX is
       B4G4R4A4UIntNormalized => 115,
       P208 => 130,
       V208 => 131,
-      V408 => 132
+      V408 => 132,
+      SamplerFeedbackMinMipOpaque => 189,
+      SamplerFeedbackMipRegionUsedOpaque => 190
    );
    for DirectXPixelFormat'Size use 32;
    

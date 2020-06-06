@@ -37,6 +37,19 @@ package body Windows.UI.ViewManagement.Core is
    
    function Invoke
    (
+      This       : access AsyncOperationCompletedHandler_IUISettingsController_Interface
+      ; asyncInfo : Windows.UI.ViewManagement.Core.IAsyncOperation_IUISettingsController
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(asyncInfo, asyncStatus);
+      return Hr;
+   end;
+   
+   function Invoke
+   (
       This       : access TypedEventHandler_ICoreInputView_add_OcclusionsChanged_Interface
       ; sender : Windows.UI.ViewManagement.Core.ICoreInputView
       ; args : Windows.UI.ViewManagement.Core.ICoreInputViewOcclusionsChangedEventArgs
@@ -71,6 +84,32 @@ package body Windows.UI.ViewManagement.Core is
       Hr : Windows.HRESULT := S_OK;
    begin
       This.Callback(Windows.UI.ViewManagement.Core.ICoreInputView(sender), Windows.UI.ViewManagement.Core.ICoreInputViewTransferringXYFocusEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreInputView4_add_PrimaryViewHiding_Interface
+      ; sender : Windows.UI.ViewManagement.Core.ICoreInputView
+      ; args : Windows.UI.ViewManagement.Core.ICoreInputViewHidingEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.ViewManagement.Core.ICoreInputView(sender), Windows.UI.ViewManagement.Core.ICoreInputViewHidingEventArgs(args));
+      return Hr;
+   end;
+   
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreInputView4_add_PrimaryViewShowing_Interface
+      ; sender : Windows.UI.ViewManagement.Core.ICoreInputView
+      ; args : Windows.UI.ViewManagement.Core.ICoreInputViewShowingEventArgs
+   )
+   return Windows.HRESULT is
+      Hr : Windows.HRESULT := S_OK;
+   begin
+      This.Callback(Windows.UI.ViewManagement.Core.ICoreInputView(sender), Windows.UI.ViewManagement.Core.ICoreInputViewShowingEventArgs(args));
       return Hr;
    end;
    
@@ -117,6 +156,23 @@ package body Windows.UI.ViewManagement.Core is
       Hr := RoGetActivationFactory(m_hString, IID_ICoreInputViewStatics2'Access , m_Factory'Address);
       if Hr = 0 then
          Hr := m_Factory.GetForUIContext(context, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
+   function RequestDefaultAsync
+   return Windows.UI.ViewManagement.Core.IAsyncOperation_IUISettingsController is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.UI.ViewManagement.Core.UISettingsController");
+      m_Factory     : IUISettingsControllerStatics := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.UI.ViewManagement.Core.IAsyncOperation_IUISettingsController;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_IUISettingsControllerStatics'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.RequestDefaultAsync(RetVal'Access);
          RefCount := m_Factory.Release;
       end if;
       Hr := WindowsDeleteString(m_hString);

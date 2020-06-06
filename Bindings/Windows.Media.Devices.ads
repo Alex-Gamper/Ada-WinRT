@@ -26,6 +26,7 @@
 -- along with this program.If not, see http://www.gnu.org/licenses            --
 --                                                                            --
 --------------------------------------------------------------------------------
+limited with Windows.Devices.Enumeration;
 with Windows.Foundation;
 with Windows.Foundation.Collections;
 limited with Windows.Media.Capture;
@@ -550,6 +551,9 @@ package Windows.Media.Devices is
    type IAdvancedVideoCaptureDeviceController7_Interface;
    type IAdvancedVideoCaptureDeviceController7 is access all IAdvancedVideoCaptureDeviceController7_Interface'Class;
    type IAdvancedVideoCaptureDeviceController7_Ptr is access all IAdvancedVideoCaptureDeviceController7;
+   type IAdvancedVideoCaptureDeviceController8_Interface;
+   type IAdvancedVideoCaptureDeviceController8 is access all IAdvancedVideoCaptureDeviceController8_Interface'Class;
+   type IAdvancedVideoCaptureDeviceController8_Ptr is access all IAdvancedVideoCaptureDeviceController8;
    type IAsyncOperation_IModuleCommandResult_Interface;
    type IAsyncOperation_IModuleCommandResult is access all IAsyncOperation_IModuleCommandResult_Interface'Class;
    type IAsyncOperation_IModuleCommandResult_Ptr is access all IAsyncOperation_IModuleCommandResult;
@@ -727,6 +731,9 @@ package Windows.Media.Devices is
    type IOpticalImageStabilizationControl_Interface;
    type IOpticalImageStabilizationControl is access all IOpticalImageStabilizationControl_Interface'Class;
    type IOpticalImageStabilizationControl_Ptr is access all IOpticalImageStabilizationControl;
+   type IPanelBasedOptimizationControl_Interface;
+   type IPanelBasedOptimizationControl is access all IPanelBasedOptimizationControl_Interface'Class;
+   type IPanelBasedOptimizationControl_Ptr is access all IPanelBasedOptimizationControl;
    type IPhotoConfirmationControl_Interface;
    type IPhotoConfirmationControl is access all IPhotoConfirmationControl_Interface'Class;
    type IPhotoConfirmationControl_Ptr is access all IPhotoConfirmationControl;
@@ -1142,6 +1149,19 @@ package Windows.Media.Devices is
    (
       This       : access IAdvancedVideoCaptureDeviceController7_Interface
       ; RetVal : access Windows.Media.Devices.IInfraredTorchControl
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAdvancedVideoCaptureDeviceController8 : aliased constant Windows.IID := (3628331024, 59387, 22875, (154, 120, 14, 84, 196, 83, 43, 67 ));
+   
+   type IAdvancedVideoCaptureDeviceController8_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_PanelBasedOptimizationControl
+   (
+      This       : access IAdvancedVideoCaptureDeviceController8_Interface
+      ; RetVal : access Windows.Media.Devices.IPanelBasedOptimizationControl
    )
    return Windows.HRESULT is abstract;
    
@@ -3342,6 +3362,33 @@ package Windows.Media.Devices is
    
    ------------------------------------------------------------------------
    
+   IID_IPanelBasedOptimizationControl : aliased constant Windows.IID := (858927651, 25159, 21529, (165, 164, 61, 128, 134, 69, 217, 23 ));
+   
+   type IPanelBasedOptimizationControl_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsSupported
+   (
+      This       : access IPanelBasedOptimizationControl_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Panel
+   (
+      This       : access IPanelBasedOptimizationControl_Interface
+      ; RetVal : access Windows.Devices.Enumeration.Panel
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Panel
+   (
+      This       : access IPanelBasedOptimizationControl_Interface
+      ; value : Windows.Devices.Enumeration.Panel
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPhotoConfirmationControl : aliased constant Windows.IID := (3371430755, 65374, 17794, (169, 168, 5, 80, 248, 90, 74, 118 ));
    
    type IPhotoConfirmationControl_Interface is interface and Windows.IInspectable_Interface;
@@ -4656,6 +4703,7 @@ package Windows.Media.Devices is
    subtype MediaDeviceControlCapabilities is Windows.Media.Devices.IMediaDeviceControlCapabilities;
    subtype ModuleCommandResult is Windows.Media.Devices.IModuleCommandResult;
    subtype OpticalImageStabilizationControl is Windows.Media.Devices.IOpticalImageStabilizationControl;
+   subtype PanelBasedOptimizationControl is Windows.Media.Devices.IPanelBasedOptimizationControl;
    subtype PhotoConfirmationControl is Windows.Media.Devices.IPhotoConfirmationControl;
    subtype RedialRequestedEventArgs is Windows.Media.Devices.IRedialRequestedEventArgs;
    subtype RegionOfInterest is Windows.Media.Devices.IRegionOfInterest;

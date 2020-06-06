@@ -283,6 +283,9 @@ package Windows.Media.MediaProperties is
    type IMediaEncodingSubtypesStatics5_Interface;
    type IMediaEncodingSubtypesStatics5 is access all IMediaEncodingSubtypesStatics5_Interface'Class;
    type IMediaEncodingSubtypesStatics5_Ptr is access all IMediaEncodingSubtypesStatics5;
+   type IMediaEncodingSubtypesStatics6_Interface;
+   type IMediaEncodingSubtypesStatics6 is access all IMediaEncodingSubtypesStatics6_Interface'Class;
+   type IMediaEncodingSubtypesStatics6_Ptr is access all IMediaEncodingSubtypesStatics6;
    type IMediaRatio_Interface;
    type IMediaRatio is access all IMediaRatio_Interface'Class;
    type IMediaRatio_Ptr is access all IMediaRatio;
@@ -292,6 +295,9 @@ package Windows.Media.MediaProperties is
    type ITimedMetadataEncodingProperties_Interface;
    type ITimedMetadataEncodingProperties is access all ITimedMetadataEncodingProperties_Interface'Class;
    type ITimedMetadataEncodingProperties_Ptr is access all ITimedMetadataEncodingProperties;
+   type ITimedMetadataEncodingPropertiesStatics_Interface;
+   type ITimedMetadataEncodingPropertiesStatics is access all ITimedMetadataEncodingPropertiesStatics_Interface'Class;
+   type ITimedMetadataEncodingPropertiesStatics_Ptr is access all ITimedMetadataEncodingPropertiesStatics;
    type IVectorView_IAudioEncodingProperties_Interface;
    type IVectorView_IAudioEncodingProperties is access all IVectorView_IAudioEncodingProperties_Interface'Class;
    type IVectorView_IAudioEncodingProperties_Ptr is access all IVectorView_IAudioEncodingProperties;
@@ -1567,6 +1573,40 @@ package Windows.Media.MediaProperties is
    
    ------------------------------------------------------------------------
    
+   IID_IMediaEncodingSubtypesStatics6 : aliased constant Windows.IID := (2703567219, 43396, 22802, (147, 187, 84, 231, 229, 105, 224, 83 ));
+   
+   type IMediaEncodingSubtypesStatics6_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Pgs
+   (
+      This       : access IMediaEncodingSubtypesStatics6_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Srt
+   (
+      This       : access IMediaEncodingSubtypesStatics6_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Ssa
+   (
+      This       : access IMediaEncodingSubtypesStatics6_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_VobSub
+   (
+      This       : access IMediaEncodingSubtypesStatics6_Interface
+      ; RetVal : access Windows.String
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IMediaRatio : aliased constant Windows.IID := (3536912101, 35113, 16413, (172, 120, 125, 53, 126, 55, 129, 99 ));
    
    type IMediaRatio_Interface is interface and Windows.IInspectable_Interface;
@@ -1663,6 +1703,42 @@ package Windows.Media.MediaProperties is
    function Copy
    (
       This       : access ITimedMetadataEncodingProperties_Interface
+      ; RetVal : access Windows.Media.MediaProperties.IMediaEncodingProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ITimedMetadataEncodingPropertiesStatics : aliased constant Windows.IID := (1714010983, 28245, 22083, (137, 160, 122, 126, 141, 133, 181, 44 ));
+   
+   type ITimedMetadataEncodingPropertiesStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function CreatePgs
+   (
+      This       : access ITimedMetadataEncodingPropertiesStatics_Interface
+      ; RetVal : access Windows.Media.MediaProperties.IMediaEncodingProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateSrt
+   (
+      This       : access ITimedMetadataEncodingPropertiesStatics_Interface
+      ; RetVal : access Windows.Media.MediaProperties.IMediaEncodingProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateSsa
+   (
+      This       : access ITimedMetadataEncodingPropertiesStatics_Interface
+      ; formatUserData : Windows.UInt8_Ptr
+      ; RetVal : access Windows.Media.MediaProperties.IMediaEncodingProperties
+   )
+   return Windows.HRESULT is abstract;
+   
+   function CreateVobSub
+   (
+      This       : access ITimedMetadataEncodingPropertiesStatics_Interface
+      ; formatUserData : Windows.UInt8_Ptr
       ; RetVal : access Windows.Media.MediaProperties.IMediaEncodingProperties
    )
    return Windows.HRESULT is abstract;
@@ -2333,6 +2409,18 @@ package Windows.Media.MediaProperties is
    function get_Heif
    return Windows.String;
    
+   function get_Pgs
+   return Windows.String;
+   
+   function get_Srt
+   return Windows.String;
+   
+   function get_Ssa
+   return Windows.String;
+   
+   function get_VobSub
+   return Windows.String;
+   
    function get_High_Mpeg2ProfileIds
    return Windows.Int32;
    
@@ -2347,6 +2435,24 @@ package Windows.Media.MediaProperties is
    
    function get_SpatiallyScalable
    return Windows.Int32;
+   
+   function CreatePgs
+   return Windows.Media.MediaProperties.IMediaEncodingProperties;
+   
+   function CreateSrt
+   return Windows.Media.MediaProperties.IMediaEncodingProperties;
+   
+   function CreateSsa
+   (
+      formatUserData : Windows.UInt8_Ptr
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProperties;
+   
+   function CreateVobSub
+   (
+      formatUserData : Windows.UInt8_Ptr
+   )
+   return Windows.Media.MediaProperties.IMediaEncodingProperties;
    
    function CreateH264
    return Windows.Media.MediaProperties.IVideoEncodingProperties;

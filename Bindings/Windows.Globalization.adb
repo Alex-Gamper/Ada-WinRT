@@ -3453,6 +3453,26 @@ package body Windows.Globalization is
       return RetVal;
    end;
    
+   function GetMuiCompatibleLanguageListFromLanguageTags
+   (
+      languageTags : Windows.Foundation.Collections.IIterable_String
+   )
+   return Windows.Foundation.Collections.IVector_String is
+      Hr            : Windows.HRESULT := S_OK;
+      m_hString     : Windows.String := To_String("Windows.Globalization.Language");
+      m_Factory     : ILanguageStatics3 := null;
+      RefCount      : Windows.UInt32 := 0;
+      RetVal        : aliased Windows.Foundation.Collections.IVector_String;
+   begin
+      Hr := RoGetActivationFactory(m_hString, IID_ILanguageStatics3'Access , m_Factory'Address);
+      if Hr = 0 then
+         Hr := m_Factory.GetMuiCompatibleLanguageListFromLanguageTags(languageTags, RetVal'Access);
+         RefCount := m_Factory.Release;
+      end if;
+      Hr := WindowsDeleteString(m_hString);
+      return RetVal;
+   end;
+   
    function get_Arab
    return Windows.String is
       Hr            : Windows.HRESULT := S_OK;

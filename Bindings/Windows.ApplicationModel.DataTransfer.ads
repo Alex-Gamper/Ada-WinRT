@@ -130,6 +130,9 @@ package Windows.ApplicationModel.DataTransfer is
    type TypedEventHandler_IDataPackage3_add_ShareCompleted_Interface;
    type TypedEventHandler_IDataPackage3_add_ShareCompleted is access all TypedEventHandler_IDataPackage3_add_ShareCompleted_Interface'Class;
    type TypedEventHandler_IDataPackage3_add_ShareCompleted_Ptr is access all TypedEventHandler_IDataPackage3_add_ShareCompleted;
+   type TypedEventHandler_IDataPackage4_add_ShareCanceled_Interface;
+   type TypedEventHandler_IDataPackage4_add_ShareCanceled is access all TypedEventHandler_IDataPackage4_add_ShareCanceled_Interface'Class;
+   type TypedEventHandler_IDataPackage4_add_ShareCanceled_Ptr is access all TypedEventHandler_IDataPackage4_add_ShareCanceled;
    type TypedEventHandler_IDataTransferManager_add_DataRequested_Interface;
    type TypedEventHandler_IDataTransferManager_add_DataRequested is access all TypedEventHandler_IDataTransferManager_add_DataRequested_Interface'Class;
    type TypedEventHandler_IDataTransferManager_add_DataRequested_Ptr is access all TypedEventHandler_IDataTransferManager_add_DataRequested;
@@ -180,6 +183,9 @@ package Windows.ApplicationModel.DataTransfer is
    type IDataPackage3_Interface;
    type IDataPackage3 is access all IDataPackage3_Interface'Class;
    type IDataPackage3_Ptr is access all IDataPackage3;
+   type IDataPackage4_Interface;
+   type IDataPackage4 is access all IDataPackage4_Interface'Class;
+   type IDataPackage4_Ptr is access all IDataPackage4;
    type IDataPackagePropertySet_Interface;
    type IDataPackagePropertySet is access all IDataPackagePropertySet_Interface'Class;
    type IDataPackagePropertySet_Ptr is access all IDataPackagePropertySet;
@@ -707,7 +713,7 @@ package Windows.ApplicationModel.DataTransfer is
    function remove_OperationCompleted
    (
       This       : access IDataPackage_Interface
-      ; eventCookie : Windows.Foundation.EventRegistrationToken
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -722,7 +728,7 @@ package Windows.ApplicationModel.DataTransfer is
    function remove_Destroyed
    (
       This       : access IDataPackage_Interface
-      ; eventCookie : Windows.Foundation.EventRegistrationToken
+      ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
    
@@ -836,6 +842,27 @@ package Windows.ApplicationModel.DataTransfer is
    function remove_ShareCompleted
    (
       This       : access IDataPackage3_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IDataPackage4 : aliased constant Windows.IID := (329404104, 37762, 21359, (133, 42, 48, 69, 225, 178, 154, 59 ));
+   
+   type IDataPackage4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_ShareCanceled
+   (
+      This       : access IDataPackage4_Interface
+      ; handler : TypedEventHandler_IDataPackage4_add_ShareCanceled
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ShareCanceled
+   (
+      This       : access IDataPackage4_Interface
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -2391,6 +2418,19 @@ package Windows.ApplicationModel.DataTransfer is
       This       : access TypedEventHandler_IDataPackage3_add_ShareCompleted_Interface
       ; sender : Windows.ApplicationModel.DataTransfer.IDataPackage
       ; args : Windows.ApplicationModel.DataTransfer.IShareCompletedEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IDataPackage4_add_ShareCanceled : aliased constant Windows.IID := (3243684035, 7356, 23716, (144, 28, 98, 197, 168, 202, 92, 181 ));
+   
+   type TypedEventHandler_IDataPackage4_add_ShareCanceled_Interface(Callback : access procedure (sender : Windows.ApplicationModel.DataTransfer.IDataPackage ; args : Windows.Object)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IDataPackage4_add_ShareCanceled'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IDataPackage4_add_ShareCanceled_Interface
+      ; sender : Windows.ApplicationModel.DataTransfer.IDataPackage
+      ; args : Windows.Object
    )
    return Windows.HRESULT;
    

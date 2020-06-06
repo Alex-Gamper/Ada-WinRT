@@ -106,6 +106,9 @@ package Windows.Security.Authentication.Web.Core is
    type TypedEventHandler_IWebAccountMonitor_add_Updated_Interface;
    type TypedEventHandler_IWebAccountMonitor_add_Updated is access all TypedEventHandler_IWebAccountMonitor_add_Updated_Interface'Class;
    type TypedEventHandler_IWebAccountMonitor_add_Updated_Ptr is access all TypedEventHandler_IWebAccountMonitor_add_Updated;
+   type TypedEventHandler_IWebAccountMonitor2_add_AccountPictureUpdated_Interface;
+   type TypedEventHandler_IWebAccountMonitor2_add_AccountPictureUpdated is access all TypedEventHandler_IWebAccountMonitor2_add_AccountPictureUpdated_Interface'Class;
+   type TypedEventHandler_IWebAccountMonitor2_add_AccountPictureUpdated_Ptr is access all TypedEventHandler_IWebAccountMonitor2_add_AccountPictureUpdated;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
@@ -135,6 +138,9 @@ package Windows.Security.Authentication.Web.Core is
    type IWebAccountMonitor_Interface;
    type IWebAccountMonitor is access all IWebAccountMonitor_Interface'Class;
    type IWebAccountMonitor_Ptr is access all IWebAccountMonitor;
+   type IWebAccountMonitor2_Interface;
+   type IWebAccountMonitor2 is access all IWebAccountMonitor2_Interface'Class;
+   type IWebAccountMonitor2_Ptr is access all IWebAccountMonitor2;
    type IWebAuthenticationCoreManagerStatics_Interface;
    type IWebAuthenticationCoreManagerStatics is access all IWebAuthenticationCoreManagerStatics_Interface'Class;
    type IWebAuthenticationCoreManagerStatics_Ptr is access all IWebAuthenticationCoreManagerStatics;
@@ -407,6 +413,27 @@ package Windows.Security.Authentication.Web.Core is
    function remove_DefaultSignInAccountChanged
    (
       This       : access IWebAccountMonitor_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IWebAccountMonitor2 : aliased constant Windows.IID := (2813182456, 9400, 20225, (154, 229, 36, 84, 94, 113, 35, 58 ));
+   
+   type IWebAccountMonitor2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_AccountPictureUpdated
+   (
+      This       : access IWebAccountMonitor2_Interface
+      ; handler : TypedEventHandler_IWebAccountMonitor2_add_AccountPictureUpdated
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_AccountPictureUpdated
+   (
+      This       : access IWebAccountMonitor2_Interface
       ; token : Windows.Foundation.EventRegistrationToken
    )
    return Windows.HRESULT is abstract;
@@ -882,6 +909,19 @@ package Windows.Security.Authentication.Web.Core is
    function Invoke
    (
       This       : access TypedEventHandler_IWebAccountMonitor_add_Updated_Interface
+      ; sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor
+      ; args : Windows.Security.Authentication.Web.Core.IWebAccountEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_IWebAccountMonitor2_add_AccountPictureUpdated : aliased constant Windows.IID := (4201664260, 34742, 20843, (149, 150, 205, 124, 192, 146, 22, 155 ));
+   
+   type TypedEventHandler_IWebAccountMonitor2_add_AccountPictureUpdated_Interface(Callback : access procedure (sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor ; args : Windows.Security.Authentication.Web.Core.IWebAccountEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_IWebAccountMonitor2_add_AccountPictureUpdated'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_IWebAccountMonitor2_add_AccountPictureUpdated_Interface
       ; sender : Windows.Security.Authentication.Web.Core.IWebAccountMonitor
       ; args : Windows.Security.Authentication.Web.Core.IWebAccountEventArgs
    )

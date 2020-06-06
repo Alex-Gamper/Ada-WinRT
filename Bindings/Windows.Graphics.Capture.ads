@@ -81,6 +81,9 @@ package Windows.Graphics.Capture is
    type IGraphicsCaptureSession_Interface;
    type IGraphicsCaptureSession is access all IGraphicsCaptureSession_Interface'Class;
    type IGraphicsCaptureSession_Ptr is access all IGraphicsCaptureSession;
+   type IGraphicsCaptureSession2_Interface;
+   type IGraphicsCaptureSession2 is access all IGraphicsCaptureSession2_Interface'Class;
+   type IGraphicsCaptureSession2_Ptr is access all IGraphicsCaptureSession2;
    type IGraphicsCaptureSessionStatics_Interface;
    type IGraphicsCaptureSessionStatics is access all IGraphicsCaptureSessionStatics_Interface'Class;
    type IGraphicsCaptureSessionStatics_Ptr is access all IGraphicsCaptureSessionStatics;
@@ -301,6 +304,26 @@ package Windows.Graphics.Capture is
    function StartCapture
    (
       This       : access IGraphicsCaptureSession_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IGraphicsCaptureSession2 : aliased constant Windows.IID := (741977664, 32046, 20548, (128, 78, 139, 103, 153, 212, 207, 158 ));
+   
+   type IGraphicsCaptureSession2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_IsCursorCaptureEnabled
+   (
+      This       : access IGraphicsCaptureSession2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_IsCursorCaptureEnabled
+   (
+      This       : access IGraphicsCaptureSession2_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    

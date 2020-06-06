@@ -580,6 +580,20 @@ package Windows.Networking.NetworkOperators is
    
    type TetheringOperationStatus_Ptr is access TetheringOperationStatus;
    
+   type TetheringWiFiBand is (
+      Auto,
+      TwoPointFourGigahertz,
+      FiveGigahertz
+   );
+   for TetheringWiFiBand use (
+      Auto => 0,
+      TwoPointFourGigahertz => 1,
+      FiveGigahertz => 2
+   );
+   for TetheringWiFiBand'Size use 32;
+   
+   type TetheringWiFiBand_Ptr is access TetheringWiFiBand;
+   
    type UiccAccessCondition is (
       AlwaysAllowed,
       Pin1,
@@ -1179,6 +1193,9 @@ package Windows.Networking.NetworkOperators is
    type INetworkOperatorTetheringAccessPointConfiguration_Interface;
    type INetworkOperatorTetheringAccessPointConfiguration is access all INetworkOperatorTetheringAccessPointConfiguration_Interface'Class;
    type INetworkOperatorTetheringAccessPointConfiguration_Ptr is access all INetworkOperatorTetheringAccessPointConfiguration;
+   type INetworkOperatorTetheringAccessPointConfiguration2_Interface;
+   type INetworkOperatorTetheringAccessPointConfiguration2 is access all INetworkOperatorTetheringAccessPointConfiguration2_Interface'Class;
+   type INetworkOperatorTetheringAccessPointConfiguration2_Ptr is access all INetworkOperatorTetheringAccessPointConfiguration2;
    type INetworkOperatorTetheringClient_Interface;
    type INetworkOperatorTetheringClient is access all INetworkOperatorTetheringClient_Interface'Class;
    type INetworkOperatorTetheringClient_Ptr is access all INetworkOperatorTetheringClient;
@@ -1200,6 +1217,9 @@ package Windows.Networking.NetworkOperators is
    type INetworkOperatorTetheringManagerStatics3_Interface;
    type INetworkOperatorTetheringManagerStatics3 is access all INetworkOperatorTetheringManagerStatics3_Interface'Class;
    type INetworkOperatorTetheringManagerStatics3_Ptr is access all INetworkOperatorTetheringManagerStatics3;
+   type INetworkOperatorTetheringManagerStatics4_Interface;
+   type INetworkOperatorTetheringManagerStatics4 is access all INetworkOperatorTetheringManagerStatics4_Interface'Class;
+   type INetworkOperatorTetheringManagerStatics4_Ptr is access all INetworkOperatorTetheringManagerStatics4;
    type INetworkOperatorTetheringOperationResult_Interface;
    type INetworkOperatorTetheringOperationResult is access all INetworkOperatorTetheringOperationResult_Interface'Class;
    type INetworkOperatorTetheringOperationResult_Ptr is access all INetworkOperatorTetheringOperationResult;
@@ -5360,6 +5380,42 @@ package Windows.Networking.NetworkOperators is
    
    ------------------------------------------------------------------------
    
+   IID_INetworkOperatorTetheringAccessPointConfiguration2 : aliased constant Windows.IID := (2977993026, 29240, 22944, (146, 139, 116, 171, 70, 253, 100, 182 ));
+   
+   type INetworkOperatorTetheringAccessPointConfiguration2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function IsBandSupported
+   (
+      This       : access INetworkOperatorTetheringAccessPointConfiguration2_Interface
+      ; band : Windows.Networking.NetworkOperators.TetheringWiFiBand
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IsBandSupportedAsync
+   (
+      This       : access INetworkOperatorTetheringAccessPointConfiguration2_Interface
+      ; band : Windows.Networking.NetworkOperators.TetheringWiFiBand
+      ; RetVal : access Windows.Foundation.IAsyncOperation_Boolean -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Band
+   (
+      This       : access INetworkOperatorTetheringAccessPointConfiguration2_Interface
+      ; RetVal : access Windows.Networking.NetworkOperators.TetheringWiFiBand
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_Band
+   (
+      This       : access INetworkOperatorTetheringAccessPointConfiguration2_Interface
+      ; value : Windows.Networking.NetworkOperators.TetheringWiFiBand
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_INetworkOperatorTetheringClient : aliased constant Windows.IID := (1889346892, 22879, 18503, (187, 48, 100, 105, 53, 84, 41, 24 ));
    
    type INetworkOperatorTetheringClient_Interface is interface and Windows.IInspectable_Interface;
@@ -5517,6 +5573,45 @@ package Windows.Networking.NetworkOperators is
       ; profile : Windows.Networking.Connectivity.IConnectionProfile
       ; adapter : Windows.Networking.Connectivity.INetworkAdapter
       ; RetVal : access Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_INetworkOperatorTetheringManagerStatics4 : aliased constant Windows.IID := (3015309776, 60415, 18084, (168, 71, 214, 99, 216, 176, 151, 126 ));
+   
+   type INetworkOperatorTetheringManagerStatics4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function IsNoConnectionsTimeoutEnabled
+   (
+      This       : access INetworkOperatorTetheringManagerStatics4_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function EnableNoConnectionsTimeout
+   (
+      This       : access INetworkOperatorTetheringManagerStatics4_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function EnableNoConnectionsTimeoutAsync
+   (
+      This       : access INetworkOperatorTetheringManagerStatics4_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DisableNoConnectionsTimeout
+   (
+      This       : access INetworkOperatorTetheringManagerStatics4_Interface
+   )
+   return Windows.HRESULT is abstract;
+   
+   function DisableNoConnectionsTimeoutAsync
+   (
+      This       : access INetworkOperatorTetheringManagerStatics4_Interface
+      ; RetVal : access Windows.Foundation.IAsyncAction
    )
    return Windows.HRESULT is abstract;
    
@@ -6992,6 +7087,21 @@ package Windows.Networking.NetworkOperators is
       ; adapter : Windows.Networking.Connectivity.INetworkAdapter
    )
    return Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager;
+   
+   procedure DisableNoConnectionsTimeout
+   ;
+   
+   function DisableNoConnectionsTimeoutAsync
+   return Windows.Foundation.IAsyncAction;
+   
+   procedure EnableNoConnectionsTimeout
+   ;
+   
+   function EnableNoConnectionsTimeoutAsync
+   return Windows.Foundation.IAsyncAction;
+   
+   function IsNoConnectionsTimeoutEnabled
+   return Windows.Boolean;
    
    function CreateFromNetworkAccountId
    (

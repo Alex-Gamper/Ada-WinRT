@@ -40,13 +40,15 @@ package Windows.UI.ViewManagement.Core is
       Default,
       Keyboard,
       Handwriting,
-      Emoji
+      Emoji,
+      Symbols
    );
    for CoreInputViewKind use (
       Default => 0,
       Keyboard => 1,
       Handwriting => 2,
-      Emoji => 3
+      Emoji => 3,
+      Symbols => 4
    );
    for CoreInputViewKind'Size use 32;
    
@@ -86,6 +88,9 @@ package Windows.UI.ViewManagement.Core is
    -- Forward Declaration - Delegates/Events
    ------------------------------------------------------------------------
    
+   type AsyncOperationCompletedHandler_IUISettingsController_Interface;
+   type AsyncOperationCompletedHandler_IUISettingsController is access all AsyncOperationCompletedHandler_IUISettingsController_Interface'Class;
+   type AsyncOperationCompletedHandler_IUISettingsController_Ptr is access all AsyncOperationCompletedHandler_IUISettingsController;
    type TypedEventHandler_ICoreInputView_add_OcclusionsChanged_Interface;
    type TypedEventHandler_ICoreInputView_add_OcclusionsChanged is access all TypedEventHandler_ICoreInputView_add_OcclusionsChanged_Interface'Class;
    type TypedEventHandler_ICoreInputView_add_OcclusionsChanged_Ptr is access all TypedEventHandler_ICoreInputView_add_OcclusionsChanged;
@@ -95,11 +100,20 @@ package Windows.UI.ViewManagement.Core is
    type TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView_Interface;
    type TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView is access all TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView_Interface'Class;
    type TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView_Ptr is access all TypedEventHandler_ICoreInputView2_add_XYFocusTransferringFromPrimaryView;
+   type TypedEventHandler_ICoreInputView4_add_PrimaryViewHiding_Interface;
+   type TypedEventHandler_ICoreInputView4_add_PrimaryViewHiding is access all TypedEventHandler_ICoreInputView4_add_PrimaryViewHiding_Interface'Class;
+   type TypedEventHandler_ICoreInputView4_add_PrimaryViewHiding_Ptr is access all TypedEventHandler_ICoreInputView4_add_PrimaryViewHiding;
+   type TypedEventHandler_ICoreInputView4_add_PrimaryViewShowing_Interface;
+   type TypedEventHandler_ICoreInputView4_add_PrimaryViewShowing is access all TypedEventHandler_ICoreInputView4_add_PrimaryViewShowing_Interface'Class;
+   type TypedEventHandler_ICoreInputView4_add_PrimaryViewShowing_Ptr is access all TypedEventHandler_ICoreInputView4_add_PrimaryViewShowing;
    
    ------------------------------------------------------------------------
    -- Forward Declaration - Interfaces
    ------------------------------------------------------------------------
    
+   type IAsyncOperation_IUISettingsController_Interface;
+   type IAsyncOperation_IUISettingsController is access all IAsyncOperation_IUISettingsController_Interface'Class;
+   type IAsyncOperation_IUISettingsController_Ptr is access all IAsyncOperation_IUISettingsController;
    type ICoreInputView_Interface;
    type ICoreInputView is access all ICoreInputView_Interface'Class;
    type ICoreInputView_Ptr is access all ICoreInputView;
@@ -109,12 +123,21 @@ package Windows.UI.ViewManagement.Core is
    type ICoreInputView3_Interface;
    type ICoreInputView3 is access all ICoreInputView3_Interface'Class;
    type ICoreInputView3_Ptr is access all ICoreInputView3;
+   type ICoreInputView4_Interface;
+   type ICoreInputView4 is access all ICoreInputView4_Interface'Class;
+   type ICoreInputView4_Ptr is access all ICoreInputView4;
+   type ICoreInputViewHidingEventArgs_Interface;
+   type ICoreInputViewHidingEventArgs is access all ICoreInputViewHidingEventArgs_Interface'Class;
+   type ICoreInputViewHidingEventArgs_Ptr is access all ICoreInputViewHidingEventArgs;
    type ICoreInputViewOcclusion_Interface;
    type ICoreInputViewOcclusion is access all ICoreInputViewOcclusion_Interface'Class;
    type ICoreInputViewOcclusion_Ptr is access all ICoreInputViewOcclusion;
    type ICoreInputViewOcclusionsChangedEventArgs_Interface;
    type ICoreInputViewOcclusionsChangedEventArgs is access all ICoreInputViewOcclusionsChangedEventArgs_Interface'Class;
    type ICoreInputViewOcclusionsChangedEventArgs_Ptr is access all ICoreInputViewOcclusionsChangedEventArgs;
+   type ICoreInputViewShowingEventArgs_Interface;
+   type ICoreInputViewShowingEventArgs is access all ICoreInputViewShowingEventArgs_Interface'Class;
+   type ICoreInputViewShowingEventArgs_Ptr is access all ICoreInputViewShowingEventArgs;
    type ICoreInputViewStatics_Interface;
    type ICoreInputViewStatics is access all ICoreInputViewStatics_Interface'Class;
    type ICoreInputViewStatics_Ptr is access all ICoreInputViewStatics;
@@ -130,6 +153,12 @@ package Windows.UI.ViewManagement.Core is
    type IIterator_ICoreInputViewOcclusion_Interface;
    type IIterator_ICoreInputViewOcclusion is access all IIterator_ICoreInputViewOcclusion_Interface'Class;
    type IIterator_ICoreInputViewOcclusion_Ptr is access all IIterator_ICoreInputViewOcclusion;
+   type IUISettingsController_Interface;
+   type IUISettingsController is access all IUISettingsController_Interface'Class;
+   type IUISettingsController_Ptr is access all IUISettingsController;
+   type IUISettingsControllerStatics_Interface;
+   type IUISettingsControllerStatics is access all IUISettingsControllerStatics_Interface'Class;
+   type IUISettingsControllerStatics_Ptr is access all IUISettingsControllerStatics;
    type IVectorView_ICoreInputViewOcclusion_Interface;
    type IVectorView_ICoreInputViewOcclusion is access all IVectorView_ICoreInputViewOcclusion_Interface'Class;
    type IVectorView_ICoreInputViewOcclusion_Ptr is access all IVectorView_ICoreInputViewOcclusion;
@@ -137,6 +166,33 @@ package Windows.UI.ViewManagement.Core is
    ------------------------------------------------------------------------
    -- Interfaces
    ------------------------------------------------------------------------
+   
+   ------------------------------------------------------------------------
+   
+   IID_IAsyncOperation_IUISettingsController : aliased constant Windows.IID := (3157349317, 22736, 23307, (169, 165, 27, 124, 194, 250, 239, 95 ));
+   
+   type IAsyncOperation_IUISettingsController_Interface is interface and Windows.IInspectable_Interface;
+   
+   function put_Completed
+   (
+      This       : access IAsyncOperation_IUISettingsController_Interface
+      ; handler : Windows.UI.ViewManagement.Core.AsyncOperationCompletedHandler_IUISettingsController
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Completed
+   (
+      This       : access IAsyncOperation_IUISettingsController_Interface
+      ; RetVal : access Windows.UI.ViewManagement.Core.AsyncOperationCompletedHandler_IUISettingsController
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetResults
+   (
+      This       : access IAsyncOperation_IUISettingsController_Interface
+      ; RetVal : access Windows.UI.ViewManagement.Core.IUISettingsController
+   )
+   return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
    
@@ -255,6 +311,55 @@ package Windows.UI.ViewManagement.Core is
    
    ------------------------------------------------------------------------
    
+   IID_ICoreInputView4 : aliased constant Windows.IID := (2646998, 55791, 22507, (140, 239, 119, 246, 206, 27, 126, 231 ));
+   
+   type ICoreInputView4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_PrimaryViewShowing
+   (
+      This       : access ICoreInputView4_Interface
+      ; handler : TypedEventHandler_ICoreInputView4_add_PrimaryViewShowing
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_PrimaryViewShowing
+   (
+      This       : access ICoreInputView4_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function add_PrimaryViewHiding
+   (
+      This       : access ICoreInputView4_Interface
+      ; handler : TypedEventHandler_ICoreInputView4_add_PrimaryViewHiding
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_PrimaryViewHiding
+   (
+      This       : access ICoreInputView4_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreInputViewHidingEventArgs : aliased constant Windows.IID := (3940173757, 47813, 21302, (132, 141, 65, 8, 53, 132, 218, 173 ));
+   
+   type ICoreInputViewHidingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryCancel
+   (
+      This       : access ICoreInputViewHidingEventArgs_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_ICoreInputViewOcclusion : aliased constant Windows.IID := (3426143750, 14437, 16759, (181, 245, 139, 101, 224, 185, 206, 132 ));
    
    type ICoreInputViewOcclusion_Interface is interface and Windows.IInspectable_Interface;
@@ -297,6 +402,19 @@ package Windows.UI.ViewManagement.Core is
    (
       This       : access ICoreInputViewOcclusionsChangedEventArgs_Interface
       ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_ICoreInputViewShowingEventArgs : aliased constant Windows.IID := (3394381339, 64414, 23983, (169, 140, 38, 43, 139, 118, 175, 80 ));
+   
+   type ICoreInputViewShowingEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   function TryCancel
+   (
+      This       : access ICoreInputViewShowingEventArgs_Interface
+      ; RetVal : access Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
@@ -425,6 +543,60 @@ package Windows.UI.ViewManagement.Core is
    
    ------------------------------------------------------------------------
    
+   IID_IUISettingsController : aliased constant Windows.IID := (2024086212, 5568, 23067, (167, 91, 172, 191, 156, 184, 187, 158 ));
+   
+   type IUISettingsController_Interface is interface and Windows.IInspectable_Interface;
+   
+   function SetAdvancedEffectsEnabled
+   (
+      This       : access IUISettingsController_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAnimationsEnabled
+   (
+      This       : access IUISettingsController_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetAutoHideScrollBars
+   (
+      This       : access IUISettingsController_Interface
+      ; value : Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetMessageDuration
+   (
+      This       : access IUISettingsController_Interface
+      ; value : Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function SetTextScaleFactor
+   (
+      This       : access IUISettingsController_Interface
+      ; value : Windows.Double
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IUISettingsControllerStatics : aliased constant Windows.IID := (3946604748, 49696, 22412, (129, 25, 125, 179, 36, 237, 38, 166 ));
+   
+   type IUISettingsControllerStatics_Interface is interface and Windows.IInspectable_Interface;
+   
+   function RequestDefaultAsync
+   (
+      This       : access IUISettingsControllerStatics_Interface
+      ; RetVal : access Windows.UI.ViewManagement.Core.IAsyncOperation_IUISettingsController -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IVectorView_ICoreInputViewOcclusion : aliased constant Windows.IID := (3767940472, 41542, 22144, (134, 209, 39, 81, 148, 35, 226, 18 ));
    
    type IVectorView_ICoreInputViewOcclusion_Interface is interface and Windows.IInspectable_Interface;
@@ -468,6 +640,19 @@ package Windows.UI.ViewManagement.Core is
    
    ------------------------------------------------------------------------
    
+   IID_AsyncOperationCompletedHandler_IUISettingsController : aliased constant Windows.IID := (2296227179, 57281, 20837, (172, 19, 252, 152, 104, 187, 74, 183 ));
+   
+   type AsyncOperationCompletedHandler_IUISettingsController_Interface(Callback : access procedure (asyncInfo : Windows.UI.ViewManagement.Core.IAsyncOperation_IUISettingsController ; asyncStatus : Windows.Foundation.AsyncStatus)) is new Windows.IMulticastDelegate_Interface(IID_AsyncOperationCompletedHandler_IUISettingsController'access) with null record;
+   function Invoke
+   (
+      This       : access AsyncOperationCompletedHandler_IUISettingsController_Interface
+      ; asyncInfo : Windows.UI.ViewManagement.Core.IAsyncOperation_IUISettingsController
+      ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
    IID_TypedEventHandler_ICoreInputView_add_OcclusionsChanged : aliased constant Windows.IID := (1524551428, 60881, 20787, (171, 199, 88, 42, 2, 127, 9, 187 ));
    
    type TypedEventHandler_ICoreInputView_add_OcclusionsChanged_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.Core.ICoreInputView ; args : Windows.UI.ViewManagement.Core.ICoreInputViewOcclusionsChangedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreInputView_add_OcclusionsChanged'access) with null record;
@@ -506,13 +691,42 @@ package Windows.UI.ViewManagement.Core is
    return Windows.HRESULT;
    
    ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ICoreInputView4_add_PrimaryViewHiding : aliased constant Windows.IID := (831041478, 19347, 22688, (181, 176, 203, 237, 101, 190, 12, 126 ));
+   
+   type TypedEventHandler_ICoreInputView4_add_PrimaryViewHiding_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.Core.ICoreInputView ; args : Windows.UI.ViewManagement.Core.ICoreInputViewHidingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreInputView4_add_PrimaryViewHiding'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreInputView4_add_PrimaryViewHiding_Interface
+      ; sender : Windows.UI.ViewManagement.Core.ICoreInputView
+      ; args : Windows.UI.ViewManagement.Core.ICoreInputViewHidingEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_TypedEventHandler_ICoreInputView4_add_PrimaryViewShowing : aliased constant Windows.IID := (2734744313, 29563, 21296, (142, 162, 104, 231, 163, 170, 237, 178 ));
+   
+   type TypedEventHandler_ICoreInputView4_add_PrimaryViewShowing_Interface(Callback : access procedure (sender : Windows.UI.ViewManagement.Core.ICoreInputView ; args : Windows.UI.ViewManagement.Core.ICoreInputViewShowingEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_TypedEventHandler_ICoreInputView4_add_PrimaryViewShowing'access) with null record;
+   function Invoke
+   (
+      This       : access TypedEventHandler_ICoreInputView4_add_PrimaryViewShowing_Interface
+      ; sender : Windows.UI.ViewManagement.Core.ICoreInputView
+      ; args : Windows.UI.ViewManagement.Core.ICoreInputViewShowingEventArgs
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
    -- Classes
    ------------------------------------------------------------------------
    
    subtype CoreInputView is Windows.UI.ViewManagement.Core.ICoreInputView;
+   subtype CoreInputViewHidingEventArgs is Windows.UI.ViewManagement.Core.ICoreInputViewHidingEventArgs;
    subtype CoreInputViewOcclusion is Windows.UI.ViewManagement.Core.ICoreInputViewOcclusion;
    subtype CoreInputViewOcclusionsChangedEventArgs is Windows.UI.ViewManagement.Core.ICoreInputViewOcclusionsChangedEventArgs;
+   subtype CoreInputViewShowingEventArgs is Windows.UI.ViewManagement.Core.ICoreInputViewShowingEventArgs;
    subtype CoreInputViewTransferringXYFocusEventArgs is Windows.UI.ViewManagement.Core.ICoreInputViewTransferringXYFocusEventArgs;
+   subtype UISettingsController is Windows.UI.ViewManagement.Core.IUISettingsController;
    
    ------------------------------------------------------------------------
    -- Static Procedures/functions
@@ -526,5 +740,8 @@ package Windows.UI.ViewManagement.Core is
       context : Windows.UI.IUIContext
    )
    return Windows.UI.ViewManagement.Core.ICoreInputView;
+   
+   function RequestDefaultAsync
+   return Windows.UI.ViewManagement.Core.IAsyncOperation_IUISettingsController;
    
 end;

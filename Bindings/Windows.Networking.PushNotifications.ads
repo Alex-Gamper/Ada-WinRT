@@ -65,6 +65,9 @@ package Windows.Networking.PushNotifications is
    type AsyncOperationCompletedHandler_IPushNotificationChannel_Interface;
    type AsyncOperationCompletedHandler_IPushNotificationChannel is access all AsyncOperationCompletedHandler_IPushNotificationChannel_Interface'Class;
    type AsyncOperationCompletedHandler_IPushNotificationChannel_Ptr is access all AsyncOperationCompletedHandler_IPushNotificationChannel;
+   type EventHandler_IPushNotificationChannelsRevokedEventArgs_Interface;
+   type EventHandler_IPushNotificationChannelsRevokedEventArgs is access all EventHandler_IPushNotificationChannelsRevokedEventArgs_Interface'Class;
+   type EventHandler_IPushNotificationChannelsRevokedEventArgs_Ptr is access all EventHandler_IPushNotificationChannelsRevokedEventArgs;
    type TypedEventHandler_IPushNotificationChannel_add_PushNotificationReceived_Interface;
    type TypedEventHandler_IPushNotificationChannel_add_PushNotificationReceived is access all TypedEventHandler_IPushNotificationChannel_add_PushNotificationReceived_Interface'Class;
    type TypedEventHandler_IPushNotificationChannel_add_PushNotificationReceived_Ptr is access all TypedEventHandler_IPushNotificationChannel_add_PushNotificationReceived;
@@ -94,6 +97,12 @@ package Windows.Networking.PushNotifications is
    type IPushNotificationChannelManagerStatics3_Interface;
    type IPushNotificationChannelManagerStatics3 is access all IPushNotificationChannelManagerStatics3_Interface'Class;
    type IPushNotificationChannelManagerStatics3_Ptr is access all IPushNotificationChannelManagerStatics3;
+   type IPushNotificationChannelManagerStatics4_Interface;
+   type IPushNotificationChannelManagerStatics4 is access all IPushNotificationChannelManagerStatics4_Interface'Class;
+   type IPushNotificationChannelManagerStatics4_Ptr is access all IPushNotificationChannelManagerStatics4;
+   type IPushNotificationChannelsRevokedEventArgs_Interface;
+   type IPushNotificationChannelsRevokedEventArgs is access all IPushNotificationChannelsRevokedEventArgs_Interface'Class;
+   type IPushNotificationChannelsRevokedEventArgs_Ptr is access all IPushNotificationChannelsRevokedEventArgs;
    type IPushNotificationReceivedEventArgs_Interface;
    type IPushNotificationReceivedEventArgs is access all IPushNotificationReceivedEventArgs_Interface'Class;
    type IPushNotificationReceivedEventArgs_Ptr is access all IPushNotificationReceivedEventArgs;
@@ -103,6 +112,9 @@ package Windows.Networking.PushNotifications is
    type IRawNotification2_Interface;
    type IRawNotification2 is access all IRawNotification2_Interface'Class;
    type IRawNotification2_Ptr is access all IRawNotification2;
+   type IRawNotification3_Interface;
+   type IRawNotification3 is access all IRawNotification3_Interface'Class;
+   type IRawNotification3_Ptr is access all IRawNotification3;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -295,6 +307,33 @@ package Windows.Networking.PushNotifications is
    
    ------------------------------------------------------------------------
    
+   IID_IPushNotificationChannelManagerStatics4 : aliased constant Windows.IID := (3159625467, 30752, 23131, (156, 1, 180, 117, 127, 119, 64, 37 ));
+   
+   type IPushNotificationChannelManagerStatics4_Interface is interface and Windows.IInspectable_Interface;
+   
+   function add_ChannelsRevoked
+   (
+      This       : access IPushNotificationChannelManagerStatics4_Interface
+      ; handler : Windows.Networking.PushNotifications.EventHandler_IPushNotificationChannelsRevokedEventArgs
+      ; RetVal : access Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   function remove_ChannelsRevoked
+   (
+      This       : access IPushNotificationChannelManagerStatics4_Interface
+      ; token : Windows.Foundation.EventRegistrationToken
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IPushNotificationChannelsRevokedEventArgs : aliased constant Windows.IID := (551658060, 6708, 23531, (170, 226, 64, 194, 50, 200, 193, 64 ));
+   
+   type IPushNotificationChannelsRevokedEventArgs_Interface is interface and Windows.IInspectable_Interface;
+   
+   ------------------------------------------------------------------------
+   
    IID_IPushNotificationReceivedEventArgs : aliased constant Windows.IID := (3506855436, 14029, 18508, (185, 53, 10, 153, 183, 83, 207, 0 ));
    
    type IPushNotificationReceivedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -382,6 +421,19 @@ package Windows.Networking.PushNotifications is
    return Windows.HRESULT is abstract;
    
    ------------------------------------------------------------------------
+   
+   IID_IRawNotification3 : aliased constant Windows.IID := (1651736030, 35443, 16972, (171, 68, 86, 53, 244, 10, 150, 229 ));
+   
+   type IRawNotification3_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ContentBytes
+   (
+      This       : access IRawNotification3_Interface
+      ; RetVal : access Windows.Storage.Streams.IBuffer
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
    -- Delegates/Events
    ------------------------------------------------------------------------
    
@@ -395,6 +447,19 @@ package Windows.Networking.PushNotifications is
       This       : access AsyncOperationCompletedHandler_IPushNotificationChannel_Interface
       ; asyncInfo : Windows.Networking.PushNotifications.IAsyncOperation_IPushNotificationChannel
       ; asyncStatus : Windows.Foundation.AsyncStatus
+   )
+   return Windows.HRESULT;
+   
+   ------------------------------------------------------------------------
+   
+   IID_EventHandler_IPushNotificationChannelsRevokedEventArgs : aliased constant Windows.IID := (2101545447, 46026, 24542, (155, 55, 190, 50, 58, 219, 55, 15 ));
+   
+   type EventHandler_IPushNotificationChannelsRevokedEventArgs_Interface(Callback : access procedure (sender : Windows.Object ; args : Windows.Networking.PushNotifications.IPushNotificationChannelsRevokedEventArgs)) is new Windows.IMulticastDelegate_Interface(IID_EventHandler_IPushNotificationChannelsRevokedEventArgs'access) with null record;
+   function Invoke
+   (
+      This       : access EventHandler_IPushNotificationChannelsRevokedEventArgs_Interface
+      ; sender : Windows.Object
+      ; args : Windows.Networking.PushNotifications.IPushNotificationChannelsRevokedEventArgs
    )
    return Windows.HRESULT;
    
@@ -417,6 +482,7 @@ package Windows.Networking.PushNotifications is
    
    subtype PushNotificationChannel is Windows.Networking.PushNotifications.IPushNotificationChannel;
    subtype PushNotificationChannelManagerForUser is Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser;
+   subtype PushNotificationChannelsRevokedEventArgs is Windows.Networking.PushNotifications.IPushNotificationChannelsRevokedEventArgs;
    subtype PushNotificationReceivedEventArgs is Windows.Networking.PushNotifications.IPushNotificationReceivedEventArgs;
    subtype RawNotification is Windows.Networking.PushNotifications.IRawNotification;
    
@@ -447,5 +513,17 @@ package Windows.Networking.PushNotifications is
    
    function GetDefault
    return Windows.Networking.PushNotifications.IPushNotificationChannelManagerForUser;
+   
+   function add_ChannelsRevoked
+   (
+      handler : Windows.Networking.PushNotifications.EventHandler_IPushNotificationChannelsRevokedEventArgs
+   )
+   return Windows.Foundation.EventRegistrationToken;
+   
+   procedure remove_ChannelsRevoked
+   (
+      token : Windows.Foundation.EventRegistrationToken
+   )
+   ;
    
 end;

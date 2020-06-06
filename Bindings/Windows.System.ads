@@ -378,6 +378,18 @@ package Windows.System is
    
    type UserWatcherStatus_Ptr is access UserWatcherStatus;
    
+   type UserWatcherUpdateKind is (
+      Properties,
+      Picture
+   );
+   for UserWatcherUpdateKind use (
+      Properties => 0,
+      Picture => 1
+   );
+   for UserWatcherUpdateKind'Size use 32;
+   
+   type UserWatcherUpdateKind_Ptr is access UserWatcherUpdateKind;
+   
    
    type VirtualKey is new Windows.Int32;
    
@@ -659,6 +671,9 @@ package Windows.System is
    type IIterable_IAppUriHandlerHost_Interface;
    type IIterable_IAppUriHandlerHost is access all IIterable_IAppUriHandlerHost_Interface'Class;
    type IIterable_IAppUriHandlerHost_Ptr is access all IIterable_IAppUriHandlerHost;
+   type IIterable_UserWatcherUpdateKind_Interface;
+   type IIterable_UserWatcherUpdateKind is access all IIterable_UserWatcherUpdateKind_Interface'Class;
+   type IIterable_UserWatcherUpdateKind_Ptr is access all IIterable_UserWatcherUpdateKind;
    type IIterator_IAppDiagnosticInfo_Interface;
    type IIterator_IAppDiagnosticInfo is access all IIterator_IAppDiagnosticInfo_Interface'Class;
    type IIterator_IAppDiagnosticInfo_Ptr is access all IIterator_IAppDiagnosticInfo;
@@ -671,6 +686,9 @@ package Windows.System is
    type IIterator_IAppUriHandlerHost_Interface;
    type IIterator_IAppUriHandlerHost is access all IIterator_IAppUriHandlerHost_Interface'Class;
    type IIterator_IAppUriHandlerHost_Ptr is access all IIterator_IAppUriHandlerHost;
+   type IIterator_UserWatcherUpdateKind_Interface;
+   type IIterator_UserWatcherUpdateKind is access all IIterator_UserWatcherUpdateKind_Interface'Class;
+   type IIterator_UserWatcherUpdateKind_Ptr is access all IIterator_UserWatcherUpdateKind;
    type IKnownUserPropertiesStatics_Interface;
    type IKnownUserPropertiesStatics is access all IKnownUserPropertiesStatics_Interface'Class;
    type IKnownUserPropertiesStatics_Ptr is access all IKnownUserPropertiesStatics;
@@ -767,6 +785,9 @@ package Windows.System is
    type IUserChangedEventArgs_Interface;
    type IUserChangedEventArgs is access all IUserChangedEventArgs_Interface'Class;
    type IUserChangedEventArgs_Ptr is access all IUserChangedEventArgs;
+   type IUserChangedEventArgs2_Interface;
+   type IUserChangedEventArgs2 is access all IUserChangedEventArgs2_Interface'Class;
+   type IUserChangedEventArgs2_Ptr is access all IUserChangedEventArgs2;
    type IUserDeviceAssociationChangedEventArgs_Interface;
    type IUserDeviceAssociationChangedEventArgs is access all IUserDeviceAssociationChangedEventArgs_Interface'Class;
    type IUserDeviceAssociationChangedEventArgs_Ptr is access all IUserDeviceAssociationChangedEventArgs;
@@ -803,6 +824,9 @@ package Windows.System is
    type IVectorView_IAppResourceGroupInfo_Interface;
    type IVectorView_IAppResourceGroupInfo is access all IVectorView_IAppResourceGroupInfo_Interface'Class;
    type IVectorView_IAppResourceGroupInfo_Ptr is access all IVectorView_IAppResourceGroupInfo;
+   type IVectorView_UserWatcherUpdateKind_Interface;
+   type IVectorView_UserWatcherUpdateKind is access all IVectorView_UserWatcherUpdateKind_Interface'Class;
+   type IVectorView_UserWatcherUpdateKind_Ptr is access all IVectorView_UserWatcherUpdateKind;
    
    ------------------------------------------------------------------------
    -- Interfaces
@@ -2072,6 +2096,19 @@ package Windows.System is
    
    ------------------------------------------------------------------------
    
+   IID_IIterable_UserWatcherUpdateKind : aliased constant Windows.IID := (2301897558, 60292, 21735, (152, 193, 186, 238, 68, 139, 220, 237 ));
+   
+   type IIterable_UserWatcherUpdateKind_Interface is interface and Windows.IInspectable_Interface;
+   
+   function First
+   (
+      This       : access IIterable_UserWatcherUpdateKind_Interface
+      ; RetVal : access Windows.System.IIterator_UserWatcherUpdateKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IIterator_IAppDiagnosticInfo : aliased constant Windows.IID := (406789706, 8740, 24548, (176, 100, 104, 134, 156, 83, 227, 97 ));
    
    type IIterator_IAppDiagnosticInfo_Interface is interface and Windows.IInspectable_Interface;
@@ -2206,6 +2243,41 @@ package Windows.System is
    (
       This       : access IIterator_IAppUriHandlerHost_Interface
       ; items : Windows.System.IAppUriHandlerHost_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IIterator_UserWatcherUpdateKind : aliased constant Windows.IID := (2566987372, 12359, 23498, (185, 50, 225, 209, 235, 138, 147, 127 ));
+   
+   type IIterator_UserWatcherUpdateKind_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_Current
+   (
+      This       : access IIterator_UserWatcherUpdateKind_Interface
+      ; RetVal : access Windows.System.UserWatcherUpdateKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_HasCurrent
+   (
+      This       : access IIterator_UserWatcherUpdateKind_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function MoveNext
+   (
+      This       : access IIterator_UserWatcherUpdateKind_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IIterator_UserWatcherUpdateKind_Interface
+      ; items : Windows.System.UserWatcherUpdateKind_Ptr
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;
@@ -3345,6 +3417,19 @@ package Windows.System is
    
    ------------------------------------------------------------------------
    
+   IID_IUserChangedEventArgs2 : aliased constant Windows.IID := (1798097732, 28417, 22028, (151, 173, 252, 127, 50, 236, 88, 31 ));
+   
+   type IUserChangedEventArgs2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_ChangedPropertyKinds
+   (
+      This       : access IUserChangedEventArgs2_Interface
+      ; RetVal : access Windows.System.IVectorView_UserWatcherUpdateKind -- Generic Parameter Type
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
    IID_IUserDeviceAssociationChangedEventArgs : aliased constant Windows.IID := (3172953964, 47965, 19835, (165, 240, 200, 205, 17, 163, 141, 66 ));
    
    type IUserDeviceAssociationChangedEventArgs_Interface is interface and Windows.IInspectable_Interface;
@@ -4026,6 +4111,45 @@ package Windows.System is
       This       : access IVectorView_IAppResourceGroupInfo_Interface
       ; startIndex : Windows.UInt32
       ; items : Windows.System.IAppResourceGroupInfo_Ptr
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IVectorView_UserWatcherUpdateKind : aliased constant Windows.IID := (2461227213, 49610, 21842, (158, 46, 103, 226, 214, 234, 212, 209 ));
+   
+   type IVectorView_UserWatcherUpdateKind_Interface is interface and Windows.IInspectable_Interface;
+   
+   function GetAt
+   (
+      This       : access IVectorView_UserWatcherUpdateKind_Interface
+      ; index : Windows.UInt32
+      ; RetVal : access Windows.System.UserWatcherUpdateKind
+   )
+   return Windows.HRESULT is abstract;
+   
+   function get_Size
+   (
+      This       : access IVectorView_UserWatcherUpdateKind_Interface
+      ; RetVal : access Windows.UInt32
+   )
+   return Windows.HRESULT is abstract;
+   
+   function IndexOf
+   (
+      This       : access IVectorView_UserWatcherUpdateKind_Interface
+      ; value : Windows.System.UserWatcherUpdateKind
+      ; index : access Windows.UInt32
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function GetMany
+   (
+      This       : access IVectorView_UserWatcherUpdateKind_Interface
+      ; startIndex : Windows.UInt32
+      ; items : Windows.System.UserWatcherUpdateKind_Ptr
       ; RetVal : access Windows.UInt32
    )
    return Windows.HRESULT is abstract;

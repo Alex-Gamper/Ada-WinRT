@@ -277,6 +277,9 @@ package Windows.UI.Input.Inking is
    type IInkModelerAttributes_Interface;
    type IInkModelerAttributes is access all IInkModelerAttributes_Interface'Class;
    type IInkModelerAttributes_Ptr is access all IInkModelerAttributes;
+   type IInkModelerAttributes2_Interface;
+   type IInkModelerAttributes2 is access all IInkModelerAttributes2_Interface'Class;
+   type IInkModelerAttributes2_Ptr is access all IInkModelerAttributes2;
    type IInkPoint_Interface;
    type IInkPoint is access all IInkPoint_Interface'Class;
    type IInkPoint_Ptr is access all IInkPoint;
@@ -782,6 +785,26 @@ package Windows.UI.Input.Inking is
    (
       This       : access IInkModelerAttributes_Interface
       ; value : Windows.Single
+   )
+   return Windows.HRESULT is abstract;
+   
+   ------------------------------------------------------------------------
+   
+   IID_IInkModelerAttributes2 : aliased constant Windows.IID := (2261897370, 20216, 24101, (183, 188, 182, 84, 36, 241, 107, 179 ));
+   
+   type IInkModelerAttributes2_Interface is interface and Windows.IInspectable_Interface;
+   
+   function get_UseVelocityBasedPressure
+   (
+      This       : access IInkModelerAttributes2_Interface
+      ; RetVal : access Windows.Boolean
+   )
+   return Windows.HRESULT is abstract;
+   
+   function put_UseVelocityBasedPressure
+   (
+      This       : access IInkModelerAttributes2_Interface
+      ; value : Windows.Boolean
    )
    return Windows.HRESULT is abstract;
    
