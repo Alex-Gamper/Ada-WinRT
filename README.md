@@ -7,7 +7,7 @@ and is targeted at two distinct use cases
 - Windows native **Desktop** applications
 
 These bindings have been generated from the metadata describing the WinRT api provided in the
-Microsoft Windows 10 SDK *19H1 (build 10.0.18362)*
+Microsoft Windows 10 SDK *20H1 (build 10.0.19041)*
 
 ### Project Status
 
